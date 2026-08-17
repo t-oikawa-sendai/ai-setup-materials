@@ -1,3 +1,16 @@
+<!-- Document Info（文書情報） -->
+| Item（項目） | Value（値） |
+|---|---|
+| Document ID（文書ID） | STD-PERSONA-INDEX-001 |
+| Version（バージョン） | 0.1 |
+| Status（ステータス） | Draft |
+| Created Date（作成日） | 2026-08-17 |
+| Last Updated（最終更新日） | 2026-08-17 |
+| Owner（管理者） | t-oikawa-sendai |
+| Related Documents（関連文書） | `personas/education/GEMINI_PERSONA_DEFINITION-4Gem.md` |
+
+---
+
 # ai-setup-materials
 
 AIエージェントに与える設定・ペルソナ定義の配布リポジトリです。

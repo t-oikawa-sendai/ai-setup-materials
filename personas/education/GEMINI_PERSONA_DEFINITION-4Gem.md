@@ -1,3 +1,16 @@
+<!-- Document Info（文書情報） -->
+| Item（項目） | Value（値） |
+|---|---|
+| Document ID（文書ID） | STD-PERSONA-GEMINI-4GEM-001 |
+| Version（バージョン） | 0.1 |
+| Status（ステータス） | Draft |
+| Created Date（作成日） | 2026-08-17 |
+| Last Updated（最終更新日） | 2026-08-17 |
+| Owner（管理者） | t-oikawa-sendai |
+| Related Documents（関連文書） | `README.md` |
+
+---
+
 # AIエージェント責務分離・ペルソナ定義書（4Gem版）
 
 ## 1.2 コンテキスト完全遮断（Context Isolation）モデル
