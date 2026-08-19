@@ -33,10 +33,11 @@ Status: ACTIVE
 - Evidenceを示せない情報は確認済み事実として扱わない。
 - `CURRENT.md` の通常運用はローカルGitリポジトリを基本とし、GitHubはリアルタイム同期基盤とはしない。
 - 作業終了・端末切替・ローカルを直接参照できないAIへの引き継ぎ・重要なチェックポイントで commit / push する。
+- `AGENTS.md` と `project-notes/CURRENT.md` は、原則として現役リポジトリへ標準配置する運用とする。
 
 ## CURRENT TARGET
 
-以下7文書の整備。
+以下7文書の内容精査。
 
 - `AGENTS.md`
 - `project-notes/CURRENT.md`
@@ -48,13 +49,15 @@ Status: ACTIVE
 
 ## CURRENT STATE
 
-上記7文書を初版として作成する段階。
+上記7文書の初版作成は完了した。
 
-既存の `personas/education/GEMINI_PERSONA_DEFINITION-4Gem.md` は旧統合Draftとして残し、勝手に削除しない。
+既存の `personas/education/GEMINI_PERSONA_DEFINITION-4Gem.md` は旧統合Draftとして残してあり、削除していない。
 
 ## NEXT ACTION
 
-7文書の内容を精査し、生徒配布用として過不足・矛盾・重複がないか確認する。
+7文書を順に精査し、生徒配布用として過不足・矛盾・重複がないか確認する。
+
+確定済みの4Gem名称・責務・SDD方針を再検討するのではなく、Persona本文としての実用性と整合性を確認する。
 
 ## DO NOT REOPEN
 
@@ -64,6 +67,7 @@ Status: ACTIVE
 - SDDを意識した文書連携方針
 - ResearcherのEvidence必須方針
 - Reviewerのリファクタリング評価方針
+- `AGENTS.md` と `CURRENT.md` を標準配置する方針
 
 ## REFERENCES
 
