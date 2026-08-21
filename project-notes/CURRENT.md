@@ -50,12 +50,22 @@ Reviewer
   1. 学習関連
   2. 就職活動関連
   3. PFなどの設計・開発関連
-- 学習終了後は「学習関連」Moduleが不要になる。
-- 就職決定後は「就職活動関連」Moduleが不要になる。
-- 将来不要になったModuleをResearcherから外せる構成にする。
-- Moduleの着脱方法は、できる限り簡単な方法を採用することを重視する。
-- この「Researcher本体の責務を維持したまま、検索範囲・対象をModuleで変更し、不要なModuleを外せること」がResearcher Personaの他Personaと異なる特徴である。
-- Moduleの具体的なファイル構成、命名規則、着脱方法、3分野それぞれの詳細検索範囲は未確定として扱い、推論で決めない。
+- Module正式名称は次の3つ。
+  - `Learning Module`
+  - `Career Module`
+  - `Development Module`
+- 訓練期間中は3Moduleを同時に有効にすることを基本とする。
+- 学習終了後は `Learning Module` が不要になる。
+- 就職決定後は `Career Module` が不要になる。
+- 不要になったModuleをResearcherから外せる構成にする。
+- Moduleを外した場合、その分野を検索禁止にするのではなく、Researcherの担当検索範囲から外す。
+- Researcher本体には調査方法・品質基準を置き、Moduleには検索対象・検索範囲を置く。
+- Researcher本体に置く内容の例：Evidence、一次情報優先、事実と推論の分離、比較、根拠付き推論、結論提示、未確認事項の明示。
+- Moduleごとに調査方法・品質基準を変える設計にはしない。
+- Moduleを複数Knowledgeファイルへ分割する方式は採用せず、Researcher Personaは1本のファイル内に本体とModuleを持たせる方向とする。
+- 判断基準は着脱の簡単さより、Gemが必要な指示を確実に参照できることを優先する。
+- Google Geminiの公式ヘルプでは複数Knowledgeファイルを追加できることは確認できるが、毎回すべてのKnowledgeファイルが必ず同じ強さで参照されることまでは保証されていないため、安全側として1ファイル構成を採用する。
+- 1ファイル内で不要Moduleを外す具体的な操作方法はまだ未確定。
 
 ### 情報資産保全
 
@@ -123,9 +133,9 @@ README作成を一時停止し、Education用4Gemと関連管理文書の情報�
 Researcherの再構築を優先する。
 
 1. Researcher本体について、Module導入後も変わらない責務・Evidence・出力原則を既存資料から抽出する。
-2. Moduleに分離すべき「検索範囲・検索対象」とResearcher本体に残す事項を切り分ける。
-3. 3分野（学習関連 / 就職活動関連 / PFなどの設計・開発関連）の詳細範囲は、ユーザー確認なしに推論で確定しない。
-4. Moduleの具体的な着脱方法について、できる限り簡単という要件を前提に候補を整理するが、採用はユーザー判断とする。
+2. Moduleに分離すべき検索対象・検索範囲とResearcher本体に残す事項を切り分ける。
+3. `Learning Module / Career Module / Development Module` の詳細検索範囲を確定する。
+4. 1ファイル内で不要Moduleをできる限り簡単かつ誤読されにくく外す具体的方法を設計する。
 5. Reviewerについても監査を継続し、Code Generator化で影響を受ける項目を分離する。
 6. 資料だけで決まらない事項を最後にまとめてユーザーへ確認する。
 
