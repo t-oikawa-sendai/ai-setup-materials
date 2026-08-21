@@ -79,6 +79,17 @@ AIによる誤統合で毀損したEducation用4Gemの情報資産を再構築�
 - 3パターン完成前に `GEM_RESEARCHER.md` を旧版・廃止版として扱わない。
 - 旧版化後の物理的な保管場所・削除有無は、この決定とは別に扱う。
 
+### Researcher Persona本文のModule配置・記法
+
+- Researcher本体を先に記載し、Module群はResearcher本体の後ろに配置する。
+- 各完成版ファイルの冒頭に `Active Modules` を明示し、そのファイルで有効なModuleを列挙する。
+- 現在有効でないModuleに属する質問を受けた場合の案内ルールは、各Module内ではなくResearcher本体側の共通ルールとして明記する。
+- 3完成版ファイル間でResearcher本体の内容は完全に同一とする。ファイル間で変わるのは有効なModule構成だけとする。
+- Moduleの正式名称は英語名を維持し、Persona本文の見出しでは日本語を併記する。
+  - `Learning Module（学習）`
+  - `Career Module（就職活動）`
+  - `Development Module（設計・開発）`
+
 ### Module検索範囲の確定事項
 
 #### Learning Module
@@ -159,7 +170,6 @@ Learning Moduleは、上記の科目・訓練内容に関する学習上の調�
 
 次の事項は、ユーザーからまだ具体的に確定されていないため、この文書では推論しない。
 
-- Researcher Persona本文内でのModule配置・記法
 - 3つの配布候補ファイルを改訂するときの保守方法
 - 旧版化後の `personas/education/GEM_RESEARCHER.md` の物理的な保管場所・削除有無
 - Reviewer Personaの未完成部分の具体的内容
