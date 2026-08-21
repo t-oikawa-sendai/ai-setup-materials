@@ -41,8 +41,21 @@ Reviewer
 
 - Researcher Personaは未完成。
 - Reviewer Personaは未完成。
-- Researcherは、Moduleを導入することでサーチ範囲の責務を変更できる機能を追加する前提で設計途中。
-- Moduleの具体構造・命名・切替方法・個別サーチ範囲は、現時点では未確定として扱う。
+
+### Researcher Module設計
+
+- Researcher本体の責務自体はModule導入によって変更しない。
+- Moduleで変更するのはResearcherの検索範囲・検索対象である。
+- 検索対象は大きく次の3分野に分ける。
+  1. 学習関連
+  2. 就職活動関連
+  3. PFなどの設計・開発関連
+- 学習終了後は「学習関連」Moduleが不要になる。
+- 就職決定後は「就職活動関連」Moduleが不要になる。
+- 将来不要になったModuleをResearcherから外せる構成にする。
+- Moduleの着脱方法は、できる限り簡単な方法を採用することを重視する。
+- この「Researcher本体の責務を維持したまま、検索範囲・対象をModuleで変更し、不要なModuleを外せること」がResearcher Personaの他Personaと異なる特徴である。
+- Moduleの具体的なファイル構成、命名規則、着脱方法、3分野それぞれの詳細検索範囲は未確定として扱い、推論で決めない。
 
 ### 情報資産保全
 
@@ -84,7 +97,7 @@ README作成を一時停止し、Education用4Gemと関連管理文書の情報�
 - `AGENTS.md` にAI能力を過信しない安全前提と復旧ガードを追加済み。
 - `project-notes/2026-08-21-education-4gem-design-decisions.md` は再構築完了まで正本扱い停止。
 - README仮完成作業は復旧完了まで一時停止。
-- `project-notes/2026-08-21-reconstruction-confirmed-facts.md` に、ユーザーが再確認したResearcher / Reviewerの最新状態を記録済み。
+- `project-notes/2026-08-21-reconstruction-confirmed-facts.md` に、ユーザーが再確認したResearcher / Reviewerの最新状態とResearcher Module設計の確定事項を記録済み。
 - `project-notes/2026-08-21-reconstruction-audit-researcher-reviewer.md` に、GitHub現物・commit履歴から確認した履歴事実を記録済み。
 
 ### Researcher監査で確認済み
@@ -92,6 +105,7 @@ README作成を一時停止し、Education用4Gemと関連管理文書の情報�
 - 2026-08-19版 `GEM_RESEARCHER.md` はModule構想を含まない旧段階のPersona。
 - GitHub Repository内およびcommit履歴を `Module` で検索したが、2026-08-21監査時点で該当記録は検出できなかった。
 - よってModule仕様はGitHub現物から推論で復元しない。
+- ただし、2026-08-21のユーザー再確認により、Researcher本体の責務は維持し、検索範囲・検索対象をModuleで変更する設計であることは確定した。
 
 ### Reviewer監査で確認済み
 
@@ -108,11 +122,12 @@ README作成を一時停止し、Education用4Gemと関連管理文書の情報�
 
 Researcherの再構築を優先する。
 
-1. GitHub上のResearcher関連資料・履歴から、Module導入前でも現在有効と判断できる項目候補を抽出する。
-2. それらを `CURRENT候補 / SUPERSEDED / UNRESOLVED` に分類する。
-3. Moduleに関する情報はGitHubから確認できないため、AIが仕様を生成しない。
-4. Reviewerについても同じ監査を継続し、Code Generator化で影響を受ける項目を分離する。
-5. 資料だけで決まらない事項を最後にまとめてユーザーへ確認する。
+1. Researcher本体について、Module導入後も変わらない責務・Evidence・出力原則を既存資料から抽出する。
+2. Moduleに分離すべき「検索範囲・検索対象」とResearcher本体に残す事項を切り分ける。
+3. 3分野（学習関連 / 就職活動関連 / PFなどの設計・開発関連）の詳細範囲は、ユーザー確認なしに推論で確定しない。
+4. Moduleの具体的な着脱方法について、できる限り簡単という要件を前提に候補を整理するが、採用はユーザー判断とする。
+5. Reviewerについても監査を継続し、Code Generator化で影響を受ける項目を分離する。
+6. 資料だけで決まらない事項を最後にまとめてユーザーへ確認する。
 
 ## DO NOT USE AS CURRENT SOURCE
 
