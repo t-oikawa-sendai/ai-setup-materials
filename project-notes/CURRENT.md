@@ -73,6 +73,38 @@ Reviewer
 - `Career + Development` 等、教材にない組み合わせが必要な場合は、利用者が学習内容をもとに自己判断で作成できる位置づけとする。
 - ファイル切替のタイミングはユーザーの任意とし、教材側で強制条件にはしない。
 
+### Module検索範囲
+
+#### Learning Module
+
+- 詳細検索範囲は、実際の職業訓練カリキュラムPDFを基準に定義する。
+- 一般論から先に範囲を確定しない。
+- 対象PDFは現時点でFile Libraryから特定できていないため、PDF確認後に確定する。
+
+#### Career Module
+
+- 基本対象はIT分野への就職活動。
+- ただし対象職種・業界は固定しない。
+- ユーザーのプロンプトで対象を変更できる。
+- 例：事務職、営業職、製造業など。
+
+#### Development Module
+
+- 学習成果物、ポートフォリオ、小規模開発を中心とする。
+- 技術・フレームワーク、API・ライブラリ・OSS、公式仕様、技術比較、ホスティング・DB、セキュリティ上の事実、実装判断のための技術情報、既存コードやOSS理解のための関連資料等を調査対象とする。
+
+#### Module横断
+
+- 質問が複数の有効Moduleにまたがる場合、有効なModuleを横断して調査する。
+- 調査結果は1つに統合して提示する。
+
+#### 有効Module外の質問
+
+- 現在有効でないModuleに属する質問を通常どおり調査しない。
+- 現在のResearcher Personaの担当検索範囲・責務を明確に伝える。
+- 必要に応じて適切な完成済みResearcher Personaファイルへ入れ替えるよう案内する。
+- 単に「検索禁止」と返すのではなく、担当外の理由と切替先が利用者に分かる形にする。
+
 ### 情報資産保全
 
 - AIの能力を過信しない。
@@ -113,7 +145,7 @@ README作成を一時停止し、Education用4Gemと関連管理文書の情報�
 - `AGENTS.md` にAI能力を過信しない安全前提と復旧ガードを追加済み。
 - `project-notes/2026-08-21-education-4gem-design-decisions.md` は再構築完了まで正本扱い停止。
 - README仮完成作業は復旧完了まで一時停止。
-- `project-notes/2026-08-21-reconstruction-confirmed-facts.md` に、Researcher 3完成版ファイル方式を含むユーザー再確認事項を記録済み。
+- `project-notes/2026-08-21-reconstruction-confirmed-facts.md` に、Researcher 3完成版ファイル方式とModule検索範囲のユーザー再確認事項を記録済み。
 - `project-notes/2026-08-21-reconstruction-audit-researcher-reviewer.md` に、GitHub現物・commit履歴から確認した履歴事実を記録済み。
 
 ### Researcher監査で確認済み
@@ -121,6 +153,8 @@ README作成を一時停止し、Education用4Gemと関連管理文書の情報�
 - 2026-08-19版 `GEM_RESEARCHER.md` はModule構想を含まない旧段階のPersona。
 - 2026-08-21のユーザー再確認により、Researcher本体の責務は維持し、検索範囲・検索対象をModuleで変更する設計であることは確定した。
 - 2026-08-21のユーザー判断により、3つの完成済み独立Personaファイルを用意し、Gemには常に1つだけ登録する方式を正式採用した。
+- Career / Development / Module横断 / 有効Module外の挙動は確定した。
+- Learning Moduleの詳細範囲だけは、職業訓練カリキュラムPDFを確認してから確定する。
 
 ### Reviewer監査で確認済み
 
@@ -137,8 +171,8 @@ README作成を一時停止し、Education用4Gemと関連管理文書の情報�
 
 Researcherの再構築を優先する。
 
-1. Researcher本体について、Module導入後も変わらない責務・Evidence・出力原則を既存資料から抽出する。
-2. `Learning Module / Career Module / Development Module` の詳細な検索対象・検索範囲を確定する。
+1. 職業訓練カリキュラムPDFを取得・確認し、Learning Moduleの詳細検索対象・検索範囲を確定する。
+2. Researcher本体について、Module導入後も変わらない責務・Evidence・出力原則を既存資料から抽出する。
 3. 3完成版ファイルそれぞれのPersona本文を構成する。
 4. 旧 `personas/education/GEM_RESEARCHER.md` の最終的な扱いを決める。
 5. Reviewerについて監査を継続し、Code Generator化で影響を受ける項目を分離する。
