@@ -59,6 +59,17 @@ Reviewer
 - Gemへ複数のResearcher Moduleファイルを同時登録する方式は採用しない。
 - Gemには、その時点で必要なModule構成を含む完成済みResearcherファイルを1本だけ登録する。
 
+### Researcher Persona本文構造
+
+- Researcher本体を先に記載し、Module群はResearcher本体の後ろに配置する。
+- 各完成版ファイルの冒頭に `Active Modules` を明示し、そのファイルで有効なModuleを列挙する。
+- 有効Module外の質問への案内は、各Module固有ルールではなくResearcher本体の共通ルールとして明記する。
+- 3完成版ファイルのResearcher本体は完全に同一内容とする。ファイル間で変わるのは有効なModule構成だけとする。
+- Module見出しは正式英語名を維持し、日本語を併記する。
+  - `Learning Module（学習）`
+  - `Career Module（就職活動）`
+  - `Development Module（設計・開発）`
+
 ### Researcher 配布ファイル
 
 教材として次の3完成版ファイルを提供する方式を正式採用する。
@@ -166,7 +177,7 @@ README作成を一時停止し、Education用4Gemと関連管理文書の情報�
 - `AGENTS.md` にAI能力を過信しない安全前提と復旧ガードを追加済み。
 - `project-notes/2026-08-21-education-4gem-design-decisions.md` は再構築完了まで正本扱い停止。
 - README仮完成作業は復旧完了まで一時停止。
-- `project-notes/2026-08-21-reconstruction-confirmed-facts.md` に、Researcher 3完成版ファイル方式とModule検索範囲のユーザー再確認事項を記録済み。
+- `project-notes/2026-08-21-reconstruction-confirmed-facts.md` に、Researcher 3完成版ファイル方式、Module検索範囲、Persona本文構造のユーザー再確認事項を記録済み。
 - `project-notes/2026-08-21-reconstruction-audit-researcher-reviewer.md` に、GitHub現物・commit履歴から確認した履歴事実と現行位置づけを記録済み。
 
 ### Researcher監査で確認済み
@@ -176,10 +187,15 @@ README作成を一時停止し、Education用4Gemと関連管理文書の情報�
 - Module導入によってResearcher本体の責務は変更せず、検索範囲・検索対象をModuleで変更する。
 - したがって、`GEM_RESEARCHER.md` の本体責務・Evidence・調査原則は現行Researcher再構築の基礎として扱う。
 - 3パターンのResearcher Personaがすべて完成した時点で、`GEM_RESEARCHER.md` を旧版へ切り替える。
-- 2026-08-21のユーザー判断により、3つの完成済み独立Personaファイルを用意し、Gemには常に1つだけ登録する方式を正式採用した。
+- 3つの完成済み独立Personaファイルを用意し、Gemには常に1つだけ登録する方式を正式採用した。
+- Researcher本体を先に置き、Module群を後ろに配置する構造を採用した。
+- 各完成版ファイルの冒頭でActive Modulesを明示する。
+- 有効Module外の質問への案内をResearcher本体の共通ルールとする。
+- 3ファイルのResearcher本体は完全同一とし、有効Moduleだけを変える。
+- Module見出しは正式英語名に日本語を併記する。
 - Career / Development / Module横断 / 有効Module外の挙動は確定した。
 - `2606e宮城_日別計画表.pdf` とユーザー確認により、Learning Moduleの基本検索範囲も確定した。
-- 2026-08-21のユーザー判断により、Learning Moduleは直接関連する周辺知識・前提知識、生成AI・AI活用、学習目的で関連を説明できるカリキュラム外技術まで含めることを確定した。
+- Learning Moduleは直接関連する周辺知識・前提知識、生成AI・AI活用、学習目的で関連を説明できるカリキュラム外技術まで含める。
 
 ### Reviewer監査で確認済み
 
@@ -196,12 +212,11 @@ README作成を一時停止し、Education用4Gemと関連管理文書の情報�
 
 Researcherの再構築を優先する。
 
-1. 現行ベース `GEM_RESEARCHER.md` の本体責務・Evidence・出力原則を維持すべき内容として確認し、Module導入に伴う追加・変更点だけを確定する。
-2. Researcher Persona本文内でのModule配置・記法を確定する。
-3. 3完成版ファイルそれぞれのPersona本文を構成する。
+1. 現行ベース `GEM_RESEARCHER.md` の本体責務・Evidence・出力原則を維持したまま、確定した共通Moduleルールを組み込む。
+2. 確定済みの検索範囲と本文構造に基づき、3完成版Researcher Personaを作成する。
+3. 3ファイル間でResearcher本体が完全同一であること、有効Moduleだけが異なることを検証する。
 4. 3完成版すべての完成を確認した後、`personas/education/GEM_RESEARCHER.md` を旧版へ切り替える。旧版化後の物理的な保管方法はその時点で決める。
 5. Reviewerについて監査を継続し、Code Generator化で影響を受ける項目を分離する。
-6. 資料だけで決まらない事項を最後にまとめてユーザーへ確認する。
 
 ## DO NOT USE AS COMPLETED CURRENT SOURCE
 
