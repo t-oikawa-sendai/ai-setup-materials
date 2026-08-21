@@ -7,9 +7,9 @@ Status: RECOVERY / VERIFIED-HISTORY
 
 Education用4Gemの情報資産再構築にあたり、Researcher / ReviewerについてGitHub上で確認できた現物・commit履歴を記録する。
 
-この文書は「最新仕様の確定記録」ではない。
+この文書は「最新完成仕様の確定記録」ではない。
 
-ここにはGitHubで確認できた履歴事実だけを記載し、ユーザーが再確認した最新事項は `2026-08-21-reconstruction-confirmed-facts.md` と分離する。
+ここにはGitHubで確認できた履歴事実と、再構築時に確認した現行位置づけを記載する。ユーザーが再確認した最新事項は `2026-08-21-reconstruction-confirmed-facts.md` と照合する。
 
 ---
 
@@ -18,17 +18,18 @@ Education用4Gemの情報資産再構築にあたり、Researcher / Reviewerに�
 ### VERIFIED
 
 - `personas/education/GEM_RESEARCHER.md` は commit `653db32aa879733fcb86e62228be674c01a82808`（2026-08-19）で追加された。
-- 当時のResearcherは、外部情報調査、一次情報優先、確認済み事実と未確認情報の分離、Evidence表示、Solution Partnerへの引き渡しを主責務としていた。
-- 当時の本文にはModule構想は含まれていない。
+- `GEM_RESEARCHER.md` のResearcher本体は、外部情報調査、一次情報優先、確認済み事実と未確認情報の分離、Evidence表示、判断材料の提供を主責務としている。
+- 現在の本文にはModule構想はまだ含まれていない。
 - Repository内のコード検索およびcommit検索で `Module` を確認したが、2026-08-21の監査時点では該当記録を検出できなかった。
 
-### IMPORTANT
+### CURRENT POSITION
 
-ユーザーが2026-08-21に明示した最新事項では、Researcher Personaは未完成であり、Moduleを導入してサーチ範囲の責務を変更できる機能を追加する前提で設計途中である。
-
-したがって、2026-08-19版 `GEM_RESEARCHER.md` を最新完成仕様として扱わない。
-
-Module構想の具体仕様は、GitHub上で確認できない限り推論で補完しない。
+- `GEM_RESEARCHER.md` は旧版・廃止版ではない。
+- 現在のResearcher本体のベースであり、Module追加を含む最終構成が未反映のため未完成である。
+- 2026-08-21のユーザー確認により、Module導入によってResearcher本体の責務自体は変更しない。
+- Moduleで変更するのは検索範囲・検索対象である。
+- したがって、`GEM_RESEARCHER.md` の本体責務・Evidence・調査原則は現行Researcher再構築の基礎として扱う。
+- 一方、現在の1ファイルだけを完成済み配布Personaとして扱ってはならない。最終的には確定済みModule構成を反映した3つの完成版Researcherファイルへ展開する。
 
 ---
 
@@ -73,23 +74,27 @@ Code Generator化後のReviewerの戻し先・連携ルールは再構築対象�
 
 - Researcher Personaは未完成。
 - Reviewer Personaは未完成。
-- ResearcherはModule導入によってサーチ範囲の責務を変更できる機能を追加する前提で設計途中。
+- Researcher本体の責務自体はModule導入で変更しない。
+- Moduleで変更するのは検索範囲・検索対象である。
+- `GEM_RESEARCHER.md` は現行Researcher本体のベースとして扱う。
 - Education 4Gemのコード生成担当はCode Generatorであり、Implementerではない。
+
+### CURRENT BASELINE / INCOMPLETE
+
+- `personas/education/GEM_RESEARCHER.md`
+  - 本体責務・Evidence・調査原則は現行ベース。
+  - Moduleおよび3完成版構成が未反映のため、完成済み配布Personaではない。
 
 ### VERIFIED-HISTORY / NOT SAFE AS CURRENT
 
-- 2026-08-19版Researcher Persona本文。
-- 2026-08-19版Reviewer Persona本文。
 - ReviewerからImplementerへ戻す旧記載。
 - ImplementerをEducation 4Gemのコード実装担当として扱う旧記載。
 
 ### UNRESOLVED
 
-- Researcher Moduleの具体的な構成。
-- Moduleの命名。
-- Moduleの選択・切替方法。
-- Moduleごとのサーチ範囲。
-- Researcher本体とModuleの責務境界。
+- Researcher本体の既存各項目について、最終Personaで表現変更・追加が必要な箇所。
+- 3完成版Researcherファイルへ展開する際の最終本文構成。
+- 旧ファイル名 `GEM_RESEARCHER.md` を完成後に残すかどうか。
 - Reviewer Personaの最新完成要件。
 - Code Generator化後のReviewerの戻し先・連携ルール。
 
