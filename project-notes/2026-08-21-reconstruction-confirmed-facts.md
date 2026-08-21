@@ -72,6 +72,13 @@ AIによる誤統合で毀損したEducation用4Gemの情報資産を再構築�
 - どのタイミングでどのファイルへ切り替えるかはユーザーの任意とし、教材側で強制的な切替条件にはしない。
 - 代表例としては、訓練中・就職活動中は `FULL`、就職活動支援が不要になった後は `LEARNING_DEVELOPMENT`、学習支援も不要になった後は `DEVELOPMENT` を利用できる。
 
+### `GEM_RESEARCHER.md` の切替条件
+
+- `personas/education/GEM_RESEARCHER.md` は、3パターンのResearcher Personaが完成するまでは現行Researcher本体のベースとして扱う。
+- 3パターンすべてが完成した時点で、`GEM_RESEARCHER.md` を旧版として扱う。
+- 3パターン完成前に `GEM_RESEARCHER.md` を旧版・廃止版として扱わない。
+- 旧版化後の物理的な保管場所・削除有無は、この決定とは別に扱う。
+
 ### Module検索範囲の確定事項
 
 #### Learning Module
@@ -154,7 +161,7 @@ Learning Moduleは、上記の科目・訓練内容に関する学習上の調�
 
 - Researcher Persona本文内でのModule配置・記法
 - 3つの配布候補ファイルを改訂するときの保守方法
-- 旧 `personas/education/GEM_RESEARCHER.md` の最終的な扱い
+- 旧版化後の `personas/education/GEM_RESEARCHER.md` の物理的な保管場所・削除有無
 - Reviewer Personaの未完成部分の具体的内容
 
 これらは既存資料の再監査で確認し、資料だけで一意に決まらない場合のみユーザーへ確認する。
