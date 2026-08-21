@@ -41,6 +41,8 @@ Reviewer
 
 - Researcher Personaは未完成。
 - Reviewer Personaは未完成。
+- `personas/education/GEM_RESEARCHER.md` は旧版・廃止版ではなく、現在のResearcher本体のベースである。
+- `GEM_RESEARCHER.md` はModule追加を含む最終構成が未反映のため未完成であり、完成済み配布Personaとしてはまだ扱わない。
 
 ### Researcher Module設計
 
@@ -164,12 +166,14 @@ README作成を一時停止し、Education用4Gemと関連管理文書の情報�
 - `project-notes/2026-08-21-education-4gem-design-decisions.md` は再構築完了まで正本扱い停止。
 - README仮完成作業は復旧完了まで一時停止。
 - `project-notes/2026-08-21-reconstruction-confirmed-facts.md` に、Researcher 3完成版ファイル方式とModule検索範囲のユーザー再確認事項を記録済み。
-- `project-notes/2026-08-21-reconstruction-audit-researcher-reviewer.md` に、GitHub現物・commit履歴から確認した履歴事実を記録済み。
+- `project-notes/2026-08-21-reconstruction-audit-researcher-reviewer.md` に、GitHub現物・commit履歴から確認した履歴事実と現行位置づけを記録済み。
 
 ### Researcher監査で確認済み
 
-- 2026-08-19版 `GEM_RESEARCHER.md` はModule構想を含まない旧段階のPersona。
-- 2026-08-21のユーザー再確認により、Researcher本体の責務は維持し、検索範囲・検索対象をModuleで変更する設計であることは確定した。
+- `personas/education/GEM_RESEARCHER.md` は旧版ではなく、現在のResearcher本体のベースである。
+- 現在の `GEM_RESEARCHER.md` はModule構想をまだ本文に含まないため未完成である。
+- Module導入によってResearcher本体の責務は変更せず、検索範囲・検索対象をModuleで変更する。
+- したがって、`GEM_RESEARCHER.md` の本体責務・Evidence・調査原則は現行Researcher再構築の基礎として扱う。
 - 2026-08-21のユーザー判断により、3つの完成済み独立Personaファイルを用意し、Gemには常に1つだけ登録する方式を正式採用した。
 - Career / Development / Module横断 / 有効Module外の挙動は確定した。
 - `2606e宮城_日別計画表.pdf` とユーザー確認により、Learning Moduleの基本検索範囲も確定した。
@@ -190,23 +194,22 @@ README作成を一時停止し、Education用4Gemと関連管理文書の情報�
 
 Researcherの再構築を優先する。
 
-1. Researcher本体について、Module導入後も変わらない責務・Evidence・出力原則を既存資料から抽出する。
+1. 現行ベース `GEM_RESEARCHER.md` の本体責務・Evidence・出力原則を維持すべき内容として確認し、Module導入に伴う追加・変更点だけを確定する。
 2. Researcher Persona本文内でのModule配置・記法を確定する。
 3. 3完成版ファイルそれぞれのPersona本文を構成する。
-4. 旧 `personas/education/GEM_RESEARCHER.md` の最終的な扱いを決める。
+4. 3完成版作成後、ベースファイル `personas/education/GEM_RESEARCHER.md` を残すかどうかを決める。
 5. Reviewerについて監査を継続し、Code Generator化で影響を受ける項目を分離する。
 6. 資料だけで決まらない事項を最後にまとめてユーザーへ確認する。
 
-## DO NOT USE AS CURRENT SOURCE
+## DO NOT USE AS COMPLETED CURRENT SOURCE
 
-再構築完了まで、次の文書を単独で現行設計の正本として扱わない。
+再構築完了まで、次の文書を単独で現行の完成仕様として扱わない。
 
 - `project-notes/2026-08-21-education-4gem-design-decisions.md`
 - `project-notes/2026-08-19-4gem-names.md`
-- `personas/education/GEM_RESEARCHER.md`
 - `personas/education/GEM_REVIEWER.md`
 
-これらは復旧のための履歴資料として使用する。
+`personas/education/GEM_RESEARCHER.md` はこの一覧から除外する。これは現行Researcher本体のベースとして使用するが、Module未反映のため完成済み配布Personaとは扱わない。
 
 ## REFERENCES
 
@@ -216,4 +219,5 @@ Researcherの再構築を優先する。
 - `project-notes/2026-08-21-education-4gem-design-decisions.md`（要再構築）
 - `project-notes/2026-08-20-ai-education-staging.md`
 - `project-notes/2026-08-19-4gem-names.md`（旧決定を含む）
+- `personas/education/GEM_RESEARCHER.md`（現行Researcher本体ベース）
 - `personas/education/GEM_CODE_GENERATOR.md`
