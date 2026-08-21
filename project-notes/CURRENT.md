@@ -43,6 +43,7 @@ Reviewer
 - Reviewer Personaは未完成。
 - `personas/education/GEM_RESEARCHER.md` は旧版・廃止版ではなく、現在のResearcher本体のベースである。
 - `GEM_RESEARCHER.md` はModule追加を含む最終構成が未反映のため未完成であり、完成済み配布Personaとしてはまだ扱わない。
+- 3パターンのResearcher Personaがすべて完成した時点で、`GEM_RESEARCHER.md` を旧版として扱う。それまでは旧版化しない。
 
 ### Researcher Module設計
 
@@ -174,6 +175,7 @@ README作成を一時停止し、Education用4Gemと関連管理文書の情報�
 - 現在の `GEM_RESEARCHER.md` はModule構想をまだ本文に含まないため未完成である。
 - Module導入によってResearcher本体の責務は変更せず、検索範囲・検索対象をModuleで変更する。
 - したがって、`GEM_RESEARCHER.md` の本体責務・Evidence・調査原則は現行Researcher再構築の基礎として扱う。
+- 3パターンのResearcher Personaがすべて完成した時点で、`GEM_RESEARCHER.md` を旧版へ切り替える。
 - 2026-08-21のユーザー判断により、3つの完成済み独立Personaファイルを用意し、Gemには常に1つだけ登録する方式を正式採用した。
 - Career / Development / Module横断 / 有効Module外の挙動は確定した。
 - `2606e宮城_日別計画表.pdf` とユーザー確認により、Learning Moduleの基本検索範囲も確定した。
@@ -197,7 +199,7 @@ Researcherの再構築を優先する。
 1. 現行ベース `GEM_RESEARCHER.md` の本体責務・Evidence・出力原則を維持すべき内容として確認し、Module導入に伴う追加・変更点だけを確定する。
 2. Researcher Persona本文内でのModule配置・記法を確定する。
 3. 3完成版ファイルそれぞれのPersona本文を構成する。
-4. 3完成版作成後、ベースファイル `personas/education/GEM_RESEARCHER.md` を残すかどうかを決める。
+4. 3完成版すべての完成を確認した後、`personas/education/GEM_RESEARCHER.md` を旧版へ切り替える。旧版化後の物理的な保管方法はその時点で決める。
 5. Reviewerについて監査を継続し、Code Generator化で影響を受ける項目を分離する。
 6. 資料だけで決まらない事項を最後にまとめてユーザーへ確認する。
 
@@ -209,7 +211,7 @@ Researcherの再構築を優先する。
 - `project-notes/2026-08-19-4gem-names.md`
 - `personas/education/GEM_REVIEWER.md`
 
-`personas/education/GEM_RESEARCHER.md` はこの一覧から除外する。これは現行Researcher本体のベースとして使用するが、Module未反映のため完成済み配布Personaとは扱わない。
+`personas/education/GEM_RESEARCHER.md` はこの一覧から除外する。これは3パターン完成までは現行Researcher本体のベースとして使用するが、Module未反映のため完成済み配布Personaとは扱わない。3パターン完成後に旧版へ切り替える。
 
 ## REFERENCES
 
@@ -219,5 +221,5 @@ Researcherの再構築を優先する。
 - `project-notes/2026-08-21-education-4gem-design-decisions.md`（要再構築）
 - `project-notes/2026-08-20-ai-education-staging.md`
 - `project-notes/2026-08-19-4gem-names.md`（旧決定を含む）
-- `personas/education/GEM_RESEARCHER.md`（現行Researcher本体ベース）
+- `personas/education/GEM_RESEARCHER.md`（3パターン完成まで現行Researcher本体ベース）
 - `personas/education/GEM_CODE_GENERATOR.md`
