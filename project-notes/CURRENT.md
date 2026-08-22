@@ -1,7 +1,7 @@
 # CURRENT
 
 Last Updated: 2026-08-22
-Status: CURRENT / DOCUMENT CONFORMANCE RECOVERY
+Status: CURRENT / DOCUMENT CONFORMANCE RECOVERY COMPLETED
 
 ## PURPOSE
 
@@ -20,6 +20,8 @@ Status: CURRENT / DOCUMENT CONFORMANCE RECOVERY
 原因説明だけで復旧扱いにせず、一次資料・既存決定記録・Persona現物・ユーザーの明示決定を再照合して、Researcher、Reviewer、4Gem間の責務境界、README導線を再構築した。
 
 2026-08-22、Education用4Gem Personaの機能設計と、名称・責務境界・当時確認したREADME導線の整合化を一度完了と記録した。その後の現物監査により、文書標準・表記・文書間導線への適合性評価は未完了であり、復旧が必要であることを確認した。過去の完了宣言はPersonaの機能設計と当時確認した範囲の完了記録として扱い、文書適合性を含む全体完了のEvidenceとして扱わない。上記の統合記録には旧決定・失効情報が含まれるため、単独で現行完成仕様として使用しない。
+
+2026-08-22、`project-notes/2026-08-22-document-conformance-recovery-instructions.md` に従い、指定16文書へ文書適合性復旧を適用し、Verification 12項目をすべてPASSで確認した。その後、Userの明示承認により現行配布文書13件を `Version（バージョン）: 1.0`、`Status（ステータス）: Approved` へ昇格した。これによって文書適合性復旧は完了し、復旧局面から通常の検討局面へ移行した。詳細Evidenceは `project-notes/2026-08-22-document-conformance-recovery-completion.md` を正本とする。
 
 ## CONFIRMED SAFE
 
@@ -56,15 +58,16 @@ Reviewer
 - Reviewer Persona再構築は完了。
 - Solution PartnerとCode Generatorの現行責務境界への整合は完了。
 - Education用4Gem Persona本体の機能設計と現行責務境界の実装は完了。
-- 文書標準・表記・文書間導線への適合性評価と復旧は未完了。
+- 文書標準・表記・文書間導線への適合性評価と復旧は完了。現行配布文書13件は `Version 1.0` / `Status: Approved`。
 - 現行Researcher Personaは次の3ファイル。
   - `personas/education/GEM_RESEARCHER_FULL.md`
   - `personas/education/GEM_RESEARCHER_LEARNING_DEVELOPMENT.md`
   - `personas/education/GEM_RESEARCHER_DEVELOPMENT.md`
 - 旧 `personas/education/GEM_RESEARCHER.md` は3パターン完成後に旧版化し、`personas/education/archive/GEM_RESEARCHER.md` へ退避済み。
-- 旧 `personas/education/GEM_IMPLEMENTER.md` は `personas/education/archive/GEM_IMPLEMENTER.md` へ退避し、`SUPERSEDED` と置換先を明記済み。
-- 旧 `personas/education/GEMINI_PERSONA_DEFINITION-4Gem.md` は `personas/education/archive/GEMINI_PERSONA_DEFINITION-4Gem.md` へ退避し、`SUPERSEDED` と置換先を明記済み。
-- Reviewerの機能設計は完成済みであり、機能設計の再検討対象ではない。ただし、文書標準・表記・導線への適合性は、他の現行文書と同じく再評価対象に含める。
+- 旧 `personas/education/GEM_IMPLEMENTER.md` は `personas/education/archive/GEM_IMPLEMENTER.md` へ退避し、現行利用禁止と置換先を明記済み。
+- 旧 `personas/education/GEMINI_PERSONA_DEFINITION-4Gem.md` は `personas/education/archive/GEMINI_PERSONA_DEFINITION-4Gem.md` へ退避し、現行利用禁止と置換先を明記済み。
+- Archive文書の状態表記は、退避当時の `SUPERSEDED` から、標準ヘッダーの4状態に合わせた `Deprecated` へ統一済み。現行のArchive Noticeでは `Status（ステータス）: Deprecated`、`Usage（利用可否）: Do Not Use（利用禁止）` を使用する。退避当時の `SUPERSEDED` 表記を現行表記として復活させない。
+- Reviewerの機能設計は完成済みであり、機能設計の再検討対象ではない。文書標準・表記・導線への適合性は、他の現行文書と同じく再評価対象に含めて対応済みであり、固定出力契約は一時例外として維持した。
 
 ### 設計文書標準の適用境界
 
@@ -107,6 +110,7 @@ Reviewer
 - 標準ヘッダーの `Status（ステータス）` は、`Draft`、`Review`、`Approved`、`Deprecated` の4状態で統一する。
 - 文書適合性の確認中は、新設するReference READMEを含む全13件の現行配布文書を `Version（バージョン）: 0.1`、`Status（ステータス）: Review` とする。
 - ヘッダー、表記、文書間導線、ディレクトリ構造の確認と必要な修正が完了しても、AIの判断だけで初回承認版へ変更しない。AIはUserへ `Version 1.0（Status: Approved）へ変更してよいか` と明示的に確認し、Userが承認した場合に限り `Version（バージョン）: 1.0`、`Status（ステータス）: Approved` へ変更する。
+- 2026-08-22、上記確認工程を完了し、Userが `Version 1.0 / Status Approved` への昇格を明示承認した。現行配布文書13件は `Version（バージョン）: 1.0`、`Status（ステータス）: Approved` である。上記の `0.1` / `Review` は確認中の暫定値に関する記録であり、現行値ではない。今後の版・状態変更も、AIの判断だけでは行わずUserの明示承認を要件とする。
 - `personas/education/GEM_REVIEWER.md` に記載する最終設計ドキュメントの `DRAFT`、`CURRENT`、`SUPERSEDED` は、標準ヘッダーの状態とは責務が異なるUser確認済みの機能仕様である。表記統一だけを理由に変更せず、一時例外として維持する。
 - 上記例外は永久固定ではない。最終設計ドキュメントの状態仕様を変更対象として別途検討し、Userが仕様変更を明示承認した場合に限り表記統合を再検討する。解除条件を満たす前にAIが自動変更しない。
 - `project-notes/` は作業状態・判断経緯・実装指示・監査Evidence等の内部記録であり、配布文書用の完全ヘッダーを機械適用せず、既存の簡易ヘッダーを維持する。
@@ -371,11 +375,11 @@ Reviewer
 
 ## CURRENT TARGET
 
-Education用4Gem Persona本体の機能設計は完了している。
+Education用4Gem Persona本体の機能設計は完了している。文書標準・表記・文書間導線への適合性復旧と、現行配布文書13件の `Version 1.0 / Status Approved` 昇格も完了している。
 
-現在の最優先対象は、今回確定した設計文書標準の適用境界に基づき、既存文書・Persona・READMEの文書標準、表記、文書間導線への適合性を再評価し、必要な復旧を行うことである。機能設計と文書適合性を混同せず、Reviewerを含むPersonaの機能設計をEvidenceなしに再検討しない。
+現在の最優先対象は、`ASKME 迎合禁止` の利用方法の検討である。次に、7文書の配置・別管理と、現在の別Repositoryとの不整合解消を検討する。
 
-この再評価と復旧を、`ASKME 迎合禁止` の利用に関する検討より先に行う。具体的な文書体系、状態名、配置、既存文書の修正内容は現物監査で確認し、未決事項を推測しない。
+いずれも未決事項であり、適用目的、適用範囲、運用方法、配置先を推測で確定しない。Reviewerを含むPersonaの機能設計はEvidenceなしに再検討しない。完了済みの文書適合性復旧を、Evidenceなしに再作業対象へ戻さない。
 
 ## PERSONA FUNCTIONAL RECOVERY METHOD（完了）
 
@@ -396,10 +400,21 @@ Education用4Gem Persona本体の機能設計は完了している。
 - `背景意図` を重要情報資産として定義し、恒久ルール、情報資産保全方針、本ファイルへ記録済み。
 - 設計ドキュメント標準の「最大7文書」は作成数の強制ではなく、AIによる文書増殖の防止とHumanが情報の所在・修正箇所を把握しやすくするための上限・配置ルールであることを記録済み。別運用文書の作成は未着手。
 - `project-notes/2026-08-21-education-4gem-design-decisions.md` は旧決定・失効情報を含む履歴資料として保持し、単独で現行完成仕様として使用しない。
-- README仮完成作業の一時停止後、Education READMEとroot READMEについて、現行名称・責務境界・当時確認した配布リンクへの更新を実施済み。ただし、文書標準・表記・文書間導線への適合性評価と復旧は未完了。
+- README仮完成作業の一時停止後、Education READMEとroot READMEについて、現行名称・責務境界・当時確認した配布リンクへの更新を実施済み。文書標準・表記・文書間導線への適合性評価と復旧は、その後の復旧適用で完了済み。
 - `project-notes/2026-08-21-reconstruction-confirmed-facts.md` はResearcher再構築途中の確定事項記録として保持する。
 - `project-notes/2026-08-21-researcher-completion.md` をResearcher完成後の最新状態・検証記録として追加済み。
 - `project-notes/2026-08-21-reconstruction-audit-researcher-reviewer.md` に、GitHub現物・commit履歴から確認した履歴事実と現行位置づけを記録済み。
+
+### 文書適合性復旧完了（2026-08-22）
+
+- `project-notes/2026-08-22-document-conformance-recovery-instructions.md` に従い、対象16文書へ復旧を適用済み。内訳は現行配布文書13件とArchive文書3件。
+- 現行配布文書13件は `Version（バージョン）: 1.0`、`Status（ステータス）: Approved`。昇格はUserの明示承認後に実施した。
+- `personas/reference/README.md` を新規作成し、Reference区分の入口として整備済み。root READMEからの導線も追加済み。
+- Archive文書3件のArchive Noticeを統一済み。旧本文・旧ヘッダーは変更せず、Version・Status昇格の対象にしていない。
+- Verification 12項目をすべてPASSで確認済み。
+- Persona機能設計、固定出力契約、fenced内容は変更していない。
+- 完了commitは `959cdd5`。`HEAD = origin/main`、worktree cleanを確認済み。
+- 詳細Evidenceは `project-notes/2026-08-22-document-conformance-recovery-completion.md` を正本とする。
 
 ### Researcher再構築完了
 
@@ -476,40 +491,35 @@ Education用4Gem Persona本体の機能設計は完了している。
 - 旧 `GEM_IMPLEMENTER.md` と旧 `GEMINI_PERSONA_DEFINITION-4Gem.md` はArchiveへ移動し、`SUPERSEDED`、現行利用禁止、置換先を明記済み。旧本文は保持している。
 - 当時の対象差分について `git diff --check` は成功した。
 - 詳細Evidenceは `project-notes/2026-08-22-education-4gem-readme-alignment-completion.md` に過去の完了宣言として記録した。同記録の「未解決なし」は当時の整合化対象内に限るものであり、現在の文書適合性全体について未解決事項がないことを示さない。
-- 現在は、今回確定した適用境界に基づく文書標準・表記・文書間導線の再評価と復旧が必要である。
+- 適用境界に基づく文書標準・表記・文書間導線の再評価と復旧は、その後の復旧適用で完了済み。Evidenceは `project-notes/2026-08-22-document-conformance-recovery-completion.md` を参照する。
 
 ## CURRENT PRIORITIES / UNRESOLVED
 
-Persona本体の機能設計は完了している。現在は次の順で扱う。
+Persona本体の機能設計と文書適合性復旧は完了している。現在は次の順で扱う。
 
-1. 設計文書標準・表記・文書間導線の再評価と復旧
-   - 今回確定した適用境界に基づき、SSOT、文書責務、命名・表記、ヘッダー・状態・版管理、導線、履歴、変更統制、重複・更新不整合を現物で確認する。
-   - 現行配布文書、`project-notes/`、`archive/` の区分を前提にヘッダーを監査し、配布文書への標準ヘッダー、内部記録の簡易ヘッダー、Archive Noticeの各適用範囲を混同しない。
-   - 表記修正によって意味・責務・契約・入出力仕様が変わる場合は、統一対象ではなく確定仕様上の一時例外として扱い、例外箇所、正本の根拠、維持理由、再検討条件または解除条件を確認する。
-   - 機能設計の完成と文書適合性の完了を分離し、適合、不適合、未決を区別する。
-   - 具体的な修正は現物監査結果と確定事項に基づき、推測しない。
-2. `ASKME 迎合禁止` の利用に関する検討
+1. `ASKME 迎合禁止` の利用方法に関する検討
    - 適用目的、適用範囲、運用方法、既存ルールとの関係は未確定。
-3. 7文書の配置・管理方法に関する検討
+   - `AGENTS.md`、`CURRENT.md`、Persona、生徒向け運用手順のどこで扱うかは未確定。
+   - 名称・記法をそのまま採用するかも未確定。推測で確定しない。
+2. 7文書の配置・別管理と、別Repositoryとの不整合解消に関する検討
    - 7文書を本Repository内のどこかへ配置するか、別管理とするかは未確定。
    - 現在は別Repositoryに存在するが、整合性が取れていない。
    - 現在の別Repositoryをそのまま採用すること、または本Repositoryへ移すことを確定事項として扱わない。
    - 固定7文書を `ai-setup-materials` 内へ機械的に作成することも確定事項として扱わない。
+   - 「最大7文書」は作成数の強制ではなく上限・配置ルールであるという確定事項を前提にする。
 
 ## NEXT ACTION
 
 Reviewerを含むEducation用4Gem Persona本体の機能設計は完了している。Reviewerの機能設計は再検討対象に戻さない。
 
-文書標準・表記・文書間導線・保存構造の監査と、必要な復旧範囲の確定は完了した。次は `project-notes/2026-08-22-document-conformance-recovery-instructions.md` に従い、現行配布文書13件とArchive Notice 3件へ確定事項を適用する。Personaの機能仕様、固定出力契約、fenced内容、Archive旧本文・旧ヘッダーは変更しない。
+文書適合性復旧の適用、Verification 12項目、現行配布文書13件の `Version 1.0 / Status Approved` 昇格はすべて完了した。復旧適用を再作業対象に戻さない。
 
-適用後は、ヘッダー13件、Document ID一意性、Created Date、Version・Status、Owner、Related Documents、相対リンク、`English（日本語）` の通常見出し、一時例外、Archive利用禁止の二重表示、Archive旧本文のbyte一致、`git diff --check` を検証する。
+以降は次の順で検討する。
 
-すべての適合性確認と必要な修正が完了しても、自動的に `Version 1.0 / Status Approved` へ変更しない。Userへ `Version 1.0（Status: Approved）へ変更してよいか` と明示的に確認する。
-
-その完了後、次の順で検討する。
-
-1. `ASKME 迎合禁止` の利用に関する検討
-2. 7文書を本Repository内へ配置するか別管理にするか、および現行の別Repositoryとの不整合に関する検討
+1. `ASKME 迎合禁止` の利用方法
+   - 適用目的、適用範囲、運用方法、記載先文書、既存ルールとの関係をUserへ確認してから決定する。
+2. 7文書の配置・別管理と別Repositoryとの不整合解消
+   - 本Repository内配置か別管理かを先に確定し、その後に不整合の解消方法を検討する。
 
 7文書の配置・別管理は未決のまま保持する。固定7文書を `ai-setup-materials` へ機械的に作成することは確定事項ではない。いずれも結論を推測しない。
 
@@ -521,7 +531,7 @@ Reviewerを含むEducation用4Gem Persona本体の機能設計は完了してい
 - `project-notes/2026-08-19-4gem-names.md`
 - `project-notes/2026-08-22-reviewer-reconstruction-instructions.md`
 
-`personas/education/archive/GEM_RESEARCHER.md`、`personas/education/archive/GEM_IMPLEMENTER.md`、`personas/education/archive/GEMINI_PERSONA_DEFINITION-4Gem.md` は `SUPERSEDED` の履歴資料であり、現行Education Personaまたは現行運用導線として使用しない。
+`personas/education/archive/GEM_RESEARCHER.md`、`personas/education/archive/GEM_IMPLEMENTER.md`、`personas/education/archive/GEMINI_PERSONA_DEFINITION-4Gem.md` は `Deprecated` の履歴資料であり、現行Education Personaまたは現行運用導線として使用しない。
 
 ## REFERENCES
 
@@ -535,7 +545,8 @@ Reviewerを含むEducation用4Gem Persona本体の機能設計は完了してい
 - `project-notes/2026-08-22-education-4gem-readme-alignment-instructions.md`（4Gem・README整合実装指示書）
 - `project-notes/2026-08-22-education-4gem-readme-alignment-completion.md`（4Gem・README整合完了状態と検証Evidence）
 - `project-notes/2026-08-22-design-document-standard-application-scope.md`（設計文書標準の適用境界）
-- `project-notes/2026-08-22-document-conformance-recovery-instructions.md`（文書適合性復旧の現行実装指示書）
+- `project-notes/2026-08-22-document-conformance-recovery-instructions.md`（文書適合性復旧の実装指示書）
+- `project-notes/2026-08-22-document-conformance-recovery-completion.md`（文書適合性復旧の完了状態と検証Evidence）
 - `project-notes/2026-08-21-education-4gem-design-decisions.md`（旧決定を含み、単独で現行完成仕様として使用しない）
 - `project-notes/2026-08-20-ai-education-staging.md`
 - `project-notes/2026-08-19-4gem-names.md`（旧決定を含み、単独で現行完成仕様として使用しない）
@@ -547,4 +558,5 @@ Reviewerを含むEducation用4Gem Persona本体の機能設計は完了してい
 - `personas/education/GEM_CODE_GENERATOR.md`
 - `personas/education/GEM_REVIEWER.md`
 - `personas/education/README.md`
+- `personas/reference/README.md`
 - root `README.md`
