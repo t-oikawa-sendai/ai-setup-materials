@@ -1,13 +1,15 @@
 # CURRENT
 
 Last Updated: 2026-08-22
-Status: CURRENT / DOCUMENT CONFORMANCE RECOVERY COMPLETED
+Status: CURRENT / DOCUMENT CONFORMANCE RECOVERY COMPLETED / REPOSITORY SCOPE CONFIRMED
 
 ## PURPOSE
 
 生徒へ配布可能な `ai-setup-materials` を完成させる。
 
-単なるAI利用方法ではなく、AIの役割分担・責務分離・Evidence・検証を重視したAI活用設計を学べる教材とする。
+本Repositoryの責務は、AI Personaと、そのPersonaを実際に利用するために直接必要な設定・運用資料に特化する。一般的な生成AI学習教材、要求定義・要件定義・各種設計などの一般教材、アプリ開発用7文書、他Repositoryを正本とする教材本文・設計文書は対象外とする。
+
+Persona自体は、単なるAI利用方法ではなく、AIの役割分担・責務分離・Evidence・検証を重視したAI活用設計を学べる内容とする。この学習価値はPersonaとその利用資料を通じて提供し、一般教材本文を本Repositoryへ持ち込むことでは実現しない。
 
 ## RECOVERY HISTORY
 
@@ -26,6 +28,26 @@ Status: CURRENT / DOCUMENT CONFORMANCE RECOVERY COMPLETED
 ## CONFIRMED SAFE
 
 現時点で安全に確認できている事項のみ記載する。
+
+### Repository責務と設定・運用資料の管理方針（2026-08-22確定）
+
+- `ai-setup-materials` は、AI Personaと、そのPersonaを実際に利用するために直接必要な設定・運用資料に特化する。
+- 対象は、Persona定義、Personaの選択・使い分け、Persona間の責務境界、Persona利用に必要なREADME、AIサービスへのPersona設定方法、Personaの導入・切替・利用手順、Persona運用に直接必要な設定資料とする。
+- 対象外は、一般的な生成AI学習教材、要求定義・要件定義・各種設計などの一般教材、アプリ開発用7文書、他Repositoryを正本とする教材本文・設計文書とする。
+- 責務限定の背景意図は、Personaとその利用に直接必要な資料へ範囲を絞り、性質の異なる教材本文や設計文書の混在によって正本の所在が曖昧になることを防ぐことである。Personaが学習用途で使われること自体は否定しない。
+- 設計ドキュメント標準で扱う7文書は `ai-setup-materials` では管理せず、別Repository管理とする。本Repositoryへ複製しない、機械的に生成しない、Persona領域へ混在させない。
+- これにより、従来「Persona作成完了後に扱う最重要検討事項」として未決に置いていた「7文書を本Repository内へ配置するか別管理にするか」は解決済みとする。現在の別Repositoryとの不整合解消は、7文書を管理する側のRepositoryで扱い、本Repositoryの未決事項として保持しない。
+- `ASKME 迎合禁止` を本Repositoryの独立した検討事項・実装事項として扱わない。未決事項にも残さない。既存PersonaおよびRepositoryルールにあるEvidence優先、Userが最終判断、問題があれば根拠を示して指摘、推測禁止、必要な場合の停止を維持することで対応する。
+- `ASKME 迎合禁止` を独立事項としない背景意図は、同じ目的の観点が既にPersonaとRepositoryルールへ実装されており、別名の独立事項を追加すると規則が重複して正本が分かりにくくなることを防ぐことである。
+- Persona本文には、AIサービス固有のセットアップ手順・配置方法・操作手順を混在させない。設定・運用資料はPersonaとは別文書として管理する。
+- 責務分離の背景意図は、AIサービス側の仕様変更のたびにPersona本文を変更する状態を避け、Personaの機能仕様と操作手順の変更理由を分離できるようにすることである。
+- 設定方法・配置場所はAIサービスごとに異なるため、設定・運用資料はAIサービス単位で管理する。
+- Personaを提供するAIサービスには、原則として対応する最低限の設定・運用資料も提供する。この原則は既存Reference Persona（ChatGPT、Claude、Cursor、Gemini）にも適用し、今後追加されるAIサービスにも適用する。
+- 設定・運用資料は各Persona区分配下（`personas/education/setup/`、`personas/reference/setup/`）で管理する。
+- Gitは空ディレクトリを管理しないため、記録だけを目的として空の `setup/` ディレクトリやダミーファイル（`.gitkeep` 等）を作成しない。実際の設定・運用文書を作成するときに配置する。
+- Education用Geminiについては、Researcher、Solution Partner、Code Generator、Reviewerごとに設定資料を4文書へ分割せず、Gemini Gemの設定・運用を説明する共通資料1つとする。
+- 設定・運用資料の具体的なファイル名と本文構成は今回決定していない。推測して作成しない。
+- 詳細は `project-notes/2026-08-22-persona-and-setup-scope.md` を正本とする。
 
 ### Repository作業開始時のGit同期ゲート
 
@@ -78,6 +100,7 @@ Reviewer
 - アプリ固有の構成を適用対象外とすることは、統治原則まで免除することを意味しない。
 - `ai-setup-materials` 向けの具体的な文書体系、配置、既存文書の修正方法は未決であり、推測しない。
 - 固定7文書を `ai-setup-materials` 内へ機械的に作成することは確定事項ではない。
+- 2026-08-22、上記のうち7文書の扱いは確定した。7文書は別Repository管理とし、`ai-setup-materials` へ複製・機械的生成・Persona領域への混在を行わない。「機械的に作成しない」は「作成しない」として確定した。設定・運用資料の具体的なファイル名・本文構成は引き続き未決であり、推測しない。
 - `English（日本語）` 等の表記統一は、意味・責務・契約・入出力仕様を変えない範囲に限って適用する。
 - 表記変更が確定済みの仕様変更になる箇所は修正せず、例外として現行の正式名称・表記を維持する。User確認済みの正式出力名、役割名、判定名、状態名、項目名、列名、固定文言等は例外候補だが、機械的にすべてを例外とせず、正本で確定したものに限る。
 - 表記上の例外は、現在の確定仕様を表記修正だけで壊さないための一時的な互換性保留であり、永久固定ではない。将来、仕様変更として別途検討し、Userが承認した段階で `English（日本語）` 表記への統合対象になり得る。
@@ -104,6 +127,7 @@ Reviewer
 - 現在のPersona区分は `education` と `reference` である。Referenceには旧版が存在しないため、空の `personas/reference/archive/` は作成せず、最初のReference旧版が発生した時点で作成する。
 - 新設する `personas/reference/README.md` を除き、保存構造の統一だけを理由とする現行ファイルの移動は行わない。
 - 7文書を本Repositoryへ配置するか別管理にするか、および現在の別Repositoryとの不整合解消は、Persona作成完了後に扱う最重要検討事項として分離し、Persona保存構造の決定だけで解決済みとしない。
+- 2026-08-22、上記の検討事項はUserの明示決定により解決した。7文書は別Repository管理とする。別Repositoryとの不整合解消は7文書を管理する側で扱い、本Repositoryの未決事項として保持しない。この解決はPersona保存構造の決定によるものではなく、Repository責務の確定によるものである。
 - `Related Documents（関連文書）` は、root READMEから区分別README、区分別READMEから現行Personaへ進む階層規則で統一する。root READMEはEducation READMEとReference README、Education READMEはroot READMEと現行Education Persona、各Education PersonaはEducation README、Reference READMEはroot README・Education README・現行Reference文書、各Reference PersonaはReference READMEを関連文書とする。
 - Persona同士をヘッダーから総当たりで相互リンクしない。区分内の文書追加・置換は区分別READMEの索引で管理し、個別Personaのヘッダー更新を必要最小限にする。
 - Related Documents導線の背景意図は、root READMEから区分を選び、区分別READMEで適用境界と利用可能文書を確認してから個別Personaへ進める導線を維持しつつ、将来の文書増加に伴うリンク更新不整合を防ぐことである。
@@ -371,15 +395,18 @@ Reviewer
 - 最大7文書は上限と統制の考え方であり、`ai-setup-materials` に固定7文書を必ず作成することは確定事項ではない。
 - アプリ固有の構成を適用しない場合も、SSOT、責務分離、表記、追跡可能性、導線、履歴、変更統制、重複・更新不整合防止は免除しない。
 - `ai-setup-materials` 向けの具体的な文書体系、状態名、配置、既存文書修正は未決であり、推測しない。
+- 2026-08-22、上記の背景意図を維持したまま、7文書の配置先を「本Repository外」として確定した。7文書は別Repository管理とする。上限・配置ルールという背景意図は変更しておらず、`ai-setup-materials` における配置先が確定しただけである。
 - この考え方をAIが機械的に誤解しないための別運用文書は将来整備する予定だが、現時点では作成しない。
 
 ## CURRENT TARGET
 
 Education用4Gem Persona本体の機能設計は完了している。文書標準・表記・文書間導線への適合性復旧と、現行配布文書13件の `Version 1.0 / Status Approved` 昇格も完了している。
 
-現在の最優先対象は、`ASKME 迎合禁止` の利用方法の検討である。次に、7文書の配置・別管理と、現在の別Repositoryとの不整合解消を検討する。
+2026-08-22、Repository責務、7文書の別Repository管理、`ASKME 迎合禁止` の扱い、Personaと設定資料の責務分離、設定・運用資料の単位と配置、Education Geminiの共通1資料が確定した。従来の未決2事項（`ASKME 迎合禁止` の利用方法、7文書の配置・別管理）は解決済みであり、未決事項へ戻さない。
 
-いずれも未決事項であり、適用目的、適用範囲、運用方法、配置先を推測で確定しない。Reviewerを含むPersonaの機能設計はEvidenceなしに再検討しない。完了済みの文書適合性復旧を、Evidenceなしに再作業対象へ戻さない。
+現在の対象は、確定した責務境界に基づく設定・運用資料の整備である。ただし、具体的なファイル名と本文構成は未確定であるため、Userの確定前に文書を作成しない。空の `setup/` ディレクトリやダミーファイルも作成しない。
+
+Reviewerを含むPersonaの機能設計はEvidenceなしに再検討しない。完了済みの文書適合性復旧を、Evidenceなしに再作業対象へ戻さない。
 
 ## PERSONA FUNCTIONAL RECOVERY METHOD（完了）
 
@@ -415,6 +442,16 @@ Education用4Gem Persona本体の機能設計は完了している。文書標�
 - Persona機能設計、固定出力契約、fenced内容は変更していない。
 - 完了commitは `959cdd5`。`HEAD = origin/main`、worktree cleanを確認済み。
 - 詳細Evidenceは `project-notes/2026-08-22-document-conformance-recovery-completion.md` を正本とする。
+
+### Repository責務・設定資料方針の確定（2026-08-22）
+
+- Repository責務を「Persona + Persona利用に直接必要な設定・運用資料」として確定し、`AGENTS.md` の目的と文書の責務、本ファイルへ反映済み。
+- 7文書は別Repository管理として確定済み。本Repositoryへの複製・機械的生成・Persona領域への混在は行わない。7文書の新規作成・移動・コピーは実施していない。
+- `ASKME 迎合禁止` を本Repositoryの独立検討事項から除外済み。既存の確定済みルール維持で対応する。
+- Persona本文と設定・運用資料の責務分離、AIサービス単位の管理、各Persona区分配下（`setup/`）への配置、Education Geminiの共通1資料を確定事項として記録済み。
+- 設定・運用資料の本文はまだ作成していない。空の `setup/` ディレクトリ、`.gitkeep` 等のダミーファイルも作成していない。
+- 本決定でPersona本文の機能仕様、固定出力契約、現行配布文書のVersion・Statusは変更していない。
+- 詳細Evidenceは `project-notes/2026-08-22-persona-and-setup-scope.md` を正本とする。
 
 ### Researcher再構築完了
 
@@ -495,18 +532,20 @@ Education用4Gem Persona本体の機能設計は完了している。文書標�
 
 ## CURRENT PRIORITIES / UNRESOLVED
 
-Persona本体の機能設計と文書適合性復旧は完了している。現在は次の順で扱う。
+Persona本体の機能設計、文書適合性復旧、Repository責務と設定資料方針の確定は完了している。
 
-1. `ASKME 迎合禁止` の利用方法に関する検討
-   - 適用目的、適用範囲、運用方法、既存ルールとの関係は未確定。
-   - `AGENTS.md`、`CURRENT.md`、Persona、生徒向け運用手順のどこで扱うかは未確定。
-   - 名称・記法をそのまま採用するかも未確定。推測で確定しない。
-2. 7文書の配置・別管理と、別Repositoryとの不整合解消に関する検討
-   - 7文書を本Repository内のどこかへ配置するか、別管理とするかは未確定。
-   - 現在は別Repositoryに存在するが、整合性が取れていない。
-   - 現在の別Repositoryをそのまま採用すること、または本Repositoryへ移すことを確定事項として扱わない。
-   - 固定7文書を `ai-setup-materials` 内へ機械的に作成することも確定事項として扱わない。
-   - 「最大7文書」は作成数の強制ではなく上限・配置ルールであるという確定事項を前提にする。
+### 解決済み（未決事項へ戻さない）
+
+- `ASKME 迎合禁止` の利用方法：本Repositoryの独立した検討事項・実装事項として扱わないことで解決。既存の確定済みルール維持で対応する。
+- 7文書の配置・別管理と別Repositoryとの不整合解消：7文書を別Repository管理とすることで解決。不整合解消は7文書を管理する側で扱う。
+
+### 未決
+
+1. 設定・運用資料の具体化
+   - 各AIサービスの設定・運用資料の具体的なファイル名と本文構成は未確定。
+   - 記載する項目の詳細も未確定。
+   - Userの確定前に文書を作成せず、推測でファイル名・構成を決めない。
+   - 確定した方針（AIサービス単位、各Persona区分配下の `setup/`、Education Geminiは共通1資料、Persona本文へ操作手順を混在させない）は前提とする。
 
 ## NEXT ACTION
 
@@ -514,14 +553,15 @@ Reviewerを含むEducation用4Gem Persona本体の機能設計は完了してい
 
 文書適合性復旧の適用、Verification 12項目、現行配布文書13件の `Version 1.0 / Status Approved` 昇格はすべて完了した。復旧適用を再作業対象に戻さない。
 
-以降は次の順で検討する。
+2026-08-22のRepository責務確定により、`ASKME 迎合禁止` と7文書配置は解決済みである。これらを未決事項・次作業へ戻さない。
 
-1. `ASKME 迎合禁止` の利用方法
-   - 適用目的、適用範囲、運用方法、記載先文書、既存ルールとの関係をUserへ確認してから決定する。
-2. 7文書の配置・別管理と別Repositoryとの不整合解消
-   - 本Repository内配置か別管理かを先に確定し、その後に不整合の解消方法を検討する。
+次は、確定した方針に基づく設定・運用資料の整備を検討する。ただし、着手前にUserと次を確定する。
 
-7文書の配置・別管理は未決のまま保持する。固定7文書を `ai-setup-materials` へ機械的に作成することは確定事項ではない。いずれも結論を推測しない。
+1. どのAIサービスの設定・運用資料から作成するか
+2. 各資料のファイル名
+3. 各資料の本文構成と記載項目
+
+上記が確定するまで、設定・運用資料の本文を作成しない。ファイル名を推測しない。空の `setup/` ディレクトリや `.gitkeep` 等のダミーファイルを作成しない。7文書を本Repositoryへ作成・移動・コピーしない。
 
 ## DO NOT USE AS COMPLETED CURRENT SOURCE
 
@@ -547,6 +587,7 @@ Reviewerを含むEducation用4Gem Persona本体の機能設計は完了してい
 - `project-notes/2026-08-22-design-document-standard-application-scope.md`（設計文書標準の適用境界）
 - `project-notes/2026-08-22-document-conformance-recovery-instructions.md`（文書適合性復旧の実装指示書）
 - `project-notes/2026-08-22-document-conformance-recovery-completion.md`（文書適合性復旧の完了状態と検証Evidence）
+- `project-notes/2026-08-22-persona-and-setup-scope.md`（Repository責務と設定・運用資料の管理方針）
 - `project-notes/2026-08-21-education-4gem-design-decisions.md`（旧決定を含み、単独で現行完成仕様として使用しない）
 - `project-notes/2026-08-20-ai-education-staging.md`
 - `project-notes/2026-08-19-4gem-names.md`（旧決定を含み、単独で現行完成仕様として使用しない）
