@@ -126,6 +126,22 @@ Document IDは文書の固定識別子として扱う。配置変更、版更新
 
 root `README.md` はEducation領域とReference領域の入口を示す。Reference Personaは `Related Documents（関連文書）` から同一ディレクトリの `README.md` へ戻れるようにする。これにより、Reference領域内で適用境界と利用可能文書を確認できる導線を作る。
 
+## Directory Structure Rules
+
+Persona文書の保存構造は、次の共通規則で統一する。
+
+- Repository全体の入口：root `README.md`
+- 区分別の入口：`personas/<区分>/README.md`
+- 区分別の現行Persona：`personas/<区分>/`
+- 区分別の旧版：`personas/<区分>/archive/`
+- 内部の判断・作業記録：`project-notes/`
+
+現在のPersona区分は `education` と `reference` である。現行Personaを区分ディレクトリ直下、旧版を同じ区分の `archive/` に置くことで、現行と履歴を分離する。
+
+Referenceには現在旧版が存在しないため、空の `personas/reference/archive/` は作成しない。最初のReference旧版が発生した時点で作成する。新設する `personas/reference/README.md` を除き、この決定だけを理由とする現行ファイルの移動は行わない。
+
+この共通規則はPersona文書の保存構造に関する決定である。7文書を本Repositoryへ配置するか別管理にするか、および現在の別Repositoryとの不整合解消は、Persona作成完了後に扱う最重要検討事項として分離し、本決定で解決済みとしない。
+
 ## Standard Header Status Values
 
 標準ヘッダーの `Status（ステータス）` は、次の4状態で統一する。
@@ -149,7 +165,7 @@ root `README.md` はEducation領域とReference領域の入口を示す。Refere
 
 この例外は永久固定ではない。解除条件を満たす前にAIが自動変更しない。
 
-この区分はヘッダー適用範囲の確定であり、作成日、最終更新日、管理者、関連文書の具体値と配置変更は未決である。本記録では推測・決定しない。
+この区分はヘッダー適用範囲の確定であり、作成日、最終更新日、管理者、関連文書の具体値は未決である。本記録では推測・決定しない。
 
 ## Unresolved Details
 
@@ -157,7 +173,6 @@ root `README.md` はEducation領域とReference領域の入口を示す。Refere
 
 - `ai-setup-materials` 向けの具体的な文書体系
 - 作成日、最終更新日、管理者、関連文書の具体値
-- 文書の配置
 - 既存文書へ必要な修正
 - 7文書を本Repository内へ配置するか、別管理にするか
 - 現在の別Repositoryとの不整合をどのように解消するか

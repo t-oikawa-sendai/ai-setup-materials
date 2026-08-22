@@ -89,6 +89,10 @@ Reviewer
 - `personas/reference/README.md` をReference領域の正式な入口・索引として配置し、Reference Personaの目的、Education用4Gemとの違い、Educationの現行手順として流用しない注意、現在利用可能なReference文書への索引、root `README.md` へ戻る導線、必要最小限のEducation READMEへの案内を記載する。
 - Reference索引を現在の4文書専用として固定しない。将来7文書に追加資料を加えた構成へ増える可能性を受け入れ、承認された文書の追加時に索引を更新できる構成とする。ただし、将来数を推測して未確定文書を先に作成しない。
 - root `README.md` はEducation領域とReference領域の入口を示し、Reference Personaは同一ディレクトリの `README.md` へ戻る導線を持つ。
+- Persona文書の保存構造は、Repository全体の入口をroot `README.md`、区分別の入口を `personas/<区分>/README.md`、現行Personaを `personas/<区分>/`、旧版を `personas/<区分>/archive/`、内部の判断・作業記録を `project-notes/` とする共通規則で統一する。
+- 現在のPersona区分は `education` と `reference` である。Referenceには旧版が存在しないため、空の `personas/reference/archive/` は作成せず、最初のReference旧版が発生した時点で作成する。
+- 新設する `personas/reference/README.md` を除き、保存構造の統一だけを理由とする現行ファイルの移動は行わない。
+- 7文書を本Repositoryへ配置するか別管理にするか、および現在の別Repositoryとの不整合解消は、Persona作成完了後に扱う最重要検討事項として分離し、Persona保存構造の決定だけで解決済みとしない。
 - 標準ヘッダーの `Status（ステータス）` は、`Draft`、`Review`、`Approved`、`Deprecated` の4状態で統一する。
 - 文書適合性の確認中は、新設するReference READMEを含む全13件の現行配布文書を `Version（バージョン）: 0.1`、`Status（ステータス）: Review` とする。
 - ヘッダー、表記、文書間導線、ディレクトリ構造の確認と必要な修正が完了しても、AIの判断だけで初回承認版へ変更しない。AIはUserへ `Version 1.0（Status: Approved）へ変更してよいか` と明示的に確認し、Userが承認した場合に限り `Version（バージョン）: 1.0`、`Status（ステータス）: Approved` へ変更する。
@@ -96,7 +100,7 @@ Reviewer
 - 上記例外は永久固定ではない。最終設計ドキュメントの状態仕様を変更対象として別途検討し、Userが仕様変更を明示承認した場合に限り表記統合を再検討する。解除条件を満たす前にAIが自動変更しない。
 - `project-notes/` は作業状態・判断経緯・実装指示・監査Evidence等の内部記録であり、配布文書用の完全ヘッダーを機械適用せず、既存の簡易ヘッダーを維持する。
 - `archive/` は履歴本文を保存する領域であり、旧本文・旧ヘッダーを書き換えず、冒頭のArchive Noticeだけを統一する。Archive Noticeでは、履歴資料であること、現行利用禁止、状態、置換先、旧本文を保存していることを追跡可能にする。
-- この区分はヘッダー適用範囲の確定であり、作成日、最終更新日、管理者、関連文書の具体値と配置変更は未決である。
+- この区分はヘッダー適用範囲の確定であり、作成日、最終更新日、管理者、関連文書の具体値は未決である。
 - ヘッダー適用範囲の背景意図は、配布文書の一貫性と追跡可能性を確保しつつ、内部記録への過剰適用とArchive本文の改変を防ぐことである。
 - 背景意図は、標準の目的を維持しつつ、性質の異なるRepositoryへアプリ用テンプレートを機械適用して不要な文書を増やすことを防ぐことである。
 - 表記統一に関する背景意図は、文書の一貫性を高めつつ、外見上の統一のために確定済み仕様を壊すことを防ぐことである。
