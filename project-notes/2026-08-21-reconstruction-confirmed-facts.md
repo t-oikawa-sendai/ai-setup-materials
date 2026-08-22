@@ -182,6 +182,15 @@ Learning Moduleは、上記の科目・訓練内容に関する学習上の調�
 - Reviewerの出力では、冒頭に指摘IDと戻し先を対応付けた戻し先一覧を表示する。
 - 各指摘は個別の指摘IDを持ち、対象、問題、Evidence、影響、戻し先、戻し先の理由、修正要求、再確認条件を明記する。
 - 出力の最後に、Userが判断する事項を明記する。
+- Reviewerの総合判定は次の4段階とする。
+  - `PASS`：修正が必要な問題を確認していない。
+  - `PASS WITH NOTES`：合格だが、Userが認識すべき注意事項がある。
+  - `REWORK REQUIRED`：修正後の再レビューが必要である。
+  - `BLOCKED`：Evidence不足、仕様矛盾等により判定できない。
+- 4判定の正式な意味と使用条件は `GEM_REVIEWER.md` に記載し、判定定義の正本とする。
+- `personas/education/README.md` には、Reviewerが4段階で判定することと、最終判断はUserが行うことだけを簡潔に記載する。
+- root `README.md` には4判定の詳細を記載しない。
+- `GEM_REVIEWER.md` とREADMEへの反映は、それぞれの再構築・整合工程で行う。
 - 最終判断はUserが行う。
 - CursorはEducation用4Gemのこの運用には含めない。
 - Cursorが実装・testを担当するAIサービス別の実務向け運用と、Education用4Gemを混同しない。

@@ -178,5 +178,14 @@ Code Generator化後のReviewerの戻し先・連携ルールは再構築対象�
 15. Reviewerの出力では、冒頭に指摘IDと戻し先を対応付けた戻し先一覧を表示する。
 16. 各指摘は個別の指摘IDを持ち、対象、問題、Evidence、影響、戻し先、戻し先の理由、修正要求、再確認条件を明記する。
 17. 出力の最後に、Userが判断する事項を明記する。
+18. Reviewerの総合判定は、`PASS / PASS WITH NOTES / REWORK REQUIRED / BLOCKED` の4段階とする。
+19. `PASS` は、修正が必要な問題を確認していない状態とする。
+20. `PASS WITH NOTES` は、合格だが、Userが認識すべき注意事項がある状態とする。
+21. `REWORK REQUIRED` は、修正後の再レビューが必要な状態とする。
+22. `BLOCKED` は、Evidence不足、仕様矛盾等により判定できない状態とする。
+23. 4判定の正式な意味と使用条件は `GEM_REVIEWER.md` に記載し、判定定義の正本とする。
+24. `personas/education/README.md` には、Reviewerが4段階で判定することと、最終判断はUserが行うことだけを簡潔に記載する。
+25. root `README.md` には4判定の詳細を記載しない。
+26. `GEM_REVIEWER.md` とREADMEへの反映は、それぞれの再構築・整合工程で行う。
 
 Cursorが実装・testを担当するAIサービス別の実務向け運用と、Education用4Gemを分離する。Reviewer Persona本文の再構築と検証は未完了である。

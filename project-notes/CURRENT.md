@@ -84,6 +84,15 @@ Reviewer
   - 修正要求
   - 再確認条件
 - 出力の最後に、Userが判断する事項を明記する。
+- Reviewerの総合判定は次の4段階とする。
+  - `PASS`：修正が必要な問題を確認していない。
+  - `PASS WITH NOTES`：合格だが、Userが認識すべき注意事項がある。
+  - `REWORK REQUIRED`：修正後の再レビューが必要である。
+  - `BLOCKED`：Evidence不足、仕様矛盾等により判定できない。
+- 4判定の正式な意味と使用条件は `GEM_REVIEWER.md` に記載し、判定定義の正本とする。
+- `personas/education/README.md` には、Reviewerが4段階で判定することと、最終判断はUserが行うことだけを簡潔に記載する。
+- root `README.md` には4判定の詳細を記載しない。
+- `GEM_REVIEWER.md` とREADMEへの反映は、それぞれの再構築・整合工程で行う。
 - 最終判断はUserが行う。
 - CursorはEducation用4Gemのこの運用には含めない。
 - Cursorが実装・testを担当するAIサービス別の実務向け運用と、Education用4Gemを混同しない。
@@ -254,6 +263,7 @@ Researcher再構築は完了。現在はReviewer再構築を優先する。
 - 2026-08-22、Education用4Gemを操作し、生成コードのIDE反映・検証・最終判断を行う利用者の名称を `User` とすることをユーザー確認済み。
 - 2026-08-22、READMEでは `User（生徒）`、README以外では `User` と表記することをユーザー確認済み。READMEへの反映は4Gem復旧後の整合工程で行う。
 - 2026-08-22、Reviewer出力は、冒頭の戻し先一覧、指摘ごとの対象・問題・Evidence・影響・戻し先・戻し先の理由・修正要求・再確認条件、最後のUser判断事項で構成することをユーザー確認済み。
+- 2026-08-22、Reviewerの総合判定を `PASS / PASS WITH NOTES / REWORK REQUIRED / BLOCKED` の4段階とし、その意味と配置方針をユーザー確認済み。
 - `project-notes/2026-08-22-reviewer-reconstruction-instructions.md` は使用禁止状態へ変更する。
 
 ### Code Generator監査で確認済み
