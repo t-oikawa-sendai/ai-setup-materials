@@ -82,7 +82,29 @@ Status: CONFIRMED DECISION RECORD
 
 ヘッダー表の列名は、`Item（項目）` と `Value（値）` で統一する。
 
-この決定は項目名と列名の統一を確定する。各項目へ設定する具体的な値とDocument IDの採番規則は未決であり、本記録では推測・決定しない。
+この決定は項目名と列名の統一を確定する。Document ID以外の各項目へ設定する具体的な値は未決であり、本記録では推測・決定しない。
+
+## Document ID Scheme
+
+既にDocument IDを持つ次の現行配布文書は、追跡性を維持するため既存IDを変更しない。
+
+- root `README.md`：`STD-PERSONA-INDEX-001`
+- `personas/reference/CHATGPT_PERSONA.md`：`STD-PERSONA-CHATGPT-001`
+- `personas/reference/CLAUDE_PERSONA.md`：`STD-PERSONA-CLAUDE-001`
+- `personas/reference/CURSOR_PERSONA.md`：`STD-PERSONA-CURSOR-001`
+- `personas/reference/GEMINI_PERSONA.md`：`STD-PERSONA-GEMINI-001`
+
+未採番のEducation文書には、次のDocument IDを付与する。
+
+- `personas/education/README.md`：`STD-PERSONA-EDU-INDEX-001`
+- `personas/education/GEM_RESEARCHER_FULL.md`：`STD-PERSONA-EDU-RESEARCHER-FULL-001`
+- `personas/education/GEM_RESEARCHER_LEARNING_DEVELOPMENT.md`：`STD-PERSONA-EDU-RESEARCHER-LEARNING-DEVELOPMENT-001`
+- `personas/education/GEM_RESEARCHER_DEVELOPMENT.md`：`STD-PERSONA-EDU-RESEARCHER-DEVELOPMENT-001`
+- `personas/education/GEM_SOLUTION_PARTNER.md`：`STD-PERSONA-EDU-SOLUTION-PARTNER-001`
+- `personas/education/GEM_CODE_GENERATOR.md`：`STD-PERSONA-EDU-CODE-GENERATOR-001`
+- `personas/education/GEM_REVIEWER.md`：`STD-PERSONA-EDU-REVIEWER-001`
+
+Document IDは文書の固定識別子として扱う。配置変更、版更新、Status変更だけを理由に変更しない。
 
 ## Standard Header Status Values
 
@@ -103,15 +125,14 @@ Status: CONFIRMED DECISION RECORD
 
 この例外は永久固定ではない。解除条件を満たす前にAIが自動変更しない。
 
-この区分はヘッダー適用範囲の確定であり、具体的な各ヘッダー値、Document ID体系、配置変更は未決である。本記録では推測・決定しない。
+この区分はヘッダー適用範囲の確定であり、Document ID以外の具体的な各ヘッダー値と配置変更は未決である。本記録では推測・決定しない。
 
 ## Unresolved Details
 
 次は未決であり、本記録では推測・決定しない。
 
 - `ai-setup-materials` 向けの具体的な文書体系
-- 具体的な各ヘッダー値
-- Document ID体系
+- Document ID以外の具体的な各ヘッダー値
 - 文書の配置
 - 既存文書へ必要な修正
 - 7文書を本Repository内へ配置するか、別管理にするか
