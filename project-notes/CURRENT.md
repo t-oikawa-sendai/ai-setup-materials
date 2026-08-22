@@ -51,7 +51,7 @@ Reviewer
 ### Persona完成状態
 
 - Researcher Persona再構築は完了。
-- Reviewer Personaは未完成。
+- Reviewer Persona再構築は完了。
 - 現行Researcher Personaは次の3ファイル。
   - `personas/education/GEM_RESEARCHER_FULL.md`
   - `personas/education/GEM_RESEARCHER_LEARNING_DEVELOPMENT.md`
@@ -175,7 +175,7 @@ Reviewer
 - CursorはEducation用4Gemのこの運用には含めない。
 - Cursorが実装・testを担当するAIサービス別の実務向け運用と、Education用4Gemを混同しない。
 - `project-notes/2026-08-22-reviewer-reconstruction-instructions.md` は誤った運用混同を前提に作成されたため、実装へ使用しない。
-- `GEM_REVIEWER.md` の再構築仕様と実装は未完成である。
+- `GEM_REVIEWER.md` の再構築仕様、Persona本文への反映、静的検証は完了している。
 
 ### Researcher Module設計
 
@@ -304,7 +304,7 @@ Reviewer
 
 README作成を一時停止し、Education用4Gemと関連管理文書の情報資産を再構築する。
 
-Researcher再構築は完了。現在はReviewer再構築を優先する。
+Researcher再構築とReviewer再構築は完了。現在はEducation用4Gem全体、README、Persona導線の整合を優先する。
 
 ## RECOVERY METHOD
 
@@ -377,6 +377,9 @@ Researcher再構築は完了。現在はReviewer再構築を優先する。
 - `project-notes/2026-08-22-reviewer-user-first-learning-design.md` に、上記設計へ至った誤解、訂正、検討、採用理由、将来のPersona設計教材としての目的を記録済み。
 - `project-notes/2026-08-22-reviewer-reconstruction-instructions.md` は使用禁止状態へ変更する。
 - `project-notes/2026-08-22-reviewer-reconstruction-approved-implementation-instructions.md` を、確認済み事項だけを使用する新しいReviewer実装指示書として作成済み。
+- `personas/education/GEM_REVIEWER.md` を現行仕様に基づいて再構築済み。
+- `project-notes/2026-08-22-reviewer-completion.md` にReviewer完成状態と検証Evidenceを記録済み。
+- Reviewer実装後の独立レビューでコード例境界の不足を修正し、禁止語、必須構造、9つの想定ケース、`git diff --check` を再確認済み。
 
 ### Code Generator監査で確認済み
 
@@ -399,13 +402,13 @@ Researcher再構築は完了。現在はReviewer再構築を優先する。
 
 ## NEXT ACTION
 
-Reviewerの再構築を優先する。
+Reviewerの再構築は完了した。
 
-1. Education用4Gemの確定前提を基準に、Reviewerの再構築に必要な既存資料を再確認する。
-2. 推論と確認済み事実を分離し、資料だけで一意に決まらない事項だけをユーザーへ確認する。
-3. `project-notes/2026-08-22-reviewer-reconstruction-approved-implementation-instructions.md` に従い、実装担当が `personas/education/GEM_REVIEWER.md` を再構築する。
-4. 再構築結果が実装指示書と確認済み仕様に一致するか厳格に検証する。
-5. Reviewer再構築完了後、4Gem全体・README・Persona導線の整合を行う。
+1. Education用4Gem各Personaの現物と確定仕様を照合する。
+2. 4Gem間の責務境界、名称、入出力、User導線の不整合を分離する。
+3. `personas/education/README.md` の旧Researcher構成と `Implementer` 参照を現行仕様へ整合させる。
+4. root `README.md` は確定済みの配置方針に従い、必要範囲だけを整合させる。
+5. Persona作成と導線整合の完了後、`POST-PERSONA HIGHEST PRIORITY / UNRESOLVED` の2項目を最優先で検討する。
 
 ## DO NOT USE AS COMPLETED CURRENT SOURCE
 
@@ -413,7 +416,6 @@ Reviewerの再構築を優先する。
 
 - `project-notes/2026-08-21-education-4gem-design-decisions.md`
 - `project-notes/2026-08-19-4gem-names.md`
-- `personas/education/GEM_REVIEWER.md`
 - `project-notes/2026-08-22-reviewer-reconstruction-instructions.md`
 
 `personas/education/archive/GEM_RESEARCHER.md` は旧版の履歴資料であり、現行Researcher Personaとして使用しない。
@@ -426,6 +428,7 @@ Reviewerの再構築を優先する。
 - `project-notes/2026-08-21-reconstruction-audit-researcher-reviewer.md`
 - `project-notes/2026-08-22-reviewer-user-first-learning-design.md`（ReviewerのUser-first学習設計と決定経緯）
 - `project-notes/2026-08-22-reviewer-reconstruction-approved-implementation-instructions.md`（Reviewer再構築の現行実装指示書）
+- `project-notes/2026-08-22-reviewer-completion.md`（Reviewer完成状態と検証Evidence）
 - `project-notes/2026-08-21-education-4gem-design-decisions.md`（要再構築）
 - `project-notes/2026-08-20-ai-education-staging.md`
 - `project-notes/2026-08-19-4gem-names.md`（旧決定を含む）
