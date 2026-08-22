@@ -150,6 +150,43 @@ Reviewerは完成実装を代行しない。ただし、Userの理解・比較�
 
 この境界の目的は、Reviewerを単なる合否判定役や、反対に完成コード生成役へ偏らせず、Userが問題を理解し、自分で次の行動を選択できるレビューを実現することである。
 
+### Confirmed fields for implementation findings
+
+実装に修正が必要な指摘では、従来の `戻し先: Code Generator` だけを表示する形式を使用しない。次の3項目を表示する。
+
+```text
+対応が必要な工程：実装
+利用可能な支援先：Code Generator
+Userの対応：自力でコード修正、もしくはCode Generatorに修正指示
+```
+
+`対応が必要な工程：実装` は、コードの内容、構造、処理に修正が必要であることを示す。Code GeneratorがIDEへの反映や実環境での実装を行うという意味ではない。
+
+`Userの対応` は、Userの判断だけでなく、選択後に行う作業も示す項目である。
+
+### Required dual-use content for implementation findings
+
+実装に関するすべての修正必須指摘には、レビューが長くなっても、次の両方を含める。簡潔さより学習目的を優先する。
+
+#### User向け説明
+
+- 何が問題か
+- なぜ修正が必要か
+- Userが自力修正する場合の着眼点
+- 修正後に確認すること
+
+#### Code Generatorへの修正指示
+
+- 対象
+- 問題
+- Evidence
+- 修正後に満たす条件
+- 変更してはいけない範囲
+
+`Code Generatorへの修正指示` は、Userが自力修正を選択できないと判断した場合に、そのままコピーしてCode Generatorへ渡せる形にする。
+
+この2つは選択式でどちらか一方を出すものではない。Userがレビューを読んだ時点で、自力修正とCode Generator利用のどちらでも次へ進めるよう、同じレビュー文書内に両方を用意する。
+
 ## Why This Design Was Chosen
 
 ### Preserve learning opportunities
@@ -167,6 +204,8 @@ Reviewerは問題、Evidence、影響、修正条件、選択肢を示す。Code
 ### Make one review useful in both paths
 
 レビュー文書にUser向け説明、技術的Evidence、修正条件、Code Generatorへ渡せる情報を含めれば、Userが自力修正する場合とCode Generatorを利用する場合で別のレビューを作る必要がない。
+
+レビューが長くなることよりも、Userが問題を理解して修正方法を選択できることを優先する。Code Generatorへ渡せる修正指示を最初から含めることで、Userが自力修正は難しいと判断した後に、別の指示書を作り直す必要もなくす。
 
 ### Support future Persona design
 
@@ -186,8 +225,8 @@ Persona設計では、AIの役割名や機能だけでなく、最初の読者�
 
 次はReviewer Persona本文または新しい実装指示書を作成する工程で、既存の確定事項と整合させて決める。
 
-- 出力見出しとして従来の `戻し先` を残すか、`対応が必要な工程`、`利用可能な支援先` 等へ分割するか。
-- User向け説明とCode Generatorへ渡す情報の最終的な見出し・配置。
+- 冒頭一覧の正式な見出し名。
+- `対応が必要な工程`、`利用可能な支援先`、`Userの対応` を、設計・検証・Evidence不足の指摘へ展開するときの具体的な値と表現。
 - 説明用コード例を「必要最小限」と判断するためのPersona本文上の表現。
 - 複数の修正案を提示すべき条件と、省略してよい条件の最終表現。
 
