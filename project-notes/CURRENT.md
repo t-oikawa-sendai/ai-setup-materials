@@ -73,6 +73,19 @@ Reviewer
 - 複数工程に問題がある場合は、問題を分離してそれぞれの戻し先を示す。
 - Evidence不足で戻し先を判断できない場合は推測せず、判断不能であることを明示し、最終判断をUserへ残す。
 - Reviewerは自ら修正せず、戻し先の判断と修正要求までを担当する。
+- Reviewerのレビュー結果は、別のGemへ直接送るのではなく、まずUserへ返す。
+- 従来の「戻し先」は、Userを経由せず別のGemへ直接作業を送ることを意味しない。問題が存在する工程、対応が必要な工程、利用可能な支援先を示すものとして扱う。
+- コードレベルの問題を確認した場合も、修正実施者をCode Generatorへ固定しない。
+- Userはレビュー内容を読み、自分で修正できると判断した場合は手作業でコードを修正できる。User自身による修正は学習面で望ましい場合がある。
+- Userが自分で修正することが難しいと判断した場合は、レビュー内容をCode Generatorへ渡し、コード生成・修正支援を依頼できる。
+- Userが自力修正とCode Generator利用のどちらを選んだ場合も、UserがIDEへの反映、実行、test、動作確認、検証Evidence作成、Reviewerへの再提出を行う。
+- ReviewerのレビューはCode Generatorだけを読者として書かず、学習途中のUserが問題、影響、修正条件、次の作業を理解できる表現にする。
+- Reviewerは完成実装を代行しない。ただし、Userが問題と修正方法を理解・比較できるよう、複数の修正案、各案の利点・欠点・影響・適用条件、疑似コード、必要最小限の説明用コード例を提示できる。
+- Reviewerが提示する説明用コード例は、完成コード、適用済みコード、動作保証済みコードとして扱わない。
+- ファイル全体の完成版コード、そのまま適用することを前提とした大規模な修正コード、複数ファイルにまたがる完成パッチはReviewerの担当にしない。
+- 完成した修正版コードが必要な場合は、Userが自ら作成するか、UserがCode Generatorを利用する。
+- 現行設計の範囲内で選べるコードレベルの案はReviewerが比較できる。採用案によって要求、設計、責務が変わる場合は、Reviewerが決定せずSolution Partnerでの再検討を示す。
+- ReviewerのUser-first学習設計に至った経緯、採用理由、責務境界は `project-notes/2026-08-22-reviewer-user-first-learning-design.md` を正本とする。
 - Reviewerの出力では、冒頭に指摘IDと戻し先を対応付けた戻し先一覧を表示する。
 - 各指摘は個別の指摘IDを持ち、次を明記する。
   - 対象
@@ -278,6 +291,10 @@ Researcher再構築は完了。現在はReviewer再構築を優先する。
 - 2026-08-22、Reviewer出力は、冒頭の戻し先一覧、指摘ごとの対象・問題・Evidence・影響・戻し先・戻し先の理由・修正要求・再確認条件、最後のUser判断事項で構成することをユーザー確認済み。
 - 2026-08-22、Reviewerの総合判定を `PASS / PASS WITH NOTES / REWORK REQUIRED / BLOCKED` の4段階とし、その意味と配置方針をユーザー確認済み。
 - 2026-08-22、Reviewerは詳細レビュー前に受付確認を行い、レビュー不能時は初心者のUserが次の作業・準備物・具体的なEvidence例・提出方法・再レビュー条件を理解できる案内を提示することをユーザー確認済み。
+- 2026-08-22、コードレベルの指摘も最初にUserへ返し、Userが自力修正またはCode Generator利用を選択するUser-firstフローをユーザー確認済み。
+- 2026-08-22、User自身によるコード修正を許可し、学習面で望ましい場合があることをユーザー確認済み。
+- 2026-08-22、Reviewerは完成実装を代行しない一方、学習・比較のための複数案、疑似コード、必要最小限の説明用コード例を提示できることをユーザー確認済み。
+- `project-notes/2026-08-22-reviewer-user-first-learning-design.md` に、上記設計へ至った誤解、訂正、検討、採用理由、将来のPersona設計教材としての目的を記録済み。
 - `project-notes/2026-08-22-reviewer-reconstruction-instructions.md` は使用禁止状態へ変更する。
 
 ### Code Generator監査で確認済み
@@ -292,7 +309,7 @@ Reviewerの再構築を優先する。
 
 1. Education用4Gemの確定前提を基準に、Reviewerの再構築に必要な既存資料を再確認する。
 2. 推論と確認済み事実を分離し、資料だけで一意に決まらない事項だけをユーザーへ確認する。
-3. 誤った `project-notes/2026-08-22-reviewer-reconstruction-instructions.md` を使用せず、確認済み事項だけで新しい実装指示書を作成する。
+3. 誤った `project-notes/2026-08-22-reviewer-reconstruction-instructions.md` を使用せず、`project-notes/2026-08-22-reviewer-user-first-learning-design.md` を含む確認済み事項だけで新しい実装指示書を作成する。
 4. Reviewer再構築完了後、4Gem全体・README・Persona導線の整合を行う。
 
 ## DO NOT USE AS COMPLETED CURRENT SOURCE
@@ -312,6 +329,7 @@ Reviewerの再構築を優先する。
 - `project-notes/2026-08-21-reconstruction-confirmed-facts.md`（Researcher再構築途中の確定事項）
 - `project-notes/2026-08-21-researcher-completion.md`（Researcher完成状態）
 - `project-notes/2026-08-21-reconstruction-audit-researcher-reviewer.md`
+- `project-notes/2026-08-22-reviewer-user-first-learning-design.md`（ReviewerのUser-first学習設計と決定経緯）
 - `project-notes/2026-08-21-education-4gem-design-decisions.md`（要再構築）
 - `project-notes/2026-08-20-ai-education-staging.md`
 - `project-notes/2026-08-19-4gem-names.md`（旧決定を含む）
