@@ -64,6 +64,41 @@ Personaの正式な出力項目名、判定名、状態名、固定文言等は�
 
 英語名と日本語名の対応は、既存の意味、責務、利用条件を変えないものに限る。翻訳を理由に、説明、要件、必須項目、処理、責務を追加または削除しない。
 
+### Temporary Notation Exceptions Confirmed by Audit
+
+現行Personaの出力形式を監査し、次を表記統一の一時例外として維持する。例外対象は記載した固定項目名・固定テンプレートに限定し、その周囲の通常の文書タイトル・章節見出しまで例外へ広げない。
+
+1. Education Researcher 3文書
+   - 例外箇所：`Active Modules`、`Solution Partnerへの引き渡し` 内の引き渡し項目名、`出力` 内の出力項目名
+   - 根拠：現行Researcherの有効Module表示、引き渡し内容、出力順を構成する機能仕様である。
+   - 維持理由：表記変更がGemの固定出力・引き渡し契約を変更し得るため。
+2. `personas/education/GEM_CODE_GENERATOR.md`
+   - 例外箇所：`Code Generation Report` と、その配下の固定出力項目名
+   - 根拠：Code GeneratorがUserへ返す出力形式を定義している。
+   - 維持理由：項目名の変更がCode Generatorの出力契約変更になるため。
+3. `personas/education/GEM_SOLUTION_PARTNER.md`
+   - 例外箇所：`Code Generatorへのコード生成用引き渡し` 内の固定項目名と、`出力` 内の固定出力項目名
+   - 根拠：Code Generatorへの引き渡し内容とSolution Partnerの回答順を定義している。
+   - 維持理由：項目名の変更が引き渡し・出力契約変更になるため。
+4. `personas/education/GEM_REVIEWER.md`
+   - 例外箇所：`総合判定`、`対応方針一覧`、`修正案一覧表`、各指摘の必須項目、`User向け説明`、`Code Generatorへの修正指示`、`Solution Partnerとの打ち合わせ用情報`、`Userが判断する事項`、`最終設計ドキュメント更新情報`、判定値、最終設計ドキュメントの状態値、固定案内文
+   - 根拠：Reviewer再構築でUser確認済みの正式名称・出力契約であり、`project-notes/CURRENT.md` のReviewer再構築仕様に記録されている。
+   - 維持理由：表記変更がReviewerの確定済み機能仕様を変更するため。
+5. `personas/reference/CLAUDE_PERSONA.md`
+   - 例外箇所：`本格レビュー` の fenced Markdownテンプレート内の固定見出し・項目名
+   - 根拠：Claude Personaのレビュー出力形式を定義している。
+   - 維持理由：テンプレート変更が出力契約変更になるため。
+6. `personas/reference/CURSOR_PERSONA.md`
+   - 例外箇所：fenced code内のコードヘッダー項目名と、`Report` の fenced Markdownテンプレート内の固定見出し・項目名
+   - 根拠：Cursor Personaの生成コードヘッダーと作業報告形式を定義している。
+   - 維持理由：テンプレート変更が生成物・報告契約変更になるため。
+7. `personas/reference/GEMINI_PERSONA.md`
+   - 例外箇所：`比較・技術選定調査` の fenced Markdownテンプレート内の固定見出し・項目名・表の列名
+   - 根拠：Gemini Personaの比較調査出力形式を定義している。
+   - 維持理由：テンプレート変更が出力契約変更になるため。
+
+各例外の再検討・解除条件は共通とする。該当Personaの出力仕様または引き渡し仕様を変更対象として別途検討し、Userが仕様変更を明示承認した場合に限り、`English（日本語）` 表記への統合を再検討する。解除条件を満たす前にAIが自動変更しない。
+
 ## Header Application Scope
 
 現行配布文書には、統一した標準ヘッダーを適用する。現行配布文書には、次を含む。
@@ -158,6 +193,28 @@ Archive Noticeの置換・追加後も、区切り線より下にある旧本文
 
 Document IDは文書の固定識別子として扱う。配置変更、版更新、Status変更だけを理由に変更しない。
 
+## Header Value Facts and Rules
+
+`Created Date（作成日）` は、既存文書ではGit履歴上の初回追加日を使用する。確認結果は次のとおりである。
+
+- `README.md`：`2026-08-17`
+- `personas/education/README.md`：`2026-08-19`
+- `personas/education/GEM_RESEARCHER_FULL.md`：`2026-08-21`
+- `personas/education/GEM_RESEARCHER_LEARNING_DEVELOPMENT.md`：`2026-08-21`
+- `personas/education/GEM_RESEARCHER_DEVELOPMENT.md`：`2026-08-21`
+- `personas/education/GEM_SOLUTION_PARTNER.md`：`2026-08-19`
+- `personas/education/GEM_CODE_GENERATOR.md`：`2026-08-20`
+- `personas/education/GEM_REVIEWER.md`：`2026-08-19`
+- `personas/reference/CHATGPT_PERSONA.md`：`2026-08-17`
+- `personas/reference/CLAUDE_PERSONA.md`：`2026-08-17`
+- `personas/reference/CURSOR_PERSONA.md`：`2026-08-17`
+- `personas/reference/GEMINI_PERSONA.md`：`2026-08-17`
+- 新設する `personas/reference/README.md`：実際の初回作成日
+
+`Last Updated（最終更新日）` は、その文書を実際に更新した日をISO 8601形式で記載する。今回の文書適合性修正で変更する文書は `2026-08-22` とする。
+
+`Owner（管理者）` は、既存ヘッダーとRepository所有者表記に合わせ、全現行配布文書で `t-oikawa-sendai` とする。
+
 ## Reference Index and Routing
 
 `personas/reference/README.md` をReference領域の正式な入口・索引として配置する。このREADMEは、次の責務に限定する。
@@ -226,14 +283,13 @@ Persona同士をヘッダーから総当たりで相互リンクしない。区�
 
 この例外は永久固定ではない。解除条件を満たす前にAIが自動変更しない。
 
-この区分はヘッダー適用範囲の確定であり、作成日、最終更新日、管理者の具体値は未決である。本記録では推測・決定しない。
+この区分はヘッダー適用範囲、各ヘッダー項目、Document ID、Version・Status運用、作成日、最終更新日、管理者、Related Documents導線の確定である。
 
 ## Unresolved Details
 
 次は未決であり、本記録では推測・決定しない。
 
 - `ai-setup-materials` 向けの具体的な文書体系
-- 作成日、最終更新日、管理者の具体値
 - 既存文書へ必要な修正
 - 7文書を本Repository内へ配置するか、別管理にするか
 - 現在の別Repositoryとの不整合をどのように解消するか

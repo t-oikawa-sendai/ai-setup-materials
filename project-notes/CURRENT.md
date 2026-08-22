@@ -82,13 +82,18 @@ Reviewer
 - `English（日本語）` 表記は、文書タイトル、章・節見出し、文書管理項目、表の列名へ適用する。通常の本文・説明文には英語併記を機械適用しない。
 - Personaの正式な出力項目名、判定名、状態名、固定文言等は、表記変更によって確定済みの機能仕様または出力契約が変わる場合、修正せず一時例外として記録する。例外ではない日本語のみ、または英語のみの構造上の項目名は統一対象とする。
 - 英語名と日本語名の対応は既存の意味・責務・利用条件を変えないものに限り、翻訳を理由に説明、要件、必須項目、処理、責務を追加または削除しない。
+- 現物監査により、Education Researcher 3文書の固定Module・引き渡し・出力項目、Code Generatorの固定出力項目、Solution Partnerの固定引き渡し・出力項目、ReviewerのUser確認済み正式出力項目・判定・状態・固定文言、Reference Claude・Cursor・Geminiのfencedテンプレート内固定項目を、一時的な表記例外として特定した。
+- 上記例外は固定出力・引き渡し契約に限定し、周囲の通常の文書タイトル・章節見出しへ広げない。該当仕様を別途検討し、Userが仕様変更を明示承認した場合に限り表記統合を再検討する。詳細は `project-notes/2026-08-22-design-document-standard-application-scope.md` を正本とする。
 - root `README.md`、`personas/education/README.md`、現行Education Persona、新設する `personas/reference/README.md`、`personas/reference/` の現行Personaを現行配布文書とし、統一した標準ヘッダーの適用対象とする。
 - 現行配布文書の標準ヘッダーは、`Document ID（文書ID）`、`Version（バージョン）`、`Status（ステータス）`、`Created Date（作成日）`、`Last Updated（最終更新日）`、`Owner（管理者）`、`Related Documents（関連文書）` の7項目で統一する。ヘッダー表の列名は `Item（項目）` と `Value（値）` で統一する。
-- 標準ヘッダーについて、項目名、列名、Status体系、Document ID体系、適合確認中と初回承認時のVersion・Status運用、Related Documentsの階層規則を確定した。作成日、最終更新日、管理者の具体値は未決であり、推測しない。
+- 標準ヘッダーについて、項目名、列名、Status体系、Document ID体系、適合確認中と初回承認時のVersion・Status運用、Created Date、Last Updated、Owner、Related Documentsの階層規則を確定した。
 - 既にDocument IDを持つroot `README.md` と `personas/reference/` の現行Personaは、追跡性を維持するため既存IDを変更しない。
 - 未採番のEducation文書には、`personas/education/README.md`：`STD-PERSONA-EDU-INDEX-001`、`GEM_RESEARCHER_FULL.md`：`STD-PERSONA-EDU-RESEARCHER-FULL-001`、`GEM_RESEARCHER_LEARNING_DEVELOPMENT.md`：`STD-PERSONA-EDU-RESEARCHER-LEARNING-DEVELOPMENT-001`、`GEM_RESEARCHER_DEVELOPMENT.md`：`STD-PERSONA-EDU-RESEARCHER-DEVELOPMENT-001`、`GEM_SOLUTION_PARTNER.md`：`STD-PERSONA-EDU-SOLUTION-PARTNER-001`、`GEM_CODE_GENERATOR.md`：`STD-PERSONA-EDU-CODE-GENERATOR-001`、`GEM_REVIEWER.md`：`STD-PERSONA-EDU-REVIEWER-001` を付与する。
 - 新設する `personas/reference/README.md` には `STD-PERSONA-REFERENCE-INDEX-001` を付与する。
 - Document IDは固定識別子として扱い、配置変更、版更新、Status変更だけを理由に変更しない。
+- 既存12文書の `Created Date（作成日）` はGit履歴上の初回追加日を使用し、新設するReference READMEは実際の初回作成日を使用する。具体値は適用範囲記録を正本とする。
+- `Last Updated（最終更新日）` は実際の更新日をISO 8601形式で記載し、今回の適合性修正で変更する文書は `2026-08-22` とする。
+- `Owner（管理者）` は全現行配布文書で `t-oikawa-sendai` とする。
 - `personas/reference/README.md` をReference領域の正式な入口・索引として配置し、Reference Personaの目的、Education用4Gemとの違い、Educationの現行手順として流用しない注意、現在利用可能なReference文書への索引、root `README.md` へ戻る導線、必要最小限のEducation READMEへの案内を記載する。
 - Reference索引を現在の4文書専用として固定しない。将来7文書に追加資料を加えた構成へ増える可能性を受け入れ、承認された文書の追加時に索引を更新できる構成とする。ただし、将来数を推測して未確定文書を先に作成しない。
 - root `README.md` はEducation領域とReference領域の入口を示し、Reference Personaは同一ディレクトリの `README.md` へ戻る導線を持つ。
@@ -112,7 +117,7 @@ Reviewer
 - 利用禁止は見出し直下の警告と管理表の `Usage（利用可否）` の二重で表示し、Statusだけに利用禁止の意味を依存させない。
 - 既存Noticeの `SUPERSEDED` はNotice内で `Deprecated` へ統一し、置換関係は `Replaced By（置換先）` で維持する。Noticeがない `personas/education/archive/GEM_RESEARCHER.md` にも同形式を旧本文の前へ追加する。
 - Archive Noticeの置換・追加後も、区切り線より下の旧本文・旧ヘッダーは変更しない。
-- この区分はヘッダー適用範囲の確定であり、作成日、最終更新日、管理者の具体値は未決である。
+- この区分は、各ヘッダー項目、Document ID、Version・Status運用、作成日、最終更新日、管理者、Related Documents導線の確定である。
 - ヘッダー適用範囲の背景意図は、配布文書の一貫性と追跡可能性を確保しつつ、内部記録への過剰適用とArchive本文の改変を防ぐことである。
 - 背景意図は、標準の目的を維持しつつ、性質の異なるRepositoryへアプリ用テンプレートを機械適用して不要な文書を増やすことを防ぐことである。
 - 表記統一に関する背景意図は、文書の一貫性を高めつつ、外見上の統一のために確定済み仕様を壊すことを防ぐことである。
