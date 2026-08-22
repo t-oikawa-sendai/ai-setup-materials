@@ -68,6 +68,22 @@ Status: CONFIRMED DECISION RECORD
 - 置換先
 - 旧本文を保存していること
 
+## Standard Header Fields
+
+現行配布文書の標準ヘッダーは、次の7項目で統一する。
+
+- `Document ID（文書ID）`
+- `Version（バージョン）`
+- `Status（ステータス）`
+- `Created Date（作成日）`
+- `Last Updated（最終更新日）`
+- `Owner（管理者）`
+- `Related Documents（関連文書）`
+
+ヘッダー表の列名は、`Item（項目）` と `Value（値）` で統一する。
+
+この決定は項目名と列名の統一だけを確定する。各項目へ設定する具体的な値、使用するStatus体系、Document IDの採番規則は未決であり、本記録では推測・決定しない。
+
 この区分はヘッダー適用範囲の確定であり、具体的な各ヘッダー値、状態名、Document ID体系、配置変更は未決である。本記録では推測・決定しない。
 
 ## Unresolved Details
