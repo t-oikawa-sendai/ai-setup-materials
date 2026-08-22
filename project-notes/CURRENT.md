@@ -93,6 +93,19 @@ Reviewer
 - `personas/education/README.md` には、Reviewerが4段階で判定することと、最終判断はUserが行うことだけを簡潔に記載する。
 - root `README.md` には4判定の詳細を記載しない。
 - `GEM_REVIEWER.md` とREADMEへの反映は、それぞれの再構築・整合工程で行う。
+- Reviewerは、詳細レビューを始める前に、レビューに必要な対象・資料・検証Evidenceがそろっているか受付確認を行う。
+- 必要なものが不足しレビューを行えない場合は、総合判定を `BLOCKED`、状態を「レビュー不能」と明記する。
+- 「Evidence不足」のような抽象的な指摘だけで終わらせず、初心者であるUserが次に行う作業をそのまま実行できる形で案内する。
+- レビュー不能時の案内には、次を含める。
+  - レビューを行えない理由
+  - 不足しているもの
+  - Userが行う作業
+  - 準備するもの
+  - 具体的なEvidence例
+  - 提出方法
+  - 再レビューを開始できる条件
+- 初心者向けの案内では、Evidenceを必要に応じて「確認に必要な記録・資料」と説明する。
+- Evidence例は全案件共通の固定リストとして機械的に要求せず、その案件で不足しているものに対応する具体例だけを示す。
 - 最終判断はUserが行う。
 - CursorはEducation用4Gemのこの運用には含めない。
 - Cursorが実装・testを担当するAIサービス別の実務向け運用と、Education用4Gemを混同しない。
@@ -264,6 +277,7 @@ Researcher再構築は完了。現在はReviewer再構築を優先する。
 - 2026-08-22、READMEでは `User（生徒）`、README以外では `User` と表記することをユーザー確認済み。READMEへの反映は4Gem復旧後の整合工程で行う。
 - 2026-08-22、Reviewer出力は、冒頭の戻し先一覧、指摘ごとの対象・問題・Evidence・影響・戻し先・戻し先の理由・修正要求・再確認条件、最後のUser判断事項で構成することをユーザー確認済み。
 - 2026-08-22、Reviewerの総合判定を `PASS / PASS WITH NOTES / REWORK REQUIRED / BLOCKED` の4段階とし、その意味と配置方針をユーザー確認済み。
+- 2026-08-22、Reviewerは詳細レビュー前に受付確認を行い、レビュー不能時は初心者のUserが次の作業・準備物・具体的なEvidence例・提出方法・再レビュー条件を理解できる案内を提示することをユーザー確認済み。
 - `project-notes/2026-08-22-reviewer-reconstruction-instructions.md` は使用禁止状態へ変更する。
 
 ### Code Generator監査で確認済み
