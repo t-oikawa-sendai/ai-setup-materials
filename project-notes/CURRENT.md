@@ -212,6 +212,10 @@ Researcher再構築は完了。現在はReviewer再構築を優先する。
 
 - 2026-08-19版 `GEM_REVIEWER.md` はCode Generator追加前のPersona。
 - 戻し先・リファクタリング担当として `Implementer` を含むため、その箇所は現行Education仕様としてそのまま利用しない。
+- 2026-08-19のReviewer方針・役割意図・Persona追加と、2026-08-20のCode Generator追加をcommit単位で時系列確認済み。
+- `GEM_REVIEWER.md` はCode Generator追加後に改訂されていない。
+- 旧Reviewerの名称非依存部分を再利用候補、Implementer依存部分を現行利用不可、Code Generator化後の連携を未解決として分離済み。
+- Reviewerの対象範囲、役割別の戻し先、実環境検証Evidenceの作成担当、最終判断者は、Repository内の一次資料だけでは一意に確定できない。
 
 ### Code Generator監査で確認済み
 
@@ -223,11 +227,12 @@ Researcher再構築は完了。現在はReviewer再構築を優先する。
 
 Reviewerの再構築を優先する。
 
-1. `GEM_REVIEWER.md` の現行利用可能な責務と、Code Generator追加によって影響を受ける記述を分離する。
-2. GitHub上のReviewer関連決定記録を時系列で再確認する。
-3. Code Generator化後の戻し先・連携ルールを、既存資料で一意に決まる範囲まで再構築する。
-4. 資料だけで決まらないReviewer項目のみ、まとめてユーザーへAskMeする。
-5. Reviewer再構築完了後、4Gem全体・README・Persona導線の整合を行う。
+1. Reviewerのレビュー対象範囲をユーザーへ確認する。
+2. Code Generator、Solution Partner、Researcherへの戻し先ルールをユーザーへ確認する。
+3. 実環境での実行・build・test・IDE確認等のEvidenceを作成する担当と、Reviewerへの引き渡し方法をユーザーへ確認する。
+4. Reviewerの判定範囲とHumanの最終判断をユーザーへ確認する。
+5. 確認結果を決定記録へ保存し、`GEM_REVIEWER.md` の具体的な再構築指示書を作成する。
+6. Reviewer再構築完了後、4Gem全体・README・Persona導線の整合を行う。
 
 ## DO NOT USE AS COMPLETED CURRENT SOURCE
 

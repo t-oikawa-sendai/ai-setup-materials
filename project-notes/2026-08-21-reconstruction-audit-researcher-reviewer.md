@@ -1,6 +1,6 @@
 # Reconstruction Audit: Researcher / Reviewer
 
-Last Updated: 2026-08-21
+Last Updated: 2026-08-22
 Status: RECOVERY / VERIFIED-HISTORY
 
 ## Purpose
@@ -99,3 +99,49 @@ Code Generator化後のReviewerの戻し先・連携ルールは再構築対象�
 - Code Generator化後のReviewerの戻し先・連携ルール。
 
 上記UNRESOLVEDは、追加資料・履歴で一意に確認できない限り、AIが推論で確定しない。
+
+---
+
+## Reviewer reconstruction audit: 2026-08-22
+
+### Rechecked primary sources
+
+- commit `d002ba0afa44df05dc9b7d759ae457a571b96c16`（2026-08-19）で、Reviewerのリファクタリング評価方針が記録された。
+- commit `60864d9267976b72c32caed7d3be74a3f1bfd931`（2026-08-19）で、Reviewerの役割意図と生徒向け説明が記録された。
+- commit `6e673d557a813ca34b16e44be0735772e47ed617`（2026-08-19）で、現在の `GEM_REVIEWER.md` が追加された。
+- commit `85d024538830bea9cbd61a710148068786c3b4cd`（2026-08-20）で、`GEM_CODE_GENERATOR.md` が追加された。
+- Git履歴上、`GEM_REVIEWER.md` はCode Generator追加後に改訂されていない。
+
+### CURRENT / USER-CONFIRMED
+
+- 現行Education用4Gemのコード生成担当は `Code Generator` であり、`Implementer` ではない。
+- `Code Generator` と、Cursor等で実環境への適用を担当する `Implementer` は別概念である。
+- Reviewer Personaは未完成である。
+
+### VERIFIED-HISTORY / REUSABLE CANDIDATE
+
+次は2026-08-19のReviewer資料で確認でき、Code Generator追加による直接の名称依存がない。ただし、Reviewer完成仕様としての再確認前であるため、現時点では再利用候補に留める。
+
+- 設計ドキュメント、実装内容、テスト・検証結果を独立した立場から評価する。
+- 要求・設計との整合性、品質、保守性、セキュリティを確認する。
+- 問題、理由、影響、戻す工程を明示する。
+- Evidenceのない指摘を確定事項として扱わない。
+- 好みや「より綺麗になる」「将来役立つかもしれない」だけを理由に変更を要求しない。
+- レビュー結果、判定、指摘事項、修正要求を文書として残し、生徒が次の対応を判断できる状態にする。
+
+### SUPERSEDED / NOT SAFE AS CURRENT
+
+- ReviewerからEducation用4Gemの `Implementer` へ修正を戻す記述。
+- リファクタリングの実施担当をEducation用4Gemの `Implementer` とする記述。
+- Code Generatorが、実環境への適用、IDE操作、Git操作、品質保証判定まで担当するという解釈。
+
+### UNRESOLVED AFTER RECHECK
+
+Repository内の一次資料とGit履歴だけでは、次を一意に確定できない。
+
+1. Reviewerの対象を、Researcherの調査結果、Solution Partnerの設計成果物、Code Generatorのコード生成結果、Humanまたは外部実装担当による実環境の検証Evidenceのどこまでとするか。
+2. コードレベルの修正をCode Generatorへ、設計変更をSolution Partnerへ、事実・Evidenceの再調査をResearcherへ戻す役割別ルーティングを採用するか。
+3. Code Generatorが実環境へ適用・検証しない前提で、実行・build・test・IDE確認等のEvidenceを誰が作成し、Reviewerへ渡すか。
+4. Reviewerの判定は問題発見と修正要求までとし、最終判断をHumanに残すか。
+
+上記は旧 `Implementer` の責務をCode Generatorへ機械的に置換せず、ユーザー確認後にReviewer完成仕様へ反映する。
