@@ -166,5 +166,7 @@ Code Generator化後のReviewerの戻し先・連携ルールは再構築対象�
 3. Reviewerは生成コードと生徒が作成した検証Evidenceを評価する。
 4. 最終判断は生徒が行う。
 5. CursorはEducation用4Gemのこの運用には含めない。
+6. Researcherの調査結果はReviewerの評価対象に含めない。
+7. Solution Partnerの設計成果物はReviewerの評価対象に含め、設計の論理的矛盾点などを検証する。
 
 Cursorが実装・testを担当するAIサービス別の実務向け運用と、Education用4Gemを分離する。Reviewer Persona本文の再構築と検証は未完了である。

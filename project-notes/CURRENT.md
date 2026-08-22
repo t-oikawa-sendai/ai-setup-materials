@@ -64,6 +64,8 @@ Reviewer
 - 生徒は、Code Generatorが生成したコードをVS Code等のIDEへコピーする。
 - 生徒は、IDEへ反映したコードの実行、test、動作確認を行い、その検証Evidenceを作成する。
 - Reviewerは、Code Generatorが生成したコードと、生徒が作成した検証Evidenceを評価する。
+- Reviewerは、Solution Partnerの設計成果物を評価対象に含め、設計の論理的矛盾点などを検証する。
+- Researcherの調査結果はReviewerの評価対象に含めない。
 - 最終判断は生徒が行う。
 - CursorはEducation用4Gemのこの運用には含めない。
 - Cursorが実装・testを担当するAIサービス別の実務向け運用と、Education用4Gemを混同しない。
@@ -229,6 +231,7 @@ Researcher再構築は完了。現在はReviewer再構築を優先する。
 - 旧Reviewerの名称非依存部分を再利用候補、Implementer依存部分を現行利用不可、Code Generator化後の連携を未解決として分離済み。
 - AIがEducation用4GemとCursor等の実務向け運用を混同し、Reviewerの確定記録と実装指示書へ誤った外部実装担当を混入させた。
 - 2026-08-22、ユーザー確認により、Code Generatorがコード生成、生徒がIDEへの反映・実行・test・動作確認、Reviewerが生成コードと生徒の検証Evidenceを評価、最終判断は生徒、CursorはEducation用4Gemに含めないという前提へ是正した。
+- 2026-08-22、ReviewerはResearcherの調査結果を評価対象に含めず、Solution Partnerの設計成果物を設計の論理的矛盾点などの検証対象に含めることをユーザー確認済み。
 - `project-notes/2026-08-22-reviewer-reconstruction-instructions.md` は使用禁止状態へ変更する。
 
 ### Code Generator監査で確認済み
