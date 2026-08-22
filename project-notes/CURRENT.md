@@ -500,7 +500,11 @@ Persona本体の機能設計は完了している。現在は次の順で扱う�
 
 Reviewerを含むEducation用4Gem Persona本体の機能設計は完了している。Reviewerの機能設計は再検討対象に戻さない。
 
-次は、今回確定した適用境界に基づき、既存文書・Persona・READMEの文書標準・表記・文書間導線への適合性を現物で再評価し、必要な復旧範囲を確定する。現行配布文書、`project-notes/`、`archive/` の区分を前提にヘッダーを監査し、具体的な各ヘッダー値、状態名、Document ID体系は未決事項として分離する。表記不統一と、正本で確定した仕様上の一時例外も分離して監査し、例外箇所、根拠、維持理由、再検討条件または解除条件を追跡可能にする。例外解除はAIが自動決定せず、別途の仕様検討とUser承認を必要とする。これはPersonaの機能設計再構築とは分離して行う。
+文書標準・表記・文書間導線・保存構造の監査と、必要な復旧範囲の確定は完了した。次は `project-notes/2026-08-22-document-conformance-recovery-instructions.md` に従い、現行配布文書13件とArchive Notice 3件へ確定事項を適用する。Personaの機能仕様、固定出力契約、fenced内容、Archive旧本文・旧ヘッダーは変更しない。
+
+適用後は、ヘッダー13件、Document ID一意性、Created Date、Version・Status、Owner、Related Documents、相対リンク、`English（日本語）` の通常見出し、一時例外、Archive利用禁止の二重表示、Archive旧本文のbyte一致、`git diff --check` を検証する。
+
+すべての適合性確認と必要な修正が完了しても、自動的に `Version 1.0 / Status Approved` へ変更しない。Userへ `Version 1.0（Status: Approved）へ変更してよいか` と明示的に確認する。
 
 その完了後、次の順で検討する。
 
@@ -531,6 +535,7 @@ Reviewerを含むEducation用4Gem Persona本体の機能設計は完了してい
 - `project-notes/2026-08-22-education-4gem-readme-alignment-instructions.md`（4Gem・README整合実装指示書）
 - `project-notes/2026-08-22-education-4gem-readme-alignment-completion.md`（4Gem・README整合完了状態と検証Evidence）
 - `project-notes/2026-08-22-design-document-standard-application-scope.md`（設計文書標準の適用境界）
+- `project-notes/2026-08-22-document-conformance-recovery-instructions.md`（文書適合性復旧の現行実装指示書）
 - `project-notes/2026-08-21-education-4gem-design-decisions.md`（旧決定を含み、単独で現行完成仕様として使用しない）
 - `project-notes/2026-08-20-ai-education-staging.md`
 - `project-notes/2026-08-19-4gem-names.md`（旧決定を含み、単独で現行完成仕様として使用しない）
