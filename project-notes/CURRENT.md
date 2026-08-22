@@ -81,16 +81,18 @@ Reviewer
 - 例外は「統一漏れ」と混同せず、例外箇所、根拠、維持理由、再検討条件または解除条件を追跡可能にする。例外を理由に未期限・無条件で不統一を固定化せず、例外解除をAIが自動決定しない。表記統一を理由にPersonaの機能仕様を再設計しない。
 - root `README.md`、`personas/education/README.md`、現行Education Persona、`personas/reference/` の現行Personaを現行配布文書とし、統一した標準ヘッダーの適用対象とする。
 - 現行配布文書の標準ヘッダーは、`Document ID（文書ID）`、`Version（バージョン）`、`Status（ステータス）`、`Created Date（作成日）`、`Last Updated（最終更新日）`、`Owner（管理者）`、`Related Documents（関連文書）` の7項目で統一する。ヘッダー表の列名は `Item（項目）` と `Value（値）` で統一する。
-- 標準ヘッダーについて、項目名、列名、Status体系、Document ID体系を確定した。Document ID以外の各項目の具体値は未決であり、推測しない。
+- 標準ヘッダーについて、項目名、列名、Status体系、Document ID体系、適合確認中と初回承認時のVersion・Status運用を確定した。作成日、最終更新日、管理者、関連文書の具体値は未決であり、推測しない。
 - 既にDocument IDを持つroot `README.md` と `personas/reference/` の現行Personaは、追跡性を維持するため既存IDを変更しない。
 - 未採番のEducation文書には、`personas/education/README.md`：`STD-PERSONA-EDU-INDEX-001`、`GEM_RESEARCHER_FULL.md`：`STD-PERSONA-EDU-RESEARCHER-FULL-001`、`GEM_RESEARCHER_LEARNING_DEVELOPMENT.md`：`STD-PERSONA-EDU-RESEARCHER-LEARNING-DEVELOPMENT-001`、`GEM_RESEARCHER_DEVELOPMENT.md`：`STD-PERSONA-EDU-RESEARCHER-DEVELOPMENT-001`、`GEM_SOLUTION_PARTNER.md`：`STD-PERSONA-EDU-SOLUTION-PARTNER-001`、`GEM_CODE_GENERATOR.md`：`STD-PERSONA-EDU-CODE-GENERATOR-001`、`GEM_REVIEWER.md`：`STD-PERSONA-EDU-REVIEWER-001` を付与する。
 - Document IDは固定識別子として扱い、配置変更、版更新、Status変更だけを理由に変更しない。
 - 標準ヘッダーの `Status（ステータス）` は、`Draft`、`Review`、`Approved`、`Deprecated` の4状態で統一する。
+- 文書適合性の確認中は、全12件の現行配布文書を `Version（バージョン）: 0.1`、`Status（ステータス）: Review` とする。
+- ヘッダー、表記、文書間導線、ディレクトリ構造の確認と必要な修正が完了しても、AIの判断だけで初回承認版へ変更しない。AIはUserへ `Version 1.0（Status: Approved）へ変更してよいか` と明示的に確認し、Userが承認した場合に限り `Version（バージョン）: 1.0`、`Status（ステータス）: Approved` へ変更する。
 - `personas/education/GEM_REVIEWER.md` に記載する最終設計ドキュメントの `DRAFT`、`CURRENT`、`SUPERSEDED` は、標準ヘッダーの状態とは責務が異なるUser確認済みの機能仕様である。表記統一だけを理由に変更せず、一時例外として維持する。
 - 上記例外は永久固定ではない。最終設計ドキュメントの状態仕様を変更対象として別途検討し、Userが仕様変更を明示承認した場合に限り表記統合を再検討する。解除条件を満たす前にAIが自動変更しない。
 - `project-notes/` は作業状態・判断経緯・実装指示・監査Evidence等の内部記録であり、配布文書用の完全ヘッダーを機械適用せず、既存の簡易ヘッダーを維持する。
 - `archive/` は履歴本文を保存する領域であり、旧本文・旧ヘッダーを書き換えず、冒頭のArchive Noticeだけを統一する。Archive Noticeでは、履歴資料であること、現行利用禁止、状態、置換先、旧本文を保存していることを追跡可能にする。
-- この区分はヘッダー適用範囲の確定であり、Document ID以外の具体的な各ヘッダー値と配置変更は未決である。
+- この区分はヘッダー適用範囲の確定であり、作成日、最終更新日、管理者、関連文書の具体値と配置変更は未決である。
 - ヘッダー適用範囲の背景意図は、配布文書の一貫性と追跡可能性を確保しつつ、内部記録への過剰適用とArchive本文の改変を防ぐことである。
 - 背景意図は、標準の目的を維持しつつ、性質の異なるRepositoryへアプリ用テンプレートを機械適用して不要な文書を増やすことを防ぐことである。
 - 表記統一に関する背景意図は、文書の一貫性を高めつつ、外見上の統一のために確定済み仕様を壊すことを防ぐことである。

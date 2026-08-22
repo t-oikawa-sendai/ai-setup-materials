@@ -82,7 +82,7 @@ Status: CONFIRMED DECISION RECORD
 
 ヘッダー表の列名は、`Item（項目）` と `Value（値）` で統一する。
 
-この決定は項目名と列名の統一を確定する。Document ID以外の各項目へ設定する具体的な値は未決であり、本記録では推測・決定しない。
+この決定は項目名と列名の統一を確定する。`Created Date（作成日）`、`Last Updated（最終更新日）`、`Owner（管理者）`、`Related Documents（関連文書）` の具体値は未決であり、本記録では推測・決定しない。
 
 ## Document ID Scheme
 
@@ -115,6 +115,10 @@ Document IDは文書の固定識別子として扱う。配置変更、版更新
 - `Approved`
 - `Deprecated`
 
+文書適合性の確認中は、全12件の現行配布文書を `Version（バージョン）: 0.1`、`Status（ステータス）: Review` とする。
+
+ヘッダー、表記、文書間導線、ディレクトリ構造の確認と必要な修正が完了しても、AIの判断だけで初回承認版へ変更しない。AIはUserへ、`Version 1.0（Status: Approved）へ変更してよいか` と明示的に確認する。Userが承認した場合に限り、`Version（バージョン）: 1.0`、`Status（ステータス）: Approved` へ変更する。
+
 ### Temporary Status Notation Exception
 
 - 例外箇所：`personas/education/GEM_REVIEWER.md` に記載する最終設計ドキュメントの状態表記
@@ -125,14 +129,14 @@ Document IDは文書の固定識別子として扱う。配置変更、版更新
 
 この例外は永久固定ではない。解除条件を満たす前にAIが自動変更しない。
 
-この区分はヘッダー適用範囲の確定であり、Document ID以外の具体的な各ヘッダー値と配置変更は未決である。本記録では推測・決定しない。
+この区分はヘッダー適用範囲の確定であり、作成日、最終更新日、管理者、関連文書の具体値と配置変更は未決である。本記録では推測・決定しない。
 
 ## Unresolved Details
 
 次は未決であり、本記録では推測・決定しない。
 
 - `ai-setup-materials` 向けの具体的な文書体系
-- Document ID以外の具体的な各ヘッダー値
+- 作成日、最終更新日、管理者、関連文書の具体値
 - 文書の配置
 - 既存文書へ必要な修正
 - 7文書を本Repository内へ配置するか、別管理にするか
