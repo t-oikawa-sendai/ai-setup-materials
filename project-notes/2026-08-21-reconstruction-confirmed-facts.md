@@ -166,18 +166,20 @@ Learning Moduleは、上記の科目・訓練内容に関する学習上の調�
 
 #### 2026-08-22 corrected confirmed premise
 
+- `User` は、4Gemを操作し、Code Generatorの生成コードをIDEへ反映・検証し、最終判断を行う利用者を指す。
+- READMEでは役割名を `User（生徒）` と表記し、README以外のPersona本文・管理文書・出力フォーマットでは `User` と表記する。
 - Code Generatorはコード生成までを担当する。
-- 生徒は、Code Generatorが生成したコードをVS Code等のIDEへコピーする。
-- 生徒は、IDEへ反映したコードの実行、test、動作確認を行い、その検証Evidenceを作成する。
-- Reviewerは、Code Generatorが生成したコードと、生徒が作成した検証Evidenceを評価する。
+- Userは、Code Generatorが生成したコードをVS Code等のIDEへコピーする。
+- Userは、IDEへ反映したコードの実行、test、動作確認を行い、その検証Evidenceを作成する。
+- Reviewerは、Code Generatorが生成したコードと、Userが作成した検証Evidenceを評価する。
 - Reviewerは、Solution Partnerの設計成果物を評価対象に含め、設計の論理的矛盾点などを検証する。
 - Researcherの調査結果はReviewerの評価対象に含めない。
 - Reviewerは、問題の原因、根拠、影響を確認して戻し先を判断する。
 - Reviewerは、判断した戻し先とその理由をレビュー結果へ明記する。
 - 複数工程に問題がある場合は、問題を分離してそれぞれの戻し先を示す。
-- Evidence不足で戻し先を判断できない場合は推測せず、判断不能であることを明示し、最終判断を生徒へ残す。
+- Evidence不足で戻し先を判断できない場合は推測せず、判断不能であることを明示し、最終判断をUserへ残す。
 - Reviewerは自ら修正せず、戻し先の判断と修正要求までを担当する。
-- 最終判断は生徒が行う。
+- 最終判断はUserが行う。
 - CursorはEducation用4Gemのこの運用には含めない。
 - Cursorが実装・testを担当するAIサービス別の実務向け運用と、Education用4Gemを混同しない。
 

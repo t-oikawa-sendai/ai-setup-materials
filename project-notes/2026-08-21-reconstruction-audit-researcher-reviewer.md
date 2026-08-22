@@ -144,7 +144,7 @@ Code Generator化後のReviewerの戻し先・連携ルールは再構築対象�
 3. Code Generatorが実環境へ適用・検証しない前提で、実行・build・test・IDE確認等のEvidenceを誰が作成し、Reviewerへ渡すか。
 4. Reviewerの判定は問題発見と修正要求までとし、最終判断をHumanに残すか。
 
-特に「Humanまたは外部実装担当」という表現は、生徒がCode Generatorの生成コードをIDEへコピーして実行・test・動作確認する既存前提を見落として作成された。
+特に「Humanまたは外部実装担当」という表現は、UserがCode Generatorの生成コードをIDEへコピーして実行・test・動作確認する既存前提を見落として作成された。
 
 ### INVALID CONFIRMATION RECORD / SUPERSEDED
 
@@ -161,17 +161,19 @@ Code Generator化後のReviewerの戻し先・連携ルールは再構築対象�
 
 ユーザーが改めて明示し、確認したEducation用4Gemの前提は次のとおりである。
 
-1. Code Generatorはコード生成までを担当する。
-2. 生徒は生成コードをVS Code等のIDEへコピーし、実行、test、動作確認を行う。
-3. Reviewerは生成コードと生徒が作成した検証Evidenceを評価する。
-4. 最終判断は生徒が行う。
-5. CursorはEducation用4Gemのこの運用には含めない。
-6. Researcherの調査結果はReviewerの評価対象に含めない。
-7. Solution Partnerの設計成果物はReviewerの評価対象に含め、設計の論理的矛盾点などを検証する。
-8. Reviewerは、問題の原因、根拠、影響を確認して戻し先を判断する。
-9. Reviewerは、判断した戻し先とその理由をレビュー結果へ明記する。
-10. 複数工程に問題がある場合は、問題を分離してそれぞれの戻し先を示す。
-11. Evidence不足で戻し先を判断できない場合は推測せず、判断不能であることを明示し、最終判断を生徒へ残す。
-12. Reviewerは自ら修正せず、戻し先の判断と修正要求までを担当する。
+1. `User` は、4Gemを操作し、Code Generatorの生成コードをIDEへ反映・検証し、最終判断を行う利用者を指す。
+2. READMEでは役割名を `User（生徒）` と表記し、README以外のPersona本文・管理文書・出力フォーマットでは `User` と表記する。
+3. Code Generatorはコード生成までを担当する。
+4. Userは生成コードをVS Code等のIDEへコピーし、実行、test、動作確認を行う。
+5. Reviewerは生成コードとUserが作成した検証Evidenceを評価する。
+6. 最終判断はUserが行う。
+7. CursorはEducation用4Gemのこの運用には含めない。
+8. Researcherの調査結果はReviewerの評価対象に含めない。
+9. Solution Partnerの設計成果物はReviewerの評価対象に含め、設計の論理的矛盾点などを検証する。
+10. Reviewerは、問題の原因、根拠、影響を確認して戻し先を判断する。
+11. Reviewerは、判断した戻し先とその理由をレビュー結果へ明記する。
+12. 複数工程に問題がある場合は、問題を分離してそれぞれの戻し先を示す。
+13. Evidence不足で戻し先を判断できない場合は推測せず、判断不能であることを明示し、最終判断をUserへ残す。
+14. Reviewerは自ら修正せず、戻し先の判断と修正要求までを担当する。
 
 Cursorが実装・testを担当するAIサービス別の実務向け運用と、Education用4Gemを分離する。Reviewer Persona本文の再構築と検証は未完了である。
