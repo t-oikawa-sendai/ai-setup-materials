@@ -271,6 +271,16 @@ Persona同士をヘッダーから総当たりで相互リンクしない。区�
 
 文書適合性の確認中は、新設するReference READMEを含む全13件の現行配布文書を `Version（バージョン）: 0.1`、`Status（ステータス）: Review` とする。
 
+上記は適合確認工程中の状態を定めたライフサイクル規則であり、規則自体は有効である。ただし、その適合確認工程は次のとおり完了している。
+
+- 適合確認工程は2026-08-22に完了した。
+- Verification 12項目のPASS後、Userが `Version 1.0 / Status Approved` への昇格を承認した。
+- 昇格はcommit `959cdd5` で適用済みである。
+- 現行配布文書13件の現行値は `Version（バージョン）: 1.0`、`Status（ステータス）: Approved` である。
+- `Version 0.1` / `Status Review` は確認工程中の規則であり、現在値ではない。
+- 現在状態の正本は `project-notes/CURRENT.md` である。
+- 完了Evidenceは `project-notes/2026-08-22-document-conformance-recovery-completion.md` である。
+
 ヘッダー、表記、文書間導線、ディレクトリ構造の確認と必要な修正が完了しても、AIの判断だけで初回承認版へ変更しない。AIはUserへ、`Version 1.0（Status: Approved）へ変更してよいか` と明示的に確認する。Userが承認した場合に限り、`Version（バージョン）: 1.0`、`Status（ステータス）: Approved` へ変更する。
 
 ### Temporary Status Notation Exception
