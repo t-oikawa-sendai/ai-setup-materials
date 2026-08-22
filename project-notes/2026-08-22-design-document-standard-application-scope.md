@@ -83,7 +83,7 @@ Status: CONFIRMED DECISION RECORD
 
 ヘッダー表の列名は、`Item（項目）` と `Value（値）` で統一する。
 
-この決定は項目名と列名の統一を確定する。`Created Date（作成日）`、`Last Updated（最終更新日）`、`Owner（管理者）`、`Related Documents（関連文書）` の具体値は未決であり、本記録では推測・決定しない。
+この決定は項目名と列名の統一を確定する。`Created Date（作成日）`、`Last Updated（最終更新日）`、`Owner（管理者）` の具体値は未決であり、本記録では推測・決定しない。
 
 ## Document ID Scheme
 
@@ -142,6 +142,20 @@ Referenceには現在旧版が存在しないため、空の `personas/reference
 
 この共通規則はPersona文書の保存構造に関する決定である。7文書を本Repositoryへ配置するか別管理にするか、および現在の別Repositoryとの不整合解消は、Persona作成完了後に扱う最重要検討事項として分離し、本決定で解決済みとしない。
 
+## Related Documents Routing
+
+`Related Documents（関連文書）` は、区分別READMEを索引として経由する次の階層規則で統一する。
+
+- root `README.md`：`personas/education/README.md` と `personas/reference/README.md`
+- `personas/education/README.md`：root `README.md` と現行Education Persona
+- 各現行Education Persona：`personas/education/README.md`
+- `personas/reference/README.md`：root `README.md`、`personas/education/README.md`、現行Reference文書
+- 各現行Reference Persona：`personas/reference/README.md`
+
+Persona同士をヘッダーから総当たりで相互リンクしない。区分内の文書追加・置換は区分別READMEの索引で管理し、個別Personaのヘッダー更新を必要最小限にする。
+
+この規則の背景意図は、利用者がroot READMEから区分を選び、区分別READMEで適用境界と利用可能文書を確認してから個別Personaへ進める導線を維持しつつ、将来の文書増加に伴うリンク更新不整合を防ぐことである。
+
 ## Standard Header Status Values
 
 標準ヘッダーの `Status（ステータス）` は、次の4状態で統一する。
@@ -165,14 +179,14 @@ Referenceには現在旧版が存在しないため、空の `personas/reference
 
 この例外は永久固定ではない。解除条件を満たす前にAIが自動変更しない。
 
-この区分はヘッダー適用範囲の確定であり、作成日、最終更新日、管理者、関連文書の具体値は未決である。本記録では推測・決定しない。
+この区分はヘッダー適用範囲の確定であり、作成日、最終更新日、管理者の具体値は未決である。本記録では推測・決定しない。
 
 ## Unresolved Details
 
 次は未決であり、本記録では推測・決定しない。
 
 - `ai-setup-materials` 向けの具体的な文書体系
-- 作成日、最終更新日、管理者、関連文書の具体値
+- 作成日、最終更新日、管理者の具体値
 - 既存文書へ必要な修正
 - 7文書を本Repository内へ配置するか、別管理にするか
 - 現在の別Repositoryとの不整合をどのように解消するか
