@@ -69,6 +69,38 @@ Status: CONFIRMED DECISION RECORD
 - 置換先
 - 旧本文を保存していること
 
+## Archive Notice Format
+
+全Archive文書の冒頭に、次の順序で統一したArchive Noticeを配置する。
+
+1. `# Archive Notice（アーカイブ通知）`
+2. 見出し直下の利用禁止表示
+3. `Item（項目）` / `Value（値）` の管理表
+4. 区切り線
+5. 変更しない旧本文・旧ヘッダー
+
+見出し直下には、次を独立した引用表示として明記する。
+
+```markdown
+> **Do Not Use（利用禁止）**
+>
+> この文書は履歴資料です。現行仕様、現行Persona、現行運用の根拠として使用しないでください。
+```
+
+管理表には、次の5項目を記載する。
+
+- `Archive Type（アーカイブ種別）`：`Historical Material（履歴資料）`
+- `Status（ステータス）`：`Deprecated`
+- `Usage（利用可否）`：`Do Not Use（利用禁止）`
+- `Replaced By（置換先）`：現行文書へのリンク
+- `Preservation（保存方針）`：`Original Body Preserved（旧本文を変更せず保存）`
+
+利用禁止は、見出し直下の警告と管理表の `Usage（利用可否）` の二重で表示する。Statusだけに利用禁止の意味を依存させない。
+
+既存Archive Noticeの `SUPERSEDED` はNotice内で `Deprecated` へ統一し、置換関係は `Replaced By（置換先）` で維持する。`personas/education/archive/GEM_RESEARCHER.md` にはArchive Noticeが存在しないため、同じ形式を旧本文の前へ追加する。
+
+Archive Noticeの置換・追加後も、区切り線より下にある旧本文と旧ヘッダーは変更しない。
+
 ## Standard Header Fields
 
 現行配布文書の標準ヘッダーは、次の7項目で統一する。

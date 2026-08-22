@@ -103,6 +103,12 @@ Reviewer
 - 上記例外は永久固定ではない。最終設計ドキュメントの状態仕様を変更対象として別途検討し、Userが仕様変更を明示承認した場合に限り表記統合を再検討する。解除条件を満たす前にAIが自動変更しない。
 - `project-notes/` は作業状態・判断経緯・実装指示・監査Evidence等の内部記録であり、配布文書用の完全ヘッダーを機械適用せず、既存の簡易ヘッダーを維持する。
 - `archive/` は履歴本文を保存する領域であり、旧本文・旧ヘッダーを書き換えず、冒頭のArchive Noticeだけを統一する。Archive Noticeでは、履歴資料であること、現行利用禁止、状態、置換先、旧本文を保存していることを追跡可能にする。
+- 全Archive文書のArchive Noticeは、`# Archive Notice（アーカイブ通知）`、見出し直下の利用禁止警告、`Item（項目）` / `Value（値）` の管理表、区切り線、変更しない旧本文・旧ヘッダーの順で統一する。
+- 見出し直下に `Do Not Use（利用禁止）` と「この文書は履歴資料です。現行仕様、現行Persona、現行運用の根拠として使用しないでください。」を独立表示する。
+- Archive Noticeの管理表は、`Archive Type（アーカイブ種別）: Historical Material（履歴資料）`、`Status（ステータス）: Deprecated`、`Usage（利用可否）: Do Not Use（利用禁止）`、`Replaced By（置換先）`、`Preservation（保存方針）: Original Body Preserved（旧本文を変更せず保存）` の5項目とする。
+- 利用禁止は見出し直下の警告と管理表の `Usage（利用可否）` の二重で表示し、Statusだけに利用禁止の意味を依存させない。
+- 既存Noticeの `SUPERSEDED` はNotice内で `Deprecated` へ統一し、置換関係は `Replaced By（置換先）` で維持する。Noticeがない `personas/education/archive/GEM_RESEARCHER.md` にも同形式を旧本文の前へ追加する。
+- Archive Noticeの置換・追加後も、区切り線より下の旧本文・旧ヘッダーは変更しない。
 - この区分はヘッダー適用範囲の確定であり、作成日、最終更新日、管理者の具体値は未決である。
 - ヘッダー適用範囲の背景意図は、配布文書の一貫性と追跡可能性を確保しつつ、内部記録への過剰適用とArchive本文の改変を防ぐことである。
 - 背景意図は、標準の目的を維持しつつ、性質の異なるRepositoryへアプリ用テンプレートを機械適用して不要な文書を増やすことを防ぐことである。
