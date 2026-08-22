@@ -1,7 +1,7 @@
 # CURRENT
 
 Last Updated: 2026-08-22
-Status: CURRENT / POST-PERSONA PRIORITIES
+Status: CURRENT / DOCUMENT CONFORMANCE RECOVERY
 
 ## PURPOSE
 
@@ -19,7 +19,7 @@ Status: CURRENT / POST-PERSONA PRIORITIES
 
 原因説明だけで復旧扱いにせず、一次資料・既存決定記録・Persona現物・ユーザーの明示決定を再照合して、Researcher、Reviewer、4Gem間の責務境界、README導線を再構築した。
 
-2026-08-22、Education用4Gem Persona本体とREADME導線の整合化まで完了した。上記の統合記録には旧決定・失効情報が含まれるため、復旧完了後も単独で現行完成仕様として使用しない。
+2026-08-22、Education用4Gem Personaの機能設計と、名称・責務境界・当時確認したREADME導線の整合化を一度完了と記録した。その後の現物監査により、文書標準・表記・文書間導線への適合性評価は未完了であり、復旧が必要であることを確認した。過去の完了宣言はPersonaの機能設計と当時確認した範囲の完了記録として扱い、文書適合性を含む全体完了のEvidenceとして扱わない。上記の統合記録には旧決定・失効情報が含まれるため、単独で現行完成仕様として使用しない。
 
 ## CONFIRMED SAFE
 
@@ -55,7 +55,8 @@ Reviewer
 - Researcher Persona再構築は完了。
 - Reviewer Persona再構築は完了。
 - Solution PartnerとCode Generatorの現行責務境界への整合は完了。
-- Education用4Gem Persona本体と `personas/education/README.md`、root `README.md` の導線整合は完了。
+- Education用4Gem Persona本体の機能設計と現行責務境界の実装は完了。
+- 文書標準・表記・文書間導線への適合性評価と復旧は未完了。
 - 現行Researcher Personaは次の3ファイル。
   - `personas/education/GEM_RESEARCHER_FULL.md`
   - `personas/education/GEM_RESEARCHER_LEARNING_DEVELOPMENT.md`
@@ -63,7 +64,19 @@ Reviewer
 - 旧 `personas/education/GEM_RESEARCHER.md` は3パターン完成後に旧版化し、`personas/education/archive/GEM_RESEARCHER.md` へ退避済み。
 - 旧 `personas/education/GEM_IMPLEMENTER.md` は `personas/education/archive/GEM_IMPLEMENTER.md` へ退避し、`SUPERSEDED` と置換先を明記済み。
 - 旧 `personas/education/GEMINI_PERSONA_DEFINITION-4Gem.md` は `personas/education/archive/GEMINI_PERSONA_DEFINITION-4Gem.md` へ退避し、`SUPERSEDED` と置換先を明記済み。
-- Reviewerは完成済みであり、次の最重要検討事項における再検討対象ではない。
+- Reviewerの機能設計は完成済みであり、機能設計の再検討対象ではない。ただし、文書標準・表記・導線への適合性は、他の現行文書と同じく再評価対象に含める。
+
+### 設計文書標準の適用境界
+
+- `/Users/takashioikawa/Dev/solacom_main/docs/standards/DESIGN_DOCUMENT_STANDARD.md` は、ユーザーが作成する全プロジェクトの設計文書統治における憲法として扱う。
+- 同標準はアプリプロジェクトを主な適用対象としているため、教材・Persona・標準資料Repositoryである `ai-setup-materials` へ、アプリ用の文書構成やテンプレートを100%機械的に適用しない。
+- `ai-setup-materials` では、SSOT、文書責務分離、命名・表記の一貫性、ヘッダー・状態・版管理の追跡可能性、文書間導線、履歴管理、AIによる無秩序な文書追加・変更・統合・削除の禁止、確認不能時の停止、重複・更新不整合防止を必須の統治原則として適用する。
+- READMEと6文書の固定作成、アプリ固有の文書名、UI・データ・API・アーキテクチャ・スクリーンショット等の該当しない必須構成は、`ai-setup-materials` へ機械的に適用しない。
+- アプリ固有の構成を適用対象外とすることは、統治原則まで免除することを意味しない。
+- `ai-setup-materials` 向けの具体的な文書体系、状態名、配置、既存文書の修正方法は未決であり、推測しない。
+- 固定7文書を `ai-setup-materials` 内へ機械的に作成することは確定事項ではない。
+- 背景意図は、標準の目的を維持しつつ、性質の異なるRepositoryへアプリ用テンプレートを機械適用して不要な文書を増やすことを防ぐことである。
+- 詳細は `project-notes/2026-08-22-design-document-standard-application-scope.md` を正本とする。
 
 ### Reviewer再構築仕様
 
@@ -305,15 +318,21 @@ Reviewer
 - 本来の目的は、原則として合計7文書以内という上限と配置先を定め、AIが文書を際限なく追加することを防ぐことである。
 - 適用対象だけを作成する。例えばCLI成果物ではUI設計文書は不要であり、必要な文書が7文書以内であれば問題としない。
 - Repository間で文書の置き場所を統一することで、Humanが情報の所在や修正箇所に迷わない状態を作ることが主な価値である。
+- `DESIGN_DOCUMENT_STANDARD.md` の統治目的は全プロジェクトに適用するが、アプリ用テンプレートを `ai-setup-materials` へ100%機械適用しない。
+- 最大7文書は上限と統制の考え方であり、`ai-setup-materials` に固定7文書を必ず作成することは確定事項ではない。
+- アプリ固有の構成を適用しない場合も、SSOT、責務分離、表記、追跡可能性、導線、履歴、変更統制、重複・更新不整合防止は免除しない。
+- `ai-setup-materials` 向けの具体的な文書体系、状態名、配置、既存文書修正は未決であり、推測しない。
 - この考え方をAIが機械的に誤解しないための別運用文書は将来整備する予定だが、現時点では作成しない。
 
 ## CURRENT TARGET
 
-Education用4Gem Persona本体とREADME導線の整合化は完了した。
+Education用4Gem Persona本体の機能設計は完了している。
 
-現在は、ユーザー確定済みの2つの最重要検討事項を次作業として扱う。本更新では検討内容、設計、結論を追加せず、次作業として記録するだけとする。
+現在の最優先対象は、今回確定した設計文書標準の適用境界に基づき、既存文書・Persona・READMEの文書標準、表記、文書間導線への適合性を再評価し、必要な復旧を行うことである。機能設計と文書適合性を混同せず、Reviewerを含むPersonaの機能設計をEvidenceなしに再検討しない。
 
-## RECOVERY METHOD（完了）
+この再評価と復旧を、`ASKME 迎合禁止` の利用に関する検討より先に行う。具体的な文書体系、状態名、配置、既存文書の修正内容は現物監査で確認し、未決事項を推測しない。
+
+## PERSONA FUNCTIONAL RECOVERY METHOD（完了）
 
 1. GitHub上の関連決定記録を時系列で収集する。
 2. Education Personaの現物を確認する。
@@ -332,7 +351,7 @@ Education用4Gem Persona本体とREADME導線の整合化は完了した。
 - `背景意図` を重要情報資産として定義し、恒久ルール、情報資産保全方針、本ファイルへ記録済み。
 - 設計ドキュメント標準の「最大7文書」は作成数の強制ではなく、AIによる文書増殖の防止とHumanが情報の所在・修正箇所を把握しやすくするための上限・配置ルールであることを記録済み。別運用文書の作成は未着手。
 - `project-notes/2026-08-21-education-4gem-design-decisions.md` は旧決定・失効情報を含む履歴資料として保持し、単独で現行完成仕様として使用しない。
-- README仮完成作業の一時停止は終了し、Education READMEとroot READMEの現行導線への整合を完了済み。
+- README仮完成作業の一時停止後、Education READMEとroot READMEについて、現行名称・責務境界・当時確認した配布リンクへの更新を実施済み。ただし、文書標準・表記・文書間導線への適合性評価と復旧は未完了。
 - `project-notes/2026-08-21-reconstruction-confirmed-facts.md` はResearcher再構築途中の確定事項記録として保持する。
 - `project-notes/2026-08-21-researcher-completion.md` をResearcher完成後の最新状態・検証記録として追加済み。
 - `project-notes/2026-08-21-reconstruction-audit-researcher-reviewer.md` に、GitHub現物・commit履歴から確認した履歴事実と現行位置づけを記録済み。
@@ -397,7 +416,9 @@ Education用4Gem Persona本体とREADME導線の整合化は完了した。
 - 実環境への適用、IDE操作、Git操作、品質保証判定は担当しない。
 - 2026-08-22、testコード生成支援、Reviewer修正指示の受入れ、Userへの返却、実行・test・Evidence作成を担当しない境界をPersona本文へ整合済み。
 
-### Education 4Gem Persona・README整合化完了
+### Education 4Gem Persona・README整合化の過去完了宣言と現在評価
+
+次の事項は、名称・責務境界・配布リンク・Researcher不変条件について当時実施した整合化と検証のEvidenceである。文書標準・表記・文書間導線を含む全体適合性の完了を示すものではない。
 
 - `personas/education/GEM_SOLUTION_PARTNER.md` を、User、Code Generator、Reviewer、最終設計ドキュメントの現行責務境界へ整合済み。
 - `personas/education/GEM_CODE_GENERATOR.md` を、コード・testコード生成支援とUserによる適用・検証の境界へ整合済み。
@@ -408,30 +429,38 @@ Education用4Gem Persona本体とREADME導線の整合化は完了した。
 - 現行READMEから、旧 `GEM_IMPLEMENTER.md`、旧一体型定義書、旧 `GEM_RESEARCHER.md` への導線を除外済み。
 - 現行READMEとArchive冒頭に追加したリンクのリンク先が実在することを確認済み。
 - 旧 `GEM_IMPLEMENTER.md` と旧 `GEMINI_PERSONA_DEFINITION-4Gem.md` はArchiveへ移動し、`SUPERSEDED`、現行利用禁止、置換先を明記済み。旧本文は保持している。
-- `git diff --check` は成功済み。
-- 詳細Evidenceは `project-notes/2026-08-22-education-4gem-readme-alignment-completion.md` に記録した。
+- 当時の対象差分について `git diff --check` は成功した。
+- 詳細Evidenceは `project-notes/2026-08-22-education-4gem-readme-alignment-completion.md` に過去の完了宣言として記録した。同記録の「未解決なし」は当時の整合化対象内に限るものであり、現在の文書適合性全体について未解決事項がないことを示さない。
+- 現在は、今回確定した適用境界に基づく文書標準・表記・文書間導線の再評価と復旧が必要である。
 
-## POST-PERSONA HIGHEST PRIORITY / UNRESOLVED
+## CURRENT PRIORITIES / UNRESOLVED
 
-Persona作成とREADME導線整合は完了した。次の2項目を、現在の最重要検討事項として扱う。
+Persona本体の機能設計は完了している。現在は次の順で扱う。
 
-現時点では検討・設計・変更を開始せず、結論を推測しない。
-
-1. `ASKME 迎合禁止` の利用に関する検討
+1. 設計文書標準・表記・文書間導線の再評価と復旧
+   - 今回確定した適用境界に基づき、SSOT、文書責務、命名・表記、ヘッダー・状態・版管理、導線、履歴、変更統制、重複・更新不整合を現物で確認する。
+   - 機能設計の完成と文書適合性の完了を分離し、適合、不適合、未決を区別する。
+   - 具体的な修正は現物監査結果と確定事項に基づき、推測しない。
+2. `ASKME 迎合禁止` の利用に関する検討
    - 適用目的、適用範囲、運用方法、既存ルールとの関係は未確定。
-2. 7文書の配置・管理方法に関する検討
+3. 7文書の配置・管理方法に関する検討
    - 7文書を本Repository内のどこかへ配置するか、別管理とするかは未確定。
    - 現在は別Repositoryに存在するが、整合性が取れていない。
    - 現在の別Repositoryをそのまま採用すること、または本Repositoryへ移すことを確定事項として扱わない。
+   - 固定7文書を `ai-setup-materials` 内へ機械的に作成することも確定事項として扱わない。
 
 ## NEXT ACTION
 
-Reviewerを含むEducation用4Gem Persona本体とREADME導線の整合化は完了している。Reviewerは再検討対象に戻さない。
+Reviewerを含むEducation用4Gem Persona本体の機能設計は完了している。Reviewerの機能設計は再検討対象に戻さない。
 
-次は、以下をこの順で最重要検討事項として扱う。本更新では内容を検討せず、結論を推測しない。
+次は、今回確定した適用境界に基づき、既存文書・Persona・READMEの文書標準・表記・文書間導線への適合性を現物で再評価し、必要な復旧範囲を確定する。これはPersonaの機能設計再構築とは分離して行う。
+
+その完了後、次の順で検討する。
 
 1. `ASKME 迎合禁止` の利用に関する検討
 2. 7文書を本Repository内へ配置するか別管理にするか、および現行の別Repositoryとの不整合に関する検討
+
+7文書の配置・別管理は未決のまま保持する。固定7文書を `ai-setup-materials` へ機械的に作成することは確定事項ではない。いずれも結論を推測しない。
 
 ## DO NOT USE AS COMPLETED CURRENT SOURCE
 
@@ -454,6 +483,7 @@ Reviewerを含むEducation用4Gem Persona本体とREADME導線の整合化は完
 - `project-notes/2026-08-22-reviewer-completion.md`（Reviewer完成状態と検証Evidence）
 - `project-notes/2026-08-22-education-4gem-readme-alignment-instructions.md`（4Gem・README整合実装指示書）
 - `project-notes/2026-08-22-education-4gem-readme-alignment-completion.md`（4Gem・README整合完了状態と検証Evidence）
+- `project-notes/2026-08-22-design-document-standard-application-scope.md`（設計文書標準の適用境界）
 - `project-notes/2026-08-21-education-4gem-design-decisions.md`（旧決定を含み、単独で現行完成仕様として使用しない）
 - `project-notes/2026-08-20-ai-education-staging.md`
 - `project-notes/2026-08-19-4gem-names.md`（旧決定を含み、単独で現行完成仕様として使用しない）
