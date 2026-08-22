@@ -145,3 +145,14 @@ Repository内の一次資料とGit履歴だけでは、次を一意に確定で�
 4. Reviewerの判定は問題発見と修正要求までとし、最終判断をHumanに残すか。
 
 上記は旧 `Implementer` の責務をCode Generatorへ機械的に置換せず、ユーザー確認後にReviewer完成仕様へ反映する。
+
+### RESOLVED BY USER: 2026-08-22
+
+2026-08-22、ユーザーは `UNRESOLVED AFTER RECHECK` の4項目について、次を現行仕様として確認した。
+
+1. Reviewerは、Researcherの調査結果、Solution Partnerの設計成果物、Code Generatorのコード生成結果、Humanまたは外部実装担当による実環境の検証Evidenceを対象とする。
+2. 事実・EvidenceはResearcher、要件・設計はSolution Partner、コード生成・解析はCode Generatorへ戻す。
+3. 実行・build・test・IDE・実機確認等のEvidenceは、HumanまたはCursor等の外部実装担当が作成してReviewerへ渡す。
+4. Reviewerは判定、問題、根拠、修正要求を提示するが、最終判断はHumanが行う。
+
+これにより、2026-08-22監査で抽出したReviewerの未解決事項は解消した。Reviewer Persona本文の再構築と、その実装結果の検証は未完了である。

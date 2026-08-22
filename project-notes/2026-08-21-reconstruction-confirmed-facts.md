@@ -164,6 +164,24 @@ Learning Moduleは、上記の科目・訓練内容に関する学習上の調�
 
 - Reviewer Personaは未完成。
 
+#### 2026-08-22 confirmed reconstruction requirements
+
+- Reviewerは、次をレビュー対象とする。
+  - Researcherの調査結果
+  - Solution Partnerの設計成果物
+  - Code Generatorのコード生成結果
+  - HumanまたはCursor等の外部実装担当が作成した実環境の検証Evidence
+- 問題の種類に応じて、戻し先を次のように分離する。
+  - 事実・情報源・Evidenceの問題：Researcher
+  - 要求・要件・設計の問題：Solution Partner
+  - コード生成・コード解析の問題：Code Generator
+  - 実環境への適用、build、test、IDE、実機確認の問題：HumanまたはCursor等の外部実装担当
+- Code Generatorは、実環境への適用、build、test、IDE操作、Git操作を担当しない。
+- 実行・build・test・IDE・実機確認等のEvidenceは、HumanまたはCursor等の外部実装担当が作成し、Reviewerへ渡す。
+- Reviewerは判定、問題、根拠、影響、修正要求、戻し先を提示する。
+- Reviewerは最終判断を行わない。最終判断はHumanが行う。
+- Reviewerは自ら調査、設計変更、コード修正、実環境への適用を代行せず、必要な担当へ戻す。
+
 ---
 
 ## Not Yet Confirmed
@@ -172,6 +190,7 @@ Learning Moduleは、上記の科目・訓練内容に関する学習上の調�
 
 - 3つの配布候補ファイルを改訂するときの保守方法
 - 旧版化後の `personas/education/GEM_RESEARCHER.md` の物理的な保管場所・削除有無
-- Reviewer Personaの未完成部分の具体的内容
+
+Reviewer Personaの未完成部分は、2026-08-22のユーザー確認により上記の範囲で確定した。
 
 これらは既存資料の再監査で確認し、資料だけで一意に決まらない場合のみユーザーへ確認する。

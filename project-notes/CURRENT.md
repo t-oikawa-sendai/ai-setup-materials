@@ -58,6 +58,20 @@ Reviewer
   - `personas/education/GEM_RESEARCHER_DEVELOPMENT.md`
 - 旧 `personas/education/GEM_RESEARCHER.md` は3パターン完成後に旧版化し、`personas/education/archive/GEM_RESEARCHER.md` へ退避済み。
 
+### Reviewer再構築仕様
+
+- Reviewerは、Researcherの調査結果、Solution Partnerの設計成果物、Code Generatorのコード生成結果、HumanまたはCursor等の外部実装担当が作成した実環境の検証Evidenceを対象とする。
+- 事実・情報源・Evidenceの問題はResearcherへ戻す。
+- 要求・要件・設計の問題はSolution Partnerへ戻す。
+- コード生成・コード解析の問題はCode Generatorへ戻す。
+- 実環境への適用、build、test、IDE、Git、実機確認の問題はHumanまたはCursor等の外部実装担当へ戻す。
+- 実行・build・test・IDE・実機確認等のEvidenceは、HumanまたはCursor等の外部実装担当が作成し、Reviewerへ渡す。
+- Reviewerは判定、問題、根拠、影響、修正要求、戻し先を提示する。
+- Reviewerは最終判断を行わない。最終判断はHumanが行う。
+- Reviewerは調査、設計変更、コード修正、実環境への適用を代行しない。
+- `project-notes/2026-08-22-reviewer-reconstruction-instructions.md` を実装指示書とする。
+- 上記仕様は確定済みだが、`GEM_REVIEWER.md` の実装と検証は未完了である。
+
 ### Researcher Module設計
 
 - Researcher本体の責務自体はModule導入によって変更しない。
@@ -215,7 +229,8 @@ Researcher再構築は完了。現在はReviewer再構築を優先する。
 - 2026-08-19のReviewer方針・役割意図・Persona追加と、2026-08-20のCode Generator追加をcommit単位で時系列確認済み。
 - `GEM_REVIEWER.md` はCode Generator追加後に改訂されていない。
 - 旧Reviewerの名称非依存部分を再利用候補、Implementer依存部分を現行利用不可、Code Generator化後の連携を未解決として分離済み。
-- Reviewerの対象範囲、役割別の戻し先、実環境検証Evidenceの作成担当、最終判断者は、Repository内の一次資料だけでは一意に確定できない。
+- Reviewerの対象範囲、役割別の戻し先、実環境検証Evidenceの作成担当、最終判断者は、2026-08-22にユーザー確認済み。
+- `project-notes/2026-08-22-reviewer-reconstruction-instructions.md` を作成済み。
 
 ### Code Generator監査で確認済み
 
@@ -227,12 +242,10 @@ Researcher再構築は完了。現在はReviewer再構築を優先する。
 
 Reviewerの再構築を優先する。
 
-1. Reviewerのレビュー対象範囲をユーザーへ確認する。
-2. Code Generator、Solution Partner、Researcherへの戻し先ルールをユーザーへ確認する。
-3. 実環境での実行・build・test・IDE確認等のEvidenceを作成する担当と、Reviewerへの引き渡し方法をユーザーへ確認する。
-4. Reviewerの判定範囲とHumanの最終判断をユーザーへ確認する。
-5. 確認結果を決定記録へ保存し、`GEM_REVIEWER.md` の具体的な再構築指示書を作成する。
-6. Reviewer再構築完了後、4Gem全体・README・Persona導線の整合を行う。
+1. 実装担当が `project-notes/2026-08-22-reviewer-reconstruction-instructions.md` に従い、`GEM_REVIEWER.md` だけを再構築する。
+2. 実装結果について、確定仕様の欠落、旧Implementerの復活、Code Generatorへの過剰な責務移植、対象外差分がないか独立レビューする。
+3. 検証結果を決定記録と本ファイルへ反映し、Reviewer再構築の完了可否を判定する。
+4. Reviewer再構築完了後、4Gem全体・README・Persona導線の整合を行う。
 
 ## DO NOT USE AS COMPLETED CURRENT SOURCE
 
@@ -250,6 +263,7 @@ Reviewerの再構築を優先する。
 - `project-notes/2026-08-21-reconstruction-confirmed-facts.md`（Researcher再構築途中の確定事項）
 - `project-notes/2026-08-21-researcher-completion.md`（Researcher完成状態）
 - `project-notes/2026-08-21-reconstruction-audit-researcher-reviewer.md`
+- `project-notes/2026-08-22-reviewer-reconstruction-instructions.md`
 - `project-notes/2026-08-21-education-4gem-design-decisions.md`（要再構築）
 - `project-notes/2026-08-20-ai-education-staging.md`
 - `project-notes/2026-08-19-4gem-names.md`（旧決定を含む）
