@@ -1,6 +1,6 @@
 # CURRENT
 
-Last Updated: 2026-08-21
+Last Updated: 2026-08-22
 Status: RECOVERY / RECONSTRUCTION
 
 ## PURPOSE
@@ -22,6 +22,17 @@ Status: RECOVERY / RECONSTRUCTION
 ## CONFIRMED SAFE
 
 現時点で安全に確認できている事項のみ記載する。
+
+### Repository作業開始時のGit同期ゲート
+
+- Repositoryに関する作業では、ユーザーから個別の同期指示がなくても、Git同期確認を最初の必須工程として実行する。
+- 実作業用ローカルRepository、branch、remote、ローカルHEAD、リモートHEAD、未commit変更の有無を確認する。
+- ローカルがcleanで安全に追従可能な場合のみ、fast-forwardでremoteの最新状態へ同期する。
+- 同期後にローカルHEADとリモートHEADの一致を確認してから `AGENTS.md` と本ファイルを読む。
+- 未commit変更、branch分岐、競合、Repository不在、remote取得失敗、権限・network問題等がある場合は、本作業を開始せず、状態と停止理由を報告する。
+- 未commit変更の破棄・退避・上書きによって同期を強行しない。
+- 作業報告には、対象Repository、branch、作業開始時のローカルHEAD、確認したリモートHEAD、未commit変更の有無、同期結果または停止理由をEvidenceとして含める。
+- この同期確認はユーザーからの個別指示を待たずに行うが、実際の同期は安全条件を満たす場合に限る。
 
 ### Education用4Gemの最新名称
 
@@ -177,6 +188,7 @@ Researcher再構築は完了。現在はReviewer再構築を優先する。
 
 ## CURRENT STATE
 
+- `AGENTS.md` と本ファイルに、Repository作業開始時のGit同期ゲート、停止条件、同期Evidence要件を追加済み。
 - `project-notes/2026-08-21-ai-information-asset-safety.md` を追加済み。
 - `AGENTS.md` にAI能力を過信しない安全前提と復旧ガードを追加済み。
 - `project-notes/2026-08-21-education-4gem-design-decisions.md` は再構築完了まで正本扱い停止。
