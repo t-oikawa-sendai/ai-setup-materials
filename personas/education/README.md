@@ -2,83 +2,86 @@
 
 ## 1. 目的
 
-このディレクトリは、職業訓練校の生徒がGeminiのGemを使って、調査・設計・実装・レビューを役割分担しながら進めるためのPersona正本を管理する。
+このディレクトリは、職業訓練校の `User（生徒）` がGeminiのGemを使って、調査、設計、コード生成、レビューを役割分担しながら進めるためのPersona正本を管理します。
 
-生徒自身がオーケストレーターとなり、各Gemの出力を確認し、必要な文書を次のGemへ引き渡す。
+User（生徒）が4Gemを操作し、各出力を確認して、次の工程に必要な確定情報を手動で渡します。Gem同士が自動的に作業を転送したり、最終判断を行ったりする運用ではありません。
 
-## 2. 4Gem構成
+## 2. 現行4Gem
 
 | Gem表示名 | Personaファイル | 主な責務 |
 |---|---|---|
-| Solution Partner | `GEM_SOLUTION_PARTNER.md` | 何を・何のために・どう作るかを整理・提案・設計する |
-| Researcher | `GEM_RESEARCHER.md` | 必要な事実を一次情報中心に調査しEvidence付きで渡す |
-| Implementer | `GEM_IMPLEMENTER.md` | 確定した設計に基づいて実装・検証する |
-| Reviewer | `GEM_REVIEWER.md` | 設計・実装・検証結果を独立評価する |
+| Researcher | 下記3完成版から1本を選択 | 必要な外部情報を一次情報中心に調査し、確認済み事実とEvidenceを渡す |
+| Solution Partner | [`GEM_SOLUTION_PARTNER.md`](GEM_SOLUTION_PARTNER.md) | 目的、要求、制約を整理し、設計とコード生成用指示を具体化する |
+| Code Generator | [`GEM_CODE_GENERATOR.md`](GEM_CODE_GENERATOR.md) | 現行設計と仕様に従い、コード・testコードの生成、解析、修正を支援する |
+| Reviewer | [`GEM_REVIEWER.md`](GEM_REVIEWER.md) | 設計、コード、User（生徒）が作成した検証Evidenceを独立して評価する |
 
-## 3. 基本フロー
+## 3. Researcher完成版の選択
+
+Researcherは、利用する検索範囲に応じて次の完成版から1本を選びます。
+
+- [`GEM_RESEARCHER_FULL.md`](GEM_RESEARCHER_FULL.md)：Learning / Career / Development
+- [`GEM_RESEARCHER_LEARNING_DEVELOPMENT.md`](GEM_RESEARCHER_LEARNING_DEVELOPMENT.md)：Learning / Development
+- [`GEM_RESEARCHER_DEVELOPMENT.md`](GEM_RESEARCHER_DEVELOPMENT.md)：Development
+
+1つのGemへ複数のResearcherファイルを同時に登録しません。その時点で必要なModule構成を含む完成版を1本だけ登録し、検索範囲を変えたいときは別の完成版へ入れ替えます。
+
+## 4. User-firstの基本フロー
 
 ```text
-要求・目的
+User（生徒）が目的・要求を整理する
   ↓
-Solution Partner
-  ↓ 要求・要件・設計を文書化
-必要に応じて Researcher
-  ↓ 確認済み事実＋Evidence
-Solution Partner
-  ↓ 確定した設計・実装指示
-Implementer
-  ↓ 実装内容・変更内容・検証結果を文書化
-Reviewer
-  ↓ 判定・指摘・修正要求を文書化
-必要なら前工程へ戻る
+必要に応じてResearcherで外部情報を調査する
+  ↓ User（生徒）が確認済み事実とEvidenceを確認して渡す
+Solution Partnerで要求・制約・設計を具体化する
+  ↓ User（生徒）が現行設計とコード生成用指示を確認して渡す
+Code Generatorでコードまたはtestコードの生成支援を受ける
   ↓
-確定した内容を正本へ反映
+User（生徒）がコードをIDEへ反映し、実行、test、動作確認を行う
+  ↓ User（生徒）が検証Evidenceを作成して提出する
+Reviewerが設計、コード、検証Evidenceを評価する
+  ↓ レビュー結果は最初にUser（生徒）へ返る
+User（生徒）が修正方法、再提出、採用、完成を最終判断する
 ```
 
-Researcherは必要な場面で呼び出す。常に直列で使用する必要はない。
+Researcherは必要な場面で利用し、常に直列で呼び出す必要はありません。各Gemへ過去の会話を丸ごと渡すのではなく、その工程に必要な現行の要求、仕様、設計、EvidenceだけをUser（生徒）が選んで渡します。
 
-## 4. 共通原則
+## 5. 責務境界
 
-- 会話そのものを正本にしない。
-- 重要な入力・判断・成果・検証結果を文書として残す。
-- 確定事項と未確認事項を分離する。
-- 各Gemは自分の責務を越えて、他工程の最終判断を勝手に行わない。
-- 最終判断は生徒自身が行う。
+- Solution Partnerは設計を具体化しますが、完成コードの生成や最終判断は行いません。
+- Code Generatorはコード・testコードの生成までを支援します。IDE操作、実環境への適用、実行、test結果確認、動作確認、検証Evidence作成、品質保証判定は行いません。
+- User（生徒）が、生成コードをIDEへ反映し、実行、test、動作確認、Evidence作成を行います。
+- Reviewerは、Solution Partnerの設計成果物、Code Generatorが生成したコード、User（生徒）が作成したEvidenceを評価し、結果を最初にUser（生徒）へ返します。
+- コードに修正が必要な場合、User（生徒）が自力で修正するか、Code Generatorの支援を使うかを選びます。
+- 設計に再検討が必要な場合、User（生徒）は必要に応じてSolution Partnerの支援を利用できます。
+- 各Gemの出力を確認し、次の作業、採用、完成を最終判断するのはUser（生徒）です。
+
+## 6. Reviewerの判定
+
+Reviewerは、次の4段階で判定します。
+
+- `PASS`
+- `PASS WITH NOTES`
+- `REWORK REQUIRED`
+- `BLOCKED`
+
+判定の詳細、出力項目、修正案、Evidence不足時の案内は [`GEM_REVIEWER.md`](GEM_REVIEWER.md) を参照してください。Reviewerの判定はUser（生徒）の最終判断に代わるものではありません。
+
+## 7. Evidenceと正本
+
+Evidenceとは、判断、確認、検証結果を追跡できる根拠です。初心者向けには「確認に必要な記録・資料」と考えてください。
+
+- Researcher：情報源、参照先、確認した内容
+- Solution Partner：User（生徒）が示した要求、制約、確認済み事実、採用・不採用理由
+- Code Generator：入力された設計・仕様、対象、変更範囲、コード解析の根拠、仮定、未確認事項
+- User（生徒）：実行したtestの結果、ビルド結果、画面・実機・API等の動作確認結果
+- Reviewer：対象箇所、仕様・設計との不一致、検証結果、指摘根拠
+
+会話そのものを正本にせず、現在有効な要求、仕様、設計、判断、検証結果を追跡できる文書や成果物へ反映します。Evidenceのない「確認済み」「完了」「問題なし」という断定は避けます。
+
+## 8. 共通原則
+
+- 確定事項、未確認事項、仮定を分離する。
+- 各Gemは自分の責務を越えて、他工程の最終判断を行わない。
 - 不要な機能追加、過剰な抽象化、根拠のない仕様補完を行わない。
-- 問題を指摘する場合は、理由と影響を明示する。
-
-## 5. Evidence
-
-Evidenceとは、判断・確認・検証結果を追跡できる根拠である。
-
-役割ごとにEvidenceの内容は異なる。
-
-- Researcher: 一次情報、公式文書、仕様書、参照先、確認内容
-- Implementer: 変更対象、実装結果、テスト結果、ビルド結果、動作確認結果
-- Reviewer: 対象箇所、仕様・設計との不一致、検証結果、指摘根拠
-- Solution Partner: 要求、制約、確認済み事実、既存仕様、採用・却下理由
-
-Evidenceのない「確認済み」「完了」「問題なし」という断定を避ける。
-
-## 6. リファクタリング評価
-
-Reviewerは、次のような保守性に影響する具体的問題を確認した場合にリファクタリング候補として指摘する。
-
-- 明確な重複
-- 過度な複雑化
-- 責務の混在
-- 変更時の影響範囲が不必要に広い構造
-- 読解・テスト・保守を継続的に妨げる構造
-
-単に「より綺麗になる」「将来使うかもしれない」という理由だけでは要求しない。
-
-リファクタリングの実施担当はImplementerとする。設計変更を伴う場合はSolution Partnerへ戻す。
-
-## 7. 各Personaの使い方
-
-1. 対象PersonaファイルをGeminiのGemのカスタム指示へ設定する。
-2. 現在有効な要求・仕様・設計・調査結果など、必要な文書だけを与える。
-3. Gemの出力を確認し、必要な内容を正本へ反映する。
-4. 次工程へ渡す文書を生徒自身が選ぶ。
-
-各Gemに過去の会話を丸ごと渡すのではなく、その工程で必要な確定情報を渡すことを基本とする。
+- 問題を指摘する場合は、理由と影響を示す。
+- パスワード、APIキー、接続情報などの秘密情報を、入力、出力、ログ、公開物へ含めない。

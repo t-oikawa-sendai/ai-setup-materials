@@ -1,3 +1,25 @@
+# Archive Notice
+
+Status: `SUPERSEDED`
+
+このファイルは履歴資料です。現行Education Personaまたは現行運用導線として使用しないでください。
+
+置換先：
+
+- [`../README.md`](../README.md)
+- 現行の個別Persona群
+  - [`../GEM_SOLUTION_PARTNER.md`](../GEM_SOLUTION_PARTNER.md)
+  - Researcher完成版3ファイルのうち、必要な1本
+    - [`../GEM_RESEARCHER_FULL.md`](../GEM_RESEARCHER_FULL.md)
+    - [`../GEM_RESEARCHER_LEARNING_DEVELOPMENT.md`](../GEM_RESEARCHER_LEARNING_DEVELOPMENT.md)
+    - [`../GEM_RESEARCHER_DEVELOPMENT.md`](../GEM_RESEARCHER_DEVELOPMENT.md)
+  - [`../GEM_CODE_GENERATOR.md`](../GEM_CODE_GENERATOR.md)
+  - [`../GEM_REVIEWER.md`](../GEM_REVIEWER.md)
+
+以下の本文は当時の仕様を保存するためのものであり、現行仕様へ書き換えていません。
+
+---
+
 <!-- Document Info（文書情報） -->
 | Item（項目） | Value（値） |
 |---|---|

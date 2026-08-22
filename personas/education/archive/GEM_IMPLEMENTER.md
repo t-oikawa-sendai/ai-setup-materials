@@ -1,3 +1,17 @@
+# Archive Notice
+
+Status: `SUPERSEDED`
+
+このファイルは履歴資料です。現行Education Personaとして使用しないでください。
+
+置換先：[`../GEM_CODE_GENERATOR.md`](../GEM_CODE_GENERATOR.md)
+
+旧Implementerの責務をCode Generatorへ単純置換してはいけません。現行のCode Generatorはコード・testコードの生成支援までを担当し、IDEへの反映、実行、test、動作確認、検証Evidence作成、最終判断はUserが行います。
+
+以下の本文は当時の仕様を保存するためのものであり、現行仕様へ書き換えていません。
+
+---
+
 # GEM_IMPLEMENTER.md
 
 ## 1. 役割

@@ -1,7 +1,7 @@
 # CURRENT
 
 Last Updated: 2026-08-22
-Status: RECOVERY / RECONSTRUCTION
+Status: CURRENT / POST-PERSONA PRIORITIES
 
 ## PURPOSE
 
@@ -9,15 +9,17 @@ Status: RECOVERY / RECONSTRUCTION
 
 単なるAI利用方法ではなく、AIの役割分担・責務分離・Evidence・検証を重視したAI活用設計を学べる教材とする。
 
-## SAFETY HOLD
+## RECOVERY HISTORY
 
 2026-08-21、AIによる決定事項統合で、Education用4Gemの旧名称 `Implementer` を現行情報として再混入させる誤りが確認された。
 
-そのため、次の統合記録は再構築完了まで現行設計の正本として扱わない。
+そのため、復旧中は次の統合記録を現行設計の正本として扱わなかった。
 
 - `project-notes/2026-08-21-education-4gem-design-decisions.md`
 
-原因説明だけで復旧扱いにしない。一次資料・既存決定記録・Persona現物・ユーザーの明示決定を再照合し、最新有効情報を再構築する。
+原因説明だけで復旧扱いにせず、一次資料・既存決定記録・Persona現物・ユーザーの明示決定を再照合して、Researcher、Reviewer、4Gem間の責務境界、README導線を再構築した。
+
+2026-08-22、Education用4Gem Persona本体とREADME導線の整合化まで完了した。上記の統合記録には旧決定・失効情報が含まれるため、復旧完了後も単独で現行完成仕様として使用しない。
 
 ## CONFIRMED SAFE
 
@@ -46,17 +48,22 @@ Reviewer
 - Educationでは `Implementer` ではなく `Code Generator` を使用する。
 - `GEM_CODE_GENERATOR.md` はGitHub上に実在する。
 - `Code Generator` と、Cursor等で実装を担当する `Implementer` は別概念として扱う。
-- 旧 `Implementer` の責務を機械的にすべて `Code Generator` へ置換してはならない。役割変更後の責務・戻し先・Doc連携は再構築対象とする。
+- 旧 `Implementer` の責務を機械的にすべて `Code Generator` へ置換してはならない。役割変更後の責務境界、User-firstフロー、Persona・README導線は再構築・整合済みであり、今後も単純置換へ戻さない。
 
 ### Persona完成状態
 
 - Researcher Persona再構築は完了。
 - Reviewer Persona再構築は完了。
+- Solution PartnerとCode Generatorの現行責務境界への整合は完了。
+- Education用4Gem Persona本体と `personas/education/README.md`、root `README.md` の導線整合は完了。
 - 現行Researcher Personaは次の3ファイル。
   - `personas/education/GEM_RESEARCHER_FULL.md`
   - `personas/education/GEM_RESEARCHER_LEARNING_DEVELOPMENT.md`
   - `personas/education/GEM_RESEARCHER_DEVELOPMENT.md`
 - 旧 `personas/education/GEM_RESEARCHER.md` は3パターン完成後に旧版化し、`personas/education/archive/GEM_RESEARCHER.md` へ退避済み。
+- 旧 `personas/education/GEM_IMPLEMENTER.md` は `personas/education/archive/GEM_IMPLEMENTER.md` へ退避し、`SUPERSEDED` と置換先を明記済み。
+- 旧 `personas/education/GEMINI_PERSONA_DEFINITION-4Gem.md` は `personas/education/archive/GEMINI_PERSONA_DEFINITION-4Gem.md` へ退避し、`SUPERSEDED` と置換先を明記済み。
+- Reviewerは完成済みであり、次の最重要検討事項における再検討対象ではない。
 
 ### Reviewer再構築仕様
 
@@ -302,11 +309,11 @@ Reviewer
 
 ## CURRENT TARGET
 
-README作成を一時停止し、Education用4Gemと関連管理文書の情報資産を再構築する。
+Education用4Gem Persona本体とREADME導線の整合化は完了した。
 
-Researcher再構築とReviewer再構築は完了。現在はEducation用4Gem全体、README、Persona導線の整合を優先する。
+現在は、ユーザー確定済みの2つの最重要検討事項を次作業として扱う。本更新では検討内容、設計、結論を追加せず、次作業として記録するだけとする。
 
-## RECOVERY METHOD
+## RECOVERY METHOD（完了）
 
 1. GitHub上の関連決定記録を時系列で収集する。
 2. Education Personaの現物を確認する。
@@ -324,8 +331,8 @@ Researcher再構築とReviewer再構築は完了。現在はEducation用4Gem全�
 - `AGENTS.md` にAI能力を過信しない安全前提と復旧ガードを追加済み。
 - `背景意図` を重要情報資産として定義し、恒久ルール、情報資産保全方針、本ファイルへ記録済み。
 - 設計ドキュメント標準の「最大7文書」は作成数の強制ではなく、AIによる文書増殖の防止とHumanが情報の所在・修正箇所を把握しやすくするための上限・配置ルールであることを記録済み。別運用文書の作成は未着手。
-- `project-notes/2026-08-21-education-4gem-design-decisions.md` は再構築完了まで正本扱い停止。
-- README仮完成作業は復旧完了まで一時停止。
+- `project-notes/2026-08-21-education-4gem-design-decisions.md` は旧決定・失効情報を含む履歴資料として保持し、単独で現行完成仕様として使用しない。
+- README仮完成作業の一時停止は終了し、Education READMEとroot READMEの現行導線への整合を完了済み。
 - `project-notes/2026-08-21-reconstruction-confirmed-facts.md` はResearcher再構築途中の確定事項記録として保持する。
 - `project-notes/2026-08-21-researcher-completion.md` をResearcher完成後の最新状態・検証記録として追加済み。
 - `project-notes/2026-08-21-reconstruction-audit-researcher-reviewer.md` に、GitHub現物・commit履歴から確認した履歴事実と現行位置づけを記録済み。
@@ -339,9 +346,11 @@ Researcher再構築とReviewer再構築は完了。現在はEducation用4Gem全�
 - `Active Modules` は各ファイルの構成に応じて異なる。
 - 同名Moduleの本文はファイル間で同一。
 - 旧 `GEM_RESEARCHER.md` は `personas/education/archive/GEM_RESEARCHER.md` へ退避し、旧パスから削除済み。
-- `personas/education/README.md` は旧Researcher 1ファイル構成と `Implementer` を参照しており、4Gem復旧後にまとめて整合させる必要がある。
+- `personas/education/README.md` が旧Researcher 1ファイル構成と `Implementer` を参照していたことは監査時点の過去事実である。現在はResearcher 3完成版と現行4Gemの導線へ整合済み。
 
-### Reviewer監査で確認済み
+### Reviewer監査で確認済み（過去事実と復旧記録）
+
+次のうち旧Reviewerの状態を示す記述は監査時点の過去事実であり、現在の `GEM_REVIEWER.md` の状態を示すものではない。Reviewer Personaの再構築、独立レビュー、静的検証は完了しており、Reviewerは再検討対象ではない。
 
 - 2026-08-19版 `GEM_REVIEWER.md` はCode Generator追加前のPersona。
 - 戻し先・リファクタリング担当として `Implementer` を含むため、その箇所は現行Education仕様としてそのまま利用しない。
@@ -386,10 +395,25 @@ Researcher再構築とReviewer再構築は完了。現在はEducation用4Gem全�
 - `GEM_CODE_GENERATOR.md` は2026-08-20に追加された。
 - コード生成・既存コード解析・エラー分析・修正版コード生成等を担当する。
 - 実環境への適用、IDE操作、Git操作、品質保証判定は担当しない。
+- 2026-08-22、testコード生成支援、Reviewer修正指示の受入れ、Userへの返却、実行・test・Evidence作成を担当しない境界をPersona本文へ整合済み。
+
+### Education 4Gem Persona・README整合化完了
+
+- `personas/education/GEM_SOLUTION_PARTNER.md` を、User、Code Generator、Reviewer、最終設計ドキュメントの現行責務境界へ整合済み。
+- `personas/education/GEM_CODE_GENERATOR.md` を、コード・testコード生成支援とUserによる適用・検証の境界へ整合済み。
+- Researcher 3完成版の役割主体表記を `User` へ統一済み。
+- Researcher 3完成版の本体一致、同名Module一致、Active Modulesを再検証済み。
+- `personas/education/README.md` をEducation用の主要導線として再構築済み。
+- root `README.md` をRepository全体の入口として整合し、Education用の主要導線を `personas/education/README.md` として明記済み。
+- 現行READMEから、旧 `GEM_IMPLEMENTER.md`、旧一体型定義書、旧 `GEM_RESEARCHER.md` への導線を除外済み。
+- 現行READMEとArchive冒頭に追加したリンクのリンク先が実在することを確認済み。
+- 旧 `GEM_IMPLEMENTER.md` と旧 `GEMINI_PERSONA_DEFINITION-4Gem.md` はArchiveへ移動し、`SUPERSEDED`、現行利用禁止、置換先を明記済み。旧本文は保持している。
+- `git diff --check` は成功済み。
+- 詳細Evidenceは `project-notes/2026-08-22-education-4gem-readme-alignment-completion.md` に記録した。
 
 ## POST-PERSONA HIGHEST PRIORITY / UNRESOLVED
 
-次の2項目は、Persona作成がすべて終了した後に最重要検討事項として扱う。
+Persona作成とREADME導線整合は完了した。次の2項目を、現在の最重要検討事項として扱う。
 
 現時点では検討・設計・変更を開始せず、結論を推測しない。
 
@@ -402,23 +426,22 @@ Researcher再構築とReviewer再構築は完了。現在はEducation用4Gem全�
 
 ## NEXT ACTION
 
-Reviewerの再構築は完了した。
+Reviewerを含むEducation用4Gem Persona本体とREADME導線の整合化は完了している。Reviewerは再検討対象に戻さない。
 
-1. Education用4Gem各Personaの現物と確定仕様を照合する。
-2. 4Gem間の責務境界、名称、入出力、User導線の不整合を分離する。
-3. `personas/education/README.md` の旧Researcher構成と `Implementer` 参照を現行仕様へ整合させる。
-4. root `README.md` は確定済みの配置方針に従い、必要範囲だけを整合させる。
-5. Persona作成と導線整合の完了後、`POST-PERSONA HIGHEST PRIORITY / UNRESOLVED` の2項目を最優先で検討する。
+次は、以下をこの順で最重要検討事項として扱う。本更新では内容を検討せず、結論を推測しない。
+
+1. `ASKME 迎合禁止` の利用に関する検討
+2. 7文書を本Repository内へ配置するか別管理にするか、および現行の別Repositoryとの不整合に関する検討
 
 ## DO NOT USE AS COMPLETED CURRENT SOURCE
 
-再構築完了まで、次の文書を単独で現行の完成仕様として扱わない。
+次の文書には旧決定・失効情報が含まれるため、単独で現行の完成仕様として扱わない。
 
 - `project-notes/2026-08-21-education-4gem-design-decisions.md`
 - `project-notes/2026-08-19-4gem-names.md`
 - `project-notes/2026-08-22-reviewer-reconstruction-instructions.md`
 
-`personas/education/archive/GEM_RESEARCHER.md` は旧版の履歴資料であり、現行Researcher Personaとして使用しない。
+`personas/education/archive/GEM_RESEARCHER.md`、`personas/education/archive/GEM_IMPLEMENTER.md`、`personas/education/archive/GEMINI_PERSONA_DEFINITION-4Gem.md` は `SUPERSEDED` の履歴資料であり、現行Education Personaまたは現行運用導線として使用しない。
 
 ## REFERENCES
 
@@ -429,11 +452,17 @@ Reviewerの再構築は完了した。
 - `project-notes/2026-08-22-reviewer-user-first-learning-design.md`（ReviewerのUser-first学習設計と決定経緯）
 - `project-notes/2026-08-22-reviewer-reconstruction-approved-implementation-instructions.md`（Reviewer再構築の現行実装指示書）
 - `project-notes/2026-08-22-reviewer-completion.md`（Reviewer完成状態と検証Evidence）
-- `project-notes/2026-08-21-education-4gem-design-decisions.md`（要再構築）
+- `project-notes/2026-08-22-education-4gem-readme-alignment-instructions.md`（4Gem・README整合実装指示書）
+- `project-notes/2026-08-22-education-4gem-readme-alignment-completion.md`（4Gem・README整合完了状態と検証Evidence）
+- `project-notes/2026-08-21-education-4gem-design-decisions.md`（旧決定を含み、単独で現行完成仕様として使用しない）
 - `project-notes/2026-08-20-ai-education-staging.md`
-- `project-notes/2026-08-19-4gem-names.md`（旧決定を含む）
+- `project-notes/2026-08-19-4gem-names.md`（旧決定を含み、単独で現行完成仕様として使用しない）
 - `personas/education/GEM_RESEARCHER_FULL.md`
 - `personas/education/GEM_RESEARCHER_LEARNING_DEVELOPMENT.md`
 - `personas/education/GEM_RESEARCHER_DEVELOPMENT.md`
 - `personas/education/archive/GEM_RESEARCHER.md`（旧版）
+- `personas/education/GEM_SOLUTION_PARTNER.md`
 - `personas/education/GEM_CODE_GENERATOR.md`
+- `personas/education/GEM_REVIEWER.md`
+- `personas/education/README.md`
+- root `README.md`

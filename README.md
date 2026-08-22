@@ -5,89 +5,69 @@
 | Version（バージョン） | 0.1 |
 | Status（ステータス） | Draft |
 | Created Date（作成日） | 2026-08-17 |
-| Last Updated（最終更新日） | 2026-08-17 |
+| Last Updated（最終更新日） | 2026-08-22 |
 | Owner（管理者） | t-oikawa-sendai |
-| Related Documents（関連文書） | `personas/education/GEMINI_PERSONA_DEFINITION-4Gem.md` |
+| Related Documents（関連文書） | [`personas/education/README.md`](personas/education/README.md) |
 
 ---
 
-# AI Setup Materials — ペルソナおよびセッティングファイル配布リポジトリ
+# AI Setup Materials — Persona・設定資料リポジトリ
 
-本リポジトリは、生成AIエージェントに付与する設定およびペルソナ定義の配布・管理を目的とした文書群です。
-仕様駆動開発（Specification-Driven Development, SDD）を前提として、AIに対する「役割定義（Role Definition）」「禁止事項（Constraints）」「入出力形式（I/O Format）」を明文化し、構造化された制約として提供します。
+本リポジトリは、生成AIへ明確な役割、責務境界、禁止事項、入出力方針を与えるためのPersonaと関連資料を配布・管理します。
 
----
+曖昧な依頼による推測、指示範囲外の変更、未検証の完了報告を減らし、User（生徒）がEvidenceを確認して最終判断できる運用を目的とします。
 
-## 1. 目的
+## 1. 構成
 
-生成AIシステムに対して曖昧な依頼を入力した場合、以下のような予期せぬ挙動が発生する傾向があります。
-
-- 推測に基づく過剰な補完
-- 指示範囲外の変更・改変
-- 動作未検証にもかかわらず出力される完了報告
-
-これらは、基盤モデル（Foundation Model）の能力制約ではなく、主としてプロンプト設計（Prompt Engineering）の最適化不足に起因する現象です。しかしながら、ユーザー層は専門家から初学者まで多様であり、個々人の技術的熟練度に依存しない出力品質の安定化メカニズムが求められます。
-
-本リポジトリに含まれる定義書は、上記の事象を構造的に抑制するための制約ルールをあらかじめ言語化・定式化したものです。AIに対して明確な役割（Role）と行動範囲（Scope）を付与し、過剰な推論および不足した出力を抑制することを目的とします。
-
----
-
-## 2. 構成
-
-```
+```text
 personas/
-├── education/   学習用：Gemini内の4つのGemで開発工程を完結させる構成
-└── reference/   参考：複数のAIサービスを役割分担させる実務構成の例
+├── education/   学習用：User（生徒）がGemini内の4Gemを操作する構成
+└── reference/   参考用：Education用4Gemとは異なる前提の実務構成例
 ```
 
-### 2.1 personas/education/
+Education用の主要導線は [`personas/education/README.md`](personas/education/README.md) です。Personaの選び方、役割分担、User-firstの作業フローは、このREADMEから確認してください。
 
-`GEMINI_PERSONA_DEFINITION-4Gem.md`
+`personas/reference/` は、Education用4Gemとは役割、利用サービス、実装・検証方法の前提が異なる参考資料です。Education用の現行手順としてそのまま流用せず、設計思想や運用パターンの参考として扱ってください。
 
-Geminiの Gem 機能を活用し、リサーチ・設計・実装・レビューの各工程を4つの独立したGemに分離して運用するための定義書です。
-各Gemはコンテキストを直接共有せず、人（ユーザー）が確定した仕様のみを逐次手渡す（ハンドオフ）方式を採用しています。
+## 2. Education用4Gem
 
-**含まれる内容：**
+現行の4Gemは次のとおりです。
 
-- 4Gemそれぞれのカスタム指示（そのままGemへ貼り付けて使用可能）
-- 環境情報を登録するパーソナライズ設定テンプレート
-- 調査 → 設計 → 実装 → レビューの手動リレー手順
-- 検証および完了判定の規約
+- `Researcher`：外部情報を一次情報中心に調査し、確認済み事実とEvidenceを示す
+- `Solution Partner`：目的、要求、制約を整理し、設計とコード生成用指示を具体化する
+- `Code Generator`：現行設計と仕様に従い、コード・testコードの生成、解析、修正を支援する
+- `Reviewer`：設計、コード、User（生徒）が作成した検証Evidenceを独立して評価する
 
-### 2.2 personas/reference/
+Researcherは検索範囲が異なる3つの完成版を提供しています。
 
-`CLAUDE_PERSONA.md` / `CHATGPT_PERSONA.md` / `CURSOR_PERSONA.md` / `GEMINI_PERSONA.md`
+- [`GEM_RESEARCHER_FULL.md`](personas/education/GEM_RESEARCHER_FULL.md)
+- [`GEM_RESEARCHER_LEARNING_DEVELOPMENT.md`](personas/education/GEM_RESEARCHER_LEARNING_DEVELOPMENT.md)
+- [`GEM_RESEARCHER_DEVELOPMENT.md`](personas/education/GEM_RESEARCHER_DEVELOPMENT.md)
 
-複数のAIサービスに役割を割り当てて運用している実務構成の参考例です。
-学習用の4Gem構成とは前提条件が異なるため、そのままの流用は推奨されません。設計思想および運用パターンの参照資料としてご利用ください。
+Gemへは、その時点で必要なModule構成を含むResearcher完成版を1本だけ登録し、必要に応じて入れ替えます。
 
----
+## 3. User（生徒）の役割
 
-## 3. 使い方（学習用）
+User（生徒）が各Gemを操作し、出力を確認して、次の工程に必要な確定情報を手動で渡します。
 
-1. `personas/education/GEMINI_PERSONA_DEFINITION-4Gem.md` を開く
-2. 第2章のパーソナライズ設定を、自身の環境（OS・IDE・パス等）に合わせて `【 】` 部分を書き換える
-3. 書き換えたテキストをGeminiのパーソナライズ設定に登録する
-4. 第3章の4つのカスタム指示を、それぞれ別のGemとして登録する
-5. 第4章の手順に従い、Gem間を手動で渡しながら開発を進める
+Code Generatorが生成したコードまたはtestコードは、User（生徒）がIDEへ反映します。コードの実行、test、動作確認、検証Evidenceの作成もUser（生徒）が行います。
 
-> **Note:** `【ユーザー名】` などの `【 】` および `<repository-name>` は、各自の環境に置き換えるプレースホルダ（Placeholder）です。使用前に必ず適切な値に置換してください。
+Reviewerの結果は最初にUser（生徒）へ返されます。修正方法、AI支援の利用、再提出、成果物と最終設計の採用・完成を最終判断するのはUser（生徒）です。
 
----
+詳細な運用方法とPersonaへのリンクは [`personas/education/README.md`](personas/education/README.md) を参照してください。
 
 ## 4. 前提と注意事項
 
-- 本定義書は特定プロジェクトの運用実績に基づいて作成されています。すべての環境・ユースケースにおいて最適であるとは限りません。
-- パスワード、APIキー、接続情報などの機密情報を、AIへの入力・出力および公開物に含めないでください。
-- AIから出力される「完了しました」等の報告は、動作の検証結果を保証するものではありません。必ず自身の環境において動作確認を実施してください。
-
----
+- Personaは、すべての環境や用途で自動的に最適な結果を保証するものではありません。対象の要求、制約、正本を入力し、出力を確認してください。
+- パスワード、APIキー、接続情報などの秘密情報を、AIへの入力、AIの出力、コード、ログ、画面、公開物へ含めないでください。
+- AIが出力する「完了しました」「test成功」「問題なし」などの報告は、それだけでは検証Evidenceになりません。User（生徒）が自身の環境で実行・動作確認し、実際の結果を確認してください。
+- 会話履歴やAIの記憶だけを正本として扱わず、現在有効な要求、仕様、設計、判断、検証結果を追跡できる文書や成果物へ反映してください。
 
 ## 5. ライセンス
 
 本リポジトリの文書は **Creative Commons Attribution-NonCommercial 4.0 International（CC BY-NC 4.0）** のもとで公開します。
-出典を明示する限り、非営利目的における利用・改変・再配布が可能です。
-詳細は `LICENSE` を参照してください。
+
+出典を明示する限り、非営利目的における利用、改変、再配布が可能です。詳細は [`LICENSE`](LICENSE) を参照してください。
 
 ---
 
