@@ -2,22 +2,22 @@
 | Item（項目） | Value（値） |
 |---|---|
 | Document ID（文書ID） | STD-PERSONA-INDEX-001 |
-| Version（バージョン） | 0.1 |
-| Status（ステータス） | Draft |
+| Version（バージョン） | 1.0 |
+| Status（ステータス） | Approved |
 | Created Date（作成日） | 2026-08-17 |
 | Last Updated（最終更新日） | 2026-08-22 |
 | Owner（管理者） | t-oikawa-sendai |
-| Related Documents（関連文書） | [`personas/education/README.md`](personas/education/README.md) |
+| Related Documents（関連文書） | [`personas/education/README.md`](personas/education/README.md)<br>[`personas/reference/README.md`](personas/reference/README.md) |
 
 ---
 
-# AI Setup Materials — Persona・設定資料リポジトリ
+# AI Setup Materials — Persona and Configuration Repository（Persona・設定資料リポジトリ）
 
 本リポジトリは、生成AIへ明確な役割、責務境界、禁止事項、入出力方針を与えるためのPersonaと関連資料を配布・管理します。
 
 曖昧な依頼による推測、指示範囲外の変更、未検証の完了報告を減らし、User（生徒）がEvidenceを確認して最終判断できる運用を目的とします。
 
-## 1. 構成
+## 1. Structure（構成）
 
 ```text
 personas/
@@ -27,9 +27,9 @@ personas/
 
 Education用の主要導線は [`personas/education/README.md`](personas/education/README.md) です。Personaの選び方、役割分担、User-firstの作業フローは、このREADMEから確認してください。
 
-`personas/reference/` は、Education用4Gemとは役割、利用サービス、実装・検証方法の前提が異なる参考資料です。Education用の現行手順としてそのまま流用せず、設計思想や運用パターンの参考として扱ってください。
+Reference領域の入口は [`personas/reference/README.md`](personas/reference/README.md) です。`personas/reference/` は、Education用4Gemとは役割、利用サービス、実装・検証方法の前提が異なる参考資料です。Education用の現行手順としてそのまま流用せず、設計思想や運用パターンの参考として扱ってください。
 
-## 2. Education用4Gem
+## 2. Education 4Gem（Education用4Gem）
 
 現行の4Gemは次のとおりです。
 
@@ -46,7 +46,7 @@ Researcherは検索範囲が異なる3つの完成版を提供しています。
 
 Gemへは、その時点で必要なModule構成を含むResearcher完成版を1本だけ登録し、必要に応じて入れ替えます。
 
-## 3. User（生徒）の役割
+## 3. Role of User（User（生徒）の役割）
 
 User（生徒）が各Gemを操作し、出力を確認して、次の工程に必要な確定情報を手動で渡します。
 
@@ -56,14 +56,14 @@ Reviewerの結果は最初にUser（生徒）へ返されます。修正方法�
 
 詳細な運用方法とPersonaへのリンクは [`personas/education/README.md`](personas/education/README.md) を参照してください。
 
-## 4. 前提と注意事項
+## 4. Prerequisites and Notes（前提と注意事項）
 
 - Personaは、すべての環境や用途で自動的に最適な結果を保証するものではありません。対象の要求、制約、正本を入力し、出力を確認してください。
 - パスワード、APIキー、接続情報などの秘密情報を、AIへの入力、AIの出力、コード、ログ、画面、公開物へ含めないでください。
 - AIが出力する「完了しました」「test成功」「問題なし」などの報告は、それだけでは検証Evidenceになりません。User（生徒）が自身の環境で実行・動作確認し、実際の結果を確認してください。
 - 会話履歴やAIの記憶だけを正本として扱わず、現在有効な要求、仕様、設計、判断、検証結果を追跡できる文書や成果物へ反映してください。
 
-## 5. ライセンス
+## 5. License（ライセンス）
 
 本リポジトリの文書は **Creative Commons Attribution-NonCommercial 4.0 International（CC BY-NC 4.0）** のもとで公開します。
 

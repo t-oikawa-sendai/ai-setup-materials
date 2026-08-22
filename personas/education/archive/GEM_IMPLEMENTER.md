@@ -1,14 +1,16 @@
-# Archive Notice
+# Archive Notice（アーカイブ通知）
 
-Status: `SUPERSEDED`
+> **Do Not Use（利用禁止）**
+>
+> この文書は履歴資料です。現行仕様、現行Persona、現行運用の根拠として使用しないでください。
 
-このファイルは履歴資料です。現行Education Personaとして使用しないでください。
-
-置換先：[`../GEM_CODE_GENERATOR.md`](../GEM_CODE_GENERATOR.md)
-
-旧Implementerの責務をCode Generatorへ単純置換してはいけません。現行のCode Generatorはコード・testコードの生成支援までを担当し、IDEへの反映、実行、test、動作確認、検証Evidence作成、最終判断はUserが行います。
-
-以下の本文は当時の仕様を保存するためのものであり、現行仕様へ書き換えていません。
+| Item（項目） | Value（値） |
+|---|---|
+| Archive Type（アーカイブ種別） | Historical Material（履歴資料） |
+| Status（ステータス） | Deprecated |
+| Usage（利用可否） | Do Not Use（利用禁止） |
+| Replaced By（置換先） | [`../GEM_CODE_GENERATOR.md`](../GEM_CODE_GENERATOR.md) |
+| Preservation（保存方針） | Original Body Preserved（旧本文を変更せず保存） |
 
 ---
 

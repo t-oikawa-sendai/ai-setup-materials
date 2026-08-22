@@ -1,22 +1,16 @@
-# Archive Notice
+# Archive Notice（アーカイブ通知）
 
-Status: `SUPERSEDED`
+> **Do Not Use（利用禁止）**
+>
+> この文書は履歴資料です。現行仕様、現行Persona、現行運用の根拠として使用しないでください。
 
-このファイルは履歴資料です。現行Education Personaまたは現行運用導線として使用しないでください。
-
-置換先：
-
-- [`../README.md`](../README.md)
-- 現行の個別Persona群
-  - [`../GEM_SOLUTION_PARTNER.md`](../GEM_SOLUTION_PARTNER.md)
-  - Researcher完成版3ファイルのうち、必要な1本
-    - [`../GEM_RESEARCHER_FULL.md`](../GEM_RESEARCHER_FULL.md)
-    - [`../GEM_RESEARCHER_LEARNING_DEVELOPMENT.md`](../GEM_RESEARCHER_LEARNING_DEVELOPMENT.md)
-    - [`../GEM_RESEARCHER_DEVELOPMENT.md`](../GEM_RESEARCHER_DEVELOPMENT.md)
-  - [`../GEM_CODE_GENERATOR.md`](../GEM_CODE_GENERATOR.md)
-  - [`../GEM_REVIEWER.md`](../GEM_REVIEWER.md)
-
-以下の本文は当時の仕様を保存するためのものであり、現行仕様へ書き換えていません。
+| Item（項目） | Value（値） |
+|---|---|
+| Archive Type（アーカイブ種別） | Historical Material（履歴資料） |
+| Status（ステータス） | Deprecated |
+| Usage（利用可否） | Do Not Use（利用禁止） |
+| Replaced By（置換先） | [`../README.md`](../README.md)<br>[`../GEM_RESEARCHER_FULL.md`](../GEM_RESEARCHER_FULL.md)<br>[`../GEM_RESEARCHER_LEARNING_DEVELOPMENT.md`](../GEM_RESEARCHER_LEARNING_DEVELOPMENT.md)<br>[`../GEM_RESEARCHER_DEVELOPMENT.md`](../GEM_RESEARCHER_DEVELOPMENT.md)<br>[`../GEM_SOLUTION_PARTNER.md`](../GEM_SOLUTION_PARTNER.md)<br>[`../GEM_CODE_GENERATOR.md`](../GEM_CODE_GENERATOR.md)<br>[`../GEM_REVIEWER.md`](../GEM_REVIEWER.md) |
+| Preservation（保存方針） | Original Body Preserved（旧本文を変更せず保存） |
 
 ---
 

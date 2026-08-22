@@ -1,3 +1,18 @@
+# Archive Notice（アーカイブ通知）
+
+> **Do Not Use（利用禁止）**
+>
+> この文書は履歴資料です。現行仕様、現行Persona、現行運用の根拠として使用しないでください。
+
+| Item（項目） | Value（値） |
+|---|---|
+| Archive Type（アーカイブ種別） | Historical Material（履歴資料） |
+| Status（ステータス） | Deprecated |
+| Usage（利用可否） | Do Not Use（利用禁止） |
+| Replaced By（置換先） | [`../GEM_RESEARCHER_FULL.md`](../GEM_RESEARCHER_FULL.md)<br>[`../GEM_RESEARCHER_LEARNING_DEVELOPMENT.md`](../GEM_RESEARCHER_LEARNING_DEVELOPMENT.md)<br>[`../GEM_RESEARCHER_DEVELOPMENT.md`](../GEM_RESEARCHER_DEVELOPMENT.md) |
+| Preservation（保存方針） | Original Body Preserved（旧本文を変更せず保存） |
+
+---
 # GEM_RESEARCHER.md
 
 ## 1. 役割
