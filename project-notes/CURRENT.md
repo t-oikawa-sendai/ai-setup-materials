@@ -66,6 +66,11 @@ Reviewer
 - Reviewerは、Code Generatorが生成したコードと、生徒が作成した検証Evidenceを評価する。
 - Reviewerは、Solution Partnerの設計成果物を評価対象に含め、設計の論理的矛盾点などを検証する。
 - Researcherの調査結果はReviewerの評価対象に含めない。
+- Reviewerは、問題の原因、根拠、影響を確認して戻し先を判断する。
+- Reviewerは、判断した戻し先とその理由をレビュー結果へ明記する。
+- 複数工程に問題がある場合は、問題を分離してそれぞれの戻し先を示す。
+- Evidence不足で戻し先を判断できない場合は推測せず、判断不能であることを明示し、最終判断を生徒へ残す。
+- Reviewerは自ら修正せず、戻し先の判断と修正要求までを担当する。
 - 最終判断は生徒が行う。
 - CursorはEducation用4Gemのこの運用には含めない。
 - Cursorが実装・testを担当するAIサービス別の実務向け運用と、Education用4Gemを混同しない。
@@ -232,6 +237,7 @@ Researcher再構築は完了。現在はReviewer再構築を優先する。
 - AIがEducation用4GemとCursor等の実務向け運用を混同し、Reviewerの確定記録と実装指示書へ誤った外部実装担当を混入させた。
 - 2026-08-22、ユーザー確認により、Code Generatorがコード生成、生徒がIDEへの反映・実行・test・動作確認、Reviewerが生成コードと生徒の検証Evidenceを評価、最終判断は生徒、CursorはEducation用4Gemに含めないという前提へ是正した。
 - 2026-08-22、ReviewerはResearcherの調査結果を評価対象に含めず、Solution Partnerの設計成果物を設計の論理的矛盾点などの検証対象に含めることをユーザー確認済み。
+- 2026-08-22、Reviewerが問題の原因・根拠・影響に基づいて戻し先を判断し、戻し先と理由を明記することをユーザー確認済み。
 - `project-notes/2026-08-22-reviewer-reconstruction-instructions.md` は使用禁止状態へ変更する。
 
 ### Code Generator監査で確認済み
