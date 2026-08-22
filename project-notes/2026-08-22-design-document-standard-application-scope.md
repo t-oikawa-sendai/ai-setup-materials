@@ -82,16 +82,34 @@ Status: CONFIRMED DECISION RECORD
 
 ヘッダー表の列名は、`Item（項目）` と `Value（値）` で統一する。
 
-この決定は項目名と列名の統一だけを確定する。各項目へ設定する具体的な値、使用するStatus体系、Document IDの採番規則は未決であり、本記録では推測・決定しない。
+この決定は項目名と列名の統一を確定する。各項目へ設定する具体的な値とDocument IDの採番規則は未決であり、本記録では推測・決定しない。
 
-この区分はヘッダー適用範囲の確定であり、具体的な各ヘッダー値、状態名、Document ID体系、配置変更は未決である。本記録では推測・決定しない。
+## Standard Header Status Values
+
+標準ヘッダーの `Status（ステータス）` は、次の4状態で統一する。
+
+- `Draft`
+- `Review`
+- `Approved`
+- `Deprecated`
+
+### Temporary Status Notation Exception
+
+- 例外箇所：`personas/education/GEM_REVIEWER.md` に記載する最終設計ドキュメントの状態表記
+- 維持する表記：`DRAFT`、`CURRENT`、`SUPERSEDED`
+- 根拠：Reviewer再構築でUser確認済みの最終設計ドキュメントに関する機能仕様であり、標準ヘッダーの状態表記とは責務が異なる。
+- 維持理由：標準ヘッダーへの表記統一だけを理由に変更すると、Reviewerの確定済み出力契約とEducation教材の説明を変更するため。
+- 再検討・解除条件：最終設計ドキュメントの状態仕様を変更対象として別途検討し、Userが仕様変更を明示承認した場合に限り、標準ヘッダーとの表記統合を再検討する。
+
+この例外は永久固定ではない。解除条件を満たす前にAIが自動変更しない。
+
+この区分はヘッダー適用範囲の確定であり、具体的な各ヘッダー値、Document ID体系、配置変更は未決である。本記録では推測・決定しない。
 
 ## Unresolved Details
 
 次は未決であり、本記録では推測・決定しない。
 
 - `ai-setup-materials` 向けの具体的な文書体系
-- 使用する状態名
 - 具体的な各ヘッダー値
 - Document ID体系
 - 文書の配置
