@@ -79,14 +79,18 @@ Reviewer
 - 表記変更が確定済みの仕様変更になる箇所は修正せず、例外として現行の正式名称・表記を維持する。User確認済みの正式出力名、役割名、判定名、状態名、項目名、列名、固定文言等は例外候補だが、機械的にすべてを例外とせず、正本で確定したものに限る。
 - 表記上の例外は、現在の確定仕様を表記修正だけで壊さないための一時的な互換性保留であり、永久固定ではない。将来、仕様変更として別途検討し、Userが承認した段階で `English（日本語）` 表記への統合対象になり得る。
 - 例外は「統一漏れ」と混同せず、例外箇所、根拠、維持理由、再検討条件または解除条件を追跡可能にする。例外を理由に未期限・無条件で不統一を固定化せず、例外解除をAIが自動決定しない。表記統一を理由にPersonaの機能仕様を再設計しない。
-- root `README.md`、`personas/education/README.md`、現行Education Persona、`personas/reference/` の現行Personaを現行配布文書とし、統一した標準ヘッダーの適用対象とする。
+- root `README.md`、`personas/education/README.md`、現行Education Persona、新設する `personas/reference/README.md`、`personas/reference/` の現行Personaを現行配布文書とし、統一した標準ヘッダーの適用対象とする。
 - 現行配布文書の標準ヘッダーは、`Document ID（文書ID）`、`Version（バージョン）`、`Status（ステータス）`、`Created Date（作成日）`、`Last Updated（最終更新日）`、`Owner（管理者）`、`Related Documents（関連文書）` の7項目で統一する。ヘッダー表の列名は `Item（項目）` と `Value（値）` で統一する。
 - 標準ヘッダーについて、項目名、列名、Status体系、Document ID体系、適合確認中と初回承認時のVersion・Status運用を確定した。作成日、最終更新日、管理者、関連文書の具体値は未決であり、推測しない。
 - 既にDocument IDを持つroot `README.md` と `personas/reference/` の現行Personaは、追跡性を維持するため既存IDを変更しない。
 - 未採番のEducation文書には、`personas/education/README.md`：`STD-PERSONA-EDU-INDEX-001`、`GEM_RESEARCHER_FULL.md`：`STD-PERSONA-EDU-RESEARCHER-FULL-001`、`GEM_RESEARCHER_LEARNING_DEVELOPMENT.md`：`STD-PERSONA-EDU-RESEARCHER-LEARNING-DEVELOPMENT-001`、`GEM_RESEARCHER_DEVELOPMENT.md`：`STD-PERSONA-EDU-RESEARCHER-DEVELOPMENT-001`、`GEM_SOLUTION_PARTNER.md`：`STD-PERSONA-EDU-SOLUTION-PARTNER-001`、`GEM_CODE_GENERATOR.md`：`STD-PERSONA-EDU-CODE-GENERATOR-001`、`GEM_REVIEWER.md`：`STD-PERSONA-EDU-REVIEWER-001` を付与する。
+- 新設する `personas/reference/README.md` には `STD-PERSONA-REFERENCE-INDEX-001` を付与する。
 - Document IDは固定識別子として扱い、配置変更、版更新、Status変更だけを理由に変更しない。
+- `personas/reference/README.md` をReference領域の正式な入口・索引として配置し、Reference Personaの目的、Education用4Gemとの違い、Educationの現行手順として流用しない注意、現在利用可能なReference文書への索引、root `README.md` へ戻る導線、必要最小限のEducation READMEへの案内を記載する。
+- Reference索引を現在の4文書専用として固定しない。将来7文書に追加資料を加えた構成へ増える可能性を受け入れ、承認された文書の追加時に索引を更新できる構成とする。ただし、将来数を推測して未確定文書を先に作成しない。
+- root `README.md` はEducation領域とReference領域の入口を示し、Reference Personaは同一ディレクトリの `README.md` へ戻る導線を持つ。
 - 標準ヘッダーの `Status（ステータス）` は、`Draft`、`Review`、`Approved`、`Deprecated` の4状態で統一する。
-- 文書適合性の確認中は、全12件の現行配布文書を `Version（バージョン）: 0.1`、`Status（ステータス）: Review` とする。
+- 文書適合性の確認中は、新設するReference READMEを含む全13件の現行配布文書を `Version（バージョン）: 0.1`、`Status（ステータス）: Review` とする。
 - ヘッダー、表記、文書間導線、ディレクトリ構造の確認と必要な修正が完了しても、AIの判断だけで初回承認版へ変更しない。AIはUserへ `Version 1.0（Status: Approved）へ変更してよいか` と明示的に確認し、Userが承認した場合に限り `Version（バージョン）: 1.0`、`Status（ステータス）: Approved` へ変更する。
 - `personas/education/GEM_REVIEWER.md` に記載する最終設計ドキュメントの `DRAFT`、`CURRENT`、`SUPERSEDED` は、標準ヘッダーの状態とは責務が異なるUser確認済みの機能仕様である。表記統一だけを理由に変更せず、一時例外として維持する。
 - 上記例外は永久固定ではない。最終設計ドキュメントの状態仕様を変更対象として別途検討し、Userが仕様変更を明示承認した場合に限り表記統合を再検討する。解除条件を満たす前にAIが自動変更しない。

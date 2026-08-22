@@ -56,6 +56,7 @@ Status: CONFIRMED DECISION RECORD
 - root `README.md`
 - `personas/education/README.md`
 - 現行Education Persona
+- `personas/reference/README.md`
 - `personas/reference/` の現行Persona
 
 `project-notes/` は、作業状態、判断経緯、実装指示、監査Evidence等を記録する内部領域である。配布文書用の完全ヘッダーを機械的に適用せず、既存の簡易ヘッダーを維持する。
@@ -104,7 +105,26 @@ Status: CONFIRMED DECISION RECORD
 - `personas/education/GEM_CODE_GENERATOR.md`：`STD-PERSONA-EDU-CODE-GENERATOR-001`
 - `personas/education/GEM_REVIEWER.md`：`STD-PERSONA-EDU-REVIEWER-001`
 
+新設するReference索引には、次のDocument IDを付与する。
+
+- `personas/reference/README.md`：`STD-PERSONA-REFERENCE-INDEX-001`
+
 Document IDは文書の固定識別子として扱う。配置変更、版更新、Status変更だけを理由に変更しない。
+
+## Reference Index and Routing
+
+`personas/reference/README.md` をReference領域の正式な入口・索引として配置する。このREADMEは、次の責務に限定する。
+
+- Reference Personaの目的
+- Education用4Gemとの違い
+- Educationの現行手順としてそのまま流用しない注意
+- 現在利用可能なReference文書への索引
+- root `README.md` へ戻る導線
+- 必要最小限の `personas/education/README.md` への案内
+
+索引を現在の4文書専用として固定しない。Reference領域は将来7文書に追加資料を加えた構成へ増える可能性があるため、承認された文書が追加された時点で索引を更新できる構成にする。ただし、将来数を推測して未確定文書を先に作成しない。
+
+root `README.md` はEducation領域とReference領域の入口を示す。Reference Personaは `Related Documents（関連文書）` から同一ディレクトリの `README.md` へ戻れるようにする。これにより、Reference領域内で適用境界と利用可能文書を確認できる導線を作る。
 
 ## Standard Header Status Values
 
@@ -115,7 +135,7 @@ Document IDは文書の固定識別子として扱う。配置変更、版更新
 - `Approved`
 - `Deprecated`
 
-文書適合性の確認中は、全12件の現行配布文書を `Version（バージョン）: 0.1`、`Status（ステータス）: Review` とする。
+文書適合性の確認中は、新設するReference READMEを含む全13件の現行配布文書を `Version（バージョン）: 0.1`、`Status（ステータス）: Review` とする。
 
 ヘッダー、表記、文書間導線、ディレクトリ構造の確認と必要な修正が完了しても、AIの判断だけで初回承認版へ変更しない。AIはUserへ、`Version 1.0（Status: Approved）へ変更してよいか` と明示的に確認する。Userが承認した場合に限り、`Version（バージョン）: 1.0`、`Status（ステータス）: Approved` へ変更する。
 
