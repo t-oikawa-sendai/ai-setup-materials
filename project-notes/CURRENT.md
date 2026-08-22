@@ -376,6 +376,7 @@ Researcher再構築は完了。現在はReviewer再構築を優先する。
 - 2026-08-22、最終設計ドキュメントの状態名へ初心者向け日本語説明を併記し、利用者が将来自分のPersona・成果物で英語のみに変更することは自由とすることをユーザー確認済み。
 - `project-notes/2026-08-22-reviewer-user-first-learning-design.md` に、上記設計へ至った誤解、訂正、検討、採用理由、将来のPersona設計教材としての目的を記録済み。
 - `project-notes/2026-08-22-reviewer-reconstruction-instructions.md` は使用禁止状態へ変更する。
+- `project-notes/2026-08-22-reviewer-reconstruction-approved-implementation-instructions.md` を、確認済み事項だけを使用する新しいReviewer実装指示書として作成済み。
 
 ### Code Generator監査で確認済み
 
@@ -402,8 +403,9 @@ Reviewerの再構築を優先する。
 
 1. Education用4Gemの確定前提を基準に、Reviewerの再構築に必要な既存資料を再確認する。
 2. 推論と確認済み事実を分離し、資料だけで一意に決まらない事項だけをユーザーへ確認する。
-3. 誤った `project-notes/2026-08-22-reviewer-reconstruction-instructions.md` を使用せず、`project-notes/2026-08-22-reviewer-user-first-learning-design.md` を含む確認済み事項だけで新しい実装指示書を作成する。
-4. Reviewer再構築完了後、4Gem全体・README・Persona導線の整合を行う。
+3. `project-notes/2026-08-22-reviewer-reconstruction-approved-implementation-instructions.md` に従い、実装担当が `personas/education/GEM_REVIEWER.md` を再構築する。
+4. 再構築結果が実装指示書と確認済み仕様に一致するか厳格に検証する。
+5. Reviewer再構築完了後、4Gem全体・README・Persona導線の整合を行う。
 
 ## DO NOT USE AS COMPLETED CURRENT SOURCE
 
@@ -423,6 +425,7 @@ Reviewerの再構築を優先する。
 - `project-notes/2026-08-21-researcher-completion.md`（Researcher完成状態）
 - `project-notes/2026-08-21-reconstruction-audit-researcher-reviewer.md`
 - `project-notes/2026-08-22-reviewer-user-first-learning-design.md`（ReviewerのUser-first学習設計と決定経緯）
+- `project-notes/2026-08-22-reviewer-reconstruction-approved-implementation-instructions.md`（Reviewer再構築の現行実装指示書）
 - `project-notes/2026-08-21-education-4gem-design-decisions.md`（要再構築）
 - `project-notes/2026-08-20-ai-education-staging.md`
 - `project-notes/2026-08-19-4gem-names.md`（旧決定を含む）
