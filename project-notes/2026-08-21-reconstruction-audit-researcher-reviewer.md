@@ -135,24 +135,36 @@ Code Generator化後のReviewerの戻し先・連携ルールは再構築対象�
 - リファクタリングの実施担当をEducation用4Gemの `Implementer` とする記述。
 - Code Generatorが、実環境への適用、IDE操作、Git操作、品質保証判定まで担当するという解釈。
 
-### UNRESOLVED AFTER RECHECK
+### INVALID ANALYSIS / SUPERSEDED
 
-Repository内の一次資料とGit履歴だけでは、次を一意に確定できない。
+次の4項目は2026-08-22にAIが作成した確認項目であるが、Education用4GemとCursor等の実務向け運用を混同した前提を含むため、現行の未解決事項として使用しない。
 
 1. Reviewerの対象を、Researcherの調査結果、Solution Partnerの設計成果物、Code Generatorのコード生成結果、Humanまたは外部実装担当による実環境の検証Evidenceのどこまでとするか。
 2. コードレベルの修正をCode Generatorへ、設計変更をSolution Partnerへ、事実・Evidenceの再調査をResearcherへ戻す役割別ルーティングを採用するか。
 3. Code Generatorが実環境へ適用・検証しない前提で、実行・build・test・IDE確認等のEvidenceを誰が作成し、Reviewerへ渡すか。
 4. Reviewerの判定は問題発見と修正要求までとし、最終判断をHumanに残すか。
 
-上記は旧 `Implementer` の責務をCode Generatorへ機械的に置換せず、ユーザー確認後にReviewer完成仕様へ反映する。
+特に「Humanまたは外部実装担当」という表現は、生徒がCode Generatorの生成コードをIDEへコピーして実行・test・動作確認する既存前提を見落として作成された。
 
-### RESOLVED BY USER: 2026-08-22
+### INVALID CONFIRMATION RECORD / SUPERSEDED
 
-2026-08-22、ユーザーは `UNRESOLVED AFTER RECHECK` の4項目について、次を現行仕様として確認した。
+次の記録は、上記の不明確な質問に対する `OK` をAIが仕様確定として扱ったものである。ユーザーが質問の意味とCursorを含めた理由を理解できないと明示したため、有効な仕様確認として扱わない。
 
 1. Reviewerは、Researcherの調査結果、Solution Partnerの設計成果物、Code Generatorのコード生成結果、Humanまたは外部実装担当による実環境の検証Evidenceを対象とする。
 2. 事実・EvidenceはResearcher、要件・設計はSolution Partner、コード生成・解析はCode Generatorへ戻す。
 3. 実行・build・test・IDE・実機確認等のEvidenceは、HumanまたはCursor等の外部実装担当が作成してReviewerへ渡す。
 4. Reviewerは判定、問題、根拠、修正要求を提示するが、最終判断はHumanが行う。
 
-これにより、2026-08-22監査で抽出したReviewerの未解決事項は解消した。Reviewer Persona本文の再構築と、その実装結果の検証は未完了である。
+この4項目をReviewerの現行完成仕様へ使用しない。
+
+### CORRECTED / USER-CONFIRMED: 2026-08-22
+
+ユーザーが改めて明示し、確認したEducation用4Gemの前提は次のとおりである。
+
+1. Code Generatorはコード生成までを担当する。
+2. 生徒は生成コードをVS Code等のIDEへコピーし、実行、test、動作確認を行う。
+3. Reviewerは生成コードと生徒が作成した検証Evidenceを評価する。
+4. 最終判断は生徒が行う。
+5. CursorはEducation用4Gemのこの運用には含めない。
+
+Cursorが実装・testを担当するAIサービス別の実務向け運用と、Education用4Gemを分離する。Reviewer Persona本文の再構築と検証は未完了である。

@@ -164,23 +164,17 @@ Learning Moduleは、上記の科目・訓練内容に関する学習上の調�
 
 - Reviewer Personaは未完成。
 
-#### 2026-08-22 confirmed reconstruction requirements
+#### 2026-08-22 corrected confirmed premise
 
-- Reviewerは、次をレビュー対象とする。
-  - Researcherの調査結果
-  - Solution Partnerの設計成果物
-  - Code Generatorのコード生成結果
-  - HumanまたはCursor等の外部実装担当が作成した実環境の検証Evidence
-- 問題の種類に応じて、戻し先を次のように分離する。
-  - 事実・情報源・Evidenceの問題：Researcher
-  - 要求・要件・設計の問題：Solution Partner
-  - コード生成・コード解析の問題：Code Generator
-  - 実環境への適用、build、test、IDE、実機確認の問題：HumanまたはCursor等の外部実装担当
-- Code Generatorは、実環境への適用、build、test、IDE操作、Git操作を担当しない。
-- 実行・build・test・IDE・実機確認等のEvidenceは、HumanまたはCursor等の外部実装担当が作成し、Reviewerへ渡す。
-- Reviewerは判定、問題、根拠、影響、修正要求、戻し先を提示する。
-- Reviewerは最終判断を行わない。最終判断はHumanが行う。
-- Reviewerは自ら調査、設計変更、コード修正、実環境への適用を代行せず、必要な担当へ戻す。
+- Code Generatorはコード生成までを担当する。
+- 生徒は、Code Generatorが生成したコードをVS Code等のIDEへコピーする。
+- 生徒は、IDEへ反映したコードの実行、test、動作確認を行い、その検証Evidenceを作成する。
+- Reviewerは、Code Generatorが生成したコードと、生徒が作成した検証Evidenceを評価する。
+- 最終判断は生徒が行う。
+- CursorはEducation用4Gemのこの運用には含めない。
+- Cursorが実装・testを担当するAIサービス別の実務向け運用と、Education用4Gemを混同しない。
+
+2026-08-22に一度記録した「HumanまたはCursor等の外部実装担当」をEducation用4Gemへ含める記述は、AIが異なる運用を混同して作成した誤記録であり、現行仕様として使用しない。
 
 ---
 
@@ -191,6 +185,6 @@ Learning Moduleは、上記の科目・訓練内容に関する学習上の調�
 - 3つの配布候補ファイルを改訂するときの保守方法
 - 旧版化後の `personas/education/GEM_RESEARCHER.md` の物理的な保管場所・削除有無
 
-Reviewer Personaの未完成部分は、2026-08-22のユーザー確認により上記の範囲で確定した。
+Reviewer Personaは未完成である。2026-08-22に確定したのは上記の基本フローであり、曖昧な質問から派生した詳細を確定事項として扱わない。
 
 これらは既存資料の再監査で確認し、資料だけで一意に決まらない場合のみユーザーへ確認する。

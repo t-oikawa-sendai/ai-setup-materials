@@ -60,17 +60,15 @@ Reviewer
 
 ### Reviewer再構築仕様
 
-- Reviewerは、Researcherの調査結果、Solution Partnerの設計成果物、Code Generatorのコード生成結果、HumanまたはCursor等の外部実装担当が作成した実環境の検証Evidenceを対象とする。
-- 事実・情報源・Evidenceの問題はResearcherへ戻す。
-- 要求・要件・設計の問題はSolution Partnerへ戻す。
-- コード生成・コード解析の問題はCode Generatorへ戻す。
-- 実環境への適用、build、test、IDE、Git、実機確認の問題はHumanまたはCursor等の外部実装担当へ戻す。
-- 実行・build・test・IDE・実機確認等のEvidenceは、HumanまたはCursor等の外部実装担当が作成し、Reviewerへ渡す。
-- Reviewerは判定、問題、根拠、影響、修正要求、戻し先を提示する。
-- Reviewerは最終判断を行わない。最終判断はHumanが行う。
-- Reviewerは調査、設計変更、コード修正、実環境への適用を代行しない。
-- `project-notes/2026-08-22-reviewer-reconstruction-instructions.md` を実装指示書とする。
-- 上記仕様は確定済みだが、`GEM_REVIEWER.md` の実装と検証は未完了である。
+- Code Generatorはコード生成までを担当する。
+- 生徒は、Code Generatorが生成したコードをVS Code等のIDEへコピーする。
+- 生徒は、IDEへ反映したコードの実行、test、動作確認を行い、その検証Evidenceを作成する。
+- Reviewerは、Code Generatorが生成したコードと、生徒が作成した検証Evidenceを評価する。
+- 最終判断は生徒が行う。
+- CursorはEducation用4Gemのこの運用には含めない。
+- Cursorが実装・testを担当するAIサービス別の実務向け運用と、Education用4Gemを混同しない。
+- `project-notes/2026-08-22-reviewer-reconstruction-instructions.md` は誤った運用混同を前提に作成されたため、実装へ使用しない。
+- `GEM_REVIEWER.md` の再構築仕様と実装は未完成である。
 
 ### Researcher Module設計
 
@@ -229,8 +227,9 @@ Researcher再構築は完了。現在はReviewer再構築を優先する。
 - 2026-08-19のReviewer方針・役割意図・Persona追加と、2026-08-20のCode Generator追加をcommit単位で時系列確認済み。
 - `GEM_REVIEWER.md` はCode Generator追加後に改訂されていない。
 - 旧Reviewerの名称非依存部分を再利用候補、Implementer依存部分を現行利用不可、Code Generator化後の連携を未解決として分離済み。
-- Reviewerの対象範囲、役割別の戻し先、実環境検証Evidenceの作成担当、最終判断者は、2026-08-22にユーザー確認済み。
-- `project-notes/2026-08-22-reviewer-reconstruction-instructions.md` を作成済み。
+- AIがEducation用4GemとCursor等の実務向け運用を混同し、Reviewerの確定記録と実装指示書へ誤った外部実装担当を混入させた。
+- 2026-08-22、ユーザー確認により、Code Generatorがコード生成、生徒がIDEへの反映・実行・test・動作確認、Reviewerが生成コードと生徒の検証Evidenceを評価、最終判断は生徒、CursorはEducation用4Gemに含めないという前提へ是正した。
+- `project-notes/2026-08-22-reviewer-reconstruction-instructions.md` は使用禁止状態へ変更する。
 
 ### Code Generator監査で確認済み
 
@@ -242,9 +241,9 @@ Researcher再構築は完了。現在はReviewer再構築を優先する。
 
 Reviewerの再構築を優先する。
 
-1. 実装担当が `project-notes/2026-08-22-reviewer-reconstruction-instructions.md` に従い、`GEM_REVIEWER.md` だけを再構築する。
-2. 実装結果について、確定仕様の欠落、旧Implementerの復活、Code Generatorへの過剰な責務移植、対象外差分がないか独立レビューする。
-3. 検証結果を決定記録と本ファイルへ反映し、Reviewer再構築の完了可否を判定する。
+1. Education用4Gemの確定前提を基準に、Reviewerの再構築に必要な既存資料を再確認する。
+2. 推論と確認済み事実を分離し、資料だけで一意に決まらない事項だけをユーザーへ確認する。
+3. 誤った `project-notes/2026-08-22-reviewer-reconstruction-instructions.md` を使用せず、確認済み事項だけで新しい実装指示書を作成する。
 4. Reviewer再構築完了後、4Gem全体・README・Persona導線の整合を行う。
 
 ## DO NOT USE AS COMPLETED CURRENT SOURCE
@@ -254,6 +253,7 @@ Reviewerの再構築を優先する。
 - `project-notes/2026-08-21-education-4gem-design-decisions.md`
 - `project-notes/2026-08-19-4gem-names.md`
 - `personas/education/GEM_REVIEWER.md`
+- `project-notes/2026-08-22-reviewer-reconstruction-instructions.md`
 
 `personas/education/archive/GEM_RESEARCHER.md` は旧版の履歴資料であり、現行Researcher Personaとして使用しない。
 
@@ -263,7 +263,6 @@ Reviewerの再構築を優先する。
 - `project-notes/2026-08-21-reconstruction-confirmed-facts.md`（Researcher再構築途中の確定事項）
 - `project-notes/2026-08-21-researcher-completion.md`（Researcher完成状態）
 - `project-notes/2026-08-21-reconstruction-audit-researcher-reviewer.md`
-- `project-notes/2026-08-22-reviewer-reconstruction-instructions.md`
 - `project-notes/2026-08-21-education-4gem-design-decisions.md`（要再構築）
 - `project-notes/2026-08-20-ai-education-staging.md`
 - `project-notes/2026-08-19-4gem-names.md`（旧決定を含む）
