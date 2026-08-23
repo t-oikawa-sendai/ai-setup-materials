@@ -1,7 +1,13 @@
 # Design Document Standard Application Scope
 
-Last Updated: 2026-08-22
+Last Updated: 2026-08-23
 Status: CONFIRMED DECISION RECORD
+
+## 運用更新（2026-08-23）
+
+本記録の設計文書標準の適用境界、標準ヘッダー、表記、導線、Archive Noticeの確定事項は現行である。
+
+`CURRENT.md` は現在地点のみを保持する。現行仕様の正本は対象成果物MDとする。記録方法の正本は `AGENTS.md` とする。
 
 ## Purpose
 
@@ -278,7 +284,7 @@ Persona同士をヘッダーから総当たりで相互リンクしない。区�
 - 昇格はcommit `959cdd5` で適用済みである。
 - 現行配布文書13件の現行値は `Version（バージョン）: 1.0`、`Status（ステータス）: Approved` である。
 - `Version 0.1` / `Status Review` は確認工程中の規則であり、現在値ではない。
-- 現在状態の正本は `project-notes/CURRENT.md` である。
+- 文書適合性復旧完了時点の現在状態記録は `project-notes/CURRENT.md` および `project-notes/2026-08-22-document-conformance-recovery-completion.md` である。2026-08-23以降、`CURRENT.md` は現在地点のみを保持し、現行仕様の正本は対象成果物MDとする。
 - 完了Evidenceは `project-notes/2026-08-22-document-conformance-recovery-completion.md` である。
 
 ヘッダー、表記、文書間導線、ディレクトリ構造の確認と必要な修正が完了しても、AIの判断だけで初回承認版へ変更しない。AIはUserへ、`Version 1.0（Status: Approved）へ変更してよいか` と明示的に確認する。Userが承認した場合に限り、`Version（バージョン）: 1.0`、`Status（ステータス）: Approved` へ変更する。

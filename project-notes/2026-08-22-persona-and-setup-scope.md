@@ -1,7 +1,13 @@
 # Persona and Setup Materials Repository Scope
 
-Last Updated: 2026-08-22
+Last Updated: 2026-08-23
 Status: CONFIRMED DECISION RECORD
+
+## 運用更新（2026-08-23）
+
+本記録のRepository責務と設定・運用資料方針は現行である。
+
+`CURRENT.md` は現在地点のみを保持する。確定仕様の正本は対象成果物MDとする。記録方法の正本は `AGENTS.md` とする。
 
 ## Purpose
 
@@ -149,7 +155,7 @@ Gemini Gemの設定・運用を説明する共通資料1つとする。
 ## References
 
 - `AGENTS.md`（Repositoryの恒久ルールと目的）
-- `project-notes/CURRENT.md`（現在地点と確定事項のSSOT）
+- `project-notes/CURRENT.md`（現在地点。確定仕様の正本ではない）
 - `project-notes/2026-08-22-design-document-standard-application-scope.md`（設計文書標準の適用境界）
 - `project-notes/2026-08-22-document-conformance-recovery-completion.md`（文書適合性復旧の完了状態と検証Evidence）
 - `project-notes/2026-08-21-ai-information-asset-safety.md`（情報資産保全方針）
