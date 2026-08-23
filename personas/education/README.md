@@ -5,9 +5,9 @@
 | Version（バージョン） | 1.0 |
 | Status（ステータス） | Approved |
 | Created Date（作成日） | 2026-08-19 |
-| Last Updated（最終更新日） | 2026-08-22 |
+| Last Updated（最終更新日） | 2026-08-23 |
 | Owner（管理者） | t-oikawa-sendai |
-| Related Documents（関連文書） | [`../../README.md`](../../README.md)<br>[`GEM_RESEARCHER_FULL.md`](GEM_RESEARCHER_FULL.md)<br>[`GEM_RESEARCHER_LEARNING_DEVELOPMENT.md`](GEM_RESEARCHER_LEARNING_DEVELOPMENT.md)<br>[`GEM_RESEARCHER_DEVELOPMENT.md`](GEM_RESEARCHER_DEVELOPMENT.md)<br>[`GEM_SOLUTION_PARTNER.md`](GEM_SOLUTION_PARTNER.md)<br>[`GEM_CODE_GENERATOR.md`](GEM_CODE_GENERATOR.md)<br>[`GEM_REVIEWER.md`](GEM_REVIEWER.md) |
+| Related Documents（関連文書） | [`../../README.md`](../../README.md)<br>[`GEM_RESEARCHER_FULL.md`](GEM_RESEARCHER_FULL.md)<br>[`GEM_RESEARCHER_LEARNING_DEVELOPMENT.md`](GEM_RESEARCHER_LEARNING_DEVELOPMENT.md)<br>[`GEM_RESEARCHER_DEVELOPMENT.md`](GEM_RESEARCHER_DEVELOPMENT.md)<br>[`GEM_SOLUTION_PARTNER.md`](GEM_SOLUTION_PARTNER.md)<br>[`GEM_CODE_GENERATOR.md`](GEM_CODE_GENERATOR.md)<br>[`GEM_REVIEWER.md`](GEM_REVIEWER.md)<br>[`setup/GEMINI_GEM_SETUP.md`](setup/GEMINI_GEM_SETUP.md) |
 
 ---
 
@@ -17,9 +17,13 @@
 
 このディレクトリは、職業訓練校の `User（生徒）` がGeminiのGemを使って、調査、設計、コード生成、レビューを役割分担しながら進めるためのPersona正本を管理します。
 
-User（生徒）が4Gemを操作し、各出力を確認して、次の工程に必要な確定情報を手動で渡します。Gem同士が自動的に作業を転送したり、最終判断を行ったりする運用ではありません。
+Education用の基本体系は4Gemです。Gemini上では、詳細調査用としてResearcher Personaを使う `Researcher Deep Research` を1つ追加し、**4Gem＋1** として運用します。
 
-## 2. Current 4Gem（現行4Gem）
+User（生徒）が各Gemを操作し、各出力を確認して、次の工程に必要な確定情報を手動で渡します。Gem同士が自動的に作業を転送したり、最終判断を行ったりする運用ではありません。
+
+## 2. Current 4Gem＋1（現行4Gem＋1）
+
+基本4Gemは次の4つです。
 
 | Gem Display Name（Gem表示名） | Persona File（Personaファイル） | Primary Responsibility（主な責務） |
 |---|---|---|
@@ -27,6 +31,14 @@ User（生徒）が4Gemを操作し、各出力を確認して、次の工程に
 | Solution Partner | [`GEM_SOLUTION_PARTNER.md`](GEM_SOLUTION_PARTNER.md) | 目的、要求、制約を整理し、設計とコード生成用指示を具体化する |
 | Code Generator | [`GEM_CODE_GENERATOR.md`](GEM_CODE_GENERATOR.md) | 現行設計と仕様に従い、コード・testコードの生成、解析、修正を支援する |
 | Reviewer | [`GEM_REVIEWER.md`](GEM_REVIEWER.md) | 設計、コード、User（生徒）が作成した検証Evidenceを独立して評価する |
+
+これに、詳細調査用として次の1Gemを追加します。
+
+| Additional Gem（追加Gem） | Persona | Purpose（用途） |
+|---|---|---|
+| Researcher Deep Research | Researcherと同じ選択済みPersona | Deep Researchを使う企業研究・業界研究・比較調査などの詳細調査 |
+
+`Researcher Deep Research` は新しいPersonaではありません。Researcher Personaを使用する追加Gemです。Gemini上の設定方法は [`setup/GEMINI_GEM_SETUP.md`](setup/GEMINI_GEM_SETUP.md) を参照してください。
 
 ## 3. Selecting a Researcher Edition（Researcher完成版の選択）
 
@@ -36,7 +48,7 @@ Researcherは、利用する検索範囲に応じて次の完成版から1本を
 - [`GEM_RESEARCHER_LEARNING_DEVELOPMENT.md`](GEM_RESEARCHER_LEARNING_DEVELOPMENT.md)：Learning / Development
 - [`GEM_RESEARCHER_DEVELOPMENT.md`](GEM_RESEARCHER_DEVELOPMENT.md)：Development
 
-1つのGemへ複数のResearcherファイルを同時に登録しません。その時点で必要なModule構成を含む完成版を1本だけ登録し、検索範囲を変えたいときは別の完成版へ入れ替えます。
+その時点で必要なModule構成を含む完成版を1本だけ選び、通常用 `Researcher` と `Researcher Deep Research` の両方に同じPersona本体を登録します。複数のResearcher完成版を同時に混在させません。検索範囲を変えたいときは、両Gemを同じ新完成版へ入れ替えます。
 
 ## 4. User-first Basic Flow（User-firstの基本フロー）
 
@@ -56,7 +68,9 @@ Reviewerが設計、コード、検証Evidenceを評価する
 User（生徒）が修正方法、再提出、採用、完成を最終判断する
 ```
 
-Researcherは必要な場面で利用し、常に直列で呼び出す必要はありません。各Gemへ過去の会話を丸ごと渡すのではなく、その工程に必要な現行の要求、仕様、設計、EvidenceだけをUser（生徒）が選んで渡します。
+Researcherは必要な場面で利用し、常に直列で呼び出す必要はありません。通常の調査には `Researcher`、企業研究・業界研究・比較調査など複数情報源を横断する詳細調査には `Researcher Deep Research` を使い分けます。
+
+各Gemへ過去の会話を丸ごと渡すのではなく、その工程に必要な現行の要求、仕様、設計、EvidenceだけをUser（生徒）が選んで渡します。
 
 ## 5. Responsibility Boundaries（責務境界）
 
@@ -99,3 +113,23 @@ Evidenceのない「確認済み」「完了」「問題なし」という断定
 - 不要な機能追加、過剰な抽象化、根拠のない仕様補完を行わない。
 - 問題を指摘する場合は、理由と影響を示す。
 - パスワード、APIキー、接続情報などの秘密情報を、入力、出力、ログ、公開物へ含めない。
+
+## 9. Gemini Setup（Gemini設定）
+
+Gemini上での `名前`、`説明`、`カスタム指示`、`デフォルト ツール`、`知識` の設定方法、および4Gem＋1の具体的な作成手順は [`setup/GEMINI_GEM_SETUP.md`](setup/GEMINI_GEM_SETUP.md) を参照してください。
+
+## Decision & Rationale（決定・判断理由）
+
+### 2026-08-23
+
+#### Education用4Gem＋1とGemini設定資料への導線
+
+Decision:
+Education用の基本体系は4Gemとして維持し、Gemini上ではResearcher Personaを使う `Researcher Deep Research` を追加した `4Gem＋1` として運用する。Education READMEにはこの関係を明記し、Gemini固有の設定詳細は `setup/GEMINI_GEM_SETUP.md` へ委譲する。
+
+Reason:
+`Researcher Deep Research` は独立した5番目のPersonaではなく、Researcherの詳細調査用追加Gemであるため。基本4役割を維持しながらGemini上の実体数が5Gemになることを明示し、Persona説明とサービス固有設定の責務を分離するため。
+
+Rejected:
+- Education体系そのものを5つの独立Personaとして扱う方式
+- Gemini固有の設定手順をEducation README本文へ重複記載する方式
