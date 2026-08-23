@@ -5,9 +5,9 @@
 | Version（バージョン） | 1.0 |
 | Status（ステータス） | Approved |
 | Created Date（作成日） | 2026-08-17 |
-| Last Updated（最終更新日） | 2026-08-22 |
+| Last Updated（最終更新日） | 2026-08-23 |
 | Owner（管理者） | t-oikawa-sendai |
-| Related Documents（関連文書） | [`personas/education/README.md`](personas/education/README.md)<br>[`personas/reference/README.md`](personas/reference/README.md) |
+| Related Documents（関連文書） | [`personas/education/README.md`](personas/education/README.md)<br>[`personas/education/setup/GEMINI_GEM_SETUP.md`](personas/education/setup/GEMINI_GEM_SETUP.md)<br>[`personas/reference/README.md`](personas/reference/README.md) |
 
 ---
 
@@ -21,22 +21,26 @@
 
 ```text
 personas/
-├── education/   学習用：User（生徒）がGemini内の4Gemを操作する構成
+├── education/   学習用：基本4Gem＋Researcher Deep Researchの追加1GemをGeminiで操作する構成
 └── reference/   参考用：Education用4Gemとは異なる前提の実務構成例
 ```
 
 Education用の主要導線は [`personas/education/README.md`](personas/education/README.md) です。Personaの選び方、役割分担、User-firstの作業フローは、このREADMEから確認してください。
 
+Gemini上での4Gem＋1の具体的な設定方法は [`personas/education/setup/GEMINI_GEM_SETUP.md`](personas/education/setup/GEMINI_GEM_SETUP.md) を参照してください。
+
 Reference領域の入口は [`personas/reference/README.md`](personas/reference/README.md) です。`personas/reference/` は、Education用4Gemとは役割、利用サービス、実装・検証方法の前提が異なる参考資料です。Education用の現行手順としてそのまま流用せず、設計思想や運用パターンの参考として扱ってください。
 
-## 2. Education 4Gem（Education用4Gem）
+## 2. Education 4Gem＋1（Education用4Gem＋1）
 
-現行の4Gemは次のとおりです。
+基本4Gemは次のとおりです。
 
 - `Researcher`：外部情報を一次情報中心に調査し、確認済み事実とEvidenceを示す
 - `Solution Partner`：目的、要求、制約を整理し、設計とコード生成用指示を具体化する
 - `Code Generator`：現行設計と仕様に従い、コード・testコードの生成、解析、修正を支援する
 - `Reviewer`：設計、コード、User（生徒）が作成した検証Evidenceを独立して評価する
+
+Gemini上では、詳細調査用としてResearcher Personaを使う `Researcher Deep Research` を1Gem追加します。これは独立した5番目のPersonaではなく、Researcherの追加Gemです。
 
 Researcherは検索範囲が異なる3つの完成版を提供しています。
 
@@ -44,7 +48,7 @@ Researcherは検索範囲が異なる3つの完成版を提供しています。
 - [`GEM_RESEARCHER_LEARNING_DEVELOPMENT.md`](personas/education/GEM_RESEARCHER_LEARNING_DEVELOPMENT.md)
 - [`GEM_RESEARCHER_DEVELOPMENT.md`](personas/education/GEM_RESEARCHER_DEVELOPMENT.md)
 
-Gemへは、その時点で必要なModule構成を含むResearcher完成版を1本だけ登録し、必要に応じて入れ替えます。
+その時点で必要なModule構成を含むResearcher完成版を1本だけ選び、通常用 `Researcher` と `Researcher Deep Research` の両方へ同じPersona本体を登録します。検索範囲を変更するときは両Gemを同じ完成版へ入れ替えます。
 
 ## 3. Role of User（User（生徒）の役割）
 
@@ -72,3 +76,19 @@ Reviewerの結果は最初にUser（生徒）へ返されます。修正方法�
 ---
 
 *本ドキュメントは入門的ガイダンス（Primer）として位置づけられており、実運用レベルの標準仕様ではありません。*
+
+## Decision & Rationale（決定・判断理由）
+
+### 2026-08-23
+
+#### Education用4Gem＋1のRepository入口表現
+
+Decision:
+Repository入口ではEducation用の基本体系を4Gemとして維持し、Gemini上ではResearcher Personaを使う `Researcher Deep Research` を追加した `4Gem＋1` として案内する。設定詳細は `personas/education/setup/GEMINI_GEM_SETUP.md` へ導く。
+
+Reason:
+基本4役割を維持しつつ、Gemini上で作成するGem実体が5つであることを入口から誤解なく案内するため。`Researcher Deep Research` を独立Personaとして扱わず、サービス固有設定の詳細を専用資料へ分離するため。
+
+Rejected:
+- Education体系を5つの独立Personaとして表現する方式
+- ルートREADMEへGemini設定手順を重複記載する方式
