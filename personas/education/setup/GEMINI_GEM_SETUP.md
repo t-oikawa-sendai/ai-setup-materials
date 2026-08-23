@@ -26,6 +26,8 @@ Education用4Gemは次の4つです。
 - Code Generator
 - Reviewer
 
+ResearcherはPersonaとしては1つの役割ですが、Gemini上では用途を分けるため、通常調査用の `Researcher` と、`デフォルト ツール` に Deep Research を設定した `Researcher Deep Research` の2つのGemを作成します。
+
 各GemのPersona本体は、Gem編集画面の `カスタム指示` 欄に貼り付けます。初期作成時に最低限設定する項目は `名前`、`説明`、`カスタム指示` の3項目です。`知識` へのファイル追加は必須ではなく、必要になった時点で追加します。
 
 ## 2. Gemini Gem Overview（Gemini Gem概要）
@@ -45,7 +47,7 @@ Education用4Gemは次の4つです。
 | `名前` | 必須 | Gem表示名を設定する |
 | `説明` | 必須 | 何のGemか人が分かりやすいように、役割を短く説明する |
 | `カスタム指示` | 必須 | Document Info等の文書管理情報を除いたPersona本体を貼り付ける |
-| `デフォルト ツール` | 任意 | 全4Gemで一律に固定しない。用途に応じて、未設定のまま使うか必要なツールを設定する |
+| `デフォルト ツール` | 任意 | 全Gemで一律に固定しない。Researcherは通常用では未設定、詳細調査用の `Researcher Deep Research` では Deep Research を設定する |
 | `知識` | 任意 | 初期状態は空でよい。必要になった時点で、追加Contextとして参照させたいファイルを追加する |
 
 Gemの新規作成はGeminiウェブアプリで行います。
@@ -66,24 +68,26 @@ Gemの作成・編集に関するGoogle公式の案内は、次を参照して�
 
 作成するGemごとに次のPersonaを使用します。
 
-| Gem Display Name（Gem表示名） | Persona File（Personaファイル） |
-|---|---|
-| Researcher | `GEM_RESEARCHER_FULL.md` / `GEM_RESEARCHER_LEARNING_DEVELOPMENT.md` / `GEM_RESEARCHER_DEVELOPMENT.md` のうち利用する1本 |
-| Solution Partner | `GEM_SOLUTION_PARTNER.md` |
-| Code Generator | `GEM_CODE_GENERATOR.md` |
-| Reviewer | `GEM_REVIEWER.md` |
+| Gem Display Name（Gem表示名） | Persona File（Personaファイル） | `デフォルト ツール` |
+|---|---|---|
+| Researcher | `GEM_RESEARCHER_FULL.md` / `GEM_RESEARCHER_LEARNING_DEVELOPMENT.md` / `GEM_RESEARCHER_DEVELOPMENT.md` のうち利用する1本 | 設定しない |
+| Researcher Deep Research | 通常用Researcherと同じResearcher Persona | Deep Research |
+| Solution Partner | `GEM_SOLUTION_PARTNER.md` | 用途に応じて判断 |
+| Code Generator | `GEM_CODE_GENERATOR.md` | 用途に応じて判断 |
+| Reviewer | `GEM_REVIEWER.md` | 用途に応じて判断 |
 
-Researcherは3完成版を同時に設定しません。その時点で必要な検索範囲を含む1本だけを選びます。
+Researcherは3完成版を同時に設定しません。その時点で必要な検索範囲を含む1本だけを選び、通常用ResearcherとResearcher Deep Researchの両方に同じ完成版を使用します。
 
 初期作成時の最低限の設定手順：
 
 1. `名前` にGem表示名を入力します。
 2. `説明` に、何のGemか分かりやすい短い説明を記入します。
 3. 対応するPersona本体を `カスタム指示` 欄に貼り付けます。
-4. 右側の `プレビュー` で応答を確認します。
-5. 設定内容を保存します。
+4. `Researcher Deep Research` を作成する場合だけ、`デフォルト ツール` に Deep Research を設定します。
+5. 右側の `プレビュー` で応答を確認します。
+6. 設定内容を保存します。
 
-`デフォルト ツール` は用途に応じて必要な場合だけ設定します。`知識` も初期作成時には空で構いません。必要になった時点で、参照させたいファイルを追加します。
+`知識` は初期作成時には空で構いません。必要になった時点で、参照させたいファイルを追加します。
 
 Google公式ヘルプでは、プレビューを使用しただけではGemは自動保存されないと案内されています。設定確認後に保存操作を行います。
 
@@ -97,7 +101,8 @@ Google公式ヘルプでは、プレビューを使用しただけではGemは�
 
 | Gem | `説明` の記入例 |
 |---|---|
-| Researcher | 必要な外部情報を一次情報中心に調査し、Evidence付きで整理する |
+| Researcher | 通常の調査・学習・情報確認を、一次情報とEvidenceを重視して支援する |
+| Researcher Deep Research | 企業研究・業界研究・比較調査など、複数の情報源を横断する詳細調査を支援する |
 | Solution Partner | 目的・要求・制約を整理し、設計とコード生成用指示を具体化する |
 | Code Generator | 現行設計と仕様に従い、コード・testコードの生成や修正を支援する |
 | Reviewer | 設計・コード・検証Evidenceを独立して評価する |
@@ -106,14 +111,16 @@ Google公式ヘルプでは、プレビューを使用しただけではGemは�
 
 ### 3.4 `デフォルト ツール` の考え方
 
-`デフォルト ツール` は、Education用4Gemすべてに同じ設定を強制しません。
+`デフォルト ツール` は、Education用Gemすべてに同じ設定を強制しません。
 
-用途によって必要性が変わるため、次のどちらも許容します。
+Researcherでは、Deep Researchの使用有無を毎回設定変更するのではなく、次の2つのGemを作成して使い分けます。
 
-- 特定のデフォルト ツールを設定せずに利用する
-- そのGemの用途で必要なデフォルト ツールを設定して利用する
+- `Researcher`：`デフォルト ツール` は設定しない。通常の調査、学習、簡単な事実確認などに使用する。
+- `Researcher Deep Research`：`デフォルト ツール` に Deep Research を設定する。企業研究、業界研究、比較調査など、複数の情報源を横断する詳細調査に使用する。
 
-初期作成時の最低限必須項目には含めません。「4Gemだから必ず同じツールを設定する」「初期設定では必ず空にする」といった固定ルールにもせず、利用目的と必要な機能に応じて判断します。
+Deep Researchは詳細調査に有効ですが、通常の調査より処理時間が長くなり、利用量や利用上限への影響も大きくなります。そのため、Researcherのすべての調査をDeep Researchへ固定せず、用途に応じて2つのGemを選択します。
+
+Solution Partner / Code Generator / Reviewerの `デフォルト ツール` は、利用目的と必要な機能に応じて判断します。
 
 ## 4. Persona Registration（Persona登録方法）
 
@@ -172,7 +179,7 @@ Researcherは次の3完成版から1本を選択します。
 - `../GEM_RESEARCHER_LEARNING_DEVELOPMENT.md`
 - `../GEM_RESEARCHER_DEVELOPMENT.md`
 
-選択したPersona本体をResearcher Gemの `カスタム指示` 欄に貼り付けます。
+選択したPersona本体を、通常用の `Researcher` と `Researcher Deep Research` の両方の `カスタム指示` 欄に使用します。
 
 検索範囲を変更するときは、現在のResearcher Personaを別の完成版へ入れ替えます。複数のResearcher完成版を1つのGemへ同時に設定しません。
 
@@ -242,7 +249,7 @@ Personaの正本は `../` 配下のPersonaファイルです。`知識` をPerso
 ### 6.2 Researcherの完成版を切り替える場合
 
 1. 利用するResearcher完成版を1本選びます。
-2. Researcher Gemの `カスタム指示` 欄を、選択した完成版のPersona本体へ入れ替えます。
+2. 通常用 `Researcher` と `Researcher Deep Research` の `カスタム指示` 欄を、選択した完成版のPersona本体へ入れ替えます。
 3. 旧完成版の内容と新完成版の内容を同時に残しません。
 4. 変更内容を保存します。
 
@@ -254,7 +261,9 @@ Personaの責務そのものを変更する場合は、Gem側の `説明` だけ
 
 ### 6.4 `デフォルト ツール` を変更する場合
 
-利用用途の変化に応じて、必要な場合のみ設定・変更します。全4Gemへ一律に同じ設定を適用する必要はありません。
+ResearcherではDeep Researchの使用有無を都度切り替えず、通常用 `Researcher` と `Researcher Deep Research` を使い分けます。
+
+Solution Partner / Code Generator / Reviewerは、利用用途の変化に応じて必要な場合のみ設定・変更します。
 
 ### 6.5 `知識` を変更する場合
 
@@ -270,7 +279,9 @@ Gem編集画面の `知識` から、必要な資料を追加・削除します�
 - Personaの現行正本は本Repository内のPersonaファイルです。Gem側だけで独自変更しないでください。
 - `カスタム指示` にはPersona本体を貼り付け、Document Infoや `Decision & Rationale` 等の文書管理情報は含めません。
 - `説明` はGemの役割を人が識別するための短い説明として設定します。
-- `デフォルト ツール` は初期作成時の必須項目ではありません。用途に応じて判断し、全4Gemへ一律に固定しません。
+- Researcherは、通常用 `Researcher` と Deep Research用 `Researcher Deep Research` の2つを作成して用途で使い分けます。
+- `Researcher` の `デフォルト ツール` は設定せず、`Researcher Deep Research` には Deep Research を設定します。
+- Researcher Persona自体は4Gem体系上1つの役割です。Gemini上で利用目的別に2つのGemとして設定します。
 - Researcherは3完成版のうち1本だけを有効にします。
 - `知識` は初期作成時の必須項目ではありません。必要になった時点で、現在有効な資料を追加します。
 - `知識` へ不要・旧版・矛盾する資料を機械的に追加しません。
@@ -316,7 +327,7 @@ Rejected:
 Decision:
 - `カスタム指示` にはPersona MD全文ではなく、Document Info等の文書管理情報を除いたPersona本体だけを貼り付ける。
 - `説明` は各Gemの役割を人が識別できる短い説明を設定する。
-- `デフォルト ツール` は未設定・設定済みのどちらか一方へ固定せず、用途に応じて判断する。
+- `デフォルト ツール` は全Gemで一律に固定せず、用途に応じて判断する。
 - `知識` は初期状態では空でもよく、必要な追加Contextがある場合だけ資料を追加する。何を追加するかと、追加によって回答時に参照されるContextが変わることを本資料で説明する。
 
 Reason:
@@ -328,7 +339,7 @@ Reason:
 Rejected:
 - Persona MDのDocument InfoやDecision履歴まで `カスタム指示` へ貼り付ける方式
 - `説明` を使用しない方式
-- `デフォルト ツール` を全4Gemで一律に未設定、または一律に固定設定する方式
+- `デフォルト ツール` を全Gemで一律に未設定、または一律に固定設定する方式
 - `知識` へ初期状態から機械的に資料を追加する方式
 
 #### 初期作成時の最低限必須項目
@@ -342,3 +353,15 @@ Reason:
 Rejected:
 - 初期作成時から `知識` へのファイル追加を必須にする方式
 - 初期作成時から `デフォルト ツール` の設定を必須にする方式
+
+#### ResearcherのDeep Research運用
+
+Decision:
+Researcherは、通常調査用の `Researcher` と、`デフォルト ツール` に Deep Research を設定した `Researcher Deep Research` の2つのGemを作成し、用途に応じて使い分ける。通常用Researcherでは `デフォルト ツール` を設定しない。Researcher Persona自体はEducation用4Gem体系上1つの役割として扱う。
+
+Reason:
+Deep Researchは企業研究・業界研究・比較調査など複数情報源を横断する詳細調査に適している一方、通常の調査より処理時間が長く、利用量や利用上限への影響も大きい。1つのGemでDeep Research設定を都度変更するより、通常用と詳細調査用を分けた方が、利用者が用途を判断しやすく、不要なDeep Research利用や設定戻し忘れも防げるため。
+
+Rejected:
+- ResearcherでDeep Researchを常時使用する方式
+- 1つのResearcher Gemで、必要になるたびに `デフォルト ツール` のDeep Research設定を追加・解除する方式
