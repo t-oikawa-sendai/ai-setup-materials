@@ -22,14 +22,14 @@
 ```text
 personas/
 ├── education/   学習用：基本4Gem＋Researcher Deep Researchの追加1GemをGeminiで操作する構成
-└── reference/   参考用：Education用4Gemとは異なる前提の実務構成例
+└── reference/   参考用：Education用4Gem＋1とは異なる前提の実務構成例
 ```
 
 Education用の主要導線は [`personas/education/README.md`](personas/education/README.md) です。Personaの選び方、役割分担、User-firstの作業フローは、このREADMEから確認してください。
 
 Gemini上での4Gem＋1の具体的な設定方法は [`personas/education/setup/GEMINI_GEM_SETUP.md`](personas/education/setup/GEMINI_GEM_SETUP.md) を参照してください。
 
-Reference領域の入口は [`personas/reference/README.md`](personas/reference/README.md) です。`personas/reference/` は、Education用4Gemとは役割、利用サービス、実装・検証方法の前提が異なる参考資料です。Education用の現行手順としてそのまま流用せず、設計思想や運用パターンの参考として扱ってください。
+Reference領域の入口は [`personas/reference/README.md`](personas/reference/README.md) です。`personas/reference/` は、Education用4Gem＋1とは役割、利用サービス、実装・検証方法の前提が異なる参考資料です。Education用の現行手順としてそのまま流用せず、設計思想や運用パターンの参考として扱ってください。
 
 ## 2. Education 4Gem＋1（Education用4Gem＋1）
 
@@ -84,7 +84,7 @@ Reviewerの結果は最初にUser（生徒）へ返されます。修正方法�
 #### Education用4Gem＋1のRepository入口表現
 
 Decision:
-Repository入口ではEducation用の基本体系を4Gemとして維持し、Gemini上ではResearcher Personaを使う `Researcher Deep Research` を追加した `4Gem＋1` として案内する。設定詳細は `personas/education/setup/GEMINI_GEM_SETUP.md` へ導く。
+Repository入口ではEducation用の基本体系を4Gemとして維持し、Gemini上ではResearcher Personaを使う `Researcher Deep Research` を追加した `4Gem＋1` として案内する。設定詳細は `personas/education/setup/GEMINI_GEM_SETUP.md` へ導く。Reference領域との対比でEducationの現行構成を指す場合も `4Gem＋1` と表記する。
 
 Reason:
 基本4役割を維持しつつ、Gemini上で作成するGem実体が5つであることを入口から誤解なく案内するため。`Researcher Deep Research` を独立Personaとして扱わず、サービス固有設定の詳細を専用資料へ分離するため。
