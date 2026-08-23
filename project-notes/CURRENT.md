@@ -14,35 +14,35 @@ Status: CURRENT
 - Repository責務の確定（Persona + Persona利用に直接必要な設定・運用資料。7文書は別Repository。`ASKME 迎合禁止` は独立事項としない）
 - Persona本文と設定・運用資料の責務分離、AIサービス単位管理、Education Geminiは共通1資料
 - 文書管理ルールの変更（成果物MDを正本とし、`Decision & Rationale` を同ファイルへ記録。`CURRENT.md` は現在地点のみ）
-- Education用Gemini設定資料の対象、ファイル名、基本構成を確定
-  - 対象：Education用Gemini Gem
-  - ファイル：`personas/education/setup/GEMINI_GEM_SETUP.md`
-  - 4Gem共通1資料
-  - 利用方法・Workflow説明は設定資料へ含めない
+- Education用Gemini設定資料 `personas/education/setup/GEMINI_GEM_SETUP.md` 完成
+  - Version：1.0
+  - Status：Approved
+  - Education用の基本体系は4Gem
+  - Gemini上では `Researcher Deep Research` を追加した **4Gem＋1** として運用
+  - `Researcher Deep Research` は独立PersonaではなくResearcher Personaを使う追加Gem
+  - Gemini上の実体は5 Gem
+  - 初期作成時の最低限必須項目：`名前`、`説明`、`カスタム指示`
+  - `説明` は教材標準値を固定して使用
+  - `Researcher Deep Research` の `デフォルト ツール` は Deep Research
+  - 通常用Researcher / Solution Partner / Code Generator / Reviewerの `デフォルト ツール` は初期状態では設定しない
+  - `知識` は必要になった時点でファイルを追加する任意設定
+  - Contextと `知識` の関係を説明。Context Windowは本設定資料の対象外
+  - AIサービス使用量の共通用語は `利用量（Usage）`
+  - PersonaとGem実体の関係を示す `4 Persona / 5 Gem` 構成図を掲載
+- `personas/education/README.md` を4Gem＋1へ整合し、Gemini設定資料への導線を追加
+- ルート `README.md` を4Gem＋1へ整合し、Gemini設定資料への導線を追加
 
 ## 作業中
 
-- `personas/education/setup/GEMINI_GEM_SETUP.md`
-  - Version：0.1
-  - Status：Review
-  - 確定済み方針と2026-08-23時点のGoogle公式Gemini Apps Helpを基に初版を作成済み
-  - 初期作成時の最低限必須項目：`名前`、`説明`、`カスタム指示`
-  - `知識` は必要になった時点でファイルを追加する任意設定
-  - ResearcherはGemini上で通常用 `Researcher` と `Researcher Deep Research` の2Gemを使い分ける
-  - `Researcher` の `デフォルト ツール` は設定しない
-  - `Researcher Deep Research` の `デフォルト ツール` は Deep Research
-  - Deep Researchは企業研究・業界研究・比較調査など詳細調査用
-  - `Researcher Deep Research` を正式なGem表示名として採用済み
-  - `Decision & Rationale` に管理単位、責務範囲、設定項目、最低限必須項目、Deep Research運用の判断理由を記録済み
+- なし
 
 ## 次工程
 
-1. `GEMINI_GEM_SETUP.md` の内容確認を継続する。
-2. 修正判断が発生した場合は、対象成果物である `GEMINI_GEM_SETUP.md` へ即時反映し、記録基準に該当する場合は同ファイルの `Decision & Rationale` へ追記する。
-3. User承認後、文書状態を完成版へ昇格する。
-4. 完成版昇格後、`personas/education/README.md` から設定資料への導線を追加する。
+1. Education用Gemini設定資料は完成版として維持する。修正が必要になった場合のみ、現行正本 `personas/education/setup/GEMINI_GEM_SETUP.md` を更新する。
+2. 次のRepository整備対象は、User指示または現行成果物の整合確認結果に基づいて開始する。
+3. 新たなUser決定が発生した場合は、対象成果物MDへ即時反映し、必要に応じて同ファイルの `Decision & Rationale` へ記録する。
 
-Reviewerを含むPersonaの機能設計はEvidenceなしに再検討しない。完了済みの文書適合性復旧を、Evidenceなしに再作業対象へ戻さない。`ASKME 迎合禁止` と7文書配置を未決事項へ戻さない。
+Reviewerを含むPersonaの機能設計はEvidenceなしに再検討しない。完了済みの文書適合性復旧を、Evidenceなしに再作業対象へ戻さない。`ASKME 迎合禁止` と7文書配置を未決事項へ戻さない。Education用の基本体系は4Gemであり、`Researcher Deep Research` はResearcher Personaを使う追加Gemとして扱う。
 
 ## 正本の所在
 
