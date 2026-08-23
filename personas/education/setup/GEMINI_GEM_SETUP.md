@@ -169,7 +169,7 @@ Gem編集画面の `知識` から、必要な資料を追加・削除します�
 
 確認日：2026-08-23
 
-- Google Gemini Apps Help: `https://support.google.com/gemini/answer/15235603?hl=ja`
+- Google Gemini Apps Help（Gemの作成・編集）: `https://support.google.com/gemini/answer/15235603?visit_id=639230794998661777-729048722&p=custom_gems&rd=1`
 - Google Gemini Apps Help: `https://support.google.com/gemini/answer/15146780?co=GENIE.Platform%3DDesktop&hl=ja`
 
 ## Decision & Rationale（決定・判断理由）
