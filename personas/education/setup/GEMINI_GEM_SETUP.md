@@ -47,7 +47,7 @@ ResearcherはPersonaとしては1つの役割ですが、Gemini上では用途�
 | `名前` | 必須 | Gem表示名を設定する |
 | `説明` | 必須 | 何のGemか人が分かりやすいように、役割を短く説明する |
 | `カスタム指示` | 必須 | Document Info等の文書管理情報を除いたPersona本体を貼り付ける |
-| `デフォルト ツール` | 任意 | 全Gemで一律に固定しない。Researcherは通常用では未設定、詳細調査用の `Researcher Deep Research` では Deep Research を設定する |
+| `デフォルト ツール` | 任意 | `Researcher Deep Research` だけ Deep Research を設定する。通常用Researcher / Solution Partner / Code Generator / Reviewerは初期状態では設定しない。必要になった場合だけ追加する |
 | `知識` | 任意 | 初期状態は空でよい。必要になった時点で、追加Contextとして参照させたいファイルを追加する |
 
 Gemの新規作成はGeminiウェブアプリで行います。
@@ -72,9 +72,9 @@ Gemの作成・編集に関するGoogle公式の案内は、次を参照して�
 |---|---|---|
 | Researcher | `GEM_RESEARCHER_FULL.md` / `GEM_RESEARCHER_LEARNING_DEVELOPMENT.md` / `GEM_RESEARCHER_DEVELOPMENT.md` のうち利用する1本 | 設定しない |
 | Researcher Deep Research | 通常用Researcherと同じResearcher Persona | Deep Research |
-| Solution Partner | `GEM_SOLUTION_PARTNER.md` | 用途に応じて判断 |
-| Code Generator | `GEM_CODE_GENERATOR.md` | 用途に応じて判断 |
-| Reviewer | `GEM_REVIEWER.md` | 用途に応じて判断 |
+| Solution Partner | `GEM_SOLUTION_PARTNER.md` | 初期状態では設定しない。必要時のみ追加 |
+| Code Generator | `GEM_CODE_GENERATOR.md` | 初期状態では設定しない。必要時のみ追加 |
+| Reviewer | `GEM_REVIEWER.md` | 初期状態では設定しない。必要時のみ追加 |
 
 Researcherは3完成版を同時に設定しません。その時点で必要な検索範囲を含む1本だけを選び、通常用ResearcherとResearcher Deep Researchの両方に同じ完成版を使用します。
 
@@ -87,7 +87,7 @@ Researcherは3完成版を同時に設定しません。その時点で必要な
 5. 右側の `プレビュー` で応答を確認します。
 6. 設定内容を保存します。
 
-`知識` は初期作成時には空で構いません。必要になった時点で、参照させたいファイルを追加します。
+通常用Researcher / Solution Partner / Code Generator / Reviewerでは、初期状態の `デフォルト ツール` は設定しません。利用上必要になった場合だけ追加します。`知識` も初期作成時には空で構いません。必要になった時点で、参照させたいファイルを追加します。
 
 Google公式ヘルプでは、プレビューを使用しただけではGemは自動保存されないと案内されています。設定確認後に保存操作を行います。
 
@@ -120,7 +120,7 @@ Researcherでは、Deep Researchの使用有無を毎回設定変更するので
 
 Deep Researchは詳細調査に有効ですが、通常の調査より処理時間が長くなり、利用量や利用上限への影響も大きくなります。そのため、Researcherのすべての調査をDeep Researchへ固定せず、用途に応じて2つのGemを選択します。
 
-Solution Partner / Code Generator / Reviewerの `デフォルト ツール` は、利用目的と必要な機能に応じて判断します。
+Solution Partner / Code Generator / Reviewerは、初期状態では `デフォルト ツール` を設定しません。利用上必要なツールが明確になった場合だけ追加します。
 
 ## 4. Persona Registration（Persona登録方法）
 
@@ -199,6 +199,20 @@ Persona本文を変更する場合は、Repository上の現行Personaを正本�
 
 Gemへ、Personaだけでは持っていない追加のContextや参照資料を継続的に参照させたい場合に使用します。
 
+本教材では、Contextを「AIが回答するときに参照する情報のまとまり」として扱います。理解のため、主な構成要素は次のように整理します。
+
+```text
+Context
+≒
+カスタム指示
+＋
+会話履歴
+＋
+今回のプロンプト
+＋
+「知識」から参照された情報
+```
+
 ### 5.1 ファイルを追加する
 
 1. Gem編集画面の `知識` を確認します。
@@ -223,7 +237,7 @@ Google公式ヘルプでは、`知識` にファイルを追加することでGe
 
 ### 5.3 `知識` を追加すると何が変わるか
 
-`知識` に資料を追加すると、そのGemは回答を作る際に、Personaだけでなく追加された資料の内容もContextとして参照できるようになります。
+`知識` に資料を追加すると、そのGemは回答を作る際に、Personaだけでなく追加された資料から参照された情報もContextとして利用できるようになります。
 
 例えば、設計資料を追加した場合、そのGemは一般論だけでなく、その設計資料に記載された現行仕様・用語・制約を踏まえて回答しやすくなります。
 
@@ -263,7 +277,7 @@ Personaの責務そのものを変更する場合は、Gem側の `説明` だけ
 
 ResearcherではDeep Researchの使用有無を都度切り替えず、通常用 `Researcher` と `Researcher Deep Research` を使い分けます。
 
-Solution Partner / Code Generator / Reviewerは、利用用途の変化に応じて必要な場合のみ設定・変更します。
+Solution Partner / Code Generator / Reviewerは、初期状態では `デフォルト ツール` を設定しません。利用上必要になった場合だけ追加・変更します。
 
 ### 6.5 `知識` を変更する場合
 
@@ -281,6 +295,7 @@ Gem編集画面の `知識` から、必要な資料を追加・削除します�
 - `説明` はGemの役割を人が識別するための短い説明として設定します。
 - Researcherは、通常用 `Researcher` と Deep Research用 `Researcher Deep Research` の2つを作成して用途で使い分けます。
 - `Researcher` の `デフォルト ツール` は設定せず、`Researcher Deep Research` には Deep Research を設定します。
+- Solution Partner / Code Generator / Reviewerの `デフォルト ツール` は初期状態では設定せず、必要になった場合だけ追加します。
 - Researcher Persona自体は4Gem体系上1つの役割です。Gemini上で利用目的別に2つのGemとして設定します。
 - Researcherは3完成版のうち1本だけを有効にします。
 - `知識` は初期作成時の必須項目ではありません。必要になった時点で、現在有効な資料を追加します。
@@ -327,19 +342,19 @@ Rejected:
 Decision:
 - `カスタム指示` にはPersona MD全文ではなく、Document Info等の文書管理情報を除いたPersona本体だけを貼り付ける。
 - `説明` は各Gemの役割を人が識別できる短い説明を設定する。
-- `デフォルト ツール` は全Gemで一律に固定せず、用途に応じて判断する。
+- `デフォルト ツール` は `Researcher Deep Research` だけ Deep Research を設定する。通常用Researcher / Solution Partner / Code Generator / Reviewerは初期状態では設定せず、必要になった場合だけ追加する。
 - `知識` は初期状態では空でもよく、必要な追加Contextがある場合だけ資料を追加する。何を追加するかと、追加によって回答時に参照されるContextが変わることを本資料で説明する。
 
 Reason:
 - Document InfoやDecision履歴はRepository管理のための情報であり、Gemの役割・責務・行動を定義する指示ではないため。
 - `説明` はGemの役割を人が識別しやすくするため。
-- `デフォルト ツール` の必要性はGemの用途によって異なり、一律設定では実利用に合わないため。
+- `デフォルト ツール` は初期設定を最小化し、必要性が明確な場合だけ追加する方が、各ツールの目的を理解しやすく不要な設定も避けられるため。Deep Researchは用途を明確に分離するため `Researcher Deep Research` にのみ設定する。
 - `知識` は追加Contextとして作用するため、初期必須項目にせず、目的に必要な有効資料だけを追加する運用とするため。
 
 Rejected:
 - Persona MDのDocument InfoやDecision履歴まで `カスタム指示` へ貼り付ける方式
 - `説明` を使用しない方式
-- `デフォルト ツール` を全Gemで一律に未設定、または一律に固定設定する方式
+- Solution Partner / Code Generator / Reviewerへ初期状態から `デフォルト ツール` を設定する方式
 - `知識` へ初期状態から機械的に資料を追加する方式
 
 #### 初期作成時の最低限必須項目
@@ -365,3 +380,19 @@ Deep Researchは企業研究・業界研究・比較調査など複数情報源�
 Rejected:
 - ResearcherでDeep Researchを常時使用する方式
 - 1つのResearcher Gemで、必要になるたびに `デフォルト ツール` のDeep Research設定を追加・解除する方式
+
+#### `知識` 説明へのContext定義追加
+
+Decision:
+`知識` の説明では、Contextを「AIが回答するときに参照する情報のまとまり」と説明し、主な構成要素を `カスタム指示 + 会話履歴 + 今回のプロンプト + 「知識」から参照された情報` として示す。
+
+Reason:
+`知識` にファイルを追加すると何が変わるかを、初学者がContextとの関係から理解できるようにするため。
+
+#### Solution Partner / Code Generator / Reviewerの初期デフォルトツール
+
+Decision:
+Solution Partner / Code Generator / Reviewerは、初期状態では `デフォルト ツール` を設定しない。利用上必要なツールが明確になった場合だけ追加する。
+
+Reason:
+初期設定を最小化し、用途が確定していないツールを先回りして設定しないことで、各設定項目の意味と必要性を生徒が理解しやすくするため。
