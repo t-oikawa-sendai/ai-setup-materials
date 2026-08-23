@@ -15,18 +15,34 @@
 
 ## 1. Purpose（目的）
 
-この文書は、Education用4GemをGeminiのカスタムGemとして設定するための手順を説明します。
+この文書は、Education用4Gem＋1をGeminiのカスタムGemとして設定するための手順を説明します。
 
-対象はGemの作成と設定です。Personaの役割説明、4Gemの利用Workflow、各Gemの使い方そのものは [`../README.md`](../README.md) と各Persona文書を参照してください。
+対象はGemの作成と設定です。Personaの役割説明、基本4Gemの利用Workflow、各Gemの使い方そのものは [`../README.md`](../README.md) と各Persona文書を参照してください。
 
-Education用4Gemは次の4つです。
+Education用の基本4Gemは次の4つです。
 
 - Researcher
 - Solution Partner
 - Code Generator
 - Reviewer
 
-ResearcherはPersonaとしては1つの役割ですが、Gemini上では用途を分けるため、通常調査用の `Researcher` と、`デフォルト ツール` に Deep Research を設定した `Researcher Deep Research` の2つのGemを作成します。
+これに、Researcherの詳細調査用Gemとして `Researcher Deep Research` を1つ追加します。本教材では、この構成を **Education用4Gem＋1** と呼びます。
+
+`Researcher Deep Research` は新しいPersonaではありません。Researcher Personaを使用し、`デフォルト ツール` に Deep Research を設定した追加Gemです。
+
+PersonaとGemini上のGem実体の関係は次のとおりです。
+
+```text
+4 Persona
+├─ Researcher
+│  ├─ Researcher
+│  └─ Researcher Deep Research
+├─ Solution Partner
+├─ Code Generator
+└─ Reviewer
+
+Gemini上の実体：5 Gem
+```
 
 各GemのPersona本体は、Gem編集画面の `カスタム指示` 欄に貼り付けます。初期作成時に最低限設定する項目は `名前`、`説明`、`カスタム指示` の3項目です。`知識` へのファイル追加は必須ではなく、必要になった時点で追加します。
 
@@ -288,6 +304,8 @@ Gem編集画面の `知識` から、必要な資料を追加・削除します�
 ## 7. Notes（注意事項）
 
 - カスタムGemの新規作成・編集はGeminiウェブアプリで行います。
+- Education用の構成は、基本4Gemに `Researcher Deep Research` を追加した **4Gem＋1** です。
+- `Researcher Deep Research` は新しいPersonaではなく、Researcher Personaを使う詳細調査用の追加Gemです。
 - 初期作成時の最低限必須項目は `名前`、`説明`、`カスタム指示` の3つです。
 - `プレビュー` は保存ではありません。設定変更後は保存操作を確認します。
 - Personaの現行正本は本Repository内のPersonaファイルです。Gem側だけで独自変更しないでください。
@@ -296,7 +314,6 @@ Gem編集画面の `知識` から、必要な資料を追加・削除します�
 - Researcherは、通常用 `Researcher` と Deep Research用 `Researcher Deep Research` の2つを作成して用途で使い分けます。
 - `Researcher` の `デフォルト ツール` は設定せず、`Researcher Deep Research` には Deep Research を設定します。
 - Solution Partner / Code Generator / Reviewerの `デフォルト ツール` は初期状態では設定せず、必要になった場合だけ追加します。
-- Researcher Persona自体は4Gem体系上1つの役割です。Gemini上で利用目的別に2つのGemとして設定します。
 - Researcherは3完成版のうち1本だけを有効にします。
 - AIサービスの使用量に関する共通用語は `利用量（Usage）` を使用します。
 - `知識` は初期作成時の必須項目ではありません。必要になった時点で、現在有効な資料を追加します。
@@ -319,19 +336,19 @@ Gem編集画面の `知識` から、必要な資料を追加・削除します�
 #### Education用Gemini設定資料の管理単位
 
 Decision:
-Education用4Gemの設定資料はPersonaごとに4文書へ分割せず、`GEMINI_GEM_SETUP.md` 1文書で管理する。配置先は `personas/education/setup/` とする。
+Education用4Gem＋1の設定資料はPersonaごとに文書を分割せず、`GEMINI_GEM_SETUP.md` 1文書で管理する。配置先は `personas/education/setup/` とする。
 
 Reason:
-Geminiでは4Gemとも同じGem作成・設定機構を利用するため、Personaごとに同じ操作説明を重複させない。Persona本文とAIサービス固有の設定手順を分離し、Gemini側の仕様変更時に設定資料だけを更新できるようにする。
+基本4Gemと追加Gemはいずれも同じGem作成・設定機構を利用するため、Gemごとに同じ操作説明を重複させない。Persona本文とAIサービス固有の設定手順を分離し、Gemini側の仕様変更時に設定資料だけを更新できるようにする。
 
 Rejected:
-- Researcher / Solution Partner / Code Generator / Reviewerごとに設定資料を4文書作成する方式
+- Researcher / Researcher Deep Research / Solution Partner / Code Generator / Reviewerごとに設定資料を分割する方式
 - Persona本文へGemini固有の設定操作を混在させる方式
 
 #### 設定資料の責務範囲
 
 Decision:
-本資料はGemの設定に限定し、4Gemの利用方法・Workflow説明は含めない。Persona本体はGem編集画面の `カスタム指示` 欄に貼り付け、`知識` は必要に応じた追加Context・参照資料の追加に使用する。
+本資料はGemの設定に限定し、基本4Gemの利用方法・Workflow説明は含めない。Persona本体はGem編集画面の `カスタム指示` 欄に貼り付け、`知識` は必要に応じた追加Context・参照資料の追加に使用する。
 
 Reason:
 設定資料の責務をGemの作成・設定・更新に限定し、Personaの機能仕様や利用Workflowとの責務混在を防ぐため。Gemini公式ヘルプでも、Gemの `カスタム指示` と追加Context用ファイルは別の設定として案内されている。
@@ -374,7 +391,7 @@ Rejected:
 #### ResearcherのDeep Research運用
 
 Decision:
-Researcherは、通常調査用の `Researcher` と、`デフォルト ツール` に Deep Research を設定した `Researcher Deep Research` の2つのGemを作成し、用途に応じて使い分ける。通常用Researcherでは `デフォルト ツール` を設定しない。Researcher Persona自体はEducation用4Gem体系上1つの役割として扱う。
+Researcherは、通常調査用の `Researcher` と、`デフォルト ツール` に Deep Research を設定した `Researcher Deep Research` の2つのGemを作成し、用途に応じて使い分ける。通常用Researcherでは `デフォルト ツール` を設定しない。Researcher Persona自体はEducation用基本4Gem体系上1つの役割として扱う。
 
 Reason:
 Deep Researchは企業研究・業界研究・比較調査など複数情報源を横断する詳細調査に適している一方、通常の調査より処理時間が長く、利用量（Usage）が増え、利用上限にも影響する。1つのGemでDeep Research設定を都度変更するより、通常用と詳細調査用を分けた方が、利用者が用途を判断しやすく、不要なDeep Research利用や設定戻し忘れも防げるため。
@@ -428,3 +445,11 @@ Context Windowは重要な概念だが、Gemの設定操作に直接必要では
 
 Rejected:
 - Contextの説明に加えてContext Windowの概念説明も本資料へ追加する方式
+
+#### Education用4Gem＋1の呼称と構成図
+
+Decision:
+Education用の基本体系は4Gemとして維持し、`Researcher Deep Research` を追加した構成を `4Gem＋1` と呼ぶ。PersonaとGemini上の実体数の違いを明確にするため、本文に `4 Persona` と `Gemini上の実体：5 Gem` の構成図を記載する。
+
+Reason:
+基本の4役割を変更せず、Deep Research用GemがResearcherの追加実体であることを初学者にも明確に示せるため。単に `5Gem` と呼ぶと5つの異なるPersonaが存在するように誤解される可能性がある。
