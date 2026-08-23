@@ -14,20 +14,27 @@ Status: CURRENT
 - Repository責務の確定（Persona + Persona利用に直接必要な設定・運用資料。7文書は別Repository。`ASKME 迎合禁止` は独立事項としない）
 - Persona本文と設定・運用資料の責務分離、AIサービス単位管理、Education Geminiは共通1資料
 - 文書管理ルールの変更（成果物MDを正本とし、`Decision & Rationale` を同ファイルへ記録。`CURRENT.md` は現在地点のみ）
+- Education用Gemini設定資料の対象、ファイル名、基本構成を確定
+  - 対象：Education用Gemini Gem
+  - ファイル：`personas/education/setup/GEMINI_GEM_SETUP.md`
+  - 4Gem共通1資料
+  - 利用方法・Workflow説明は設定資料へ含めない
 
 ## 作業中
 
-なし。
+- `personas/education/setup/GEMINI_GEM_SETUP.md`
+  - Version：0.1
+  - Status：Review
+  - 確定済み方針と2026-08-23時点のGoogle公式Gemini Apps Helpを基に初版を作成済み
+  - Gem作成、PersonaのInstructions設定、Knowledge設定、更新・変更方法、注意事項を記載
+  - `Decision & Rationale` に管理単位と責務範囲の判断理由を記録済み
 
 ## 次工程
 
-確定した方針に基づく設定・運用資料の整備を検討する。着手前にUserと次を確定する。
-
-1. どのAIサービスの設定・運用資料から作成するか
-2. 各資料のファイル名
-3. 各資料の本文構成と記載項目
-
-上記が確定するまで、設定・運用資料の本文を作成しない。ファイル名を推測しない。空の `setup/` ディレクトリや `.gitkeep` 等のダミーファイルを作成しない。7文書を本Repositoryへ作成・移動・コピーしない。
+1. `GEMINI_GEM_SETUP.md` の内容をUserが確認する。
+2. 修正判断が発生した場合は、対象成果物である `GEMINI_GEM_SETUP.md` へ即時反映し、記録基準に該当する場合は同ファイルの `Decision & Rationale` へ追記する。
+3. User承認後、文書状態を完成版へ昇格する。
+4. 完成版昇格後、`personas/education/README.md` から設定資料への導線を追加する。
 
 Reviewerを含むPersonaの機能設計はEvidenceなしに再検討しない。完了済みの文書適合性復旧を、Evidenceなしに再作業対象へ戻さない。`ASKME 迎合禁止` と7文書配置を未決事項へ戻さない。
 
@@ -37,6 +44,7 @@ Reviewerを含むPersonaの機能設計はEvidenceなしに再検討しない。
 - Repository入口：`README.md`
 - Education Persona：`personas/education/`
 - Education入口：`personas/education/README.md`
+- Education Gemini設定資料：`personas/education/setup/GEMINI_GEM_SETUP.md`
 - Reference Persona：`personas/reference/`
 - Reference入口：`personas/reference/README.md`
 - 現行仕様の判断理由：各成果物MDの `Decision & Rationale`
@@ -63,6 +71,7 @@ Reviewerを含むPersonaの機能設計はEvidenceなしに再検討しない。
 ## REFERENCES
 
 - `AGENTS.md`
+- `personas/education/setup/GEMINI_GEM_SETUP.md`
 - `project-notes/2026-08-21-ai-information-asset-safety.md`
 - `project-notes/2026-08-22-persona-and-setup-scope.md`
 - `project-notes/2026-08-22-design-document-standard-application-scope.md`
