@@ -26,12 +26,18 @@ Status: CURRENT
   - Version：0.1
   - Status：Review
   - 確定済み方針と2026-08-23時点のGoogle公式Gemini Apps Helpを基に初版を作成済み
-  - Gem作成、PersonaのInstructions設定、Knowledge設定、更新・変更方法、注意事項を記載
-  - `Decision & Rationale` に管理単位と責務範囲の判断理由を記録済み
+  - 初期作成時の最低限必須項目：`名前`、`説明`、`カスタム指示`
+  - `知識` は必要になった時点でファイルを追加する任意設定
+  - ResearcherはGemini上で通常用 `Researcher` と `Researcher Deep Research` の2Gemを使い分ける
+  - `Researcher` の `デフォルト ツール` は設定しない
+  - `Researcher Deep Research` の `デフォルト ツール` は Deep Research
+  - Deep Researchは企業研究・業界研究・比較調査など詳細調査用
+  - `Researcher Deep Research` を正式なGem表示名として採用済み
+  - `Decision & Rationale` に管理単位、責務範囲、設定項目、最低限必須項目、Deep Research運用の判断理由を記録済み
 
 ## 次工程
 
-1. `GEMINI_GEM_SETUP.md` の内容をUserが確認する。
+1. `GEMINI_GEM_SETUP.md` の内容確認を継続する。
 2. 修正判断が発生した場合は、対象成果物である `GEMINI_GEM_SETUP.md` へ即時反映し、記録基準に該当する場合は同ファイルの `Decision & Rationale` へ追記する。
 3. User承認後、文書状態を完成版へ昇格する。
 4. 完成版昇格後、`personas/education/README.md` から設定資料への導線を追加する。
