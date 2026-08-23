@@ -2,8 +2,8 @@
 | Item（項目） | Value（値） |
 |---|---|
 | Document ID（文書ID） | STD-PERSONA-EDU-GEMINI-GEM-SETUP-001 |
-| Version（バージョン） | 0.1 |
-| Status（ステータス） | Review |
+| Version（バージョン） | 1.0 |
+| Status（ステータス） | Approved |
 | Created Date（作成日） | 2026-08-23 |
 | Last Updated（最終更新日） | 2026-08-23 |
 | Owner（管理者） | t-oikawa-sendai |
@@ -453,3 +453,11 @@ Education用の基本体系は4Gemとして維持し、`Researcher Deep Research
 
 Reason:
 基本の4役割を変更せず、Deep Research用GemがResearcherの追加実体であることを初学者にも明確に示せるため。単に `5Gem` と呼ぶと5つの異なるPersonaが存在するように誤解される可能性がある。
+
+#### 完成版昇格
+
+Decision:
+User承認に基づき、本資料を `Version 1.0 / Status Approved` へ昇格する。
+
+Reason:
+Gemini上の4Gem＋1構成、標準入力値、Persona登録方法、Deep Research運用、`知識`、Context、`利用量（Usage）`、更新方法までの設定仕様についてUser判断が完了し、Education READMEとの整合も確認・反映したため。
