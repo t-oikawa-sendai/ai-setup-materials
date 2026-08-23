@@ -10,7 +10,7 @@ Status: CURRENT
 ## 完了事項
 
 - Education用4Gem Persona本体の機能設計
-- 文書適合性復旧、現行配布文書13件の `Version 1.0 / Status Approved` 昇格
+- 文書適合性復旧、当時の現行配布文書13件の `Version 1.0 / Status Approved` 昇格
 - Repository責務の確定（Persona + Persona利用に直接必要な設定・運用資料。7文書は別Repository。`ASKME 迎合禁止` は独立事項としない）
 - Persona本文と設定・運用資料の責務分離、AIサービス単位管理、Education Geminiは共通1資料
 - 文書管理ルールの変更（成果物MDを正本とし、`Decision & Rationale` を同ファイルへ記録。`CURRENT.md` は現在地点のみ）
@@ -31,6 +31,14 @@ Status: CURRENT
   - PersonaとGem実体の関係を示す `4 Persona / 5 Gem` 構成図を掲載
 - `personas/education/README.md` を4Gem＋1へ整合し、Gemini設定資料への導線を追加
 - ルート `README.md` を4Gem＋1へ整合し、Gemini設定資料への導線を追加
+- Repository配布前最終整合監査を完了
+  - 現行配布文書14件を確認し、14/14が `Version 1.0 / Status Approved`
+  - Root / Education / Setup / Referenceの現行導線と実ファイルを照合し、内部リンク先の欠落なし
+  - Education Persona名を Researcher / Solution Partner / Code Generator / Reviewer で確認
+  - Geminiの現行構成を `4Gem＋1` としてRoot / Education / Setup / Referenceの対比表現まで整合
+  - Root READMEとReference READMEに残っていた旧 `Education用4Gem` 対比表現を `Education用4Gem＋1` へ修正
+  - 現行Education導線・設定資料に旧 `GEM_IMPLEMENTER`、旧 `Instructions（指示）`、`DeepSearch` 誤表記の残存なし
+  - Gemini公式HelpでGem作成、`知識` による追加Context、Deep Research、利用上限の現行案内を再確認
 
 ## 作業中
 
@@ -38,8 +46,8 @@ Status: CURRENT
 
 ## 次工程
 
-1. Education用Gemini設定資料は完成版として維持する。修正が必要になった場合のみ、現行正本 `personas/education/setup/GEMINI_GEM_SETUP.md` を更新する。
-2. 次のRepository整備対象は、User指示または現行成果物の整合確認結果に基づいて開始する。
+1. 現行成果物は配布可能な完成状態として維持する。
+2. 新たなUser要求、サービス仕様変更、実利用で確認された問題が発生した場合のみ、該当する現行正本を更新する。
 3. 新たなUser決定が発生した場合は、対象成果物MDへ即時反映し、必要に応じて同ファイルの `Decision & Rationale` へ記録する。
 
 Reviewerを含むPersonaの機能設計はEvidenceなしに再検討しない。完了済みの文書適合性復旧を、Evidenceなしに再作業対象へ戻さない。`ASKME 迎合禁止` と7文書配置を未決事項へ戻さない。Education用の基本体系は4Gemであり、`Researcher Deep Research` はResearcher Personaを使う追加Gemとして扱う。
