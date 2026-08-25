@@ -5,7 +5,7 @@
 | Version（バージョン） | 1.0 |
 | Status（ステータス） | Approved |
 | Created Date（作成日） | 2026-08-17 |
-| Last Updated（最終更新日） | 2026-08-23 |
+| Last Updated（最終更新日） | 2026-08-25 |
 | Owner（管理者） | t-oikawa-sendai |
 | Related Documents（関連文書） | [`personas/education/README.md`](personas/education/README.md)<br>[`personas/education/setup/GEMINI_GEM_SETUP.md`](personas/education/setup/GEMINI_GEM_SETUP.md)<br>[`personas/reference/README.md`](personas/reference/README.md) |
 
@@ -17,7 +17,52 @@
 
 曖昧な依頼による推測、指示範囲外の変更、未検証の完了報告を減らし、User（生徒）がEvidenceを確認して最終判断できる運用を目的とします。
 
-## 1. Structure（構成）
+## 1. Why Persona Matters（なぜPersonaが重要なのか）
+
+生成AIへ「普段どのように答えてほしいか」「どの役割で動いてほしいか」「今回何をしてほしいか」を伝える方法は、同じものではありません。
+
+本教材では、違いを次のように整理します。
+
+| 観点 | サービス全体のカスタム指示・共通設定 | Persona | その都度のプロンプト |
+|---|---:|---:|---:|
+| 継続性 | ★★★★★ | ★★★★★ | ★☆☆☆☆ |
+| 適用範囲 | サービスやアカウントの設定範囲 | Personaを設定したAI・Agent | その質問・会話 |
+| 回答スタイルへの影響 | ★★★★★ | ★★★★★ | ★★★★☆ |
+| AIの役割への影響 | ★★★☆☆ | ★★★★★ | ★★★★☆ |
+| 専門的な責務の固定 | ★★☆☆☆ | ★★★★★ | ★★★☆☆ |
+| 具体的タスクへの影響 | ★★☆☆☆ | ★★★★☆ | ★★★★★ |
+| 回答形式への影響 | ★★★★☆ | ★★★★★ | ★★★★★ |
+| 毎回入力する必要 | 不要 | 不要 | 必要 |
+| 主な用途 | 普段どう答えてほしいか | **このAIは何者で、何を担当するか** | 今回何をしてほしいか |
+
+> **注意：** 星の数は各AIサービスが公開している内部的な優先順位ではありません。本教材で、各設定が回答へどの程度・どのような種類の影響を与えるかを理解するための目安です。また、カスタム指示・共通設定の名称、提供有無、適用範囲はAIサービスによって異なります。
+
+3つを一言で表すと、次のようになります。
+
+```text
+サービス全体のカスタム指示・共通設定
+「私は、普段こう答えてほしい」
+
+Persona
+「あなたは、こういう役割のAIである」
+
+その都度のプロンプト
+「今回は、これをしてほしい」
+```
+
+サービス全体のカスタム指示・共通設定は、結論から説明する、長い説明を箇条書きにするなど、普段の回答方法を自分に合わせる用途に適しています。
+
+その都度のプロンプトは、今回の質問や作業内容を具体的に指定するために使用します。
+
+一方、Personaは、そのAIの **Role（役割）・Responsibility（責務）・Boundary（責務境界）・Decision Criteria（判断基準）・Output（出力）** を継続的に定義します。
+
+そのため、本教材では「毎回うまいプロンプトを書くこと」だけに依存しません。Personaによって、AIが何者で、何を担当し、どこまでを担当しないのかを先に明確にします。そのうえで、その都度のプロンプトから具体的な作業を依頼します。
+
+Personaの設定方法はAIサービスによって異なります。Education領域ではGeminiのGemへPersonaを設定し、Reference領域では各AIサービスや開発支援環境の仕組みに合わせてPersonaを利用します。
+
+Gemini固有のカスタム指示との違い、効果、制約、設定方法は [`personas/education/setup/GEMINI_GEM_SETUP.md`](personas/education/setup/GEMINI_GEM_SETUP.md) を参照してください。
+
+## 2. Structure（構成）
 
 ```text
 personas/
@@ -31,7 +76,7 @@ Gemini上での4Gem＋1の具体的な設定方法は [`personas/education/setup
 
 Reference領域の入口は [`personas/reference/README.md`](personas/reference/README.md) です。`personas/reference/` は、Education用4Gem＋1とは役割、利用サービス、実装・検証方法の前提が異なる参考資料です。Education用の現行手順としてそのまま流用せず、設計思想や運用パターンの参考として扱ってください。
 
-## 2. Education 4Gem＋1（Education用4Gem＋1）
+## 3. Education 4Gem＋1（Education用4Gem＋1）
 
 基本4Gemは次のとおりです。
 
@@ -50,7 +95,7 @@ Researcherは検索範囲が異なる3つの完成版を提供しています。
 
 その時点で必要なModule構成を含むResearcher完成版を1本だけ選び、通常用 `Researcher` と `Researcher Deep Research` の両方へ同じPersona本体を登録します。検索範囲を変更するときは両Gemを同じ完成版へ入れ替えます。
 
-## 3. Role of User（User（生徒）の役割）
+## 4. Role of User（User（生徒）の役割）
 
 User（生徒）が各Gemを操作し、出力を確認して、次の工程に必要な確定情報を手動で渡します。
 
@@ -60,14 +105,14 @@ Reviewerの結果は最初にUser（生徒）へ返されます。修正方法�
 
 詳細な運用方法とPersonaへのリンクは [`personas/education/README.md`](personas/education/README.md) を参照してください。
 
-## 4. Prerequisites and Notes（前提と注意事項）
+## 5. Prerequisites and Notes（前提と注意事項）
 
 - Personaは、すべての環境や用途で自動的に最適な結果を保証するものではありません。対象の要求、制約、正本を入力し、出力を確認してください。
 - パスワード、APIキー、接続情報などの秘密情報を、AIへの入力、AIの出力、コード、ログ、画面、公開物へ含めないでください。
 - AIが出力する「完了しました」「test成功」「問題なし」などの報告は、それだけでは検証Evidenceになりません。User（生徒）が自身の環境で実行・動作確認し、実際の結果を確認してください。
 - 会話履歴やAIの記憶だけを正本として扱わず、現在有効な要求、仕様、設計、判断、検証結果を追跡できる文書や成果物へ反映してください。
 
-## 5. License（ライセンス）
+## 6. License（ライセンス）
 
 本リポジトリの文書は **Creative Commons Attribution-NonCommercial 4.0 International（CC BY-NC 4.0）** のもとで公開します。
 
@@ -78,6 +123,20 @@ Reviewerの結果は最初にUser（生徒）へ返されます。修正方法�
 *本ドキュメントは入門的ガイダンス（Primer）として位置づけられており、実運用レベルの標準仕様ではありません。*
 
 ## Decision & Rationale（決定・判断理由）
+
+### 2026-08-25
+
+#### Persona重要性のRepository共通化
+
+Decision:
+`Why Persona Matters（なぜPersonaが重要なのか）` はEducation固有の説明ではなく、Repository全体に共通する設計思想としてルート `README.md` に置く。比較表はAIサービス共通の概念として、サービス全体のカスタム指示・共通設定、Persona、その都度のプロンプトの3つを比較する。Gemini固有の機能名称・制約・設定手順は `personas/education/setup/GEMINI_GEM_SETUP.md` に委譲する。
+
+Reason:
+PersonaはEducation用Gemだけでなく `personas/reference/` のPersonaでも利用するため、Personaの必要性をEducation固有の前提として説明するとRepository全体の設計思想と一致しない。入口で共通概念を理解してからEducation / Referenceへ進むことで、Personaの役割を利用サービスに依存せず理解できるため。
+
+Rejected:
+- `Why Persona Matters` をEducation READMEだけに置く方式
+- ルートREADMEでGemini固有のパーソナル インテリジェンスの設定手順まで説明する方式
 
 ### 2026-08-23
 
