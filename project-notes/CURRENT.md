@@ -1,6 +1,6 @@
 # CURRENT
 
-Last Updated: 2026-08-23
+Last Updated: 2026-08-25
 Status: CURRENT
 
 ## PURPOSE
@@ -30,6 +30,14 @@ Status: CURRENT
   - AIサービス使用量の共通用語は `利用量（Usage）`
   - PersonaとGem実体の関係を示す `4 Persona / 5 Gem` 構成図を掲載
 - `personas/education/README.md` を4Gem＋1へ整合し、Gemini設定資料への導線を追加
+- 2026-08-25 Persona重要性とGeminiカスタム指示の説明を追加
+  - `personas/education/README.md` の前半へ、パーソナル インテリジェンスのカスタム指示 / Gem内のPersona・指示 / その都度のプロンプトの比較表を配置
+  - 比較から「PersonaはAIの役割・責務・責務境界・判断基準・出力を継続的に定義するため重要」という導線を追加
+  - 比較表の星はGoogleの内部優先順位ではなく教材上の影響度目安であることを明記
+  - `personas/education/setup/GEMINI_GEM_SETUP.md` にパーソナル インテリジェンスのカスタム指示の効果・制約・利用条件・パソコンでの設定方法を追加
+  - パーソナル インテリジェンスのカスタム指示とGem編集画面の `カスタム指示` を明確に分離
+  - Googleの現行案内に基づき、パーソナル インテリジェンスのカスタム指示はGemなど一部機能では利用できないことを明記
+  - Gem用Context説明の `カスタム指示` を `Gemのカスタム指示（Persona本体）` と明確化
 - ルート `README.md` を4Gem＋1へ整合し、Gemini設定資料への導線を追加
 - Repository配布前最終整合監査を完了
   - 現行配布文書14件を確認し、14/14が `Version 1.0 / Status Approved`
