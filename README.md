@@ -35,8 +35,11 @@
 | 毎回入力する必要 | 不要 | 不要 | 必要 |
 | 主な用途 | 普段どう答えてほしいか | **このAIは何者で、何を担当するか** | 今回何をしてほしいか |
 
-> **注意：** 星の数は各AIサービスが公開している内部的な優先順位ではありません。本教材で、各設定が回答へどの程度・どのような種類の影響を与えるかを理解するための目安です。
-また、カスタム指示・共通設定の名称、提供有無、適用範囲はAIサービスによって異なります。
+> **注意：** 星の数は各AIサービスが公開している内部的な優先順位ではありません。
+>
+> 本教材で、各設定が回答へどの程度・どのような種類の影響を与えるかを理解するための目安です。
+>
+> また、カスタム指示・共通設定の名称、提供有無、適用範囲はAIサービスによって異なります。
 
 3つを一言で表すと、次のようになります。
 
@@ -51,19 +54,20 @@ Persona
 「今回は、これをしてほしい」
 ```
 
-サービス全体のカスタム指示・共通設定は、
-結論から説明する、長い説明を箇条書きにするなど、普段の回答方法を自分に合わせる用途に適しています。
+サービス全体のカスタム指示・共通設定は、結論から説明する、長い説明を箇条書きにするなど、普段の回答方法を自分に合わせる用途に適しています。
 
 その都度のプロンプトは、今回の質問や作業内容を具体的に指定するために使用します。
 
-一方、Personaは、そのAIの 
-**Role（役割）・Responsibility（責務）・Boundary（責務境界）・Decision Criteria（判断基準）・Output（出力）** を継続的に定義します。
+一方、Personaは、そのAIの **Role（役割）・Responsibility（責務）・Boundary（責務境界）・Decision Criteria（判断基準）・Output（出力）** を継続的に定義します。
 
 そのため、本教材では「毎回うまいプロンプトを書くこと」だけに依存しません。
+
 Personaによって、AIが何者で、何を担当し、どこまでを担当し、どこからは担当しないかを先に明確にします。
+
 そのうえで、その都度のプロンプトから具体的な作業を依頼します。
 
 Personaの設定方法はAIサービスによって異なります。
+
 Education領域ではGeminiのGemへPersonaを設定し、Reference領域では各AIサービスや開発支援環境の仕組みに合わせてPersonaを利用します。
 
 Gemini固有のカスタム指示との違い、効果、制約、設定方法は [`personas/education/setup/GEMINI_GEM_SETUP.md`](personas/education/setup/GEMINI_GEM_SETUP.md) を参照してください。
@@ -77,12 +81,15 @@ personas/
 ```
 
 Education用の主要導線は [`personas/education/README.md`](personas/education/README.md) です。
+
 Personaの選び方、役割分担、User-firstの作業フローは、このREADMEから確認してください。
 
 Gemini上での4Gem＋1の具体的な設定方法は [`personas/education/setup/GEMINI_GEM_SETUP.md`](personas/education/setup/GEMINI_GEM_SETUP.md) を参照してください。
 
 Reference領域の入口は [`personas/reference/README.md`](personas/reference/README.md) です。
+
 `personas/reference/` は、Education用4Gem＋1とは役割、利用サービス、実装・検証方法の前提が異なる参考資料です。
+
 Education用の現行手順としてそのまま流用せず、設計思想や運用パターンの参考として扱ってください。
 
 ## 3. Education 4Gem＋1（Education用4Gem＋1）
@@ -95,6 +102,7 @@ Education用の現行手順としてそのまま流用せず、設計思想や�
 - `Reviewer`：設計、コード、User（生徒）が作成した検証Evidenceを独立して評価する
 
 Gemini上では、詳細調査用としてResearcher Personaを使う `Researcher Deep Research` を1Gem追加します。
+
 これは独立した5番目のPersonaではなく、Researcherの追加Gemです。
 
 Researcherは検索範囲が異なる3つの完成版を提供しています。
@@ -104,6 +112,7 @@ Researcherは検索範囲が異なる3つの完成版を提供しています。
 - [`GEM_RESEARCHER_DEVELOPMENT.md`](personas/education/GEM_RESEARCHER_DEVELOPMENT.md)
 
 その時点で必要なModule構成を含むResearcher完成版を1本だけ選び、通常用 `Researcher` と `Researcher Deep Research` の両方へ同じPersona本体を登録します。
+
 検索範囲を変更するときは両Gemを同じ完成版へ入れ替えます。
 
 ## 4. Role of User（User（生徒）の役割）
@@ -111,9 +120,11 @@ Researcherは検索範囲が異なる3つの完成版を提供しています。
 User（生徒）が各Gemを操作し、出力を確認して、次の工程に必要な確定情報を手動で渡します。
 
 Code Generatorが生成したコードまたはtestコードは、User（生徒）がIDEへ反映します。
+
 コードの実行、test、動作確認、検証Evidenceの作成もUser（生徒）が行います。
 
 Reviewerの結果は最初にUser（生徒）へ返されます。
+
 修正方法、AI支援の利用、再提出、成果物と最終設計の採用・完成を最終判断するのはUser（生徒）です。
 
 詳細な運用方法とPersonaへのリンクは [`personas/education/README.md`](personas/education/README.md) を参照してください。
@@ -129,7 +140,9 @@ Reviewerの結果は最初にUser（生徒）へ返されます。
 
 本リポジトリの文書は **Creative Commons Attribution-NonCommercial 4.0 International（CC BY-NC 4.0）** のもとで公開します。
 
-出典を明示する限り、非営利目的における利用、改変、再配布が可能です。詳細は [`LICENSE`](LICENSE) を参照してください。
+出典を明示する限り、非営利目的における利用、改変、再配布が可能です。
+
+詳細は [`LICENSE`](LICENSE) を参照してください。
 
 ---
 
@@ -142,15 +155,21 @@ Reviewerの結果は最初にUser（生徒）へ返されます。
 #### Persona重要性のRepository共通化
 
 Decision:
+
 `Why Persona Matters（なぜPersonaが重要なのか）` はEducation固有の説明ではなく、Repository全体に共通する設計思想としてルート `README.md` に置く。
+
 比較表はAIサービス共通の概念として、サービス全体のカスタム指示・共通設定、Persona、その都度のプロンプトの3つを比較する。
+
 Gemini固有の機能名称・制約・設定手順は `personas/education/setup/GEMINI_GEM_SETUP.md` に委譲する。
 
 Reason:
+
 PersonaはEducation用Gemだけでなく `personas/reference/` のPersonaでも利用するため、Personaの必要性をEducation固有の前提として説明するとRepository全体の設計思想と一致しない。
+
 入口で共通概念を理解してからEducation / Referenceへ進むことで、Personaの役割を利用サービスに依存せず理解できるため。
 
 Rejected:
+
 - `Why Persona Matters` をEducation READMEだけに置く方式
 - ルートREADMEでGemini固有のパーソナル インテリジェンスの設定手順まで説明する方式
 
@@ -159,11 +178,20 @@ Rejected:
 #### Education用4Gem＋1のRepository入口表現
 
 Decision:
-Repository入口ではEducation用の基本体系を4Gemとして維持し、Gemini上ではResearcher Personaを使う `Researcher Deep Research` を追加した `4Gem＋1` として案内する。設定詳細は `personas/education/setup/GEMINI_GEM_SETUP.md` へ導く。Reference領域との対比でEducationの現行構成を指す場合も `4Gem＋1` と表記する。
+
+Repository入口ではEducation用の基本体系を4Gemとして維持し、Gemini上ではResearcher Personaを使う `Researcher Deep Research` を追加した `4Gem＋1` として案内する。
+
+設定詳細は `personas/education/setup/GEMINI_GEM_SETUP.md` へ導く。
+
+Reference領域との対比でEducationの現行構成を指す場合も `4Gem＋1` と表記する。
 
 Reason:
-基本4役割を維持しつつ、Gemini上で作成するGem実体が5つであることを入口から誤解なく案内するため。`Researcher Deep Research` を独立Personaとして扱わず、サービス固有設定の詳細を専用資料へ分離するため。
+
+基本4役割を維持しつつ、Gemini上で作成するGem実体が5つであることを入口から誤解なく案内するため。
+
+`Researcher Deep Research` を独立Personaとして扱わず、サービス固有設定の詳細を専用資料へ分離するため。
 
 Rejected:
+
 - Education体系を5つの独立Personaとして表現する方式
 - ルートREADMEへGemini設定手順を重複記載する方式
