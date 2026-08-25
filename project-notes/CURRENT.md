@@ -30,11 +30,13 @@ Status: CURRENT
   - AIサービス使用量の共通用語は `利用量（Usage）`
   - PersonaとGem実体の関係を示す `4 Persona / 5 Gem` 構成図を掲載
 - `personas/education/README.md` を4Gem＋1へ整合し、Gemini設定資料への導線を追加
-- 2026-08-25 Persona重要性とGeminiカスタム指示の説明を追加
-  - `personas/education/README.md` の前半へ、パーソナル インテリジェンスのカスタム指示 / Gem内のPersona・指示 / その都度のプロンプトの比較表を配置
+- 2026-08-25 Persona重要性とカスタム指示の説明を追加・共通化
+  - ルート `README.md` の前半へ、サービス全体のカスタム指示・共通設定 / Persona / その都度のプロンプトの比較表を配置
   - 比較から「PersonaはAIの役割・責務・責務境界・判断基準・出力を継続的に定義するため重要」という導線を追加
-  - 比較表の星はGoogleの内部優先順位ではなく教材上の影響度目安であることを明記
-  - `personas/education/setup/GEMINI_GEM_SETUP.md` にパーソナル インテリジェンスのカスタム指示の効果・制約・利用条件・パソコンでの設定方法を追加
+  - Persona重要性の共通説明はEducationだけでなくReferenceにも適用するRepository共通の設計思想としてRootを正本化
+  - 比較表の星は各AIサービスの内部優先順位ではなく教材上の影響度目安であることを明記
+  - `personas/education/README.md` から共通比較表の重複を削除し、Root READMEへの導線に変更
+  - `personas/education/setup/GEMINI_GEM_SETUP.md` にGeminiのパーソナル インテリジェンスのカスタム指示の効果・制約・利用条件・パソコンでの設定方法を保持
   - パーソナル インテリジェンスのカスタム指示とGem編集画面の `カスタム指示` を明確に分離
   - Googleの現行案内に基づき、パーソナル インテリジェンスのカスタム指示はGemなど一部機能では利用できないことを明記
   - Gem用Context説明の `カスタム指示` を `Gemのカスタム指示（Persona本体）` と明確化
@@ -63,7 +65,7 @@ Reviewerを含むPersonaの機能設計はEvidenceなしに再検討しない。
 ## 正本の所在
 
 - 作業規則：`AGENTS.md`
-- Repository入口：`README.md`
+- Repository入口・Persona重要性の共通説明：`README.md`
 - Education Persona：`personas/education/`
 - Education入口：`personas/education/README.md`
 - Education Gemini設定資料：`personas/education/setup/GEMINI_GEM_SETUP.md`
