@@ -5,7 +5,7 @@
 | Version（バージョン） | 1.0 |
 | Status（ステータス） | Approved |
 | Created Date（作成日） | 2026-08-19 |
-| Last Updated（最終更新日） | 2026-08-25 |
+| Last Updated（最終更新日） | 2026-08-26 |
 | Owner（管理者） | t-oikawa-sendai |
 | Related Documents（関連文書） | [`../../README.md`](../../README.md)<br>[`GEM_RESEARCHER_FULL.md`](GEM_RESEARCHER_FULL.md)<br>[`GEM_RESEARCHER_LEARNING_DEVELOPMENT.md`](GEM_RESEARCHER_LEARNING_DEVELOPMENT.md)<br>[`GEM_RESEARCHER_DEVELOPMENT.md`](GEM_RESEARCHER_DEVELOPMENT.md)<br>[`GEM_SOLUTION_PARTNER.md`](GEM_SOLUTION_PARTNER.md)<br>[`GEM_CODE_GENERATOR.md`](GEM_CODE_GENERATOR.md)<br>[`GEM_REVIEWER.md`](GEM_REVIEWER.md)<br>[`setup/GEMINI_GEM_SETUP.md`](setup/GEMINI_GEM_SETUP.md) |
 
@@ -23,7 +23,7 @@ User（生徒）が各Gemを操作し、各出力を確認して、次の工程�
 
 Personaそのものがなぜ重要なのか、サービス全体のカスタム指示・共通設定やその都度のプロンプトと何が違うのかは、Repository共通の説明として [`../../README.md`](../../README.md) の `Why Persona Matters（なぜPersonaが重要なのか）` を参照してください。
 
-Gemini固有のパーソナル インテリジェンスのカスタム指示については、効果・制約・設定方法を [`setup/GEMINI_GEM_SETUP.md`](setup/GEMINI_GEM_SETUP.md) で説明します。
+Gemini上での具体的な設定方法は [`setup/GEMINI_GEM_SETUP.md`](setup/GEMINI_GEM_SETUP.md) で説明します。
 
 ## 2. Current 4Gem＋1（現行4Gem＋1）
 
@@ -120,9 +120,25 @@ Evidenceのない「確認済み」「完了」「問題なし」という断定
 
 ## 9. Gemini Setup（Gemini設定）
 
-Geminiのパーソナル インテリジェンスにあるカスタム指示の有効性・制約・設定方法と、Gemini上での `名前`、`説明`、Gemの `カスタム指示`、`デフォルト ツール`、`知識` の設定方法、および4Gem＋1の具体的な作成手順は [`setup/GEMINI_GEM_SETUP.md`](setup/GEMINI_GEM_SETUP.md) を参照してください。
+パーソナル インテリジェンスのカスタム指示をパソコンで設定する手順と、Gemini上での `名前`、`説明`、Gemの `カスタム指示`、`デフォルト ツール`、`知識` の設定方法、および4Gem＋1の具体的な作成手順は [`setup/GEMINI_GEM_SETUP.md`](setup/GEMINI_GEM_SETUP.md) を参照してください。
 
 ## Decision & Rationale（決定・判断理由）
+
+### 2026-08-26
+
+#### 比較表とSetupマニュアルの責務整理
+
+Decision:
+比較表はルート `README.md` の1か所だけに置く。Education READMEにはルート `README.md` への導線だけを置き、Gemini設定資料には設定・操作手順だけを委譲する。
+
+この決定により、2026-08-25の「カスタム指示の効果・制約・設定方法をGemini設定資料へ委譲する」という委譲範囲を更新する。
+
+Reason:
+共通概念とGemini固有の操作手順を分離し、同一内容の重複と新旧不整合を防ぐため。
+
+Rejected:
+- Education READMEまたはGemini設定資料へ比較表を重複掲載する方式
+- Gemini設定資料へPersonaの重要性やカスタム指示の効果・制約を説明する章を置く方式
 
 ### 2026-08-25
 

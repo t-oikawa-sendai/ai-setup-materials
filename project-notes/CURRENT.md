@@ -1,6 +1,6 @@
 # CURRENT
 
-Last Updated: 2026-08-25
+Last Updated: 2026-08-26
 Status: CURRENT
 
 ## PURPOSE
@@ -30,15 +30,15 @@ Status: CURRENT
   - AIサービス使用量の共通用語は `利用量（Usage）`
   - PersonaとGem実体の関係を示す `4 Persona / 5 Gem` 構成図を掲載
 - `personas/education/README.md` を4Gem＋1へ整合し、Gemini設定資料への導線を追加
-- 2026-08-25 Persona重要性とカスタム指示の説明を追加・共通化
+- 2026-08-26 Persona重要性の共通説明とGemini設定手順の責務を分離
   - ルート `README.md` の前半へ、サービス全体のカスタム指示・共通設定 / Persona / その都度のプロンプトの比較表を配置
   - 比較から「PersonaはAIの役割・責務・責務境界・判断基準・出力を継続的に定義するため重要」という導線を追加
   - Persona重要性の共通説明はEducationだけでなくReferenceにも適用するRepository共通の設計思想としてRootを正本化
   - 比較表の星は各AIサービスの内部優先順位ではなく教材上の影響度目安であることを明記
   - `personas/education/README.md` から共通比較表の重複を削除し、Root READMEへの導線に変更
-  - `personas/education/setup/GEMINI_GEM_SETUP.md` にGeminiのパーソナル インテリジェンスのカスタム指示の効果・制約・利用条件・パソコンでの設定方法を保持
-  - パーソナル インテリジェンスのカスタム指示とGem編集画面の `カスタム指示` を明確に分離
-  - Googleの現行案内に基づき、パーソナル インテリジェンスのカスタム指示はGemなど一部機能では利用できないことを明記
+  - 比較表はルート `README.md` の1か所だけに配置し、Education READMEとGemini設定資料にはRootへの導線だけを保持
+  - `personas/education/setup/GEMINI_GEM_SETUP.md` はSetupマニュアルとして設定・操作手順へ限定
+  - パーソナル インテリジェンスのカスタム指示は、パソコンでの設定手順だけをGemini設定資料の第2章に保持
   - Gem用Context説明の `カスタム指示` を `Gemのカスタム指示（Persona本体）` と明確化
 - ルート `README.md` を4Gem＋1へ整合し、Gemini設定資料への導線を追加
 - Repository配布前最終整合監査を完了

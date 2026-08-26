@@ -5,7 +5,7 @@
 | Version（バージョン） | 1.0 |
 | Status（ステータス） | Approved |
 | Created Date（作成日） | 2026-08-17 |
-| Last Updated（最終更新日） | 2026-08-25 |
+| Last Updated（最終更新日） | 2026-08-26 |
 | Owner（管理者） | t-oikawa-sendai |
 | Related Documents（関連文書） | [`personas/education/README.md`](personas/education/README.md)<br>[`personas/education/setup/GEMINI_GEM_SETUP.md`](personas/education/setup/GEMINI_GEM_SETUP.md)<br>[`personas/reference/README.md`](personas/reference/README.md) |
 
@@ -70,7 +70,7 @@ Personaの設定方法はAIサービスによって異なります。
 
 Education領域ではGeminiのGemへPersonaを設定し、Reference領域では各AIサービスや開発支援環境の仕組みに合わせてPersonaを利用します。
 
-Gemini固有のカスタム指示との違い、効果、制約、設定方法は [`personas/education/setup/GEMINI_GEM_SETUP.md`](personas/education/setup/GEMINI_GEM_SETUP.md) を参照してください。
+Gemini上での具体的な設定方法は [`personas/education/setup/GEMINI_GEM_SETUP.md`](personas/education/setup/GEMINI_GEM_SETUP.md) を参照してください。
 
 ## 2. Structure（構成）
 
@@ -149,6 +149,27 @@ Reviewerの結果は最初にUser（生徒）へ返されます。
 *本ドキュメントは入門的ガイダンス（Primer）として位置づけられており、実運用レベルの標準仕様ではありません。*
 
 ## Decision & Rationale（決定・判断理由）
+
+### 2026-08-26
+
+#### 比較表の正本一元化とSetupマニュアルの責務限定
+
+Decision:
+
+比較表はルート `README.md` の1か所だけに置く。Education READMEとGemini設定資料には比較表を重複掲載せず、ルート `README.md` への導線を置く。
+
+Gemini設定資料は設定・操作手順に限定し、Personaの重要性やカスタム指示の効果・制約・利用条件などの説明は含めない。パーソナル インテリジェンスのカスタム指示は、パソコンで設定する操作手順だけをGemini設定資料に置く。
+
+この決定により、2026-08-25の「Gemini固有の機能名称・制約・設定手順をGemini設定資料へ委譲する」という委譲範囲を更新する。
+
+Reason:
+
+Repository共通の概念説明とサービス固有の設定手順を分離し、比較表の重複と新旧不整合を防ぐため。
+
+Rejected:
+
+- 比較表をルート `README.md` とGemini設定資料へ重複掲載する方式
+- Gemini設定資料へAIの概念・効果・制約を説明する章を置く方式
 
 ### 2026-08-25
 
