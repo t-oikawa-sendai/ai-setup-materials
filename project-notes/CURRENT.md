@@ -59,7 +59,16 @@ Status: CURRENT
   - Reference版は実務監査向けとして品質上の問題ではなく、生徒PFレビューとは用途が異なると分析
   - 現行Education ReviewerにはUser-first・Evidence重視等の教育向け基盤が既に存在することを確認
   - PF用途では、作品目的、Scope、本人理解・説明可能性、README・成果物の伝達性、採用・面接視点が不足していると分析
-  - Reference Claude PersonaおよびEducation ReviewerのPersona本体変更は未実施
+- 2026-08-27 Education Reviewerを職業訓練校生のポートフォリオレビュー向けに更新
+  - `personas/education/GEM_REVIEWER.md` を Version 1.1 / Status Approved へ更新
+  - 主対象を、IT系企業・職種への就職・転職を目指す職業訓練校生のポートフォリオと明確化
+  - Evidence重視、User-firstフロー、Solution Partner / Code Generatorとの責務境界を維持
+  - 作品目的、Scope、要求・設計・実装整合、機能、必要十分なコード品質、基本セキュリティ、test Evidenceを中心評価へ整理
+  - README・成果物の伝達性、本人理解・説明可能性、採用・面接視点を追加
+  - 実務向け高度監査は作品の性質に応じた条件付き評価へ変更
+  - 総合判定 `PASS / PASS WITH NOTES / REWORK REQUIRED / BLOCKED` は維持し、PF向け修正優先度 `提出前必須 / 推奨修正 / 改善候補` を追加
+  - 判断理由を同Personaの `Decision & Rationale` に記録
+  - Reference `CLAUDE_PERSONA.md` Version 1.3 は実務参考Reviewerとして変更せず維持
 
 ## 作業中
 
@@ -67,10 +76,10 @@ Status: CURRENT
 
 ## 次工程
 
-1. `project-notes/2026-08-27-portfolio-reviewer-fit-analysis.md` を分析Evidenceとして、`personas/education/GEM_REVIEWER.md` の職業訓練校生向けPFレビューへの再設計を行う。
-2. `personas/reference/CLAUDE_PERSONA.md` Version 1.3 は実務参考Reviewerとして維持し、本分析だけを理由に変更しない。
-3. 再設計で新たなUser決定が発生した場合は、Education Reviewer本体へ即時反映し、必要に応じて同ファイルの `Decision & Rationale` へ記録する。
-4. 現行成果物は配布可能な完成状態として維持し、対象外のPersona・設定資料へ変更を広げない。
+1. 更新後の `personas/education/GEM_REVIEWER.md` を実際の生徒ポートフォリオに適用し、出力が初心者に理解可能で、かつPF提出前レビューとして過不足がないか実利用で確認する。
+2. 実利用で具体的な問題が確認された場合のみ、Evidenceに基づいてEducation Reviewerを修正する。
+3. `personas/reference/CLAUDE_PERSONA.md` Version 1.3 は実務参考Reviewerとして維持し、Education用途の変更を機械的に反映しない。
+4. 現行成果物は配布可能な状態として維持し、対象外のPersona・設定資料へ変更を広げない。
 
 Reviewerを含むPersonaの機能設計はEvidenceなしに再検討しない。完了済みの文書適合性復旧を、Evidenceなしに再作業対象へ戻さない。`ASKME 迎合禁止` と7文書配置を未決事項へ戻さない。Education用の基本体系は4Gemであり、`Researcher Deep Research` はResearcher Personaを使う追加Gemとして扱う。
 
@@ -79,6 +88,7 @@ Reviewerを含むPersonaの機能設計はEvidenceなしに再検討しない。
 - 作業規則：`AGENTS.md`
 - Repository入口・Persona重要性の共通説明：`README.md`
 - Education Persona：`personas/education/`
+- Education Reviewer正本：`personas/education/GEM_REVIEWER.md`
 - Education入口：`personas/education/README.md`
 - Education Gemini設定資料：`personas/education/setup/GEMINI_GEM_SETUP.md`
 - Reference Persona：`personas/reference/`
@@ -108,6 +118,7 @@ Reviewerを含むPersonaの機能設計はEvidenceなしに再検討しない。
 ## REFERENCES
 
 - `AGENTS.md`
+- `personas/education/GEM_REVIEWER.md`
 - `personas/education/setup/GEMINI_GEM_SETUP.md`
 - `project-notes/2026-08-27-portfolio-reviewer-fit-analysis.md`
 - `project-notes/2026-08-21-ai-information-asset-safety.md`
