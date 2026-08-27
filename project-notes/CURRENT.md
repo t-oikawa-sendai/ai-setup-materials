@@ -1,6 +1,6 @@
 # CURRENT
 
-Last Updated: 2026-08-26
+Last Updated: 2026-08-27
 Status: CURRENT
 
 ## PURPOSE
@@ -42,13 +42,18 @@ Status: CURRENT
   - Gem用Context説明の `カスタム指示` を `Gemのカスタム指示（Persona本体）` と明確化
 - ルート `README.md` を4Gem＋1へ整合し、Gemini設定資料への導線を追加
 - Repository配布前最終整合監査を完了
-  - 現行配布文書14件を確認し、14/14が `Version 1.0 / Status Approved`
+  - 2026-08-26時点の現行配布文書14件を確認し、14/14が `Version 1.0 / Status Approved`
   - Root / Education / Setup / Referenceの現行導線と実ファイルを照合し、内部リンク先の欠落なし
   - Education Persona名を Researcher / Solution Partner / Code Generator / Reviewer で確認
   - Geminiの現行構成を `4Gem＋1` としてRoot / Education / Setup / Referenceの対比表現まで整合
   - Root READMEとReference READMEに残っていた旧 `Education用4Gem` 対比表現を `Education用4Gem＋1` へ修正
   - 現行Education導線・設定資料に旧 `GEM_IMPLEMENTER`、旧 `Instructions（指示）`、`DeepSearch` 誤表記の残存なし
   - Gemini公式HelpでGem作成、`知識` による追加Context、Deep Research、利用上限の現行案内を再確認
+- 2026-08-27 Reference Claude Personaを更新
+  - `personas/reference/CLAUDE_PERSONA.md` を Version 1.3 / Status Approved へ更新
+  - ソフトウェアレビューに加え、正本文書レビューとAI制御資産レビューを責務へ追加
+  - AI制御資産のインベントリ先行、資産間評価、強制力・ロード条件・適用範囲の評価を追加
+  - 責務変更の判断理由を同Personaの `Decision & Rationale` に記録
 
 ## 作業中
 
