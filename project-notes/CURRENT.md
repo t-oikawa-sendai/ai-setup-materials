@@ -54,6 +54,12 @@ Status: CURRENT
   - ソフトウェアレビューに加え、正本文書レビューとAI制御資産レビューを責務へ追加
   - AI制御資産のインベントリ先行、資産間評価、強制力・ロード条件・適用範囲の評価を追加
   - 責務変更の判断理由を同Personaの `Decision & Rationale` に記録
+- 2026-08-27 Reference Claude Persona v1.3の生徒PFレビュー適合性分析を完了
+  - 分析Evidence：`project-notes/2026-08-27-portfolio-reviewer-fit-analysis.md`
+  - Reference版は実務監査向けとして品質上の問題ではなく、生徒PFレビューとは用途が異なると分析
+  - 現行Education ReviewerにはUser-first・Evidence重視等の教育向け基盤が既に存在することを確認
+  - PF用途では、作品目的、Scope、本人理解・説明可能性、README・成果物の伝達性、採用・面接視点が不足していると分析
+  - Reference Claude PersonaおよびEducation ReviewerのPersona本体変更は未実施
 
 ## 作業中
 
@@ -61,9 +67,10 @@ Status: CURRENT
 
 ## 次工程
 
-1. 現行成果物は配布可能な完成状態として維持する。
-2. 新たなUser要求、サービス仕様変更、実利用で確認された問題が発生した場合のみ、該当する現行正本を更新する。
-3. 新たなUser決定が発生した場合は、対象成果物MDへ即時反映し、必要に応じて同ファイルの `Decision & Rationale` へ記録する。
+1. `project-notes/2026-08-27-portfolio-reviewer-fit-analysis.md` を分析Evidenceとして、`personas/education/GEM_REVIEWER.md` の職業訓練校生向けPFレビューへの再設計を行う。
+2. `personas/reference/CLAUDE_PERSONA.md` Version 1.3 は実務参考Reviewerとして維持し、本分析だけを理由に変更しない。
+3. 再設計で新たなUser決定が発生した場合は、Education Reviewer本体へ即時反映し、必要に応じて同ファイルの `Decision & Rationale` へ記録する。
+4. 現行成果物は配布可能な完成状態として維持し、対象外のPersona・設定資料へ変更を広げない。
 
 Reviewerを含むPersonaの機能設計はEvidenceなしに再検討しない。完了済みの文書適合性復旧を、Evidenceなしに再作業対象へ戻さない。`ASKME 迎合禁止` と7文書配置を未決事項へ戻さない。Education用の基本体系は4Gemであり、`Researcher Deep Research` はResearcher Personaを使う追加Gemとして扱う。
 
@@ -78,6 +85,7 @@ Reviewerを含むPersonaの機能設計はEvidenceなしに再検討しない。
 - Reference入口：`personas/reference/README.md`
 - 現行仕様の判断理由：各成果物MDの `Decision & Rationale`
 - 2026-08-23より前の判断経緯・復旧・監査Evidence：`project-notes/YYYY-MM-DD-*.md`（履歴。現行仕様の代替正本ではない）
+- 2026-08-27 PF Reviewer適合性分析Evidence：`project-notes/2026-08-27-portfolio-reviewer-fit-analysis.md`
 
 ## 現行として使用しない文書
 
@@ -101,6 +109,7 @@ Reviewerを含むPersonaの機能設計はEvidenceなしに再検討しない。
 
 - `AGENTS.md`
 - `personas/education/setup/GEMINI_GEM_SETUP.md`
+- `project-notes/2026-08-27-portfolio-reviewer-fit-analysis.md`
 - `project-notes/2026-08-21-ai-information-asset-safety.md`
 - `project-notes/2026-08-22-persona-and-setup-scope.md`
 - `project-notes/2026-08-22-design-document-standard-application-scope.md`
