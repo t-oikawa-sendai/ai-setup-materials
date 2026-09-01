@@ -95,6 +95,13 @@ Status: CURRENT
   - Decision Evidence：`project-notes/2026-09-01-solution-partner-unresolved-items-decisions.md`
   - Persona反映commit：`6fbc12721553ce96840440b94ea82bccd849c710`
   - Persona本文へ `Decision & Rationale` は追加していない
+- 2026-09-01 Education Code Generatorを Version 2.1 / Status Approved へ更新
+  - `補足A：未決事項一覧` をSolution Partnerからの未決事項引継ぎインターフェースとして扱う規定を追加
+  - `次工程開始前に決定必須` が残る場合はコード生成を開始しない
+  - `実装段階まで持ち越し可能` は該当処理で判断が必要になるまで未決として保持する
+  - 影響しない持ち越し事項だけを理由に全生成は停止しない
+  - Solution Partner確定仕様の再設計、未決事項の推測補完、ASKME・分類責務の複製は行わない
+  - 判断理由は同Personaの `Decision & Rationale` に記録
 
 ## 作業中
 
@@ -102,11 +109,11 @@ Status: CURRENT
 
 ## 次工程
 
-1. 新チャット開始時はGitHubとの同期状態を確認し、`project-notes/CURRENT.md` → `AGENTS.md` → `personas/education/GEM_SOLUTION_PARTNER.md` の順に読む。
+1. 新チャット開始時はGitHubとの同期状態を確認し、`project-notes/CURRENT.md` → `AGENTS.md` → 対象成果物MDの順に読む。
 2. `GEM_SOLUTION_PARTNER.md` Version 1.4 / Status Approved と、Version 1.1〜1.4の承認済み改善内容を確定事項として扱い、Evidenceなしに再検討しない。
-3. Solution Partnerの追加検証または修正は、Userの次指示または実利用で具体的な問題が確認された場合のみ行う。
-4. Code Generator側の `補足A：未決事項一覧` 受取ルール反映は別工程として保持し、Userの指示なく対象を切り替えない。
-5. Education Reviewerの実利用確認は未実施の次工程として保持するが、Userの指示なくSolution Partner作業から自動的に切り替えない。
+3. `GEM_CODE_GENERATOR.md` Version 2.1 / Status Approved と、`補足A：未決事項一覧` の引継ぎ規定を確定事項として扱い、Evidenceなしに再検討しない。
+4. Solution PartnerまたはCode Generatorの追加検証または修正は、Userの次指示または実利用で具体的な問題が確認された場合のみ行う。
+5. Education Reviewerの実利用確認は未実施の次工程として保持するが、Userの指示なく自動的に切り替えない。
 6. 対象外のPersona・設定資料へ変更を広げない。
 
 Reviewerを含むPersonaの機能設計はEvidenceなしに再検討しない。完了済みの文書適合性復旧を、Evidenceなしに再作業対象へ戻さない。`ASKME 迎合禁止` と7文書配置を未決事項へ戻さない。Education用の基本体系は4Gemであり、`Researcher Deep Research` はResearcher Personaを使う追加Gemとして扱う。
@@ -117,6 +124,7 @@ Reviewerを含むPersonaの機能設計はEvidenceなしに再検討しない。
 - Repository入口・Persona重要性の共通説明：`README.md`
 - Education Persona：`personas/education/`
 - Education Solution Partner正本：`personas/education/GEM_SOLUTION_PARTNER.md`
+- Education Code Generator正本：`personas/education/GEM_CODE_GENERATOR.md`
 - Education Reviewer正本：`personas/education/GEM_REVIEWER.md`
 - Education入口：`personas/education/README.md`
 - Education Gemini設定資料：`personas/education/setup/GEMINI_GEM_SETUP.md`
