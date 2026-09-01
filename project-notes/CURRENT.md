@@ -1,6 +1,6 @@
 # CURRENT
 
-Last Updated: 2026-08-27
+Last Updated: 2026-09-01
 Status: CURRENT
 
 ## PURPOSE
@@ -69,6 +69,19 @@ Status: CURRENT
   - 総合判定 `PASS / PASS WITH NOTES / REWORK REQUIRED / BLOCKED` は維持し、PF向け修正優先度 `提出前必須 / 推奨修正 / 改善候補` を追加
   - 判断理由を同Personaの `Decision & Rationale` に記録
   - Reference `CLAUDE_PERSONA.md` Version 1.3 は実務参考Reviewerとして変更せず維持
+- 2026-09-01 Education Solution Partnerを Version 1.3 / Status Approved へ更新
+  - Version 1.1：仕様外追加・勝手な補完の抑制、未確定事項の区別、対象者・学習レベルへの適合、出力形式優先、Design Response Checkを追加
+  - Version 1.2：初学者向け設計書・仕様書・説明資料で、冒頭の目的説明と末尾の決定範囲・未確定事項・次工程説明を必須化
+  - Version 1.3：指定された表・列・項目構造の維持、機能名から未指定詳細を一般論で確定しないこと、継続設計で確定済み名称・クラス分割・責務・用語を理由なく変更しないことを追加
+  - User承認済みのVersion 1.1〜1.3 Persona本文を現行正本として保持
+- 2026-09-01 Solution Partner Personaの記録配置を復旧
+  - AIがUser未承認で `GEM_SOLUTION_PARTNER.md` 末尾へ追加した `Decision & Rationale` を削除
+  - Persona本文のUser承認済みVersion 1.1〜1.3内容は変更せず保持
+  - 復旧commit：`10da225e4117b3b7e88f43c42706347d154edc71`
+- 2026-09-01 `AGENTS.md` の決定履歴を是正
+  - Solution Partner Version 1.1 / 1.2 / 1.3 の承認済み変更に関する Decision / Reason / Rejected を `AGENTS.md` の `Decision & Rationale` へ記録
+  - Persona本文には変更履歴を再追加していない
+  - 履歴是正commit：`34134536c95a9fff1a1a8930822474397daa38e0`
 
 ## 作業中
 
@@ -76,10 +89,11 @@ Status: CURRENT
 
 ## 次工程
 
-1. 更新後の `personas/education/GEM_REVIEWER.md` を実際の生徒ポートフォリオに適用し、出力が初心者に理解可能で、かつPF提出前レビューとして過不足がないか実利用で確認する。
-2. 実利用で具体的な問題が確認された場合のみ、Evidenceに基づいてEducation Reviewerを修正する。
-3. `personas/reference/CLAUDE_PERSONA.md` Version 1.3 は実務参考Reviewerとして維持し、Education用途の変更を機械的に反映しない。
-4. 現行成果物は配布可能な状態として維持し、対象外のPersona・設定資料へ変更を広げない。
+1. 新チャット開始時はGitHubとの同期状態を確認し、`project-notes/CURRENT.md` → `AGENTS.md` → `personas/education/GEM_SOLUTION_PARTNER.md` の順に読む。
+2. `GEM_SOLUTION_PARTNER.md` Version 1.3 / Status Approved と、Version 1.1〜1.3の承認済み改善内容を確定事項として扱い、Evidenceなしに再検討しない。
+3. Solution Partnerの追加検証または修正は、Userの次指示または実利用で具体的な問題が確認された場合のみ行う。
+4. Education Reviewerの実利用確認は未実施の次工程として保持するが、Userの指示なくSolution Partner作業から自動的に切り替えない。
+5. 対象外のPersona・設定資料へ変更を広げない。
 
 Reviewerを含むPersonaの機能設計はEvidenceなしに再検討しない。完了済みの文書適合性復旧を、Evidenceなしに再作業対象へ戻さない。`ASKME 迎合禁止` と7文書配置を未決事項へ戻さない。Education用の基本体系は4Gemであり、`Researcher Deep Research` はResearcher Personaを使う追加Gemとして扱う。
 
@@ -88,6 +102,7 @@ Reviewerを含むPersonaの機能設計はEvidenceなしに再検討しない。
 - 作業規則：`AGENTS.md`
 - Repository入口・Persona重要性の共通説明：`README.md`
 - Education Persona：`personas/education/`
+- Education Solution Partner正本：`personas/education/GEM_SOLUTION_PARTNER.md`
 - Education Reviewer正本：`personas/education/GEM_REVIEWER.md`
 - Education入口：`personas/education/README.md`
 - Education Gemini設定資料：`personas/education/setup/GEMINI_GEM_SETUP.md`
@@ -112,12 +127,13 @@ Reviewerを含むPersonaの機能設計はEvidenceなしに再検討しない。
 1. 本ファイル（現在地点）
 2. `AGENTS.md`（作業規則）
 3. 対象成果物MDの本文（現行仕様）
-4. 対象成果物MDの `Decision & Rationale`（判断理由）
+4. `AGENTS.md` の `Decision & Rationale`（2026-09-01 Solution Partner Version 1.1〜1.3の判断履歴を含む）
 5. 必要時のみ `project-notes/YYYY-MM-DD-*.md`（2026-08-23より前の履歴）
 
 ## REFERENCES
 
 - `AGENTS.md`
+- `personas/education/GEM_SOLUTION_PARTNER.md`
 - `personas/education/GEM_REVIEWER.md`
 - `personas/education/setup/GEMINI_GEM_SETUP.md`
 - `project-notes/2026-08-27-portfolio-reviewer-fit-analysis.md`
