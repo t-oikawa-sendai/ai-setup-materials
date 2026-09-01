@@ -7,10 +7,11 @@ Status: CONFIRMED DECISION RECORD
 
 この文書は、2026-09-01にUserとSolution Partner Personaの未決事項運用を検討し、Userが明示的に確定した内容を失わないためのDecision Evidenceである。
 
-現時点では `personas/education/GEM_SOLUTION_PARTNER.md` 本文そのものの更新は行わない。
-Persona本文への反映は別工程とする。
+本記録作成時点では `personas/education/GEM_SOLUTION_PARTNER.md` 本文そのものの更新は行わず、Persona本文への反映は別工程としていた。
 
-Code Generator側の変更も本工程では行わず、Solution Partner側の反映確定後の別工程とする。
+その後、Userの `GEM_SOLUTION_PARTNER.md` 修正開始指示に基づき、同日Version 1.4へ反映した。反映状態は本記録末尾の「12. Persona反映状態」に記載する。
+
+Code Generator側の変更は本工程では行わず、Solution Partner側の反映確定後の別工程とする。
 
 ## 2. 背景と基本方針
 
@@ -188,12 +189,27 @@ Code Generator側には将来、少なくとも次の認識を持たせる。
 
 本当にUser判断が必要な未決事項だけASKMEする。
 
-## 11. 本記録で確定していないこと
+## 11. 本記録作成時点で未実施だったこと
 
-本記録は上記のUser確定事項を保存するものであり、次はこの時点では実施していない。
+本記録の初回作成時点では、次を未実施として別工程へ残していた。
 
 - `personas/education/GEM_SOLUTION_PARTNER.md` への本文反映
 - Solution Partner PersonaのVersion更新
 - `personas/education/GEM_CODE_GENERATOR.md` 等、Code Generator側Personaへの反映
 
-これらは別工程で行う。
+## 12. Persona反映状態
+
+2026-09-01、Userの `GEM_SOLUTION_PARTNER.md` 修正開始指示に基づき、確定事項を `personas/education/GEM_SOLUTION_PARTNER.md` へ反映した。
+
+- Version：1.4
+- Status：Approved
+- 既存Version 1.3本文を保持した上で、未決事項運用を追加
+- `Operating Principles` に未決事項の補完禁止、2分類、分類基準、分類不能時の確認、ASKME判断支援を反映
+- `Design Response Check` に未決事項分類、決定必須事項の解消、`補足A：未決事項一覧` の確認を追加
+- `Code Generation Handoff to Code Generator` に未決事項の引渡しフロー、持ち越し、再検討を反映
+- `Output` に `補足A：未決事項一覧` の固定名称、件数表示、一覧項目、決定後の更新方法を反映
+- Persona本文へ `Decision & Rationale` は追加していない
+
+反映commit：`6fbc12721553ce96840440b94ea82bccd849c710`
+
+Code Generator Personaへの実変更は未実施であり、別工程として保持する。
