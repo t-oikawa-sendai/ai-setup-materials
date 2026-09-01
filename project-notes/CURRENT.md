@@ -73,7 +73,7 @@ Status: CURRENT
   - Version 1.1：仕様外追加・勝手な補完の抑制、未確定事項の区別、対象者・学習レベルへの適合、出力形式優先、Design Response Checkを追加
   - Version 1.2：初学者向け設計書・仕様書・説明資料で、冒頭の目的説明と末尾の決定範囲・未確定事項・次工程説明を必須化
   - Version 1.3：指定された表・列・項目構造の維持、機能名から未指定詳細を一般論で確定しないこと、継続設計で確定済み名称・クラス分割・責務・用語を理由なく変更しないことを追加
-  - User承認済みのVersion 1.1〜1.3 Persona本文を現行正本として保持
+  - User承認済みのVersion 1.1〜1.3 Persona本文を保持
 - 2026-09-01 Solution Partner Personaの記録配置を復旧
   - AIがUser未承認で `GEM_SOLUTION_PARTNER.md` 末尾へ追加した `Decision & Rationale` を削除
   - Persona本文のUser承認済みVersion 1.1〜1.3内容は変更せず保持
@@ -82,6 +82,19 @@ Status: CURRENT
   - Solution Partner Version 1.1 / 1.2 / 1.3 の承認済み変更に関する Decision / Reason / Rejected を `AGENTS.md` の `Decision & Rationale` へ記録
   - Persona本文には変更履歴を再追加していない
   - 履歴是正commit：`34134536c95a9fff1a1a8930822474397daa38e0`
+- 2026-09-01 Education Solution Partnerを Version 1.4 / Status Approved へ更新
+  - AIが未決事項を勝手に補完・確定しない基本路線を維持
+  - 未決事項を `次工程開始前に決定必須` / `実装段階まで持ち越し可能` の2区分へ分類
+  - 決定必須項目は理由を初学者向けに説明し、ASKMEで解消するまで次工程へ進めない
+  - 持ち越し可能項目は全件・一部・保留を選択でき、後から何度でも設計段階へ戻って再検討可能
+  - 設計文書完成時・次工程引渡し時に固定名称 `補足A：未決事項一覧` を付与
+  - `補足A` は `ID / 未決事項 / 区分 / 理由` の最小構成とし、未決事項0件の場合も合計・2区分の件数を明示
+  - 決定済み項目は設計本文へ反映し、`補足A` から削除して件数を更新
+  - ASKMEは最初に簡潔な質問を提示し、Userが判断できない場合のみ判断材料を追加
+  - 不必要なASKMEを行わない
+  - Decision Evidence：`project-notes/2026-09-01-solution-partner-unresolved-items-decisions.md`
+  - Persona反映commit：`6fbc12721553ce96840440b94ea82bccd849c710`
+  - Persona本文へ `Decision & Rationale` は追加していない
 
 ## 作業中
 
@@ -90,10 +103,11 @@ Status: CURRENT
 ## 次工程
 
 1. 新チャット開始時はGitHubとの同期状態を確認し、`project-notes/CURRENT.md` → `AGENTS.md` → `personas/education/GEM_SOLUTION_PARTNER.md` の順に読む。
-2. `GEM_SOLUTION_PARTNER.md` Version 1.3 / Status Approved と、Version 1.1〜1.3の承認済み改善内容を確定事項として扱い、Evidenceなしに再検討しない。
+2. `GEM_SOLUTION_PARTNER.md` Version 1.4 / Status Approved と、Version 1.1〜1.4の承認済み改善内容を確定事項として扱い、Evidenceなしに再検討しない。
 3. Solution Partnerの追加検証または修正は、Userの次指示または実利用で具体的な問題が確認された場合のみ行う。
-4. Education Reviewerの実利用確認は未実施の次工程として保持するが、Userの指示なくSolution Partner作業から自動的に切り替えない。
-5. 対象外のPersona・設定資料へ変更を広げない。
+4. Code Generator側の `補足A：未決事項一覧` 受取ルール反映は別工程として保持し、Userの指示なく対象を切り替えない。
+5. Education Reviewerの実利用確認は未実施の次工程として保持するが、Userの指示なくSolution Partner作業から自動的に切り替えない。
+6. 対象外のPersona・設定資料へ変更を広げない。
 
 Reviewerを含むPersonaの機能設計はEvidenceなしに再検討しない。完了済みの文書適合性復旧を、Evidenceなしに再作業対象へ戻さない。`ASKME 迎合禁止` と7文書配置を未決事項へ戻さない。Education用の基本体系は4Gemであり、`Researcher Deep Research` はResearcher Personaを使う追加Gemとして扱う。
 
@@ -111,6 +125,7 @@ Reviewerを含むPersonaの機能設計はEvidenceなしに再検討しない。
 - 現行仕様の判断理由：各成果物MDの `Decision & Rationale`
 - 2026-08-23より前の判断経緯・復旧・監査Evidence：`project-notes/YYYY-MM-DD-*.md`（履歴。現行仕様の代替正本ではない）
 - 2026-08-27 PF Reviewer適合性分析Evidence：`project-notes/2026-08-27-portfolio-reviewer-fit-analysis.md`
+- 2026-09-01 Solution Partner未決事項運用Decision Evidence：`project-notes/2026-09-01-solution-partner-unresolved-items-decisions.md`
 
 ## 現行として使用しない文書
 
@@ -128,7 +143,8 @@ Reviewerを含むPersonaの機能設計はEvidenceなしに再検討しない。
 2. `AGENTS.md`（作業規則）
 3. 対象成果物MDの本文（現行仕様）
 4. `AGENTS.md` の `Decision & Rationale`（2026-09-01 Solution Partner Version 1.1〜1.3の判断履歴を含む）
-5. 必要時のみ `project-notes/YYYY-MM-DD-*.md`（2026-08-23より前の履歴）
+5. `project-notes/2026-09-01-solution-partner-unresolved-items-decisions.md`（Solution Partner Version 1.4の未決事項運用Decision Evidence）
+6. 必要時のみ `project-notes/YYYY-MM-DD-*.md`（2026-08-23より前の履歴）
 
 ## REFERENCES
 
@@ -136,6 +152,7 @@ Reviewerを含むPersonaの機能設計はEvidenceなしに再検討しない。
 - `personas/education/GEM_SOLUTION_PARTNER.md`
 - `personas/education/GEM_REVIEWER.md`
 - `personas/education/setup/GEMINI_GEM_SETUP.md`
+- `project-notes/2026-09-01-solution-partner-unresolved-items-decisions.md`
 - `project-notes/2026-08-27-portfolio-reviewer-fit-analysis.md`
 - `project-notes/2026-08-21-ai-information-asset-safety.md`
 - `project-notes/2026-08-22-persona-and-setup-scope.md`
