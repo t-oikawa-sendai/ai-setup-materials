@@ -7,7 +7,7 @@
 | Created Date（作成日） | 2026-08-17 |
 | Last Updated（最終更新日） | 2026-09-11 |
 | Owner（管理者） | t-oikawa-sendai |
-| Related Documents（関連文書） | [`personas/education/README.md`](personas/education/README.md)<br>[`personas/education/setup/GEMINI_GEM_SETUP.md`](personas/education/setup/GEMINI_GEM_SETUP.md)<br>[`personas/reference/README.md`](personas/reference/README.md) |
+| Related Documents（関連文書） | [`personas/education/README.md`](personas/education/README.md)<br>[`personas/education/setup/GEMINI_GEM_SETUP.md`](personas/education/setup/GEMINI_GEM_SETUP.md)<br>[`personas/reference/README.md`](personas/reference/README.md)<br>[`project-notes/2026-09-11-code-generator-5-pattern-comparison-reference.md`](project-notes/2026-09-11-code-generator-5-pattern-comparison-reference.md) |
 
 ---
 
@@ -137,6 +137,8 @@ Personaによって出力がどのように変わるかを確認するため、�
 判定記号は、`◎`＝明確に良い、`○`＝概ね良い、`△`＝一部問題あり、`×`＝明確な問題あり、を表します。
 
 > **検証条件：** この比較は、同一モデル・同一実装プロンプトによるPersonaなし／ありの2パターンを静的に比較した結果です。Mavenによる実ビルドと実行時動作は検証していません。モデル一般の性能を示すベンチマークではなく、この検証条件における出力差を示しています。
+
+5パターンを横断した比較は、[`Code Generator 5パターン横断比較（参考資料）`](project-notes/2026-09-11-code-generator-5-pattern-comparison-reference.md) を参照してください。この参考資料にはモデル自体の差も含まれるため、Persona効果の主Evidenceではなく補助資料として扱います。
 
 ## 4. Role of User（利用者（生徒）の役割）
 
