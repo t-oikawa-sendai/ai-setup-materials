@@ -5,7 +5,7 @@
 | Version（バージョン） | 1.0 |
 | Status（ステータス） | Approved |
 | Created Date（作成日） | 2026-08-17 |
-| Last Updated（最終更新日） | 2026-08-26 |
+| Last Updated（最終更新日） | 2026-09-11 |
 | Owner（管理者） | t-oikawa-sendai |
 | Related Documents（関連文書） | [`personas/education/README.md`](personas/education/README.md)<br>[`personas/education/setup/GEMINI_GEM_SETUP.md`](personas/education/setup/GEMINI_GEM_SETUP.md)<br>[`personas/reference/README.md`](personas/reference/README.md) |
 
@@ -165,73 +165,4 @@ Education用4Gem＋1の作成手順と使い方は、[`personas/education/README
 
 詳細は [`LICENSE`](LICENSE) を参照してください。
 
----
-
-## Decision & Rationale（決定・判断理由）
-
-### 2026-08-26
-
-#### 比較表の正本一元化とSetupマニュアルの責務限定
-
-Decision:
-
-比較表はルート `README.md` の1か所だけに置く。Education READMEとGemini設定資料には比較表を重複掲載せず、ルート `README.md` への導線を置く。
-
-Gemini設定資料は設定・操作手順に限定し、Personaの重要性やカスタム指示の効果・制約・利用条件などの説明は含めない。パーソナル インテリジェンスのカスタム指示は、パソコンで設定する操作手順だけをGemini設定資料に置く。
-
-この決定により、2026-08-25の「Gemini固有の機能名称・制約・設定手順をGemini設定資料へ委譲する」という委譲範囲を更新する。
-
-Reason:
-
-Repository共通の概念説明とサービス固有の設定手順を分離し、比較表の重複と新旧不整合を防ぐため。
-
-Rejected:
-
-- 比較表をルート `README.md` とGemini設定資料へ重複掲載する方式
-- Gemini設定資料へAIの概念・効果・制約を説明する章を置く方式
-
-### 2026-08-25
-
-#### Persona重要性のRepository共通化
-
-Decision:
-
-`Why Persona Matters（なぜPersonaが重要なのか）` はEducation固有の説明ではなく、Repository全体に共通する設計思想としてルート `README.md` に置く。
-
-比較表はAIサービス共通の概念として、サービス全体のカスタム指示・共通設定、Persona、その都度のプロンプトの3つを比較する。
-
-Gemini固有の機能名称・制約・設定手順は `personas/education/setup/GEMINI_GEM_SETUP.md` に委譲する。
-
-Reason:
-
-PersonaはEducation用Gemだけでなく `personas/reference/` のPersonaでも利用するため、Personaの必要性をEducation固有の前提として説明するとRepository全体の設計思想と一致しない。
-
-入口で共通概念を理解してからEducation / Referenceへ進むことで、Personaの役割を利用サービスに依存せず理解できるため。
-
-Rejected:
-
-- `Why Persona Matters` をEducation READMEだけに置く方式
-- ルートREADMEでGemini固有のパーソナル インテリジェンスの設定手順まで説明する方式
-
-### 2026-08-23
-
-#### Education用4Gem＋1のRepository入口表現
-
-Decision:
-
-Repository入口ではEducation用の基本体系を4Gemとして維持し、Gemini上ではResearcher Personaを使う `Researcher Deep Research` を追加した `4Gem＋1` として案内する。
-
-設定詳細は `personas/education/setup/GEMINI_GEM_SETUP.md` へ導く。
-
-Reference領域との対比でEducationの現行構成を指す場合も `4Gem＋1` と表記する。
-
-Reason:
-
-基本4役割を維持しつつ、Gemini上で作成するGem実体が5つであることを入口から誤解なく案内するため。
-
-`Researcher Deep Research` を独立Personaとして扱わず、サービス固有設定の詳細を専用資料へ分離するため。
-
-Rejected:
-
-- Education体系を5つの独立Personaとして表現する方式
-- ルートREADMEへGemini設定手順を重複記載する方式
+<!-- README Decision & Rationale: project-notes/README_DECISIONS.md -->
