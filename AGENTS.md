@@ -458,3 +458,20 @@ Version 1.2を適用したWebアプリ仕様書の再生成では、冒頭の導
 - 特定の検索方式、削除方式、認証方式などを教材標準としてPersonaへ固定する方式
 - 出力形式をAI側の読みやすさ判断で変更できるようにする方式
 - 同じ作業内でもAIが毎回答で自由にクラス分割・命名を変更する方式
+
+### 2026-09-11
+
+#### Root READMEのDecision & Rationale分離
+
+Decision:
+ルート `README.md` は職業訓練校生徒向けの公開入口として可読性を優先し、READMEに関する `Decision & Rationale` は `project-notes/README_DECISIONS.md` へ分離する。README本文には判断履歴本文を置かず、管理上の対応先だけをHTMLコメントで保持する。`project-notes/README_DECISIONS.md` をルートREADMEの判断履歴の正本とする。
+
+この決定はルート `README.md` に限る明示的例外であり、本ファイルにある「対象成果物MDと同じファイルに `Decision & Rationale` を保持する」「決定事項を別管理ログへ集約しない」という一般規定より優先する。他の成果物MDには適用しない。
+
+Reason:
+ルートREADMEは生徒・利用者が最初に読む教材入口であり、内部の設計判断履歴が長く続くと利用導線の可読性を損なう。一方、判断履歴自体は情報資産として保持する必要があるため、削除せず管理用 `project-notes/` へ分離する。
+
+Rejected:
+- READMEの `Decision & Rationale` を単純削除して履歴を失う方式
+- すべての成果物MDの `Decision & Rationale` を一律に別管理へ移す方式
+- `CURRENT.md` へREADME判断履歴を移す方式
