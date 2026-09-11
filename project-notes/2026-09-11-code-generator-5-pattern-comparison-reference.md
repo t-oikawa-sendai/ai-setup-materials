@@ -85,21 +85,4 @@ Gemini 3.1 ProではPersona適用後、認可、例外処理、セッション�
 
 したがって、今回の検証から言えるのは「Personaがモデルを単純に賢くする」ということではなく、**モデルが持つ能力をどの判断基準・優先順位で使うかに影響する**という点である。
 
-## 7. Decision & Rationale
-
-### 2026-09-11
-
-#### 総合比較表をCode Generator適性順位順に並べ替える
-
-Decision:
-
-総合比較表は、左から `GPT-5.6 Sol`、`Gemini 3.1 Pro Personaあり`、`Claude Opus 5 High`、`Gemini 3.1 Pro Personaなし`、`Gemini 3.5 Flash Lite` の順に並べる。
-
-Reason:
-
-最終行で示しているCode Generator適性順位と列順を一致させ、利用者が総合順位と各評価項目を対応付けて読みやすくするため。
-
-Rejected:
-
-- モデル名や作成順を基準に列順を維持する方式
-- 最終行だけ順位を示し、列順は順位と一致させない方式
+<!-- Decision & Rationale: CODE_GENERATOR_5_PATTERN_COMPARISON_DECISIONS.md -->
