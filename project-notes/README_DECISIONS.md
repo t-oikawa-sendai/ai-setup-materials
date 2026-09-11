@@ -10,6 +10,34 @@
 
 ### 2026-09-11
 
+#### 5パターン横断比較を参考資料として分離
+
+Decision:
+
+GPT-5.6 Sol、Claude Opus 5 High、Gemini 3.5 Flash Lite、Gemini 3.1 Pro Personaなし、Gemini 3.1 Pro + Code Generator Personaありの5パターン横断比較は、Root README本文へ全表を掲載せず、`project-notes/2026-09-11-code-generator-5-pattern-comparison-reference.md` に参考資料として分離する。
+
+Root READMEのPersona A/B比較節から参考資料へのリンクを置く。
+
+旧5パターン総合表の最終行は、本文のCode Generator適性順位と整合するよう、5段階の総合点ではなく今回の検証条件における順位として整理する。
+
+Persona効果の主Evidenceは、同一モデル・同一プロンプトによるGemini 3.1 Pro Personaなし／ありのA/B比較とし、5パターン横断比較はモデル自体の差も含む補助資料として扱う。
+
+この横断レビューは、ClaudeのプロジェクトにPersonaを設定して実行したことを検証条件へ明記する。
+
+Reason:
+
+異なるモデルを含む横断比較は、モデル能力差とPersonaによる制御差が混在するため、Personaそのものの効果を示す主Evidenceには適さない。一方で、各モデルの出力傾向とCode Generator用途での相対的な位置づけを理解する参考資料としては有用であるため。
+
+また、旧表ではClaudeとGemini 3.1 Pro Personaありの総合点が同値である一方、本文ではCode Generator適性を2位・3位としていたため、総合行を順位へ変更して表と本文の意味を一致させる。
+
+Rejected:
+
+- 5パターン横断表をPersona効果の主EvidenceとしてRoot README本文へ掲載する方式
+- 旧5段階総合点を残したまま、本文だけ順位を付ける方式
+- レビュー実施環境を記録せず、評価結果だけを掲載する方式
+
+### 2026-09-11
+
 #### Personaあり／なしのA/B検証例をRoot READMEへ掲載
 
 Decision:
