@@ -17,10 +17,25 @@
 
 *本ドキュメントは入門的ガイダンス（Primer）として位置づけられており、実運用レベルの標準仕様ではありません。*
 
+## Contents（目次）
+
+- [1. Target Users（対象者）](#target-users)
+- [2. Challenges in AI Use（AI利用時の課題）](#challenges-in-ai-use)
+- [3. Why Persona Matters（なぜPersonaが重要なのか）](#why-persona-matters)
+  - [3.1 Personaあり／なしの検証例（Code Generator）](#persona-ab-code-generator)
+- [4. Role of User（利用者（生徒）の役割）](#role-of-user)
+- [5. Structure（構成）](#structure)
+- [6. Education 4Gem＋1（Education用4Gem＋1）](#education-4gem-plus-1)
+- [7. Quick Start（クイックスタート）](#quick-start)
+- [8. Prerequisites and Notes（前提と注意事項）](#prerequisites-and-notes)
+- [9. License（ライセンス）](#license)
+
+<a id="target-users"></a>
 ## 1. Target Users（対象者）
 
 初学者（職業訓練校生徒）を利用者として想定。
 
+<a id="challenges-in-ai-use"></a>
 ## 2. Challenges in AI Use（AI利用時の課題）
 
 生成AIには、次のような問題があります。
@@ -39,6 +54,7 @@
 
 ただし、問題を完全になくすものではないため、AIの出力は利用者（生徒）が必ず確認してください。
 
+<a id="why-persona-matters"></a>
 ## 3. Why Persona Matters（なぜPersonaが重要なのか）
 
 生成AIへ「普段どのように答えてほしいか」「どの役割で動いてほしいか」「今回何をしてほしいか」を伝える方法は、同じものではありません。
@@ -92,6 +108,7 @@ Personaの設定方法はAIサービスによって異なります。
 
 Education領域ではGeminiのGemへPersonaを設定し、Reference領域では各AIサービスや開発支援環境の仕組みに合わせてPersonaを利用します。
 
+<a id="persona-ab-code-generator"></a>
 ### 3.1 Personaあり／なしの検証例（Code Generator）
 
 Personaによって出力がどのように変わるかを確認するため、同一モデル **Gemini 3.1 Pro** に同一の「どこつぶ」実装プロンプトを与え、Code Generator Personaなし／ありの2パターンを静的に比較しました。
@@ -140,6 +157,7 @@ Personaによって出力がどのように変わるかを確認するため、�
 
 5パターンを横断した比較は、[`Code Generator 5パターン横断比較（参考資料）`](project-notes/2026-09-11-code-generator-5-pattern-comparison-reference.md) を参照してください。この参考資料にはモデル自体の差も含まれるため、Persona効果の主Evidenceではなく補助資料として扱います。
 
+<a id="role-of-user"></a>
 ## 4. Role of User（利用者（生徒）の役割）
 
 利用者（生徒）が各Gemを操作し、出力を確認して、次の工程に必要な確定情報を手動で渡します。
@@ -154,6 +172,7 @@ Reviewerの結果は最初に利用者（生徒）へ返されます。
 
 詳細な運用方法とPersonaへのリンクは [`personas/education/README.md`](personas/education/README.md) を参照してください。
 
+<a id="structure"></a>
 ## 5. Structure（構成）
 
 ```text
@@ -177,6 +196,7 @@ Reference領域の入口は [`personas/reference/README.md`](personas/reference/
 
 Education用の現行手順としてそのまま流用せず、設計思想や運用パターンの参考として扱ってください。
 
+<a id="education-4gem-plus-1"></a>
 ## 6. Education 4Gem＋1（Education用4Gem＋1）
 
 基本4Gemは次のとおりです。
@@ -194,10 +214,12 @@ Gemini上では、詳細調査用としてResearcher Personaを使う `Researche
 
 Researcher完成版の選び方は [`personas/education/README.md`](personas/education/README.md) を参照してください。検索範囲を変更するときは、両Gemを同じ完成版へ入れ替えます。
 
+<a id="quick-start"></a>
 ## 7. Quick Start（クイックスタート）
 
 Education用4Gem＋1の作成手順と使い方は、[`personas/education/README.md`](personas/education/README.md) を参照してください。
 
+<a id="prerequisites-and-notes"></a>
 ## 8. Prerequisites and Notes（前提と注意事項）
 
 - Personaは、すべての環境や用途で自動的に最適な結果を保証するものではありません。対象の要求、制約、正本を入力し、出力を確認してください。
@@ -205,6 +227,7 @@ Education用4Gem＋1の作成手順と使い方は、[`personas/education/README
 - AIが出力する「完了しました」「test成功」「問題なし」などの報告は、それだけでは検証Evidenceになりません。利用者（生徒）が自身の環境で実行・動作確認し、実際の結果を確認してください。
 - 会話履歴やAIの記憶だけを正本として扱わず、現在有効な要求、仕様、設計、判断、検証結果を追跡できる文書や成果物へ反映してください。
 
+<a id="license"></a>
 ## 9. License（ライセンス）
 
 本リポジトリの文書は **Creative Commons Attribution-NonCommercial 4.0 International（CC BY-NC 4.0）** のもとで公開します。
