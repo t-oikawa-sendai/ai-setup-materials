@@ -1,6 +1,6 @@
 # CURRENT
 
-Last Updated: 2026-09-01
+Last Updated: 2026-09-13
 Status: CURRENT
 
 ## PURPOSE
@@ -95,6 +95,17 @@ Status: CURRENT
   - Decision Evidence：`project-notes/2026-09-01-solution-partner-unresolved-items-decisions.md`
   - Persona反映commit：`6fbc12721553ce96840440b94ea82bccd849c710`
   - Persona本文へ `Decision & Rationale` は追加していない
+- 2026-09-13 Education Solution Partnerを Version 1.5 / Status Approved へ正式改版
+  - 既存Version 1.4への部分追記ではなく、Persona本文を整理して責務境界を明確化
+  - コード責務：完成実装コードの生成はCode Generatorの責務。説明・比較・設計判断用の疑似コード、部分的なサンプルコード、SQL例、設定例、コマンド例、部分コード、差分例は許容
+  - コード可否は行数ではなく、「そのまま提出・実行できる完成実装か」で判断
+  - ASKME保留時は作業停止を続けず、暫定値を `仮定` と明示して次工程へ進む
+  - `補足A` に `仮定を置いて進めた事項` を追加
+  - 旧 `Design Response Check` を含む重複規定を `Principles`、`ASKME`、`Output` 等へ統合し、Personaを簡潔化
+  - 学習用途・初学者向けという従来の背景意図は維持
+  - Persona本文へ `Decision & Rationale` は追加していない
+  - Decisionは `AGENTS.md` の `Decision & Rationale`（2026-09-13）へ記録
+  - Code Generator v2.1との整合確認：`仮定を置いて進めた事項` の扱い、およびASKME保留後のコード生成開始条件が Code Generator 2.1 に未記載。`GEM_CODE_GENERATOR.md` は未変更
 - 2026-09-01 Education Code Generatorを Version 2.1 / Status Approved へ更新
   - `補足A：未決事項一覧` をSolution Partnerからの未決事項引継ぎインターフェースとして扱う規定を追加
   - `次工程開始前に決定必須` が残る場合はコード生成を開始しない
@@ -109,8 +120,8 @@ Status: CURRENT
 ## 次工程
 
 1. 新チャット開始時はGitHubとの同期状態を確認し、`project-notes/CURRENT.md` → `AGENTS.md` → 対象成果物MDの順に読む。
-2. `GEM_SOLUTION_PARTNER.md` Version 1.4 / Status Approved と、Version 1.1〜1.4の承認済み改善内容を確定事項として扱い、Evidenceなしに再検討しない。
-3. `GEM_CODE_GENERATOR.md` Version 2.1 / Status Approved と、`補足A：未決事項一覧` の引継ぎ規定を確定事項として扱い、Evidenceなしに再検討しない。
+2. `GEM_SOLUTION_PARTNER.md` Version 1.5 / Status Approved と、Version 1.1〜1.5の承認済み改善内容を確定事項として扱い、Evidenceなしに再検討しない。
+3. `GEM_CODE_GENERATOR.md` Version 2.1 / Status Approved と、`補足A：未決事項一覧` の引継ぎ規定を確定事項として扱う。Solution Partner 1.5で追加した `仮定を置いて進めた事項` のCode Generator側扱いは未反映であり、Userの次指示がある場合のみ対応する。
 4. Solution PartnerまたはCode Generatorの追加検証または修正は、Userの次指示または実利用で具体的な問題が確認された場合のみ行う。
 5. Education Reviewerの実利用確認は未実施の次工程として保持するが、Userの指示なく自動的に切り替えない。
 6. 対象外のPersona・設定資料へ変更を広げない。
@@ -149,7 +160,7 @@ Reviewerを含むPersonaの機能設計はEvidenceなしに再検討しない。
 1. 本ファイル（現在地点）
 2. `AGENTS.md`（作業規則）
 3. 対象成果物MDの本文（現行仕様）
-4. `AGENTS.md` の `Decision & Rationale`（2026-09-01 Solution Partner Version 1.1〜1.3の判断履歴を含む）
+4. `AGENTS.md` の `Decision & Rationale`（Solution Partner Version 1.1〜1.3および Version 1.5の判断履歴を含む）
 5. `project-notes/2026-09-01-solution-partner-unresolved-items-decisions.md`（Solution Partner Version 1.4の未決事項運用Decision Evidence）
 6. 必要時のみ `project-notes/YYYY-MM-DD-*.md`（2026-08-23より前の履歴）
 
