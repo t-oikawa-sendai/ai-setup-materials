@@ -112,6 +112,16 @@ Status: CURRENT
   - `実装段階まで持ち越し可能` は該当処理で判断が必要になるまで未決として保持する
   - 影響しない持ち越し事項だけを理由に全生成は停止しない
   - Solution Partner確定仕様の再設計、未決事項の推測補完、ASKME・分類責務の複製は行わない
+- 2026-09-13 Education Code Generatorを Version 2.2 / Status Approved へ更新
+  - Solution Partner v1.5の `補足A` 3区分（`次工程開始前に決定必須` / `実装段階まで持ち越し可能` / `仮定を置いて進めた事項`）へ対応
+  - `仮定を置いて進めた事項` をUser確定仕様ではなく暫定実装条件として受領
+  - 明示された仮定があることだけを理由に生成停止しない
+  - Code Generator自身による仮定生成は禁止
+  - 仮定とMandatory Rulesの衝突時は実装せず停止
+  - 既存v2.1の未決事項制御思想、中核責務、Mandatory Rules、Default Practices、責務境界は維持
+  - Persona本文へ `Decision & Rationale` は追加していない
+  - Decisionは `AGENTS.md` の `Decision & Rationale`（2026-09-13）へ記録
+  - Solution Partner v1.5 / Code Generator v2.2間の引継ぎ整合完了
 
 ## 作業中
 
@@ -121,7 +131,7 @@ Status: CURRENT
 
 1. 新チャット開始時はGitHubとの同期状態を確認し、`project-notes/CURRENT.md` → `AGENTS.md` → 対象成果物MDの順に読む。
 2. `GEM_SOLUTION_PARTNER.md` Version 1.5 / Status Approved と、Version 1.1〜1.5の承認済み改善内容を確定事項として扱い、Evidenceなしに再検討しない。
-3. `GEM_CODE_GENERATOR.md` Version 2.1 / Status Approved と、`補足A：未決事項一覧` の引継ぎ規定を確定事項として扱う。Solution Partner 1.5で追加した `仮定を置いて進めた事項` のCode Generator側扱いは未反映であり、Userの次指示がある場合のみ対応する。
+3. `GEM_CODE_GENERATOR.md` Version 2.2 / Status Approved と、Solution Partner v1.5の `補足A` 3区分引継ぎ規定を確定事項として扱い、Evidenceなしに再検討しない。
 4. Solution PartnerまたはCode Generatorの追加検証または修正は、Userの次指示または実利用で具体的な問題が確認された場合のみ行う。
 5. Education Reviewerの実利用確認は未実施の次工程として保持するが、Userの指示なく自動的に切り替えない。
 6. 対象外のPersona・設定資料へ変更を広げない。
@@ -160,7 +170,7 @@ Reviewerを含むPersonaの機能設計はEvidenceなしに再検討しない。
 1. 本ファイル（現在地点）
 2. `AGENTS.md`（作業規則）
 3. 対象成果物MDの本文（現行仕様）
-4. `AGENTS.md` の `Decision & Rationale`（Solution Partner Version 1.1〜1.3および Version 1.5の判断履歴を含む）
+4. `AGENTS.md` の `Decision & Rationale`（Solution Partner Version 1.1〜1.3および Version 1.5、Code Generator Version 2.2の判断履歴を含む）
 5. `project-notes/2026-09-01-solution-partner-unresolved-items-decisions.md`（Solution Partner Version 1.4の未決事項運用Decision Evidence）
 6. 必要時のみ `project-notes/YYYY-MM-DD-*.md`（2026-08-23より前の履歴）
 

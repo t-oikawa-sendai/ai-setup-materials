@@ -549,3 +549,35 @@ Education用Solution Partnerを Version 1.5 / Status Approved へ正式改版す
 - UserがASKMEを保留した場合に作業停止を続ける方式
 - 旧 `Design Response Check` を別章として残す方式
 - Persona本文へ `Decision & Rationale` を追加する方式
+
+### 2026-09-13
+
+#### Education Code Generatorを Version 2.2へ更新し、Solution Partner v1.5の補足A 3区分へ整合
+
+**Decision:**
+
+Education用Code Generatorを Version 2.2 / Status Approved へ更新する。今回の目的はSolution Partner Version 1.5との引継ぎ整合に限定する。既存v2.1の未決事項制御思想は維持する。
+
+- `補足A：未決事項一覧` の引継ぎインターフェースを、`次工程開始前に決定必須` / `実装段階まで持ち越し可能` / `仮定を置いて進めた事項` の3区分へ拡張する。
+- `仮定` はUser確定仕様ではなく、Solution Partnerが明示した暫定実装条件として扱う。
+- 明示された仮定があることだけを理由にコード生成を停止しない。
+- Solution Partnerが具体的な暫定値・暫定方式を明示している場合は、その仮定に従って生成する。
+- 仮定の内容が不明で実装条件を一意に決められない場合は、補完せずUserへ報告する。
+- Code Generator自身による仮定作成は禁止する。
+- 仮定を独自判断で変更・補完・確定しない。
+- Mandatory Rulesと引き継いだ仮定が衝突する場合は、Mandatory Rulesを無視して実装せず、衝突内容をUserへ報告して停止する。
+- 中核責務、Mandatory Rules 4-1〜4-5、Default Practices、実環境適用禁止、IDE / Git / test実行禁止、Evidence作成禁止、Reviewerとの責務境界、Solution Partner確定仕様を再設計しない原則は変更しない。
+- 現行どおり、Persona本文へ `Decision & Rationale` は追加しない。判断履歴は本ファイルへ記録する。
+
+**Reason:**
+
+Solution Partner Version 1.5が `仮定を置いて進めた事項` を補足Aへ追加したため、Code Generatorが3区分を認識し、User確定仕様と暫定実装条件を混同せず受け取る必要がある。未決事項の勝手な補完禁止は維持しつつ、明示された仮定があることだけで初学者の実装工程を止めない。
+
+**Rejected:**
+
+- `仮定` があることだけを理由にコード生成を停止する方式
+- `仮定` をUser確定仕様として扱う方式
+- Code Generatorが新しい `仮定` を作成する方式
+- Mandatory Rulesと衝突する仮定を、Mandatory Rulesを無視して実装する方式
+- 未決事項制御思想を再設計する方式
+- Persona本文へ `Decision & Rationale` を追加する方式
