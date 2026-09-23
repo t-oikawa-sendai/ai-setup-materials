@@ -1,6 +1,6 @@
 # CURRENT
 
-Last Updated: 2026-09-13
+Last Updated: 2026-09-23
 Status: CURRENT
 
 ## PURPOSE
@@ -123,6 +123,14 @@ Status: CURRENT
   - Decisionは `AGENTS.md` の `Decision & Rationale`（2026-09-13）へ記録
   - Solution Partner v1.5 / Code Generator v2.2間の引継ぎ整合完了
 
+
+- 2026-09-23 Education Reviewerを Version 1.2 / Status Approved へ更新
+  - \`personas/education/GEM_REVIEWER.md\` を7,000文字以内へ簡潔化
+  - 評価思想、Evidence重視、User-firstフロー、4段階判定、3段階優先度、説明可能性評価を維持
+  - 重複していた責務境界・評価観点・修正フロー・禁止事項を統合
+  - Persona本文から \`Decision & Rationale\` を削除
+  - Reviewer判断履歴を \`project-notes/GEM_REVIEWER_DECISIONS.md\` へ分離
+
 ## 作業中
 
 - なし
@@ -150,7 +158,7 @@ Reviewerを含むPersonaの機能設計はEvidenceなしに再検討しない。
 - Education Gemini設定資料：`personas/education/setup/GEMINI_GEM_SETUP.md`
 - Reference Persona：`personas/reference/`
 - Reference入口：`personas/reference/README.md`
-- 現行仕様の判断理由：各成果物MDの `Decision & Rationale`
+- 現行仕様の判断理由：原則として各成果物MDの `Decision & Rationale`。Education Reviewerは `project-notes/GEM_REVIEWER_DECISIONS.md`
 - 2026-08-23より前の判断経緯・復旧・監査Evidence：`project-notes/YYYY-MM-DD-*.md`（履歴。現行仕様の代替正本ではない）
 - 2026-08-27 PF Reviewer適合性分析Evidence：`project-notes/2026-08-27-portfolio-reviewer-fit-analysis.md`
 - 2026-09-01 Solution Partner未決事項運用Decision Evidence：`project-notes/2026-09-01-solution-partner-unresolved-items-decisions.md`
