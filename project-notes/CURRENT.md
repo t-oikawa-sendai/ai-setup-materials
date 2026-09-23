@@ -131,18 +131,30 @@ Status: CURRENT
   - Persona本文から \`Decision & Rationale\` を削除
   - Reviewer判断履歴を \`project-notes/GEM_REVIEWER_DECISIONS.md\` へ分離
 
+- 2026-09-23 Reference AI運用資料 Version 0.1 / Draft を追加
+  - `personas/reference/PERSONA_OPERATION_CASE_STUDY.md`
+  - `personas/reference/CHAT_HANDOFF_TEMPLATE.md`
+  - `personas/reference/PERSONA_PROMPT_TEMPLATE.md`
+  - Case Studyの実践者表記を `O講師` に統一し、教材利用者との混同を防止
+  - Handoffは正本ではなく状態移送手段として分離
+  - PromptはBRIDGE（Background / Request / Inputs / Deliverables / Guardrails / Evaluation）で整理
+  - Root README / Reference READMEへ最小導線を追加
+  - 判断履歴：`project-notes/2026-09-23-persona-operation-case-study-decisions.md`
+
 ## 作業中
 
-- なし
+- Reference AI運用資料3文書 Version 0.1 / Draft の内容レビュー
 
 ## 次工程
 
-1. 新チャット開始時はGitHubとの同期状態を確認し、`project-notes/CURRENT.md` → `AGENTS.md` → 対象成果物MDの順に読む。
-2. `GEM_SOLUTION_PARTNER.md` Version 1.5 / Status Approved と、Version 1.1〜1.5の承認済み改善内容を確定事項として扱い、Evidenceなしに再検討しない。
-3. `GEM_CODE_GENERATOR.md` Version 2.2 / Status Approved と、Solution Partner v1.5の `補足A` 3区分引継ぎ規定を確定事項として扱い、Evidenceなしに再検討しない。
-4. Solution PartnerまたはCode Generatorの追加検証または修正は、Userの次指示または実利用で具体的な問題が確認された場合のみ行う。
-5. Education Reviewerの実利用確認は未実施の次工程として保持するが、Userの指示なく自動的に切り替えない。
-6. 対象外のPersona・設定資料へ変更を広げない。
+1. Reference AI運用資料3文書 Version 0.1 / Draft をUserレビューし、必要な修正を反映する。
+2. 3文書の内容確定後、Version / Statusの昇格要否をUser判断する。
+3. 新チャット開始時はGitHubとの同期状態を確認し、`project-notes/CURRENT.md` → `AGENTS.md` → 対象成果物MDの順に読む。
+4. `GEM_SOLUTION_PARTNER.md` Version 1.5 / Status Approved と、Version 1.1〜1.5の承認済み改善内容を確定事項として扱い、Evidenceなしに再検討しない。
+5. `GEM_CODE_GENERATOR.md` Version 2.2 / Status Approved と、Solution Partner v1.5の `補足A` 3区分引継ぎ規定を確定事項として扱い、Evidenceなしに再検討しない。
+6. Solution PartnerまたはCode Generatorの追加検証または修正は、Userの次指示または実利用で具体的な問題が確認された場合のみ行う。
+7. Education Reviewerの実利用確認は未実施の次工程として保持するが、Userの指示なく自動的に切り替えない。
+8. 対象外のPersona・設定資料へ変更を広げない。
 
 Reviewerを含むPersonaの機能設計はEvidenceなしに再検討しない。完了済みの文書適合性復旧を、Evidenceなしに再作業対象へ戻さない。`ASKME 迎合禁止` と7文書配置を未決事項へ戻さない。Education用の基本体系は4Gemであり、`Researcher Deep Research` はResearcher Personaを使う追加Gemとして扱う。
 
@@ -158,6 +170,10 @@ Reviewerを含むPersonaの機能設計はEvidenceなしに再検討しない。
 - Education Gemini設定資料：`personas/education/setup/GEMINI_GEM_SETUP.md`
 - Reference Persona：`personas/reference/`
 - Reference入口：`personas/reference/README.md`
+- Reference AI運用実践例：`personas/reference/PERSONA_OPERATION_CASE_STUDY.md`
+- Reference Chat Handoff Template：`personas/reference/CHAT_HANDOFF_TEMPLATE.md`
+- Reference Prompt Template：`personas/reference/PERSONA_PROMPT_TEMPLATE.md`
+- Reference AI運用資料判断履歴：`project-notes/2026-09-23-persona-operation-case-study-decisions.md`
 - 現行仕様の判断理由：原則として各成果物MDの `Decision & Rationale`。Education Reviewerは `project-notes/GEM_REVIEWER_DECISIONS.md`
 - 2026-08-23より前の判断経緯・復旧・監査Evidence：`project-notes/YYYY-MM-DD-*.md`（履歴。現行仕様の代替正本ではない）
 - 2026-08-27 PF Reviewer適合性分析Evidence：`project-notes/2026-08-27-portfolio-reviewer-fit-analysis.md`
@@ -199,4 +215,8 @@ Reviewerを含むPersonaの機能設計はEvidenceなしに再検討しない。
 - `project-notes/2026-08-22-reviewer-completion.md`
 - `personas/education/README.md`
 - `personas/reference/README.md`
+- `personas/reference/PERSONA_OPERATION_CASE_STUDY.md`
+- `personas/reference/CHAT_HANDOFF_TEMPLATE.md`
+- `personas/reference/PERSONA_PROMPT_TEMPLATE.md`
+- `project-notes/2026-09-23-persona-operation-case-study-decisions.md`
 - `README.md`

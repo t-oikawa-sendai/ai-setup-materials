@@ -2,12 +2,12 @@
 | Item（項目） | Value（値） |
 |---|---|
 | Document ID（文書ID） | STD-PERSONA-REFERENCE-INDEX-001 |
-| Version（バージョン） | 1.0 |
+| Version（バージョン） | 1.1 |
 | Status（ステータス） | Approved |
 | Created Date（作成日） | 2026-08-22 |
-| Last Updated（最終更新日） | 2026-08-23 |
+| Last Updated（最終更新日） | 2026-09-23 |
 | Owner（管理者） | t-oikawa-sendai |
-| Related Documents（関連文書） | [`../../README.md`](../../README.md)<br>[`../education/README.md`](../education/README.md)<br>[`CHATGPT_PERSONA.md`](CHATGPT_PERSONA.md)<br>[`CLAUDE_PERSONA.md`](CLAUDE_PERSONA.md)<br>[`CURSOR_PERSONA.md`](CURSOR_PERSONA.md)<br>[`GEMINI_PERSONA.md`](GEMINI_PERSONA.md) |
+| Related Documents（関連文書） | [`../../README.md`](../../README.md)<br>[`../education/README.md`](../education/README.md)<br>[`CHATGPT_PERSONA.md`](CHATGPT_PERSONA.md)<br>[`CLAUDE_PERSONA.md`](CLAUDE_PERSONA.md)<br>[`CURSOR_PERSONA.md`](CURSOR_PERSONA.md)<br>[`GEMINI_PERSONA.md`](GEMINI_PERSONA.md)<br>[`PERSONA_OPERATION_CASE_STUDY.md`](PERSONA_OPERATION_CASE_STUDY.md)<br>[`CHAT_HANDOFF_TEMPLATE.md`](CHAT_HANDOFF_TEMPLATE.md)<br>[`PERSONA_PROMPT_TEMPLATE.md`](PERSONA_PROMPT_TEMPLATE.md) |
 
 ---
 
@@ -15,7 +15,7 @@
 
 ## 1. Purpose（目的）
 
-このディレクトリは、Education用4Gem＋1とは異なる前提で、実務構成の参考Personaを管理します。現在利用可能なReference文書への入口・索引です。
+このディレクトリは、Education用4Gem＋1とは異なる前提で、実務構成の参考Personaと、AI利用環境・設定・運用の実践例を管理します。現在利用可能なReference文書への入口・索引です。
 
 ## 2. Difference from Education 4Gem＋1（Education用4Gem＋1との違い）
 
@@ -36,17 +36,45 @@ Education用4Gem＋1の現行手順として、そのまま流用しないでく
 - [`CURSOR_PERSONA.md`](CURSOR_PERSONA.md)：Cursor Persona（Cursorペルソナ）
 - [`GEMINI_PERSONA.md`](GEMINI_PERSONA.md)：Gemini Persona（Geminiペルソナ）
 
-## 4. Usage Notes（利用上の注意）
+## 4. Reference Operation Materials（AI運用参考資料）
+
+O講師が実際に使用・検証しているAI利用環境、設定、情報管理、運用方法を、再現を強制しない実践例として公開します。
+
+- [`PERSONA_OPERATION_CASE_STUDY.md`](PERSONA_OPERATION_CASE_STUDY.md)：AI利用環境・設定・情報管理・運用方法の実践例
+- [`CHAT_HANDOFF_TEMPLATE.md`](CHAT_HANDOFF_TEMPLATE.md)：チャットやAIを切り替える際の状態移送テンプレート
+- [`PERSONA_PROMPT_TEMPLATE.md`](PERSONA_PROMPT_TEMPLATE.md)：BRIDGEを使って今回の依頼を整理するプロンプトテンプレート
+
+## 5. Usage Notes（利用上の注意）
 
 - Education領域の現行手順、Gem操作、User-firstフローは [`../education/README.md`](../education/README.md) を正とします。
 - 本ディレクトリの文書は参考資料であり、Education用4Gem＋1の代替ではありません。
+- O講師の実運用例は唯一の正解ではありません。利用者自身の目的、AIサービス、作業内容、環境に合わせて採否を判断してください。
 
-## 5. Navigation（導線）
+## 6. Navigation（導線）
 
 - Repository全体の入口：[`../../README.md`](../../README.md)
 - Education領域の入口：[`../education/README.md`](../education/README.md)
 
 ## Decision & Rationale（決定・判断理由）
+
+### 2026-09-23
+
+#### AI運用の実践例と再利用テンプレートをReference領域へ追加
+
+Decision:
+Reference領域へ、O講師の実際のAI利用環境・設定・情報管理・運用方法を示すCase Studyと、チャット引き継ぎ・プロンプト整理の再利用テンプレートを追加する。
+
+これらはEducation用4Gem＋1の必須手順ではなく、各利用者が自身の環境を改善する際の参考資料として扱う。
+
+Reason:
+Persona単体の説明だけでは、実際のAI利用においてProfile、Project / Gem、Prompt、Knowledge、GitHub、Handoff、Memory等をどのように責務分離しているかが伝わりにくいため。
+
+また、実践者を `User` と表記すると、教材を読む利用者（生徒）との区別が曖昧になるため、Case Studyでは実践者を `O講師` と表記する。
+
+Rejected:
+- Case StudyをEducation用必須手順として扱う方式
+- 実践者と教材利用者の双方を `User` と表記する方式
+- HandoffとPrompt TemplateをCase Study本文へ全文埋め込みし、再利用性を下げる方式
 
 ### 2026-08-23
 

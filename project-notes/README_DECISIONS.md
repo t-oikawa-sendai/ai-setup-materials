@@ -8,6 +8,25 @@
 
 ## Decision & Rationale（決定・判断理由）
 
+### 2026-09-23
+
+#### Reference AI運用資料への最小導線を追加
+
+Decision:
+
+Root `README.md` のReference領域説明へ、O講師のAI利用環境・設定・運用Case Study、およびHandoff / Prompt Templateへの最小導線を追加する。
+
+Root README内へCase Study本文やテンプレート本文は複製しない。
+
+Reason:
+
+Root READMEはRepository全体の入口であり、新しいReference資料の存在を利用者が発見できる必要がある。一方、詳細本文をRootへ重複掲載すると入口文書が長文化し、正本も分散するため、リンクだけを追加する。
+
+Rejected:
+
+- Root READMEへCase Study本文やテンプレート全文を転載する方式
+- Reference READMEだけに導線を置き、Root READMEから新資料を発見できない方式
+
 ### 2026-09-11
 
 #### Root READMEへ簡潔な目次を追加

@@ -2,12 +2,12 @@
 | Item（項目） | Value（値） |
 |---|---|
 | Document ID（文書ID） | STD-PERSONA-INDEX-001 |
-| Version（バージョン） | 1.0 |
+| Version（バージョン） | 1.1 |
 | Status（ステータス） | Approved |
 | Created Date（作成日） | 2026-08-17 |
-| Last Updated（最終更新日） | 2026-09-11 |
+| Last Updated（最終更新日） | 2026-09-23 |
 | Owner（管理者） | t-oikawa-sendai |
-| Related Documents（関連文書） | [`personas/education/README.md`](personas/education/README.md)<br>[`personas/education/setup/GEMINI_GEM_SETUP.md`](personas/education/setup/GEMINI_GEM_SETUP.md)<br>[`personas/reference/README.md`](personas/reference/README.md)<br>[`project-notes/2026-09-11-code-generator-5-pattern-comparison-reference.md`](project-notes/2026-09-11-code-generator-5-pattern-comparison-reference.md) |
+| Related Documents（関連文書） | [`personas/education/README.md`](personas/education/README.md)<br>[`personas/education/setup/GEMINI_GEM_SETUP.md`](personas/education/setup/GEMINI_GEM_SETUP.md)<br>[`personas/reference/README.md`](personas/reference/README.md)<br>[`personas/reference/PERSONA_OPERATION_CASE_STUDY.md`](personas/reference/PERSONA_OPERATION_CASE_STUDY.md)<br>[`project-notes/2026-09-11-code-generator-5-pattern-comparison-reference.md`](project-notes/2026-09-11-code-generator-5-pattern-comparison-reference.md) |
 
 ---
 
@@ -193,6 +193,8 @@ Personaの選び方、役割分担、User-firstの作業フローは、このREA
 Reference領域の入口は [`personas/reference/README.md`](personas/reference/README.md) です。
 
 `personas/reference/` は、Education用4Gem＋1とは役割、利用サービス、実装・検証方法の前提が異なる参考資料です。
+
+O講師が実際に検証・改善しているAI利用環境、設定構成、情報管理方法、運用方法の実践例は [`PERSONA_OPERATION_CASE_STUDY.md`](personas/reference/PERSONA_OPERATION_CASE_STUDY.md) を参照してください。チャット間の状態移送には [`CHAT_HANDOFF_TEMPLATE.md`](personas/reference/CHAT_HANDOFF_TEMPLATE.md)、今回の依頼整理には [`PERSONA_PROMPT_TEMPLATE.md`](personas/reference/PERSONA_PROMPT_TEMPLATE.md) を参考資料として用意しています。
 
 Education用の現行手順としてそのまま流用せず、設計思想や運用パターンの参考として扱ってください。
 
