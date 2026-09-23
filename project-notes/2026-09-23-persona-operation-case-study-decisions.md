@@ -100,3 +100,37 @@ Rejected:
 
 - 毎回6項目すべてを詳細記述することを義務化する方式
 - BRIDGEをPersonaの代替として扱う方式
+
+
+### 2026-09-23
+
+#### Handoff TemplateへRepository再開手順とEvidence管理を復旧
+
+Decision:
+
+`CHAT_HANDOFF_TEMPLATE.md` を Version 0.2 / Draft へ更新し、以前から実運用で使用しているGitHub Project向け引き継ぎ要素を復旧する。
+
+追加・復旧する主な要素：
+
+- `REPOSITORY_RULES`
+- Repository / Branch / Local Workspace / Local HEAD / remote HEAD / Worktree
+- 作業開始前のGit同期・正本確認手順
+- Initialization Evidence
+- VERIFIED / UNVERIFIED / ASSUMPTION
+- Current Target / Out of Scope / Must Not Change
+- Stop Conditions
+- Validation
+- Commit / Push Status
+- Completion Report
+
+Reason:
+
+Version 0.1は、背景・確定事項・Decision・未決事項等の状態移送は含んでいたが、O講師が従来使用している引き継ぎプロトコルに必要なRepository再開手順、Git同期Evidence、確認状態、停止条件、完了報告が欠落していたため。
+
+Handoffの目的は要約だけではなく、新しいAIが正本を確認し、安全に作業を再開できる状態を渡すことである。
+
+Rejected:
+
+- Version 0.1の簡易テンプレートをそのまま正式利用する方式
+- HEAD、worktree、同期状態等を会話記憶だけで引き継ぐ方式
+- VERIFIED / UNVERIFIEDを区別せず、すべてを確定情報として扱う方式

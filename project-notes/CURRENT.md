@@ -133,10 +133,11 @@ Status: CURRENT
 
 - 2026-09-23 Reference AI運用資料 Version 0.1 / Draft を追加
   - `personas/reference/PERSONA_OPERATION_CASE_STUDY.md`
-  - `personas/reference/CHAT_HANDOFF_TEMPLATE.md`
+  - `personas/reference/CHAT_HANDOFF_TEMPLATE.md` Version 0.2 / Draft
   - `personas/reference/PERSONA_PROMPT_TEMPLATE.md`
   - Case Studyの実践者表記を `O講師` に統一し、教材利用者との混同を防止
   - Handoffは正本ではなく状態移送手段として分離
+  - Handoff Template v0.2でRepository Rules、Git同期Evidence、VERIFIED / UNVERIFIED / ASSUMPTION、停止条件、検証、完了報告を復旧
   - PromptはBRIDGE（Background / Request / Inputs / Deliverables / Guardrails / Evaluation）で整理
   - Root README / Reference READMEへ最小導線を追加
   - 判断履歴：`project-notes/2026-09-23-persona-operation-case-study-decisions.md`
