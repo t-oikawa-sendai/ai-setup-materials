@@ -134,3 +134,34 @@ Rejected:
 - Version 0.1の簡易テンプレートをそのまま正式利用する方式
 - HEAD、worktree、同期状態等を会話記憶だけで引き継ぐ方式
 - VERIFIED / UNVERIFIEDを区別せず、すべてを確定情報として扱う方式
+
+
+### 2026-09-23
+
+#### Reference AI運用3文書の導線を一本道化
+
+Decision:
+
+Reference AI運用資料の推奨導線を次に統一する。
+
+```text
+Reference README
+  ↓
+AI Operation Environment Case Study
+  ↓
+Persona Prompt Template
+  ↓ 必要時
+Chat Handoff Template
+```
+
+Case Studyには資料セットの使い方と次に読む文書を追加する。
+Prompt / Handoff Templateには、Case Study・相互テンプレート・Reference README・Root READMEへの戻り導線を追加する。
+
+Reason:
+
+各文書へのリンク自体は存在していたが、開始地点、推奨読順、利用場面、戻り先が明確でなく、初見の利用者が文書間を移動するときに迷う可能性があったため。
+
+Rejected:
+
+- 3文書を同列の独立資料として扱い、前後関係を示さない方式
+- 各文書から戻り先を示さず、ブラウザの戻る操作だけに依存する方式

@@ -2,7 +2,7 @@
 | Item（項目） | Value（値） |
 |---|---|
 | Document ID（文書ID） | STD-PERSONA-INDEX-001 |
-| Version（バージョン） | 1.1 |
+| Version（バージョン） | 1.2 |
 | Status（ステータス） | Approved |
 | Created Date（作成日） | 2026-08-17 |
 | Last Updated（最終更新日） | 2026-09-23 |
@@ -17,8 +17,23 @@
 
 *本ドキュメントは入門的ガイダンス（Primer）として位置づけられており、実運用レベルの標準仕様ではありません。*
 
+<a id="start-here"></a>
+## Start Here（目的別入口）
+
+目的に応じて、最初に読む文書を選びます。
+
+| やりたいこと | 最初に読む文書 |
+|---|---|
+| 生徒としてEducation用4Gem＋1を使いたい | [`personas/education/README.md`](personas/education/README.md) |
+| GeminiへEducation用4Gem＋1を設定したい | [`GEMINI_GEM_SETUP.md`](personas/education/setup/GEMINI_GEM_SETUP.md) |
+| O講師の実際のAI利用環境・設定・運用方法を参考にしたい | [`personas/reference/README.md`](personas/reference/README.md) |
+| Personaあり／なしの検証例を確認したい | [3.1 Personaあり／なしの検証例](#persona-ab-code-generator) |
+
+ReferenceのAI運用資料は、Reference入口に示した **Case Study → Prompt Template → Handoff Template** の順で読むと全体像を把握しやすくなります。
+
 ## Contents（目次）
 
+- [Start Here（目的別入口）](#start-here)
 - [1. Target Users（対象者）](#target-users)
 - [2. Challenges in AI Use（AI利用時の課題）](#challenges-in-ai-use)
 - [3. Why Persona Matters（なぜPersonaが重要なのか）](#why-persona-matters)

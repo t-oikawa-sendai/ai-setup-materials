@@ -2,7 +2,7 @@
 | Item（項目） | Value（値） |
 |---|---|
 | Document ID（文書ID） | STD-PERSONA-REFERENCE-PROMPT-001 |
-| Version（バージョン） | 0.1 |
+| Version（バージョン） | 0.2 |
 | Status（ステータス） | Draft |
 | Created Date（作成日） | 2026-09-23 |
 | Last Updated（最終更新日） | 2026-09-23 |
@@ -14,6 +14,10 @@
 ---
 
 # Persona Prompt Template（Persona利用時プロンプトテンプレート）
+
+> **読む順：** [AI運用全体のCase Study](PERSONA_OPERATION_CASE_STUDY.md) → **本Prompt Template** → 必要時に [Handoff Template](CHAT_HANDOFF_TEMPLATE.md)
+>
+> 日常のAI依頼では本テンプレートを使用し、長い作業でチャットやAIを切り替える場合だけHandoff Templateへ進みます。
 
 ## 1. Purpose（目的）
 
@@ -204,3 +208,13 @@ BRIDGEは絶対的なPrompt記法ではありません。
 目的は、**利用者の意図、入力、制約、完了条件をAIが判断できる状態にすること**です。
 
 不足している重要情報がある場合は、AIへ推測させるのではなく、必要に応じて確認または未確定事項として扱います。
+
+
+---
+
+## 9. Navigation（導線）
+
+- AI運用全体を確認する：[`PERSONA_OPERATION_CASE_STUDY.md`](PERSONA_OPERATION_CASE_STUDY.md)
+- チャットやAIを切り替える：[`CHAT_HANDOFF_TEMPLATE.md`](CHAT_HANDOFF_TEMPLATE.md)
+- Reference資料一覧へ戻る：[`README.md`](README.md)
+- Repository全体へ戻る：[`../../README.md`](../../README.md)

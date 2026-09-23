@@ -2,7 +2,7 @@
 | Item（項目） | Value（値） |
 |---|---|
 | Document ID（文書ID） | STD-PERSONA-REFERENCE-HANDOFF-001 |
-| Version（バージョン） | 0.2 |
+| Version（バージョン） | 0.3 |
 | Status（ステータス） | Draft |
 | Created Date（作成日） | 2026-09-23 |
 | Last Updated（最終更新日） | 2026-09-23 |
@@ -14,6 +14,10 @@
 ---
 
 # Chat Handoff Template（チャット引き継ぎテンプレート）
+
+> **読む順：** [AI運用全体のCase Study](PERSONA_OPERATION_CASE_STUDY.md) → [Prompt Template](PERSONA_PROMPT_TEMPLATE.md) → **本Handoff Template**
+>
+> AIへ通常の依頼を出すだけであれば、先に [`PERSONA_PROMPT_TEMPLATE.md`](PERSONA_PROMPT_TEMPLATE.md) を使用します。本テンプレートは、チャットやAIを切り替えて継続作業するときに使用します。
 
 ## 1. Purpose（目的）
 
@@ -410,3 +414,13 @@ Handoff
 HandoffはGitHubや対象成果物の代替正本ではありません。
 
 新しいAIはHandoffを入口として利用し、必要な正本を確認してから作業を継続します。
+
+
+---
+
+## 7. Navigation（導線）
+
+- AI運用全体を確認する：[`PERSONA_OPERATION_CASE_STUDY.md`](PERSONA_OPERATION_CASE_STUDY.md)
+- 今回の依頼を整理する：[`PERSONA_PROMPT_TEMPLATE.md`](PERSONA_PROMPT_TEMPLATE.md)
+- Reference資料一覧へ戻る：[`README.md`](README.md)
+- Repository全体へ戻る：[`../../README.md`](../../README.md)

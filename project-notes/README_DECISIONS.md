@@ -10,6 +10,27 @@
 
 ### 2026-09-23
 
+#### Root READMEへ目的別入口を追加
+
+Decision:
+
+Root READMEの冒頭へ `Start Here（目的別入口）` を追加し、利用者の目的に応じてEducation、Gemini Setup、Reference AI運用資料、Persona検証例へ直接進めるようにする。
+
+Reference AI運用資料はRootから各テンプレートを同列に大量表示せず、Reference入口へ導き、そこで `Case Study → Prompt Template → Handoff Template` の推奨読順を示す。
+
+Reason:
+
+従来はReference資料へのリンクがStructure章の途中にあり、初見の利用者がRepositoryのどこから開始すべきか判断するまでにスクロールが必要だったため。
+
+入口を目的別に分けることで、Education利用者とReference利用者の導線を早い段階で分離しつつ、Root READMEの情報量増加を最小限にする。
+
+Rejected:
+
+- Structure章まで読まないとReference資料を発見できない方式
+- Root READMEへReferenceの全文書リンクを大量に並べる方式
+
+### 2026-09-23
+
 #### Reference AI運用資料への最小導線を追加
 
 Decision:

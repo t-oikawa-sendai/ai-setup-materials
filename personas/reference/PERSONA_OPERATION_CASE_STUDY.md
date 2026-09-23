@@ -2,7 +2,7 @@
 | Item（項目） | Value（値） |
 |---|---|
 | Document ID（文書ID） | STD-PERSONA-REFERENCE-OPERATION-001 |
-| Version（バージョン） | 0.1 |
+| Version（バージョン） | 0.2 |
 | Status（ステータス） | Draft |
 | Created Date（作成日） | 2026-09-23 |
 | Last Updated（最終更新日） | 2026-09-23 |
@@ -38,6 +38,13 @@ O講師が実際に採用しているAI利用環境・設定・情報管理・�
 重要なのは、利用できる機能をすべて有効にすることではありません。
 
 **どの情報を、誰が、どこで管理し、どの場面でAIへ与えるのかを明確にすること**を重視します。
+
+### この資料セットの使い方
+
+1. まず本Case Studyで、O講師のAI運用全体を確認します。
+2. 日常のAI依頼では [`PERSONA_PROMPT_TEMPLATE.md`](PERSONA_PROMPT_TEMPLATE.md) を使用します。
+3. 長い作業でチャットやAIを切り替える場合は [`CHAT_HANDOFF_TEMPLATE.md`](CHAT_HANDOFF_TEMPLATE.md) を使用します。
+4. Reference資料全体へ戻る場合は [`README.md`](README.md) を参照します。
 
 ---
 
@@ -318,3 +325,17 @@ AIの役割・責務
 **人間が明示的に管理できる情報は人間が管理し、AIには現在の作業に必要な正確な情報だけを渡す。**
 
 本資料は、そのための一つの実践事例です。
+
+
+---
+
+## 15. Next Steps（次に読む文書）
+
+本Case Studyで全体像を確認した後は、利用場面に応じて次へ進みます。
+
+| 利用場面 | 次に読む文書 |
+|---|---|
+| AIへ今回の依頼を整理して渡す | [`PERSONA_PROMPT_TEMPLATE.md`](PERSONA_PROMPT_TEMPLATE.md) |
+| チャットやAIを切り替えて作業を継続する | [`CHAT_HANDOFF_TEMPLATE.md`](CHAT_HANDOFF_TEMPLATE.md) |
+| Reference資料の一覧へ戻る | [`README.md`](README.md) |
+| Repository全体の入口へ戻る | [`../../README.md`](../../README.md) |

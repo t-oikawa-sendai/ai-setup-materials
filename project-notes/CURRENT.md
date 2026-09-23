@@ -138,6 +138,8 @@ Status: CURRENT
   - Case Studyの実践者表記を `O講師` に統一し、教材利用者との混同を防止
   - Handoffは正本ではなく状態移送手段として分離
   - Handoff Template v0.2でRepository Rules、Git同期Evidence、VERIFIED / UNVERIFIED / ASSUMPTION、停止条件、検証、完了報告を復旧
+  - 導線監査を実施し、Root目的別入口、Reference推奨読順、3文書間の前後移動・戻り導線を追加
+  - Navigation反映後：Case Study v0.2 / Prompt Template v0.2 / Handoff Template v0.3
   - PromptはBRIDGE（Background / Request / Inputs / Deliverables / Guardrails / Evaluation）で整理
   - Root README / Reference READMEへ最小導線を追加
   - 判断履歴：`project-notes/2026-09-23-persona-operation-case-study-decisions.md`
