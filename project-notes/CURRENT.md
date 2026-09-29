@@ -147,8 +147,8 @@ Status: CURRENT
 - 2026-09-29 中核4種Reference PersonaのSSOT方針を正本文書へ記録
   - `AGENTS.md` と `personas/reference/README.md` に記録
   - `solacom_main` の中核4種参照化の移行案を独立cloneで実装し、設計レビューを完了
-  - [Draft PR #21](https://github.com/t-oikawa-sendai/solacom_main/pull/21) をGitHubへ保存済み。`solacom_main` の `main` 反映は未実施
-  - 元Devcheckoutの既存未commit変更は保持
+  - [PR #21](https://github.com/t-oikawa-sendai/solacom_main/pull/21) はUser承認により `solacom_main` の `main` へ反映済み（merge commit：`16c44976638b48c53ef16399b1d51217c540be0a`）
+  - 元Devcheckoutの既存未commit変更は保持。元Devcheckoutへの移行設定導入は未実施
   - 実機Cursorでの正本読込と外部AIサービスへの登録は未確認
 
 ## 作業中
@@ -165,7 +165,7 @@ Status: CURRENT
 6. Solution PartnerまたはCode Generatorの追加検証または修正は、Userの次指示または実利用で具体的な問題が確認された場合のみ行う。
 7. Education Reviewerの実利用確認は未実施の次工程として保持するが、Userの指示なく自動的に切り替えない。
 8. 対象外のPersona・設定資料へ変更を広げない。
-9. Userが `solacom_main` の [Draft PR #21](https://github.com/t-oikawa-sendai/solacom_main/pull/21) の `main` 反映を判断する。反映後、導入先でローカル環境設定を作成・確認し、実機Cursorの正本読込・環境値解決のEvidenceを確認する。外部AIサービスへ登録する場合は、その登録内容も別途確認する。既存未commit変更の破棄・退避・上書きによる同期は行わない。
+9. 既存未commit変更を保全した上で、導入先でローカル環境設定を作成・確認し、実機Cursorの正本読込・環境値解決のEvidenceを確認する。外部AIサービスへ登録する場合は、その登録内容も別途確認する。既存未commit変更の破棄・退避・上書きによる同期は行わない。
 
 Reviewerを含むPersonaの機能設計はEvidenceなしに再検討しない。完了済みの文書適合性復旧を、Evidenceなしに再作業対象へ戻さない。`ASKME 迎合禁止` と7文書配置を未決事項へ戻さない。Education用の基本体系は4Gemであり、`Researcher Deep Research` はResearcher Personaを使う追加Gemとして扱う。
 
