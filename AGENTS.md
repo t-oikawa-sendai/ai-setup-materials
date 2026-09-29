@@ -154,7 +154,7 @@ ASKMEは品質確保のための判断ゲートであり、作業停止のため
 - `project-notes/CURRENT.md`: 現在地点のみ。完了事項、作業中、次工程を記載する。詳細設計や判断理由は記載しない。
 - `project-notes/YYYY-MM-DD-*.md`: 2026-08-23より前の判断経緯、復旧、監査Evidence、実装指示などの履歴・内部記録。新規の設計決定の代替正本としては使用しない。削除せず履歴として保持する。復旧・監査Evidenceなど、成果物本文以外の内部記録が必要な場合に限り新規作成できる。
 - `personas/education/`: 生徒向けAI Personaの正本。
-- `personas/reference/`: 実務構成の参考Persona。
+- `personas/reference/`: 実務構成の参考Persona。中核4種（ChatGPT・Claude・Cursor・Gemini）の本文の唯一の編集元（SSOT）は、同ディレクトリの `CHATGPT_PERSONA.md`、`CLAUDE_PERSONA.md`、`CURSOR_PERSONA.md`、`GEMINI_PERSONA.md` とする。`solacom_main` はこれらの本文を独立編集せず、正本への参照を保持する。個人パス等の実務固有の環境設定はPersona本文から分離し、利用環境側で保持する。
 - `personas/<区分>/setup/`: 各AIサービスの設定・運用資料。実際の文書を作成するときに配置し、記録目的だけで空ディレクトリやダミーファイルを作らない。
 
 Persona本文には、AIサービス固有のセットアップ手順・配置方法・操作手順を混在させない。設定・運用資料はPersonaとは別文書とし、設定方法と配置場所がAIサービスごとに異なるためAIサービス単位で管理する。
@@ -581,3 +581,18 @@ Solution Partner Version 1.5が `仮定を置いて進めた事項` を補足A�
 - Mandatory Rulesと衝突する仮定を、Mandatory Rulesを無視して実装する方式
 - 未決事項制御思想を再設計する方式
 - Persona本文へ `Decision & Rationale` を追加する方式
+
+### 2026-09-29
+
+#### 中核4種Reference Personaの本文編集元を一本化
+
+Decision:
+ChatGPT・Claude・Cursor・Geminiの本文の唯一の編集元（SSOT）を、本Repositoryの `personas/reference/CHATGPT_PERSONA.md`、`personas/reference/CLAUDE_PERSONA.md`、`personas/reference/CURSOR_PERSONA.md`、`personas/reference/GEMINI_PERSONA.md` とする。`solacom_main` の本文コピーは正本への参照へ置き換え、本文の独立編集元としない。個人パス等の実務固有の環境設定はPersona本文から分離し、利用環境側で保持する。
+
+この決定の対象は中核4種の本文編集元であり、Education・Lovable・Copilotの正本配置変更や、AIサービス上の登録実体の移行完了を意味しない。
+
+Reason:
+同一Personaの独立編集による更新差分と更新漏れ、および本文コピー先の相対リンク切れを防ぐため。
+
+Rejected:
+- 実務版を `solacom_main`、教材版を `ai-setup-materials` に置き、それぞれを独立した本文編集元として維持する方式

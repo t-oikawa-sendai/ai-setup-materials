@@ -2,10 +2,10 @@
 | Item（項目） | Value（値） |
 |---|---|
 | Document ID（文書ID） | STD-PERSONA-REFERENCE-INDEX-001 |
-| Version（バージョン） | 1.2 |
+| Version（バージョン） | 1.3 |
 | Status（ステータス） | Approved |
 | Created Date（作成日） | 2026-08-22 |
-| Last Updated（最終更新日） | 2026-09-23 |
+| Last Updated（最終更新日） | 2026-09-29 |
 | Owner（管理者） | t-oikawa-sendai |
 | Related Documents（関連文書） | [`../../README.md`](../../README.md)<br>[`../education/README.md`](../education/README.md)<br>[`CHATGPT_PERSONA.md`](CHATGPT_PERSONA.md)<br>[`CLAUDE_PERSONA.md`](CLAUDE_PERSONA.md)<br>[`CURSOR_PERSONA.md`](CURSOR_PERSONA.md)<br>[`GEMINI_PERSONA.md`](GEMINI_PERSONA.md)<br>[`PERSONA_OPERATION_CASE_STUDY.md`](PERSONA_OPERATION_CASE_STUDY.md)<br>[`CHAT_HANDOFF_TEMPLATE.md`](CHAT_HANDOFF_TEMPLATE.md)<br>[`PERSONA_PROMPT_TEMPLATE.md`](PERSONA_PROMPT_TEMPLATE.md) |
 
@@ -47,6 +47,8 @@ Education用4Gem＋1の現行手順として、そのまま流用しないでく
 - [`CLAUDE_PERSONA.md`](CLAUDE_PERSONA.md)：Claude Persona（Claudeペルソナ）
 - [`CURSOR_PERSONA.md`](CURSOR_PERSONA.md)：Cursor Persona（Cursorペルソナ）
 - [`GEMINI_PERSONA.md`](GEMINI_PERSONA.md)：Gemini Persona（Geminiペルソナ）
+
+この中核4種の本文の唯一の編集元（SSOT）は、上記4ファイルです。`solacom_main` には本文の独立編集元を置かず、これらの正本への参照を保持します。個人パス等の実務固有の環境設定はPersona本文から分離し、利用環境側で保持します。
 
 ## 5. Reference Operation Materials（AI運用参考資料）
 
@@ -116,3 +118,16 @@ Reference領域からEducationの現行Gemini構成を指す場合は `Education
 
 Reason:
 Gemini上では基本4Gemに `Researcher Deep Research` を追加して運用することが現行仕様であり、Reference入口だけ旧 `Education用4Gem` 表記を残すと、配布構成の実体数を誤解させるため。
+
+### 2026-09-29
+
+#### 中核4種Reference PersonaのSSOTを一本化
+
+Decision:
+ChatGPT・Claude・Cursor・Geminiの本文の唯一の編集元を、本ディレクトリの `CHATGPT_PERSONA.md`、`CLAUDE_PERSONA.md`、`CURSOR_PERSONA.md`、`GEMINI_PERSONA.md` とする。`solacom_main` の本文コピーは正本への参照へ置き換え、個人パス等の実務固有の環境設定は本文から分離して利用環境側で保持する。
+
+Reason:
+同一Personaの独立編集による更新差分と更新漏れ、および本文コピー先の相対リンク切れを防ぐため。
+
+Rejected:
+- 実務版を `solacom_main`、教材版を `ai-setup-materials` に置き、それぞれを独立した本文編集元として維持する方式
