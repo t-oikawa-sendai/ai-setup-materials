@@ -151,6 +151,7 @@ Status: CURRENT
   - 元Devcheckoutの既存未commit変更は保持。元Devcheckoutへの移行設定導入は未実施
   - 実機Cursorでの正本読込と外部AIサービスへの登録は未確認
   - 内部監査記録：[中核4種PersonaのSSOT検証記録](2026-09-29-core-persona-ssot-verification.md)
+  - 独立cloneはmainへ合わせ、正本本文・6環境値・ignoreを確認済み。自動ルール読込はUNVERIFIED。元Devcheckoutへの導入は未実施
 
 ## 作業中
 

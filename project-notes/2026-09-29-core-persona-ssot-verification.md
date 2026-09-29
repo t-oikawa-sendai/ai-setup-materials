@@ -5,7 +5,7 @@ Status: VERIFIED DOCUMENT CHANGES / RUNTIME UNVERIFIED
 
 ## 1. Scope and Baseline（対象と監査基準）
 
-本記録は、2026-09-29に設計担当が実ファイル・Git差分・GitHub保存内容を独立照合した結果を、User承認に従って記録担当が今回まとめた内部監査Evidenceである。監査対象は中核4種Reference PersonaのSSOT参照化と、その文書・設定変更の保存結果とする。実機確認は未実施であり、本記録を新しい運用方針やPersona正本の代替として扱わない。
+本記録は、2026-09-29に設計担当が実ファイル・Git差分・GitHub保存内容を独立照合した結果を、User承認に従って記録担当が今回まとめた内部監査Evidenceである。監査対象は中核4種Reference PersonaのSSOT参照化と、その文書・設定変更の保存結果とする。自動ルール読込の実機確認は未完了であり、本記録を新しい運用方針やPersona正本の代替として扱わない。
 
 - 対象PR：[solacom_main PR #21](https://github.com/t-oikawa-sendai/solacom_main/pull/21)。User承認によりmainへ反映済み。
 - 変更前main：[18f5ed1c06999796f165d121a513afac5d6347a3](https://github.com/t-oikawa-sendai/solacom_main/commit/18f5ed1c06999796f165d121a513afac5d6347a3)。
@@ -66,8 +66,8 @@ Status: VERIFIED DOCUMENT CHANGES / RUNTIME UNVERIFIED
 
 ## 7. Runtime Status and Exclusions（実機確認状況と対象外）
 
-- 元 `solacom_main` Devcheckoutへの移行設定導入と、導入先でのローカル環境設定作成・確認は未実施。
-- Cursor実機での正本取得、取得した正本パス・commitの確認、環境値解決は未確認。
+- 元 `solacom_main` Devcheckoutへの移行設定導入は未実施。独立検証cloneのローカル環境設定は追加検証で確認済み。
+- Cursorの自動ルール読込と新チャットでの正本取得・環境値解決はUNVERIFIED。手動確認の追加結果は第9章に記録する。
 - 外部AIサービスへの登録は未確認。登録する場合に、その登録内容を別途確認する。
 - ignored環境ファイルはGitHub配布に含まれない。導入先での作成・確認手順は、反映済みの[参照入口README](https://github.com/t-oikawa-sendai/solacom_main/blob/16c44976638b48c53ef16399b1d51217c540be0a/docs/standards/ai-personas/README.md)に保持されている。
 - Education・Lovable・Copilot、および既存31件の文書FAILは今回の変更対象外。
@@ -83,3 +83,18 @@ Userは「検証結果の要点を1文書にまとめ、`ai-setup-materials/proj
 
 Reason:
 文書変更の検証結果と実機未確認の範囲を、GitHub上で追跡可能な記録として残すため。
+
+## 9. Cursor Follow-up Verification（Cursor追加検証）
+
+### 2026-09-29 Follow-up Evidence（追加確認時点のEvidence）
+
+Userが提示したCursor実行結果を受け、設計担当がファイル・Git状態・ウィンドウの対象登録を独立照合した。以下は追加確認時点の結果であり、Devチャットでの手動確認と、検証用ウィンドウの新チャットでの自動ルール読込を区別する。
+
+- 独立検証cloneのHEAD／FETCH_HEADは反映後main [16c44976638b48c53ef16399b1d51217c540be0a](https://github.com/t-oikawa-sendai/solacom_main/commit/16c44976638b48c53ef16399b1d51217c540be0a)と一致し、GitHub mainも同じcommitを示した。checkoutはdetachedで、候補branch `codex/persona-ssot-20260929` はレビュー済み `c2fe54408e3767ec99fcfa60380a549c1131d790` を保持している。tracked／untrackedの非ignore変更は0件。
+- ignore対象は `.local-ops/` と `target/`。環境ファイルは [.gitignoreの32行目](https://github.com/t-oikawa-sendai/solacom_main/blob/16c44976638b48c53ef16399b1d51217c540be0a/.gitignore#L32)、`target/` は同ファイルの[5行目](https://github.com/t-oikawa-sendai/solacom_main/blob/16c44976638b48c53ef16399b1d51217c540be0a/.gitignore#L5)によりignoreされている。
+- 正本 `ai-setup-materials` のHEAD／origin/main／GitHub mainは [904252f53714acbffe59048dd1ab6dda7b45485e](https://github.com/t-oikawa-sendai/ai-setup-materials/commit/904252f53714acbffe59048dd1ab6dda7b45485e)で一致し、clean。CURSOR本文は204行、SHA-256は `3594c8892459f6ff19288b5a567cdb150733c6876af3945a897cc028beea210d` で、従前の正本本文と一致した。
+- 独立検証cloneの `.local-ops/persona-environment.md` は6キー `UserName / Author / DevRoot / BackupRoot / TestRoot / PersonaSourceRepository` を保持し、空欄・仮値はなく、既存の環境値と一致した。4つのディレクトリの実在も確認した。環境ファイルのSHA-256は `acaaf47e7e1232bc5fa7796cd640e2010f484a2a6948d6d60c82830b4d624169`。個人実パス・環境値そのものは本記録に記載しない。
+- 元Devcheckoutは、開始前の保存指紋とGit HEAD・状態、対象18ファイルのhash、submoduleのHEAD・状態・差分全体のSHA-256が一致した。元フォルダーへの移行設定導入は未実施。
+- Cursorの検証用window2は、RepositoryTracker登録とworkspaceStorageの対象が独立検証cloneと一致した。これはウィンドウの対象確認のEvidenceであり、自動ルール適用のEvidenceではない。
+- Cursor報告の正本本文全文読取と環境値解決はDevチャットでの手動確認である。検証用window2の新チャットでの自動ロードとは区別し、`.cursor/rules/00-cursor-persona.mdc` の実チャット自動読込はUNVERIFIEDのままとする。
+- 元Devcheckoutへの導入方法と既存未commit変更の採用・保全方法はUser判断待ち。未承認の導入案を採用済みとして扱わず、既存変更の破棄・退避・上書きによる同期禁止を維持する。
