@@ -150,6 +150,7 @@ Status: CURRENT
   - [PR #21](https://github.com/t-oikawa-sendai/solacom_main/pull/21) はUser承認により `solacom_main` の `main` へ反映済み（merge commit：`16c44976638b48c53ef16399b1d51217c540be0a`）
   - 元Devcheckoutの既存未commit変更は保持。元Devcheckoutへの移行設定導入は未実施
   - 実機Cursorでの正本読込と外部AIサービスへの登録は未確認
+  - 内部監査記録：[中核4種PersonaのSSOT検証記録](2026-09-29-core-persona-ssot-verification.md)
 
 ## 作業中
 
