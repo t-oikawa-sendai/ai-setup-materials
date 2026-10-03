@@ -160,6 +160,13 @@ Status: CURRENT
   - `CLAUDE_PERSONA.md` は変更していない
   - `Decision & Rationale` は同ファイルに記録（§5.4 の分離例外は適用していない）
 
+- 2026-10-03 Reference Claude Code設定資料を Version 1.1 / Status Approved へ更新
+  - `personas/reference/setup/CLAUDE_CODE_SETUP.md`
+  - Reference中核4種を Claude Code のサブエージェントとして使う構成と作り方を追記
+  - 定義ファイルへ正本の本文は複製せず、作業開始時に正本を読ませる
+  - §4.1 と §4.2 の記載例を、現行の `~/.claude/CLAUDE.md` と `~/Dev/CLAUDE.md` から写し直した
+  - 中核4種の Persona 本文は変更していない
+
 ## 作業中
 
 - Reference AI運用資料3文書 Version 0.1 / Draft の内容レビュー
@@ -168,14 +175,13 @@ Status: CURRENT
 
 1. Reference AI運用資料3文書 Version 0.1 / Draft をUserレビューし、必要な修正を反映する。
 2. 3文書の内容確定後、Version / Statusの昇格要否をUser判断する。
-3. Claude Code用サブエージェント（Reference中核Personaの移行）の検討。作成手順を本資料 §2.1 へ追記するかはUser判断。
-4. 新チャット開始時はGitHubとの同期状態を確認し、`project-notes/CURRENT.md` → `AGENTS.md` → 対象成果物MDの順に読む。
-5. `GEM_SOLUTION_PARTNER.md` Version 1.5 / Status Approved と、Version 1.1〜1.5の承認済み改善内容を確定事項として扱い、Evidenceなしに再検討しない。
-6. `GEM_CODE_GENERATOR.md` Version 2.2 / Status Approved と、Solution Partner v1.5の `補足A` 3区分引継ぎ規定を確定事項として扱い、Evidenceなしに再検討しない。
-7. Solution PartnerまたはCode Generatorの追加検証または修正は、Userの次指示または実利用で具体的な問題が確認された場合のみ行う。
-8. Education Reviewerの実利用確認は未実施の次工程として保持するが、Userの指示なく自動的に切り替えない。
-9. 対象外のPersona・設定資料へ変更を広げない。
-10. 既存未commit変更を保全した上で、導入先でローカル環境設定を作成・確認し、実機Cursorの正本読込・環境値解決のEvidenceを確認する。外部AIサービスへ登録する場合は、その登録内容も別途確認する。既存未commit変更の破棄・退避・上書きによる同期は行わない。
+3. 新チャット開始時はGitHubとの同期状態を確認し、`project-notes/CURRENT.md` → `AGENTS.md` → 対象成果物MDの順に読む。
+4. `GEM_SOLUTION_PARTNER.md` Version 1.5 / Status Approved と、Version 1.1〜1.5の承認済み改善内容を確定事項として扱い、Evidenceなしに再検討しない。
+5. `GEM_CODE_GENERATOR.md` Version 2.2 / Status Approved と、Solution Partner v1.5の `補足A` 3区分引継ぎ規定を確定事項として扱い、Evidenceなしに再検討しない。
+6. Solution PartnerまたはCode Generatorの追加検証または修正は、Userの次指示または実利用で具体的な問題が確認された場合のみ行う。
+7. Education Reviewerの実利用確認は未実施の次工程として保持するが、Userの指示なく自動的に切り替えない。
+8. 対象外のPersona・設定資料へ変更を広げない。
+9. 既存未commit変更を保全した上で、導入先でローカル環境設定を作成・確認し、実機Cursorの正本読込・環境値解決のEvidenceを確認する。外部AIサービスへ登録する場合は、その登録内容も別途確認する。既存未commit変更の破棄・退避・上書きによる同期は行わない。
 
 Reviewerを含むPersonaの機能設計はEvidenceなしに再検討しない。完了済みの文書適合性復旧を、Evidenceなしに再作業対象へ戻さない。`ASKME 迎合禁止` と7文書配置を未決事項へ戻さない。Education用の基本体系は4Gemであり、`Researcher Deep Research` はResearcher Personaを使う追加Gemとして扱う。
 

@@ -57,7 +57,7 @@ O講師が実際に使用・検証しているAI利用環境、設定、情報�
 - [`PERSONA_OPERATION_CASE_STUDY.md`](PERSONA_OPERATION_CASE_STUDY.md)：AI利用環境・設定・情報管理・運用方法の実践例
 - [`CHAT_HANDOFF_TEMPLATE.md`](CHAT_HANDOFF_TEMPLATE.md)：チャットやAIを切り替える際の状態移送テンプレート
 - [`PERSONA_PROMPT_TEMPLATE.md`](PERSONA_PROMPT_TEMPLATE.md)：BRIDGEを使って今回の依頼を整理するプロンプトテンプレート
-- [`setup/CLAUDE_CODE_SETUP.md`](setup/CLAUDE_CODE_SETUP.md)：Claude Desktop（Codeタブ）の `CLAUDE.md` 3層構成
+- [`setup/CLAUDE_CODE_SETUP.md`](setup/CLAUDE_CODE_SETUP.md)：Claude Desktop（Codeタブ）の `CLAUDE.md` 3層構成とサブエージェント
 
 ## 6. Usage Notes（利用上の注意）
 

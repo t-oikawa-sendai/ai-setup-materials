@@ -2,12 +2,12 @@
 | Item（項目） | Value（値） |
 |---|---|
 | Document ID（文書ID） | STD-PERSONA-REFERENCE-CLAUDE-CODE-SETUP-001 |
-| Version（バージョン） | 1.0 |
+| Version（バージョン） | 1.1 |
 | Status（ステータス） | Approved |
 | Created Date（作成日） | 2026-10-03 |
 | Last Updated（最終更新日） | 2026-10-03 |
 | Owner（管理者） | t-oikawa-sendai |
-| Related Documents（関連文書） | [`../README.md`](../README.md)<br>[`../CLAUDE_PERSONA.md`](../CLAUDE_PERSONA.md)<br>[`../PERSONA_OPERATION_CASE_STUDY.md`](../PERSONA_OPERATION_CASE_STUDY.md)<br>[`../../../README.md`](../../../README.md) |
+| Related Documents（関連文書） | [`../README.md`](../README.md)<br>[`../CHATGPT_PERSONA.md`](../CHATGPT_PERSONA.md)<br>[`../CLAUDE_PERSONA.md`](../CLAUDE_PERSONA.md)<br>[`../CURSOR_PERSONA.md`](../CURSOR_PERSONA.md)<br>[`../GEMINI_PERSONA.md`](../GEMINI_PERSONA.md)<br>[`../PERSONA_OPERATION_CASE_STUDY.md`](../PERSONA_OPERATION_CASE_STUDY.md)<br>[`../../../README.md`](../../../README.md) |
 
 ---
 
@@ -15,7 +15,7 @@
 
 ## 1. Purpose（目的）
 
-この文書は、職業訓練校でIT教育を担当する **O講師** が、Claude Desktop の Codeタブで使っている `CLAUDE.md` の3層構成と、その利用環境を示す Reference 用の設定資料です。
+この文書は、職業訓練校でIT教育を担当する **O講師** が、Claude Desktop の Codeタブで使っている `CLAUDE.md` の3層構成、Reference中核4種のサブエージェント、およびその利用環境を示す Reference 用の設定資料です。
 
 Web版の Project で Persona を使い分けている利用者が、Claude Code で同じ考え方の常時指示を置くときの参考にします。
 
@@ -46,7 +46,7 @@ Chatタブの Project は、プロジェクト指示とナレッジを持つ作�
 
 Codeタブは Web版 Project を開く画面ではありません。Help Center には、既存の Project とスケジュールタスクは Claude Code へ引き継がれない、という記載もあります。Codeタブで常時指示として使うのは、選んだ作業フォルダ側の `CLAUDE.md` です。
 
-Codeタブには、作業フォルダとは別にサブエージェントがあります。定義ファイルは、その作業の `.claude/agents/`、またはすべての作業に使う `~/.claude/agents/` に置きます。この資料では置き場所の説明までにします。作成手順は対象外です。
+Codeタブには、作業フォルダとは別にサブエージェントがあります。定義ファイルは、その作業の `.claude/agents/`、またはすべての作業に使う `~/.claude/agents/` に置きます。Reference中核4種の構成と作り方は §7 に書きます。
 
 ### 2.2 Web版Projectと Codeタブの対応
 
@@ -125,6 +125,7 @@ flowchart TB
 | Desktop の Chat / Cowork / Code、Codeタブの作業フォルダ、Desktop と CLI が `CLAUDE.md` を共有すること | VERIFIED | [Desktop application](https://code.claude.com/docs/en/desktop) 、[Desktop quickstart](https://code.claude.com/docs/en/desktop-quickstart) |
 | Project がプロジェクト指示とナレッジを持つこと。Project がすべての画面で使え、Project からチャットを開始できること。ローカルフォルダ結び付きの例外。既存 Project が Claude Code へ引き継がれないという記載 | VERIFIED | [What are projects?](https://support.claude.com/en/articles/9517075-what-are-projects) 、[Use Claude Cowork on web, desktop, and mobile](https://support.claude.com/en/articles/15520349-use-claude-cowork-on-web-desktop-and-mobile) |
 | サブエージェント定義の置き場所（`.claude/agents/`、`~/.claude/agents/`） | VERIFIED | [Subagents](https://code.claude.com/docs/en/sub-agents) |
+| ローカルサブエージェントの手動呼び出し（`@agent-`）。セッション開始時に無かった `agents` ディレクトリは、再起動するまで読み込まれない | VERIFIED | [Subagents](https://code.claude.com/docs/en/sub-agents) |
 | 下位の `CLAUDE.md` が上位を機械的に上書きすること | 公式では未確認。連結と、矛盾時の任意選択が記載されている | 同上の memory ページ |
 | クラウド同期フォルダを作業フォルダに選んだとき、その選択が次回も保持されるか | UNVERIFIED | 確認した公式ページには該当する記載が無かった |
 
@@ -184,6 +185,8 @@ AIサービス、外部ツール、ライブラリの画面・機能・仕様・
 - 依頼の条件が不足し、結果が大きく変わる場合だけ確認する。
   軽微な不明点は ASSUMPTION として明記して進める。
 - 削除・移動・上書き、外部への送信・公開の前は止まって確認する。
+- 利用者への作業依頼は1回に1つ（1 Step）にする。
+  複数の手順を一度に依頼せず、結果を確認してから次を示す。
 ````
 
 ### 4.2 ② 開発領域
@@ -224,8 +227,10 @@ AIサービス、外部ツール、ライブラリの画面・機能・仕様・
 
 ## 3. Standards SSOT（標準文書の正本）
 
-- 標準文書・Persona・配布用AGENTS.md の正本は
-  `solacom_main/docs/standards/` にある。
+- 標準文書・配布用AGENTS.md の正本は `solacom_main/docs/standards/` にある。
+- 中核4種Persona（ChatGPT・Claude・Cursor・Gemini）の本文の正本は
+  `ai-setup-materials/personas/reference/` にある。
+  `solacom_main` 側は正本への参照であり、本文の編集元ではない。
 - 各Repositoryの `AGENTS.md` 等で `LOCAL_EDIT_POLICY: PROHIBITED` とあるものは、
   配布コピーである。直接編集せず、正本側の変更として扱う。
 - 管理Repository一覧は次を参照する。
@@ -383,13 +388,136 @@ Claude Code は `AGENTS.md` を自動で読み込みません。開発領域の�
 | 実装 | 本実装コードを作成・投入しない。実装修正指示、設計見直し要請、レビュー結果を出す | ファイルの作成と編集を自身が行う |
 | 置き場所の想定 | レビュー担当のサブエージェント、または Chatタブの Project | 作業フォルダと、その親、および `~/.claude/CLAUDE.md` |
 
-レビュー専任の指示を Codeタブの常時指示にすると、ファイルを編集するセッションの役割と重なります。レビューが必要なときは、`CLAUDE_PERSONA.md` をサブエージェント（レビュー担当）として使うか、Chatタブの Project に置きます。サブエージェント定義ファイルの作成手順は、この資料の対象外です。
+レビュー専任の指示を Codeタブの常時指示にすると、ファイルを編集するセッションの役割と重なります。レビューが必要なときは、`CLAUDE_PERSONA.md` をサブエージェント（レビュー担当）として使うか、Chatタブの Project に置きます。サブエージェント定義ファイルの作り方は §7 に書きます。
 
 中核4種の Persona 本文は、各 AI サービスの設定手順を含みません。Claude Code の置き場所と読み方は、この設定資料に置きます。
 
 ---
 
-## 7. Navigation（導線）
+## 7. サブエージェント（Reference中核4種）
+
+O講師は、Reference の中核4種を Claude Code のサブエージェントとして使っています。定義ファイルに Persona の本文は複製しません。2026-09-29 の決定で、中核4種の本文の編集元は次の4ファイルに一本化されています。定義ファイルは、作業開始時にその正本を読ませます。読めない場合は作業しません。
+
+| 正本 | ファイル |
+|---|---|
+| ChatGPT | [`CHATGPT_PERSONA.md`](../CHATGPT_PERSONA.md) |
+| Claude | [`CLAUDE_PERSONA.md`](../CLAUDE_PERSONA.md) |
+| Cursor | [`CURSOR_PERSONA.md`](../CURSOR_PERSONA.md) |
+| Gemini | [`GEMINI_PERSONA.md`](../GEMINI_PERSONA.md) |
+
+### 7.1 置き場所
+
+| 置き場所 | 効く範囲 |
+|---|---|
+| `~/.claude/agents/` | その利用者のすべての作業 |
+| 作業フォルダの `.claude/agents/` | その作業フォルダ |
+
+公式の [Subagents](https://code.claude.com/docs/en/sub-agents) で、この2か所を確認しています。確認日は **2026-10-03** です。同じページの他の確認は §3.4 にまとめています。
+
+### 7.2 4つの定義ファイル
+
+この4件では、ファイル名と frontmatter の `name` が同じです。呼び出すときは、§7.5 の `@agent-<name>` を使います。
+
+| ファイル | サブエージェント | 正本 | 付与ツール |
+|---|---|---|---|
+| `reviewer.md` | reviewer（レビュー担当） | Claude / [`CLAUDE_PERSONA.md`](../CLAUDE_PERSONA.md) | Read, Grep, Glob, Bash |
+| `implementer.md` | implementer（実装担当） | Cursor / [`CURSOR_PERSONA.md`](../CURSOR_PERSONA.md) | Read, Grep, Glob, Edit, Write, Bash |
+| `architect.md` | architect（設計担当） | ChatGPT / [`CHATGPT_PERSONA.md`](../CHATGPT_PERSONA.md) | Read, Grep, Glob, Bash, WebFetch, WebSearch |
+| `researcher.md` | researcher（調査担当） | Gemini / [`GEMINI_PERSONA.md`](../GEMINI_PERSONA.md) | Read, Grep, Glob, WebFetch, WebSearch |
+
+設計は次のとおりです。
+
+- 定義ファイルに正本の本文を複製しない。作業開始時に正本を Read で全文読み、その本文に従って行動する。読めなければ作業せず、読めなかった旨だけを報告して終了する。
+- 正本にある他AIの名前は、読み替え表でサブエージェント名に対応させる。
+- 他AIへの指示や引き継ぎは、呼び出し元への報告の中の節として出力する。サブエージェント同士は呼び合わせない。Agent ツールは付与しない。
+- 担当外の操作は、付与ツールの制限でも防ぐ。reviewer、architect、researcher には Edit / Write を付与しない。
+
+### 7.3 記載例（reviewer.md）
+
+次は `~/.claude/agents/reviewer.md` の全文です。ホームディレクトリのユーザー名は `【ユーザー名】` に置き換えています。表示幅を半角90以内にするため、`description` だけを行末の `\` で折り返しています。YAML として解釈した値は、実ファイルの1行と同じです。
+
+```markdown
+---
+name: reviewer
+description: "レビュー担当（Reference CLAUDE_PERSONA）。\
+  コード・差分・PR、正本文書、AI制御資産（CLAUDE.md、AGENTS.md、\
+  サブエージェント定義等）のレビューと品質ゲート判定を依頼されたときに使う。\
+  ファイルは編集しない。"
+tools: Read, Grep, Glob, Bash
+color: red
+---
+
+# reviewer（レビュー担当）
+
+## 1. 正本の読込（必須）
+
+作業開始時に、次の正本を Read で全文読み、その本文に従って行動する。
+
+`/Users/【ユーザー名】/Dev/ai-setup-materials/personas/reference/CLAUDE_PERSONA.md`
+
+読めない場合は作業せず、読めなかった旨だけを報告して終了する。
+本ファイルに正本の本文を複製しない。正本の更新はGitHub上のRepositoryで行う。
+
+## 2. Claude Code用の読み替え
+
+正本はWeb版・複数AI分業を前提に書かれている。Claude Codeでは次のように読み替える。
+
+| 正本の表記 | 読み替え |
+|---|---|
+| ChatGPT | architect（設計担当サブエージェント） |
+| Cursor | implementer（実装担当サブエージェント） |
+| Claude | reviewer（本サブエージェント） |
+| Gemini | researcher（調査担当サブエージェント） |
+| `userPreferences` / 環境定義 | 適用中の CLAUDE.md |
+
+- 「Cursor向け実装修正指示」「ChatGPT向け設計見直し要請」は、
+  呼び出し元への報告の中に節として出力する。他のサブエージェントを自分で呼ばない。
+- 優先順位：利用者の最新指示 → 対象Repositoryの CONSTITUTION.md / AGENTS.md → 正本。
+  矛盾を見つけた場合は報告する。
+
+## 3. 本サブエージェントの制約
+
+- ファイルを作成・編集しない（Edit / Write は付与していない）。
+- Bash は、差分・履歴・状態の確認と既存テストの実行に限る。
+  ファイルの変更、git の add / commit / push / checkout 等の状態変更は行わない。
+```
+
+### 7.4 他の3ファイル
+
+3ファイルとも、構成は reviewer と同じです。正本を読み、読み替え表を持ち、制約を書きます。次の表は、正本のパス、付与ツール、読み替え表で自分を指す行です。
+
+| ファイル | 正本 | 付与ツール | 読み替え表の自分の行 |
+|---|---|---|---|
+| `implementer.md` | `/Users/【ユーザー名】/Dev/ai-setup-materials/personas/reference/CURSOR_PERSONA.md` | Read, Grep, Glob, Edit, Write, Bash | Cursor → implementer（本サブエージェント） |
+| `architect.md` | `/Users/【ユーザー名】/Dev/ai-setup-materials/personas/reference/CHATGPT_PERSONA.md` | Read, Grep, Glob, Bash, WebFetch, WebSearch | ChatGPT → architect（本サブエージェント） |
+| `researcher.md` | `/Users/【ユーザー名】/Dev/ai-setup-materials/personas/reference/GEMINI_PERSONA.md` | Read, Grep, Glob, WebFetch, WebSearch | Gemini → researcher（本サブエージェント） |
+
+### 7.5 呼び出し方
+
+呼び出しは `@agent-<name>` です。`<name>` は定義ファイルの `name` です。
+
+```text
+@agent-reviewer
+@agent-implementer
+@agent-architect
+@agent-researcher
+```
+
+公式の Subagents ページでは、ローカルサブエージェントを手入力するときの形が `@agent-` です。確認日は **2026-10-03** です。
+
+新しく作った `agents` フォルダは、セッションを再起動するまで認識されません。公式では、セッション開始時にそのディレクトリが無かった場合がこの対象です。
+
+### 7.6 動作確認（2026-10-03）
+
+2026-10-03 の確認結果は次のとおりです。
+
+- 4件とも正本を読み込み、Document ID / Version を報告した。
+- reviewer はファイル作成依頼を断り、ファイルは作られなかった。
+- 断った理由は役割判断であり、ツール制限でブロックされる場面は発生していない。
+
+---
+
+## 8. Navigation（導線）
 
 - Reference 資料の入口：[`../README.md`](../README.md)
 - Claude の Reference Persona（レビュー専任）：[`../CLAUDE_PERSONA.md`](../CLAUDE_PERSONA.md)
@@ -432,3 +560,23 @@ Rejected:
 - 全体共通、領域、Repository の規則を1つの `CLAUDE.md` にまとめる方式
 - 各 Repository の `AGENTS.md` を、その Repository の `CLAUDE.md` へ複製する方式
 - User決定がないまま、`Decision & Rationale` を `project-notes/` の管理用 Decision ファイルへ分離する方式
+
+### 2026-10-03
+
+#### Reference中核4種のサブエージェント化をこの資料へ書く
+
+Decision:
+
+同日の決定「サブエージェント化の手順は、この資料に書かない」を、User決定（2026-10-03）により更新する。Reference中核4種を Claude Code のサブエージェントとして運用する構成と作り方を、この資料の §7 に書く。
+
+定義ファイルに正本の本文は複製しない。作業開始時に正本を読ませる。読めない場合は作業しない。これは、2026-09-29 の中核4種 SSOT（本文の編集元は `personas/reference/` の `CHATGPT_PERSONA.md`、`CLAUDE_PERSONA.md`、`CURSOR_PERSONA.md`、`GEMINI_PERSONA.md`）を維持するためである。
+
+正本にある他AIの名前は、読み替え表でサブエージェント名に対応させる。他AIへの指示や引き継ぎは、呼び出し元への報告の中の節として出力する。サブエージェント同士は呼び合わせない。Agent ツールは付与しない。reviewer、architect、researcher には Edit / Write を付与しない。
+
+Reason:
+
+サブエージェントの定義ファイルへ正本の本文を置くと、本文の編集元が正本と定義ファイルの両方になる。2026-09-29 の決定は、同一 Persona の独立した編集による更新差分と更新漏れを防ぐために、編集元を4ファイルへ一本化した。定義ファイルは正本の所在、Claude Code 向けの読み替え、付与ツールの範囲だけを持ち、本文の更新は Repository の正本で行う。
+
+Rejected:
+
+- 正本の本文をサブエージェント定義ファイルへ複製する方式。コピーが独立した編集元になり、2026-09-29 の SSOT（中核4種の本文編集元の一本化）に反するため。
