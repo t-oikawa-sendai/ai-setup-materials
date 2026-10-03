@@ -2,8 +2,8 @@
 | Item（項目） | Value（値） |
 |---|---|
 | Document ID（文書ID） | STD-PERSONA-REFERENCE-CLAUDE-CODE-SETUP-001 |
-| Version（バージョン） | 0.1 |
-| Status（ステータス） | Draft |
+| Version（バージョン） | 1.0 |
+| Status（ステータス） | Approved |
 | Created Date（作成日） | 2026-10-03 |
 | Last Updated（最終更新日） | 2026-10-03 |
 | Owner（管理者） | t-oikawa-sendai |

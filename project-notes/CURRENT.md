@@ -153,7 +153,7 @@ Status: CURRENT
   - 内部監査記録：[中核4種PersonaのSSOT検証記録](2026-09-29-core-persona-ssot-verification.md)
   - 独立cloneはmainへ合わせ、正本本文・6環境値・ignoreを確認済み。自動ルール読込はUNVERIFIED。元Devcheckoutへの導入は未実施
 
-- 2026-10-03 Reference Claude Code設定資料 Version 0.1 / Draft を追加
+- 2026-10-03 Reference Claude Code設定資料を Version 1.0 / Status Approved へ昇格（User承認日：2026-10-03）
   - `personas/reference/setup/CLAUDE_CODE_SETUP.md`
   - Claude Desktop（Codeタブ）の `CLAUDE.md` 3層構成（全体共通、業務・開発領域、Repository）
   - 配置は `personas/reference/setup/`（AIサービス単位）
@@ -162,13 +162,13 @@ Status: CURRENT
 
 ## 作業中
 
-- `personas/reference/setup/CLAUDE_CODE_SETUP.md` Version 0.1 / Draft のUserレビュー
+- Reference AI運用資料3文書 Version 0.1 / Draft の内容レビュー
 
 ## 次工程
 
-1. `personas/reference/setup/CLAUDE_CODE_SETUP.md` Version 0.1 / Draft をUserレビューし、必要な修正を反映する。内容確定後、Version / Status の昇格要否をUser判断する。
-2. Reference AI運用資料3文書 Version 0.1 / Draft をUserレビューし、必要な修正を反映する。
-3. 3文書の内容確定後、Version / Statusの昇格要否をUser判断する。
+1. Reference AI運用資料3文書 Version 0.1 / Draft をUserレビューし、必要な修正を反映する。
+2. 3文書の内容確定後、Version / Statusの昇格要否をUser判断する。
+3. Claude Code用サブエージェント（Reference中核Personaの移行）の検討。作成手順を本資料 §2.1 へ追記するかはUser判断。
 4. 新チャット開始時はGitHubとの同期状態を確認し、`project-notes/CURRENT.md` → `AGENTS.md` → 対象成果物MDの順に読む。
 5. `GEM_SOLUTION_PARTNER.md` Version 1.5 / Status Approved と、Version 1.1〜1.5の承認済み改善内容を確定事項として扱い、Evidenceなしに再検討しない。
 6. `GEM_CODE_GENERATOR.md` Version 2.2 / Status Approved と、Solution Partner v1.5の `補足A` 3区分引継ぎ規定を確定事項として扱い、Evidenceなしに再検討しない。
