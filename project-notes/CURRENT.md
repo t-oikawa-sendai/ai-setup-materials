@@ -1,6 +1,6 @@
 # CURRENT
 
-Last Updated: 2026-09-29
+Last Updated: 2026-10-03
 Status: CURRENT
 
 ## PURPOSE
@@ -153,21 +153,29 @@ Status: CURRENT
   - 内部監査記録：[中核4種PersonaのSSOT検証記録](2026-09-29-core-persona-ssot-verification.md)
   - 独立cloneはmainへ合わせ、正本本文・6環境値・ignoreを確認済み。自動ルール読込はUNVERIFIED。元Devcheckoutへの導入は未実施
 
+- 2026-10-03 Reference Claude Code設定資料 Version 0.1 / Draft を追加
+  - `personas/reference/setup/CLAUDE_CODE_SETUP.md`
+  - Claude Desktop（Codeタブ）の `CLAUDE.md` 3層構成（全体共通、業務・開発領域、Repository）
+  - 配置は `personas/reference/setup/`（AIサービス単位）
+  - `CLAUDE_PERSONA.md` は変更していない
+  - `Decision & Rationale` は同ファイルに記録（§5.4 の分離例外は適用していない）
+
 ## 作業中
 
-- Reference AI運用資料3文書 Version 0.1 / Draft の内容レビュー
+- `personas/reference/setup/CLAUDE_CODE_SETUP.md` Version 0.1 / Draft のUserレビュー
 
 ## 次工程
 
-1. Reference AI運用資料3文書 Version 0.1 / Draft をUserレビューし、必要な修正を反映する。
-2. 3文書の内容確定後、Version / Statusの昇格要否をUser判断する。
-3. 新チャット開始時はGitHubとの同期状態を確認し、`project-notes/CURRENT.md` → `AGENTS.md` → 対象成果物MDの順に読む。
-4. `GEM_SOLUTION_PARTNER.md` Version 1.5 / Status Approved と、Version 1.1〜1.5の承認済み改善内容を確定事項として扱い、Evidenceなしに再検討しない。
-5. `GEM_CODE_GENERATOR.md` Version 2.2 / Status Approved と、Solution Partner v1.5の `補足A` 3区分引継ぎ規定を確定事項として扱い、Evidenceなしに再検討しない。
-6. Solution PartnerまたはCode Generatorの追加検証または修正は、Userの次指示または実利用で具体的な問題が確認された場合のみ行う。
-7. Education Reviewerの実利用確認は未実施の次工程として保持するが、Userの指示なく自動的に切り替えない。
-8. 対象外のPersona・設定資料へ変更を広げない。
-9. 既存未commit変更を保全した上で、導入先でローカル環境設定を作成・確認し、実機Cursorの正本読込・環境値解決のEvidenceを確認する。外部AIサービスへ登録する場合は、その登録内容も別途確認する。既存未commit変更の破棄・退避・上書きによる同期は行わない。
+1. `personas/reference/setup/CLAUDE_CODE_SETUP.md` Version 0.1 / Draft をUserレビューし、必要な修正を反映する。内容確定後、Version / Status の昇格要否をUser判断する。
+2. Reference AI運用資料3文書 Version 0.1 / Draft をUserレビューし、必要な修正を反映する。
+3. 3文書の内容確定後、Version / Statusの昇格要否をUser判断する。
+4. 新チャット開始時はGitHubとの同期状態を確認し、`project-notes/CURRENT.md` → `AGENTS.md` → 対象成果物MDの順に読む。
+5. `GEM_SOLUTION_PARTNER.md` Version 1.5 / Status Approved と、Version 1.1〜1.5の承認済み改善内容を確定事項として扱い、Evidenceなしに再検討しない。
+6. `GEM_CODE_GENERATOR.md` Version 2.2 / Status Approved と、Solution Partner v1.5の `補足A` 3区分引継ぎ規定を確定事項として扱い、Evidenceなしに再検討しない。
+7. Solution PartnerまたはCode Generatorの追加検証または修正は、Userの次指示または実利用で具体的な問題が確認された場合のみ行う。
+8. Education Reviewerの実利用確認は未実施の次工程として保持するが、Userの指示なく自動的に切り替えない。
+9. 対象外のPersona・設定資料へ変更を広げない。
+10. 既存未commit変更を保全した上で、導入先でローカル環境設定を作成・確認し、実機Cursorの正本読込・環境値解決のEvidenceを確認する。外部AIサービスへ登録する場合は、その登録内容も別途確認する。既存未commit変更の破棄・退避・上書きによる同期は行わない。
 
 Reviewerを含むPersonaの機能設計はEvidenceなしに再検討しない。完了済みの文書適合性復旧を、Evidenceなしに再作業対象へ戻さない。`ASKME 迎合禁止` と7文書配置を未決事項へ戻さない。Education用の基本体系は4Gemであり、`Researcher Deep Research` はResearcher Personaを使う追加Gemとして扱う。
 
@@ -186,6 +194,7 @@ Reviewerを含むPersonaの機能設計はEvidenceなしに再検討しない。
 - Reference AI運用実践例：`personas/reference/PERSONA_OPERATION_CASE_STUDY.md`
 - Reference Chat Handoff Template：`personas/reference/CHAT_HANDOFF_TEMPLATE.md`
 - Reference Prompt Template：`personas/reference/PERSONA_PROMPT_TEMPLATE.md`
+- Reference Claude Code設定資料：`personas/reference/setup/CLAUDE_CODE_SETUP.md`
 - Reference AI運用資料判断履歴：`project-notes/2026-09-23-persona-operation-case-study-decisions.md`
 - 現行仕様の判断理由：原則として各成果物MDの `Decision & Rationale`。Education Reviewerは `project-notes/GEM_REVIEWER_DECISIONS.md`
 - 2026-08-23より前の判断経緯・復旧・監査Evidence：`project-notes/YYYY-MM-DD-*.md`（履歴。現行仕様の代替正本ではない）
