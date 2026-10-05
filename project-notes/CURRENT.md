@@ -1,6 +1,6 @@
 # CURRENT
 
-Last Updated: 2026-10-03
+Last Updated: 2026-10-05
 Status: CURRENT
 
 ## PURPOSE
@@ -167,6 +167,16 @@ Status: CURRENT
   - §4.1 と §4.2 の記載例を、現行の `~/.claude/CLAUDE.md` と `~/Dev/CLAUDE.md` から写し直した
   - 中核4種の Persona 本文は変更していない
 
+- 2026-10-05 Researcher系Persona 4ファイルを Version 1.1 / Status Approved へ更新（User承認日：2026-10-05）
+  - `personas/education/GEM_RESEARCHER_FULL.md`、`GEM_RESEARCHER_LEARNING_DEVELOPMENT.md`、`GEM_RESEARCHER_DEVELOPMENT.md`、`personas/reference/GEMINI_PERSONA.md`
+  - Researcher Gem（Version 1.0）が二次記事を要約しただけで確認済み事実として提示したインシデントへの対策
+  - 提示資料の扱い（要約依頼と真偽確認の区別、資料性質の確認、主張ごとの振り分け、循環根拠の禁止）を追加。Education 3種は同一文
+  - Reference版は9章の停止条件を限定し、11章の誤り時の原因を「確認できない場合は未特定」へ変更
+  - Reference版冒頭の責務分担を「設計：ChatGPT、Gemini Gem、Owner」「実装：Cursor」「レビュー：Claude、ChatGPT、Owner」へ修正（User指示）
+  - 判断履歴は `project-notes/RESEARCHER_PERSONA_DECISIONS.md` へ分離し、各PersonaからHTMLコメントで参照（§5.4 の分離例外をUser決定により適用）
+  - 内部記録：`project-notes/2026-10-05-researcher-persona-incident-record.md`
+  - テスト用Gemでの実動検証は未実施。本番Gemは実動検証の合格まで Version 1.0 を維持
+
 ## 作業中
 
 - Reference AI運用資料3文書 Version 0.1 / Draft の内容レビュー
@@ -182,6 +192,7 @@ Status: CURRENT
 7. Education Reviewerの実利用確認は未実施の次工程として保持するが、Userの指示なく自動的に切り替えない。
 8. 対象外のPersona・設定資料へ変更を広げない。
 9. 既存未commit変更を保全した上で、導入先でローカル環境設定を作成・確認し、実機Cursorの正本読込・環境値解決のEvidenceを確認する。外部AIサービスへ登録する場合は、その登録内容も別途確認する。既存未commit変更の破棄・退避・上書きによる同期は行わない。
+10. Researcher系Persona Version 1.1 の実動検証を、テスト用Gemで Version 1.0 と比較して実施する（内部記録の第6章）。合格後に本番Gem（`Researcher`、`Researcher Deep Research`）へ反映する。
 
 Reviewerを含むPersonaの機能設計はEvidenceなしに再検討しない。完了済みの文書適合性復旧を、Evidenceなしに再作業対象へ戻さない。`ASKME 迎合禁止` と7文書配置を未決事項へ戻さない。Education用の基本体系は4Gemであり、`Researcher Deep Research` はResearcher Personaを使う追加Gemとして扱う。
 
