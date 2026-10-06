@@ -1,6 +1,6 @@
 # CURRENT
 
-Last Updated: 2026-10-05
+Last Updated: 2026-10-06
 Status: CURRENT
 
 ## PURPOSE
@@ -180,6 +180,7 @@ Status: CURRENT
 ## 作業中
 
 - Reference AI運用資料3文書 Version 0.1 / Draft の内容レビュー
+- 2026-10-06 Reference ChatGPT Persona `personas/reference/CHATGPT_PERSONA.md` を Version 1.2（提案） / Status Draft として反映。評価対象のDraftであり、Approvedではなく実動検証も未実施
 
 ## 次工程
 
