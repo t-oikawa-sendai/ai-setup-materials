@@ -181,14 +181,18 @@ Status: CURRENT
 
 - Reference AI運用資料3文書 Version 0.1 / Draft の内容レビュー
 - 2026-10-06 Reference ChatGPT Persona `personas/reference/CHATGPT_PERSONA.md` を Version 1.2（提案） / Status Draft として反映。評価対象のDraftであり、Approvedではなく実動検証も未実施
+- 2026-10-06 決定の保留と仮定の実装利用許可を分離する規則（`実装利用：可／不可`）を、Draftとして3 Personaへ反映。Approvedではなく実動検証も未実施
+  - `personas/education/GEM_SOLUTION_PARTNER.md` Version 1.6（提案） / Draft（最終Approvedは1.5）
+  - `personas/education/GEM_CODE_GENERATOR.md` Version 2.3（提案） / Draft（最終Approvedは2.2）
+  - `personas/reference/CURSOR_PERSONA.md` Version 1.1（提案） / Draft（最終Approvedは1.0）
 
 ## 次工程
 
 1. Reference AI運用資料3文書 Version 0.1 / Draft をUserレビューし、必要な修正を反映する。
 2. 3文書の内容確定後、Version / Statusの昇格要否をUser判断する。
 3. 新チャット開始時はGitHubとの同期状態を確認し、`project-notes/CURRENT.md` → `AGENTS.md` → 対象成果物MDの順に読む。
-4. `GEM_SOLUTION_PARTNER.md` Version 1.5 / Status Approved と、Version 1.1〜1.5の承認済み改善内容を確定事項として扱い、Evidenceなしに再検討しない。
-5. `GEM_CODE_GENERATOR.md` Version 2.2 / Status Approved と、Solution Partner v1.5の `補足A` 3区分引継ぎ規定を確定事項として扱い、Evidenceなしに再検討しない。
+4. `GEM_SOLUTION_PARTNER.md` の最終Approved版 Version 1.5 と、Version 1.1〜1.5の承認済み改善内容を確定事項として扱い、Evidenceなしに再検討しない。Version 1.6（提案） / Draftの採否はUser判断とする。
+5. `GEM_CODE_GENERATOR.md` の最終Approved版 Version 2.2 と、Solution Partner v1.5の `補足A` 3区分引継ぎ規定を確定事項として扱い、Evidenceなしに再検討しない。Version 2.3（提案） / Draftの採否はUser判断とする。
 6. Solution PartnerまたはCode Generatorの追加検証または修正は、Userの次指示または実利用で具体的な問題が確認された場合のみ行う。
 7. Education Reviewerの実利用確認は未実施の次工程として保持するが、Userの指示なく自動的に切り替えない。
 8. 対象外のPersona・設定資料へ変更を広げない。

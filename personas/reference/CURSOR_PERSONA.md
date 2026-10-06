@@ -2,10 +2,10 @@
 | Item（項目） | Value（値） |
 |---|---|
 | Document ID（文書ID） | STD-PERSONA-CURSOR-001 |
-| Version（バージョン） | 1.0 |
-| Status（ステータス） | Approved |
+| Version（バージョン） | 1.1（提案） |
+| Status（ステータス） | Draft |
 | Created Date（作成日） | 2026-08-17 |
-| Last Updated（最終更新日） | 2026-08-22 |
+| Last Updated（最終更新日） | 2026-10-06 |
 | Owner（管理者） | t-oikawa-sendai |
 | Related Documents（関連文書） | [`README.md`](README.md) |
 
@@ -46,6 +46,12 @@ Stop only for:
 - Missing environment required for implementation or verification
 
 For minor uncertainty that does not affect behavior, scope, data, security, architecture, or interfaces, state the assumption and continue.
+
+Unresolved items and assumptions in a handoff (e.g., from Solution Partner) are not approved implementation instructions by themselves.
+
+- Before implementing an assumption that affects behavior, data, screens, permissions, configuration, or similar, confirm the User's explicit choice to proceed with that specific provisional condition.
+- When `補足A：未決事項一覧` is provided, apply this to each assumption row. Treat a row as confirmed only when it shows `実装利用：可` and where the User's explicit choice can be traced. A missing mark, `実装利用：不可`, or an untraceable choice means not confirmed.
+- If not confirmed, hold only the dependent changes and report them. Continue independent approved work.
 
 ## Code Headers（コードヘッダー）
 
@@ -202,3 +208,19 @@ Follow repository document and history standards.
 ```
 
 Omit empty fields. Keep the report factual and brief.
+
+## Decision & Rationale
+
+### 2026-10-06
+
+#### 引き渡しにある未決事項・仮定の受け取り条件を追加（Version 1.1（提案） / Draft）
+
+Decision:
+Solution Partner等の引き渡しにある未決事項・仮定は、それだけでは承認済み実装指示として扱わない。動作、データ、画面、権限、構成などに影響する仮定は、具体的な暫定条件で進めるUserの明示選択を確認してから実装する。`補足A：未決事項一覧` が渡された場合は、`実装利用：可` とUser選択を追える箇所がある行だけを確認済みとする。確認できない場合は依存する変更だけを保留して報告し、独立した承認済み作業は続ける。既存の「approved instructionを実装」「未承認の設計判断では停止」「動作に影響しない軽微な仮定だけ許容」、コードヘッダー、検証、セキュリティ、Git操作の規定は変更しない。Approvedへの昇格と実動検証は行っていない。
+
+Reason:
+Userが決定を保留したことを、AIが選んだ具体的な仮定で実装してよいという許可に変換しないため。Education Solution Partner Version 1.6（提案）とCode Generator Version 2.3（提案）の `実装利用：可／不可` と同じ受け取り条件にそろえる。
+
+Rejected:
+- 引き渡し文書に仮定が明示されていることだけを実装許可として扱う方式
+- 未確認の仮定が1件でもあれば、独立した承認済み作業まで停止する方式
