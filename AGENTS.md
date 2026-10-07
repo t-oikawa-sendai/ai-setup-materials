@@ -627,3 +627,53 @@ Education用Solution Partnerを Version 1.6（提案） / Status Draft、Code Ge
 - 保留時に設計検討そのものを停止する方式
 - 未確認の仮定が1件でもあれば、独立した生成・作業まで停止する方式
 - Persona本文へ `Decision & Rationale` を追加する方式
+
+### 2026-10-07
+
+#### 対象Repository省略の是正対象を記録（本文是正は未着手）
+
+**Decision:**
+
+Userの「OK これを修正対象として記録」に基づき、次の修正対象と予定範囲を記録する。今回の承認は修正対象の確定と記録に対するものであり、修正本文の承認、PersonaのApprovedへの昇格、実動検証の完了を意味しない。今回は本記録と `project-notes/CURRENT.md` の現在地点だけを更新する。
+
+対象Repository：`t-oikawa-sendai/ai-setup-materials`（`https://github.com/t-oikawa-sendai/ai-setup-materials`）。確認したGitHub mainのHEAD：`a4ab5040ef06c249ca21fc4cc7bd534eabb4b529`。
+
+修正対象Persona：
+
+| 対象ファイル | 修正予定範囲 |
+|---|---|
+| `personas/reference/CHATGPT_PERSONA.md` | 実装・追加・修正指示で、対象Repositoryを毎回明記し、省略を禁止する規定 |
+| `personas/education/GEM_SOLUTION_PARTNER.md` | 実装担当への引き渡しで、対象Repositoryを毎回明記し、省略を禁止する規定 |
+| `personas/reference/CURSOR_PERSONA.md` | 指示された対象と実作業先の照合、および未記載・特定不能・不一致の場合の変更開始禁止 |
+| `personas/education/GEM_CODE_GENERATOR.md` | Repositoryを対象とする生成・修正依頼での対象情報確認と、不足時の扱い |
+| `personas/reference/CLAUDE_PERSONA.md` | 通常レビューから作る実装修正指示でも、対象Repositoryを明記する規定 |
+| `personas/education/GEM_REVIEWER.md` | Userがコピーして渡す修正指示で、対象Repositoryを明記する規定 |
+| `personas/reference/GEMINI_PERSONA.md` | Cursorへ実動確認事項を渡す場合に限り、対象Repositoryを明記する規定 |
+
+その他の修正対象文書：
+
+| 対象ファイル | 修正予定範囲・適用条件 |
+|---|---|
+| `AGENTS.md` | 指示された対象と実作業先の照合を、作業開始条件として明確化 |
+| `personas/reference/PERSONA_PROMPT_TEMPLATE.md` | Repository作業用の対象欄を追加し、簡易版でも省略不可とする規定 |
+| `personas/reference/CHAT_HANDOFF_TEMPLATE.md` | Repository作業では、既存の対象欄を省略不可とする規定 |
+| `personas/reference/setup/CLAUDE_CODE_SETUP.md` | 条件付き対象。Claude Code運用にも適用する場合、呼び出し・引き渡し例へ対象指定を追加し、Persona保管先と今回の作業対象を区別 |
+
+予定範囲の共通条件：
+
+- 指示に明記する情報は、Repository名（`owner/name`）、URL、作業branch、作業先の絶対パスとする。今回の `ai-setup-materials` だけを恒久的な作業対象としてPersonaへ固定しない。
+- 教育用Code Generatorへの規定は、Repositoryを対象とする生成・修正依頼に適用する。一般的な学習用サンプルの生成に、存在しないRepositoryを要求しない。Code GeneratorへGit操作・実環境照合の責務を追加しない。
+- `GEM_RESEARCHER_*`、各README、`PERSONA_OPERATION_CASE_STUDY.md` は、本件による直接の本文修正対象としない。
+- 各本文を改訂する際は、既定の判断履歴と `project-notes/CURRENT.md` も更新する。既存のDecisionを欠落させない。
+- 添付の利用中 `ChatGPT-Persona.txt` は、正本改訂後に登録内容を更新する対象として扱う。独立した本文編集元を増やさない。今回、添付ファイル・外部AIへの登録内容は変更しない。
+
+**Reason:**
+
+Userから、設計者が実装者への指示で対象Repositoryを省略することに起因するインシデントが頻発しているとの申告があった。GitHub mainと添付Personaを照合した結果、設計側の「対象」欄だけではRepository名・URLの毎回明記を要求しておらず、Cursor側も指示の対象未記載時の扱いを明確にしていなかった。修正指示を作るReviewerと実動確認事項を渡すReference Geminiにも、同じ省略を防ぐ規定の整合が必要と判断した。Userが対象一覧を了承したため、会話だけに残さず、是正未着手の状態と適用条件を記録する。
+
+**Rejected:**
+
+- 修正対象を会話だけに残す方式
+- 対象一覧の記録指示を、全Persona本文の変更・承認・外部登録変更の指示として扱う方式
+- 条件付きのClaude Code設定資料を、無条件の修正対象へ変更する方式
+- 教育用Code GeneratorにGit操作を追加し、一般的な学習用サンプルにもRepository指定を機械的に要求する方式
