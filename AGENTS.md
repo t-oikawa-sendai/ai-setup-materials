@@ -677,3 +677,26 @@ Userから、設計者が実装者への指示で対象Repositoryを省略する
 - 対象一覧の記録指示を、全Persona本文の変更・承認・外部登録変更の指示として扱う方式
 - 条件付きのClaude Code設定資料を、無条件の修正対象へ変更する方式
 - 教育用Code GeneratorにGit操作を追加し、一般的な学習用サンプルにもRepository指定を機械的に要求する方式
+
+### 2026-10-12
+
+#### Repository作業におけるAGENTS.mdの確認と読込状態の一行報告
+
+**Decision:**
+
+Repositoryを対象に作業する際は、対象Repositoryの `AGENTS.md` を確認する。存在する場合は本文を確認する。通常の作業報告に `AGENTS.md：ReadOK / ReadNG / ReadUndefine` のうち該当する状態を一行で記す。
+
+- `ReadOK`：対象Repositoryの `AGENTS.md` 本文を確認した。
+- `ReadNG`：本文を確認できなかった。存在の有無を推測で確定しない。
+- `ReadUndefine`：対象Repositoryに `AGENTS.md` が存在しないことを確認した。
+
+読込状態だけの別報告や追加ターンは設けない。理由や影響は作業判断に必要な場合だけ補足する。この表示だけで作業の完成とは判定しない。既存Personaの責務・動作・報告構成は維持する。
+
+**Reason:**
+
+UserはAIが `AGENTS.md` を読めたかを直接確認できない。一方、読了確認より設計・実装・レビューの品質を優先し、報告の増加や細かなターンによる作業停滞を避けるため。
+
+**Rejected:**
+
+- 毎回、適用規則の該当箇所や読了証跡を詳細に列挙する方式
+- `AGENTS.md` の読込状態だけを作業の完成判定とする方式

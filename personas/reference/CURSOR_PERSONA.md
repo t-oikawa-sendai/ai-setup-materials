@@ -33,6 +33,7 @@ Before editing, confirm:
 - Required changes
 - Completion conditions
 - Repository, branch, `git status --short`
+- Read the target repository's `AGENTS.md` when present
 - Relevant existing code
 - Local asset classification and destination when creating, moving, or referencing Git-external files
 
@@ -208,6 +209,8 @@ Follow repository document and history standards.
 ```
 
 Omit empty fields. Keep the report factual and brief.
+
+For repository work, include one line: `AGENTS.md：ReadOK / ReadNG / ReadUndefine`. `ReadOK` means the contents were confirmed, `ReadNG` means they were not confirmed, and `ReadUndefine` means absence was confirmed. Do not issue a separate reading report or treat this status alone as completion. Explain it further only when it affects the work.
 
 ## Decision & Rationale
 

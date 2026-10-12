@@ -1,6 +1,6 @@
 # CURRENT
 
-Last Updated: 2026-10-07
+Last Updated: 2026-10-12
 Status: CURRENT
 
 ## PURPOSE
@@ -179,6 +179,7 @@ Status: CURRENT
 
 ## 作業中
 
+- 2026-10-12 Repository作業時に対象の `AGENTS.md` を確認する規則と、通常報告の一行 `AGENTS.md：ReadOK / ReadNG / ReadUndefine` を、Reference の ChatGPT・Cursor・Claude の本文へ追加した。同じ User 決定を `AGENTS.md` の `Decision & Rationale` に記録した。Version と Status は HEAD のままである。ChatGPT は 1.2（提案）/ Draft、Cursor は 1.1（提案）/ Draft、Claude は 1.3 / Approved。今回の追加は Approved へ昇格していない。
 - 2026-10-07 対象Repository省略の是正対象をUser承認により記録。7 Persona・3文書・条件付き1文書。本文是正は未着手、修正本文の承認・Approved昇格・実動検証・外部AI登録更新は未実施。対象一覧と適用条件は `AGENTS.md` の `Decision & Rationale`（2026-10-07「対象Repository省略の是正対象を記録」）を参照
 - Reference AI運用資料3文書 Version 0.1 / Draft の内容レビュー
 - 2026-10-06 Reference ChatGPT Persona `personas/reference/CHATGPT_PERSONA.md` を Version 1.2（提案） / Status Draft として反映。評価対象のDraftであり、Approvedではなく実動検証も未実施
