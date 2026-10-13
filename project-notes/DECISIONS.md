@@ -96,3 +96,28 @@ Non-Changes（非変更範囲）:
 Rejected（不採用案）:
 - 読取専用の作業にもローカルGit同期ゲートを要求し、満たせなければ作業を開始しない方式
 - リモート読取、ローカル読取、ローカル変更の3分類へ拡張する方式
+
+## D-003 Record Claude Reference Persona as Version 1.4（Claude Reference Personaを Version 1.4 として記録）
+
+Date（日付）: 2026-10-13
+Related Documents（関連文書）: personas/reference/CLAUDE_PERSONA.md / project-notes/CURRENT.md
+
+Decision（決定）:
+- `personas/reference/CLAUDE_PERSONA.md` の Document Info を、Version 1.4、Status Approved、Last Updated 2026-10-13 とする。
+- Persona本文は変更しない。
+- GOV-07その他の未承認変更は、この決定に含めない。
+- D-001とD-002は改変しない。
+- この反映はローカルのみとし、commit と push を含まない。
+
+Rationale（理由）:
+2026-10-12に本文へ読込状態の一行報告を追加した後も、Document Info は Version 1.3、Last Updated 2026-08-27 のままだった。Userは本文を変えず、Document Info を Version 1.4 / Approved / Last Updated 2026-10-13 とすることを決定した。
+
+Supersedes（上書き対象・範囲）:
+- project-notes/CURRENT.md の作業中にある、Claude の現行版を Version 1.3 / Approved とし、2026-10-12の追加は Approved へ昇格していないとする現在地点のみ。2026-10-12の ReadOK / ReadNG / ReadUndefine 報告規則は維持する
+
+Non-Changes（非変更範囲）:
+Persona本文。Created Date。ChatGPT と Cursor の Version と Status。2026-10-12の報告規則、責務、動作、報告構成。GOV-07。D-001。D-002。既存の `Decision & Rationale`。
+
+Rejected（不採用案）:
+- Version 1.3 のままにする方式
+- Version 1.4 を Draft とする方式
