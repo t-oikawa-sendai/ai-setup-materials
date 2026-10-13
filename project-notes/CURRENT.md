@@ -184,6 +184,11 @@ Status: CURRENT
   - Case Study：`personas/reference/PERSONA_OPERATION_CASE_STUDY.md` Version 0.2 / Draft
   - Handoff Template：`personas/reference/CHAT_HANDOFF_TEMPLATE.md` Version 0.3 / Draft
   - Prompt Template：`personas/reference/PERSONA_PROMPT_TEMPLATE.md` Version 0.2 / Draft（今回未変更）
+- 2026-10-13 GOV-09のD-001・D-002整合是正はGitHub反映済み。反映commitは `eadc8a2ccb36706aac1e81c9b934904a942460fe`。変更対象5ファイルが一致し、対象外変更はない。D-004はGitHub保存済み。Reference運用資料3文書の Version / Status は変更していない。
+  - 変更ファイル：`AGENTS.md`、`personas/reference/CHAT_HANDOFF_TEMPLATE.md`、`personas/reference/PERSONA_OPERATION_CASE_STUDY.md`、`project-notes/CURRENT.md`、`project-notes/DECISIONS.md`
+  - Case Study Version 0.2 / Draft、Handoff Template Version 0.3 / Draft、Prompt Template Version 0.2 / Draft
+  - 確認時点の Local HEAD、origin/main、GitHub main HEAD は `eadc8a2ccb36706aac1e81c9b934904a942460fe` で一致。worktree は clean
+  - 当該SHAの GitHub Actions 実行履歴は確認時点で 0件。SUCCESS とは記録しない
 
 ## 作業中
 
@@ -199,7 +204,7 @@ Status: CURRENT
 
 ## 次工程
 
-1. Reference AI運用資料3文書（Case Study Version 0.2 / Draft、Handoff Template Version 0.3 / Draft、Prompt Template Version 0.2 / Draft）の残る内容をUserレビューし、必要な修正を反映する。D-001・D-002整合是正のローカル反映は、内容確定または Version / Status の昇格ではない。
+1. Reference AI運用資料3文書（Case Study Version 0.2 / Draft、Handoff Template Version 0.3 / Draft、Prompt Template Version 0.2 / Draft）の残る内容をUserレビューし、必要な修正を反映する。GOV-09のGitHub保存は完了済みであり、内容確定または Version / Status の昇格ではない。
 2. 3文書の内容確定後、Version / Statusの昇格要否をUser判断する。
 3. 新チャット開始時は `project-notes/CURRENT.md` → `AGENTS.md` → 対象成果物MDの順に読む。読取専用ではローカルGit同期を要求しない。ローカル変更の前には §2.1 の同期ゲートを実施する。
 4. `GEM_SOLUTION_PARTNER.md` の最終Approved版 Version 1.5 と、Version 1.1〜1.5の承認済み改善内容を確定事項として扱い、Evidenceなしに再検討しない。Version 1.6（提案） / Draftの採否はUser判断とする。
