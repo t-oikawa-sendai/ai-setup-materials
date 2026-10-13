@@ -180,13 +180,17 @@ Status: CURRENT
 - 2026-10-13 判断履歴の記録規則を改訂した。既存判断履歴は原文と保存場所を維持し、適用後の新判断は `project-notes/DECISIONS.md` に記録する。中央Governanceの正式導入は別工程のまま未了であり、この改訂は導入完了ではない。
 - 2026-10-13 Git同期ゲートの適用をローカル変更へ限定した。読取専用ではローカルGit同期を要求せず、読み取ったRepository、branch、commit SHAを報告する。SHAを確認できない場合は未確認とする。ローカル変更は従来の同期ゲートと停止条件を維持し、読取から変更へ移行する前に同期ゲートを実施する。Decisionは `project-notes/DECISIONS.md` の D-002。main の `179cecc4cddd53308950d8a09a6ab5b4a142cc46` に反映済み。
 - 2026-10-13 Reference Claude Persona の Document Info を Version 1.4 / Status Approved / Last Updated 2026-10-13 へ更新した。Persona本文は変更していない。Decisionは `project-notes/DECISIONS.md` の D-003。GitHub main の ad52f4b39a781b84a2d824d1c0ddb137c95eaa7b に反映済み。
+- 2026-10-13 Reference運用資料のD-001・D-002整合是正をローカル反映した。Decisionは `project-notes/DECISIONS.md` の D-004。Version / Status は昇格していない。
+  - Case Study：`personas/reference/PERSONA_OPERATION_CASE_STUDY.md` Version 0.2 / Draft
+  - Handoff Template：`personas/reference/CHAT_HANDOFF_TEMPLATE.md` Version 0.3 / Draft
+  - Prompt Template：`personas/reference/PERSONA_PROMPT_TEMPLATE.md` Version 0.2 / Draft（今回未変更）
 
 ## 作業中
 
 - 2026-10-13 ChatGPT ProjectでのGitHub Persona取得検証用の `personas/reference/IT_GENERAL_ADVISOR_TEST_PERSONA.md` Version 0.1 / Draft と、Reference入口の検証専用導線は、main の `ef77588d6c94bd50e0cc8c32c770f06c181a3bbb` に含まれている。ChatGPT Project上の取得検証は未実施。`personas/reference/setup/CHATGPT_PROJECT_PERSONA_TEST_SETUP.md` は、設定資料の本文が指示に含まれていなかったため未作成。
 - 2026-10-12 Repository作業時に対象の `AGENTS.md` を確認する規則と、通常報告の一行 `AGENTS.md：ReadOK / ReadNG / ReadUndefine` を、Reference の ChatGPT・Cursor・Claude の本文へ追加した。同じ User 決定を `AGENTS.md` の `Decision & Rationale` に記録した。ChatGPT は 1.2（提案）/ Draft、Cursor は 1.1（提案）/ Draft のままである。Claude の現行 Document Info は Version 1.4 / Approved（D-003）。この改版では Persona本文を変更していない。
 - 2026-10-07 対象Repository省略の是正対象をUser承認により記録。7 Persona・3文書・条件付き1文書。本文是正は未着手、修正本文の承認・Approved昇格・実動検証・外部AI登録更新は未実施。対象一覧と適用条件は `AGENTS.md` の `Decision & Rationale`（2026-10-07「対象Repository省略の是正対象を記録」）を参照
-- Reference AI運用資料3文書 Version 0.1 / Draft の内容レビュー
+- Reference AI運用資料3文書の内容確定と Version / Status 昇格は未了。現行版は Case Study Version 0.2 / Draft、Handoff Template Version 0.3 / Draft、Prompt Template Version 0.2 / Draft
 - 2026-10-06 Reference ChatGPT Persona `personas/reference/CHATGPT_PERSONA.md` を Version 1.2（提案） / Status Draft として反映。評価対象のDraftであり、Approvedではなく実動検証も未実施
 - 2026-10-06 決定の保留と仮定の実装利用許可を分離する規則（`実装利用：可／不可`）を、Draftとして3 Personaへ反映。Approvedではなく実動検証も未実施
   - `personas/education/GEM_SOLUTION_PARTNER.md` Version 1.6（提案） / Draft（最終Approvedは1.5）
@@ -195,7 +199,7 @@ Status: CURRENT
 
 ## 次工程
 
-1. Reference AI運用資料3文書 Version 0.1 / Draft をUserレビューし、必要な修正を反映する。
+1. Reference AI運用資料3文書（Case Study Version 0.2 / Draft、Handoff Template Version 0.3 / Draft、Prompt Template Version 0.2 / Draft）の残る内容をUserレビューし、必要な修正を反映する。D-001・D-002整合是正のローカル反映は、内容確定または Version / Status の昇格ではない。
 2. 3文書の内容確定後、Version / Statusの昇格要否をUser判断する。
 3. 新チャット開始時は `project-notes/CURRENT.md` → `AGENTS.md` → 対象成果物MDの順に読む。読取専用ではローカルGit同期を要求しない。ローカル変更の前には §2.1 の同期ゲートを実施する。
 4. `GEM_SOLUTION_PARTNER.md` の最終Approved版 Version 1.5 と、Version 1.1〜1.5の承認済み改善内容を確定事項として扱い、Evidenceなしに再検討しない。Version 1.6（提案） / Draftの採否はUser判断とする。

@@ -121,3 +121,37 @@ Persona本文。Created Date。ChatGPT と Cursor の Version と Status。2026-
 Rejected（不採用案）:
 - Version 1.3 のままにする方式
 - Version 1.4 を Draft とする方式
+
+## D-004 Align Reference Operation Materials with D-001 and D-002（Reference運用資料のD-001・D-002整合是正）
+
+Date（日付）: 2026-10-13
+Related Documents（関連文書）: AGENTS.md / personas/reference/CHAT_HANDOFF_TEMPLATE.md / personas/reference/PERSONA_OPERATION_CASE_STUDY.md / project-notes/CURRENT.md / project-notes/2026-09-23-persona-operation-case-study-decisions.md
+
+Decision（決定）:
+- GOV-09で確認されたD-002の適用漏れを、Reference AI運用資料3文書の既定レビュー工程と統合して是正する。
+- ローカル変更作業を別端末で再開する場合は、`AGENTS.md` §2.1のGit同期ゲートを適用する。読取専用作業にローカルpullを要求しない。未commit変更の破棄・退避・上書きは禁止する。§2.1の手順と停止条件は変更しない。
+- Handoffの初期化は作業種別で分ける。読取専用はRepository、branch、取得したcommit SHAを確認する。SHAを確認できない場合は未確認と報告する。読取専用ではLocal Workspace、Local HEAD、worktreeの確認を必須とせず、ローカルGit状態が未確認であることだけを理由に停止しない。ローカル変更は、対象Repositoryの作業規則に定義されたGit同期ゲートを実施する。Initialization Evidenceの必須項目は作業種別で分ける。ローカル状態に関する停止条件はローカル変更作業に限定する。VERIFIED / UNVERIFIED / ASSUMPTIONは維持する。
+- Case Studyの成果管理は、O講師が成果内容を判断し、確定内容を対象成果物MDへローカル反映し、記録基準に該当する新しい判断を `project-notes/DECISIONS.md` へ記録し、`CURRENT.md` の現在地点を更新し、commit は User が commit を明示したときだけ行い、push は User が push を明示したときだけ行い、必要に応じてHandoffを作成する順序とする。
+- 現行版は、Case Study Version 0.2 / Draft、Handoff Template Version 0.3 / Draft、Prompt Template Version 0.2 / Draft とする。VersionとStatusは昇格しない。
+- `PERSONA_PROMPT_TEMPLATE.md` は変更しない。BRIDGE、簡易版、文書間導線は維持する。
+- D-001、D-002、D-003は改変しない。GOV-01は再検討しない。2026-10-07の対象Repository省略是正は未完了のまま維持し、この決定をもって是正完了としない。
+- この反映はローカルのみとし、commit と push を含まない。
+
+Rationale（理由）:
+D-002は読取専用にローカルGit同期を要求しないと定めた。一方、`AGENTS.md` §6の別端末再開、Handoffの初期化と停止条件、Case Studyの成果管理順序は、読取専用を含む作業へローカル同期、またはGitHub反映を先にする文面のままだった。3文書の既定レビュー工程の中で、その適用漏れを是正する。
+
+Supersedes（上書き対象・範囲）:
+- AGENTS.md §6：「別端末で再開する場合は、作業開始前に最新状態を pull する」のうち、読取専用作業を含む再開にローカルpullを要求する部分のみ。未commit変更の破棄・退避・上書き禁止は維持する
+- project-notes/2026-09-23-persona-operation-case-study-decisions.md / 2026-09-23 / 「Handoff TemplateへRepository再開手順とEvidence管理を復旧」：作業開始前のGit同期、および Local Workspace / Local HEAD / Worktree の確認を、読取専用を含む再開全般の必須とする部分のみ。VERIFIED / UNVERIFIED / ASSUMPTION、正本確認、検証、完了報告は維持する
+- personas/reference/PERSONA_OPERATION_CASE_STUDY.md §13：成果管理を「確定した成果をGitHubへ反映」の後にDecisionと現在地点の更新を置く順序のみ
+
+Non-Changes（非変更範囲）:
+D-001、D-002、D-003の全文。`AGENTS.md` §2.1のローカル変更手順と停止条件。VERIFIED / UNVERIFIED / ASSUMPTION。Handoffの既存引き継ぎ項目、正本確認、検証、完了報告。Case Studyの目的、O講師の表記、責務分離。BRIDGE、簡易版、文書間導線。`PERSONA_PROMPT_TEMPLATE.md` の全文。各文書の Version と Status Draft。GOV-01。2026-09-23の過去Decision本文。GOV-05に関連する過去の完了記録。2026-10-07の対象Repository省略是正の未完了。Persona本文。
+
+Rejected（不採用案）:
+- 読取専用作業にもローカルpullまたはローカルGit同期ゲートを要求し、ローカルGit状態が未確認なら停止する方式
+- 未commit変更を破棄・退避・上書きして同期する方式
+- 成果を先にGitHubへ反映してから、対象成果物MD、Decision、現在地点を更新する方式
+- この是正に合わせてDraftをApprovedへ昇格し、またはVersionを上げる方式
+- 2026-10-07の対象Repository省略是正を、この是正と一括で完了とする方式
+- GOV-01を再検討する方式

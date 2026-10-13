@@ -5,7 +5,7 @@
 | Version（バージョン） | 0.3 |
 | Status（ステータス） | Draft |
 | Created Date（作成日） | 2026-09-23 |
-| Last Updated（最終更新日） | 2026-09-23 |
+| Last Updated（最終更新日） | 2026-10-13 |
 | Owner（管理者） | t-oikawa-sendai |
 | Related Documents（関連文書） | [`PERSONA_OPERATION_CASE_STUDY.md`](PERSONA_OPERATION_CASE_STUDY.md) |
 
@@ -115,25 +115,23 @@ Handoff内の事実には、必要に応じて次の状態を使用します。
 
 ## [INITIALIZATION]
 
-作業開始前に次を実施する。
+作業開始前に、作業種別を確認してから次を実施する。
 
-### 1. Repository確認
+読取専用は、ファイルの追加、編集、削除、commit、pushを行わない作業とする。これらを行う作業をローカル変更とする。
 
-1. 実作業用Local Workspaceを特定する。
-2. Repository / remote / branchを確認する。
-3. Local HEADを確認する。
-4. 未commit変更の有無を確認する。
-5. remoteの最新状態を取得する。
-6. origin/main等の対象remote HEADを確認する。
-7. Local HEADとremote HEADを比較する。
-8. worktree状態を確認する。
+### 1. 読取専用
 
-### 2. 同期
+1. Repositoryを確認する。
+2. branchを確認する。
+3. 取得したcommit SHAを確認する。SHAを確認できない場合は未確認と報告し、確認済みと偽らない。
 
-- worktreeがcleanで、安全にfast-forwardできる場合だけ同期する。
-- 未commit変更を破棄、上書き、resetして同期しない。
-- localとremoteが分岐している場合は自動解消しない。
-- 同期後、Local HEADとremote HEADが一致することを確認する。
+読取専用では、Local Workspace、Local HEAD、worktreeの確認を必須としない。これらを含むローカルGit状態が未確認であることだけを理由に作業を停止しない。ローカルpullは要求しない。
+
+### 2. ローカル変更
+
+対象Repositoryの作業規則に定義されたGit同期ゲートを実施する。
+
+未commit変更の破棄・退避・上書きは禁止する。
 
 ### 3. 正本確認
 
@@ -147,7 +145,15 @@ Handoff内の事実には、必要に応じて次の状態を使用します。
 
 ### 4. Initialization Evidence
 
-本作業開始前に少なくとも次を確認・報告する。
+作業種別に応じて、次を確認・報告する。
+
+読取専用の必須項目：
+
+- Repository
+- Branch
+- 取得commit SHA
+
+ローカル変更の必須項目：
 
 - Repository
 - Branch
@@ -157,6 +163,10 @@ Handoff内の事実には、必要に応じて次の状態を使用します。
 - HEAD一致
 - 未commit変更
 - Worktree状態
+- 同期結果、または同期を停止した理由
+
+共通：
+
 - 正本確認結果
 
 GitHubやRepositoryへアクセスできないと事前に決めつけない。
@@ -286,12 +296,19 @@ GitHubやRepositoryへアクセスできないと事前に決めつけない。
 
 次の場合だけ作業を停止し、状態を報告する。
 
-- 実作業用Repositoryを特定できない
-- 未commit変更があり、安全な継続方法を正本から判断できない
-- Localとremoteが分岐している
 - 正本同士に解消できない矛盾がある
 - 利用者判断が必須の未決事項がある
 - 権限、network、tool等により必須Evidenceを確認できない
+
+ローカル変更作業では、加えて次の場合に停止する。
+
+- 実作業用Repositoryを特定できない
+- 未commit変更があり、安全な継続方法を正本から判断できない
+- Localとremoteが分岐している
+
+読取専用作業は、Local Workspace、Local HEAD、worktree、未commit変更が未確認であることだけを理由に停止しない。
+
+読取専用作業で、取得したcommit SHAのみを確認できない場合は、UNVERIFIEDとして報告し、それだけを理由に停止しない。
 
 「念のため確認」だけを理由に停止しない。
 

@@ -5,7 +5,7 @@
 | Version（バージョン） | 0.2 |
 | Status（ステータス） | Draft |
 | Created Date（作成日） | 2026-09-23 |
-| Last Updated（最終更新日） | 2026-09-23 |
+| Last Updated（最終更新日） | 2026-10-13 |
 | Owner（管理者） | t-oikawa-sendai |
 | Related Documents（関連文書） | [`README.md`](README.md)<br>[`CHAT_HANDOFF_TEMPLATE.md`](CHAT_HANDOFF_TEMPLATE.md)<br>[`PERSONA_PROMPT_TEMPLATE.md`](PERSONA_PROMPT_TEMPLATE.md)<br>[`../../README.md`](../../README.md) |
 
@@ -282,13 +282,17 @@ O講師が内容を確認・判断
 
 成果管理
  ↓
-確定した成果をGitHubへ反映
+確定内容を対象成果物MDへローカル反映
  ↓
-必要なDecisionを記録
+記録基準に該当する新しい判断を project-notes/DECISIONS.md へ記録
  ↓
-現在地点を更新
+CURRENT.md の現在地点を更新
  ↓
-必要ならHandoffを作成
+commitは、Userがcommitを明示したときだけ行う
+ ↓
+pushは、Userがpushを明示したときだけ行う
+ ↓
+必要に応じてHandoffを作成
 ```
 
 ---
