@@ -2,12 +2,12 @@
 | Item（項目） | Value（値） |
 |---|---|
 | Document ID（文書ID） | STD-PERSONA-REFERENCE-INDEX-001 |
-| Version（バージョン） | 1.3 |
+| Version（バージョン） | 1.4 |
 | Status（ステータス） | Approved |
 | Created Date（作成日） | 2026-08-22 |
-| Last Updated（最終更新日） | 2026-10-03 |
+| Last Updated（最終更新日） | 2026-10-13 |
 | Owner（管理者） | t-oikawa-sendai |
-| Related Documents（関連文書） | [`../../README.md`](../../README.md)<br>[`../education/README.md`](../education/README.md)<br>[`CHATGPT_PERSONA.md`](CHATGPT_PERSONA.md)<br>[`CLAUDE_PERSONA.md`](CLAUDE_PERSONA.md)<br>[`CURSOR_PERSONA.md`](CURSOR_PERSONA.md)<br>[`GEMINI_PERSONA.md`](GEMINI_PERSONA.md)<br>[`PERSONA_OPERATION_CASE_STUDY.md`](PERSONA_OPERATION_CASE_STUDY.md)<br>[`CHAT_HANDOFF_TEMPLATE.md`](CHAT_HANDOFF_TEMPLATE.md)<br>[`PERSONA_PROMPT_TEMPLATE.md`](PERSONA_PROMPT_TEMPLATE.md)<br>[`setup/CLAUDE_CODE_SETUP.md`](setup/CLAUDE_CODE_SETUP.md) |
+| Related Documents（関連文書） | [`../../README.md`](../../README.md)<br>[`../education/README.md`](../education/README.md)<br>[`CHATGPT_PERSONA.md`](CHATGPT_PERSONA.md)<br>[`CLAUDE_PERSONA.md`](CLAUDE_PERSONA.md)<br>[`CURSOR_PERSONA.md`](CURSOR_PERSONA.md)<br>[`GEMINI_PERSONA.md`](GEMINI_PERSONA.md)<br>[`IT_GENERAL_ADVISOR_TEST_PERSONA.md`](IT_GENERAL_ADVISOR_TEST_PERSONA.md)<br>[`PERSONA_OPERATION_CASE_STUDY.md`](PERSONA_OPERATION_CASE_STUDY.md)<br>[`CHAT_HANDOFF_TEMPLATE.md`](CHAT_HANDOFF_TEMPLATE.md)<br>[`PERSONA_PROMPT_TEMPLATE.md`](PERSONA_PROMPT_TEMPLATE.md)<br>[`setup/CLAUDE_CODE_SETUP.md`](setup/CLAUDE_CODE_SETUP.md) |
 
 ---
 
@@ -49,6 +49,12 @@ Education用4Gem＋1の現行手順として、そのまま流用しないでく
 - [`GEMINI_PERSONA.md`](GEMINI_PERSONA.md)：Gemini Persona（Geminiペルソナ）
 
 この中核4種の本文の唯一の編集元（SSOT）は、上記4ファイルです。`solacom_main` には本文の独立編集元を置かず、これらの正本への参照を保持します。個人パス等の実務固有の環境設定はPersona本文から分離し、利用環境側で保持します。
+
+## 4.1 Verification Persona（検証専用Persona）
+
+中核4種とは別のPersonaです。ChatGPT Projectで、GitHub上のPersonaをURL指定して取得・適用を検証するために使います。中核4種のSSOT定義は変更しません。検証前の状態は Version 0.1 / Status Draft です。
+
+- [`IT_GENERAL_ADVISOR_TEST_PERSONA.md`](IT_GENERAL_ADVISOR_TEST_PERSONA.md)：IT General Technical Advisor Persona（検証専用）
 
 ## 5. Reference Operation Materials（AI運用参考資料）
 
@@ -132,3 +138,17 @@ Reason:
 
 Rejected:
 - 実務版を `solacom_main`、教材版を `ai-setup-materials` に置き、それぞれを独立した本文編集元として維持する方式
+
+### 2026-10-13
+
+#### 検証専用Personaを中核4種と区別して掲載
+
+Decision:
+`IT_GENERAL_ADVISOR_TEST_PERSONA.md` への導線を、現行Reference Persona（中核4種）の一覧とは別の節に置く。中核4種のSSOT定義は変更しない。このPersonaは Version 0.1 / Status Draft であり、検証前にApprovedへ昇格しない。
+
+Reason:
+ChatGPT ProjectでGitHub上のPersonaをURL指定して取得・適用を検証する専用Personaであり、実務参考の中核4種とは役割が異なるため。
+
+Rejected:
+- 中核4種の一覧へ加えてSSOTの対象に含める方式
+- 検証前にApprovedの現行Personaとして掲載する方式

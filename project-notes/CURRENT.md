@@ -1,6 +1,6 @@
 # CURRENT
 
-Last Updated: 2026-10-12
+Last Updated: 2026-10-13
 Status: CURRENT
 
 ## PURPOSE
@@ -179,6 +179,7 @@ Status: CURRENT
 
 ## 作業中
 
+- 2026-10-13 ChatGPT ProjectでのGitHub Persona取得検証用に、`personas/reference/IT_GENERAL_ADVISOR_TEST_PERSONA.md` を Version 0.1 / Draft でローカル作成した。Reference入口へ、中核4種とは別の検証専用導線を追加した。commit / push と ChatGPT Project上の取得検証は未実施。`personas/reference/setup/CHATGPT_PROJECT_PERSONA_TEST_SETUP.md` は、設定資料の本文が指示に含まれていなかったため未作成。
 - 2026-10-12 Repository作業時に対象の `AGENTS.md` を確認する規則と、通常報告の一行 `AGENTS.md：ReadOK / ReadNG / ReadUndefine` を、Reference の ChatGPT・Cursor・Claude の本文へ追加した。同じ User 決定を `AGENTS.md` の `Decision & Rationale` に記録した。Version と Status は HEAD のままである。ChatGPT は 1.2（提案）/ Draft、Cursor は 1.1（提案）/ Draft、Claude は 1.3 / Approved。今回の追加は Approved へ昇格していない。
 - 2026-10-07 対象Repository省略の是正対象をUser承認により記録。7 Persona・3文書・条件付き1文書。本文是正は未着手、修正本文の承認・Approved昇格・実動検証・外部AI登録更新は未実施。対象一覧と適用条件は `AGENTS.md` の `Decision & Rationale`（2026-10-07「対象Repository省略の是正対象を記録」）を参照
 - Reference AI運用資料3文書 Version 0.1 / Draft の内容レビュー
@@ -201,6 +202,7 @@ Status: CURRENT
 9. 既存未commit変更を保全した上で、導入先でローカル環境設定を作成・確認し、実機Cursorの正本読込・環境値解決のEvidenceを確認する。外部AIサービスへ登録する場合は、その登録内容も別途確認する。既存未commit変更の破棄・退避・上書きによる同期は行わない。
 10. Researcher系Persona Version 1.1 の実動検証を、テスト用Gemで Version 1.0 と比較して実施する（内部記録の第6章）。合格後に本番Gem（`Researcher`、`Researcher Deep Research`）へ反映する。
 11. 2026-10-07に記録した対象Repository省略の是正対象について、Userの次指示に従って本文を修正する。対象一覧・適用条件は `AGENTS.md` の同日Decisionを参照し、記録済みであることを是正完了と扱わない。
+12. `IT_GENERAL_ADVISOR_TEST_PERSONA.md` Version 0.1 / Draft の commit / push は、Userの明示承認後に行う。ChatGPT Project上の取得検証は未実施。Project設定資料は、本文の受領後に作成する。
 
 Reviewerを含むPersonaの機能設計はEvidenceなしに再検討しない。完了済みの文書適合性復旧を、Evidenceなしに再作業対象へ戻さない。`ASKME 迎合禁止` と7文書配置を未決事項へ戻さない。Education用の基本体系は4Gemであり、`Researcher Deep Research` はResearcher Personaを使う追加Gemとして扱う。
 
@@ -216,6 +218,7 @@ Reviewerを含むPersonaの機能設計はEvidenceなしに再検討しない。
 - Education Gemini設定資料：`personas/education/setup/GEMINI_GEM_SETUP.md`
 - Reference Persona：`personas/reference/`
 - Reference入口：`personas/reference/README.md`
+- 検証用Persona：`personas/reference/IT_GENERAL_ADVISOR_TEST_PERSONA.md`（Version 0.1 / Draft。中核4種のSSOTではない）
 - Reference AI運用実践例：`personas/reference/PERSONA_OPERATION_CASE_STUDY.md`
 - Reference Chat Handoff Template：`personas/reference/CHAT_HANDOFF_TEMPLATE.md`
 - Reference Prompt Template：`personas/reference/PERSONA_PROMPT_TEMPLATE.md`
