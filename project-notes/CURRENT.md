@@ -179,7 +179,7 @@ Status: CURRENT
 
 - 2026-10-13 判断履歴の記録規則を改訂した。既存判断履歴は原文と保存場所を維持し、適用後の新判断は `project-notes/DECISIONS.md` に記録する。中央Governanceの正式導入は別工程のまま未了であり、この改訂は導入完了ではない。
 - 2026-10-13 Git同期ゲートの適用をローカル変更へ限定した。読取専用ではローカルGit同期を要求せず、読み取ったRepository、branch、commit SHAを報告する。SHAを確認できない場合は未確認とする。ローカル変更は従来の同期ゲートと停止条件を維持し、読取から変更へ移行する前に同期ゲートを実施する。Decisionは `project-notes/DECISIONS.md` の D-002。main の `179cecc4cddd53308950d8a09a6ab5b4a142cc46` に反映済み。
-- 2026-10-13 Reference Claude Persona の Document Info を Version 1.4 / Status Approved / Last Updated 2026-10-13 へ更新した。Persona本文は変更していない。Decisionは `project-notes/DECISIONS.md` の D-003。ローカル反映済み。commit と push は未実施。
+- 2026-10-13 Reference Claude Persona の Document Info を Version 1.4 / Status Approved / Last Updated 2026-10-13 へ更新した。Persona本文は変更していない。Decisionは `project-notes/DECISIONS.md` の D-003。GitHub main の ad52f4b39a781b84a2d824d1c0ddb137c95eaa7b に反映済み。
 
 ## 作業中
 
