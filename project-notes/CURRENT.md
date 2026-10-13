@@ -177,9 +177,11 @@ Status: CURRENT
   - 内部記録：`project-notes/2026-10-05-researcher-persona-incident-record.md`
   - テスト用Gemでの実動検証は未実施。本番Gemは実動検証の合格まで Version 1.0 を維持
 
+- 2026-10-13 判断履歴の記録規則を改訂した。既存判断履歴は原文と保存場所を維持し、適用後の新判断は `project-notes/DECISIONS.md` に記録する。中央Governanceの正式導入は別工程のまま未了であり、この改訂は導入完了ではない。
+
 ## 作業中
 
-- 2026-10-13 ChatGPT ProjectでのGitHub Persona取得検証用に、`personas/reference/IT_GENERAL_ADVISOR_TEST_PERSONA.md` を Version 0.1 / Draft でローカル作成した。Reference入口へ、中核4種とは別の検証専用導線を追加した。commit / push と ChatGPT Project上の取得検証は未実施。`personas/reference/setup/CHATGPT_PROJECT_PERSONA_TEST_SETUP.md` は、設定資料の本文が指示に含まれていなかったため未作成。
+- 2026-10-13 ChatGPT ProjectでのGitHub Persona取得検証用の `personas/reference/IT_GENERAL_ADVISOR_TEST_PERSONA.md` Version 0.1 / Draft と、Reference入口の検証専用導線は、main の `ef77588d6c94bd50e0cc8c32c770f06c181a3bbb` に含まれている。ChatGPT Project上の取得検証は未実施。`personas/reference/setup/CHATGPT_PROJECT_PERSONA_TEST_SETUP.md` は、設定資料の本文が指示に含まれていなかったため未作成。
 - 2026-10-12 Repository作業時に対象の `AGENTS.md` を確認する規則と、通常報告の一行 `AGENTS.md：ReadOK / ReadNG / ReadUndefine` を、Reference の ChatGPT・Cursor・Claude の本文へ追加した。同じ User 決定を `AGENTS.md` の `Decision & Rationale` に記録した。Version と Status は HEAD のままである。ChatGPT は 1.2（提案）/ Draft、Cursor は 1.1（提案）/ Draft、Claude は 1.3 / Approved。今回の追加は Approved へ昇格していない。
 - 2026-10-07 対象Repository省略の是正対象をUser承認により記録。7 Persona・3文書・条件付き1文書。本文是正は未着手、修正本文の承認・Approved昇格・実動検証・外部AI登録更新は未実施。対象一覧と適用条件は `AGENTS.md` の `Decision & Rationale`（2026-10-07「対象Repository省略の是正対象を記録」）を参照
 - Reference AI運用資料3文書 Version 0.1 / Draft の内容レビュー
@@ -202,7 +204,8 @@ Status: CURRENT
 9. 既存未commit変更を保全した上で、導入先でローカル環境設定を作成・確認し、実機Cursorの正本読込・環境値解決のEvidenceを確認する。外部AIサービスへ登録する場合は、その登録内容も別途確認する。既存未commit変更の破棄・退避・上書きによる同期は行わない。
 10. Researcher系Persona Version 1.1 の実動検証を、テスト用Gemで Version 1.0 と比較して実施する（内部記録の第6章）。合格後に本番Gem（`Researcher`、`Researcher Deep Research`）へ反映する。
 11. 2026-10-07に記録した対象Repository省略の是正対象について、Userの次指示に従って本文を修正する。対象一覧・適用条件は `AGENTS.md` の同日Decisionを参照し、記録済みであることを是正完了と扱わない。
-12. `IT_GENERAL_ADVISOR_TEST_PERSONA.md` Version 0.1 / Draft の commit / push は、Userの明示承認後に行う。ChatGPT Project上の取得検証は未実施。Project設定資料は、本文の受領後に作成する。
+12. `IT_GENERAL_ADVISOR_TEST_PERSONA.md` Version 0.1 / Draft と Reference入口の検証専用導線は、main の `ef77588d6c94bd50e0cc8c32c770f06c181a3bbb` に含まれている。ChatGPT Project上の取得検証は未実施。Project設定資料は、本文の受領後に作成する。
+13. 中央Governanceの正式導入は別工程である。今回の判断履歴管理規則の改訂では開始しない。導入完了、Purpose、Governance Status は確定しない。
 
 Reviewerを含むPersonaの機能設計はEvidenceなしに再検討しない。完了済みの文書適合性復旧を、Evidenceなしに再作業対象へ戻さない。`ASKME 迎合禁止` と7文書配置を未決事項へ戻さない。Education用の基本体系は4Gemであり、`Researcher Deep Research` はResearcher Personaを使う追加Gemとして扱う。
 
@@ -224,7 +227,7 @@ Reviewerを含むPersonaの機能設計はEvidenceなしに再検討しない。
 - Reference Prompt Template：`personas/reference/PERSONA_PROMPT_TEMPLATE.md`
 - Reference Claude Code設定資料：`personas/reference/setup/CLAUDE_CODE_SETUP.md`
 - Reference AI運用資料判断履歴：`project-notes/2026-09-23-persona-operation-case-study-decisions.md`
-- 現行仕様の判断理由：原則として各成果物MDの `Decision & Rationale`。Education Reviewerは `project-notes/GEM_REVIEWER_DECISIONS.md`
+- 判断履歴の所在：適用前の旧判断は、各成果物MDの `Decision & Rationale`、既存の判断履歴ファイル、`AGENTS.md` 末尾に残す。適用後の新判断は `project-notes/DECISIONS.md`。判断理由の本文は本ファイルに書かない。旧判断の所在の例は、Education Reviewer が `project-notes/GEM_REVIEWER_DECISIONS.md`、Researcher系が `project-notes/RESEARCHER_PERSONA_DECISIONS.md`、ルートREADMEが `project-notes/README_DECISIONS.md`。
 - 2026-08-23より前の判断経緯・復旧・監査Evidence：`project-notes/YYYY-MM-DD-*.md`（履歴。現行仕様の代替正本ではない）
 - 2026-08-27 PF Reviewer適合性分析Evidence：`project-notes/2026-08-27-portfolio-reviewer-fit-analysis.md`
 - 2026-09-01 Solution Partner未決事項運用Decision Evidence：`project-notes/2026-09-01-solution-partner-unresolved-items-decisions.md`
@@ -244,9 +247,10 @@ Reviewerを含むPersonaの機能設計はEvidenceなしに再検討しない。
 1. 本ファイル（現在地点）
 2. `AGENTS.md`（作業規則）
 3. 対象成果物MDの本文（現行仕様）
-4. `AGENTS.md` の `Decision & Rationale`（Solution Partner Version 1.1〜1.3および Version 1.5、Code Generator Version 2.2の判断履歴を含む）
-5. `project-notes/2026-09-01-solution-partner-unresolved-items-decisions.md`（Solution Partner Version 1.4の未決事項運用Decision Evidence）
-6. 必要時のみ `project-notes/YYYY-MM-DD-*.md`（2026-08-23より前の履歴）
+4. 仕様・責務・構造・運用方針を変更する場合だけ、`project-notes/DECISIONS.md` の関連エントリを読む。全文は無条件に読まない。軽微な変更では判断履歴の確認を要求しない。
+5. `AGENTS.md` の `Decision & Rationale`（Solution Partner Version 1.1〜1.3および Version 1.5、Code Generator Version 2.2の判断履歴を含む）
+6. `project-notes/2026-09-01-solution-partner-unresolved-items-decisions.md`（Solution Partner Version 1.4の未決事項運用Decision Evidence）
+7. 必要時のみ `project-notes/YYYY-MM-DD-*.md`（2026-08-23より前の履歴）
 
 ## REFERENCES
 
