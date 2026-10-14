@@ -7,7 +7,7 @@
 | Version（バージョン） | 1.0 |
 | Status（ステータス） | Approved |
 | Created Date（作成日） | 2026-10-13 |
-| Last Updated（最終更新日） | 2026-10-13 |
+| Last Updated（最終更新日） | 2026-10-14 |
 | Owner（管理者） | t-oikawa-sendai |
 | Related Documents（関連文書） | AGENTS.md / project-notes/CURRENT.md |
 
@@ -155,3 +155,29 @@ Rejected（不採用案）:
 - この是正に合わせてDraftをApprovedへ昇格し、またはVersionを上げる方式
 - 2026-10-07の対象Repository省略是正を、この是正と一括で完了とする方式
 - GOV-01を再検討する方式
+
+## D-005 Preserve Persona Validation Records Separately（Persona検証記録の分離保全）
+
+Date（日付）: 2026-10-14
+Related Documents（関連文書）: project-notes/persona-validation/README.md / project-notes/persona-validation/SUMMARY.md / project-notes/persona-validation/assessments/2026-10-14.md / project-notes/persona-validation/raw/ / project-notes/CURRENT.md
+
+Decision（決定）:
+- 検証記録の保存先は `project-notes/persona-validation/` とする。
+- 原文、評価、総合集計を分離する。原文は `raw/`、日別評価は `assessments/`、期間集計は `SUMMARY.md` とする。
+- 原文は無改変で保全する。改行、空白、文字参照、表記、バックスラッシュを変更しない。SHA-256で照合する。
+- GitHubの履歴管理と、それとは独立したバックアップを併用する。
+- 検証は数日〜数週間継続する。1回の回答で優劣や順位を最終結論にしない。
+- 未確定の実行条件やバックアップ先を推測して記録しない。バックアップ先のパスと方式、質問セット、実施頻度は未決定のままとする。
+- 検証用Persona `personas/reference/IT_GENERAL_ADVISOR_TEST_PERSONA.md` は Version 0.1 / Draft のまま維持する。
+- 各AIの「GitHub読込済／未読込」は自己申告として扱い、技術的な取得証跡がない実際のGitHubアクセスはUNVERIFIEDとする。
+- D-001、D-002、D-003、D-004は改変しない。
+- この反映はローカルのみとし、commit と push を含まない。
+
+Rationale（理由）:
+評価基準が後から変わっても提出された原文へ戻れるようにするため。応答の揺らぎを単回の比較で確定しないため。公開Repositoryの履歴だけに保全を依存しないため。
+
+Supersedes（上書き対象・範囲）:
+なし。`project-notes/CURRENT.md` にある2026-10-13時点の「ChatGPT Project上の取得検証は未実施」は、当時の状態の記録として維持する。この決定で削除しない。
+
+Non-Changes（非変更範囲）:
+D-001、D-002、D-003、D-004の全文。検証用Personaの本文、Version、Status。他案件の完了事項、作業中、次工程。バックアップ先の具体パス。質問セットと実施頻度。commit と push の実施。

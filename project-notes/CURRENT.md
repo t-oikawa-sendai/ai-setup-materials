@@ -1,6 +1,6 @@
 # CURRENT
 
-Last Updated: 2026-10-13
+Last Updated: 2026-10-14
 Status: CURRENT
 
 ## PURPOSE
@@ -189,10 +189,12 @@ Status: CURRENT
   - Case Study Version 0.2 / Draft、Handoff Template Version 0.3 / Draft、Prompt Template Version 0.2 / Draft
   - 確認時点の Local HEAD、origin/main、GitHub main HEAD は `eadc8a2ccb36706aac1e81c9b934904a942460fe` で一致。worktree は clean
   - 当該SHAの GitHub Actions 実行履歴は確認時点で 0件。SUCCESS とは記録しない
+- 2026-10-14 3モデル分のUser提出検証回答（Gemini、Claude、ChatGPT）と提出元全文、マニフェストを `project-notes/persona-validation/raw/` へ無改変で保全した。検証用Persona `personas/reference/IT_GENERAL_ADVISOR_TEST_PERSONA.md` は Version 0.1 / Draft のまま維持する。Decisionは `project-notes/DECISIONS.md` の D-005
+- 2026-10-14 ChatGPTが今回の保全に先立ち示した GitHub main HEAD `85655023bcc6116dce4beb8b4f416d52840d8f5f` は、origin/main および GitHub main と一致した。この確認は、同日3回答の取得自己申告とは別である。3回答の実際のGitHubアクセスは UNVERIFIED
 
 ## 作業中
 
-- 2026-10-13 ChatGPT ProjectでのGitHub Persona取得検証用の `personas/reference/IT_GENERAL_ADVISOR_TEST_PERSONA.md` Version 0.1 / Draft と、Reference入口の検証専用導線は、main の `ef77588d6c94bd50e0cc8c32c770f06c181a3bbb` に含まれている。ChatGPT Project上の取得検証は未実施。`personas/reference/setup/CHATGPT_PROJECT_PERSONA_TEST_SETUP.md` は、設定資料の本文が指示に含まれていなかったため未作成。
+- 2026-10-13 ChatGPT ProjectでのGitHub Persona取得検証用の `personas/reference/IT_GENERAL_ADVISOR_TEST_PERSONA.md` Version 0.1 / Draft と、Reference入口の検証専用導線は、main の `ef77588d6c94bd50e0cc8c32c770f06c181a3bbb` に含まれている。ChatGPT Project上の取得検証は未実施。この「未実施」は2026-10-13時点の状態である。`personas/reference/setup/CHATGPT_PROJECT_PERSONA_TEST_SETUP.md` は、設定資料の本文が指示に含まれていなかったため未作成。
 - 2026-10-12 Repository作業時に対象の `AGENTS.md` を確認する規則と、通常報告の一行 `AGENTS.md：ReadOK / ReadNG / ReadUndefine` を、Reference の ChatGPT・Cursor・Claude の本文へ追加した。同じ User 決定を `AGENTS.md` の `Decision & Rationale` に記録した。ChatGPT は 1.2（提案）/ Draft、Cursor は 1.1（提案）/ Draft のままである。Claude の現行 Document Info は Version 1.4 / Approved（D-003）。この改版では Persona本文を変更していない。
 - 2026-10-07 対象Repository省略の是正対象をUser承認により記録。7 Persona・3文書・条件付き1文書。本文是正は未着手、修正本文の承認・Approved昇格・実動検証・外部AI登録更新は未実施。対象一覧と適用条件は `AGENTS.md` の `Decision & Rationale`（2026-10-07「対象Repository省略の是正対象を記録」）を参照
 - Reference AI運用資料3文書の内容確定と Version / Status 昇格は未了。現行版は Case Study Version 0.2 / Draft、Handoff Template Version 0.3 / Draft、Prompt Template Version 0.2 / Draft
@@ -215,8 +217,10 @@ Status: CURRENT
 9. 既存未commit変更を保全した上で、導入先でローカル環境設定を作成・確認し、実機Cursorの正本読込・環境値解決のEvidenceを確認する。外部AIサービスへ登録する場合は、その登録内容も別途確認する。既存未commit変更の破棄・退避・上書きによる同期は行わない。
 10. Researcher系Persona Version 1.1 の実動検証を、テスト用Gemで Version 1.0 と比較して実施する（内部記録の第6章）。合格後に本番Gem（`Researcher`、`Researcher Deep Research`）へ反映する。
 11. 2026-10-07に記録した対象Repository省略の是正対象について、Userの次指示に従って本文を修正する。対象一覧・適用条件は `AGENTS.md` の同日Decisionを参照し、記録済みであることを是正完了と扱わない。
-12. `IT_GENERAL_ADVISOR_TEST_PERSONA.md` Version 0.1 / Draft と Reference入口の検証専用導線は、main の `ef77588d6c94bd50e0cc8c32c770f06c181a3bbb` に含まれている。ChatGPT Project上の取得検証は未実施。Project設定資料は、本文の受領後に作成する。
+12. `IT_GENERAL_ADVISOR_TEST_PERSONA.md` Version 0.1 / Draft と Reference入口の検証専用導線は、main の `ef77588d6c94bd50e0cc8c32c770f06c181a3bbb` に含まれている。ChatGPT Project上の取得検証は未実施。この「未実施」は2026-10-13時点の状態である。Project設定資料は、本文の受領後に作成する。
 13. 中央Governanceの正式導入は別工程である。今回の判断履歴管理規則の改訂では開始しない。導入完了、Purpose、Governance Status は確定しない。
+14. 検証用Personaについて、反復検証、日別評価、期間集計を継続する。2026-10-14分の原文保全は完了している。回答内容の正確性評価は未実施である。
+15. 保全した原文の独立バックアップを用意する。バックアップ先のパスと方式は未決定であり、この記録では確定しない。
 
 Reviewerを含むPersonaの機能設計はEvidenceなしに再検討しない。完了済みの文書適合性復旧を、Evidenceなしに再作業対象へ戻さない。`ASKME 迎合禁止` と7文書配置を未決事項へ戻さない。Education用の基本体系は4Gemであり、`Researcher Deep Research` はResearcher Personaを使う追加Gemとして扱う。
 
@@ -233,6 +237,7 @@ Reviewerを含むPersonaの機能設計はEvidenceなしに再検討しない。
 - Reference Persona：`personas/reference/`
 - Reference入口：`personas/reference/README.md`
 - 検証用Persona：`personas/reference/IT_GENERAL_ADVISOR_TEST_PERSONA.md`（Version 0.1 / Draft。中核4種のSSOTではない）
+- 検証記録：`project-notes/persona-validation/`（原文は `raw/`、日別評価は `assessments/`、期間集計は `SUMMARY.md`）
 - Reference AI運用実践例：`personas/reference/PERSONA_OPERATION_CASE_STUDY.md`
 - Reference Chat Handoff Template：`personas/reference/CHAT_HANDOFF_TEMPLATE.md`
 - Reference Prompt Template：`personas/reference/PERSONA_PROMPT_TEMPLATE.md`
