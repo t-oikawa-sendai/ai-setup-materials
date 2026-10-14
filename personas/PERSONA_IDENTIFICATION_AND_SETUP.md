@@ -17,7 +17,7 @@
 
 この文書は、Personaの識別体系と、Project・Gem等への設定案内の共通仕様の正本である。
 
-2026-10-14にUserが決定した内容を記録する。判断履歴は [`../project-notes/DECISIONS.md`](../project-notes/DECISIONS.md) の D-006〜D-017 に記録する。本書は判断履歴の代替ではない。
+2026-10-14にUserが決定した内容を記録する。判断履歴は [`../project-notes/DECISIONS.md`](../project-notes/DECISIONS.md) の D-006〜D-018 に記録する。本書は判断履歴の代替ではない。
 
 この文書の `Version 1.0 / Status Approved` は、本章から第12章の確定仕様を正本として記録したことを示す。次を意味しない。
 
@@ -194,6 +194,21 @@ D-005が定めた、技術的な取得証跡がない実際のGitHubアクセス
 - [`education/setup/GEMINI_GEM_SETUP.md`](education/setup/GEMINI_GEM_SETUP.md)
 - [`reference/setup/CLAUDE_CODE_SETUP.md`](reference/setup/CLAUDE_CODE_SETUP.md)
 
+### 10.1 Distribution Source Protection（配布元の保護）
+
+Owner自身のGitHubおよびAI利用の保護を、運用上の最優先とする。他のUserによるGitHub取得の制限または失敗は許容する。
+
+この節は、G方式とP方式を継続したまま、取得先Repositoryの扱いを定める。GitHubのアクセス制御、認証機能、新しい配布システム、自動同期機構は追加しない。GitHub取得の具体的な実装方式は、第13章の未確定事項のままとする。
+
+- OwnerのRepositoryは、Persona本文の唯一の編集元（SSOT）として維持する。UserによるForkやコピーは、正本の独立した編集元としない。
+- G方式を継続して使いたいUserには、自分専用のGitHub Repositoryを作成することを強く推奨する。この推奨は必須条件ではない。
+- Userは、自分のRepositoryにPersonaを配置し、自分のAIにはそのRepositoryのURLを設定する。
+- 自分のRepositoryを参照する設定では、OwnerのRepositoryへの取得URLが残らないよう案内する。
+- User側Repositoryの管理、更新、およびアクセス制限への対応は、各Userの責任とする。
+- UserによるOwnerのPublic Repositoryへの直接アクセスは禁止しない。
+- P方式も継続して提供する。
+- GitHubの利用制限がOwnerへ絶対に影響しないという技術的保証はしない。
+
 ## 11. CONFIRMED: Setup Guidance（Persona設定案内の要求仕様）
 
 利用者はPersona IDを知らなくてもよい。
@@ -205,7 +220,7 @@ D-005が定めた、技術的な取得証跡がない実際のGitHubアクセス
 1. Userの作成目的を理解する。
 2. 目的に適したPersonaを、第9章の利用推奨基準に従って選定する。
 3. 使用AIサービスを確認する。
-4. G/P方式を確認する。
+4. G/P方式を確認する。G方式を継続して使う場合は、第10.1節に従い、User専用のGitHub Repositoryの作成を強く推奨する。この推奨は必須条件にしない。Userが自分のRepositoryを参照する設定を選んだ場合は、そのURLを設定し、OwnerのRepositoryへの取得URLが残らないよう案内する。OwnerのPublic Repositoryへの直接アクセスは禁止しない。P方式も継続して案内する。
 5. 設定手順と指示欄用完成文を提示する。
 6. 動作確認方法を案内する。
 
@@ -220,6 +235,7 @@ D-005が定めた、技術的な取得証跡がない実際のGitHubアクセス
 - 同じ質問を繰り返さない。
 - 不明なPersona名は、ID対応表と現行Personaから確認する。
 - AIサービスとPersonaの役割を結びつけて候補を制限しない。
+- 第10.1節の専用Repository作成は強い推奨である。未作成であることだけを理由にG方式の案内を止めない。OwnerのPublic Repositoryへの直接アクセスを拒否しない。
 
 ### 11.3 Examples（会話による具体例）
 
@@ -245,7 +261,7 @@ Userの回答例：「PFを作成する設計の相談相手」
 
 例C：取得方式。
 
-例Bの続きとして、Userが「G方式」を選択した場合、Claude向けに S-SP のGitHub取得用設定手順と指示欄用完成文を提示する。
+例Bの続きとして、Userが「G方式」を選択した場合、Claude向けに S-SP のGitHub取得用設定手順と指示欄用完成文を提示する。G方式を継続して使う場合は、第10.1節に従い、User専用のGitHub Repositoryの作成を強く推奨する。この推奨は必須条件ではない。Userが自分のRepositoryを参照する設定を選んだ場合は、そのRepositoryのURLを設定し、OwnerのRepositoryへの取得URLが残らないよう案内する。OwnerのPublic Repositoryへの直接アクセスは禁止しない。P方式へ切り替えることもできる。
 
 例Cが求める完成文は、第10章のとおり未作成である。例示は案内の要求であり、完成文が既にRepositoryへ存在することを意味しない。
 
@@ -256,6 +272,7 @@ Userの回答例：「PFを作成する設計の相談相手」
 - 選択したPersona IDと名称
 - 使用するAIサービス
 - 取得方式
+- G方式でUser自身のRepositoryを参照する場合は、そのRepositoryのURL。この場合、OwnerのRepositoryへの取得URLは残さない
 - Project等の作成手順
 - 指示欄へコピーする完成文
 - 動作確認用プロンプト

@@ -553,3 +553,42 @@ Rejected（不採用案）:
 - 利用経験による本人認証、またはアクセス権限制御を追加する方式
 - Userが M- を明示指定した場合に、知識水準だけを理由に拒否する方式
 - Persona設計側の不備まで、利用者の自己責任として免責する方式
+
+## D-018 Protect the Owner Repository While Guiding User-owned Acquisition（配布元の保護とUser側取得の案内）
+
+Date（日付）: 2026-10-14
+Related Documents（関連文書）: personas/PERSONA_IDENTIFICATION_AND_SETUP.md / project-notes/CURRENT.md / Repository全体
+
+Decision（決定）:
+- Owner自身のGitHubおよびAI利用の保護を、運用上の最優先とする。
+- 他のUserによるGitHub取得の制限または失敗は許容する。
+- G方式を継続して使いたいUserには、自分専用のGitHub Repositoryを作成することを強く推奨する。この推奨は必須条件ではない。
+- Userは、自分のRepositoryにPersonaを配置し、自分のAIにはそのRepositoryのURLを設定する。
+- 自分のRepositoryを参照する設定では、OwnerのRepositoryへの取得URLが残らないよう案内する。
+- User側Repositoryの管理、更新、およびアクセス制限への対応は、各Userの責任とする。
+- OwnerのRepositoryは、Persona本文の唯一の編集元（SSOT）として維持する。UserによるForkやコピーは、正本の独立した編集元としない。
+- P方式も継続して提供する。G方式も継続する。
+- UserによるOwnerのPublic Repositoryへの直接アクセスは禁止しない。
+- GitHubの利用制限がOwnerへ絶対に影響しないという技術的保証はしない。
+- GitHubのアクセス制御、認証機能、新しい配布システム、自動同期機構は追加しない。
+- 反映先は `personas/PERSONA_IDENTIFICATION_AND_SETUP.md` の第10.1節と、第11章の基本フロー、ASKME、例C、完了条件とする。判断履歴の参照範囲は D-006〜D-018 とする。
+- D-015が定める、G方式を選んだ場合にGitHub取得用設定手順と指示欄用完成文を提示する扱いは維持する。取得先Repositoryの案内を追加する。
+- D-001〜D-017の原文は改変しない。D-017の内容は変更しない。
+- 既存Personaの本文とVersionは変更しない。
+
+Rationale（理由）:
+OwnerのGitHub利用に制限や障害が発生するリスクを、運用上の最優先で抑制するため。G方式を継続したいUserには本人専用Repositoryを強く推奨するが、その推奨を技術的な利用禁止や必須条件としないため。User側のコピーを正本の独立した編集元にしないため。GitHubの利用制限がOwnerへ絶対に影響しないとは技術的に保証しないため。
+
+Supersedes（上書き対象・範囲）:
+なし。D-014のG方式・P方式の維持、およびPersona本文の既存正本を独立した編集元へ増やさない決定は維持する。D-015の設定案内フローと例Cの提示要求は維持し、取得先Repositoryの案内を追加する。D-017は上書きしない。
+
+Non-Changes（非変更範囲）:
+D-001〜D-017の全文。D-017の内容。既存11 Personaの本文、Version、Status、Document ID、確定11 ID。第9章の利用推奨基準。第13章にあるGitHub取得の具体的な実装方式の未確定。指示欄用完成文ファイルの未作成。GitHubのアクセス制御、認証機能、新しい配布システム、自動同期機構を追加しないこと。GitHubの利用制限がOwnerへ絶対に影響しないという技術的保証をしないこと。
+
+Rejected（不採用案）:
+- UserによるOwnerのPublic Repositoryへの直接アクセスを禁止する方式
+- User専用Repositoryの作成を、G方式の必須条件とする方式
+- G方式またはP方式を廃止する方式
+- User側のForkやコピーを、正本の独立した編集元とする方式
+- GitHubの利用制限がOwnerへ絶対に影響しないと技術的に保証する方式
+- アクセス制御、認証、新しい配布システム、または自動同期を追加する方式
