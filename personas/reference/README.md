@@ -5,9 +5,9 @@
 | Version（バージョン） | 1.4 |
 | Status（ステータス） | Approved |
 | Created Date（作成日） | 2026-08-22 |
-| Last Updated（最終更新日） | 2026-10-13 |
+| Last Updated（最終更新日） | 2026-10-14 |
 | Owner（管理者） | t-oikawa-sendai |
-| Related Documents（関連文書） | [`../../README.md`](../../README.md)<br>[`../education/README.md`](../education/README.md)<br>[`CHATGPT_PERSONA.md`](CHATGPT_PERSONA.md)<br>[`CLAUDE_PERSONA.md`](CLAUDE_PERSONA.md)<br>[`CURSOR_PERSONA.md`](CURSOR_PERSONA.md)<br>[`GEMINI_PERSONA.md`](GEMINI_PERSONA.md)<br>[`IT_GENERAL_ADVISOR_TEST_PERSONA.md`](IT_GENERAL_ADVISOR_TEST_PERSONA.md)<br>[`PERSONA_OPERATION_CASE_STUDY.md`](PERSONA_OPERATION_CASE_STUDY.md)<br>[`CHAT_HANDOFF_TEMPLATE.md`](CHAT_HANDOFF_TEMPLATE.md)<br>[`PERSONA_PROMPT_TEMPLATE.md`](PERSONA_PROMPT_TEMPLATE.md)<br>[`setup/CLAUDE_CODE_SETUP.md`](setup/CLAUDE_CODE_SETUP.md) |
+| Related Documents（関連文書） | [`../../README.md`](../../README.md)<br>[`../education/README.md`](../education/README.md)<br>[`CHATGPT_PERSONA.md`](CHATGPT_PERSONA.md)<br>[`CLAUDE_PERSONA.md`](CLAUDE_PERSONA.md)<br>[`CURSOR_PERSONA.md`](CURSOR_PERSONA.md)<br>[`GEMINI_PERSONA.md`](GEMINI_PERSONA.md)<br>[`IT_GENERAL_ADVISOR_TEST_PERSONA.md`](IT_GENERAL_ADVISOR_TEST_PERSONA.md)<br>[`PERSONA_OPERATION_CASE_STUDY.md`](PERSONA_OPERATION_CASE_STUDY.md)<br>[`CHAT_HANDOFF_TEMPLATE.md`](CHAT_HANDOFF_TEMPLATE.md)<br>[`PERSONA_PROMPT_TEMPLATE.md`](PERSONA_PROMPT_TEMPLATE.md)<br>[`setup/CLAUDE_CODE_SETUP.md`](setup/CLAUDE_CODE_SETUP.md)<br>[`../PERSONA_IDENTIFICATION_AND_SETUP.md`](../PERSONA_IDENTIFICATION_AND_SETUP.md) |
 
 ---
 
@@ -78,6 +78,7 @@ O講師が実際に使用・検証しているAI利用環境、設定、情報�
 - AI運用資料の開始地点：[`PERSONA_OPERATION_CASE_STUDY.md`](PERSONA_OPERATION_CASE_STUDY.md)
 - 今回の依頼整理：[`PERSONA_PROMPT_TEMPLATE.md`](PERSONA_PROMPT_TEMPLATE.md)
 - チャット切替・作業引き継ぎ：[`CHAT_HANDOFF_TEMPLATE.md`](CHAT_HANDOFF_TEMPLATE.md)
+- Persona識別と設定案内の共通仕様：[`../PERSONA_IDENTIFICATION_AND_SETUP.md`](../PERSONA_IDENTIFICATION_AND_SETUP.md)
 
 ## Decision & Rationale（決定・判断理由）
 

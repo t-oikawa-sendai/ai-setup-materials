@@ -181,3 +181,336 @@ Supersedes（上書き対象・範囲）:
 
 Non-Changes（非変更範囲）:
 D-001、D-002、D-003、D-004の全文。検証用Personaの本文、Version、Status。他案件の完了事項、作業中、次工程。バックアップ先の具体パス。質問セットと実施頻度。commit と push の実施。
+
+## D-006 Unify Persona IDs and the Response Identification Format（Persona IDと識別表示形式の統一）
+
+Date（日付）: 2026-10-14
+Related Documents（関連文書）: personas/PERSONA_IDENTIFICATION_AND_SETUP.md / Repository全体
+
+Decision（決定）:
+- 回答冒頭の識別表示を、`【サービス略号/モデル名｜Persona ID@Version｜状態】` の1行に統一する。
+- 旧形式 `【Persona：GitHub読込済｜Version：0.1】` との二重表示はしない。
+- モデル名は確認できた値のみ使う。確認できない値は `?` とする。
+- Persona IDとVersionは、実際に使用するPersona本文と照合する。推測で補完しない。
+- 形式例 `【CG/GPT-6｜M-CG@3.0｜G】` は記号の並びを示す。例示のモデル名と `@3.0` は、現行本文がすでにその値であることを意味しない。
+- 正本は `personas/PERSONA_IDENTIFICATION_AND_SETUP.md` とする。
+- D-001〜D-005は改変しない。この反映はローカルのみとし、commit と push を含まない。
+
+Rationale（理由）:
+使用中のサービス、モデル、Persona、Version、取得状態を、回答の冒頭で一つの形式に示すため。確認できない値を推測で埋めないため。
+
+Supersedes（上書き対象・範囲）:
+なし。今後の識別表示の正本は本決定の形式とする。`personas/reference/IT_GENERAL_ADVISOR_TEST_PERSONA.md` 本文に残る旧形式の指示、および `project-notes/persona-validation/raw/` の検証原文は、この決定では変更しない。
+
+Non-Changes（非変更範囲）:
+D-001〜D-005の全文。既存11 Personaの本文、Version、Status、Document ID。検証原文とSHA-256。サービス略号は D-010、取得状態の旗は D-011、Version 3.0 の移行方針は D-009。移行は未実施である。
+
+Rejected（不採用案）:
+- 旧形式と新形式を同じ回答に二重表示する方式
+- モデル名またはVersionを推測で補完する方式
+
+## D-007 Define M/S/T Classification and Official Names（M/S/T分類と正式名称）
+
+Date（日付）: 2026-10-14
+Related Documents（関連文書）: personas/PERSONA_IDENTIFICATION_AND_SETUP.md / Repository全体
+
+Decision（決定）:
+- Prefix `M-` は Main、基本版とする。
+- Prefix `S-` は Subset、機能限定版とする。`S-` の正式な日本語名称は「機能限定版」である。
+- Prefix `T-` は Test、検証版とする。
+- 「教育用」は対象者・用途の説明であり、Persona分類名ではない。
+- Subsetを厳密な機能包含関係で定義しない。
+- MainとSubsetの1対1対応表を必須にしない。
+- M/S/T はPersona分類である。取得状態の G/P/N/? とは別の識別軸とする。
+- D-001〜D-006は改変しない。
+
+Rationale（理由）:
+Personaの基本版、機能限定版、検証版をPrefixで区別し、対象者の説明を分類名と混同しないため。Subsetを包含関係や1対1対応に固定しないため。
+
+Supersedes（上書き対象・範囲）:
+なし。
+
+Non-Changes（非変更範囲）:
+D-001〜D-006の全文。既存Document ID。`education/` と `reference/` の配置。既存11 Personaの本文。利用者制限の詳細は D-012。
+
+Rejected（不採用案）:
+- `S-` の分類名を「教育用」とする方式
+- Subsetを厳密な機能包含関係で定義する方式
+- MainとSubsetの1対1対応表を必須とする方式
+
+## D-008 Assign the Eleven Persona IDs（全11 Persona ID）
+
+Date（日付）: 2026-10-14
+Related Documents（関連文書）: personas/PERSONA_IDENTIFICATION_AND_SETUP.md / personas/reference/CHATGPT_PERSONA.md / personas/reference/GEMINI_PERSONA.md / personas/reference/CLAUDE_PERSONA.md / personas/reference/CURSOR_PERSONA.md / personas/education/GEM_RESEARCHER_FULL.md / personas/education/GEM_RESEARCHER_LEARNING_DEVELOPMENT.md / personas/education/GEM_RESEARCHER_DEVELOPMENT.md / personas/education/GEM_SOLUTION_PARTNER.md / personas/education/GEM_CODE_GENERATOR.md / personas/education/GEM_REVIEWER.md / personas/reference/IT_GENERAL_ADVISOR_TEST_PERSONA.md
+
+Decision（決定）:
+- 次の11 IDを確定し、再命名・再提案しない。
+  - `personas/reference/CHATGPT_PERSONA.md`：M-CG
+  - `personas/reference/GEMINI_PERSONA.md`：M-GM
+  - `personas/reference/CLAUDE_PERSONA.md`：M-CL
+  - `personas/reference/CURSOR_PERSONA.md`：M-CU
+  - `personas/education/GEM_RESEARCHER_FULL.md`：S-R-FULL
+  - `personas/education/GEM_RESEARCHER_LEARNING_DEVELOPMENT.md`：S-R-LD
+  - `personas/education/GEM_RESEARCHER_DEVELOPMENT.md`：S-R-DEV
+  - `personas/education/GEM_SOLUTION_PARTNER.md`：S-SP
+  - `personas/education/GEM_CODE_GENERATOR.md`：S-CG
+  - `personas/education/GEM_REVIEWER.md`：S-RV
+  - `personas/reference/IT_GENERAL_ADVISOR_TEST_PERSONA.md`：T-IT-ADVISOR
+- `Researcher Deep Research` は独立Personaではなく、11件に含めない。
+- 既存Document IDは変更しない。
+- 検証用Persona本文に残る移行前の識別子 `IT-GENERAL-ADVISOR-TEST` は、今回の本文未変更により残す。確定ID `T-IT-ADVISOR` へ置き換わったものとして扱わない。
+- D-001〜D-007は改変しない。Persona本文は変更しない。
+
+Rationale（理由）:
+全Personaを一意のIDで参照し、ファイルとの対応を固定するため。独立Personaではない追加GemをID対象へ混ぜないため。
+
+Supersedes（上書き対象・範囲）:
+なし。検証用Persona本文中の `IT-GENERAL-ADVISOR-TEST` は、本文更新の別工程まで現行本文上の識別子として残る。D-005が保全した Version 0.1 / Draft は変更しない。
+
+Non-Changes（非変更範囲）:
+D-001〜D-007の全文。既存11 Personaの本文、Version、Status、Document ID。`S-SETUP` は本決定のIDに含めない。
+
+Rejected（不採用案）:
+- 確定済みIDを再命名・再提案する方式
+- `Researcher Deep Research` を12件目の独立Personaとする方式
+- 既存Document IDをPersona IDへ置き換える方式
+
+## D-009 Adopt Version 3.0 as the Migration Baseline Without Applying It（Version 3.0への移行方針）
+
+Date（日付）: 2026-10-14
+Related Documents（関連文書）: personas/PERSONA_IDENTIFICATION_AND_SETUP.md / project-notes/DECISIONS.md / project-notes/CURRENT.md / Repository全体
+
+Decision（決定）:
+- 全11 Personaを、新共通基準のVersion 3.0 へ統一する。
+- 共通基準としてVersion 2.0を採用しない。Version 3.0を新しい基点とする。
+- 旧2.x系列の過去履歴を削除・書き換えしない。
+- 既存のDraft・Approvedを、Version変更だけで自動昇格しない。
+- 今回行うのは移行仕様の記録である。全Persona本文とDocument Infoの Version 3.0 への更新は別工程であり、未実施である。
+- 移行前のVersionは、2026-10-14時点の各Document Infoである。移行後の共通Versionは 3.0 である。両者を混同しない。
+- D-005が記録した検証用Persona Version 0.1 / Draft は、2026-10-14の保全決定時点の確定状態として維持する。Version 3.0 はその後の移行先であり、D-005を書き換えない。移行未実施のため、現行Document Infoは Version 0.1 / Draft のままである。
+- D-001〜D-008は改変しない。
+
+Rationale（理由）:
+共通のVersion基点を 3.0 に置き、2.0 をその基点にしないため。過去の版履歴を残したまま、本文更新を別工程に分けるため。Versionの数字だけを変えて承認状態を上げないため。
+
+Supersedes（上書き対象・範囲）:
+なし。D-005の Version 0.1 / Draft は当時の確定状態として有効なままである。本決定は、未実施の移行先を追加するものであり、D-005の時点のVersionを現行値へ書き換えない。
+
+Non-Changes（非変更範囲）:
+D-001〜D-008の全文。既存11 Personaの本文、現行Document InfoのVersionとStatus、Document ID。検証原文。新設Personaへの Version 3.0 の無条件適用とApproved昇格。
+
+Rejected（不採用案）:
+- Version 2.0を新共通基準とする方式
+- 旧2.x系列の過去履歴を削除または書き換える方式
+- Version変更だけでDraftまたはApprovedを自動昇格する方式
+- 移行仕様の記録と、本文・Document Infoの更新完了を同じものとして扱う方式
+
+## D-010 Keep AI Services and Personas Independent（AIサービスとPersonaの独立性）
+
+Date（日付）: 2026-10-14
+Related Documents（関連文書）: personas/PERSONA_IDENTIFICATION_AND_SETUP.md / Repository全体
+
+Decision（決定）:
+- サービス略号を、Gemini＝GM、ChatGPT＝CG、Claude＝CL、Cursor＝CU、M365 Copilot＝MC とする。
+- M365 Copilotは、現段階で専用Personaを追加しない。略号のみ定義する。
+- AIサービスとPersonaは独立する。ClaudeのProjectで `S-SP` を使用できるよう案内する。`M-CG` はChatGPT専用の実行制限を意味しない。
+- AIサービスの種類によってPersonaの役割を限定しない。
+- D-001〜D-009は改変しない。
+
+Rationale（理由）:
+識別表示のサービス略号を固定しつつ、Personaの使用先を作成元のサービス名へ縛らないため。略号の定義と、専用Personaの追加を分けておくため。
+
+Supersedes（上書き対象・範囲）:
+なし。
+
+Non-Changes（非変更範囲）:
+D-001〜D-009の全文。既存11 Personaの本文と配置。M365 Copilot専用Personaの不存在。利用者区分による案内制限は D-012。
+
+Rejected（不採用案）:
+- AIサービスの種類でPersonaの役割を限定する方式
+- `M-CG` をChatGPTだけで実行できるIDとして扱う方式
+- 現段階でM365 Copilot専用Personaを追加する方式
+
+## D-011 Use G/P/N/? as the Only Acquisition Status Flags（G/P/N/?状態表示への一本化）
+
+Date（日付）: 2026-10-14
+Related Documents（関連文書）: personas/PERSONA_IDENTIFICATION_AND_SETUP.md / project-notes/DECISIONS.md / Repository全体
+
+Decision（決定）:
+- 取得状態は次の4旗だけとする。GはGitHubからPersona本文を取得した状態、PはProject等の指示欄に記載されたPersona本文を使用する状態、NはPersona未読込、`?` は取得元・状態が未確認である。
+- 以前の提案 `G!` は採用しない。
+- GitHub取得失敗と未実施の詳細は、必要に応じて検証記録で区別する。
+- Gは取得成功の自己申告であり、客観的なアクセス証明ではない。
+- Persona取得とPersona適用は別の事実として扱う。
+- GitHub取得失敗時に、Memoryや過去の会話から本文を補完しない。
+- 未取得を取得済みと報告しない。
+- D-005の、技術的な取得証跡がない実際のGitHubアクセスはUNVERIFIEDとする扱いは維持する。
+- D-001〜D-010は改変しない。検証原文は変更しない。
+
+Rationale（理由）:
+取得状態を一つの旗の集合にまとめ、取得成功の自己申告をアクセス証明と混同しないため。失敗時に記憶から本文を補完しないため。
+
+Supersedes（上書き対象・範囲）:
+なし。今後の状態表示は本決定の4旗とする。D-005の自己申告とUNVERIFIEDの扱いは維持する。検証原文の「GitHub読込済」という過去の表記は改変しない。
+
+Non-Changes（非変更範囲）:
+D-001〜D-010の全文。M/S/T分類。検証原文とSHA-256。既存11 Personaの本文。
+
+Rejected（不採用案）:
+- `G!` を採用する方式
+- Gを客観的なアクセス証明として扱う方式
+- GitHub取得失敗時にMemoryや過去の会話から本文を補完する方式
+- 未取得を取得済みと報告する方式
+
+## D-012 Limit Main to the Owner and Subset to General Users（MainのOwner専用とSubsetの一般利用）
+
+Date（日付）: 2026-10-14
+Related Documents（関連文書）: personas/PERSONA_IDENTIFICATION_AND_SETUP.md / Repository全体
+
+Decision（決定）:
+- Main（M-）はOwner専用とする。
+- 生徒およびその他の一般利用者には、Subset（S-）のみを通常の設定候補として案内する。
+- 一般利用者にMainを選択肢として提示しない。
+- Test（T-）は検証用途とし、通常の設定候補へ含めない。
+- 使用者の権限を確認できない場合は、一般利用者扱いとする。
+- この制限はPersona設定案内上の規則であり、GitHubの実際のアクセス制御ではない。M-Personaのアクセス禁止を技術的に保証したと記録しない。
+- 案内してよいPersonaの範囲は使用者の区分で決まる。使用するAIサービスでは決まらない。
+- D-001〜D-011は改変しない。
+
+Rationale（理由）:
+基本版の案内先をOwnerに限る一方、その制限をGitHub上のアクセス禁止の実装済み事実として記録しないため。権限を確認できない使用者を、Mainの案内対象へ広げないため。
+
+Supersedes（上書き対象・範囲）:
+なし。
+
+Non-Changes（非変更範囲）:
+D-001〜D-011の全文。GitHubのアクセス制御設定。既存11 Personaの本文と公開範囲。AIサービスとPersonaの独立性。
+
+Rejected（不採用案）:
+- 一般利用者へMainを通常の選択肢として提示する方式
+- Testを通常の設定候補へ含める方式
+- 案内上の制限を、GitHubアクセス制御の技術的保証として記録する方式
+
+## D-013 Keep the education and reference Directories（education/ と reference/ の維持）
+
+Date（日付）: 2026-10-14
+Related Documents（関連文書）: personas/PERSONA_IDENTIFICATION_AND_SETUP.md / personas/education/ / personas/reference/ / Repository全体
+
+Decision（決定）:
+- `education/` と `reference/` のディレクトリ構造を維持する。
+- 既存Document IDを変更しない。
+- 識別と設定案内の共通仕様は、両区分に適用する成果物 `personas/PERSONA_IDENTIFICATION_AND_SETUP.md` に置く。
+- このファイルはPersona本文ではないため、区分ディレクトリのPersona本体へ置かない。AIサービス固有の手順ではないため、`personas/<区分>/setup/` へ置かない。
+- 新しいディレクトリは作らない。
+- D-001〜D-012は改変しない。既存ファイルの移動・改名はしない。
+
+Rationale（理由）:
+既存の区分とDocument IDを維持したまま、両区分にまたがる共通仕様の正本を一か所に置くため。サービス別手順とPersona本文の配置規則を崩さないため。
+
+Supersedes（上書き対象・範囲）:
+なし。2026-08-22のディレクトリ構造と、設定・運用資料を `personas/<区分>/setup/` でAIサービス単位に置く既存規則は維持する。
+
+Non-Changes（非変更範囲）:
+D-001〜D-012の全文。既存ディレクトリ名。既存Document ID。既存11 Personaの本文と配置。サービス固有セットアップ手順の既存ファイル。
+
+Rejected（不採用案）:
+- 共通仕様のために新しいディレクトリを作る方式
+- 共通仕様を education または reference の一方だけへ置き、同じ仕様を他方へ複製する方式
+- 既存Document IDまたはディレクトリ名を変更する方式
+
+## D-014 Require Management of Completed Instruction Texts（指示欄用完成文章の必須管理）
+
+Date（日付）: 2026-10-14
+Related Documents（関連文書）: personas/PERSONA_IDENTIFICATION_AND_SETUP.md / AGENTS.md / Repository全体
+
+Decision（決定）:
+- 各AIサービスのProject・Gem等の指示欄に直接記載する完成済み文章を、Repositoryの必須管理対象に加える。
+- Persona本文と指示欄用文章を区別する。
+- GitHub取得方式（G）と直接記載方式（P）に対応する。
+- Persona本文は既存正本を使い、独立した編集元を増やさない。
+- 利用者に複数資料から指示文を組み立てさせない。そのままコピーできる完成文を提供する。
+- 指示文の共通部分とサービス固有部分を識別できるようにする。
+- サービスの現行仕様で実現できない機能を保証しない。
+- 既存のPersona本文と、サービス固有セットアップ手順の責務分離を維持する。
+- 過去に検討した「9パターン」「17パターン」は確定文書数ではない。
+- 完成文の生成・管理方式と必要ファイル数は詳細設計の対象であり、未確定である。未確定のまま完成文ファイルを作成しない。
+- `AGENTS.md` の対象と文書責務へ、上記の管理対象と区別だけを追記する。過去の `Decision & Rationale` は書き換えない。
+- D-001〜D-013は改変しない。
+
+Rationale（理由）:
+指示欄へ貼る文章を、利用者の組み立てやPersona本文への混在に依存させないため。サービス固有のセットアップ手順との責務分離を維持したまま、完成文を管理対象へ加えるため。
+
+Supersedes（上書き対象・範囲）:
+なし。`AGENTS.md` の既存の対象一覧へ、指示欄用完成文章を追加する。Persona本文とサービス固有セットアップ手順を分ける既存規則は維持する。
+
+Non-Changes（非変更範囲）:
+D-001〜D-013の全文。`AGENTS.md` 末尾の既存 `Decision & Rationale`。既存11 Personaの本文。`personas/education/setup/GEMINI_GEM_SETUP.md` と `personas/reference/setup/CLAUDE_CODE_SETUP.md` の本文。完成文ファイルの未作成。
+
+Rejected（不採用案）:
+- 「9パターン」または「17パターン」を確定文書数とする方式
+- 利用者に複数資料から指示文を組み立てさせる方式
+- 指示欄用文章のためにPersona本文の独立した編集元を増やす方式
+- サービスの現行仕様で実現できない機能を保証する方式
+
+## D-015 Guide Persona Setup from Natural Language（自然文からのPersona設定案内）
+
+Date（日付）: 2026-10-14
+Related Documents（関連文書）: personas/PERSONA_IDENTIFICATION_AND_SETUP.md / README.md / personas/education/README.md / personas/reference/README.md / Repository全体
+
+Decision（決定）:
+- 利用者はPersona IDを知らなくてもよい。自然文の依頼から、用途、Persona、AIサービス、取得方式を特定し、設定まで案内する。
+- 基本順序は、作成目的の理解、利用可能なPersonaの選定、AIサービスの確認、G/P方式の確認、設定手順と指示欄用完成文の提示、動作確認方法の案内である。
+- 質問順序を機械的に固定せず、判明している事項は再質問しない。情報不足の場合のみ、必要最小限をASKMEする。
+- 一意に判定できるPersonaを再選択させない。一般利用者に M/S を選択させない。同じ質問を繰り返さない。
+- 不明なPersona名は、ID対応表と現行Personaから確認する。AIサービスとPersonaの役割を結びつけて候補を制限しない。
+- 目的が明確な「GitHubで管理するペルソナを読み込む仕様のSolution Partnerのプロジェクト」は、S-SP かつ取得方式 G と判定する。AIサービスは文脈から特定できる場合は追加質問せず、特定できなければ確認する。
+- 目的が不明な「プロジェクトを作りたい」はASKMEする。Userが「PFを作成する設計の相談相手」と答えた場合、一般利用者向け候補は S-SP とする。Userが Claude を選んでも、Claudeを理由に S-SP を除外しない。
+- その続きでUserが G方式を選んだ場合、Claude向けに S-SP のGitHub取得用設定手順と指示欄用完成文を提示する。この完成文は未作成であり、例は要求であってファイルの存在を意味しない。
+- 設定案内の完了時に、Persona IDと名称、AIサービス、取得方式、作成手順、指示欄へコピーする完成文、動作確認用プロンプトを提供する。実際の適用成功は別途検証する。
+- Root README、Education README、Reference READMEには、共通仕様への入口だけを追加する。同じ説明文を複数ファイルへ重複掲載しない。Education用4Gem＋1の構成と利用手順は変更しない。三つのREADMEの Version と Status は変更しない。
+- D-001〜D-014は改変しない。
+
+Rationale（理由）:
+Persona IDを知らない利用者でも、目的から設定まで案内できるようにするため。判明済みの事項を繰り返し問わず、サービス名で候補を狭めないため。
+
+Supersedes（上書き対象・範囲）:
+なし。
+
+Non-Changes（非変更範囲）:
+D-001〜D-014の全文。Education用4Gem＋1の構成と利用手順。三つのREADMEの Version、Status、Document ID。既存のサービス固有セットアップ手順の本文。指示欄用完成文ファイルの未作成。実動検証の未実施。
+
+Rejected（不採用案）:
+- 質問順序を機械的に固定し、判明済みの事項も再質問する方式
+- 一般利用者に M/S を選択させる方式
+- AIサービスを理由に、使用できるPersonaの役割を制限する方式
+- 同じ説明文をRoot、Education、Referenceの各READMEへ重複掲載する方式
+
+## D-016 Establish a Dedicated Persona for Setup Guidance（設定案内専用Personaの新設方針）
+
+Date（日付）: 2026-10-14
+Related Documents（関連文書）: personas/PERSONA_IDENTIFICATION_AND_SETUP.md / project-notes/CURRENT.md / Repository全体
+
+Decision（決定）:
+- Personaの設定案内だけを担当する専用Personaを新設する。この新設方針は確定である。
+- 責務は、Persona利用環境の設定案内、目的からのPersona選定、必要最小限のASKME、Persona IDとGitHub正本の対応確認、G/P方式の選択支援、AIサービス固有の設定手順、指示欄へ貼る完成文、設定後の動作確認方法とする。
+- 対象外は、PFやアプリケーションそのものの設計、プログラミング、コード生成、ソフトウェア実装、コードレビュー、一般的なIT相談、Persona本文の無断変更、Git操作の無断実行とする。
+- 次はChatGPTの初稿であり、Userの個別承認を受けていない。PROPOSED / UNRESOLVED として保持する。名称案 Persona Setup Advisor、Persona ID案 S-SETUP、新規PersonaのDocument Info、本文の最終構成、正本ファイルの配置先、GitHub取得の具体的な実装方式、共通指示文とサービス別派生文の最終構成、新Personaの実動検証条件。
+- `S-SETUP` を承認済みIDとして扱わない。D-008の確定11 IDへ加えない。
+- Version 3.0 を新設Personaへ無条件に適用しない。Approvedへ昇格しない。
+- 新規Persona本文の正式実装は未実施である。
+- 既存11 Personaの役割定義は変更しない。対象外の作業を、本決定で既存Personaへ割り当て直さない。
+- D-001〜D-015は改変しない。
+
+Rationale（理由）:
+設定案内を、設計・実装・レビュー・一般的なIT相談から分けた専用Personaの責務とするため。未承認の名称とIDを、確定仕様へ混ぜないため。
+
+Supersedes（上書き対象・範囲）:
+なし。
+
+Non-Changes（非変更範囲）:
+D-001〜D-015の全文。既存11 Personaの本文、Version、Status、Document ID、責務。確定11 ID。`S-SETUP` の未承認。新設Persona本文の未作成。実動検証の未実施。
+
+Rejected（不採用案）:
+- 名称案または `S-SETUP` を承認済みとして記録する方式
+- Version 3.0 を新設Personaへ無条件に適用し、Approvedへ昇格する方式
+- 新設方針の記録と、本文の正式実装完了を同じものとして扱う方式

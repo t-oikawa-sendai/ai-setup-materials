@@ -191,6 +191,7 @@ Status: CURRENT
   - 当該SHAの GitHub Actions 実行履歴は確認時点で 0件。SUCCESS とは記録しない
 - 2026-10-14 3モデル分のUser提出検証回答（Gemini、Claude、ChatGPT）と提出元全文、マニフェストを `project-notes/persona-validation/raw/` へ無改変で保全した。検証用Persona `personas/reference/IT_GENERAL_ADVISOR_TEST_PERSONA.md` は Version 0.1 / Draft のまま維持する。Decisionは `project-notes/DECISIONS.md` の D-005
 - 2026-10-14 ChatGPTが今回の保全に先立ち示した GitHub main HEAD `85655023bcc6116dce4beb8b4f416d52840d8f5f` は、origin/main および GitHub main と一致した。この確認は、同日3回答の取得自己申告とは別である。3回答の実際のGitHubアクセスは UNVERIFIED
+- 2026-10-14 Persona識別と設定案内の追加仕様を [`../personas/PERSONA_IDENTIFICATION_AND_SETUP.md`](../personas/PERSONA_IDENTIFICATION_AND_SETUP.md) へ記録した。判断は `project-notes/DECISIONS.md` の D-006〜D-016。この完了は仕様の記録である。全11 Persona本文の Version 3.0 への移行、設定案内専用Personaの本文の正式作成、各AIサービスの実動検証は、この完了に含まない
 
 ## 作業中
 
@@ -221,12 +222,17 @@ Status: CURRENT
 13. 中央Governanceの正式導入は別工程である。今回の判断履歴管理規則の改訂では開始しない。導入完了、Purpose、Governance Status は確定しない。
 14. 検証用Personaについて、反復検証、日別評価、期間集計を継続する。2026-10-14分の原文保全は完了している。回答内容の正確性評価は未実施である。
 15. 保全した原文の独立バックアップを用意する。バックアップ先のパスと方式は未決定であり、この記録では確定しない。
+16. 全11 Personaの本文とDocument Infoを、共通仕様の Version 3.0 へ移行する。移行は未実施である。Versionの変更だけで Draft または Approved を昇格しない。D-005の検証用Persona Version 0.1 / Draft は、当時の確定状態として維持する。
+17. 設定案内専用Personaの本文を正式作成する。名称、Persona ID、Document Info、本文構成、配置先は未承認である。`S-SETUP` を承認済みIDとして扱わない。
+18. 指示欄用完成文の生成・管理方式と必要ファイル数を詳細設計する。未確定のまま完成文ファイルを作成しない。
+19. 各AIサービスでのPersona設定の実動検証を行う。未実施を実施済みと記録しない。
 
 Reviewerを含むPersonaの機能設計はEvidenceなしに再検討しない。完了済みの文書適合性復旧を、Evidenceなしに再作業対象へ戻さない。`ASKME 迎合禁止` と7文書配置を未決事項へ戻さない。Education用の基本体系は4Gemであり、`Researcher Deep Research` はResearcher Personaを使う追加Gemとして扱う。
 
 ## 正本の所在
 
 - 作業規則：`AGENTS.md`
+- Persona識別と設定案内：`personas/PERSONA_IDENTIFICATION_AND_SETUP.md`
 - Repository入口・Persona重要性の共通説明：`README.md`
 - Education Persona：`personas/education/`
 - Education Solution Partner正本：`personas/education/GEM_SOLUTION_PARTNER.md`

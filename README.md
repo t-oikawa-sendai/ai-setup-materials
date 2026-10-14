@@ -5,9 +5,9 @@
 | Version（バージョン） | 1.2 |
 | Status（ステータス） | Approved |
 | Created Date（作成日） | 2026-08-17 |
-| Last Updated（最終更新日） | 2026-09-23 |
+| Last Updated（最終更新日） | 2026-10-14 |
 | Owner（管理者） | t-oikawa-sendai |
-| Related Documents（関連文書） | [`personas/education/README.md`](personas/education/README.md)<br>[`personas/education/setup/GEMINI_GEM_SETUP.md`](personas/education/setup/GEMINI_GEM_SETUP.md)<br>[`personas/reference/README.md`](personas/reference/README.md)<br>[`personas/reference/PERSONA_OPERATION_CASE_STUDY.md`](personas/reference/PERSONA_OPERATION_CASE_STUDY.md)<br>[`project-notes/2026-09-11-code-generator-5-pattern-comparison-reference.md`](project-notes/2026-09-11-code-generator-5-pattern-comparison-reference.md) |
+| Related Documents（関連文書） | [`personas/education/README.md`](personas/education/README.md)<br>[`personas/education/setup/GEMINI_GEM_SETUP.md`](personas/education/setup/GEMINI_GEM_SETUP.md)<br>[`personas/reference/README.md`](personas/reference/README.md)<br>[`personas/reference/PERSONA_OPERATION_CASE_STUDY.md`](personas/reference/PERSONA_OPERATION_CASE_STUDY.md)<br>[`personas/PERSONA_IDENTIFICATION_AND_SETUP.md`](personas/PERSONA_IDENTIFICATION_AND_SETUP.md)<br>[`project-notes/2026-09-11-code-generator-5-pattern-comparison-reference.md`](project-notes/2026-09-11-code-generator-5-pattern-comparison-reference.md) |
 
 ---
 
@@ -26,6 +26,7 @@
 |---|---|
 | 生徒としてEducation用4Gem＋1を使いたい | [`personas/education/README.md`](personas/education/README.md) |
 | GeminiへEducation用4Gem＋1を設定したい | [`GEMINI_GEM_SETUP.md`](personas/education/setup/GEMINI_GEM_SETUP.md) |
+| Personaの識別と、Project・Gem等の設定案内を確認したい | [`PERSONA_IDENTIFICATION_AND_SETUP.md`](personas/PERSONA_IDENTIFICATION_AND_SETUP.md) |
 | O講師の実際のAI利用環境・設定・運用方法を参考にしたい | [`personas/reference/README.md`](personas/reference/README.md) |
 | Personaあり／なしの検証例を確認したい | [3.1 Personaあり／なしの検証例](#persona-ab-code-generator) |
 
@@ -196,6 +197,7 @@ Reviewerの結果は最初に利用者（生徒）へ返されます。
 ├── AGENTS.md        AIがこのRepositoryで作業する際の規則
 ├── LICENSE          ライセンス
 ├── personas/
+│   ├── PERSONA_IDENTIFICATION_AND_SETUP.md  Persona識別と設定案内の共通仕様
 │   ├── education/   学習用：基本4Gem＋Researcher Deep Researchの追加1GemをGeminiで操作する構成
 │   └── reference/   参考用：Education用4Gem＋1とは異なる前提の実務構成例
 └── project-notes/   設計判断と作業状況の記録（管理用）

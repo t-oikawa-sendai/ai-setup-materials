@@ -5,9 +5,9 @@
 | Version（バージョン） | 1.0 |
 | Status（ステータス） | Approved |
 | Created Date（作成日） | 2026-08-19 |
-| Last Updated（最終更新日） | 2026-08-26 |
+| Last Updated（最終更新日） | 2026-10-14 |
 | Owner（管理者） | t-oikawa-sendai |
-| Related Documents（関連文書） | [`../../README.md`](../../README.md)<br>[`GEM_RESEARCHER_FULL.md`](GEM_RESEARCHER_FULL.md)<br>[`GEM_RESEARCHER_LEARNING_DEVELOPMENT.md`](GEM_RESEARCHER_LEARNING_DEVELOPMENT.md)<br>[`GEM_RESEARCHER_DEVELOPMENT.md`](GEM_RESEARCHER_DEVELOPMENT.md)<br>[`GEM_SOLUTION_PARTNER.md`](GEM_SOLUTION_PARTNER.md)<br>[`GEM_CODE_GENERATOR.md`](GEM_CODE_GENERATOR.md)<br>[`GEM_REVIEWER.md`](GEM_REVIEWER.md)<br>[`setup/GEMINI_GEM_SETUP.md`](setup/GEMINI_GEM_SETUP.md) |
+| Related Documents（関連文書） | [`../../README.md`](../../README.md)<br>[`../PERSONA_IDENTIFICATION_AND_SETUP.md`](../PERSONA_IDENTIFICATION_AND_SETUP.md)<br>[`GEM_RESEARCHER_FULL.md`](GEM_RESEARCHER_FULL.md)<br>[`GEM_RESEARCHER_LEARNING_DEVELOPMENT.md`](GEM_RESEARCHER_LEARNING_DEVELOPMENT.md)<br>[`GEM_RESEARCHER_DEVELOPMENT.md`](GEM_RESEARCHER_DEVELOPMENT.md)<br>[`GEM_SOLUTION_PARTNER.md`](GEM_SOLUTION_PARTNER.md)<br>[`GEM_CODE_GENERATOR.md`](GEM_CODE_GENERATOR.md)<br>[`GEM_REVIEWER.md`](GEM_REVIEWER.md)<br>[`setup/GEMINI_GEM_SETUP.md`](setup/GEMINI_GEM_SETUP.md) |
 
 ---
 
@@ -24,6 +24,8 @@ User（生徒）が各Gemを操作し、各出力を確認して、次の工程�
 Personaそのものがなぜ重要なのか、サービス全体のカスタム指示・共通設定やその都度のプロンプトと何が違うのかは、Repository共通の説明として [`../../README.md`](../../README.md) の `Why Persona Matters（なぜPersonaが重要なのか）` を参照してください。
 
 Gemini上での具体的な設定方法は [`setup/GEMINI_GEM_SETUP.md`](setup/GEMINI_GEM_SETUP.md) で説明します。
+
+Personaの識別と、Project・Gem等の設定案内の共通仕様は [`../PERSONA_IDENTIFICATION_AND_SETUP.md`](../PERSONA_IDENTIFICATION_AND_SETUP.md) にあります。Education用4Gem＋1の構成と、このREADMEの利用手順は変更していません。
 
 ## 2. Current 4Gem＋1（現行4Gem＋1）
 
