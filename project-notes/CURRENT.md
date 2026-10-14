@@ -192,6 +192,7 @@ Status: CURRENT
 - 2026-10-14 3モデル分のUser提出検証回答（Gemini、Claude、ChatGPT）と提出元全文、マニフェストを `project-notes/persona-validation/raw/` へ無改変で保全した。検証用Persona `personas/reference/IT_GENERAL_ADVISOR_TEST_PERSONA.md` は Version 0.1 / Draft のまま維持する。Decisionは `project-notes/DECISIONS.md` の D-005
 - 2026-10-14 ChatGPTが今回の保全に先立ち示した GitHub main HEAD `85655023bcc6116dce4beb8b4f416d52840d8f5f` は、origin/main および GitHub main と一致した。この確認は、同日3回答の取得自己申告とは別である。3回答の実際のGitHubアクセスは UNVERIFIED
 - 2026-10-14 Persona識別と設定案内の追加仕様を [`../personas/PERSONA_IDENTIFICATION_AND_SETUP.md`](../personas/PERSONA_IDENTIFICATION_AND_SETUP.md) へ記録した。判断は `project-notes/DECISIONS.md` の D-006〜D-016。この完了は仕様の記録である。全11 Persona本文の Version 3.0 への移行、設定案内専用Personaの本文の正式作成、各AIサービスの実動検証は、この完了に含まない
+- 2026-10-14 M-Personaの利用方針を、Owner専用の禁止規則から、知識・経験・運用能力に応じた推奨基準へローカル反映した。正本は [`../personas/PERSONA_IDENTIFICATION_AND_SETUP.md`](../personas/PERSONA_IDENTIFICATION_AND_SETUP.md) 第9章。第11章の選定、ASKME、例Bを第9章へ整合した。同ファイルの判断履歴の参照範囲は D-006〜D-017 とし、第14章の境界表現は利用推奨基準へ合わせた。Decisionは `project-notes/DECISIONS.md` の D-017。D-017は D-012 の Owner専用規則と一般利用者への M- 案内禁止を上書きする。D-012 と D-015 の原文は変更していない。D-015 は上書きしていない。知識水準が不明な場合の標準案内は S- である。Owner以外の M- 利用は禁止しない。利用経験による本人認証とアクセス権限制御は追加していない。M/S/T の分類名称、既存11 Personaの本文と Version、確定11 ID、設定案内専用Personaの名称・ID・配置は変更していない。commit と push は未実施
 
 ## 作業中
 
