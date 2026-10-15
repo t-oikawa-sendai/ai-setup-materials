@@ -846,3 +846,158 @@ D-001〜D-025の原文。`personas/reference/CHATGPT_PERSONA.md` の第1章か�
 
 Rejected（不採用案）:
 共通仕様第16章を削除し、品質・承認の独立検証工程を ChatGPT Persona 第11章の規則として置き換える配置。Verification Code の推測による生成。検証用Personaの `ADVISOR-ALPHA` の流用。旧識別形式と新識別形式の二重表示。
+
+## D-027 Consolidate Duplicate ChatGPT Persona Rules and Preserve the Removed Decision Record（ChatGPT Personaの重複規則を整理し、削除した判断記録を保全する）
+
+Date（日付）: 2026-10-15
+Related Documents（関連文書）: personas/reference/CHATGPT_PERSONA.md / project-notes/CURRENT.md / project-notes/DECISIONS.md
+
+Decision（決定）:
+- User承認日は2026-10-15である。Userは、`personas/reference/CHATGPT_PERSONA.md` の第1章から第11章について、同じ規則を一度だけ定義する構造へ整理すること、および同ファイル末尾の `Decision & Rationale` を全文削除することを承認した。この承認は、D-025 と D-026 が本文と既存 `Decision & Rationale` を変更しないとした範囲に対する、今回の作業に限る例外である。
+- 異なる目的の規則は、語句が似ていることだけを理由に統合しない。有効な規則、禁止事項、停止条件を削除しない。強制規則を任意規則にしない。第11章の識別、検証回答、更新検証、回答タグ、`AGENTS.md` 読込状態の5機能を維持する。
+- 削除する `Decision & Rationale` の原文は、下の「保全する原文」に原文のまま置く。要約して置き換えない。
+- Version は 1.2（提案）、Status は Draft のままとする。Document Info は正本に残す。Project登録時は Document Info を登録文字数に含めない。Project登録対象は8,000文字以内とする。
+- 共通仕様の品質・実動検証工程は変更しない。D-025 の TC-01、TC-02、TC-03、各2回、合計6回、6回すべてPASSは変更しない。commit と push の承認権限は、それぞれUserの個別の明示指示がある場合だけ、という条件のままとする。
+- この決定は文書整理である。実動検証6回、Approvedへの昇格、commit、push は行わない。整理後は、追加の設計工程を作らず、D-025 の実動検証へ戻る。
+- D-001〜D-026の原文は変更しない。
+
+Rationale（理由）:
+Project指示欄へ登録できる文字数に収めるため、同じ規則の重複定義を一つの節へ集約する。判断記録は削除せず、本決定へ原文のまま移して追跡できるようにする。D-026が第1章から第10章と既存 `Decision & Rationale` を変更しないとした範囲、および D-025 が同Persona本文を変更しないとした範囲は、今回のUser承認による例外として、重複整理と当該節の削除に限って上書きする。
+
+Supersedes（上書き対象・範囲）:
+- project-notes/DECISIONS.md / 2026-10-15 / 「D-026 Add Self-Identification and Acquisition Verification to the ChatGPT Persona」の Decision のうち、「既存の第1章から第10章、Document Info、既存の `Decision & Rationale`、検証用Persona第16章は変更しない」について、次だけを上書きする。`personas/reference/CHATGPT_PERSONA.md` の第1章から第11章を、有効な規則を維持した重複整理として更新すること。同ファイル末尾の `Decision & Rationale` を削除し、その原文を本決定の「保全する原文」へ置くこと。Document Info は変更しない。検証用Persona第16章は変更しない。第11章の5機能は維持する。D-026のその他の決定は上書きしない。D-026の原文は書き換えない。
+- 同 D-026 の Non-Changes のうち、`personas/reference/CHATGPT_PERSONA.md` の第1章から第10章と既存 `Decision & Rationale` を変更しない範囲。上書き範囲は前項と同じである。
+- project-notes/DECISIONS.md / 2026-10-15 / 「D-025 Approve the ChatGPT Persona Version 1.2 Live Verification Conditions」の Decision のうち、「`personas/reference/CHATGPT_PERSONA.md` の本文は変更しない」について、今回の重複整理と `Decision & Rationale` の削除に限って上書きする。TC-01、TC-02、TC-03、各2回、合計6回、6回すべてPASSは上書きしない。D-025の原文は書き換えない。
+- 同 D-025 の Non-Changes のうち、同Persona本文を変更しない範囲。上書き範囲は前項と同じである。検証条件は上書きしない。
+
+Non-Changes（非変更範囲）:
+D-001〜D-026の原文。Document Info（Version 1.2（提案）、Status Draft、Last Updated 2026-10-15、Document ID、Created Date）。第11章の5機能。Persona ID `M-CG`。Verification Code の未確定。共通仕様の品質・実動検証工程。D-025 の TC-01〜TC-03、各2回、合計6回、6回すべてPASS。commitとpushの承認権限。`personas/PERSONA_IDENTIFICATION_AND_SETUP.md`。`AGENTS.md`。実動検証6回の実施。Approvedへの昇格。commit。push。
+
+Rejected（不採用案）:
+有効な規則を削除して文字数だけを減らす方式。`Decision & Rationale` を保全せず削除する方式。
+
+保全する原文:
+
+```text
+## Decision & Rationale
+
+### 2026-10-06
+
+#### Reference ChatGPT Persona v1.2 Draftの反映
+
+Decision:
+ユーザー指定のファイルをReference ChatGPT Personaのv1.2 Draftとして正本ファイルへ反映する。Approvedへの昇格は行わない。
+
+Reason:
+ユーザーが申告した「AIが未決仕様を確認せず埋めた」事故を踏まえ、現行版より改善できる可能性のあるPersonaを評価するため。
+```
+
+## D-028 Establish a 7,500-Character Limit for Personas（Persona文字数上限7,500文字の恒久化）
+
+Date（日付）: 2026-10-15
+Related Documents（関連文書）: AGENTS.md / personas/reference/CHATGPT_PERSONA.md / project-notes/CURRENT.md / project-notes/DECISIONS.md
+
+Decision（決定）:
+- User承認日は2026-10-15である。
+- Personaは、1ファイル全体で7,500文字以内とする。文字数はUnicodeコードポイント数で計測する。Document Info、見出し、本文、表、空行、改行、ファイル末尾の改行を含め、ファイル全体を対象とする。
+- 新規Personaおよび今後改訂するPersonaに適用する。変更対象ではない既存Personaの一括改訂は求めない。
+- 文字数削減を理由に、有効な機能、確定仕様、禁止事項、停止条件、責務境界、Userの承認権限を削除・緩和しない。規則を削減して文字数を達成しない。
+- 恒久ルールの正本は `AGENTS.md` §3.4とする。
+- D-027の既存判断は変更しない。今回の7,500文字制限は、D-027に追加する制約である。D-027の原文は書き換えない。
+- 整理途中の `personas/reference/CHATGPT_PERSONA.md` にもこの上限を適用する。有効な規則を削除・緩和せずに上限へ達しない場合は、その本文の規則を削らない。
+- D-001〜D-027の原文は変更しない。
+
+Rationale（理由）:
+ChatGPT Projectの8,000文字制限へ対応し、将来のPersona肥大化と重複を防ぐため。
+
+Supersedes（上書き対象・範囲）:
+なし。D-027の既存判断は上書きしない。7,500文字制限は追加の制約である。D-027の原文は書き換えない。
+
+Non-Changes（非変更範囲）:
+D-001〜D-027の原文。変更対象ではない既存Personaの本文。`personas/reference/CHATGPT_PERSONA.md` の Version 1.2（提案）、Status Draft、第11章の5機能。D-025のTC-01、TC-02、TC-03、各2回、合計6回、6回すべてPASS。実動検証6回の実施。Approvedへの昇格。commit。push。
+
+Rejected（不採用案）:
+有効な規則を削除・緩和して文字数を達成する方式。変更対象ではない既存Personaを一括修正する方式。
+
+## D-029 Enforce Sequential ChatGPT–Cursor Instructions and Reports（ChatGPT・Cursor間の指示・報告順序を必須化）
+
+Date（日付）: 2026-10-15
+Related Documents（関連文書）: AGENTS.md / project-notes/CURRENT.md
+
+Decision（決定）:
+- Userは、ChatGPTからCursorへの指示・報告順序を恒久ルールとして確定した。User承認日は2026-10-15である。
+- 作業順序は、ChatGPTがCursor指示書を提示し、Cursorの完了・停止・未達報告を待ち、ChatGPTが報告内容とEvidenceを確認・評価し、必要な場合だけ次のCursor指示書を提示する、である。
+- Cursorの報告前の新規指示、追加指示、別工程の割り込みを禁止する。
+- 報告の評価を省略して次工程へ進めない。
+- `AGENTS.md` §2.3を、この運用の恒久規則とする。
+- 今回の既知の未commit変更を保護するため、本件に限り `AGENTS.md` §2.1 の同期ゲートの停止条件を例外扱いとした。§2.1の恒久規則自体は変更しない。
+- D-001〜D-028の原文は変更しない。
+
+Rationale（理由）:
+Cursorへの指示と報告が交錯すると、作業中の追加指示によって変更範囲が拡大し、作業重複や誤修正が発生するため。各作業を完了・評価してから次工程に進む運用を徹底する。
+
+Supersedes（上書き対象・範囲）:
+なし。既存の作業規則に、指示・報告順序の必須条件を追加する。
+
+Non-Changes（非変更範囲）:
+D-001〜D-028の原文。`AGENTS.md` §2.1の恒久規則。`AGENTS.md` §3.4。既存Persona。D-025の実動検証条件。7,500文字制限。実動検証6回の実施。Approvedへの昇格。commit。push。
+
+## D-030 Change the 7,500-Character Figure from a Mandatory Limit to a Design Target（7,500文字を必須上限から設計目標値へ変更する）
+
+Date（日付）: 2026-10-15
+Related Documents（関連文書）: AGENTS.md / project-notes/CURRENT.md / project-notes/DECISIONS.md
+
+Decision（決定）:
+- User承認日は2026-10-15である。Userは、7,500文字を必須上限ではなく設計目標値とすることを決定した。
+- 正本は `AGENTS.md` §3.4とする。7,500文字は、1ファイル全体の設計目標値である。7,500文字は必須上限ではない。
+- 文字数はUnicodeコードポイント数で計測する。Document Info、見出し、本文、表、空行、改行、ファイル末尾の改行を含め、ファイル全体を対象とする。この計測方法は変更しない。
+- 7,500文字の超過だけを理由に、不合格または作業停止としない。
+- AIサービスの指示欄へ登録する場合、登録対象部分の文字数を確認し、そのサービスの実際の登録制限を満たす。この適合は必須とする。
+- 文字数削減を理由に、有効な機能、確定仕様、禁止事項、停止条件、責務境界、Userの承認権限を削除・緩和しない。
+- 新規Personaおよび今後改訂するPersonaに適用する。変更対象ではない既存Personaの一括修正は要求しない。
+- D-027が定める、ChatGPT Projectの登録対象を8,000文字以内とする制約は上書きしない。
+- D-025のTC-01、TC-02、TC-03、各2回、合計6回、6回すべてPASSは変更しない。D-029の指示・報告順序は変更しない。
+- 2026-10-15、Userは既知の未commit差分を保護したまま、D-030と実装担当の役割名をCodingAIとする変更の2件に限り、編集を許可した。この例外は `AGENTS.md` §2.1 の「未commit変更がある場合の変更停止」について、この2件に限る。§2.1の恒久規則は変更しない。Local HEADとfetch後のorigin/mainの一致は引き続き必須とする。その他の停止条件は変更しない。未commit差分の破棄、退避、上書きはしない。
+- D-001〜D-029の原文は変更しない。commit、push、Approved昇格は行わない。
+
+Rationale（理由）:
+7,500文字を必須上限とし、超過だけを不合格または作業停止にすると、有効な規則の削除を誘うため。Personaの肥大化を抑え、必要な規則を欠落させず、重複による解釈の揺らぎと保守負担を抑える背景意図は維持する。実現方法は、7,500文字を設計目標値とし、AIサービスの実際の登録制限への適合を必須とすることへ変わる。
+
+Supersedes（上書き対象・範囲）:
+- project-notes/DECISIONS.md / 2026-10-15 / 「D-028 Establish a 7,500-Character Limit for Personas」の Decision のうち、「Personaは、1ファイル全体で7,500文字以内とする」必須上限。7,500文字は設計目標値とする。超過だけを不合格または作業停止としない。D-028の原文は書き換えない。計測方法、有効な規則を削除・緩和しないこと、変更対象ではない既存Personaの一括改訂を求めないこと、恒久ルールの正本を `AGENTS.md` §3.4とすることは上書きしない。D-028がD-027へ追加した制約のうち、7,500文字の必須上限だけを上書きする。D-027のProject登録対象8,000文字以内は上書きしない。
+- 同 D-028 の Decision のうち、「整理途中の `personas/reference/CHATGPT_PERSONA.md` にもこの上限を適用する」について、7,500文字以内を達成できないことを不合格または作業停止とする範囲。有効な規則を削除・緩和しない範囲は上書きしない。
+- project-notes/DECISIONS.md / 2026-10-15 / 「D-029 Enforce Sequential ChatGPT–Cursor Instructions and Reports」の Non-Changes のうち、`AGENTS.md` §3.4 と7,500文字制限を変更しない範囲。上書きは、§3.4を設計目標値の規則へ変更し、7,500文字の必須上限をやめる範囲に限る。§2.1の恒久規則、D-025の実動検証条件、指示・報告順序は上書きしない。D-029の原文は書き換えない。
+
+Non-Changes（非変更範囲）:
+D-001〜D-029の原文。`AGENTS.md` §2.1の恒久規則。`AGENTS.md` §2.3。D-027のProject登録対象8,000文字以内。文字数の計測方法。有効な規則、確定仕様、禁止事項、停止条件、責務境界、Userの承認権限を文字数削減を理由に削除・緩和しないこと。変更対象ではない既存Persona。D-025のTC-01、TC-02、TC-03、各2回、合計6回、6回すべてPASS。D-029の指示・報告順序。実動検証6回の実施。Approvedへの昇格。commit。push。
+
+Rejected（不採用案）:
+7,500文字の超過だけを不合格または作業停止とする必須上限。文字数削減のために有効な規則を削除・緩和する方式。
+
+## D-031 Name the Implementer Role CodingAI in the ChatGPT Persona（ChatGPT Personaの実装担当の役割名をCodingAIとする）
+
+Date（日付）: 2026-10-15
+Related Documents（関連文書）: personas/reference/CHATGPT_PERSONA.md / project-notes/CURRENT.md / project-notes/DECISIONS.md
+
+Decision（決定）:
+- User承認日は2026-10-15である。Userは、実装担当の役割名を `CodingAI` とすることを承認した。
+- `CodingAI` は実装担当の役割名である。`Cursor` は、その役割に現在使用する製品名である。
+- 反映範囲は `personas/reference/CHATGPT_PERSONA.md` の §1、§2、§3.1、§3.2、§5、§7 に限る。§1に役割名と製品名の区別を記す。§2の委任先と実装対象、§3.1と§3.2の指示の名称、§5の実装担当の表現、§7の見出し、指示、作業中の制御、検証指示、レビュー依頼を、この呼称へ合わせる。
+- 実装担当の責務、権限、指示形式、運用順序、検証、Git操作条件は変更しない。
+- 他Persona、製品名、ファイル名は変更しない。`AGENTS.md` §2.3 は変更しない。
+- D-025の検証入力、TC-01、TC-02、TC-03、各2回、合計6回、6回すべてPASSは変更しない。D-029の指示・報告順序は変更しない。
+- この変更は、D-030と同じUser承認による、既知の未commit差分を保護したままの2件の一方である。`AGENTS.md` §2.1 の恒久規則は変更しない。
+- D-001〜D-030の原文は変更しない。commit、push、Approved昇格は行わない。実動検証6回は、この決定では実施しない。
+
+Rationale（理由）:
+実装担当の役割名と、現在使用している製品名Cursorを区別するため。呼称の統一は、責務、権限、指示形式、運用順序の変更を含まない。
+
+Supersedes（上書き対象・範囲）:
+- project-notes/DECISIONS.md / 2026-10-14 / 「D-019 Revise ChatGPT Persona Operating Rules for Efficiency and Quality」の Decision のうち、実装担当の呼称をCursorとする範囲。対象は、§2で実装上の細部をCursorへ委任できるとする呼称と、§7でCursorへの指示とする呼称である。委任できる範囲、§7の6項目構成、Repository明記、commitとpushの個別許可は上書きしない。D-019の原文は書き換えない。
+- personas/reference/CHATGPT_PERSONA.md / Version 1.2（提案）/ Draft の §1、§2、§3.1、§3.2、§5、§7 のうち、実装担当の役割名としてCursorまたは「実装担当」と記していた呼称。現行の役割名はCodingAI、現在の使用製品名はCursorとする。責務、権限、指示形式、運用順序、検証、Git操作条件は上書きしない。
+
+Non-Changes（非変更範囲）:
+D-001〜D-030の原文。`AGENTS.md` §2.1の恒久規則、§2.3、§3.4。他Persona。製品名Cursor。ファイル名。`personas/reference/CHATGPT_PERSONA.md` の §4、§6、§8、§9、§10、§11、Document Info（Version 1.2（提案）、Status Draft、Last Updated 2026-10-15）。実装担当の責務、権限、指示形式、運用順序、検証、Git操作条件。D-025の検証入力、TC-01、TC-02、TC-03、各2回、合計6回、6回すべてPASS。D-029の指示・報告順序。実動検証6回の実施。Approvedへの昇格。commit。push。
+
+Rejected（不採用案）:
+なし。Userは実装担当の役割名をCodingAIと指定した。
