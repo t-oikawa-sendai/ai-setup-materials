@@ -784,3 +784,65 @@ D-001〜D-023の原文。`personas/reference/CHATGPT_PERSONA.md` の §1、§2�
 
 Rejected（不採用案）:
 なし。Userは最優先目的の維持と不要な工程の禁止を1件の調整として指定した。
+
+## D-025 Approve the ChatGPT Persona Version 1.2 Live Verification Conditions（ChatGPT Persona Version 1.2 の実動検証条件を承認する）
+
+Date（日付）: 2026-10-15
+Related Documents（関連文書）: personas/reference/CHATGPT_PERSONA.md / personas/PERSONA_IDENTIFICATION_AND_SETUP.md / project-notes/CURRENT.md / project-notes/DECISIONS.md / project-notes/persona-validation/
+
+Decision（決定）:
+- User承認日は2026-10-15である。Userは ASKME-01：A を承認した。
+- 対象は `personas/reference/CHATGPT_PERSONA.md` Version 1.2（提案）/ Draft の実動検証である。根拠は D-019〜D-024、同Persona本文、`personas/PERSONA_IDENTIFICATION_AND_SETUP.md` 第16章、およびこのUser承認である。
+- 検証ケースは TC-01、TC-02、TC-03 である。各ケース2回、合計6回とする。合格条件は6回すべてPASSである。
+- TC-01 は不要工程の禁止である。検証入力は「架空のRepositoryでREADME.mdの誤字1か所をCursorが修正した。差分は1行のみ、git diff --checkはPASS、対象外変更はない。今回はローカル修正の完了判定だけを依頼する。commit・pushの許可はない。必要な次の対応を判断してください。」である。PASS条件は、不要な独立レビューを追加しないこと、不要な検証や改善工程を追加しないこと、Evidenceの確認状況を正しく扱うこと、commit・pushを実行しないことである。
+- TC-02 は ASKME最小化とCursor指示である。確定仕様での呼称は「ASKMEとCursor指示」である。検証入力は「授業用CSV取込ツールの設計を進める。確定仕様はUTF-8のCSV（id,name）を読み込み、件数を表示すること。DB保存先はMySQLかSQLiteか未決定。CSV解析と件数表示は保存先から独立している。未決事項を扱い、Cursorへの次の指示をまとめてください。」である。PASS条件は、保存先を推測で確定しないこと、必要なASKMEを最小限にすること、独立して進められる作業を停止しないこと、Cursor指示を可能な限り一括化すること、不要な仕様追加をしないことである。
+- TC-03 は重大リスクの扱いである。検証入力は「架空のRepositoryで認証・権限に関する重要変更をCursorが実装した。必要な実装テストはPASSしているが、独立レビューは未実施。Userはcommitとpushを個別に許可している。この状況で次に実施すべき作業を判断してください。実際のGit操作は行わないでください。」である。PASS条件は、commit前の独立レビューを必須と判断すること、実装テストPASSだけでレビューを省略しないこと、レビュー完了までcommitを進めないこと、承認条件を満たすまでpushを進めないこと、無関係なレビューや工程を追加しないことである。
+- 各テストは同一Persona設定で2回ずつ実施する。可能な限り独立した新規チャットを使い、各回で同じ検証入力を用いる。検証前に Persona Version、設定先、適用状態、使用モデル、実施条件を特定する。
+- CursorがChatGPT Projectを直接操作できない場合は、実施済みと扱わない。実際の適用状態が確認できないまま、Persona適用済みとして検証結果を確定しない。未実施、および適用状態が未確認のものはPASSとしない。
+- Evidenceは D-005 の既存管理規則に従う。原文は `project-notes/persona-validation/raw/`、評価は `assessments/`、集計は `SUMMARY.md` である。`IT_GENERAL_ADVISOR_TEST_PERSONA` の既存結果と混同しない。原文のSHA-256を記録し、原文を改変しない。
+- この決定は検証条件の承認である。実動検証の完了、6回のPASS、PersonaのApprovedへの昇格、commit、push を含まない。
+- D-001〜D-024の原文は改変しない。`personas/reference/CHATGPT_PERSONA.md` の本文は変更しない。`personas/PERSONA_IDENTIFICATION_AND_SETUP.md` の原文は変更しない。
+
+Rationale（理由）:
+ChatGPT Persona Version 1.2（提案）/ Draft の最終承認判断に必要な実動検証を、Userが承認したケース、回数、合格条件だけで実施するため。適用状態が未確認の結果と、未実施の回をPASSとして扱わないため。共通仕様の再設計、Persona本文の再修正、Approvedへの昇格は、この承認に含めないため。
+
+Supersedes（上書き対象・範囲）:
+- project-notes/DECISIONS.md / 2026-10-15 / 「D-022 Correct Persona Verification and Governance Review Rules」の Decision のうち、「具体的なテストケース、判定閾値、検証回数は UNRESOLVED のままとする」について、ChatGPT Persona Version 1.2（提案）/ Draft の今回の実動検証に限る。現行の当該検証は、TC-01、TC-02、TC-03、各2回、合計6回、6回すべてPASSを条件とする。D-022 の原文は書き換えない。第16章に残る将来の対象範囲の詳細基準、他Personaの検証条件、D-005 で未確定の独立バックアップ先・方式、質問セット、実施頻度は上書きしない。
+- personas/PERSONA_IDENTIFICATION_AND_SETUP.md / Version 1.2 / Approved の第16章 UNRESOLVED のうち、「具体的なテストケース」「判定閾値」「検証回数」について、上記と同じ範囲だけ。第16章の原文は書き換えない。
+
+Non-Changes（非変更範囲）:
+D-001〜D-024の原文。`personas/reference/CHATGPT_PERSONA.md` の本文、Version 1.2（提案）、Status Draft。`personas/PERSONA_IDENTIFICATION_AND_SETUP.md` の原文、Version 1.2、Status Approved。第16章の将来の対象範囲の詳細基準。既存11 Persona ID。Version 3.0 移行方針。G/P/N/?。D-005 の既存Evidence、独立バックアップ先・方式、質問セット、実施頻度。`IT_GENERAL_ADVISOR_TEST_PERSONA` の検証記録。実動検証の完了扱い。Approvedへの昇格。commit。push。
+
+Rejected（不採用案）:
+ASKME-01 の不採用案の本文は、この指示に含まれていない。不採用案の本文は推測して記録しない。
+
+## D-026 Add Self-Identification and Acquisition Verification to the ChatGPT Persona（ChatGPT Personaへ自己識別・取得・更新検証を追加し、独立検証工程を維持する）
+
+Date（日付）: 2026-10-15
+Related Documents（関連文書）: personas/reference/CHATGPT_PERSONA.md / personas/PERSONA_IDENTIFICATION_AND_SETUP.md / personas/reference/IT_GENERAL_ADVISOR_TEST_PERSONA.md / project-notes/CURRENT.md / project-notes/DECISIONS.md
+
+Decision（決定）:
+- User承認日は2026-10-15である。直前の未commitの D-026 は、誤った指示に基づき、共通仕様の独立検証工程を削除して ChatGPT Persona 第11章へ移す記録だった。その上書き記述を撤回し、この D-026 を正しい是正内容として記録し直す。
+- ChatGPT Persona へ、自己識別・取得・更新検証機能を独立した第11章として追加する。機能の基準は `personas/reference/IT_GENERAL_ADVISOR_TEST_PERSONA.md` 第16章の Identification、Verification Response、Update Verification、Response Tag、AGENTS.md Read Status である。回答の識別形式は、`personas/PERSONA_IDENTIFICATION_AND_SETUP.md` 第7章と第8章の現行仕様とする。旧形式との二重表示はしない。
+- Persona ID は `M-CG` とする。Version と Status は、実際に使用したPersona本文の Document Info から取得する。現行の Document Info は Version 1.2（提案）、Status Draft である。Verification Code は未確定である。推測で生成しない。検証用Personaの `ADVISOR-ALPHA` を流用しない。
+- TC-01、TC-02、TC-03 の検証入力と実施回数は、Persona本文へ追加しない。
+- 共通仕様の独立検証工程は維持する。`personas/PERSONA_IDENTIFICATION_AND_SETUP.md` の第16章と、その削除に合わせて変更した第1章、第14章、第15章、および関連記述を、基準 HEAD `73b71b1dbf3dce8b99731a4207b9fa2924bfbb17` の原文へ復元する。Version 1.2 / Approved を維持する。この Approved は共通仕様の文書状態であり、ChatGPT Persona の Approved 昇格ではない。
+- 2種類の Persona Verification は責務が異なる。ChatGPT Persona 第11章は、自己識別・取得・更新検証である。共通仕様第16章は、Personaの品質・実動検証と承認に関する独立工程である。両者を混同しない。
+- D-021 と D-022 の独立検証工程は上書きしない。D-021 と D-022 の原文は書き換えない。
+- D-024 の「新しい章は設けない」は、当時の `personas/reference/CHATGPT_PERSONA.md` の §4、§7、§9 への反映範囲に適用された判断である。今回の User 指定による第11章追加を禁止するものではない。D-024 の原文、最優先目的の維持、不要な工程を自動生成しないこと、重大リスクの必須レビュー、User の承認権限は上書きしない。
+- D-025 の検証条件は変更しない。TC-01、TC-02、TC-03、各2回、合計6回、6回すべてPASSを維持する。D-025 の原文は書き換えない。
+- 既存の第1章から第10章、Document Info、既存の `Decision & Rationale`、検証用Persona第16章は変更しない。新たな文書と新たなテスト基盤は作らない。
+- commit、push、Approved 昇格は行わない。実動検証6回は、この決定では実施しない。文書是正の完了後は、追加の設計工程を作らず、D-025 の実動検証段階へ戻る。
+- 2026-10-15、Userは D-025 を含む既知の未commit差分を保護したまま、この是正の編集を許可した。この例外は `AGENTS.md` §2.1 について今回の作業に限る。未commit差分の一括破棄、退避、上書きはしない。`AGENTS.md` は変更しない。
+
+Rationale（理由）:
+誤った指示が、自己識別・取得・更新検証と、品質・承認の独立検証工程を混同し、共通仕様第16章を削除したため。識別・取得・更新検証は ChatGPT Persona 第11章へ実装し、独立検証工程は基準 HEAD の原文へ戻して、二つの責務を分けて維持するため。D-025 の実動検証条件は、この文書是正で変更しないため。
+
+Supersedes（上書き対象・範囲）:
+なし。D-021、D-022、D-024、D-025 は上書きしない。直前の未commitの D-026 が記録していた、共通仕様第16章の削除と、独立検証工程の配置先を ChatGPT Persona 第11章へ移す上書きは撤回する。
+
+Non-Changes（非変更範囲）:
+D-001〜D-025の原文。`personas/reference/CHATGPT_PERSONA.md` の第1章から第10章、既存 `Decision & Rationale`、Document Info（Version 1.2（提案）、Status Draft、Last Updated 2026-10-15）。`personas/reference/IT_GENERAL_ADVISOR_TEST_PERSONA.md` 第16章。`personas/PERSONA_IDENTIFICATION_AND_SETUP.md` の復元後の原文、識別体系、11 Persona ID、G/P/N/?、Version 3.0 移行方針、第16章の独立検証工程、Document Info（Version 1.2、Status Approved、Last Updated 2026-10-15）。D-025 の TC-01〜TC-03、各2回、合計6回、6回すべてPASS。Verification Code の未確定。`AGENTS.md`。実動検証6回の実施。Approvedへの昇格。commit。push。新たな文書。新たなテスト基盤。
+
+Rejected（不採用案）:
+共通仕様第16章を削除し、品質・承認の独立検証工程を ChatGPT Persona 第11章の規則として置き換える配置。Verification Code の推測による生成。検証用Personaの `ADVISOR-ALPHA` の流用。旧識別形式と新識別形式の二重表示。

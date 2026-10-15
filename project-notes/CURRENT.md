@@ -200,15 +200,18 @@ Status: CURRENT
 - 2026-10-15 Claude独立レビュー指摘の是正をローカル反映した。正本は [`../personas/PERSONA_IDENTIFICATION_AND_SETUP.md`](../personas/PERSONA_IDENTIFICATION_AND_SETUP.md) Version 1.2 / Approved。新規と改訂のすべて、および Version 3.0 移行を検証対象とし、FAILと不承認は修正・再検証へ戻る。ChatGPT Persona は Version 1.2（提案）/ Draft のまま、Last Updated は 2026-10-15 である。Decisionは `project-notes/DECISIONS.md` の D-022。D-001〜D-021の原文は変更していない。実動検証、PersonaのApproved昇格、commit、push は未実施である。同期ゲートについて、未commit差分を保護したまま編集する例外は、この是正作業に限るUser承認であり、`AGENTS.md` は変更していない
 - 2026-10-15 必要性の根拠がない独立レビューを禁止し、真に必要な独立レビューを必須とする規則をローカル反映した。重大リスクの commit 前独立レビュー、実装担当の検証、Persona Verification の必須工程は維持した。Decisionは `project-notes/DECISIONS.md` の D-023。D-001〜D-022の原文は変更していない。commit と push は未実施である
 - 2026-10-15 Userが明示した最優先目的を作業完了まで維持し、その達成に必要と説明できる追加作業だけを行い、不要な工程を自動生成しない規則をローカル反映した。重大リスクの必須レビュー、必要なPersona Verification、Userの承認権限、§6の停止条件は維持した。Decisionは `project-notes/DECISIONS.md` の D-024。D-001〜D-023の原文は変更していない。commit と push は未実施である
+- 2026-10-15 D-019〜D-024 の反映は commit `73b71b1dbf3dce8b99731a4207b9fa2924bfbb17` として `main` へ push 済みである。同日の同期確認で Local HEAD、origin/main、GitHub main はこの SHA で一致した。直前の完了事項にある D-019〜D-024 の「commit と push は未実施」は、この commit より前の記録であり、その文は改変しない。この commit は Approved への昇格と実動検証を含まない。ChatGPT Persona は Version 1.2（提案）/ Draft のままである
+- 2026-10-15 誤った配置是正を撤回した。`personas/reference/CHATGPT_PERSONA.md` 第11章は、検証用Persona第16章の識別・取得・更新検証の5機能を、共通仕様第7章・第8章の識別形式で実装する是正とした。Persona ID は `M-CG`、Version は 1.2（提案）、Status は Draft、Verification Code は未確定のままである。`personas/PERSONA_IDENTIFICATION_AND_SETUP.md` 第16章と、その削除に伴い変わっていた第1章、第14章、第15章は、基準 HEAD `73b71b1dbf3dce8b99731a4207b9fa2924bfbb17` の原文へ復元した。この Approved は共通仕様の文書状態であり、ChatGPT Persona の Approved 昇格ではない。Decisionは `project-notes/DECISIONS.md` の D-026 を正しい是正内容へ記録し直したものである。D-001〜D-025の原文は変更していない。D-025 の TC-01〜TC-03、各2回、合計6回、6回すべてPASSは維持している。実動検証6回、Approvedへの昇格、commit、push は未実施である
 
 ## 作業中
 
-- 2026-10-15 Persona Verification の共通仕様は Version 1.2 / Approved である。検証対象の将来の詳細基準、テストケース、判定閾値、検証回数は未承認で未確定である。詳細基準の確定までは全件対象規則を適用する。実動検証は未実施である。G方式は検証中であり、正式運用の前提条件ではない。未実施の検証を実施済みとして扱わない。commit と push は未実施である
+- 2026-10-15 ChatGPT Persona Version 1.2（提案）/ Draft の実動検証は作業中である。検証条件は `project-notes/DECISIONS.md` の D-025。TC-01、TC-02、TC-03 を各2回、合計6回とし、6回すべてPASSを合格条件とする。第11章は自己識別・取得・更新検証であり、共通仕様第16章の独立検証工程は復元済みである。この文書是正は6回の実動完了ではない。Persona適用状態は UNVERIFIED であり、6回の実動は未実施である。新しいEvidenceは保存していない。既存の `project-notes/persona-validation/` にある検証用Personaの記録は変更していない。commit、push、Approved昇格はしていない
+- 2026-10-15 将来の検証対象範囲の詳細基準は未承認である。G方式は検証中であり、正式運用の前提条件ではない。未実施の検証を実施済みとして扱わない
 - 2026-10-13 ChatGPT ProjectでのGitHub Persona取得検証用の `personas/reference/IT_GENERAL_ADVISOR_TEST_PERSONA.md` Version 0.1 / Draft と、Reference入口の検証専用導線は、main の `ef77588d6c94bd50e0cc8c32c770f06c181a3bbb` に含まれている。ChatGPT Project上の取得検証は未実施。この「未実施」は2026-10-13時点の状態である。`personas/reference/setup/CHATGPT_PROJECT_PERSONA_TEST_SETUP.md` は、設定資料の本文が指示に含まれていなかったため未作成。
 - 2026-10-12 Repository作業時に対象の `AGENTS.md` を確認する規則と、通常報告の一行 `AGENTS.md：ReadOK / ReadNG / ReadUndefine` を、Reference の ChatGPT・Cursor・Claude の本文へ追加した。同じ User 決定を `AGENTS.md` の `Decision & Rationale` に記録した。ChatGPT は 1.2（提案）/ Draft、Cursor は 1.1（提案）/ Draft のままである。Claude の現行 Document Info は Version 1.4 / Approved（D-003）。この改版では Persona本文を変更していない。
 - 2026-10-07 対象Repository省略の是正対象をUser承認により記録。7 Persona・3文書・条件付き1文書。ChatGPT Personaの対象Repository明記は、2026-10-14の §7 置換（D-019）に含まれた。その他の本文是正は未着手。対象一覧と適用条件は `AGENTS.md` の `Decision & Rationale`（2026-10-07「対象Repository省略の是正対象を記録」）を参照
 - Reference AI運用資料3文書の内容確定と Version / Status 昇格は未了。現行版は Case Study Version 0.2 / Draft、Handoff Template Version 0.3 / Draft、Prompt Template Version 0.2 / Draft
-- Reference ChatGPT Persona `personas/reference/CHATGPT_PERSONA.md` は Version 1.2（提案） / Status Draft、Last Updated 2026-10-15 のまま。2026-10-14に §2、§4、§5、§7 を正式修正案で置換済み（D-019）。同日、§5 と §7 に条件付き独立レビューの判定と依頼文の作成規則を追加した（D-020）。2026-10-15に §1 の受入・完了判定、§5 の例外のない重大リスクレビュー、GitHub反映後FAIL、未移行Repositoryの既存規則、§7 の依頼文の宛先を整合した（D-022）。同日、必要性の根拠がない独立レビューの禁止を §5 と §7 へ反映した（D-023）。同日、最優先目的の維持と不要な工程の自動生成禁止を §4、§7、§9 へ反映した（D-024）。Approvedへの昇格、実動検証、commit、push は未実施
+- Reference ChatGPT Persona `personas/reference/CHATGPT_PERSONA.md` は Version 1.2（提案） / Status Draft、Last Updated 2026-10-15 のまま。2026-10-14に §2、§4、§5、§7 を正式修正案で置換済み（D-019）。同日、§5 と §7 に条件付き独立レビューの判定と依頼文の作成規則を追加した（D-020）。2026-10-15に §1 の受入・完了判定、§5 の例外のない重大リスクレビュー、GitHub反映後FAIL、未移行Repositoryの既存規則、§7 の依頼文の宛先を整合した（D-022）。同日、必要性の根拠がない独立レビューの禁止を §5 と §7 へ反映した（D-023）。同日、最優先目的の維持と不要な工程の自動生成禁止を §4、§7、§9 へ反映した（D-024）。D-019〜D-024 の文書反映は commit `73b71b1dbf3dce8b99731a4207b9fa2924bfbb17` として `main` へ push 済みである。2026-10-15に第11章を識別・取得・更新検証へ是正した（D-026）。第1章から第10章と既存の Decision & Rationale は変更していない。第11章の是正と共通仕様第16章の復元は未commitである。Verification Code は未確定である。Approvedへの昇格と実動検証6回は未実施である
 - 2026-10-06 決定の保留と仮定の実装利用許可を分離する規則（`実装利用：可／不可`）を、Draftとして3 Personaへ反映。Approvedではなく実動検証も未実施
   - `personas/education/GEM_SOLUTION_PARTNER.md` Version 1.6（提案） / Draft（最終Approvedは1.5）
   - `personas/education/GEM_CODE_GENERATOR.md` Version 2.3（提案） / Draft（最終Approvedは2.2）
@@ -235,7 +238,7 @@ Status: CURRENT
 17. 設定案内専用Personaの本文を正式作成する。名称、Persona ID、Document Info、本文構成、配置先は未承認である。`S-SETUP` を承認済みIDとして扱わない。
 18. 指示欄用完成文の生成・管理方式と必要ファイル数を詳細設計する。未確定のまま完成文ファイルを作成しない。
 19. 各AIサービスでのPersona設定の実動検証を行う。未実施を実施済みと記録しない。
-20. Persona Verification の検証設計を、未承認のテストケース、判定閾値、検証回数、および将来の対象範囲の詳細基準を推測で埋めずに確定する。詳細基準の確定までは、新規と改訂のすべて、および Version 3.0 移行を検証対象とする。その後に実動検証とEvidenceを残す。仕様の記録済みであることを、検証完了または Approved 昇格と扱わない。G方式の検証中であることを、正式運用の前提条件と扱わない。D-005 で未確定の独立バックアップ先・方式、質問セット、実施頻度は、この工程で確定しない。
+20. ChatGPT Persona Version 1.2（提案）/ Draft の実動検証を、D-025 の TC-01〜TC-03、各2回、6回すべてPASSの条件で実施する。適用状態が UNVERIFIED のまま PASS としない。Cursorから ChatGPT Project を直接操作できないため、適用状態の確認と6回の実施は User の操作が必要である。第11章の是正と共通仕様第16章の復元は、この6回の実施とPASSを含まない。文書是正の完了後は、追加の設計工程を作らず、この実動検証へ戻る。将来の検証対象範囲の詳細基準は、この工程では確定しない。D-005 で未確定の独立バックアップ先・方式、質問セット、実施頻度は、この工程で確定しない。条件の承認を、検証完了または Approved 昇格と扱わない。
 
 Reviewerを含むPersonaの機能設計はEvidenceなしに再検討しない。完了済みの文書適合性復旧を、Evidenceなしに再作業対象へ戻さない。`ASKME 迎合禁止` と7文書配置を未決事項へ戻さない。Education用の基本体系は4Gemであり、`Researcher Deep Research` はResearcher Personaを使う追加Gemとして扱う。
 
@@ -251,6 +254,7 @@ Reviewerを含むPersonaの機能設計はEvidenceなしに再検討しない。
 - Education入口：`personas/education/README.md`
 - Education Gemini設定資料：`personas/education/setup/GEMINI_GEM_SETUP.md`
 - Reference Persona：`personas/reference/`
+- ChatGPT Persona の識別・取得・更新検証：`personas/reference/CHATGPT_PERSONA.md` 第11章（Version 1.2（提案）/ Draft。Verification Code は未確定。品質・承認の独立工程は `personas/PERSONA_IDENTIFICATION_AND_SETUP.md` 第16章。実動検証6回は未実施）
 - Reference入口：`personas/reference/README.md`
 - 検証用Persona：`personas/reference/IT_GENERAL_ADVISOR_TEST_PERSONA.md`（Version 0.1 / Draft。中核4種のSSOTではない）
 - 検証記録：`project-notes/persona-validation/`（原文は `raw/`、日別評価は `assessments/`、期間集計は `SUMMARY.md`）
