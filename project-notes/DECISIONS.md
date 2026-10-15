@@ -1032,3 +1032,117 @@ D-001〜D-031の原文。D-025 の検証入力、TC-01、TC-02、TC-03、各2回
 Rejected（不採用案）:
 - 従来ChatGPT Projectの 6/6 PASS を、正規比較のChatGPT側として維持する方式
 - 従来Projectの原文または当時の評価を削除・訂正して、再テストへ置き換える方式
+
+## D-033 Add Self-Identification and Acquisition Verification to the Claude Persona（Claude Personaへ自己識別・取得・更新検証を追加する）
+
+Date（日付）: 2026-10-15
+Related Documents（関連文書）: personas/reference/CLAUDE_PERSONA.md / personas/PERSONA_IDENTIFICATION_AND_SETUP.md / personas/reference/CHATGPT_PERSONA.md / personas/reference/IT_GENERAL_ADVISOR_TEST_PERSONA.md / project-notes/CURRENT.md / project-notes/DECISIONS.md
+
+Decision（決定）:
+- User決定日は2026-10-15である。`personas/reference/CLAUDE_PERSONA.md` へ、自己識別・取得・更新検証を第15章として追加する。追加位置は既存第14章の後、既存 `Decision & Rationale` の前である。
+- 機能の基準は `personas/reference/IT_GENERAL_ADVISOR_TEST_PERSONA.md` 第16章の Identification、Verification Response、Update Verification、Response Tag、AGENTS.md Read Status である。識別形式と取得状態は、`personas/PERSONA_IDENTIFICATION_AND_SETUP.md` 第7章と第8章の現行仕様へ適合させる。実装上の対応例は `personas/reference/CHATGPT_PERSONA.md` 第11章である。
+- Document Info は Version 1.5（提案）、Status Draft、Last Updated 2026-10-15 とする。Document ID、Created Date、Owner、Related Documents は維持する。Persona ID は `M-CL` とし、第15.1節で規定する。Document Info へ新しい識別行は追加しない。
+- Version と Status は、実際に使用したPersona本文の Document Info から取得する。Verification Code は未確定である。推測で生成しない。他Personaの ID、Version、Verification Code、および検証用Personaの `ADVISOR-ALPHA` は流用しない。
+- 回答冒頭の識別は `【サービス略号/モデル名｜Persona ID@Version｜状態】` の1行だけとする。取得状態は `G` / `P` / `N` / `?` である。旧形式 `【Persona：GitHub読込済｜Version：X.X】` との二重表示はしない。取得状態の自己申告とGitHubアクセスの客観的証拠は区別する。取得失敗時に Memory や過去の会話からPersona本文を補完しない。未取得を取得済みと報告しない。GitHub取得とPersona適用は別の事実として扱う。
+- 第0章から第14章のレビュー責務、判定基準、重大リスク、停止条件は維持する。第2章の `AGENTS.md` 本文確認は変更しない。第7章は、通常確認の結論へ読込状態を一行入れ、その表示だけで完成判定しない規則を維持したうえで、三状態の定義の重複だけを第15.5節への参照へ整理する。回答冒頭の識別行は、通常確認の3項目には数えない。
+- 共通仕様第16章の品質・実動検証とUser承認の独立工程は、移動・複製しない。第15章はその工程を代替しない。
+- 既存の `Decision & Rationale`（2026-08-27）は原文のまま保全する。D-001〜D-032の原文は変更しない。他Persona、`AGENTS.md`、`personas/PERSONA_IDENTIFICATION_AND_SETUP.md` は変更しない。新たな文書と新たなテスト基盤は作らない。
+- Version 1.5 を Approved へ昇格しない。実動検証は、この決定では実施しない。commit と push は行わない。Version 1.4 / Approved の承認履歴は維持する。最終 Approved は Version 1.4 のままである。
+
+Rationale（理由）:
+Userが、Claude Personaへ識別・取得・更新検証の5機能を追加し、改訂版を Version 1.5（提案）/ Draft とすることを決定したため。検証用Persona第16章の5機能を、共通仕様第7章・第8章と ChatGPT Persona 第11章の現行方式へ合わせ、既存のレビュー機能と Version 1.4 の承認履歴を残すため。品質・承認の独立工程は共通仕様第16章に残し、第15章へ移さないため。
+
+Supersedes（上書き対象・範囲）:
+- project-notes/DECISIONS.md / 2026-10-13 / 「D-003 Record Claude Reference Persona as Version 1.4」の Decision のうち、「Document Info を、Version 1.4、Status Approved、Last Updated 2026-10-13 とする」および「Persona本文は変更しない」について、次だけを上書きする。現行ファイルの Document Info を Version 1.5（提案）、Status Draft、Last Updated 2026-10-15 とする。第14章の後、既存 `Decision & Rationale` の前に第15章を追加する。第7章は、読込状態の三定義の重複だけを第15.5節への参照へ整理する。D-003 が記録した Version 1.4 / Approved の承認履歴は維持し、最終 Approved は Version 1.4 のままとする。D-003 の原文は書き換えない。2026-10-12 の ReadOK / ReadNG / ReadUndefine 報告規則は維持する。
+
+Non-Changes（非変更範囲）:
+D-001〜D-032の原文。`personas/reference/CLAUDE_PERSONA.md` の第0章から第14章のレビュー責務、判定基準、重大リスク、停止条件、第2章の `AGENTS.md` 本文確認、既存 `Decision & Rationale`、Document ID、Created Date。`personas/PERSONA_IDENTIFICATION_AND_SETUP.md` の原文、第16章、第4章の移行前 Document Info 表。`personas/reference/CHATGPT_PERSONA.md`。`personas/reference/IT_GENERAL_ADVISOR_TEST_PERSONA.md`。他Persona。Verification Code の確定。`ADVISOR-ALPHA` の流用。Version 1.5 の Approved 昇格。実動検証。commit。push。新たな文書。新たなテスト基盤。
+
+Rejected（不採用案）:
+- Version 1.4 / Approved のまま第15章を追加する方式
+- Version 1.5 を Approved へ昇格する方式
+- Verification Code を推測で生成する方式
+- 検証用Personaの `ADVISOR-ALPHA` を流用する方式
+- 旧識別形式と新識別形式を併用する方式
+- 共通仕様第16章を Claude Persona 第15章へ移動または複製する方式
+
+## D-034 Consolidate the Claude Persona and Preserve the Removed Decision Record（Claude Personaの重複を整理し、削除した判断記録を保全する）
+
+Date（日付）: 2026-10-15
+Related Documents（関連文書）: personas/reference/CLAUDE_PERSONA.md / project-notes/CURRENT.md / project-notes/DECISIONS.md
+
+Decision（決定）:
+- User決定日は2026-10-15である。`personas/reference/CLAUDE_PERSONA.md` の第0章から第15章について、同じ規則を一か所で定義し、他の箇所は参照にする。説明の繰り返しは削る。有効な規則、禁止事項、停止条件、レビューの確認項目は、文字数削減を理由に削除・緩和しない。
+- 第13章は、提出前の反証、反論への再検証、誤りを確認した後の訂正の3機能を残して短縮する。
+- 同ファイル末尾の `## Decision & Rationale（決定・判断理由）` を削除する。削除時点で、2026-08-27の判断原文は同ファイル以外に無かった。原文は下の「保全する原文」へ原文のまま置く。要約して置き換えない。
+- Version は 1.5（提案）、Status は Draft のままとする。Document ID と Persona ID `M-CL` は変更しない。最終 Approved は Version 1.4 のままである。
+- 第15章の識別、検証回答、更新検証、回答タグ、`AGENTS.md` 読込状態の5機能は維持する。共通仕様第16章の品質・実動検証とUser承認は移動・複製しない。
+- 第2章の `AGENTS.md` 本文確認の文は、§15.5 への参照へ置き換える。確認する規則そのものは §15.5 に残す。
+- この決定は文書整理である。実動検証、Version 1.5 の Approved への昇格、commit、push は行わない。
+- D-001〜D-033の原文は変更しない。
+
+Rationale（理由）:
+Userが、Claude Persona全体の冗長と重複を整理し、第13章を大幅に短縮し、末尾の `Decision & Rationale` を削除することを指示したため。判断記録は削除せず、本決定へ原文のまま移す。D-033が同ファイル内への `Decision & Rationale` 保全と、第2章の文言を変えないとした範囲は、今回のUser指示による例外として、当該節の移管と参照化に限って上書きする。
+
+Supersedes（上書き対象・範囲）:
+- project-notes/DECISIONS.md / 2026-10-15 / 「D-033 Add Self-Identification and Acquisition Verification to the Claude Persona」の Decision のうち、「既存の `Decision & Rationale`（2026-08-27）は原文のまま保全する」について、次だけを上書きする。`personas/reference/CLAUDE_PERSONA.md` から当該節を削除し、原文を本決定の「保全する原文」へ置く。判断の内容は消さない。D-033の原文は書き換えない。
+- 同 D-033 の Decision のうち、「第2章の `AGENTS.md` 本文確認は変更しない」について、次だけを上書きする。第2章の当該文を §15.5 への参照へ置き換える。対象Repositoryの特定、本文確認、`ReadOK` / `ReadNG` / `ReadUndefine`、Persona取得成功を ReadOK の根拠にしないこと、読込状態だけの追加応答をしないこと、読込状態だけでレビュー完了としないことは §15.5 に維持する。D-033のその他の決定は上書きしない。
+
+Non-Changes（非変更範囲）:
+D-001〜D-033の原文。Document Info（Version 1.5（提案）、Status Draft、Last Updated 2026-10-15、Document ID、Created Date）。Persona ID `M-CL`。Verification Code の未確定。第15章の5機能。`G` / `P` / `N` / `?`。共通仕様第16章。Version 1.4 の承認履歴。`personas/PERSONA_IDENTIFICATION_AND_SETUP.md`。他Persona。実動検証。Approvedへの昇格。commit。push。新たな文書。新たなテスト基盤。
+
+Rejected（不採用案）:
+有効な規則を削除して文字数だけを減らす方式。`Decision & Rationale` を保全せず削除する方式。
+
+保全する原文:
+
+```text
+## Decision & Rationale（決定・判断理由）
+
+### 2026-08-27
+
+#### レビュー対象を正本文書・AI制御資産まで拡張
+
+Decision:
+
+ClaudeのReference Personaを、コード・差分・PRを対象とするソフトウェアレビューだけでなく、正本文書レビューおよびAI制御資産レビューも担当するレビュアーとして定義する。
+
+AI制御資産レビューでは、個別資産の精読前にインベントリを作成し、Role / Scope / Priority / Conflict / Duplication / Enforcement / Drift の観点で資産間の関係を評価する。指示と機械的制約を区別し、層をまたぐ矛盾、未ロード、適用範囲誤り、旧版残存を統制上の問題として扱う。
+
+Reason:
+
+仕様・設計・実装だけでなく、AIの判断・実行を規定する資産そのものの不整合、適用範囲、強制力、ロード状態もレビュー対象として明示し、個別ファイル単位の確認だけでは検出しにくい統制上の問題を評価できるようにするため。
+
+Rejected:
+
+- Version 1.0のコード・差分中心のレビュー範囲を維持する方式
+- AI制御資産を通常の正本文書レビューだけで扱い、ロード条件や強制力、資産間の競合を独立評価しない方式
+```
+
+## D-035 Fit the Claude Persona Registration Text within 8,000 Characters（Claude PersonaのProject登録対象を8,000文字以内に収める）
+
+Date（日付）: 2026-10-15
+Related Documents（関連文書）: personas/reference/CLAUDE_PERSONA.md / project-notes/CURRENT.md / project-notes/DECISIONS.md
+
+Decision（決定）:
+- User決定日は2026-10-15である。8,000文字を超えるPersonaは使用できない。対象は `personas/reference/CLAUDE_PERSONA.md` のProject登録対象である。
+- Project登録対象は、Document Infoを除き、`# Claude Persona` から本文末尾までとする。Unicodeコードポイント数で数え、末尾改行を含める。必達条件は8,000文字以内である。
+- 実測は、ファイル全体が末尾改行を含めて8,257文字、Project登録対象が末尾改行を含めて7,926文字である。
+- 短縮は、重複する説明、参照で足りる繰り返し、空の出力ひな形のマークダウン表に限る。第7章の本格レビューは、対象、両集約表の列、結論の判定値、問題点の項目、未解決アラームの列を残した項目一覧にする。集約表を欠く出力は未完成のままとする。定義表、判定条件、停止条件は残す。
+- 有効な規則、禁止事項、停止条件、レビューの確認項目、第13章の3機能、第15章の5機能は、文字数を理由に削除・緩和しない。
+- Version は 1.5（提案）、Status は Draft のままとする。Document ID と Persona ID `M-CL` は変更しない。最終 Approved は Version 1.4 のままである。Verification Code は未確定のままである。
+- `AGENTS.md` §3.4 の7,500文字は設計目標値のままとする。この決定は `AGENTS.md` を変更しない。ファイル全体が7,500文字を超えることだけを、不合格または作業停止としない。
+- この決定は文書整理である。実動検証、Version 1.5 の Approved への昇格、commit、push は行わない。
+- D-001〜D-034の原文は変更しない。
+
+Rationale（理由）:
+Userが、Claude Personaの機能を維持したまま、Project登録対象を8,000文字以内に収めることを使用条件として指示したため。D-034が禁じた、有効な規則の削除による文字数削減は行わない。
+
+Supersedes（上書き対象・範囲）:
+なし。D-034の「有効な規則、禁止事項、停止条件、レビューの確認項目は、文字数削減を理由に削除・緩和しない」は維持する。
+
+Non-Changes（非変更範囲）:
+D-001〜D-034の原文。D-034の「保全する原文」。Document Info（Version 1.5（提案）、Status Draft、Last Updated 2026-10-15、Document ID、Created Date）。Persona ID `M-CL`。Verification Code の未確定。第15章の5機能。`G` / `P` / `N` / `?`。共通仕様第16章。Version 1.4 の承認履歴。`personas/PERSONA_IDENTIFICATION_AND_SETUP.md`。他Persona。`AGENTS.md`。実動検証。Approvedへの昇格。commit。push。
+
+Rejected（不採用案）:
+確認項目、停止条件、第13章または第15章の機能を削除して8,000文字以内にする方式。8,000文字を超えたまま完了とする方式。
