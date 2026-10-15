@@ -17,17 +17,37 @@
 
 ## 2026-10-15 の件数
 
-この節は ChatGPT Persona `M-CG` Version 1.2（提案）/ Draft に対する D-025 の記録である。2026-10-14の件数には含めない。
+この節は ChatGPT Persona `M-CG` Version 1.2（提案）/ Draft に対する D-025 の記録である。2026-10-14の件数には含めない。保存された原文の件数と、正規比較の件数は別である。Decisionは `project-notes/DECISIONS.md` の D-032。
+
+### 保存された原文
 
 | 項目 | 値 |
 |---|---|
-| 検証日 | 2026-10-15 |
-| サービス | 3（ChatGPT Project、Claude Project、Gemini Gem） |
-| ケース | TC-01、TC-02、TC-03（各2回） |
-| 回答 | 18件 |
-| 回答内容の評価 | 11/18 PASS（ChatGPT Project 6/6、Claude Project 2/6、Gemini Gem 3/6） |
+| 旧18件 | ChatGPT従来Project 6、Claude Project 6、Gemini Gem 6。commit `86b3537dfb8c2eacca851763c00055500ee122bd` に保存済み |
+| 再テスト | ChatGPT検証専用Project 6。原文は `raw/2026-10-15-chatgpt-retest-tc01-run1.md` から `raw/2026-10-15-chatgpt-retest-tc03-run2.md` |
+| 累積原文 | 24件 |
 
-日別の判定理由は `assessments/2026-10-15.md` を参照する。原文は `raw/2026-10-15-*.md` を参照する。順位とモデル間の優劣は記入しない。Persona適用状態は未確認である。
+### 参考履歴
+
+従来ChatGPT Projectの回答内容評価は 6/6 PASS である。原文と当時の評価は維持する。正規比較には算入しない。
+
+### 正規比較
+
+| 対象 | PASS | FAIL |
+|---|---|---|
+| ChatGPT検証専用Project | 4/6 | 2 |
+| Claude Project | 2/6 | 4 |
+| Gemini Gem | 3/6 | 3 |
+| 合計 | 9/18 | 9 |
+
+```text
+PASS（最大6回）                        FAIL
+ChatGPT検証専用Project  ████░░  4/6     2
+Claude Project         ██░░░░  2/6     4
+Gemini Gem             ███░░░  3/6     3
+```
+
+正規比較の合計は 9 PASS / 9 FAIL（18回答）である。日別の判定理由は `assessments/2026-10-15.md` を参照する。順位とモデル間の優劣は記入しない。Persona適用状態は未確認である。Project間の結果差の原因は未確認である。
 
 ## 未集計
 

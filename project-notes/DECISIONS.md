@@ -1001,3 +1001,34 @@ D-001〜D-030の原文。`AGENTS.md` §2.1の恒久規則、§2.3、§3.4。他P
 
 Rejected（不採用案）:
 なし。Userは実装担当の役割名をCodingAIと指定した。
+
+## D-032 Adopt the ChatGPT Verification Project Retest as the Official Comparison Result（ChatGPT検証専用Projectの再テストを正規比較結果とする）
+
+Date（日付）: 2026-10-15
+Related Documents（関連文書）: project-notes/persona-validation/SUMMARY.md / project-notes/persona-validation/assessments/2026-10-15.md / project-notes/persona-validation/raw/2026-10-15-manifest.md / project-notes/persona-validation/README.md / project-notes/CURRENT.md / project-notes/DECISIONS.md
+
+Decision（決定）:
+- User決定日は2026-10-15である。ChatGPT検証専用Projectで実施した再テスト6回答の回答内容評価、4/6 PASS を正規結果とする。
+- 従来ChatGPT Projectの 6/6 PASS は、参考履歴として原文と当時の評価を保全する。正規比較には算入しない。
+- 正規比較は、ChatGPT検証専用Project 4/6、Claude Project 2/6、Gemini Gem 3/6、合計 9 PASS / 9 FAIL（18回答）である。
+- 保存する原文の累積は、旧18件に再テスト6件を加えた24件である。正規比較の対象18件と、累積原文24件は別である。
+- 再テスト6件の原文は `project-notes/persona-validation/raw/2026-10-15-chatgpt-retest-tc01-run1.md` から `raw/2026-10-15-chatgpt-retest-tc03-run2.md` へ、無改変で追加する。SHA-256は `raw/2026-10-15-manifest.md` の再テストの表に記録する。既存18件の行は変更しない。
+- D-025 の検証入力、TC-01、TC-02、TC-03、各2回、6回すべてPASSという合格条件は変更しない。4/6 は、この合格条件を満たさない。検証合格ではない。
+- 比較結果を、サービス固有性能の順位や優劣として断定しない。従来Projectと検証専用Projectの結果差の原因は UNVERIFIED とする。
+- 転記と元画面の逐字一致、登録全文、Projectのメモリ設定、モデルの内部識別子、自己申告の `P` が示す適用状態は、確認済みとしない。
+- `personas/reference/CHATGPT_PERSONA.md` の本文、Version 1.2（提案）、Status Draft は変更しない。Approvedへの昇格は行わない。
+- D-001〜D-031の原文は変更しない。この記録の commit と push は行わない。
+
+Rationale（理由）:
+Userが、検証専用Projectの再テストを正規結果とし、従来Projectの 6/6 を参考履歴として残すと決定したため。従来結果を削除すると、先に保存した原文と評価へ戻れなくなる。D-025 の6回すべてPASSは、この4/6では満たさないため、正規結果の採用を検証合格や Approved 昇格としない。
+
+Supersedes（上書き対象・範囲）:
+- project-notes/persona-validation/SUMMARY.md / commit `86b3537dfb8c2eacca851763c00055500ee122bd` の「2026-10-15 の件数」のうち、ChatGPT Project 6/6 を3サービス比較のChatGPT側の値としていた範囲。正規比較のChatGPT側は、検証専用Projectの 4/6 とする。従来Projectの 6/6 の保全と、旧18件の原文は上書きしない。
+- project-notes/persona-validation/assessments/2026-10-15.md / 同commit の先に記録した18回答の評価のうち、その評価を現行の正規比較とする位置づけ。先に記録した本文は書き換えない。正規比較は、追記した検証専用Projectの再テストを使う。
+
+Non-Changes（非変更範囲）:
+D-001〜D-031の原文。D-025 の検証入力、TC-01、TC-02、TC-03、各2回、6回すべてPASS。既存18回答の原文とSHA-256。`assessments/2026-10-15.md` の先に記録した評価本文。`personas/reference/CHATGPT_PERSONA.md` の本文、Version 1.2（提案）、Status Draft。検証合格。Approvedへの昇格。この決定の commit と push。Project間の結果差の原因の確定。
+
+Rejected（不採用案）:
+- 従来ChatGPT Projectの 6/6 PASS を、正規比較のChatGPT側として維持する方式
+- 従来Projectの原文または当時の評価を削除・訂正して、再テストへ置き換える方式

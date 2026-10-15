@@ -17,6 +17,8 @@ GitHub上の検証用Personaを、新規チャットでAIが取得するか、�
 
 2026-10-15の記録は別件である。対象は `personas/reference/CHATGPT_PERSONA.md`（Persona ID `M-CG`、Version 1.2（提案）、Status Draft）について、ChatGPT Project、Claude Project、Gemini Gemで実施した D-025 の TC-01〜TC-03、各2回である。この記録の追加は、Version、Status、Approvedを変えない。検証用Personaの記録と混同しない。
 
+正規比較に使うChatGPTの結果は、検証専用Projectの再テスト 4/6 である。先に保存した従来Projectの 6/6 は参考履歴である。Claude 2/6、Gemini 3/6 と合わせた正規比較は 9/18 である。累積原文24件と正規比較対象18件は別である。区別は `SUMMARY.md` と `project-notes/DECISIONS.md` の D-032 に従う。
+
 ## 原文・評価・総合集計の分離
 
 | 場所 | 役割 |
