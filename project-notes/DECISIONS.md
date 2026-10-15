@@ -7,7 +7,7 @@
 | Version（バージョン） | 1.0 |
 | Status（ステータス） | Approved |
 | Created Date（作成日） | 2026-10-13 |
-| Last Updated（最終更新日） | 2026-10-14 |
+| Last Updated（最終更新日） | 2026-10-15 |
 | Owner（管理者） | t-oikawa-sendai |
 | Related Documents（関連文書） | AGENTS.md / project-notes/CURRENT.md |
 
@@ -592,3 +592,195 @@ Rejected（不採用案）:
 - User側のForkやコピーを、正本の独立した編集元とする方式
 - GitHubの利用制限がOwnerへ絶対に影響しないと技術的に保証する方式
 - アクセス制御、認証、新しい配布システム、または自動同期を追加する方式
+
+## D-019 Revise ChatGPT Persona Operating Rules for Efficiency and Quality（ChatGPT Personaの作業効率・品質に関する運用規則を改訂）
+
+Date（日付）: 2026-10-14
+Related Documents（関連文書）: personas/reference/CHATGPT_PERSONA.md / project-notes/CURRENT.md
+
+Decision（決定）:
+- `personas/reference/CHATGPT_PERSONA.md` の §2、§4、§5、§7 を、ユーザーが指定した正式修正案の本文へ置換する。置換後の文言の正本は同ファイルの当該4節とする。
+- §2では、動作、互換性、安全性、運用に影響する未決仕様を `ASKME` とし、承認前に実装対象へ含めない。確定仕様、既存設計、技術スタック、規約の範囲内で、仕様や責務を変えない実装上の細部はCursorへ委任できる。委任は、新しい仕様の決定や、承認済みの名称・責務・用語・クラス分割・運用方式の変更を許可しない。
+- §4では、実装手順を過度に細分化せず、委任可能な詳細を事前に全て決定しない。追加のログ、診断、防御処理、フォールバック、新規テスト、全体調査、リファクタリング、抽象化、文書更新、バックアップは、具体的な必要性がある場合だけ指示する。`ASKME一覧` と `仮定一覧` は該当事項がある場合に記載し、該当なしの明示は、ユーザー指定の形式または適用される文書規則が要求する場合に限る。
+- §5では、検証を変更内容とリスクに応じて選び、対象変更に関係するものだけ実施する。有効な既存Evidenceは再利用し、同じ目的の再検証は行わない。Claudeの独立レビューは、原則としてGitHub `main` 反映後の新commitに対して関連変更をまとめて行う。
+- §7では、Cursorへの指示を完成目的単位で集約し、基本構成を目的、対象、確定仕様と根拠、変更内容、禁止事項、完了条件の6項目とする。Repository作業では、Repository名（`owner/name`）、URL、branch、作業先の絶対パスを毎回明記する。commit と push は、それぞれユーザーの明示許可がある場合だけ実施する。
+- Version は 1.2（提案）、Status は Draft のままとする。Approved への昇格と実動検証は、この決定に含めない。
+- §1、§3、§6、§8、§9、§10、Document Info、同ファイル内の既存 `Decision & Rationale` は変更しない。
+- D-001〜D-018の原文は改変しない。
+- この反映はローカルのみとし、commit と push を含まない。
+
+Rationale（理由）:
+ユーザーが「作業効率・品質改善」の正式修正案として、§2、§4、§5、§7 の置換本文を指定したため。未決仕様を実装へ渡さない原則は維持し、仕様や責務を変えない実装上の細部、空の形式節、同じ目的の再検証、同じ変更への反復レビューを、作業を止めるための追加手続きにしないため。
+
+Supersedes（上書き対象・範囲）:
+- personas/reference/CHATGPT_PERSONA.md / Version 1.2（提案）/ Draft の §2、§4、§5、§7 の置換前本文。2026-10-12の `AGENTS.md` 確認と `ReadOK` / `ReadNG` / `ReadUndefine` 報告は、§2末尾と §9 に残る範囲で維持する。
+- project-notes/DECISIONS.md / 2026-10-14 / 「D-018 Protect the Owner Repository While Guiding User-owned Acquisition」の Non-Changes のうち「既存Personaの本文とVersionは変更しない」は、本決定の対象である `personas/reference/CHATGPT_PERSONA.md` の §2、§4、§5、§7 に限って上書きする。Version は変更しない。D-018の配布元保護方針は上書きしない。
+- AGENTS.md / 2026-10-07 / 「対象Repository省略の是正対象を記録」のうち、`personas/reference/CHATGPT_PERSONA.md` に対象Repositoryの毎回明記を入れる予定範囲。同Decisionの他ファイルの是正対象、予定範囲、適用条件は上書きしない。記録済みであることを是正完了と扱わない。
+
+Non-Changes（非変更範囲）:
+D-001〜D-018の全文。D-018の配布元保護方針。`personas/reference/CHATGPT_PERSONA.md` の §1、§3、§6、§8、§9、§10、Document Info（Version 1.2（提案）、Status Draft、Last Updated 2026-10-06、Document ID）、既存 `Decision & Rationale`。他Personaの本文と Version。2026-10-07の是正対象のうち、本ファイル以外。外部AIサービスへの登録内容。Approved への昇格。実動検証。
+
+Rejected（不採用案）:
+なし。ユーザーは4節の置換本文を1案として指定した。
+
+## D-020 Judge Independent Review by Risk and Generate Claude Review Requests（リスクに応じた独立レビュー判定とClaudeレビュー依頼文の作成）
+
+Date（日付）: 2026-10-14
+Related Documents（関連文書）: personas/reference/CHATGPT_PERSONA.md / project-notes/CURRENT.md
+
+Decision（決定）:
+- 設計担当による一律のcommit前差分レビューを廃止する。実装担当が対象差分、仕様ID整合、対象外変更、必要なテストを検証する。
+- F/O/Rの分類保全と既存の照合条件は維持する。確認担当を変えても、確定・未決・却下仕様の判定基準は緩和しない。
+- ChatGPTは確定基準によりClaude独立レビューの要否を判断する。軽微な文書修正と整形、承認済み仕様に沿う小規模修正は原則不要とする。複数機能に影響する設計変更は原則レビュー対象とする。認証・権限・機密情報の重要変更、破壊的DB変更、不可逆操作は原則commit前とする。重大な仕様矛盾・安全上の不整合は、解消するか必要な事前レビューが終わるまで影響範囲を停止する。Userが明示指定したレビューは実施する。
+- 判定は既存Evidenceを使う。レビュー不要の判断だけを理由にUserへの確認を追加しない。Claudeレビューが不要な変更には新たなレビュー工程を設けない。
+- 認証・権限・機密情報の重要変更、破壊的DB変更、不可逆操作は、commit前にClaudeの独立レビューを要求する。それ以外で必要と判定した独立レビューは、原則としてGitHub反映後に行う。
+- レビューが必要な場合、ChatGPTはUserがClaudeへ渡せる依頼文を完成文として作る。依頼文にはRepository、branch、対象commitまたは未commit差分、確定仕様、変更範囲、検証Evidence、重点確認事項、合否条件を含める。未取得の証拠と未作成のcommit SHAは捏造しない。自動生成は依頼文の作成であり、Claudeへの自動送信ではない。
+- 同一Evidenceに対する理由のない再レビューは禁止する。
+- commitとpushは、それぞれUserの明示許可がある場合だけ実施する。
+- 反映先は `personas/reference/CHATGPT_PERSONA.md` の §5 と §7 とする。Version は 1.2（提案）、Status は Draft のままとする。
+- D-001〜D-019の原文は改変しない。この反映はローカルのみとし、commit と push を含まない。
+
+Rationale（理由）:
+ユーザーが、設計担当AIによる一律のcommit前レビューを廃止し、実装担当の必要十分な検証と、リスクに応じたClaude独立レビューへ変更すると決定したため。レビュー要否の判断と、必要な場合の依頼文作成をChatGPTの責務とし、依頼文の作成をClaudeへの送信と分け、同じEvidenceの理由のない再レビューを追加手続きにしないため。
+
+Supersedes（上書き対象・範囲）:
+- project-notes/DECISIONS.md / 2026-10-14 / 「D-019 Revise ChatGPT Persona Operating Rules for Efficiency and Quality」の Decision のうち、§5の「Claudeの独立レビューは、原則としてGitHub `main` 反映後の新commitに対して関連変更をまとめて行う」という範囲。D-019の §2、§4、検証の選択、既存Evidenceの再利用、同じ目的の再検証を行わない規則、§7の6項目構成、Repository明記、commitとpushの個別許可は上書きしない。
+- personas/reference/CHATGPT_PERSONA.md / Version 1.2（提案）/ Draft の §5 のうち、Claude独立レビューの時期をGitHub `main` 反映後に原則固定するD-019反映文。§5のそれ以外のD-019本文は維持する。
+
+Non-Changes（非変更範囲）:
+D-001〜D-019の全文。`personas/reference/CHATGPT_PERSONA.md` の §1、§2、§3、§4、§6、§8、§9、§10、Document Info（Version 1.2（提案）、Status Draft、Document ID）、既存 `Decision & Rationale`。他Persona。Version 3.0移行。外部AIサービスへの登録。Approvedへの昇格。実動検証。commit。push。中央Governance配布先の `AGENTS.md`。
+
+Rejected（不採用案）:
+なし。ユーザーは条件付き独立レビュー方式を1案として指定した。
+
+## D-021 Require Persona Verification as an Independent Stage（Persona Verificationを必須の独立工程とする）
+
+Date（日付）: 2026-10-15
+Related Documents（関連文書）: personas/PERSONA_IDENTIFICATION_AND_SETUP.md / project-notes/CURRENT.md / project-notes/persona-validation/ / Repository全体
+
+Decision（決定）:
+- Persona Verificationは、今回のPersona大改修における最優先要件である。
+- Personaの識別、設定、検証、User承認、正式運用を構造的につなぐ。順序は、Persona定義・改訂、設定・適用、Persona Verification、User承認判断、正式運用である。
+- 検証工程を、単なる注意書きや進捗記録で代替しない。
+- 新規Personaおよび重要な改訂Personaは、必要な実動検証とEvidenceを経ずにApprovedへ昇格させない。
+- Persona本文の取得確認と、Personaが回答へ正しく適用されたことの検証を区別する。
+- GitHub直接取得（G方式）は現在検証中であり、正式運用の前提条件としない。
+- 検証には、対象Persona、Version、設定条件の特定、責務遵守、安全性、要求された動作、再現性、Evidence、合否判定を含める。
+- 検証記録の保存には、既存の D-005 の規則を使用する。保存先は `project-notes/persona-validation/` である。
+- 具体的なテストケース、判定閾値、検証回数などの未承認事項は、推測で確定しない。これらは UNRESOLVED とする。
+- 章番号は固定しない。要件は、検証工程の独立性と、上記の構造上の位置づけである。
+- 過去のApproved版を、この決定だけで遡及的に失効させない。
+- 反映先は `personas/PERSONA_IDENTIFICATION_AND_SETUP.md` の独立した章とする。Version は 1.1、Status は Approved、Last Updated は 2026-10-15 とする。このRepositoryに CHANGELOG はない。存在しない CHANGELOG は作らない。
+- D-001〜D-020の原文は改変しない。この反映はローカルのみとし、commit と push を含まない。実動検証の完了と、PersonaのApprovedへの昇格は、この決定に含めない。
+
+Rationale（理由）:
+Personaが存在すること、取得できること、設定できることは、そのPersonaが意図した動作をすることを保証しない。正式運用の前に、検証を注意書きや進捗記録から独立した工程として置く必要がある。
+
+Supersedes（上書き対象・範囲）:
+なし。
+
+Non-Changes（非変更範囲）:
+D-001〜D-020の全文。既存の識別仕様、G/P/N/? の区分、設定案内、責務境界。第1章から第15章の章番号。既存Personaの本文、Version、Status。過去のApproved版の効力。検証設計の具体値。実動検証の完了扱い。G方式の廃止。commit。push。中央Governance配布先。このRepositoryに無い CHANGELOG の新設。
+
+## D-022 Correct Persona Verification and Governance Review Rules（Persona VerificationとGovernanceレビュー規則の是正）
+
+Date（日付）: 2026-10-15
+Related Documents（関連文書）: personas/PERSONA_IDENTIFICATION_AND_SETUP.md / personas/reference/CHATGPT_PERSONA.md / project-notes/CURRENT.md / project-notes/DECISIONS.md / Repository全体
+
+Decision（決定）:
+- User承認日は2026-10-15である。承認事項は、PV-01、GOV-02、GOV-07、および PV-02、PV-03、PV-04 と関連するGovernance不整合の必要最小限の一括是正である。
+- PV-01：新規Personaと改訂Personaはすべて Persona Verification の検証対象とする。Version 3.0 への移行も含める。「重要な改訂か否か」をAIの裁量で判断して検証工程を省略しない。将来の対象範囲の詳細基準は UNRESOLVED とし、User承認で確定するまでは全件対象規則を適用する。検証対象であることと、検証完了であることを混同しない。
+- PV-02：状態遷移は、Persona定義・改訂、対象Persona・Versionの識別、設定・適用、Persona Verification とする。FAILまたは検証未完了は修正・再検証へ戻る。検証条件を満たした後のUser承認判断で、不承認は修正・再検証へ戻り、承認は Approved への昇格を経て正式運用へ進む。評価中の新規版・改訂版は Draft とする。検証の PASS だけで Approved へ自動昇格させない。既存の Approved 版は、この規則の追加だけで遡及的に失効させない。検証FAIL時は原因に対応する修正と再検証を行う。変更のないEvidenceに対する無意味な再試験は要求しない。具体的なテストケース、判定閾値、検証回数は UNRESOLVED のままとする。
+- PV-03：共通仕様の第1章 Purpose と第14章 Boundaries の範囲宣言に、Persona Verification が独立検証工程として共通仕様の対象であることを最小限で追加する。既存のPersona分類、11 ID、Version 3.0 移行方針、G/P/N/?、AIサービスとPersonaの独立性、設定案内専用Personaの責務は変更しない。章番号は変更しない。
+- PV-04：Persona Verification の UNRESOLVED に、D-005 で未確定の独立バックアップ先・方式、質問セット、実施頻度への参照を明記する。未決事項は新たに決定しない。バックアップの作成と実行はしない。既存の検証原文と SHA-256 は変更しない。
+- GOV-02：認証・権限・機密情報に関する重要変更、破壊的DB変更、不可逆操作は、例外なく commit 前の独立レビューを必須とする。重大な仕様矛盾・安全上の不整合に関する停止条件は維持する。
+- GOV-03：実装担当は実差分、仕様整合、対象外変更、必要なテストを検証し、実際のEvidenceを提出する。設計担当はEvidenceに基づき、指示した完了条件の充足を確認する。この確認は、設計担当による一律の git diff レビューを再導入しない。作業担当の自己申告だけでは完了としない。Evidenceが不足する場合だけ、具体的な不足項目の確認を求める。`personas/reference/CHATGPT_PERSONA.md` §1 の「実装結果のレビュー」は、この受入・完了判定の意味へ最小限で整合する。
+- GOV-07：`personas/reference/CHATGPT_PERSONA.md` の Last Updated を 2026-10-14 へ変更したことを、このUser承認に基づく変更として記録する。D-019 の当時の記録は書き換えない。さらに2026-10-15にPersona本文を修正したため、文書管理規則に従い Last Updated の現行値は 2026-10-15 とする。
+- 共通仕様 `personas/PERSONA_IDENTIFICATION_AND_SETUP.md` の現行 Document Info は Version 1.2、Status Approved、Last Updated 2026-10-15 とする。Version 1.2 は、確定した検証規則の是正に対応する文書改訂である。Status Approved は共通仕様の文書状態であり、Personaの Approved への昇格ではない。
+- `personas/reference/CHATGPT_PERSONA.md` は Version 1.2（提案）、Status Draft のままとする。
+- 実動検証は未完了である。Draft は維持する。この反映はローカルのみとし、commit と push を含まない。
+- 2026-10-15、`ai-setup-materials` の `AGENTS.md` §2.1 が未commit変更を理由にローカル変更の開始を止めるところ、Userは今回の是正作業に限り、既存未commit差分を保護したまま編集を続けることを個別承認した。この例外は今回限りであり、§2.1 の恒久変更でも、今後の別作業への許可でもない。`AGENTS.md` は変更しない。
+
+Rationale（理由）:
+Persona Verification を、AIが重要性を判断して省略できる注意書きではなく、新規と改訂のすべてに適用する検証・承認工程にするため。重大リスクの commit 前独立レビューに例外を残さないため。完了判定をEvidenceに基づかせ、一律の差分レビュー廃止と矛盾させないため。過去の判断記録を改変せず、上書き範囲を新しいDecisionで追跡するため。
+
+Supersedes（上書き対象・範囲）:
+- project-notes/DECISIONS.md / 2026-10-14 / 「D-019 Revise ChatGPT Persona Operating Rules for Efficiency and Quality」の Non-Changes のうち、`personas/reference/CHATGPT_PERSONA.md` の Last Updated を 2026-10-06 のままにする範囲、および §1 を変更しない範囲。上書きは、Last Updated の現行値を 2026-10-15 とすること、および §1 の「実装結果のレビュー」を受入・完了判定へ最小限で整合する範囲に限る。D-019 の原文は書き換えない。D-019 の §2、§4、§5、§7 の当時の決定のうち、本決定が明示しない範囲は維持する。
+- project-notes/DECISIONS.md / 2026-10-14 / 「D-020 Judge Independent Review by Risk and Generate Claude Review Requests」の Decision のうち、認証・権限・機密情報の重要変更、破壊的DB変更、不可逆操作を「原則commit前」とする範囲。および Non-Changes のうち、`personas/reference/CHATGPT_PERSONA.md` の §1 を変更しない範囲。上書きは、当該3区分を例外なく commit 前の独立レビュー必須とすること、および §1 の受入・完了判定への最小変更に限る。一律の commit 前差分レビューを行わない決定は上書きしない。D-020 の原文は書き換えない。
+- project-notes/DECISIONS.md / 2026-10-15 / 「D-021 Require Persona Verification as an Independent Stage」の Decision のうち、「新規Personaおよび重要な改訂Persona」だけを昇格禁止の対象とする限定、および Persona定義・改訂から設定・適用、Persona Verification、User承認判断、正式運用へ直進する流れ。現行の検証対象は、新規Personaと改訂Personaのすべて、および Version 3.0 への移行である。現行の状態遷移は、FAIL、検証未完了、User不承認の戻りを含む。
+- 同 D-021 の Non-Changes のうち、第14章の責務境界について、範囲宣言に Persona Verification を共通仕様の対象として加える部分だけ。既存Personaの役割定義は上書きしない。
+- 同 D-021 の Decision のうち、反映先文書の Version を 1.1 とする現行値。当時の Version 1.1 の記録は歴史として維持し、現行 Document Info は Version 1.2 / Approved / Last Updated 2026-10-15 とする。D-021 の原文は書き換えない。
+
+Non-Changes（非変更範囲）:
+D-001〜D-021の原文。`AGENTS.md` §2.1 の同期ゲート。既存11 Persona ID。Version 3.0 移行方針。G/P/N/?。GitHub直接取得を正式運用の前提としない方針。D-005 のEvidence保存規則。既存の検証原文と SHA-256。設定案内専用Personaの責務。`personas/reference/CHATGPT_PERSONA.md` の Version 1.2（提案）と Status Draft。共通仕様の Status Approved を Persona の Approved 昇格とみなすこと。配布先Repositoryの既存規則。対象外の未commit差分。実動検証の完了扱い。新たなテスト基盤、validator、バックアップ。commit。push。中央Governance配布先への更新。
+
+Rejected（不採用案）:
+- 「重要な改訂か否か」をAIが判断し、検証工程を省略する方式
+- 重大リスクの commit 前独立レビューに例外を残す方式
+- 検証の PASS だけで Approved へ自動昇格する方式
+- 既存の Approved 版を、この規則の追加だけで遡及的に失効させる方式
+- D-019、D-020、D-021 の原文を書き換えて過去の判断記録を改変する方式
+
+## D-023 Prohibit Independent Reviews That Lack a Necessity Basis（必要性の根拠がない独立レビューを禁止する）
+
+Date（日付）: 2026-10-15
+Related Documents（関連文書）: personas/reference/CHATGPT_PERSONA.md / project-notes/CURRENT.md / project-notes/DECISIONS.md
+
+Decision（決定）:
+- User承認日は2026-10-15である。真に必要な独立レビューは必須とする。必要性の根拠がない独立レビューは禁止する。
+- 重大な安全上の問題、不可逆操作、設計担当では判断できない重要事項は、独立レビューの対象とする。
+- 修正済み事項の形式的な再レビュー、理由のない全件レビュー、定期的または一律の独立レビューは禁止する。
+- 既存Evidenceで確認できる事項について、同じ検証を繰り返さない。
+- 実装担当の実装検証、必要なテスト、F/O/R照合は継続する。この決定はそれらを緩和しない。
+- Persona Verification の必須工程は維持する。`personas/PERSONA_IDENTIFICATION_AND_SETUP.md` は、この決定の変更対象ではない。
+- 認証、権限、機密情報に関する重要変更、破壊的DB変更、不可逆操作について、例外のない commit 前独立レビューは維持する。この決定は、その必須規則を緩和しない。
+- 仕様判断を要し、設計担当が判断できない事項は、独立レビューへ判断を委譲せず、Userに確認する。
+- commit と push は、Userの個別の明示指示がある場合だけ実施する。
+- 反映先は、`personas/reference/CHATGPT_PERSONA.md` の §5 と §7 とする。Version は 1.2（提案）、Status は Draft、Last Updated は 2026-10-15 のままとする。
+- D-001〜D-022の原文は改変しない。この反映はローカルのみとし、commit と push を含まない。実動検証の完了と、PersonaのApprovedへの昇格は、この決定に含めない。
+
+Rationale（理由）:
+真に必要な独立レビューを必須のまま残し、必要性の根拠がないレビューを任意の省略ではなく禁止にするため。重大リスクの commit 前独立レビュー、実装担当の検証、Persona Verification を、レビュー最小化によって緩和しないため。
+
+Supersedes（上書き対象・範囲）:
+- project-notes/DECISIONS.md / 2026-10-14 / 「D-020 Judge Independent Review by Risk and Generate Claude Review Requests」の Decision のうち、軽微な文書修正と整形、承認済み仕様に沿う小規模修正を「原則不要」とする表現、および複数機能に影響する設計変更を「原則レビュー対象」とする表現。現行は、必要性の根拠がない独立レビューを禁止し、複数機能への影響だけでは独立レビューの根拠としない。D-020 の原文は書き換えない。認証・権限・機密情報の重要変更、破壊的DB変更、不可逆操作を例外なく commit 前の独立レビュー必須とする D-022 の範囲は上書きしない。
+- personas/reference/CHATGPT_PERSONA.md / Version 1.2（提案）/ Draft の §5 と §7 のうち、上記の任意的な要否表現。一律の commit 前差分レビューを行わない決定、例外のない重大リスクの commit 前独立レビュー、実装担当の検証、Persona Verification の必須工程は上書きしない。
+
+Non-Changes（非変更範囲）:
+D-001〜D-022の原文。`personas/PERSONA_IDENTIFICATION_AND_SETUP.md`。Persona Verification の必須工程。例外のない重大リスクの commit 前独立レビュー。実装担当の実装検証、必要なテスト、F/O/R照合。`personas/reference/CHATGPT_PERSONA.md` の Version 1.2（提案）と Status Draft。既存11 Persona ID。Version 3.0 移行方針。G/P/N/?。配布先Repository。対象外の未commit差分。実動検証の完了扱い。Approvedへの昇格。commit。push。
+
+Rejected（不採用案）:
+- 必要性の根拠がない独立レビューを、実施してもしなくてもよい任意事項とする方式
+- 重大リスクの commit 前独立レビューを、レビュー最小化を理由に緩和する方式
+- 修正済み事項の形式的な再レビュー、理由のない全件レビュー、定期的または一律の独立レビューを続ける方式
+- 仕様判断を独立レビューへ委譲する方式
+
+## D-024 Keep the User's Top-Priority Purpose and Do Not Generate Unnecessary Steps（最優先目的を維持し、不要な工程を生成しない）
+
+Date（日付）: 2026-10-15
+Related Documents（関連文書）: personas/reference/CHATGPT_PERSONA.md / project-notes/CURRENT.md / project-notes/DECISIONS.md
+
+Decision（決定）:
+- User承認日は2026-10-15である。Userが明示した最優先目的は、作業完了まで維持する。
+- 追加作業は、その目的の達成に必要であることを説明できる場合だけ実施する。
+- 関連する設計・指示・検証は、不必要に分割せず、可能な限り一括で扱う。
+- 確定事項の再確認、形式的な進捗説明、目的外の改善提案をしない。必要性の根拠がないレビューは、§5の禁止に従い追加しない。
+- 局所的な問題を主目的より優先しない。§6の停止条件は維持し、この決定で狭めない。
+- 完了条件を満たした作業は終了させ、追加工程を自動生成しない。未達事項や具体的な不具合がある場合の、対象を限定した追加指示は維持する。
+- §5の重大リスクに対する必須レビュー、必要なPersona Verification、Userの承認権限は緩和しない。
+- 反映先は `personas/reference/CHATGPT_PERSONA.md` の §4、§7、§9 とする。新しい章は設けない。Version は 1.2（提案）、Status は Draft、Last Updated は 2026-10-15 のままとする。
+- D-001〜D-023の原文は改変しない。この反映はローカルのみとし、commit と push を含まない。実動検証の完了と、PersonaのApprovedへの昇格は、この決定に含めない。
+- 2026-10-15、Userは既存の未commit差分を保護したまま本調整を行うよう指示した。`AGENTS.md` §2.1 は変更しない。未commit差分の破棄、退避、上書きはしない。この指示は本調整に限る。
+
+Rationale（理由）:
+ChatGPTが不要な工程を増やしてUserの時間を消費することを防ぎ、Userが明示した最優先目的の達成を作業完了まで優先するため。重大リスクの必須レビュー、必要なPersona Verification、Userの承認権限、既存の停止条件は、工程の削減によって緩和しないため。
+
+Supersedes（上書き対象・範囲）:
+- project-notes/DECISIONS.md / 2026-10-14 / 「D-019 Revise ChatGPT Persona Operating Rules for Efficiency and Quality」の Non-Changes のうち、`personas/reference/CHATGPT_PERSONA.md` の §9 を変更しない範囲。上書きは、確定済み事項の再確認禁止に、形式的な進捗説明、目的外の改善提案、および§5が禁止するレビューを追加しないことを加える範囲に限る。D-019 の原文は書き換えない。
+- personas/reference/CHATGPT_PERSONA.md / Version 1.2（提案）/ Draft の §4 冒頭、§7 の指示の単位、§9 の確定済み事項の再確認に関する各一文。§4 の追加ログ等を具体的な必要性がある場合だけ指示する規則、§7 の6項目構成、Repository明記、重大な安全上の問題がある場合を除き作業中に新たな指示を追加しない規則、未達事項や具体的な不具合がある場合だけ対象を限定して追加指示する規則は上書きしない。
+
+Non-Changes（非変更範囲）:
+D-001〜D-023の原文。`personas/reference/CHATGPT_PERSONA.md` の §1、§2、§3、§5、§6、§8、§10、Document Info（Version 1.2（提案）、Status Draft、Last Updated 2026-10-15、Document ID）、既存 `Decision & Rationale`。§5 の重大リスクに対する必須レビュー、実装担当の検証、Persona Verification の必須工程。§6 の停止条件。Userの承認権限。`personas/PERSONA_IDENTIFICATION_AND_SETUP.md`。`AGENTS.md`。既存11 Persona ID。Version 3.0 移行方針。G/P/N/?。配布先Repository。対象外の未commit差分。実動検証の完了扱い。Approvedへの昇格。commit。push。
+
+Rejected（不採用案）:
+なし。Userは最優先目的の維持と不要な工程の禁止を1件の調整として指定した。

@@ -1,6 +1,6 @@
 # CURRENT
 
-Last Updated: 2026-10-14
+Last Updated: 2026-10-15
 Status: CURRENT
 
 ## PURPOSE
@@ -193,15 +193,22 @@ Status: CURRENT
 - 2026-10-14 ChatGPTが今回の保全に先立ち示した GitHub main HEAD `85655023bcc6116dce4beb8b4f416d52840d8f5f` は、origin/main および GitHub main と一致した。この確認は、同日3回答の取得自己申告とは別である。3回答の実際のGitHubアクセスは UNVERIFIED
 - 2026-10-14 Persona識別と設定案内の追加仕様を [`../personas/PERSONA_IDENTIFICATION_AND_SETUP.md`](../personas/PERSONA_IDENTIFICATION_AND_SETUP.md) へ記録した。判断は `project-notes/DECISIONS.md` の D-006〜D-016。この完了は仕様の記録である。全11 Persona本文の Version 3.0 への移行、設定案内専用Personaの本文の正式作成、各AIサービスの実動検証は、この完了に含まない
 - 2026-10-14 M-Personaの利用方針を、Owner専用の禁止規則から、知識・経験・運用能力に応じた推奨基準へローカル反映した。正本は [`../personas/PERSONA_IDENTIFICATION_AND_SETUP.md`](../personas/PERSONA_IDENTIFICATION_AND_SETUP.md) 第9章。第11章の選定、ASKME、例Bを第9章へ整合した。同ファイルの判断履歴の参照範囲は D-006〜D-017 とし、第14章の境界表現は利用推奨基準へ合わせた。Decisionは `project-notes/DECISIONS.md` の D-017。D-017は D-012 の Owner専用規則と一般利用者への M- 案内禁止を上書きする。D-012 と D-015 の原文は変更していない。D-015 は上書きしていない。知識水準が不明な場合の標準案内は S- である。Owner以外の M- 利用は禁止しない。利用経験による本人認証とアクセス権限制御は追加していない。M/S/T の分類名称、既存11 Personaの本文と Version、確定11 ID、設定案内専用Personaの名称・ID・配置は変更していない。commit `a72b6258e69977544bd269c9190d3d243d00c76d` を `main` へpush済み。push後の Local HEAD、origin/main、GitHub main は同SHAで一致した
-- 2026-10-14 Persona配布元の保護方針を [`../personas/PERSONA_IDENTIFICATION_AND_SETUP.md`](../personas/PERSONA_IDENTIFICATION_AND_SETUP.md) 第10.1節と第11章へローカル反映した。判断履歴の参照範囲は D-006〜D-018 とした。Decisionは `project-notes/DECISIONS.md` の D-018。D-001〜D-017の原文は変更していない。D-017の内容は変更していない。既存Personaの本文とVersionは変更していない。GitHubのアクセス制御、認証、新しい配布システム、自動同期は追加していない。commit と push は未実施
+- 2026-10-14 Persona配布元の保護方針を [`../personas/PERSONA_IDENTIFICATION_AND_SETUP.md`](../personas/PERSONA_IDENTIFICATION_AND_SETUP.md) 第10.1節と第11章へローカル反映した。判断履歴の参照範囲は D-006〜D-018 とした。Decisionは `project-notes/DECISIONS.md` の D-018。D-001〜D-017の原文は変更していない。D-017の内容は変更していない。既存Personaの本文とVersionは変更していない。GitHubのアクセス制御、認証、新しい配布システム、自動同期は追加していない。反映commitは `a82ca1deb4ce7c0844c1f886ea4bc2894b007161`。2026-10-14の本作業開始時、Local HEAD と fetch 後の origin/main はこのSHAで一致した
+- 2026-10-14 Reference ChatGPT Persona `personas/reference/CHATGPT_PERSONA.md` の §2、§4、§5、§7 を、ユーザー指定の正式修正案で置換した。Version 1.2（提案）/ Status Draft、Document Info、他節、既存 `Decision & Rationale` は変更していない。Decisionは `project-notes/DECISIONS.md` の D-019。commit と push は未実施。Approvedへの昇格と実動検証は未実施
+- 2026-10-14 設計担当による一律のcommit前差分レビューを廃止し、実装担当の検証と、リスクに応じたClaude独立レビューへ切り替える規則を、`personas/reference/CHATGPT_PERSONA.md` の §5 と §7 へ反映した。Version 1.2（提案）/ Status Draft は維持した。Decisionは `project-notes/DECISIONS.md` の D-020。D-019のうち D-020 が上書きしない範囲は維持した。commit と push は未実施。Approvedへの昇格と実動検証は未実施
+- 2026-10-15 Persona Verification を、今回のPersona大改修の最優先確定要件として記録した。正本は [`../personas/PERSONA_IDENTIFICATION_AND_SETUP.md`](../personas/PERSONA_IDENTIFICATION_AND_SETUP.md) の第16章。当時の Document Info は Version 1.1 / Approved である。起点は、変更していない第11.1節の動作確認方法の案内と、第11.4節の「適用成功は別途検証する」である。第3章から第12章の確定文、設定案内専用Personaの責務、既存Personaの Version と Status、既存の検証原文は変更していない。流れは、Persona定義・改訂、設定・適用、Persona Verification、User承認判断、正式運用である。Decisionは `project-notes/DECISIONS.md` の D-021。D-001〜D-021の原文は変更していない。この記録は、検証設計の確定、実動検証の完了、PersonaのApproved昇格を含まない。取得成功と適用成功は前提にしていない。このRepositoryに CHANGELOG はない
+- 2026-10-15 Claude独立レビュー指摘の是正をローカル反映した。正本は [`../personas/PERSONA_IDENTIFICATION_AND_SETUP.md`](../personas/PERSONA_IDENTIFICATION_AND_SETUP.md) Version 1.2 / Approved。新規と改訂のすべて、および Version 3.0 移行を検証対象とし、FAILと不承認は修正・再検証へ戻る。ChatGPT Persona は Version 1.2（提案）/ Draft のまま、Last Updated は 2026-10-15 である。Decisionは `project-notes/DECISIONS.md` の D-022。D-001〜D-021の原文は変更していない。実動検証、PersonaのApproved昇格、commit、push は未実施である。同期ゲートについて、未commit差分を保護したまま編集する例外は、この是正作業に限るUser承認であり、`AGENTS.md` は変更していない
+- 2026-10-15 必要性の根拠がない独立レビューを禁止し、真に必要な独立レビューを必須とする規則をローカル反映した。重大リスクの commit 前独立レビュー、実装担当の検証、Persona Verification の必須工程は維持した。Decisionは `project-notes/DECISIONS.md` の D-023。D-001〜D-022の原文は変更していない。commit と push は未実施である
+- 2026-10-15 Userが明示した最優先目的を作業完了まで維持し、その達成に必要と説明できる追加作業だけを行い、不要な工程を自動生成しない規則をローカル反映した。重大リスクの必須レビュー、必要なPersona Verification、Userの承認権限、§6の停止条件は維持した。Decisionは `project-notes/DECISIONS.md` の D-024。D-001〜D-023の原文は変更していない。commit と push は未実施である
 
 ## 作業中
 
+- 2026-10-15 Persona Verification の共通仕様は Version 1.2 / Approved である。検証対象の将来の詳細基準、テストケース、判定閾値、検証回数は未承認で未確定である。詳細基準の確定までは全件対象規則を適用する。実動検証は未実施である。G方式は検証中であり、正式運用の前提条件ではない。未実施の検証を実施済みとして扱わない。commit と push は未実施である
 - 2026-10-13 ChatGPT ProjectでのGitHub Persona取得検証用の `personas/reference/IT_GENERAL_ADVISOR_TEST_PERSONA.md` Version 0.1 / Draft と、Reference入口の検証専用導線は、main の `ef77588d6c94bd50e0cc8c32c770f06c181a3bbb` に含まれている。ChatGPT Project上の取得検証は未実施。この「未実施」は2026-10-13時点の状態である。`personas/reference/setup/CHATGPT_PROJECT_PERSONA_TEST_SETUP.md` は、設定資料の本文が指示に含まれていなかったため未作成。
 - 2026-10-12 Repository作業時に対象の `AGENTS.md` を確認する規則と、通常報告の一行 `AGENTS.md：ReadOK / ReadNG / ReadUndefine` を、Reference の ChatGPT・Cursor・Claude の本文へ追加した。同じ User 決定を `AGENTS.md` の `Decision & Rationale` に記録した。ChatGPT は 1.2（提案）/ Draft、Cursor は 1.1（提案）/ Draft のままである。Claude の現行 Document Info は Version 1.4 / Approved（D-003）。この改版では Persona本文を変更していない。
-- 2026-10-07 対象Repository省略の是正対象をUser承認により記録。7 Persona・3文書・条件付き1文書。本文是正は未着手、修正本文の承認・Approved昇格・実動検証・外部AI登録更新は未実施。対象一覧と適用条件は `AGENTS.md` の `Decision & Rationale`（2026-10-07「対象Repository省略の是正対象を記録」）を参照
+- 2026-10-07 対象Repository省略の是正対象をUser承認により記録。7 Persona・3文書・条件付き1文書。ChatGPT Personaの対象Repository明記は、2026-10-14の §7 置換（D-019）に含まれた。その他の本文是正は未着手。対象一覧と適用条件は `AGENTS.md` の `Decision & Rationale`（2026-10-07「対象Repository省略の是正対象を記録」）を参照
 - Reference AI運用資料3文書の内容確定と Version / Status 昇格は未了。現行版は Case Study Version 0.2 / Draft、Handoff Template Version 0.3 / Draft、Prompt Template Version 0.2 / Draft
-- 2026-10-06 Reference ChatGPT Persona `personas/reference/CHATGPT_PERSONA.md` を Version 1.2（提案） / Status Draft として反映。評価対象のDraftであり、Approvedではなく実動検証も未実施
+- Reference ChatGPT Persona `personas/reference/CHATGPT_PERSONA.md` は Version 1.2（提案） / Status Draft、Last Updated 2026-10-15 のまま。2026-10-14に §2、§4、§5、§7 を正式修正案で置換済み（D-019）。同日、§5 と §7 に条件付き独立レビューの判定と依頼文の作成規則を追加した（D-020）。2026-10-15に §1 の受入・完了判定、§5 の例外のない重大リスクレビュー、GitHub反映後FAIL、未移行Repositoryの既存規則、§7 の依頼文の宛先を整合した（D-022）。同日、必要性の根拠がない独立レビューの禁止を §5 と §7 へ反映した（D-023）。同日、最優先目的の維持と不要な工程の自動生成禁止を §4、§7、§9 へ反映した（D-024）。Approvedへの昇格、実動検証、commit、push は未実施
 - 2026-10-06 決定の保留と仮定の実装利用許可を分離する規則（`実装利用：可／不可`）を、Draftとして3 Personaへ反映。Approvedではなく実動検証も未実施
   - `personas/education/GEM_SOLUTION_PARTNER.md` Version 1.6（提案） / Draft（最終Approvedは1.5）
   - `personas/education/GEM_CODE_GENERATOR.md` Version 2.3（提案） / Draft（最終Approvedは2.2）
@@ -219,7 +226,7 @@ Status: CURRENT
 8. 対象外のPersona・設定資料へ変更を広げない。
 9. 既存未commit変更を保全した上で、導入先でローカル環境設定を作成・確認し、実機Cursorの正本読込・環境値解決のEvidenceを確認する。外部AIサービスへ登録する場合は、その登録内容も別途確認する。既存未commit変更の破棄・退避・上書きによる同期は行わない。
 10. Researcher系Persona Version 1.1 の実動検証を、テスト用Gemで Version 1.0 と比較して実施する（内部記録の第6章）。合格後に本番Gem（`Researcher`、`Researcher Deep Research`）へ反映する。
-11. 2026-10-07に記録した対象Repository省略の是正対象について、Userの次指示に従って本文を修正する。対象一覧・適用条件は `AGENTS.md` の同日Decisionを参照し、記録済みであることを是正完了と扱わない。
+11. 2026-10-07に記録した対象Repository省略の是正対象について、Userの次指示に従って本文を修正する。ChatGPT Personaの対象Repository明記は D-019 の §7 に含まれた。その他の対象は未着手である。対象一覧・適用条件は `AGENTS.md` の同日Decisionを参照し、記録済みであることを是正完了と扱わない。
 12. `IT_GENERAL_ADVISOR_TEST_PERSONA.md` Version 0.1 / Draft と Reference入口の検証専用導線は、main の `ef77588d6c94bd50e0cc8c32c770f06c181a3bbb` に含まれている。ChatGPT Project上の取得検証は未実施。この「未実施」は2026-10-13時点の状態である。Project設定資料は、本文の受領後に作成する。
 13. 中央Governanceの正式導入は別工程である。今回の判断履歴管理規則の改訂では開始しない。導入完了、Purpose、Governance Status は確定しない。
 14. 検証用Personaについて、反復検証、日別評価、期間集計を継続する。2026-10-14分の原文保全は完了している。回答内容の正確性評価は未実施である。
@@ -228,6 +235,7 @@ Status: CURRENT
 17. 設定案内専用Personaの本文を正式作成する。名称、Persona ID、Document Info、本文構成、配置先は未承認である。`S-SETUP` を承認済みIDとして扱わない。
 18. 指示欄用完成文の生成・管理方式と必要ファイル数を詳細設計する。未確定のまま完成文ファイルを作成しない。
 19. 各AIサービスでのPersona設定の実動検証を行う。未実施を実施済みと記録しない。
+20. Persona Verification の検証設計を、未承認のテストケース、判定閾値、検証回数、および将来の対象範囲の詳細基準を推測で埋めずに確定する。詳細基準の確定までは、新規と改訂のすべて、および Version 3.0 移行を検証対象とする。その後に実動検証とEvidenceを残す。仕様の記録済みであることを、検証完了または Approved 昇格と扱わない。G方式の検証中であることを、正式運用の前提条件と扱わない。D-005 で未確定の独立バックアップ先・方式、質問セット、実施頻度は、この工程で確定しない。
 
 Reviewerを含むPersonaの機能設計はEvidenceなしに再検討しない。完了済みの文書適合性復旧を、Evidenceなしに再作業対象へ戻さない。`ASKME 迎合禁止` と7文書配置を未決事項へ戻さない。Education用の基本体系は4Gemであり、`Researcher Deep Research` はResearcher Personaを使う追加Gemとして扱う。
 

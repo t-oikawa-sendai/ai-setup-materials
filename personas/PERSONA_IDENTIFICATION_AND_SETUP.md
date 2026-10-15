@@ -2,10 +2,10 @@
 | Item（項目） | Value（値） |
 |---|---|
 | Document ID（文書ID） | STD-PERSONA-IDENTIFICATION-SETUP-001 |
-| Version（バージョン） | 1.0 |
+| Version（バージョン） | 1.2 |
 | Status（ステータス） | Approved |
 | Created Date（作成日） | 2026-10-14 |
-| Last Updated（最終更新日） | 2026-10-14 |
+| Last Updated（最終更新日） | 2026-10-15 |
 | Owner（管理者） | t-oikawa-sendai |
 | Related Documents（関連文書） | [`../AGENTS.md`](../AGENTS.md)<br>[`../README.md`](../README.md)<br>[`education/README.md`](education/README.md)<br>[`reference/README.md`](reference/README.md)<br>[`../project-notes/DECISIONS.md`](../project-notes/DECISIONS.md)<br>[`../project-notes/CURRENT.md`](../project-notes/CURRENT.md) |
 
@@ -15,16 +15,22 @@
 
 ## 1. Purpose（目的）
 
-この文書は、Personaの識別体系と、Project・Gem等への設定案内の共通仕様の正本である。
+この文書は、Personaの識別体系、Project・Gem等への設定案内、および Persona Verification という独立検証工程の共通仕様の正本である。
 
-2026-10-14にUserが決定した内容を記録する。判断履歴は [`../project-notes/DECISIONS.md`](../project-notes/DECISIONS.md) の D-006〜D-018 に記録する。本書は判断履歴の代替ではない。
+2026-10-14にUserが決定した内容を記録する。判断履歴は [`../project-notes/DECISIONS.md`](../project-notes/DECISIONS.md) の D-006〜D-018 に記録する。2026-10-15の Persona Verification は第16章に記録する。判断履歴は D-021 と、その後の是正である D-022 である。本書は判断履歴の代替ではない。
 
-この文書の `Version 1.0 / Status Approved` は、本章から第12章の確定仕様を正本として記録したことを示す。次を意味しない。
+この文書の `Version 1.0 / Status Approved` は、本章から第12章の確定仕様を正本として記録したことを示す。`Version 1.1` は、第16章の Persona Verification を独立工程として加えた改訂である。`Version 1.2` は、検証対象の全件適用、FAILおよび不承認時の戻り、本章と第14章の範囲宣言を、User承認に基づいて整合した改訂である。Status は Approved のままである。この Status は共通仕様の文書状態であり、Personaの Approved への昇格を意味しない。章番号は、この工程の位置を固定する条件ではない。次を意味しない。
 
 - 全11 Personaの本文とDocument Infoを Version 3.0 へ更新したこと
 - 既存の Draft または Approved を、Version変更だけで昇格したこと
+- 過去の Approved 版を、この改訂だけで失効させたこと
 - 設定案内専用Personaの本文を作成し、承認したこと
 - 各AIサービスでの実動検証が完了したこと
+- Persona Verification を実施したこと
+- 検証設計のテストケース、判定閾値、検証回数を確定したこと
+- 新規Personaまたは改訂Personaを Approved へ昇格したこと
+- 検証対象であることを、検証完了と扱ったこと
+- G方式を正式運用の前提条件としたこと
 - 指示欄用完成文のファイルを作成したこと
 
 本書は education と reference の双方に適用する。Persona本文ではないため、区分ディレクトリのPersona本体へ置かない。AIサービス固有の手順ではないため、`personas/<区分>/setup/` へ置かない。新しいディレクトリは作らない。
@@ -324,7 +330,7 @@ Userは、Personaの設定案内だけを担当する専用Personaの新設を�
 
 ## 14. Boundaries（既存Personaとの責務境界）
 
-既存11 Personaの責務は、各本文のまま維持する。本書は、識別、利用推奨基準、設定案内、指示欄用文章の管理を定める。Researcher、Solution Partner、Code Generator、Reviewer、中核4種、検証用Personaの役割定義を変更しない。
+既存11 Personaの責務は、各本文のまま維持する。本書は、識別、利用推奨基準、設定案内、指示欄用文章の管理、および Persona Verification という独立検証工程を定める。Researcher、Solution Partner、Code Generator、Reviewer、中核4種、検証用Personaの役割定義を変更しない。
 
 設定案内専用Personaの対象外は、第12.2節のとおりである。対象外の作業を、本書で既存Personaへ割り当て直さない。既存本文の責務を維持する。
 
@@ -332,9 +338,66 @@ Education用4Gem＋1の構成と利用手順は変更しない。`Researcher Dee
 
 ## 15. Not Done（この記録では未実施）
 
+- Persona Verification の検証設計（テストケース、判定閾値、検証回数）の確定
+- 検証対象範囲の将来の詳細基準の確定
+- Persona Verification の実動検証
 - 全11 Personaの本文、Version、Status、Document IDの変更
 - 旧形式から新形式への、Persona本文上の置換
 - 設定案内専用Personaの本文作成
 - 指示欄用完成文ファイルの作成
 - 各AIサービスへの登録と実動検証
 - 「9パターン」「17パターン」の文書数としての採用
+
+## 16. CONFIRMED: Persona Verification（Persona検証）
+
+Persona Verification は、今回のPersona大改修における最優先要件である。注意書きや進捗記録では代替しない、独立した工程である。
+
+起点は、第11.1節の「動作確認方法を案内する」と、第11.4節の「実際の適用成功は、別途検証する」である。この2文を含む第3章から第12章の確定文は変更しない。設定案内が行う動作確認方法の案内は、本工程の完了を意味しない。
+
+Personaの識別、設定、検証、User承認、正式運用を、次の順でつなぐ。
+
+```text
+Persona定義・改訂
+  ↓
+対象Persona・Versionの識別
+  ↓
+設定・適用
+  ↓
+Persona Verification
+  ├─ FAIL／検証未完了 → 修正・再検証
+  └─ 検証条件を満たす → User承認判断
+                              ├─ 不承認 → 修正・再検証
+                              └─ 承認 → Approvedへの昇格 → 正式運用
+```
+
+FAIL、検証未完了、またはUserの不承認の戻り先は、原因に対応する修正と、Persona Verification の再実施である。
+
+確定事項：
+
+- 新規Personaと改訂Personaは、すべて検証対象とする。Version 3.0 への移行も検証対象に含める。
+- 「重要な改訂か否か」をAIの裁量で判断して、検証工程を省略してはならない。
+- 将来の対象範囲の詳細基準は UNRESOLVED として保持する。詳細基準がUser承認により確定するまでは、今回の全件対象規則を適用する。
+- 検証対象であることと、検証完了であることを混同しない。
+- 評価中の新規版・改訂版は Draft として扱う。
+- 検証の PASS だけで Approved へ自動昇格させない。必要な実動検証とEvidence、およびUser承認を経ずに Approved へ昇格させない。
+- 検証FAIL時は、原因に対応する修正と再検証を行う。変更のないEvidenceに対する無意味な再試験は要求しない。
+- Persona本文の取得確認と、Personaが回答へ正しく適用されたことの検証は、別の事実である。第8章の取得状態は、適用の検証を代替しない。
+- 取得成功および適用成功を、本工程の前提にしない。GitHub直接取得（G方式）は現在検証中であり、正式運用の前提条件としない。第10.1節のG方式の継続と、第13章にある取得方式の未確定は維持する。
+- 検証には、対象Persona、Version、設定条件の特定、責務遵守、安全性、要求された動作、再現性、Evidence、合否判定を含める。
+- 検証記録の保存は、[`../project-notes/DECISIONS.md`](../project-notes/DECISIONS.md) の D-005 に従う。保存先は `project-notes/persona-validation/` である。既存の検証原文は変更しない。
+- この決定は、過去の Approved 版を遡及的に失効させない。既存Personaの Version と Status は、この記録では変更しない。
+- 全11 Persona ID、Version 3.0 移行方針、G/P/N/?、AIサービスとPersonaの独立性は維持する。第14章の範囲宣言は、Persona Verification を共通仕様の対象に含める。既存Personaの役割定義は変更しない。
+- 設定案内専用Personaの第12章へ、実際の検証、合否判定、正式承認の責務を追加しない。第12.1節の「設定後の動作確認方法」は案内であり、本工程の合否判定ではない。
+- 第13章の「新Personaの実動検証条件」は、設定案内専用Personaの初稿のまま維持する。本工程のテストケース、判定閾値、検証回数は、第13章へ移さない。
+
+UNRESOLVED：
+
+次は未承認である。推測で確定しない。
+
+- 具体的なテストケース
+- 判定閾値
+- 検証回数
+- 将来の検証対象範囲の詳細基準
+- [`../project-notes/DECISIONS.md`](../project-notes/DECISIONS.md) の D-005 で未確定の、独立したバックアップ先と方式、質問セット、実施頻度。本章では新たに決定しない。バックアップの作成と実行は、この記録の作業に含めない。既存の検証原文と SHA-256 は変更しない。
+
+本章の記録は、検証設計の確定、実動検証の実施、Personaの Approved への昇格を意味しない。
