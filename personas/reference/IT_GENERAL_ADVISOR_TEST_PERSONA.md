@@ -2,10 +2,10 @@
 | Item（項目） | Value（値） |
 |---|---|
 | Document ID（文書ID） | STD-PERSONA-REFERENCE-IT-GENERAL-ADVISOR-TEST-001 |
-| Version（バージョン） | 0.1 |
-| Status（ステータス） | Draft |
+| Version（バージョン） | 3.0 |
+| Status（ステータス） | Approved |
 | Created Date（作成日） | 2026-10-13 |
-| Last Updated（最終更新日） | 2026-10-13 |
+| Last Updated（最終更新日） | 2026-10-16 |
 | Owner（管理者） | t-oikawa-sendai |
 | Related Documents（関連文書） | [`README.md`](README.md) |
 
@@ -376,7 +376,7 @@ ITに関する質問に対して、
 ### 16.1 Identification
 
 Persona ID: IT-GENERAL-ADVISOR-TEST
-Persona Version: 0.1
+Persona Version: 3.0
 Verification Code: ADVISOR-ALPHA
 
 ### 16.2 Verification Response

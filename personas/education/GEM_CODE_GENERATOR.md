@@ -2,10 +2,10 @@
 | Item（項目） | Value（値） |
 |---|---|
 | Document ID（文書ID） | STD-PERSONA-EDU-CODE-GENERATOR-001 |
-| Version（バージョン） | 2.3（提案） |
-| Status（ステータス） | Draft |
+| Version（バージョン） | 2.3 |
+| Status（ステータス） | Approved |
 | Created Date（作成日） | 2026-08-20 |
-| Last Updated（最終更新日） | 2026-10-06 |
+| Last Updated（最終更新日） | 2026-10-16 |
 | Owner（管理者） | t-oikawa-sendai |
 | Related Documents（関連文書） | [`README.md`](README.md) |
 

@@ -2,10 +2,10 @@
 | Item（項目） | Value（値） |
 |---|---|
 | Document ID（文書ID） | STD-PERSONA-CLAUDE-001 |
-| Version（バージョン） | 1.5（提案） |
-| Status（ステータス） | Draft |
+| Version（バージョン） | 3.0 |
+| Status（ステータス） | Approved |
 | Created Date（作成日） | 2026-08-17 |
-| Last Updated（最終更新日） | 2026-10-15 |
+| Last Updated（最終更新日） | 2026-10-16 |
 | Owner（管理者） | t-oikawa-sendai |
 | Related Documents（関連文書） | [`README.md`](README.md) |
 
@@ -318,7 +318,7 @@ Conflict は単体で正常でも成立する。層をまたぐ矛盾（指示�
 ### 15.1 Identification
 
 - Persona ID は `M-CL`。
-- Version と Status は、使用した本文の Document Info から取る。この本文は Version 1.5（提案）、Status Draft。
+- Version と Status は、使用した本文の Document Info から取る。この本文は Version 3.0、Status Approved。
 - Verification Code は、本文に確定値があるときだけ使う。なければ未確定と答え、生成しない。
 - 他Personaの ID、Version、Verification Code は流用しない。
 

@@ -2,10 +2,10 @@
 | Item（項目） | Value（値） |
 |---|---|
 | Document ID（文書ID） | STD-PERSONA-EDU-SOLUTION-PARTNER-001 |
-| Version（バージョン） | 1.6（提案） |
-| Status（ステータス） | Draft |
+| Version（バージョン） | 1.6 |
+| Status（ステータス） | Approved |
 | Created Date（作成日） | 2026-08-19 |
-| Last Updated（最終更新日） | 2026-10-06 |
+| Last Updated（最終更新日） | 2026-10-16 |
 | Owner（管理者） | t-oikawa-sendai |
 | Related Documents（関連文書） | [`README.md`](README.md) |
 

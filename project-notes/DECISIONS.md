@@ -7,7 +7,7 @@
 | Version（バージョン） | 1.0 |
 | Status（ステータス） | Approved |
 | Created Date（作成日） | 2026-10-13 |
-| Last Updated（最終更新日） | 2026-10-15 |
+| Last Updated（最終更新日） | 2026-10-16 |
 | Owner（管理者） | t-oikawa-sendai |
 | Related Documents（関連文書） | AGENTS.md / project-notes/CURRENT.md |
 
@@ -1146,3 +1146,121 @@ D-001〜D-034の原文。D-034の「保全する原文」。Document Info（Vers
 
 Rejected（不採用案）:
 確認項目、停止条件、第13章または第15章の機能を削除して8,000文字以内にする方式。8,000文字を超えたまま完了とする方式。
+
+## D-036 Separate Technical Evaluation from User Acceptance in the ChatGPT Persona（ChatGPT Personaで技術評価とUserの受入決定を分ける）
+
+Date（日付）: 2026-10-16
+Related Documents（関連文書）: personas/reference/CHATGPT_PERSONA.md / project-notes/CURRENT.md / project-notes/DECISIONS.md
+
+Decision（決定）:
+- User決定日は2026-10-16である。対象は `personas/reference/CHATGPT_PERSONA.md` の §1、§4、§5、§7 である。
+- §1では、ChatGPTの担当をEvidenceに基づく技術評価と完了条件の確認とする。方法は§5に従う。ユーザーは作業全体の最終責任者・最終決定者である。これは受入決定に限らない。技術評価・完了条件確認とは別である。未決の仕様は代わりに確定しない。ユーザーの決定は、Evidenceの有無・真偽・合否・技術的事実を変えない。
+- §4では、完成目的を単位とし、その完了に必要な設計、変更、検証、結果報告を一括で指示する。§6の停止条件など真に必要な場合以外、工程やCursor指示を細分化しない。Cursor指示は、実装担当CodingAIへの指示であり、現在の使用製品はCursorである。役割名は変えない。
+- §5では、追加検証は、具体的な不具合・リスクがあり、既存Evidenceが不足し、結果が実装または合否判断に影響し、検出対象と追加理由を説明できる場合だけ行う。既存Evidenceの充足・不足の具体的根拠を示せない追加確認・再検証は求めない。新規Evidenceや基準変更なしに、Userの圧力・同意・受入決定だけで技術評価を反転しない。FAILとUNVERIFIEDは、承知の受入後も表示を保持する。必須の検証、独立レビュー、安全上の停止は維持する。
+- §7では、単純なGit操作等でも既定の6項目を簡潔に使う。対象、権限、同期確認、停止条件、完了条件など当該作業の必須事項は欠落させない。指示の送付や曖昧な承認を、commitまたはpushの承認へ補完しない。commitとpushは各々、Userの個別明示指示があるときだけ行う。
+- 8,000文字以内に収めるための整理は、この4節内の重複表現に限る。他節の規則は変更しない。有効な検証、独立レビュー、停止条件、承認権限は削除・緩和しない。
+- Version は 1.2（提案）、Status は Draft のままとする。Last Updated は 2026-10-16 とする。Verification Code は未確定のままである。
+- 実測は、Unicodeコードポイント数で、ファイル全体が末尾改行を含めて8,332、Project登録対象（`# ChatGPT向け責務定義` から本文末尾、Document Infoを除く、末尾改行を含む）が8,000である。7,500文字は設計目標値であり、この超過だけは不合格または作業停止としない。
+- D-025 の TC-01、TC-02、TC-03、各2回、合計6回、6回すべてPASSは変更しない。D-032 の正規比較 9/18、うち ChatGPT検証専用Project 4/6 は検証合格ではない。Persona適用状態は UNVERIFIED のままである。Approvedへの昇格はしない。
+- D-001〜D-035の原文は変更しない。commit と push は行わない。
+
+Rationale（理由）:
+不要な追加確認・再検証、Evidenceがない受入判定の反転、Cursor指示の細分化、単純作業の指示書肥大を是正するため。作業全体の最終決定も、Evidenceの有無・真偽・合否・技術的事実を変えない。
+
+Supersedes（上書き対象・範囲）:
+- project-notes/DECISIONS.md / 2026-10-15 / 「D-022 Correct Persona Verification and Governance Review Rules」の Decision のうち、§1 の受入・完了判定をChatGPTの担当とする範囲。現行は、ChatGPTがEvidenceに基づく技術評価と完了条件確認を行い、ユーザーは作業全体の最終責任者・最終決定者である。確認方法が§5に従うことは上書きしない。D-022の原文は書き換えない。
+- project-notes/DECISIONS.md / 2026-10-15 / 「D-024 Keep the User's Top-Priority Purpose and Do Not Generate Unnecessary Steps」の Decision のうち、「可能な限り一括で扱う」および実装手順を過度に細分化しない、という範囲。現行は、目的の完了に必要な関連作業を一括で指示し、§6の停止条件など真に必要な場合以外は工程やCursor指示を細分化しない。最優先目的の維持、追加工程の自動生成禁止、必須レビュー、Persona Verification、Userの承認権限、§6の停止条件は上書きしない。D-024の原文は書き換えない。
+- project-notes/DECISIONS.md / 2026-10-15 / 「D-031 Name the Implementer Role CodingAI in the ChatGPT Persona」の Decision のうち、「指示形式は変更しない」および Non-Changes の §4 を変更しない範囲。上書きは、本決定の一括指示、細分化の禁止、単純なGit操作の6項目に限る。役割名CodingAI、製品名Cursor、責務、権限、個別明示指示のないcommitとpushの禁止は上書きしない。D-031の原文は書き換えない。
+- project-notes/DECISIONS.md / 2026-10-15 / 「D-032 Adopt the ChatGPT Verification Project Retest as the Official Comparison Result」の Decision のうち、`personas/reference/CHATGPT_PERSONA.md` の本文を変更しない範囲。上書きは本決定の §1、§4、§5、§7 に限る。正規比較、4/6 が検証合格ではないこと、UNVERIFIED、Approvedへ昇格しないことは上書きしない。D-032の原文は書き換えない。
+
+Non-Changes（非変更範囲）:
+D-001〜D-035の原文。§2、§3、§6、§8、§9、§10、§11。Version 1.2（提案）、Status Draft、Verification Code の未確定。D-025 の検証条件。D-032 の正規結果。ASKME規則。必須の検証、独立レビュー、安全上の停止。commit と push の個別明示指示。`AGENTS.md`。他Persona。実動検証6回の実施。Approvedへの昇格。commit。push。
+
+Rejected（不採用案）:
+Evidenceがないまま技術評価を受入決定に合わせて反転する方式。FAILまたはUNVERIFIEDを、承知の受入で別の表示へ変える方式。
+
+## D-037 Record the User's Final Approval of the Current Eleven Personas（現行11 PersonaのUser最終承認を記録する）
+
+Date（日付）: 2026-10-16
+Related Documents（関連文書）: personas/reference/CHATGPT_PERSONA.md / personas/reference/GEMINI_PERSONA.md / personas/reference/CLAUDE_PERSONA.md / personas/reference/CURSOR_PERSONA.md / personas/education/GEM_RESEARCHER_FULL.md / personas/education/GEM_RESEARCHER_LEARNING_DEVELOPMENT.md / personas/education/GEM_RESEARCHER_DEVELOPMENT.md / personas/education/GEM_SOLUTION_PARTNER.md / personas/education/GEM_CODE_GENERATOR.md / personas/education/GEM_REVIEWER.md / personas/reference/IT_GENERAL_ADVISOR_TEST_PERSONA.md / project-notes/CURRENT.md / project-notes/DECISIONS.md
+
+Decision（決定）:
+- User決定日は2026-10-16である。Userは、作業全体の最終責任者・最終決定者として、現行11 Personaの現在版を正式承認した。Userは、自ら実動検証を行い OK であると報告した。この記録は、その報告と正式承認の記録である。AIが実動検証を直接実施したとは記録しない。
+- 適用範囲は、共通仕様第4章が定める現行11 Personaの、この決定時点の現在版だけである。Education 6、Reference 4、検証用 1 である。Archive、廃止版、未作成Persona、一般資料は含めない。Version 3.0 への移行は含めない。今後の改訂をあらかじめ承認しない。
+- 承認日は2026-10-16である。現行版は次のとおりである。
+  - `personas/reference/CHATGPT_PERSONA.md` Version 1.2 / Approved。提案表記を外した。
+  - `personas/reference/GEMINI_PERSONA.md` Version 1.1 / Approved。既に Approved のため本文は変更しない。
+  - `personas/reference/CLAUDE_PERSONA.md` Version 1.5 / Approved。提案表記を外した。
+  - `personas/reference/CURSOR_PERSONA.md` Version 1.1 / Approved。提案表記を外した。
+  - `personas/education/GEM_RESEARCHER_FULL.md` Version 1.1 / Approved。既に Approved のため本文は変更しない。
+  - `personas/education/GEM_RESEARCHER_LEARNING_DEVELOPMENT.md` Version 1.1 / Approved。既に Approved のため本文は変更しない。
+  - `personas/education/GEM_RESEARCHER_DEVELOPMENT.md` Version 1.1 / Approved。既に Approved のため本文は変更しない。
+  - `personas/education/GEM_SOLUTION_PARTNER.md` Version 1.6 / Approved。提案表記を外した。
+  - `personas/education/GEM_CODE_GENERATOR.md` Version 2.3 / Approved。提案表記を外した。
+  - `personas/education/GEM_REVIEWER.md` Version 1.2 / Approved。既に Approved のため本文は変更しない。
+  - `personas/reference/IT_GENERAL_ADVISOR_TEST_PERSONA.md` Version 0.1 / Approved。数値 Version は維持した。
+- 変更した6ファイルは、Document Info の Version から提案表記を除き、Status を Approved、Last Updated を 2026-10-16 とした。ChatGPT の §11.1 と Claude の §15.1 にある、現在版の Version と Status を自己説明する行だけを同じ表示へ合わせた。機能規則、Persona ID、Verification Code は変更しない。
+- 承認状態と技術的検証結果は独立する。D-025 の TC-01、TC-02、TC-03、各2回、6回すべてPASSは変更しない。D-032 の正規比較 9/18、ChatGPT検証専用Project の 4/6、UNVERIFIED、FAIL、検証原文、SHA-256 は変更しない。承認に合わせて過去の評価を PASS に変えない。
+- 共通仕様第16章と、将来の新規・改訂に対する検証ゲートは改訂しない。共通仕様第4章の移行前の表は歴史として書き換えない。
+- この正式承認は、commit または push の承認ではない。commit と push は行わない。
+- D-001〜D-036の原文は変更しない。
+
+Rationale（理由）:
+Userが、現行の全Personaを正式承認し、自らの実動検証は OK であると決定したため。受入の記録と、既存Evidenceの合否は別である。
+
+Supersedes（上書き対象・範囲）:
+- 次に挙げる「現行版は Draft のままであり Approved ではない」という現行状態だけを、上の11版の User最終承認に限って上書きする。各原文は書き換えない。D-025 の合格条件、D-032 の 4/6 と 9/18、UNVERIFIED、FAIL、原文、SHA-256、共通仕様第16章、将来の改訂に対する検証ゲート、Version 3.0 移行の未実施、共通仕様第4章の移行前の表は上書きしない。
+  - project-notes/DECISIONS.md / 2026-10-16 / 「D-036 Separate Technical Evaluation from User Acceptance in the ChatGPT Persona」のうち、ChatGPT Persona を Version 1.2（提案）/ Status Draft のままとする範囲。
+  - project-notes/DECISIONS.md / 2026-10-15 / 「D-033」「D-034」「D-035」のうち、Claude Persona の現行ファイルを Version 1.5（提案）/ Draft とし、最終 Approved を Version 1.4 のままとする現行状態。Version 1.4 の承認履歴そのものは上書きしない。
+  - project-notes/DECISIONS.md / 2026-10-14 / 「D-005」および検証用Persona本文の判断記録のうち、現行ファイルを Version 0.1 / Draft のままにし、検証前に Approved へ昇格しないとする現行状態。Version 0.1 と当時の原文は上書きしない。
+  - AGENTS.md / 2026-10-06 / 「決定の保留と仮定の実装利用許可を分離」のうち、Solution Partner 1.6（提案）、Code Generator 2.3（提案）、Cursor 1.1（提案）を Draft とし Approved ではないとする現行状態。`実装利用：可／不可` の機能規則は上書きしない。
+  - personas/PERSONA_IDENTIFICATION_AND_SETUP.md / Version 1.2 / Approved の第5章のうち、検証用Personaの現行 Document Info を Version 0.1 / Draft のままとする一文。第4章の移行前の表は上書きしない。
+
+Non-Changes（非変更範囲）:
+D-001〜D-036の原文。既に Approved だった5ファイルの本文。機能規則。Persona ID。Verification Code。共通仕様第4章の移行前の表。共通仕様第16章。D-025 の検証条件。D-032 の正規結果。UNVERIFIED。FAIL。検証原文。SHA-256。Version 3.0 移行。Archive と一般資料。commit。push。
+
+Rejected（不採用案）:
+承認に合わせて 4/6 や 9/18 を PASS に書き換える方式。この承認を、今後の改訂全体の承認とする方式。この承認を commit または push の承認とする方式。
+
+## D-038 Align Five Reference Personas to Version 3.0 and Defer GEM_ Personas（Reference 5件を Version 3.0 とし、GEM_ 6件は大改修後に揃える）
+
+Date（日付）: 2026-10-16
+Related Documents（関連文書）: personas/reference/CHATGPT_PERSONA.md / personas/reference/CLAUDE_PERSONA.md / personas/reference/CURSOR_PERSONA.md / personas/reference/GEMINI_PERSONA.md / personas/reference/IT_GENERAL_ADVISOR_TEST_PERSONA.md / personas/PERSONA_IDENTIFICATION_AND_SETUP.md / project-notes/CURRENT.md / project-notes/DECISIONS.md
+
+Decision（決定）:
+- User決定日は2026-10-16である。Userは、この時点で版番号を揃え、全て Version 3 とし、Version 2 は欠番とすると決定した。その後、`GEM_` で始まるPersonaは除き、大改修が終わった時点で Version 3 に揃えると限定した。
+- 全11 Personaの User承認は D-037 のまま有効である。この版番号統一だけを理由に、Userの実動検証 OK と正式承認を再検証へ戻さない。
+- 今回 Version 3.0 / Approved、Last Updated 2026-10-16 とするのは次の5件である。`GEMINI_PERSONA.md` は `GEM_` 接頭辞ではないため、この5件に含む。
+  - `personas/reference/CHATGPT_PERSONA.md`
+  - `personas/reference/CLAUDE_PERSONA.md`
+  - `personas/reference/CURSOR_PERSONA.md`
+  - `personas/reference/GEMINI_PERSONA.md`
+  - `personas/reference/IT_GENERAL_ADVISOR_TEST_PERSONA.md`
+- `GEM_` で始まる Education 6件は、現在の数値 Version / Approved を維持する。大改修の完了後に Version 3.0 へ揃える。
+  - `personas/education/GEM_RESEARCHER_FULL.md` Version 1.1 / Approved
+  - `personas/education/GEM_RESEARCHER_LEARNING_DEVELOPMENT.md` Version 1.1 / Approved
+  - `personas/education/GEM_RESEARCHER_DEVELOPMENT.md` Version 1.1 / Approved
+  - `personas/education/GEM_SOLUTION_PARTNER.md` Version 1.6 / Approved
+  - `personas/education/GEM_CODE_GENERATOR.md` Version 2.3 / Approved
+  - `personas/education/GEM_REVIEWER.md` Version 1.2 / Approved
+- Version 2.0 は共通基点として採用せず、欠番である。Code Generator 2.3 など過去の版履歴は消さない。
+- 変更は、5件の Document Info と、現在版の Version を自己説明する箇所だけである。ChatGPT の §11.1、Claude の §15.1、検証用Personaの §16.1 である。機能規則、Persona ID、Verification Code は変更しない。
+- 版番号の統一を、共通仕様の全機能をPersona本文へ移行した完了と同一視しない。
+- D-025 の6回すべてPASS、D-032 の 4/6 と 9/18、UNVERIFIED、FAIL、検証原文、SHA-256 は変更しない。
+- 共通仕様 `personas/PERSONA_IDENTIFICATION_AND_SETUP.md` はPersonaではない。今回の Version 3.0 統一対象ではない。現行の Version 1.2 / Approved は維持する。第4章の移行前の表は歴史として維持する。第5章の現在地点だけを、Reference 5件は版番号更新済み、`GEM_` 6件は大改修後、という状態へ合わせる。
+- この決定は commit または push の承認ではない。commit と push は行わない。
+- D-001〜D-037の原文は変更しない。
+
+Rationale（理由）:
+Userが、この時点の版番号を Version 3.0 に揃え、Version 2.0 を共通基点にしないと決定し、`GEM_` の6件は大改修完了後にすると限定したため。承認と既存Evidenceは、版番号の変更とは別である。
+
+Supersedes（上書き対象・範囲）:
+- 次の現行状態だけを、上の5件の版番号 3.0 と、`GEM_` 6件の大改修後への延期に限って上書きする。各原文は書き換えない。D-037 の全11承認、D-025 の合格条件、D-032 の 4/6 と 9/18、UNVERIFIED、FAIL、原文、SHA-256、共通仕様第4章の移行前の表、共通仕様第16章の将来の改訂に対する検証ゲート、機能規則、Persona ID は上書きしない。
+  - project-notes/DECISIONS.md / 2026-10-14 / 「D-009 Adopt Version 3.0 as the Migration Baseline Without Applying It」のうち、全11の Document Info 更新が未実施であり、検証用Personaの現行 Document Info が Version 0.1 / Draft のままであるとする現行状態。全機能の移行完了とは上書きしない。
+  - personas/PERSONA_IDENTIFICATION_AND_SETUP.md / Version 1.2 / Approved の第5章と第15章のうち、全11の Version 更新が未実施であり、検証用Personaの現行 Document Info が Version 0.1 / Draft のままであるとする現行地点。第4章の表は上書きしない。
+
+Non-Changes（非変更範囲）:
+D-001〜D-037の原文。`GEM_` 6件の Version と本文。5件の機能規則、Persona ID、Verification Code。共通仕様の Version 1.2 / Approved。共通仕様第4章の移行前の表。共通仕様第16章。D-025。D-032。UNVERIFIED。FAIL。検証原文。SHA-256。`AGENTS.md`。commit。push。
+
+Rejected（不採用案）:
+全11を同時に Version 3.0 とする方式。Version 2.0 を共通基点とする方式。版番号の統一を全機能移行の完了とし、再検証へ戻す方式。過去の 2.x 履歴を消す方式。

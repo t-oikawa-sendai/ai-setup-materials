@@ -5,7 +5,7 @@
 | Version（バージョン） | 1.2 |
 | Status（ステータス） | Approved |
 | Created Date（作成日） | 2026-10-14 |
-| Last Updated（最終更新日） | 2026-10-15 |
+| Last Updated（最終更新日） | 2026-10-16 |
 | Owner（管理者） | t-oikawa-sendai |
 | Related Documents（関連文書） | [`../AGENTS.md`](../AGENTS.md)<br>[`../README.md`](../README.md)<br>[`education/README.md`](education/README.md)<br>[`reference/README.md`](reference/README.md)<br>[`../project-notes/DECISIONS.md`](../project-notes/DECISIONS.md)<br>[`../project-notes/CURRENT.md`](../project-notes/CURRENT.md) |
 
@@ -91,14 +91,15 @@ Researcher 3ファイルの現行見出しは、いずれも Researcher Persona 
 
 ## 5. CONFIRMED: Version 3.0 Migration（Version 3.0への移行方針）
 
-- 全11 Personaを新共通基準のVersion `3.0` へ統一することを決定済みである。
-- 共通基準としてVersion 2.0を採用せず、Version 3.0を新しい基点とする。
+- 共通基準としてVersion 2.0を採用せず、Version 3.0を新しい基点とする。Version 2.0 は欠番である。
 - 旧2.x系列は歴史的に存在するため、過去履歴を削除・書き換えしない。
 - 既存のDraft・Approved状態を、Version変更だけで自動昇格させない。
-- 今回記録するのは移行仕様である。実際の全Persona本文とDocument Infoの更新は別工程であり、未実施である。
-- 移行前のVersionと移行後のVersionを混同しない。第4章の表は移行前である。移行後の共通Versionは `3.0` である。
+- 移行前のVersionと移行後のVersionを混同しない。第4章の表は、2026-10-14時点の移行前の歴史である。移行後の共通Versionは `3.0` である。
+- 2026-10-16の D-038 で、`reference/` の5件の Document Info を Version 3.0 / Approved とした。対象は ChatGPT、Claude、Cursor、Gemini、検証用Personaである。これは版番号の統一である。共通仕様の全機能を各Persona本文へ移行した完了ではない。全11の User承認は D-037 のまま有効であり、この版番号統一を理由に再検証へ戻さない。
+- `GEM_` で始まる Education 6件は、現在の数値 Version / Approved を維持する。大改修の完了後に Version 3.0 へ揃える。
+- 本書はPersonaではない。本書の Version 1.2 / Approved は、この版番号統一の対象ではない。
 
-[`../project-notes/DECISIONS.md`](../project-notes/DECISIONS.md) の D-005 は、検証用Personaを Version 0.1 / Draft として保全した時点の確定状態である。Version 3.0 は、その後に決めた移行先である。D-005を書き換えない。移行は未実施のため、当該Personaの現行Document Infoは Version 0.1 / Draft のままである。
+[`../project-notes/DECISIONS.md`](../project-notes/DECISIONS.md) の D-005 は、検証用Personaを Version 0.1 / Draft として保全した時点の確定状態である。D-005を書き換えない。現行の Document Info は Version 3.0 / Approved である（承認は D-037、版番号は D-038）。
 
 ## 6. CONFIRMED: Service Codes（サービス略号）
 
@@ -341,7 +342,7 @@ Education用4Gem＋1の構成と利用手順は変更しない。`Researcher Dee
 - Persona Verification の検証設計（テストケース、判定閾値、検証回数）の確定
 - 検証対象範囲の将来の詳細基準の確定
 - Persona Verification の実動検証
-- 全11 Personaの本文、Version、Status、Document IDの変更
+- 全11 Personaの機能本文、Status、Document ID、Persona IDの移行。Reference 5件の版番号は D-038 で 3.0 である。これは全機能の移行完了ではない。`GEM_` 6件の Version 更新は大改修後である
 - 旧形式から新形式への、Persona本文上の置換
 - 設定案内専用Personaの本文作成
 - 指示欄用完成文ファイルの作成
