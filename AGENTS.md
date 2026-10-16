@@ -2,18 +2,17 @@
 
 ## 1. 目的
 
-このリポジトリは、職業訓練校の生徒へ配布するAI Personaと、そのPersonaを実際に利用するために直接必要な設定・運用資料を整備するための正本である。
+このリポジトリは、AI Personaの意義・効果・限界と役割分離を説明し、その説明を支えるPersona定義および検証Evidenceを管理する正本である。
 
 対象は次とする。
 
 - Persona定義
+- Personaの意義・効果・限界の説明
 - Personaの選択・使い分け
 - Persona間の責務境界
-- Persona利用に必要なREADME
-- AIサービスへのPersona設定方法
-- Personaの導入・切替・利用手順
-- Persona運用に直接必要な設定資料
-- 各AIサービスのProject・Gem等の指示欄に直接記載する完成済み文章
+- 役割分離と検証結果の説明
+- Personaの識別・検証仕様
+- 上記内容へのREADMEと判断履歴
 
 次は対象外とする。
 
@@ -21,12 +20,12 @@
 - 要求定義・要件定義・各種設計などの一般教材
 - アプリ開発用7文書
 - 他Repositoryを正本とする教材本文・設計文書
+- AIサービス別のPersona設定方法、画面操作手順、設定資料
+- Project・Gem等の指示欄へ貼る完成済み文章と設定案内専用Persona
 
 設計ドキュメント標準で扱う7文書は別Repositoryで管理する。このリポジトリへ複製・機械的生成を行わず、Persona領域へ混在させない。
 
-この責務限定の背景意図は、Personaとその利用に直接必要な資料へ範囲を絞り、性質の異なる教材本文や設計文書の混在によって正本の所在が曖昧になることを防ぐことである。
-
-指示欄に直接記載する完成済み文章は、Persona本文とも、AIサービス固有のセットアップ手順とも区別して管理する。Persona本文の正本は既存のPersonaファイルとし、指示欄用文章のために独立した編集元を増やさない。AIサービス固有のセットアップ手順は、従来どおりAIサービス単位の別文書とする。識別体系と設定案内の共通仕様の正本は `personas/PERSONA_IDENTIFICATION_AND_SETUP.md` とする。完成文の生成・管理方式と必要ファイル数は未確定であり、未確定のまま完成文ファイルを作成しない。この対象追加は、Persona本文の更新、外部AIサービスへの登録、実動検証の完了を意味しない。
+この責務限定の背景意図は、変化するAIサービスの設定画面を追う資料ではなく、Personaを使う理由、期待できる効果と限界、および評価の独立性を伝えることに集中するためである。Persona本文の正本は既存のPersonaファイルとし、識別・検証仕様は `personas/PERSONA_IDENTIFICATION_AND_SETUP.md` に保持する。このファイル名と章番号は既存参照との互換性のため維持するが、設定案内の内容はD-045で範囲外とする。
 
 AIは会話内容を正本として扱わず、リポジトリ内の文書を基準に作業する。
 
@@ -199,18 +198,16 @@ Personaの肥大化を防ぎ、必要な規則を欠落させず、重複記述�
 ## 4. 文書の責務
 
 - `AGENTS.md`: このリポジトリでAIが守る作業規則の正本。最新の作業規則は本文に保持する。末尾の既存 `Decision & Rationale` は、後続の有効なDecisionで明示的に上書きされた部分を除き、引き続き有効である。適用後の新しい判断は末尾へ追記しない。
-- 対象成果物MD（Persona、README、設定・運用資料等）: 最新仕様、最新構成、最新手順の正本。適用後の新しい判断履歴は同じファイルへ追記しない。
+- 対象成果物MD（Persona、README、識別・検証仕様等）: 最新仕様と構成の正本。適用後の新しい判断履歴は同じファイルへ追記しない。
 - 既存の判断履歴ファイル（既存の `*_DECISIONS.md`、日付付き判断記録、本ファイル末尾）: 適用前に記録された判断の保存場所。通常作業で移設・改変・削除しない。これらの記載が旧判断の所在を示していても、適用後の新判断の記録先にはしない。
 - `project-notes/DECISIONS.md`: 本規則の適用後に発生する新しい判断の記録先。成果物本文の正本を代替しない。
 - `project-notes/CURRENT.md`: 現在地点のみ。完了事項、作業中、次工程を記載する。詳細設計や判断理由は記載しない。
 - `project-notes/YYYY-MM-DD-*.md`: 2026-08-23より前の判断経緯、復旧、監査Evidence、実装指示などの履歴・内部記録。新規の設計決定の代替正本としては使用しない。削除せず履歴として保持する。復旧・監査Evidenceなど、成果物本文以外の内部記録が必要な場合に限り新規作成できる。
 - `personas/education/`: 生徒向けAI Personaの正本。
 - `personas/reference/`: 実務構成の参考Persona。中核4種（ChatGPT・Claude・Cursor・Gemini）の本文の唯一の編集元（SSOT）は、同ディレクトリの `CHATGPT_PERSONA.md`、`CLAUDE_PERSONA.md`、`CURSOR_PERSONA.md`、`GEMINI_PERSONA.md` とする。`solacom_main` はこれらの本文を独立編集せず、正本への参照を保持する。個人パス等の実務固有の環境設定はPersona本文から分離し、利用環境側で保持する。
-- `personas/<区分>/setup/`: 各AIサービスの設定・運用資料。実際の文書を作成するときに配置し、記録目的だけで空ディレクトリやダミーファイルを作らない。
-- `personas/PERSONA_IDENTIFICATION_AND_SETUP.md`: Persona識別と設定案内の共通仕様の正本。Persona本文、サービス固有のセットアップ手順、判断履歴を代替しない。
-- 指示欄用完成文章: Project・Gem等の指示欄へ直接記載する完成済み文章。Persona本文とは区別する。配置とファイル数は `personas/PERSONA_IDENTIFICATION_AND_SETUP.md` の未確定事項に従い、未確定のままファイルを作成しない。
+- `personas/PERSONA_IDENTIFICATION_AND_SETUP.md`: Persona識別と検証の共通仕様の正本。ファイル名は旧名称を維持するが、設定方法は扱わない。
 
-Persona本文には、AIサービス固有のセットアップ手順・配置方法・操作手順を混在させない。指示欄用完成文章もPersona本文へ混在させない。設定・運用資料はPersonaとは別文書とし、設定方法と配置場所がAIサービスごとに異なるためAIサービス単位で管理する。
+Persona本文には、AIサービス固有のセットアップ手順・配置方法・操作手順を混在させない。本Repositoryにサービス別の設定資料を新設しない。
 
 ## 5. 正本管理と決定反映
 
@@ -252,7 +249,7 @@ GitHub
 
 例：
 
-- `GEMINI_GEM_SETUP.md`
+- `personas/PERSONA_IDENTIFICATION_AND_SETUP.md`
 - `personas/education/GEM_REVIEWER.md`
 - `personas/education/README.md`
 - 本ファイル（`AGENTS.md`）

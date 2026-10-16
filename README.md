@@ -2,18 +2,22 @@
 | Item（項目） | Value（値） |
 |---|---|
 | Document ID（文書ID） | STD-PERSONA-INDEX-001 |
-| Version（バージョン） | 1.2 |
+| Version（バージョン） | 1.3 |
 | Status（ステータス） | Approved |
 | Created Date（作成日） | 2026-08-17 |
-| Last Updated（最終更新日） | 2026-10-14 |
-| Owner（管理者） | t-oikawa-sendai |
-| Related Documents（関連文書） | [`personas/education/README.md`](personas/education/README.md)<br>[`personas/education/setup/GEMINI_GEM_SETUP.md`](personas/education/setup/GEMINI_GEM_SETUP.md)<br>[`personas/reference/README.md`](personas/reference/README.md)<br>[`personas/reference/PERSONA_OPERATION_CASE_STUDY.md`](personas/reference/PERSONA_OPERATION_CASE_STUDY.md)<br>[`personas/PERSONA_IDENTIFICATION_AND_SETUP.md`](personas/PERSONA_IDENTIFICATION_AND_SETUP.md)<br>[`project-notes/2026-09-11-code-generator-5-pattern-comparison-reference.md`](project-notes/2026-09-11-code-generator-5-pattern-comparison-reference.md) |
+| Last Updated（最終更新日） | 2026-10-17 |
+| Owner（管理者） | Takashi Oikawa |
+| Related Documents（関連文書） | [`personas/education/README.md`](personas/education/README.md)<br>[`personas/WHY_PERSONA_MATTERS.md`](personas/WHY_PERSONA_MATTERS.md)<br>[`personas/reference/README.md`](personas/reference/README.md)<br>[`personas/reference/PERSONA_OPERATION_CASE_STUDY.md`](personas/reference/PERSONA_OPERATION_CASE_STUDY.md)<br>[`personas/PERSONA_IDENTIFICATION_AND_SETUP.md`](personas/PERSONA_IDENTIFICATION_AND_SETUP.md)<br>[`project-notes/2026-09-11-code-generator-5-pattern-comparison-reference.md`](project-notes/2026-09-11-code-generator-5-pattern-comparison-reference.md) |
 
 ---
 
-# AI Setup Materials — AIに役割分担させる設定集
+# AI Setup Materials — Personaの意義・効果と役割分離
 
-職業訓練校でプログラミングを学ぶ生徒が、GeminiのGem（役割を固定したカスタムAI）に登録し、「調査・設計・コード生成・レビュー」をAIに役割分担させるための設定文（Persona）集です。
+このRepositoryは、AIに「調査・設計・コード生成・レビュー」の役割を分ける理由、期待できる効果と限界を説明し、その根拠となるPersona本文と検証結果を公開します。Education用PersonaはGeminiのGem向けに作成されました。AIサービスごとの設定方法は本Repositoryの範囲外です。
+
+> [!IMPORTANT]
+> **Gemini Skillsを利用する前に、[役割分離に関する警告](#gemini-skills-and-role-separation)を確認してください。**
+> Skillごとの責務が機能しても、同じ会話での設計とレビューの評価独立性は保証されません。
 
 *本ドキュメントは入門的ガイダンス（Primer）として位置づけられており、実運用レベルの標準仕様ではありません。*
 
@@ -24,10 +28,9 @@
 
 | やりたいこと | 最初に読む文書 |
 |---|---|
-| 生徒としてEducation用4Gem＋1を使いたい | [`personas/education/README.md`](personas/education/README.md) |
-| GeminiへEducation用4Gem＋1を設定したい | [`GEMINI_GEM_SETUP.md`](personas/education/setup/GEMINI_GEM_SETUP.md) |
-| Personaの識別と、Project・Gem等の設定案内を確認したい | [`PERSONA_IDENTIFICATION_AND_SETUP.md`](personas/PERSONA_IDENTIFICATION_AND_SETUP.md) |
-| O講師の実際のAI利用環境・設定・運用方法を参考にしたい | [`personas/reference/README.md`](personas/reference/README.md) |
+| Education用Personaと従来の4Gem＋1構成を確認したい | [`personas/education/README.md`](personas/education/README.md) |
+| Personaの識別と検証仕様を確認したい | [`PERSONA_IDENTIFICATION_AND_SETUP.md`](personas/PERSONA_IDENTIFICATION_AND_SETUP.md) |
+| Reference Personaと役割分離の利用例を確認したい | [`personas/reference/README.md`](personas/reference/README.md) |
 | Personaあり／なしの検証例を確認したい | [3.1 Personaあり／なしの検証例](#persona-ab-code-generator) |
 
 ReferenceのAI運用資料は、Reference入口に示した **Case Study → Prompt Template → Handoff Template** の順で読むと全体像を把握しやすくなります。
@@ -38,8 +41,9 @@ ReferenceのAI運用資料は、Reference入口に示した **Case Study → Pro
 - [1. Target Users（対象者）](#target-users)
 - [2. Challenges in AI Use（AI利用時の課題）](#challenges-in-ai-use)
 - [3. Why Persona Matters（なぜPersonaが重要なのか）](#why-persona-matters)
+  - [重要：Gemini Skillsの利用と、AIの役割分離について](#gemini-skills-and-role-separation)
   - [3.1 Personaあり／なしの検証例（Code Generator）](#persona-ab-code-generator)
-- [4. Role of User（利用者（生徒）の役割）](#role-of-user)
+- [4. Role of User（Userの役割）](#role-of-user)
 - [5. Structure（構成）](#structure)
 - [6. Education 4Gem＋1（Education用4Gem＋1）](#education-4gem-plus-1)
 - [7. Quick Start（クイックスタート）](#quick-start)
@@ -49,7 +53,15 @@ ReferenceのAI運用資料は、Reference入口に示した **Case Study → Pro
 <a id="target-users"></a>
 ## 1. Target Users（対象者）
 
-初学者（職業訓練校生徒）を利用者として想定。
+本Repositoryは、職種やAIの利用経験を問わず、次のような目的を持つUserを対象とします。
+
+- プロンプトエンジニアリングの一要素として、AIの役割・責務を設計する考え方を理解したい
+- AIの応答を、自身の業務や学習の目的に合わせて使いやすくしたい
+- AIの判断基準、回答形式、検証の観点を明確にし、出力を確認・評価しやすくしたい
+- 事実誤認や根拠不足を見つけ、回答の質を高めたい
+- 調査・設計・実装・レビューの責務を分け、評価の独立性を高めたい
+
+EducationカテゴリのPersonaには職業訓練校での利用を想定した設計も含まれます。Repository全体の対象は教育用途に限定しません。
 
 <a id="challenges-in-ai-use"></a>
 ## 2. Challenges in AI Use（AI利用時の課題）
@@ -68,123 +80,57 @@ ReferenceのAI運用資料は、Reference入口に示した **Case Study → Pro
 
 本教材のPersonaは、これらの問題を軽減することを目的に設計しています。
 
-ただし、問題を完全になくすものではないため、AIの出力は利用者（生徒）が必ず確認してください。
+ただし、問題を完全になくすものではないため、AIの出力はUserが必ず確認してください。
 
 <a id="why-persona-matters"></a>
 ## 3. Why Persona Matters（なぜPersonaが重要なのか）
 
-生成AIへ「普段どのように答えてほしいか」「どの役割で動いてほしいか」「今回何をしてほしいか」を伝える方法は、同じものではありません。
+本Persona群は、AIの自己正当化や自己選好バイアスに対し、役割を分けて評価の独立性を高めるために設計しました。最初はChatGPTとClaudeのProjectで運用・改善し、費用負担と訓練校の推奨環境を考慮してGeminiのGemへ移植しました。PersonaはAIの判断を助けますが、同じAIが自分の成果物を評価する際の偏りを、Personaの指示だけでなくすことはできません。
 
-本教材では、違いを次のように整理します。
+<a id="gemini-skills-and-role-separation"></a>
+重要：Gemini Skillsの利用と、AIの役割分離について
+本Education Personaは、AIの「自己正当化バイアス」（自分の回答を正当化しようとする傾向）や「自己選好バイアス」（自分の生成した内容を過大評価する傾向）の影響を抑制することを目的として設計されています。
+Gemini Skillsでは、個々のSkillに定義された責務・判断基準・回答形式を適用できます。しかし、SkillはAIの判断によって自動的に適用される場合があり、同一会話内で複数のSkillが同時に利用される可能性があります。
+このため、各Skillが個別には適切に機能していても、設計・実装・レビューといった役割の独立性が保証されるわけではありません。個々のSkillの適切な動作と、AIシステム全体としての評価の独立性は、別の問題です。
+本教材が重視する役割分離を実現するには、ChatGPTのProject機能やClaudeのProject機能などで会話と記憶を適切に分離するか、Geminiでは役割ごとに異なるアカウントを利用するなど、別途の対策が必要です。
+なお、これらの対策もAIのバイアスを完全に排除するものではありません。AIの回答はあくまで参考情報として扱い、最終的な判断は人間が行うことをお忘れなく。
 
-| 観点 | パーソナルインテリジェンスのGemini へのカスタム指示 | Gemのカスタム指示 | Gem内のプロンプト |
-|---|:---:|:---:|:---:|
-| 継続性 | ★★★★★ | ★★★★★ | ★☆☆☆☆ |
-| 適用範囲 | サービスやアカウントの設定範囲 | Personaを設定したAI・Agent | その質問・会話 |
-| 回答スタイルへの影響 | ★★★★★ | ★★★★★ | ★★★★☆ |
-| AIの役割への影響 | ★★★☆☆ | ★★★★★ | ★★★★☆ |
-| 専門的な責務の固定 | ★★☆☆☆ | ★★★★★ | ★★★☆☆ |
-| 具体的タスクへの影響 | ★★☆☆☆ | ★★★★☆ | ★★★★★ |
-| 回答形式への影響 | ★★★★☆ | ★★★★★ | ★★★★★ |
-| 毎回入力する必要 | 不要 | 不要 | 必要 |
-| 主な用途 | 普段どう答えてほしいか | **このAIは何者で、何を担当するか** | 今回何をしてほしいか |
+例えば、設計Skillが作った内容を同じ会話でレビューSkillが評価すると、設計時の文脈を引き継ぎ、問題を見落とす可能性があります。評価の独立性を高めるには、レビュー担当へ必要な成果物と評価基準を渡し、設計時の会話・記憶を分けて運用します。
 
-> **注意：** 星の数は各AIサービスが公開している内部的な優先順位ではありません。
->
-> 本教材で、各設定が回答へどの程度・どのような種類の影響を与えるかを理解するための目安です。
->
-> また、カスタム指示・共通設定の名称、提供有無、適用範囲はAIサービスによって異なります。
-
-3つを一言で表すと、次のようになります。
+GemとSkillsの構造を、会話の使い方に着目して比べると次のとおりです。
 
 ```text
-パーソナルインテリジェンスのGemini へのカスタム指示
-「私は、普段こう答えてほしい」
+Gemを別会話で使う場合
+設計Gem（会話A） ── Userが成果物を渡す ──▶ レビューGem（会話B）
 
-Gemのカスタム指示
-「あなたは、こういう役割のAIである」
-
-Gem内のプロンプト
-「今回は、これをしてほしい」
+Skillsが同一会話で適用される場合
+同じ会話・文脈 ──┬──▶ 設計Skill
+                 └──▶ レビューSkill
 ```
 
-パーソナルインテリジェンスのGemini へのカスタム指示は、結論から説明する、長い説明を箇条書きにするなど、普段の回答方法を自分に合わせる用途に適しています。
+Gemを選ぶだけで独立性が保証されるわけではありません。会話と記憶の分離を含めた運用が必要です。
 
-Gem内のプロンプトは、今回の質問や作業内容を具体的に指定するために使用します。
-
-一方、Gemのカスタム指示は、そのAIの **Role（役割）・Responsibility（責務）・Boundary（責務境界）・Decision Criteria（判断基準）・Output（出力）** を継続的に定義します。
-
-そのため、本教材では「毎回うまいプロンプトを書くこと」だけに依存しません。
-
-Personaによって、AIが何者で、何を担当し、どこまでを担当し、どこからは担当しないかを先に明確にします。
-
-そのうえで、Gem内のプロンプトから具体的な作業を依頼します。
-
-Personaの設定方法はAIサービスによって異なります。
-
-Education領域ではGeminiのGemへPersonaを設定し、Reference領域では各AIサービスや開発支援環境の仕組みに合わせてPersonaを利用します。
+生成AIへの設定には、普段の回答方法を指定する共通設定、役割・責務・判断基準を継続的に定義するPersona、今回の作業を指定するプロンプトがあります。詳細な比較表と説明は、[Personaの詳細比較](personas/WHY_PERSONA_MATTERS.md#comparison-details)を参照してください。
 
 <a id="persona-ab-code-generator"></a>
 ### 3.1 Personaあり／なしの検証例（Code Generator）
 
-Personaによって出力がどのように変わるかを確認するため、同一モデル **Gemini 3.1 Pro** に同一の「どこつぶ」実装プロンプトを与え、Code Generator Personaなし／ありの2パターンを静的に比較しました。
-
-| 評価項目 | Personaなし | Personaあり | 検証結果 |
-|---|:---:|:---:|---|
-| 静的コンパイル整合性 | × | ○寄り | **改善** |
-| 例外処理 | × | ○ | **改善** |
-| 認可 | × | ◎ | **大幅改善** |
-| セッション設計 | × | ◎ | **大幅改善** |
-| XSS対策 | △ | ◎ | **改善** |
-| HTTP更新系 | △ | ○ | **改善** |
-| DB設計 | △ | ◎ | **改善** |
-| MVC / 責務分離 | ○ | ◎ | **改善** |
-| 明示制約遵守 | ○寄り | △ | **悪化** |
-| Lombok明示指定 | ○ | △ | **悪化** |
-| 純JDBC制約 | × | × | **改善なし** |
-| SQLのDAO集約 | × | × | **改善なし** |
-
-この結果では、Personaありで認可、例外処理、セッション設計、XSS対策、DB設計、責務分離などが改善しました。
-
-一方で、使用可能ライブラリや指定アノテーションなどの**明示された制約を守ることについては改善せず、一部は悪化**しました。
-
-つまり、Personaはすべての評価項目を自動的に良くするものではなく、AIが既に持つ能力を「どの判断基準で使うか」に影響するものとして扱う必要があります。
-
-#### 評価項目の見方
-
-| 評価項目 | 簡単な説明 |
-|---|---|
-| 静的コンパイル整合性 | コードを実行せずに確認した範囲で、import・クラス・依存関係などに明らかなコンパイル阻害要因がないか |
-| 例外処理 | DB処理などで失敗したとき、エラーを握りつぶさず、失敗として扱える実装になっているか |
-| 認可 | ログインしているだけでなく、そのユーザーがその編集・削除などを実行してよいかをサーバ側で確認しているか |
-| セッション設計 | パスワードなど不要な秘密情報をセッションへ保持せず、必要な情報だけを保存しているか |
-| XSS対策 | ユーザー入力やDBの値を画面へ表示するとき、HTMLやJavaScriptとして実行されないように処理しているか |
-| HTTP更新系 | 更新・削除など、データを変更する操作をGETではなく適切なHTTPメソッドで扱っているか |
-| DB設計 | テーブル間の関係や外部キーなど、データの重複や不整合を抑える構造になっているか |
-| MVC / 責務分離 | Controller・Service・DAOなどが、それぞれ担当すべき処理に分かれているか |
-| 明示制約遵守 | 使用可能ライブラリ、禁止事項、配置など、Userが明示した条件を守っているか |
-| Lombok明示指定 | Userが指定したLombokアノテーションを、別のアノテーションへ勝手に置き換えず使用しているか |
-| 純JDBC制約 | Springのデータアクセス機能に依存せず、指定どおりJDBCを直接使用しているか |
-| SQLのDAO集約 | SQLをDAOへ集約するという指定に対し、他のファイルへSQLを分散させていないか |
-
-判定記号は、`◎`＝明確に良い、`○`＝概ね良い、`△`＝一部問題あり、`×`＝明確な問題あり、を表します。
-
-> **検証条件：** この比較は、同一モデル・同一実装プロンプトによるPersonaなし／ありの2パターンを静的に比較した結果です。Mavenによる実ビルドと実行時動作は検証していません。モデル一般の性能を示すベンチマークではなく、この検証条件における出力差を示しています。
-
-5パターンを横断した比較は、[`Code Generator 5パターン横断比較（参考資料）`](project-notes/2026-09-11-code-generator-5-pattern-comparison-reference.md) を参照してください。この参考資料にはモデル自体の差も含まれるため、Persona効果の主Evidenceではなく補助資料として扱います。
+同一モデル・同一実装プロンプトによる静的比較では、Personaありで改善した項目に加え、悪化した項目と改善しなかった項目もありました。Mavenによる実ビルドと実行時動作は未検証で、モデル一般の性能を示す結果ではありません。[検証結果、評価項目、条件・限界の全文](personas/WHY_PERSONA_MATTERS.md#persona-ab-code-generator)を確認してください。
 
 <a id="role-of-user"></a>
-## 4. Role of User（利用者（生徒）の役割）
+## 4. Role of User（Userの役割）
 
-利用者（生徒）が各Gemを操作し、出力を確認して、次の工程に必要な確定情報を手動で渡します。
+従来の4Gem＋1構成では、Userが各Gemを操作し、出力を確認して、次の工程に必要な確定情報を手動で渡します。
 
-Code Generatorが生成したコードまたはtestコードは、利用者（生徒）がIDEへ反映します。
+Code Generatorが生成したコードまたはtestコードは、UserがIDEへ反映します。
 
-コードの実行、test、動作確認、検証Evidenceの作成も利用者（生徒）が行います。
+コードの実行、test、動作確認、検証Evidenceの作成もUserが行います。
 
-Reviewerの結果は最初に利用者（生徒）へ返されます。
+Reviewerの結果は最初にUserへ返されます。
 
-修正方法、AI支援の利用、再提出、成果物と最終設計の採用・完成を最終判断するのは利用者（生徒）です。
+修正方法、AI支援の利用、再提出、成果物と最終設計の採用・完成を最終判断するのはUserです。
+
+Userの最終判断によって、検証Evidenceの有無、真偽、合否は変わりません。
 
 詳細な運用方法とPersonaへのリンクは [`personas/education/README.md`](personas/education/README.md) を参照してください。
 
@@ -197,7 +143,8 @@ Reviewerの結果は最初に利用者（生徒）へ返されます。
 ├── AGENTS.md        AIがこのRepositoryで作業する際の規則
 ├── LICENSE          ライセンス
 ├── personas/
-│   ├── PERSONA_IDENTIFICATION_AND_SETUP.md  Persona識別と設定案内の共通仕様
+│   ├── PERSONA_IDENTIFICATION_AND_SETUP.md  Persona識別と検証の共通仕様（ファイル名は旧名称）
+│   ├── WHY_PERSONA_MATTERS.md  比較表とPersonaあり／なしの検証詳細
 │   ├── education/   学習用：基本4Gem＋Researcher Deep Researchの追加1GemをGeminiで操作する構成
 │   └── reference/   参考用：Education用4Gem＋1とは異なる前提の実務構成例
 └── project-notes/   設計判断と作業状況の記録（管理用）
@@ -218,6 +165,8 @@ Education用の現行手順としてそのまま流用せず、設計思想や�
 <a id="education-4gem-plus-1"></a>
 ## 6. Education 4Gem＋1（Education用4Gem＋1）
 
+2026-10-16のUser報告では、確認した講師と教育用途のアカウントでGemを新規作成できませんでした。以下は承認済みのPersonaと従来のGem構成の説明であり、現在の新規導入手順ではありません。新規導入先は未決です。
+
 基本4Gemは次のとおりです。
 
 | Gem | 主な責務 |
@@ -225,9 +174,9 @@ Education用の現行手順としてそのまま流用せず、設計思想や�
 | `Researcher` | 外部情報を一次情報中心に調査し、確認済み事実とEvidenceを示す |
 | `Solution Partner` | 目的、要求、制約を整理し、設計とコード生成用指示を具体化する |
 | `Code Generator` | 現行設計と仕様に従い、コード・testコードの生成、解析、修正を支援する |
-| `Reviewer` | 設計、コード、利用者（生徒）が作成した検証Evidenceを独立して評価する |
+| `Reviewer` | 設計、コード、Userが作成した検証Evidenceを独立して評価する |
 
-Gemini上では、詳細調査用としてResearcher Personaを使う `Researcher Deep Research` を1Gem追加します。
+従来のGem構成では、詳細調査用としてResearcher Personaを使う `Researcher Deep Research` を1Gem追加する設計です。
 
 これは独立した5番目のPersonaではなく、Researcherの追加Gemです。
 
@@ -236,14 +185,18 @@ Researcher完成版の選び方は [`personas/education/README.md`](personas/edu
 <a id="quick-start"></a>
 ## 7. Quick Start（クイックスタート）
 
-Education用4Gem＋1の作成手順と使い方は、[`personas/education/README.md`](personas/education/README.md) を参照してください。
+Education用Personaと従来の4Gem＋1構成は、[`personas/education/README.md`](personas/education/README.md) を参照してください。上記の報告対象アカウントではGemを新規作成できないため、従来の作成手順を新規導入に使用しないでください。
+
+Project・Gem・Skills等の画面操作や登録方法は本Repositoryでは案内しません。利用時は各サービスの現行の公式案内と実画面を確認してください。
+
+Gemini Skillsを利用する場合は、[役割分離の警告](#gemini-skills-and-role-separation)を確認し、設計とレビューの会話・記憶を適切に分けてください。
 
 <a id="prerequisites-and-notes"></a>
 ## 8. Prerequisites and Notes（前提と注意事項）
 
 - Personaは、すべての環境や用途で自動的に最適な結果を保証するものではありません。対象の要求、制約、正本を入力し、出力を確認してください。
 - パスワード、APIキー、接続情報などの秘密情報を、AIへの入力、AIの出力、コード、ログ、画面、公開物へ含めないでください。
-- AIが出力する「完了しました」「test成功」「問題なし」などの報告は、それだけでは検証Evidenceになりません。利用者（生徒）が自身の環境で実行・動作確認し、実際の結果を確認してください。
+- AIが出力する「完了しました」「test成功」「問題なし」などの報告は、それだけでは検証Evidenceになりません。Userが自身の環境で実行・動作確認し、実際の結果を確認してください。
 - 会話履歴やAIの記憶だけを正本として扱わず、現在有効な要求、仕様、設計、判断、検証結果を追跡できる文書や成果物へ反映してください。
 
 <a id="license"></a>

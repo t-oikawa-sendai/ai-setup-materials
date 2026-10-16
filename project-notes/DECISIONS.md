@@ -7,8 +7,8 @@
 | Version（バージョン） | 1.0 |
 | Status（ステータス） | Approved |
 | Created Date（作成日） | 2026-10-13 |
-| Last Updated（最終更新日） | 2026-10-16 |
-| Owner（管理者） | t-oikawa-sendai |
+| Last Updated（最終更新日） | 2026-10-17 |
+| Owner（管理者） | Takashi Oikawa |
 | Related Documents（関連文書） | AGENTS.md / project-notes/CURRENT.md |
 
 ## Purpose（目的）
@@ -1264,3 +1264,503 @@ D-001〜D-037の原文。`GEM_` 6件の Version と本文。5件の機能規則�
 
 Rejected（不採用案）:
 全11を同時に Version 3.0 とする方式。Version 2.0 を共通基点とする方式。版番号の統一を全機能移行の完了とし、再検証へ戻す方式。過去の 2.x 履歴を消す方式。
+
+## D-039 Place the Gemini Skills Warning in the Root README（Gemini Skills警告をRoot READMEに掲載する）
+
+Date（日付）: 2026-10-16
+Related Documents（関連文書）: README.md / project-notes/CURRENT.md / project-notes/README_DECISIONS.md
+
+Decision（決定）:
+- Userが提示し「採用して欲しい」と指定した「重要：Gemini Skillsの利用と、AIの役割分離について」のタイトルと本文全文を、一字一句変えずにRoot `README.md` の冒頭側、AIの問題とPersona設計意図を説明した直後へ掲載する。警告の正本はRoot READMEの1か所とし、Education READMEやGemini設定資料へ全文を重複掲載しない。
+- AIの問題点・バイアスの説明（ハルシネーション、迎合、自己正当化、自己選好、LITM等）はRoot READMEに残す。入口の説明順は、AIの問題、Persona設計意図、役割分離と評価独立、Gemini Skillsの制約、利用案内とする。
+- 警告文とは別に、同一会話で設計Skillの成果をレビューSkillが評価する具体例、Gemを別会話で使う場合とSkillsを同一会話で使う場合の構造比較図、独立した評価が重要な理由を簡潔に添える。Gemini Skillsでは個々のSkillの責務・判断基準・回答形式を適用できるが、自動適用と文脈共有だけで評価独立性は保証されない。Skillsの利用自体を否定せず、既存のGemini Persona本体やGem設定資料も削除しない。
+- ChatGPT Project・Claude Projectで会話と記憶を適切に分離する方法、およびGeminiで役割ごとに複数アカウントを用いる方法は、独立性を高める代替例として扱う。完全なバイアス排除とは記載しない。Userが最終決定者であることと、Evidenceの有無・真偽・合否は別である。
+- Userが説明した開発の発端は自己正当化・自己選好バイアスへの対策である。最初の運用先はChatGPTとClaudeのProjectであり、実務でPersonaを改善し、回答品質の変化を実感した。実証実験で効果を測定できたという評価はUserの説明として記録し、既存の検証条件・限界やEvidenceを変更しない。費用負担を生徒に強いかねないため当初は個人用とし、訓練校の「AIを活用した開発」と推奨AIのGeminiに合わせ、ChatGPT ProjectのPersonaをGemへ移植して2026年8月に公開した。
+- 2026年10月にGemからSkillsへ移行しGemが利用できなくなる、というUserの状況説明を記録する。現時点のサービス提供状況を本Decisionだけで外部検証済みとは扱わない。UserはSkillsを作業単位では有用と認めつつ、Skillの自動適用と文脈共有では、設計とレビューの独立性という全体の目的を満たせないと懸念した。Geminiの役割別複数アカウント（例：Solution Partner用とReviewer用）はUserが提示した代替運用例であり、採用済みの設定手順や完全なバイアス排除とは扱わない。
+- 今回はRoot READMEを Version 1.3（提案）/ Draft としてローカル反映する。Userによる改稿全文の最終承認、実サービスの挙動検証、commit、pushを完了扱いにしない。
+
+Rationale（理由）:
+Persona群の開発目的と、各役割の指示が働くことと評価過程の独立性が保たれることの違いを、Repositoryの入口で利用者に伝えるため。Userが最後に「AIの問題点・バイアスの説明はREADME」と明示し、先行する別文書化案のその部分を訂正したため。
+
+Supersedes（上書き対象・範囲）:
+- project-notes/README_DECISIONS.md / 2026-09-11 / 「Root READMEへ簡潔な目次を追加」：目次の補助項目を `3.1 Personaあり／なしの検証例` のみとする範囲。重要警告への1リンクを追加する範囲に限り上書きする。固定アンカーを使う方針と主要章へのリンクは維持する。
+- 参照会話で提示された「AIの問題点・バイアスの詳細を別文書へ移す」案は、Userの訂正により採用しない。これは既存のRepository Decisionの原文を改変するものではない。
+
+Non-Changes（非変更範囲）:
+- project-notes/README_DECISIONS.md / 2026-08-25 / 「Persona重要性のRepository共通化」：Root READMEをRepository共通説明の正本とする方針を維持する。
+- 同 / 2026-08-26 / 「比較表の正本一元化とSetupマニュアルの責務限定」：詳細比較表の現行掲載先はRoot READMEのまま維持する。
+- 同 / 2026-09-11 / 「Personaあり／なしのA/B検証例をRoot READMEへ掲載」および「5パターン横断比較を参考資料として分離」：A/B結果、改善・悪化・改善なし、評価項目、条件・限界、参考資料へのリンクの現行掲載先と内容を維持する。
+- 同 / 2026-09-23 / 「Root READMEへ目的別入口を追加」：目的別入口とその導線を維持する。上記旧判断と既存Decisionの原文・保存場所は変更しない。Root READMEの既存固定アンカーとリンク先も維持する。
+- 詳細比較表とA/B検証結果を新規 `personas/WHY_PERSONA_MATTERS.md` に移す案は提案段階であり、Userの明示的な採用決定を確認できない。今回の変更と上書き範囲に含めず、同ファイルは作成しない。移動先の細かな構成やVersion / Statusも未決とする。
+- Persona本文、Education README、Gemini設定資料、既存の検証結果、他Repository、commit、push。
+
+## D-040 Approve the Root README Revision and Move Its Detailed Comparisons（Root README改稿の承認と詳細比較の移動）
+
+Date（日付）: 2026-10-16
+Related Documents（関連文書）: README.md / personas/WHY_PERSONA_MATTERS.md / project-notes/CURRENT.md / project-notes/README_DECISIONS.md
+
+Decision（決定）:
+- UserはRoot README Version 1.3案の正式承認と、詳細比較表・Personaあり／なしの検証結果を新文書へ移す案の両方を明示的に承認した。既存の未commit 3文書を保全して続行することも承認した。Root READMEの Document Info は Version 1.3 / Status Approved とする。
+- `personas/WHY_PERSONA_MATTERS.md` を新設し、カスタム指示・Persona・プロンプトの詳細比較表と説明、Personaあり／なしの検証結果、評価項目、判定記号、条件・限界、5パターン参考資料への導線を移す。改善・悪化・改善なしの全項目を保全する。実ビルド・実動作を検証済みとは記載しない。
+- Root READMEにはAIの問題点・バイアス、Persona設計意図、原文の警告、比較の要点、A/B検証の要点と限界、運用案内を残す。従来の `#why-persona-matters` と `#persona-ab-code-generator` をRoot READMEに保持し、新文書の詳細節へリンクする。既存の目的別入口と目次の導線も維持する。
+- 新文書の文書ID・Version等の独立したDocument InfoはUser決定を確認できないため、この移動では確定・追加しない。これは内容と掲載先の承認を取り消すものではない。
+- 本決定はcommitとpushを含まない。
+
+Rationale（理由）:
+Root READMEを初見の利用者が設計思想と運用上の警告を理解する入口にし、詳細な比較とEvidenceを1文書にまとめて、内容の欠落や重複を避けるため。Userが、前回未決として報告した移動案を明示的に採用したため。
+
+Supersedes（上書き対象・範囲）:
+- project-notes/README_DECISIONS.md / 2026-08-26 / 「比較表の正本一元化とSetupマニュアルの責務限定」：比較表の正本をRoot READMEの1か所とする掲載先だけを、新文書の1か所へ変更する。Education READMEとGemini設定資料への重複掲載禁止、およびSetup資料の責務限定は維持する。
+- 同 / 2026-09-11 / 「Personaあり／なしのA/B検証例をRoot READMEへ掲載」：詳細表、評価項目、条件・限界の掲載先だけを新文書へ変更する。Root READMEには要点とリンクを残す。改善・悪化・改善なしの扱いと、主Evidenceを同一モデル・同一プロンプトのA/B静的比較とする判断は維持する。
+- 同 / 2026-09-11 / 「Root READMEへ簡潔な目次を追加」：詳細なA/B節がRoot READMEにあるという前提だけを、Rootの要約節から新文書へ進む導線に変更する。固定アンカーと目次の簡潔さは維持する。
+- project-notes/DECISIONS.md / 2026-10-16 / 「D-039 Place the Gemini Skills Warning in the Root README」：READMEを Version 1.3（提案）/ Draft とする暫定状態、および比較表とA/B検証の移動を未承認として今回の変更から除外した範囲だけを上書きする。D-039の警告文の原文掲載、AI問題説明のRoot保持、役割分離と評価独立、既存Persona・Gem資料の保全は維持する。
+
+Non-Changes（非変更範囲）:
+上記旧DecisionとD-039の原文・保存場所。Root READMEの警告全文とAI問題説明。Persona本文。Education READMEとGemini設定資料。5パターン横断比較の参考資料とその補助資料としての位置付け。検証結果の合否、未検証範囲、Evidence。外部AIサービスの設定・実動検証。commit。push。
+
+## D-041 Consider Skills for Researcher Scope Selection and Keep Deep Research Separate（Researcherの検索範囲選択にSkillsを検討し、Deep Researchを分ける）
+
+Date（日付）: 2026-10-16
+Related Documents（関連文書）: personas/education/README.md / personas/education/setup/GEMINI_GEM_SETUP.md / project-notes/CURRENT.md / README.md
+
+Decision（決定）:
+- Userは、Researcherでは必要に応じて検索範囲を可変に切り替えられるため、Skillsの利用方法が適しているとの見解を示した。これをResearcherの調査対象（Learning / Career / Development）の選択にSkillsの自動適用を活かす検討範囲として記録する。
+- Userが確認したとおり、Google公式案内では2026-10-16時点でSkillsはDeep Researchに対応していない。Skillsの自動適用と、Deep Researchの自動起動・切替を同一視しない。Deep Researchは別運用とする。
+- Skillsが常に適切な検索範囲を選ぶことは検証済みとしない。Skillの分割方法、振分条件、範囲外・曖昧な依頼の扱い、登録と実動検証は未決・未実施である。現行のResearcher完成版1本を両Gemへ登録する手順と `Researcher Deep Research` Gemの運用は、今回変更しない。既存のResearcher Persona本文も変更しない。
+
+Rationale（理由）:
+Researcherでは依頼に応じて調査対象が変わり得るため、Skillの自動適用を利用方法の候補として位置付ける。一方、Deep ResearchはSkillsに非対応であり、検索対象の選択と調査機能の切替を混同すると、利用できない運用を案内するため。
+
+Evidence（根拠）:
+- Google Gemini Apps Help / [About the transition from Gems to skills](https://support.google.com/gemini/answer/18560919)：Skillの自動適用、およびSkillsがDeep Researchに未対応である旨。2026-10-16確認。
+
+Supersedes（上書き対象・範囲）:
+なし。既存の4Gem＋1運用、D-039の警告全文、D-040のRoot README構成と詳細比較の掲載先を維持する。
+
+Non-Changes（非変更範囲）:
+README.mdの警告全文、Gemini設定資料、Researcherを含むPersona本文、現行Gemの登録・使い分け手順、外部サービスへの登録・実動検証、commit、push。
+
+## D-042 Relocate the Education README Historical Decisions（Education READMEの旧判断を保全して本文から分離する）
+
+Date（日付）: 2026-10-16
+Related Documents（関連文書）: personas/education/README.md / project-notes/CURRENT.md / project-notes/DECISIONS.md / project-notes/README_DECISIONS.md
+
+Decision（決定）:
+- Userは、`personas/education/README.md` 末尾の `Decision & Rationale（決定・判断理由）` を本文から分離することを、対象を旧判断3件（2026-08-23、2026-08-25、2026-08-26）とし、原文を本Decisionへ保全する方法を確認したうえで明示承認した。
+- 移管元の節全文を、見出し、Decision、Reason、Rejected、空行を含めて、下の「保全する原文」へ無改変で置く。移管元のEducation READMEから当該節を削除する。判断内容の削除や失効は意味しない。
+- 移管した2026-08-26の「比較表をRoot READMEへ置く」という当時の掲載先は、D-040で詳細比較の正本を `personas/WHY_PERSONA_MATTERS.md` に変更した範囲で上書き済みである。旧判断を移しても、旧掲載先を現行として復活させない。
+- 教育用の現行4Gem＋1、ResearcherのSkills検討範囲、Gemの操作手順、Persona本文は変更しない。新しいDecisionは引き続き本ファイルへ記録する。commit と push は行わない。
+
+Rationale（理由）:
+生徒が読むEducation READMEの本文から判断履歴を分け、現行手順を読みやすくするため。既存判断の原文と追跡可能性を保ち、履歴を無保全で削除しないため。
+
+Source and Verification（移管元・検証方法）:
+- 移管元：`personas/education/README.md` 末尾の `## Decision & Rationale（決定・判断理由）` の節全文。2026-08-23「Education用4Gem＋1とGemini設定資料への導線」、2026-08-25「Persona重要性の共通説明をRootへ移動」、2026-08-26「比較表とSetupマニュアルの責務整理」の3件。
+- 移管前原文のUTF-8バイト列のSHA-256：`4c5e19532a71eb835cd56cb40607e3131dfbc75d7b4c538edb2933f176ced754`。下の保全原文とバイト単位で照合する。本文、リンク、差分も確認する。
+
+Supersedes（上書き対象・範囲）:
+- `AGENTS.md` §5.4第1項、および `project-notes/DECISIONS.md` / 2026-10-13 / 「D-001 Preserve Existing Decisions and Record New Decisions Centrally」の既存履歴を元の保存場所へ維持する範囲について、上記3件の節全文を本Decisionへ原文移管する一回限りの例外とする。`AGENTS.md` §5.4第4項の個別提示・User明示承認を満たした移管であり、他の旧履歴の移動を承認したものではない。
+
+Non-Changes（非変更範囲）:
+移管した判断の原文と後続Decisionによる上書き関係。Education READMEの現行手順、Document ID、Version、Status。Root READMEの警告全文、D-039〜D-041の原文、他の既存判断履歴。Persona本文、Gemini設定資料、Skillsの登録・実動検証、commit、push。
+
+保全する原文:
+
+```text
+## Decision & Rationale（決定・判断理由）
+
+### 2026-08-26
+
+#### 比較表とSetupマニュアルの責務整理
+
+Decision:
+比較表はルート `README.md` の1か所だけに置く。Education READMEにはルート `README.md` への導線だけを置き、Gemini設定資料には設定・操作手順だけを委譲する。
+
+この決定により、2026-08-25の「カスタム指示の効果・制約・設定方法をGemini設定資料へ委譲する」という委譲範囲を更新する。
+
+Reason:
+共通概念とGemini固有の操作手順を分離し、同一内容の重複と新旧不整合を防ぐため。
+
+Rejected:
+- Education READMEまたはGemini設定資料へ比較表を重複掲載する方式
+- Gemini設定資料へPersonaの重要性やカスタム指示の効果・制約を説明する章を置く方式
+
+### 2026-08-25
+
+#### Persona重要性の共通説明をRootへ移動
+
+Decision:
+Personaの重要性、サービス全体のカスタム指示・共通設定、Persona、その都度のプロンプトの違いを説明する共通部分は、Education READMEではなくルート `README.md` を正本とする。Education READMEにはRootへの導線だけを残す。Gemini固有のパーソナル インテリジェンスのカスタム指示の効果・制約・設定方法は `setup/GEMINI_GEM_SETUP.md` へ委譲する。
+
+Reason:
+Personaの重要性はEducation用Geminiだけに限定されず、Reference領域のPersonaにも共通するRepository全体の設計思想であるため。共通説明をRootへ集約することで、Education / Referenceの双方が同じ考え方を前提として利用でき、同一説明の重複とサービス固有概念との混在を防げる。
+
+Rejected:
+- Persona重要性の比較表をEducation READMEだけに置く方式
+- RootとEducationの両方に同じ比較表を重複掲載する方式
+
+### 2026-08-23
+
+#### Education用4Gem＋1とGemini設定資料への導線
+
+Decision:
+Education用の基本体系は4Gemとして維持し、Gemini上ではResearcher Personaを使う `Researcher Deep Research` を追加した `4Gem＋1` として運用する。Education READMEにはこの関係を明記し、Gemini固有の設定詳細は `setup/GEMINI_GEM_SETUP.md` へ委譲する。
+
+Reason:
+`Researcher Deep Research` は独立した5番目のPersonaではなく、Researcherの詳細調査用追加Gemであるため。基本4役割を維持しながらGemini上の実体数が5Gemになることを明示し、Persona説明とサービス固有設定の責務を分離するため。
+
+Rejected:
+- Education体系そのものを5つの独立Personaとして扱う方式
+- Gemini固有の設定手順をEducation README本文へ重複記載する方式
+```
+
+## D-043 Stop Presenting New Gem Creation as the Current Education Setup（現行対象アカウント向けのGem新規作成案内を停止する）
+
+Date（日付）: 2026-10-16
+Related Documents（関連文書）: README.md / personas/education/README.md / personas/education/setup/GEMINI_GEM_SETUP.md / project-notes/CURRENT.md
+
+Decision（決定）:
+- Userは、本教材の講師アカウントに加え、生徒のアカウントでもGemを新規作成できないことを確認した。これは対象アカウントでのUser報告であり、AIが画面を直接検証した結果や、Googleの全アカウントで新規作成不可という断定ではない。
+- 現行の対象アカウントに対し、Root READMEとEducation READMEからGem新規作成を実行可能な導入手順として案内しない。Education READMEの「Current 4Gem＋1」見出しは従来構成を示す見出しへ改める。`GEMINI_GEM_SETUP.md` の冒頭に適用上の注意を置き、旧作成手順と設定値は過去の設定記録として残す。旧判断履歴の原文は変更しない。文書のVersionとStatusは今回変更しないが、過去のApprovedを現在の新規作成可能性の根拠にしない。
+- 既存Gemを利用・編集できるかは未確認である。新しい導入先、Skillsへの移行方法、役割分離を満たす実装方法、Researcher Deep Researchの代替運用は未決とする。Skillsを4Gem＋1へ一律に読み替えず、Deep ResearchをSkillsから使えるとも案内しない。
+- `CURRENT.md` のテスト用Gem新規作成を前提とするResearcher検証計画は、現行対象アカウントで実施できない状態として明示する。検証の合格や本番反映とは扱わない。Persona本文、commit、pushは変更・実施しない。
+
+Rationale（理由）:
+実際には作れないGemの新規作成を、生徒向けの現行手順として案内しないため。一方、過去の設定値・判断の追跡可能性を保ち、利用できるか未確認の既存Gemや、未設計の代替方式について推測で結論を出さないため。
+
+Evidence（根拠）:
+- User報告：2026-10-16、講師と生徒のアカウントでGem新規作成不可。画面の直接確認とアカウント種別の確認は未実施。
+- [Google Gemini Apps Help「Gem からスキルへの移行について」](https://support.google.com/gemini/answer/18560919?hl=ja)：アカウント種別による移行時期と、SkillsのDeep Research非対応を確認。[「Gemini アプリで Gem を使用する」](https://support.google.com/gemini/answer/15146780?hl=ja)にはGem作成手順が残るため、Userの報告を全アカウントへ一般化しない。
+
+Supersedes（上書き対象・範囲）:
+- `personas/education/setup/GEMINI_GEM_SETUP.md` / 2026-08-26 / 「Setupマニュアルへの責務限定」、同 / 2026-08-23 / 「初期作成時の最低限必須項目」「ResearcherのDeep Research運用」：現行の対象アカウントでGem新規作成を実行可能な手順として案内する範囲のみ上書きする。設定値、旧判断原文、4 Persona / 5 Gemの設計記録は維持する。
+- `project-notes/DECISIONS.md` / 2026-10-16 / 「D-041 Consider Skills for Researcher Scope Selection and Keep Deep Research Separate」：現行の `Researcher Deep Research` Gem運用を維持するとした範囲について、新規作成不可の対象アカウントでは既存Gemの利用・編集可否を未確認とする。SkillsのDeep Research非対応とSkills構成未決は維持する。
+
+Non-Changes（非変更範囲）:
+Root READMEのGemini Skills警告原文。Education 4 Personaの責務。Gemini設定資料の旧作成手順・設定値と既存 `Decision & Rationale` 原文。Persona本文。既存Gemの利用・編集可否。Skillsの作成・登録・実動検証。新しい導入先の採用。commit。push。
+
+## D-044 Use Takashi Oikawa in Document Owner Fields（文書のOwner欄をTakashi Oikawaに統一する）
+
+Date（日付）: 2026-10-17
+Related Documents（関連文書）: Repository全体 / 次のOwner欄を持つ24文書
+
+- `README.md`
+- `personas/PERSONA_IDENTIFICATION_AND_SETUP.md`
+- `personas/education/GEM_CODE_GENERATOR.md`
+- `personas/education/GEM_RESEARCHER_DEVELOPMENT.md`
+- `personas/education/GEM_RESEARCHER_FULL.md`
+- `personas/education/GEM_RESEARCHER_LEARNING_DEVELOPMENT.md`
+- `personas/education/GEM_REVIEWER.md`
+- `personas/education/GEM_SOLUTION_PARTNER.md`
+- `personas/education/README.md`
+- `personas/education/archive/GEMINI_PERSONA_DEFINITION-4Gem.md`
+- `personas/education/setup/GEMINI_GEM_SETUP.md`
+- `personas/reference/CHATGPT_PERSONA.md`
+- `personas/reference/CHAT_HANDOFF_TEMPLATE.md`
+- `personas/reference/CLAUDE_PERSONA.md`
+- `personas/reference/CURSOR_PERSONA.md`
+- `personas/reference/GEMINI_PERSONA.md`
+- `personas/reference/IT_GENERAL_ADVISOR_TEST_PERSONA.md`
+- `personas/reference/PERSONA_OPERATION_CASE_STUDY.md`
+- `personas/reference/PERSONA_PROMPT_TEMPLATE.md`
+- `personas/reference/README.md`
+- `personas/reference/setup/CLAUDE_CODE_SETUP.md`
+- `project-notes/2026-08-22-document-conformance-recovery-instructions.md`
+- `project-notes/DECISIONS.md`
+- `project-notes/persona-validation/raw/2026-10-16-claude-independent-review.md`
+
+Decision（決定）:
+- Userの指定により、上記24文書の `Owner（管理者）` 欄を `t-oikawa-sendai` から `Takashi Oikawa` へ統一する。履歴資料、archive、検証原文に付されたOwner欄も対象に含める。
+- この修正はOwner欄の表示値だけを対象とする。GitHubアカウント名、Repository識別子、URL、および過去の判断本文に残る当時の値は変更しない。
+- `project-notes/persona-validation/raw/2026-10-16-claude-independent-review.md` では、原文保全規則に対するUser指定の例外として、Owner欄の1行だけを変更する。元のバイト数・SHA-256を保持し、新しい照合値を同日のマニフェストへ追記する。
+
+Rationale（理由）:
+Userが文書のOwner名を `Takashi Oikawa` と明示し、履歴を含む全Owner欄への適用を指定したため。GitHubのアカウント識別子と文書管理者の表示名を混同しないため。
+
+Evidence（根拠）:
+- 2026-10-17のUser指示：「Ownerがいつのまにか t-oikawa-sendai になっている Takashi Oikawaに変更 全文書」。追加確認で、履歴・archive・検証原文を含む全Owner欄の修正を指定。
+- 変更前のRepositoryでは、上記24文書のOwner欄がすべて `t-oikawa-sendai` だった。
+
+Supersedes（上書き対象・範囲）:
+- `project-notes/2026-08-22-design-document-standard-application-scope.md` / 2026-08-22 / 「Document Info」の `Owner（管理者）` を全現行配布文書で `t-oikawa-sendai` とする決定：Owner欄の表示値に限り上書きする。旧判断原文は保全する。
+- `project-notes/DECISIONS.md` / 2026-10-14 / 「D-005 Preserve Persona Validation Records Separately」の原文無改変規則：上記レビュー原文のOwner欄1行に限って例外とする。他の原文とレビュー本文には適用しない。
+
+Non-Changes（非変更範囲）:
+Owner欄以外の文書本文、Personaの責務、Version、Status、Last Updated、GitHubアカウント名・URL、過去の判断本文、検証回答本文、commit、push。
+
+## D-045 Focus the Repository on Persona Purpose and Effects（Personaの意義・効果に範囲を絞り、設定資料を廃止する）
+
+Date（日付）: 2026-10-17
+Related Documents（関連文書）: AGENTS.md / README.md / personas/PERSONA_IDENTIFICATION_AND_SETUP.md / personas/education/README.md / personas/reference/README.md / personas/education/setup/GEMINI_GEM_SETUP.md / personas/reference/setup/CLAUDE_CODE_SETUP.md / project-notes/CURRENT.md / project-notes/DECISIONS.md / Repository全体
+
+Decision（決定）:
+- Repositoryは、Personaの意義・効果・限界と役割分離を説明し、その根拠となるPersona本文・検証Evidence・識別と検証の共通仕様を管理する。AIサービス別の設定方法、画面操作手順、設定資料、指示欄用完成文章、設定案内専用Personaは対象外とする。
+- 現存するサービス別設定資料2件 `personas/education/setup/GEMINI_GEM_SETUP.md` と `personas/reference/setup/CLAUDE_CODE_SETUP.md` を廃止し、現行READMEと作業規則から導線・作成方針を除く。旧資料の末尾 `Decision & Rationale` は下に原文のまま保全する。
+- `personas/PERSONA_IDENTIFICATION_AND_SETUP.md` の識別・利用推奨・検証仕様は維持し、設定案内を扱った旧第10〜15章は現行本文から除く。ファイル名、Document ID、第16章の番号は既存参照との互換性のため維持し、名称中の `SETUP` を現行の対象範囲とは扱わない。
+- 既存のPersona本文と役割・責務・検証条件、検証Evidence、Root READMEのGemini Skills警告全文は変更しない。未決の代替サービスやSkills構成を、この廃止によって採用済みとは扱わない。
+
+Rationale（理由）:
+Userはサービスの変更が今後も想定されるため設定手順をなくす方針を示し、全サービスの設定資料の廃止と旧判断原文の移管を明示承認した。Repositoryの存在意義をPersonaの意義・効果の説明に特化し、設定方法を範囲外とするため。
+
+Evidence（根拠）:
+- 2026-10-17のUser指示：「サービスの変更がこれからも想定されるので設定手順はこの機械に無くしても良いのではないか？」。確認に対し全サービスの設定手順の見直し、設定資料そのものの廃止、旧判断の原文移管を選択した。
+- 同日のUser決定：「このリポの存在意義はペルソナの意義、効果の説明に特化し　設定方法は範囲外とする方針にする」。確認に対し、共通仕様の識別・検証部分は残し、設定案内部分だけ除く方針を選択した。
+- 削除直前の2資料の全体と旧判断節のサイズ・SHA-256は、下の保全記録に記す。
+
+Supersedes（上書き対象・範囲）:
+- `AGENTS.md` §1・§4・§5.2のサービス別設定資料と指示欄用完成文をRepository対象とする現行方針、および `personas/PERSONA_IDENTIFICATION_AND_SETUP.md` 旧第10〜15章の設定案内・完成文管理の現行採用を上書きする。
+- `project-notes/DECISIONS.md` の D-014（完成文の必須管理）、D-015（自然文からの設定案内）、D-016（設定案内専用Persona）、D-018（User側Repository取得設定の案内）は、設定方法・完成文・専用Personaを本Repositoryで提供する範囲に限り上書きする。Persona分類、利用推奨、GitHub取得状態の事実区分およびOwner配布元の保護目的は維持する。
+- 同 D-021・D-022のうち、旧第11章を検証の起点とし、旧第3〜12章の設定案内規定を変更しないとした範囲を上書きする。独立したPersona Verification、全件対象、FAIL時の修正・再検証、User承認の条件は維持する。
+- 同 D-043のGemini設定資料を現行ファイルとして保持する範囲を上書きする。講師・生徒アカウントでのGem新規作成不可というUser報告と代替方式未決は維持する。
+- 下に保全するGemini資料の2026-08-23・26の設定マニュアル採用判断と、Claude Code資料の2026-10-03の設定資料採用判断は、現行ファイルの設置・運用に限り上書きする。判断原文は変更しない。
+
+Non-Changes（非変更範囲）:
+Persona本文、Persona ID・Version・Status、識別・検証仕様、旧判断原文、既存検証の合否とEvidence、Root READMEのGemini Skills警告全文、AIサービスでの実際の登録・動作状態、commit、push。
+
+### 廃止資料の保全記録
+
+削除直前の全体ファイルのSHA-256は、Owner欄をD-044の指定により訂正した後の値である。両ファイルの旧 `Decision & Rationale` 節は、Git HEADの同節とバイト単位で一致した。下のコードブロック内は、節見出しからファイル末尾までのUTF-8バイト列をそのまま収める。
+
+#### `personas/education/setup/GEMINI_GEM_SETUP.md`
+
+- 削除直前の全体ファイル：31345 bytes / SHA-256 `abd97f05199e130f0824f2c621e4c07a876aca1f2fae764a106eaf42125e6ce8`
+- 保全する旧判断節：10256 bytes / SHA-256 `21c17377d946a40d788098d26aaaa4dcc0c432135be1a446488df55b195c42a7`
+
+~~~~~~text
+## Decision & Rationale（決定・判断理由）
+
+### 2026-08-26
+
+#### Setupマニュアルへの責務限定
+
+Decision:
+本資料はSetupマニュアルとして、Gemini上で行う設定・操作手順に限定する。
+
+サービス全体のカスタム指示・共通設定、Persona、その都度のプロンプトの比較表と、Personaの重要性に関する共通説明は、ルート `README.md` のみを正本とする。本資料にはルート `README.md` への参照だけを置き、比較表や共通説明を重複掲載しない。
+
+パーソナル インテリジェンスのカスタム指示は、効果・制約・利用条件の説明を本資料へ含めず、パソコンで設定する操作手順だけを第2章に置く。Gemの作成・設定・更新手順は引き続き本資料で扱う。
+
+Reason:
+概念説明と設定手順を分離し、比較表の正本を1か所に限定するとともに、Setup利用者が必要な画面操作と設定項目を直接確認できる構成にするため。
+
+Rejected:
+- 比較表をルート `README.md` と本資料へ重複掲載する方式
+- Personaの重要性、カスタム指示の効果・制約・利用条件などの説明をSetupマニュアルへ含める方式
+
+### 2026-08-23
+
+#### Education用Gemini設定資料の管理単位
+
+Decision:
+Education用4Gem＋1の設定資料はPersonaごとに文書を分割せず、`GEMINI_GEM_SETUP.md` 1文書で管理する。配置先は `personas/education/setup/` とする。
+
+Reason:
+基本4Gemと追加Gemはいずれも同じGem作成・設定機構を利用するため、Gemごとに同じ操作説明を重複させない。Persona本文とAIサービス固有の設定手順を分離し、Gemini側の仕様変更時に設定資料だけを更新できるようにする。
+
+Rejected:
+- Researcher / Researcher Deep Research / Solution Partner / Code Generator / Reviewerごとに設定資料を分割する方式
+- Persona本文へGemini固有の設定操作を混在させる方式
+
+#### 設定資料の責務範囲
+
+Decision:
+本資料はGemの設定に限定し、基本4Gemの利用方法・Workflow説明は含めない。Persona本体はGem編集画面の `カスタム指示` 欄に貼り付け、`知識` は必要に応じた追加Context・参照資料の追加に使用する。
+
+Reason:
+設定資料の責務をGemの作成・設定・更新に限定し、Personaの機能仕様や利用Workflowとの責務混在を防ぐため。Gemini公式ヘルプでも、Gemの `カスタム指示` と追加Context用ファイルは別の設定として案内されている。
+
+Rejected:
+- Gemの利用方法・Workflowを本設定資料へ含める方式
+
+#### Gem編集画面の各設定項目の運用方針
+
+Decision:
+- `カスタム指示` にはPersona MD全文ではなく、Document Info等の文書管理情報を除いたPersona本体だけを貼り付ける。
+- `説明` は各Gemの役割を人が識別できる教材標準値を使用し、初期設定時はそのまま入力する。
+- `デフォルト ツール` は `Researcher Deep Research` だけ Deep Research を設定する。通常用Researcher / Solution Partner / Code Generator / Reviewerは初期状態では設定せず、必要になった場合だけ追加する。
+- `知識` は初期状態では空でもよく、必要な追加Contextがある場合だけ資料を追加する。何を追加するかと、追加によって回答時に参照されるContextが変わることを本資料で説明する。
+
+Reason:
+- Document InfoやDecision履歴はRepository管理のための情報であり、Gemの役割・責務・行動を定義する指示ではないため。
+- `説明` は初学者が内容を考える作業を不要にし、各Gemの役割を同じ表現で識別できるようにするため。
+- `デフォルト ツール` は初期設定を最小化し、必要性が明確な場合だけ追加する方が、各ツールの目的を理解しやすく不要な設定も避けられるため。Deep Researchは用途を明確に分離するため `Researcher Deep Research` にのみ設定する。
+- `知識` は追加Contextとして作用するため、初期必須項目にせず、目的に必要な有効資料だけを追加する運用とするため。
+
+Rejected:
+- Persona MDのDocument InfoやDecision履歴まで `カスタム指示` へ貼り付ける方式
+- `説明` を利用者ごとの自由記入にする方式
+- Solution Partner / Code Generator / Reviewerへ初期状態から `デフォルト ツール` を設定する方式
+- `知識` へ初期状態から機械的に資料を追加する方式
+
+#### 初期作成時の最低限必須項目
+
+Decision:
+Education用Gemを初期作成する際の最低限必須項目は、`名前`、`説明`、`カスタム指示` の3項目とする。`知識` へのファイル追加は初期作成時には必須とせず、必要になった時点で追加する。`デフォルト ツール` も最低限必須項目には含めず、用途に応じて設定する。
+
+Reason:
+最初にGemを識別する情報とPersonaとしての振る舞いを確定させれば、Gemとして利用を開始できるため。追加資料やツールは利用目的によって必要性が変わるため、初期設定を過剰にせず、必要になった時点で拡張する方が生徒にとって設定意図を理解しやすい。
+
+Rejected:
+- 初期作成時から `知識` へのファイル追加を必須にする方式
+- 初期作成時から `デフォルト ツール` の設定を必須にする方式
+
+#### ResearcherのDeep Research運用
+
+Decision:
+Researcherは、通常調査用の `Researcher` と、`デフォルト ツール` に Deep Research を設定した `Researcher Deep Research` の2つのGemを作成し、用途に応じて使い分ける。通常用Researcherでは `デフォルト ツール` を設定しない。Researcher Persona自体はEducation用基本4Gem体系上1つの役割として扱う。
+
+Reason:
+Deep Researchは企業研究・業界研究・比較調査など複数情報源を横断する詳細調査に適している一方、通常の調査より処理時間が長く、利用量（Usage）が増え、利用上限にも影響する。1つのGemでDeep Research設定を都度変更するより、通常用と詳細調査用を分けた方が、利用者が用途を判断しやすく、不要なDeep Research利用や設定戻し忘れも防げるため。
+
+Rejected:
+- ResearcherでDeep Researchを常時使用する方式
+- 1つのResearcher Gemで、必要になるたびに `デフォルト ツール` のDeep Research設定を追加・解除する方式
+
+#### `知識` 説明へのContext定義追加
+
+Decision:
+`知識` の説明では、Contextを「AIが回答するときに参照する情報のまとまり」と説明し、主な構成要素を `カスタム指示 + 会話履歴 + 今回のプロンプト + 「知識」から参照された情報` として示す。
+
+Reason:
+`知識` にファイルを追加すると何が変わるかを、初学者がContextとの関係から理解できるようにするため。
+
+#### Solution Partner / Code Generator / Reviewerの初期デフォルトツール
+
+Decision:
+Solution Partner / Code Generator / Reviewerは、初期状態では `デフォルト ツール` を設定しない。利用上必要なツールが明確になった場合だけ追加する。
+
+Reason:
+初期設定を最小化し、用途が確定していないツールを先回りして設定しないことで、各設定項目の意味と必要性を生徒が理解しやすくするため。
+
+#### AIサービス使用量の共通用語
+
+Decision:
+本教材では、AIサービスをどの程度使用したかを表す共通用語を `利用量（Usage）` に固定する。各サービス固有の正式名称を引用する必要がある場合を除き、`クレジット` や `ポイント` を共通用語として使用しない。
+
+Reason:
+Claude、Cursor、ChatGPT、Gemini、Grokでは利用枠・追加利用等の正式名称が統一されていないため、教材横断で誤解なく使用できる共通表現として `利用量（Usage）` を採用する。
+
+#### `説明` の教材標準値
+
+Decision:
+各Gemの `説明` は記入例ではなく教材標準値として固定し、初期設定時は本資料に記載した内容をそのまま入力する。
+
+Reason:
+初学者が `説明` の文面を考える必要をなくし、教材利用者間でGemの識別表現を統一するため。
+
+Rejected:
+- `説明` を記入例として提示し、利用者が責務を変えない範囲で自由に調整する方式
+
+#### Context Windowの扱い
+
+Decision:
+Context Windowの説明は `GEMINI_GEM_SETUP.md` には追加しない。本資料ではGem設定に直接必要なContextと `知識` の関係だけを説明する。
+
+Reason:
+Context Windowは重要な概念だが、Gemの設定操作に直接必要ではないため。本資料の責務をGem設定に限定し、概念説明を過剰に広げない。
+
+Rejected:
+- Contextの説明に加えてContext Windowの概念説明も本資料へ追加する方式
+
+#### Education用4Gem＋1の呼称と構成図
+
+Decision:
+Education用の基本体系は4Gemとして維持し、`Researcher Deep Research` を追加した構成を `4Gem＋1` と呼ぶ。PersonaとGemini上の実体数の違いを明確にするため、本文に `4 Persona` と `Gemini上の実体：5 Gem` の構成図を記載する。
+
+Reason:
+基本の4役割を変更せず、Deep Research用GemがResearcherの追加実体であることを初学者にも明確に示せるため。単に `5Gem` と呼ぶと5つの異なるPersonaが存在するように誤解される可能性がある。
+
+#### 完成版昇格
+
+Decision:
+User承認に基づき、本資料を `Version 1.0 / Status Approved` へ昇格する。
+
+Reason:
+Gemini上の4Gem＋1構成、標準入力値、Persona登録方法、Deep Research運用、`知識`、Context、`利用量（Usage）`、更新方法までの設定仕様についてUser判断が完了し、Education READMEとの整合も確認・反映したため。
+~~~~~~
+
+#### `personas/reference/setup/CLAUDE_CODE_SETUP.md`
+
+- 削除直前の全体ファイル：39413 bytes / SHA-256 `d6f4615737bfa178de01a17e5f1b43d954b6b761baee27420c3da989f93fc9d8`
+- 保全する旧判断節：4209 bytes / SHA-256 `f7a2ffcf4f8e2294eb73d76a8212ff6e8473f4d80086de8ad4746d4b521893bc`
+
+~~~~~~text
+## Decision & Rationale
+
+### 2026-10-03
+
+#### Claude Code設定資料の配置と3層構成
+
+Decision:
+
+Claude Desktop の Codeタブで使う `CLAUDE.md` の設定資料を、`personas/reference/setup/CLAUDE_CODE_SETUP.md` に置く。配置は Reference の AIサービス単位（`personas/reference/setup/`）とする。
+
+記載する運用例は、次の3層とする。
+
+1. 全体共通：`~/.claude/CLAUDE.md`
+2. 業務・開発領域：領域ルートの `CLAUDE.md`（講師業務フォルダ、`~/Dev`）
+3. Repository：既存の `AGENTS.md` を、②から作業前に読ませる
+
+`CLAUDE_PERSONA.md` はレビュー専任の Persona であり、Codeタブの `CLAUDE.md` へそのまま設定しない。サブエージェント化の手順は、この資料に書かない。
+
+判断履歴は、このファイルの `Decision & Rationale` に置く。公開・教材向け文書の分離例外（`AGENTS.md` §5.4）は、この資料を分離対象とする User決定がないため適用しない。
+
+Reason:
+
+Web版 Project で Persona を使い分けている利用者が、Claude Code では作業フォルダ単位の常時指示として同等の分け方をするための参考にするため。
+
+`AGENTS.md` §4 では、Persona 本文に AIサービス固有の設定・配置・操作を混在させず、設定資料を AIサービス単位で `personas/<区分>/setup/` に置く。Claude Code の置き場所は Persona 本文と異なるため、Reference の setup 配下に独立した資料とする。
+
+3層に分けるのは、すべての作業に共通する姿勢、領域ごとのフォルダと停止条件、Repository 固有の規則を、同じ文の重複なしに置くためである。Claude Code は `AGENTS.md` を自動で読まないため、Repository 層は `CLAUDE.md` の複製ではなく、開発領域の `CLAUDE.md` から既存の `AGENTS.md` を読ませる。
+
+Rejected:
+
+- `CLAUDE_PERSONA.md` の本文へ、Claude Code の設定手順と3層の実ファイル例を追記する方式
+- 全体共通、領域、Repository の規則を1つの `CLAUDE.md` にまとめる方式
+- 各 Repository の `AGENTS.md` を、その Repository の `CLAUDE.md` へ複製する方式
+- User決定がないまま、`Decision & Rationale` を `project-notes/` の管理用 Decision ファイルへ分離する方式
+
+### 2026-10-03
+
+#### Reference中核4種のサブエージェント化をこの資料へ書く
+
+Decision:
+
+同日の決定「サブエージェント化の手順は、この資料に書かない」を、User決定（2026-10-03）により更新する。Reference中核4種を Claude Code のサブエージェントとして運用する構成と作り方を、この資料の §7 に書く。
+
+定義ファイルに正本の本文は複製しない。作業開始時に正本を読ませる。読めない場合は作業しない。これは、2026-09-29 の中核4種 SSOT（本文の編集元は `personas/reference/` の `CHATGPT_PERSONA.md`、`CLAUDE_PERSONA.md`、`CURSOR_PERSONA.md`、`GEMINI_PERSONA.md`）を維持するためである。
+
+正本にある他AIの名前は、読み替え表でサブエージェント名に対応させる。他AIへの指示や引き継ぎは、呼び出し元への報告の中の節として出力する。サブエージェント同士は呼び合わせない。Agent ツールは付与しない。reviewer、architect、researcher には Edit / Write を付与しない。
+
+Reason:
+
+サブエージェントの定義ファイルへ正本の本文を置くと、本文の編集元が正本と定義ファイルの両方になる。2026-09-29 の決定は、同一 Persona の独立した編集による更新差分と更新漏れを防ぐために、編集元を4ファイルへ一本化した。定義ファイルは正本の所在、Claude Code 向けの読み替え、付与ツールの範囲だけを持ち、本文の更新は Repository の正本で行う。
+
+Rejected:
+
+- 正本の本文をサブエージェント定義ファイルへ複製する方式。コピーが独立した編集元になり、2026-09-29 の SSOT（中核4種の本文編集元の一本化）に反するため。
+~~~~~~
+
+## D-046 Broaden Root README Audience and Use User Consistently（Root READMEの対象者を広げ、User表記に統一する）
+
+Date（日付）: 2026-10-17
+Related Documents（関連文書）: README.md / project-notes/CURRENT.md / project-notes/README_DECISIONS.md
+
+Decision（決定）:
+- Root READMEの対象者を、特定の職業・所属やAIの利用経験で限定しない。AIにまだ慣れていない、AIをより使いやすくしたい、目的に合わせてAIの役割・判断基準・回答形式を指定したい、回答精度を高めたい、責務分担を明確にしたいという五つの関心・目的を対象者欄に示す。
+- Root READMEで作業・確認・最終判断を担う人の呼称を `User` に統一する。Education用Personaの教育用途固有の設計は維持するが、Root README全体の対象者を教育用途へ限定しない。
+- 回答精度の向上はUserの利用目的として記述し、Personaによる精度向上の保証や既存の検証結果の変更とは扱わない。旧判断、Persona本文、Gemini Skills警告全文は変更しない。
+
+Rationale（理由）:
+Userが、対象者を従来の学校属性による限定から、AI利用者の状況と目的で表すよう指定し、呼称を `User` に統一するよう追加指定したため。Repository全体をPersonaの意義・効果・限界の説明に集中させた D-045 とも整合する。
+
+Evidence（根拠）:
+- 2026-10-17のUser指示：Root READMEの「1. Target Users」を変更し、AIへの不慣れ、使いやすさ、自分の目的に合わせた制御、回答精度、責務分担を例示した。
+- 同日の追加指示：「生徒をなくし　Userに統一」。
+
+Supersedes（上書き対象・範囲）:
+- `README.md` / 第1章「Target Users」の職業訓練校の初学者に対象を限定した現行記述を上書きする。
+- `project-notes/README_DECISIONS.md` / 冒頭の「ルートREADMEは職業訓練校生徒向けの公開入口」とする対象者の限定、およびRoot READMEの利用者呼称に限り上書きする。旧判断の原文と保存場所は維持する。
+
+Non-Changes（非変更範囲）:
+Education用Personaの教育用途固有の責務と本文。Root READMEのGemini Skills警告全文、Personaあり／なしの検証条件・結果、設定方法をRepositoryの範囲外とするD-045の方針。既存判断の原文。commit。push。

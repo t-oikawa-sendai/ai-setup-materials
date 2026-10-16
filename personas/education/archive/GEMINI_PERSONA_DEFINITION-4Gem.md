@@ -22,7 +22,7 @@
 | Status（ステータス） | Draft |
 | Created Date（作成日） | 2026-08-17 |
 | Last Updated（最終更新日） | 2026-08-17 |
-| Owner（管理者） | t-oikawa-sendai |
+| Owner（管理者） | Takashi Oikawa |
 | Related Documents（関連文書） | `README.md` |
 
 ---

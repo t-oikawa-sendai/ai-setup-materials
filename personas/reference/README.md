@@ -5,9 +5,9 @@
 | Version（バージョン） | 1.4 |
 | Status（ステータス） | Approved |
 | Created Date（作成日） | 2026-08-22 |
-| Last Updated（最終更新日） | 2026-10-14 |
-| Owner（管理者） | t-oikawa-sendai |
-| Related Documents（関連文書） | [`../../README.md`](../../README.md)<br>[`../education/README.md`](../education/README.md)<br>[`CHATGPT_PERSONA.md`](CHATGPT_PERSONA.md)<br>[`CLAUDE_PERSONA.md`](CLAUDE_PERSONA.md)<br>[`CURSOR_PERSONA.md`](CURSOR_PERSONA.md)<br>[`GEMINI_PERSONA.md`](GEMINI_PERSONA.md)<br>[`IT_GENERAL_ADVISOR_TEST_PERSONA.md`](IT_GENERAL_ADVISOR_TEST_PERSONA.md)<br>[`PERSONA_OPERATION_CASE_STUDY.md`](PERSONA_OPERATION_CASE_STUDY.md)<br>[`CHAT_HANDOFF_TEMPLATE.md`](CHAT_HANDOFF_TEMPLATE.md)<br>[`PERSONA_PROMPT_TEMPLATE.md`](PERSONA_PROMPT_TEMPLATE.md)<br>[`setup/CLAUDE_CODE_SETUP.md`](setup/CLAUDE_CODE_SETUP.md)<br>[`../PERSONA_IDENTIFICATION_AND_SETUP.md`](../PERSONA_IDENTIFICATION_AND_SETUP.md) |
+| Last Updated（最終更新日） | 2026-10-17 |
+| Owner（管理者） | Takashi Oikawa |
+| Related Documents（関連文書） | [`../../README.md`](../../README.md)<br>[`../education/README.md`](../education/README.md)<br>[`CHATGPT_PERSONA.md`](CHATGPT_PERSONA.md)<br>[`CLAUDE_PERSONA.md`](CLAUDE_PERSONA.md)<br>[`CURSOR_PERSONA.md`](CURSOR_PERSONA.md)<br>[`GEMINI_PERSONA.md`](GEMINI_PERSONA.md)<br>[`IT_GENERAL_ADVISOR_TEST_PERSONA.md`](IT_GENERAL_ADVISOR_TEST_PERSONA.md)<br>[`PERSONA_OPERATION_CASE_STUDY.md`](PERSONA_OPERATION_CASE_STUDY.md)<br>[`CHAT_HANDOFF_TEMPLATE.md`](CHAT_HANDOFF_TEMPLATE.md)<br>[`PERSONA_PROMPT_TEMPLATE.md`](PERSONA_PROMPT_TEMPLATE.md)<br>[`../PERSONA_IDENTIFICATION_AND_SETUP.md`](../PERSONA_IDENTIFICATION_AND_SETUP.md) |
 
 ---
 
@@ -15,7 +15,7 @@
 
 ## 1. Purpose（目的）
 
-このディレクトリは、Education用4Gem＋1とは異なる前提で、実務構成の参考Personaと、AI利用環境・設定・運用の実践例を管理します。現在利用可能なReference文書への入口・索引です。
+このディレクトリは、Education用4Gem＋1とは異なる前提で、実務構成の参考Personaと、役割分離の効果・限界を考えるための実践例を管理します。現在利用可能なReference文書への入口・索引です。サービスの設定方法は扱いません。
 
 ## 2. Recommended Reading Order（推奨する読み順）
 
@@ -63,11 +63,10 @@ O講師が実際に使用・検証しているAI利用環境、設定、情報�
 - [`PERSONA_OPERATION_CASE_STUDY.md`](PERSONA_OPERATION_CASE_STUDY.md)：AI利用環境・設定・情報管理・運用方法の実践例
 - [`CHAT_HANDOFF_TEMPLATE.md`](CHAT_HANDOFF_TEMPLATE.md)：チャットやAIを切り替える際の状態移送テンプレート
 - [`PERSONA_PROMPT_TEMPLATE.md`](PERSONA_PROMPT_TEMPLATE.md)：BRIDGEを使って今回の依頼を整理するプロンプトテンプレート
-- [`setup/CLAUDE_CODE_SETUP.md`](setup/CLAUDE_CODE_SETUP.md)：Claude Desktop（Codeタブ）の `CLAUDE.md` 3層構成とサブエージェント
 
 ## 6. Usage Notes（利用上の注意）
 
-- Education領域の現行手順、Gem操作、User-firstフローは [`../education/README.md`](../education/README.md) を正とします。
+- Education領域の役割構成とUser-firstフローは [`../education/README.md`](../education/README.md) を正とします。
 - 本ディレクトリの文書は参考資料であり、Education用4Gem＋1の代替ではありません。
 - O講師の実運用例は唯一の正解ではありません。利用者自身の目的、AIサービス、作業内容、環境に合わせて採否を判断してください。
 
@@ -78,7 +77,7 @@ O講師が実際に使用・検証しているAI利用環境、設定、情報�
 - AI運用資料の開始地点：[`PERSONA_OPERATION_CASE_STUDY.md`](PERSONA_OPERATION_CASE_STUDY.md)
 - 今回の依頼整理：[`PERSONA_PROMPT_TEMPLATE.md`](PERSONA_PROMPT_TEMPLATE.md)
 - チャット切替・作業引き継ぎ：[`CHAT_HANDOFF_TEMPLATE.md`](CHAT_HANDOFF_TEMPLATE.md)
-- Persona識別と設定案内の共通仕様：[`../PERSONA_IDENTIFICATION_AND_SETUP.md`](../PERSONA_IDENTIFICATION_AND_SETUP.md)
+- Persona識別と検証の共通仕様：[`../PERSONA_IDENTIFICATION_AND_SETUP.md`](../PERSONA_IDENTIFICATION_AND_SETUP.md)
 
 ## Decision & Rationale（決定・判断理由）
 

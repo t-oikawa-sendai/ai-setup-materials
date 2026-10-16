@@ -6,7 +6,7 @@
 | Status（ステータス） | Draft |
 | Created Date（作成日） | 2026-09-23 |
 | Last Updated（最終更新日） | 2026-09-23 |
-| Owner（管理者） | t-oikawa-sendai |
+| Owner（管理者） | Takashi Oikawa |
 | Related Documents（関連文書） | [`PERSONA_OPERATION_CASE_STUDY.md`](PERSONA_OPERATION_CASE_STUDY.md) |
 
 <!-- Decision history: ../../project-notes/2026-09-23-persona-operation-case-study-decisions.md -->

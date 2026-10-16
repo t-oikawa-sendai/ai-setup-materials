@@ -7,7 +7,7 @@
 | Created Date（作成日） | 2026-10-16 |
 | From（作成） | Claude（レビュー担当。Persona：M-CL@1.5（提案）、Project指示欄の本文を使用） |
 | To（宛先） | ChatGPT（設計担当） |
-| Owner（管理者） | t-oikawa-sendai |
+| Owner（管理者） | Takashi Oikawa |
 
 ---
 

@@ -60,7 +60,7 @@ Personaの機能設計、責務、固定出力契約、旧本文を変更しな�
 | Status（ステータス） | Review |
 | Created Date（作成日） | YYYY-MM-DD |
 | Last Updated（最終更新日） | 2026-08-22 |
-| Owner（管理者） | t-oikawa-sendai |
+| Owner（管理者） | Takashi Oikawa |
 | Related Documents（関連文書） | ... |
 
 ---

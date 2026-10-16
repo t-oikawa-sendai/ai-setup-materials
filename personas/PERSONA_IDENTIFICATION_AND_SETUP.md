@@ -5,35 +5,23 @@
 | Version（バージョン） | 1.2 |
 | Status（ステータス） | Approved |
 | Created Date（作成日） | 2026-10-14 |
-| Last Updated（最終更新日） | 2026-10-16 |
-| Owner（管理者） | t-oikawa-sendai |
+| Last Updated（最終更新日） | 2026-10-17 |
+| Owner（管理者） | Takashi Oikawa |
 | Related Documents（関連文書） | [`../AGENTS.md`](../AGENTS.md)<br>[`../README.md`](../README.md)<br>[`education/README.md`](education/README.md)<br>[`reference/README.md`](reference/README.md)<br>[`../project-notes/DECISIONS.md`](../project-notes/DECISIONS.md)<br>[`../project-notes/CURRENT.md`](../project-notes/CURRENT.md) |
 
 ---
 
-# Persona Identification and Setup（Persona識別と設定案内）
+# Persona Identification and Verification（Persona識別と検証）
 
 ## 1. Purpose（目的）
 
-この文書は、Personaの識別体系、Project・Gem等への設定案内、および Persona Verification という独立検証工程の共通仕様の正本である。
+この文書は、Personaの分類・識別、利用推奨、および Persona Verification の共通仕様の正本である。AIサービス別の設定方法、画面操作、指示欄用完成文は扱わない。
 
-2026-10-14にUserが決定した内容を記録する。判断履歴は [`../project-notes/DECISIONS.md`](../project-notes/DECISIONS.md) の D-006〜D-018 に記録する。2026-10-15の Persona Verification は第16章に記録する。判断履歴は D-021 と、その後の是正である D-022 である。本書は判断履歴の代替ではない。
+2026-10-14〜15に確定した識別・検証仕様は維持する。設定案内と指示欄用文章を扱った旧第10章から第15章は、2026-10-17のUser決定（[`../project-notes/DECISIONS.md`](../project-notes/DECISIONS.md) の D-045）により現行本文から除外した。旧判断は同Decisionファイルに残す。
 
-この文書の `Version 1.0 / Status Approved` は、本章から第12章の確定仕様を正本として記録したことを示す。`Version 1.1` は、第16章の Persona Verification を独立工程として加えた改訂である。`Version 1.2` は、検証対象の全件適用、FAILおよび不承認時の戻り、本章と第14章の範囲宣言を、User承認に基づいて整合した改訂である。Status は Approved のままである。この Status は共通仕様の文書状態であり、Personaの Approved への昇格を意味しない。章番号は、この工程の位置を固定する条件ではない。次を意味しない。
+この文書の Version 1.2 / Approved は共通仕様の文書状態であり、個々のPersonaのApproved昇格や実動検証の完了を意味しない。今回、VersionとStatusは変更しない。ファイル名・Document IDの `SETUP` と第16章の番号は、既存参照との互換性のため維持する。設定方法が現行の対象範囲に含まれるという意味ではない。
 
-- 全11 Personaの本文とDocument Infoを Version 3.0 へ更新したこと
-- 既存の Draft または Approved を、Version変更だけで昇格したこと
-- 過去の Approved 版を、この改訂だけで失効させたこと
-- 設定案内専用Personaの本文を作成し、承認したこと
-- 各AIサービスでの実動検証が完了したこと
-- Persona Verification を実施したこと
-- 検証設計のテストケース、判定閾値、検証回数を確定したこと
-- 新規Personaまたは改訂Personaを Approved へ昇格したこと
-- 検証対象であることを、検証完了と扱ったこと
-- G方式を正式運用の前提条件としたこと
-- 指示欄用完成文のファイルを作成したこと
-
-本書は education と reference の双方に適用する。Persona本文ではないため、区分ディレクトリのPersona本体へ置かない。AIサービス固有の手順ではないため、`personas/<区分>/setup/` へ置かない。新しいディレクトリは作らない。
+本書は education と reference の双方に適用する。Persona本文や判断履歴を代替しない。
 
 ## 2. Record Status（記録の区別）
 
@@ -63,7 +51,7 @@ PROPOSED と UNRESOLVED を確定仕様として扱わない。
 - MainとSubsetの1対1対応表を必須にしない。
 - `education/` と `reference/` のディレクトリ構造を維持する。
 - 既存Document IDを変更しない。Persona IDはDocument IDではない。
-- `Researcher Deep Research` は独立Personaではない。第4章の11件に含めない。Researcher Personaを使う追加Gemとして、既存のEducation運用を維持する。
+- `Researcher Deep Research` は独立Personaではない。第4章の11件に含めない。Researcher Personaを使う従来の追加Gemとして記録する。
 
 ## 4. CONFIRMED: Eleven Persona IDs（全11 Persona ID）
 
@@ -156,6 +144,8 @@ ClaudeのProjectで `S-SP` を使用できるよう案内する。`M-CG` とい�
 
 D-005が定めた、技術的な取得証跡がない実際のGitHubアクセスはUNVERIFIEDとする扱いは維持する。本章は、その自己申告を今後の表示旗へ対応させるものであり、検証原文を改変しない。
 
+OwnerのRepositoryはPersona本文の唯一の編集元（SSOT）として扱う。利用者のForkやコピーは独立した正本としない。G方式を使う利用者には自分専用のRepositoryの利用を強く推奨するが、必須条件にはしない。Ownerの公開Repositoryへの直接アクセスは禁止せず、P方式も選択できる。GitHubの利用制限がOwnerへ絶対に影響しないという保証はしない。Repositoryの作成や取得URLの設定方法は本書で案内しない。
+
 ## 9. CONFIRMED: Usage Recommendation（利用推奨基準）
 
 - Main（M-）は、Ownerおよび同等の知識・運用能力を持つUserを主な対象とする。
@@ -171,198 +161,22 @@ D-005が定めた、技術的な取得証跡がない実際のGitHubアクセス
 - Test（T-）は検証用途とし、通常の設定候補へ含めない。
 - AIサービスの種類によってPersonaの役割を限定しない。
 
-この基準は、Persona設定案内上の推奨である。GitHubの実際のアクセス制御を意味しない。利用経験や知識水準による本人認証を追加したと記録しない。M-Personaのアクセス禁止を技術的に保証したと記録しない。
+この基準は、Persona選択上の推奨である。GitHubの実際のアクセス制御を意味しない。利用経験や知識水準による本人認証を追加したと記録しない。M-Personaのアクセス禁止を技術的に保証したと記録しない。
 
 第6章の独立性と矛盾しない。知識水準が不明な場合の標準案内は S- であり、使用するAIサービスでは決まらない。Userが M- を明示指定した場合は、どのAIサービスでも前提条件と注意点を案内し、知識水準だけを理由に拒否しない。AIサービスを理由に、その使用者へ案内できるPersonaを除外しない。
 
-## 10. CONFIRMED: Instruction Text Management（指示欄用文章の管理）
-
-従来のRepositoryは、Persona本文と設定方法の資料を中心に管理していた。
-
-今後は、各AIサービスのProject・Gem等の指示欄に直接記載する完成済み文章も、必須の管理対象とする。
-
-管理上の要件：
-
-1. Persona本文と指示欄用文章を区別する。
-2. GitHub取得方式（G）と直接記載方式（P）に対応する。
-3. Persona本文は既存正本を使用し、独立した編集元を増やさない。
-4. 利用者に複数資料から指示文を組み立てさせない。
-5. そのままコピーできる完成文を提供する。
-6. 指示文の共通部分とサービス固有部分を識別できるようにする。
-7. サービスの現行仕様で実現できない機能を保証しない。
-8. 既存のPersona本文と、サービス固有セットアップ手順の責務分離を維持する。
-
-過去に検討した「9パターン」「17パターン」は、確定文書数ではない。
-
-完成文の生成・管理方式と必要ファイル数は、詳細設計の対象であり、UNRESOLVEDである。この記録では完成文ファイルを作成しない。
-
-サービス固有のセットアップ手順の既存正本は、次のまま維持する。本書へ手順を移さない。
-
-- [`education/setup/GEMINI_GEM_SETUP.md`](education/setup/GEMINI_GEM_SETUP.md)
-- [`reference/setup/CLAUDE_CODE_SETUP.md`](reference/setup/CLAUDE_CODE_SETUP.md)
-
-### 10.1 Distribution Source Protection（配布元の保護）
-
-Owner自身のGitHubおよびAI利用の保護を、運用上の最優先とする。他のUserによるGitHub取得の制限または失敗は許容する。
-
-この節は、G方式とP方式を継続したまま、取得先Repositoryの扱いを定める。GitHubのアクセス制御、認証機能、新しい配布システム、自動同期機構は追加しない。GitHub取得の具体的な実装方式は、第13章の未確定事項のままとする。
-
-- OwnerのRepositoryは、Persona本文の唯一の編集元（SSOT）として維持する。UserによるForkやコピーは、正本の独立した編集元としない。
-- G方式を継続して使いたいUserには、自分専用のGitHub Repositoryを作成することを強く推奨する。この推奨は必須条件ではない。
-- Userは、自分のRepositoryにPersonaを配置し、自分のAIにはそのRepositoryのURLを設定する。
-- 自分のRepositoryを参照する設定では、OwnerのRepositoryへの取得URLが残らないよう案内する。
-- User側Repositoryの管理、更新、およびアクセス制限への対応は、各Userの責任とする。
-- UserによるOwnerのPublic Repositoryへの直接アクセスは禁止しない。
-- P方式も継続して提供する。
-- GitHubの利用制限がOwnerへ絶対に影響しないという技術的保証はしない。
-
-## 11. CONFIRMED: Setup Guidance（Persona設定案内の要求仕様）
-
-利用者はPersona IDを知らなくてもよい。
-
-自然文の依頼から、用途、Persona、AIサービス、取得方式を特定し、設定まで案内する。
-
-### 11.1 Basic Flow（基本フロー）
-
-1. Userの作成目的を理解する。
-2. 目的に適したPersonaを、第9章の利用推奨基準に従って選定する。
-3. 使用AIサービスを確認する。
-4. G/P方式を確認する。G方式を継続して使う場合は、第10.1節に従い、User専用のGitHub Repositoryの作成を強く推奨する。この推奨は必須条件にしない。Userが自分のRepositoryを参照する設定を選んだ場合は、そのURLを設定し、OwnerのRepositoryへの取得URLが残らないよう案内する。OwnerのPublic Repositoryへの直接アクセスは禁止しない。P方式も継続して案内する。
-5. 設定手順と指示欄用完成文を提示する。
-6. 動作確認方法を案内する。
-
-質問順序を機械的に固定せず、既に判明している事項は再質問しない。
-
-### 11.2 ASKME
-
-- 情報不足の場合のみASKMEを行う。
-- 必要最小限の事項だけ質問する。
-- 一意に判定できるPersonaを再選択させない。
-- M/Sの選択を毎回質問しない。利用者の知識水準が不明な場合、標準案内は第9章に従い S- とする。Userが M- を明示指定した場合は、前提条件と注意点を案内し、知識水準だけを理由に拒否しない。
-- 同じ質問を繰り返さない。
-- 不明なPersona名は、ID対応表と現行Personaから確認する。
-- AIサービスとPersonaの役割を結びつけて候補を制限しない。
-- 第10.1節の専用Repository作成は強い推奨である。未作成であることだけを理由にG方式の案内を止めない。OwnerのPublic Repositoryへの直接アクセスを拒否しない。
-
-### 11.3 Examples（会話による具体例）
-
-例A：目的が明確な問い合わせ。
-
-依頼の例：「GitHubで管理するペルソナを読み込む仕様のSolution Partnerのプロジェクトを作りたい」
-
-判定：
-
-- Persona：S-SP
-- 取得方式：G
-- AIサービス：Project等の文脈から特定できる場合は追加質問不要。特定できなければ確認する。
-
-例B：目的が不明な問い合わせ。
-
-依頼の例：「プロジェクトを作りたい」
-
-目的が不明なため、必要事項をASKMEする。
-
-Userの回答例：「PFを作成する設計の相談相手」
-
-この回答例では、利用者の知識水準は不明であり、M- の明示指定もない。第9章に従い、標準案内は S-SP とする。さらにUserが「Claude」を選択した場合、Claudeを利用環境として扱う。Claude用という理由で S-SP を除外しない。Userが M- を明示指定した場合は、第9章に従い前提条件と注意点を案内し、知識水準だけを理由に拒否しない。
-
-例C：取得方式。
-
-例Bの続きとして、Userが「G方式」を選択した場合、Claude向けに S-SP のGitHub取得用設定手順と指示欄用完成文を提示する。G方式を継続して使う場合は、第10.1節に従い、User専用のGitHub Repositoryの作成を強く推奨する。この推奨は必須条件ではない。Userが自分のRepositoryを参照する設定を選んだ場合は、そのRepositoryのURLを設定し、OwnerのRepositoryへの取得URLが残らないよう案内する。OwnerのPublic Repositoryへの直接アクセスは禁止しない。P方式へ切り替えることもできる。
-
-例Cが求める完成文は、第10章のとおり未作成である。例示は案内の要求であり、完成文が既にRepositoryへ存在することを意味しない。
-
-### 11.4 Completion（完了条件）
-
-設定案内において、次を提供する。
-
-- 選択したPersona IDと名称
-- 使用するAIサービス
-- 取得方式
-- G方式でUser自身のRepositoryを参照する場合は、そのRepositoryのURL。この場合、OwnerのRepositoryへの取得URLは残さない
-- Project等の作成手順
-- 指示欄へコピーする完成文
-- 動作確認用プロンプト
-
-実際の適用成功は、別途検証する。本章の記録は、適用成功の検証完了を意味しない。
-
-## 12. CONFIRMED: Dedicated Setup Persona（設定案内専用Personaの新設方針）
-
-Userは、Personaの設定案内だけを担当する専用Personaの新設を指示した。この新設方針は確定事項である。
-
-名称、Persona ID、本文、配置は第13章の未確定事項である。第4章の11 IDへ加えない。
-
-### 12.1 Responsibilities（責務）
-
-- プロジェクト・Gem等のPersona利用環境の設定案内
-- Userの目的からのPersona選定
-- 必要最小限のASKME
-- Persona IDとGitHub正本の対応確認
-- G/P方式の選択支援
-- AIサービス固有の設定手順
-- 指示欄へ貼る完成文
-- 設定後の動作確認方法
-
-### 12.2 Out of Scope（対象外）
-
-- PFやアプリケーションそのものの設計
-- プログラミング・コード生成
-- ソフトウェア実装
-- コードレビュー
-- 一般的なIT相談
-- Persona本文の無断変更
-- Git操作の無断実行
-
-## 13. PROPOSED / UNRESOLVED（未確定事項）
-
-以下はChatGPTの初稿であり、Userの個別承認を受けていない。PROPOSED / UNRESOLVED として保持する。
-
-- 名称案：Persona Setup Advisor
-- Persona ID案：S-SETUP
-- 新規PersonaのDocument Info
-- 新規Persona本文の最終構成
-- 正本ファイルの配置先
-- GitHub取得の具体的な実装方式
-- 共通指示文とサービス別派生文の最終構成
-- 新Personaの実動検証条件
-- 指示欄用完成文の生成・管理方式と必要ファイル数
-
-`S-SETUP` を承認済みIDとして扱わない。Version 3.0 を新設Personaへ無条件に適用しない。Approvedへ昇格しない。新規Persona本文の正式実装は、今回の対象外であり未実施である。
-
-## 14. Boundaries（既存Personaとの責務境界）
-
-既存11 Personaの責務は、各本文のまま維持する。本書は、識別、利用推奨基準、設定案内、指示欄用文章の管理、および Persona Verification という独立検証工程を定める。Researcher、Solution Partner、Code Generator、Reviewer、中核4種、検証用Personaの役割定義を変更しない。
-
-設定案内専用Personaの対象外は、第12.2節のとおりである。対象外の作業を、本書で既存Personaへ割り当て直さない。既存本文の責務を維持する。
-
-Education用4Gem＋1の構成と利用手順は変更しない。`Researcher Deep Research` は独立Personaのままにしない。
-
-## 15. Not Done（この記録では未実施）
-
-- Persona Verification の検証設計（テストケース、判定閾値、検証回数）の確定
-- 検証対象範囲の将来の詳細基準の確定
-- Persona Verification の実動検証
-- 全11 Personaの機能本文、Status、Document ID、Persona IDの移行。Reference 5件の版番号は D-038 で 3.0 である。これは全機能の移行完了ではない。`GEM_` 6件の Version 更新は大改修後である
-- 旧形式から新形式への、Persona本文上の置換
-- 設定案内専用Personaの本文作成
-- 指示欄用完成文ファイルの作成
-- 各AIサービスへの登録と実動検証
-- 「9パターン」「17パターン」の文書数としての採用
-
 ## 16. CONFIRMED: Persona Verification（Persona検証）
 
-Persona Verification は、今回のPersona大改修における最優先要件である。注意書きや進捗記録では代替しない、独立した工程である。
+Persona Verification は、今回のPersona大改修における最優先要件である。注意書きや進捗記録では代替しない、独立した工程である。章番号は、既存のPersonaと判断履歴の参照を維持するため第16章のままとする。
 
-起点は、第11.1節の「動作確認方法を案内する」と、第11.4節の「実際の適用成功は、別途検証する」である。この2文を含む第3章から第12章の確定文は変更しない。設定案内が行う動作確認方法の案内は、本工程の完了を意味しない。
-
-Personaの識別、設定、検証、User承認、正式運用を、次の順でつなぐ。
+Personaの識別、利用環境への適用、検証、User承認、正式運用を、次の順でつなぐ。利用環境への具体的な設定方法は本Repositoryの対象外である。
 
 ```text
 Persona定義・改訂
   ↓
 対象Persona・Versionの識別
   ↓
-設定・適用
+利用環境への適用（具体的な設定方法は本Repositoryの対象外）
   ↓
 Persona Verification
   ├─ FAIL／検証未完了 → 修正・再検証
@@ -383,13 +197,11 @@ FAIL、検証未完了、またはUserの不承認の戻り先は、原因に対
 - 検証の PASS だけで Approved へ自動昇格させない。必要な実動検証とEvidence、およびUser承認を経ずに Approved へ昇格させない。
 - 検証FAIL時は、原因に対応する修正と再検証を行う。変更のないEvidenceに対する無意味な再試験は要求しない。
 - Persona本文の取得確認と、Personaが回答へ正しく適用されたことの検証は、別の事実である。第8章の取得状態は、適用の検証を代替しない。
-- 取得成功および適用成功を、本工程の前提にしない。GitHub直接取得（G方式）は現在検証中であり、正式運用の前提条件としない。第10.1節のG方式の継続と、第13章にある取得方式の未確定は維持する。
-- 検証には、対象Persona、Version、設定条件の特定、責務遵守、安全性、要求された動作、再現性、Evidence、合否判定を含める。
-- 検証記録の保存は、[`../project-notes/DECISIONS.md`](../project-notes/DECISIONS.md) の D-005 に従う。保存先は `project-notes/persona-validation/` である。既存の検証原文は変更しない。
+- 取得成功および適用成功を、本工程の前提にしない。GitHub直接取得（G方式）は検証中であり、正式運用の前提条件としない。
+- 検証には、対象Persona、Version、適用条件の特定、責務遵守、安全性、要求された動作、再現性、Evidence、合否判定を含める。
+- 検証記録の保存は、[`../project-notes/DECISIONS.md`](../project-notes/DECISIONS.md) の D-005 に従う。保存先は `project-notes/persona-validation/` である。既存の検証原文は、D-044のOwner欄訂正を除き変更しない。
 - この決定は、過去の Approved 版を遡及的に失効させない。既存Personaの Version と Status は、この記録では変更しない。
-- 全11 Persona ID、Version 3.0 移行方針、G/P/N/?、AIサービスとPersonaの独立性は維持する。第14章の範囲宣言は、Persona Verification を共通仕様の対象に含める。既存Personaの役割定義は変更しない。
-- 設定案内専用Personaの第12章へ、実際の検証、合否判定、正式承認の責務を追加しない。第12.1節の「設定後の動作確認方法」は案内であり、本工程の合否判定ではない。
-- 第13章の「新Personaの実動検証条件」は、設定案内専用Personaの初稿のまま維持する。本工程のテストケース、判定閾値、検証回数は、第13章へ移さない。
+- 全11 Persona ID、Version 3.0 移行方針、G/P/N/?、AIサービスとPersonaの独立性は維持する。既存Personaの役割定義は変更しない。
 
 UNRESOLVED：
 
@@ -399,6 +211,6 @@ UNRESOLVED：
 - 判定閾値
 - 検証回数
 - 将来の検証対象範囲の詳細基準
-- [`../project-notes/DECISIONS.md`](../project-notes/DECISIONS.md) の D-005 で未確定の、独立したバックアップ先と方式、質問セット、実施頻度。本章では新たに決定しない。バックアップの作成と実行は、この記録の作業に含めない。既存の検証原文と SHA-256 は変更しない。
+- [`../project-notes/DECISIONS.md`](../project-notes/DECISIONS.md) の D-005 で未確定の、独立したバックアップ先と方式、質問セット、実施頻度。本章では新たに決定しない。バックアップの作成と実行は、この記録の作業に含めない。
 
 本章の記録は、検証設計の確定、実動検証の実施、Personaの Approved への昇格を意味しない。
