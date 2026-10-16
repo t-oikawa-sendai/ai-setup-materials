@@ -1,6 +1,6 @@
 # CURRENT
 
-Last Updated: 2026-10-15
+Last Updated: 2026-10-16
 Status: CURRENT
 
 ## PURPOSE
@@ -212,10 +212,11 @@ Status: CURRENT
 - 2026-10-15 Reference Claude Persona へ識別・取得・更新検証の第15章を追加した。`personas/reference/CLAUDE_PERSONA.md` の Document Info は Version 1.5（提案）/ Status Draft / Last Updated 2026-10-15 である。Persona ID は `M-CL`。Verification Code は未確定である。第0章から第14章のレビュー責務は維持した。第2章の `AGENTS.md` 本文確認は変更していない。第7章の通常確認は、読込状態の三定義の重複だけを第15.5節への参照へ整理した。既存の `Decision & Rationale` は原文のままである。最終 Approved は Version 1.4（D-003）である。Decisionは `project-notes/DECISIONS.md` の D-033。共通仕様第16章は変更していない。実動検証、Version 1.5 の正式承認、commit、push は未実施である
 - 2026-10-15 Claude Persona 第0章から第15章の重複を整理した。第13章は、提出前の反証、反論への再検証、誤り確認後の訂正を残して短縮した。末尾の `Decision & Rationale` は削除し、2026-08-27の原文は `project-notes/DECISIONS.md` の D-034「保全する原文」へ移した。直前の完了事項にある「既存の `Decision & Rationale` は原文のままである」は、この移管より前の記録であり、その文は改変しない。Version は 1.5（提案）、Status は Draft のままである。最終 Approved は Version 1.4 である。第2章の `AGENTS.md` 確認文は §15.5 への参照へ置き換えた。確認規則は §15.5 に残している。Decisionは D-034。実動検証、正式承認、commit、push は未実施である
 - 2026-10-15 Claude Persona のProject登録対象を8,000文字以内に収めた。登録対象は `# Claude Persona` から本文末尾までで、Document Infoを除き、末尾改行を含めて7,926文字である。ファイル全体は末尾改行を含めて8,257文字である。第7章の本格レビューは項目一覧にし、集約表の列、判定値、停止条件、第13章の3機能、第15章の5機能は残した。Decisionは `project-notes/DECISIONS.md` の D-035。D-001〜D-034の原文は変更していない。Version は 1.5（提案）、Status は Draft のままである。最終 Approved は Version 1.4 である。`AGENTS.md` の7,500文字は設計目標値のままである。実動検証、正式承認、commit、push は未実施である
+- 2026-10-16 Claude Persona Version 1.5（提案）/ Draft は commit `a908abaf46b0a4bbd8b37c16cf0efdb2ab69fe62` として `main` へ push 済みである。作業開始時の同期で Local HEAD、origin/main、GitHub main はこの SHA で一致した。直前の完了事項にある D-033、D-034、D-035 の「commit、push は未実施」は、この commit より前の記録であり、その文は改変しない。この commit は Version 1.5 の Approved 昇格と、Persona全体の正式な Persona Verification を含まない。最終 Approved は Version 1.4（D-003）のままである。G方式用指示文は作成済みである。Claudeによる取得成功は自己申告であり、客観的なGitHubアクセスの確認ではない。Userは指示文と検証回答を視認し、問題なしと評価した。Claude独立レビューは条件付き合格である。独立レビューの原文は `project-notes/persona-validation/raw/2026-10-16-claude-independent-review.md` に保全した。検証回答の原文は未取得であり、保存していない。Gemini Personaの大改修は今回の対象外である
 
 ## 作業中
 
-- 2026-10-15 Claude Persona の現行ファイルは Version 1.5（提案）/ Draft である。Project登録対象は `# Claude Persona` から本文末尾まで、末尾改行を含めて7,926文字であり、8,000文字以内である。ファイル全体は末尾改行を含めて8,257文字である。第15章の5機能、レビューの確認項目、停止条件は維持している。2026-08-27の判断原文は D-034 の「保全する原文」にある。最終 Approved は Version 1.4（D-003）である。Persona ID は `M-CL`。Verification Code は未確定である。実動検証と Version 1.5 の正式承認は未実施である。共通仕様第16章の独立工程は移動・複製していない。commit と push は未実施である
+- 2026-10-16 Claude Persona の現行ファイルは Version 1.5（提案）/ Draft であり、commit `a908abaf46b0a4bbd8b37c16cf0efdb2ab69fe62` として `main` へ push 済みである。Project登録対象は `# Claude Persona` から本文末尾まで、末尾改行を含めて7,926文字であり、8,000文字以内である。ファイル全体は末尾改行を含めて8,257文字である。第15章の5機能、レビューの確認項目、停止条件は維持している。2026-08-27の判断原文は D-034 の「保全する原文」にある。最終 Approved は Version 1.4（D-003）である。Persona ID は `M-CL`。Verification Code は未確定である。G方式用指示文は作成済みである。Claudeによる取得成功は自己申告であり、客観的なGitHubアクセスの確認ではない。Userは指示文と検証回答を視認し、問題なしと評価した。Claude独立レビューは条件付き合格である。独立レビュー原文は `project-notes/persona-validation/raw/2026-10-16-claude-independent-review.md` にある。検証回答の原文は未取得であり、保存していない。Persona全体の正式な Persona Verification と Version 1.5 の Approved 昇格は未実施である。共通仕様第16章の独立工程は移動・複製していない。Gemini Personaの大改修は今回の対象外である
 - 2026-10-15 ChatGPT Persona Version 1.2（提案）/ Draft の実動検証は作業中である。検証条件は `project-notes/DECISIONS.md` の D-025。TC-01、TC-02、TC-03 を各2回、合計6回とし、6回すべてPASSを合格条件とする。第11章は自己識別・取得・更新検証であり、共通仕様第16章の独立検証工程は復元済みである。重複整理はローカル反映済みであり、この文書整理は6回の実動完了ではない。7,500文字は設計目標値である（D-030。Unicodeコードポイント数。Document Infoと末尾改行を含む）。超過だけを不合格または作業停止としない。実測は、末尾改行を含めて8,323、末尾改行を除いて8,322である。設計目標値との差は823文字である。Project登録対象は `# ChatGPT向け責務定義` から本文末尾までで、末尾改行を含めて7,991、除いて7,990であり、D-027の8,000文字以内に適合する。実装担当の役割名はCodingAI、現在の使用製品名はCursorである（D-031）。反映は §1、§2、§3.1、§3.2、§5、§7 に限る。責務、権限、指示形式、運用順序は変更していない。Version は 1.2（提案）、Status は Draft のままである。正規比較は ChatGPT検証専用Project 4/6、Claude Project 2/6、Gemini Gem 3/6、合計 9/18 である。従来ChatGPT Projectの 6/6 は参考履歴である。D-025 の合格条件は6回すべてPASSのままであり、4/6 は検証合格ではない。Persona適用状態は UNVERIFIED のままである。Approved昇格はしていない
 - 2026-10-15 将来の検証対象範囲の詳細基準は未承認である。G方式は検証中であり、正式運用の前提条件ではない。未実施の検証を実施済みとして扱わない
 - 2026-10-13 ChatGPT ProjectでのGitHub Persona取得検証用の `personas/reference/IT_GENERAL_ADVISOR_TEST_PERSONA.md` Version 0.1 / Draft と、Reference入口の検証専用導線は、main の `ef77588d6c94bd50e0cc8c32c770f06c181a3bbb` に含まれている。ChatGPT Project上の取得検証は未実施。この「未実施」は2026-10-13時点の状態である。`personas/reference/setup/CHATGPT_PROJECT_PERSONA_TEST_SETUP.md` は、設定資料の本文が指示に含まれていなかったため未作成。
@@ -250,7 +251,7 @@ Status: CURRENT
 18. 指示欄用完成文の生成・管理方式と必要ファイル数を詳細設計する。未確定のまま完成文ファイルを作成しない。
 19. 各AIサービスでのPersona設定の実動検証を行う。未実施を実施済みと記録しない。
 20. ChatGPT Persona Version 1.2（提案）/ Draft の実動検証を、D-025 の TC-01〜TC-03、各2回、6回すべてPASSの条件で実施する。適用状態が UNVERIFIED のまま PASS としない。Cursorから ChatGPT Project を直接操作できないため、適用状態の確認と6回の実施は User の操作が必要である。第11章の是正、共通仕様第16章の復元、および D-027 の重複整理は、この6回の実施とPASSを含まない。重複整理のローカル反映後は、追加の設計工程を作らず、この実動検証へ戻る。ファイル全体の7,500文字は設計目標値であり、超過だけを不合格または作業停止としない。有効な規則は削除していない。文字数の状態を、6回の実施またはPASSと扱わない。将来の検証対象範囲の詳細基準は、この工程では確定しない。D-005 で未確定の独立バックアップ先・方式、質問セット、実施頻度は、この工程で確定しない。条件の承認を、検証完了または Approved 昇格と扱わない。先の18回答は commit `86b3537dfb8c2eacca851763c00055500ee122bd` にある。従来ChatGPT Projectの 6/6 は参考履歴である。正規比較は、D-032 のとおり ChatGPT検証専用Project 4/6、Claude Project 2/6、Gemini Gem 3/6、合計 9/18 である。4/6 は6回すべてPASSを満たさない。適用状態は UNVERIFIED のままであり、検証合格または Approved 昇格としない。再テスト記録の commit と push は未実施である。
-21. Claude Persona の現行ファイルは Version 1.5（提案）/ Draft である。最終 Approved は Version 1.4（D-003）である。第15章の追加、重複整理、第13章の短縮、`Decision & Rationale` の D-034 への移管、Project登録対象の8,000文字以内への整理（D-035）はローカル反映済みである。実動検証、Version 1.5 の正式承認、commit、push は未実施であり、Userの次指示まで開始しない。
+21. Claude Persona の現行ファイルは Version 1.5（提案）/ Draft であり、commit `a908abaf46b0a4bbd8b37c16cf0efdb2ab69fe62` として `main` へ push 済みである。最終 Approved は Version 1.4（D-003）である。第15章の追加、重複整理、第13章の短縮、`Decision & Rationale` の D-034 への移管、Project登録対象の8,000文字以内への整理（D-035）は、この commit に含まれている。G方式用指示文は作成済みである。Claudeによる取得成功は自己申告であり、客観的なGitHubアクセスの確認ではない。Userによる指示文と検証回答の視認評価は問題なしである。独立レビューは条件付き合格である。検証回答の原文は未取得であり、保存済みとして扱わない。Persona全体の正式な Persona Verification と Version 1.5 の Approved 昇格は未実施であり、Userの次指示まで開始しない。Gemini Personaの大改修は今回の対象外である。
 
 Reviewerを含むPersonaの機能設計はEvidenceなしに再検討しない。完了済みの文書適合性復旧を、Evidenceなしに再作業対象へ戻さない。`ASKME 迎合禁止` と7文書配置を未決事項へ戻さない。Education用の基本体系は4Gemであり、`Researcher Deep Research` はResearcher Personaを使う追加Gemとして扱う。
 
@@ -267,10 +268,10 @@ Reviewerを含むPersonaの機能設計はEvidenceなしに再検討しない。
 - Education Gemini設定資料：`personas/education/setup/GEMINI_GEM_SETUP.md`
 - Reference Persona：`personas/reference/`
 - ChatGPT Persona の識別・取得・更新検証：`personas/reference/CHATGPT_PERSONA.md` 第11章（Version 1.2（提案）/ Draft。Verification Code は未確定。品質・承認の独立工程は `personas/PERSONA_IDENTIFICATION_AND_SETUP.md` 第16章。正規比較は D-032 の 9/18。適用状態は UNVERIFIED。Approved ではない）
-- Claude Persona の識別・取得・更新検証：`personas/reference/CLAUDE_PERSONA.md` 第15章（Version 1.5（提案）/ Draft。Project登録対象は末尾改行を含めて7,926文字。最終 Approved は Version 1.4（D-003）。Persona ID は `M-CL`。Verification Code は未確定。2026-08-27の判断原文は `project-notes/DECISIONS.md` の D-034。8,000文字の整理は D-035。品質・承認の独立工程は `personas/PERSONA_IDENTIFICATION_AND_SETUP.md` 第16章。実動検証と正式承認は未実施）
+- Claude Persona の識別・取得・更新検証：`personas/reference/CLAUDE_PERSONA.md` 第15章（Version 1.5（提案）/ Draft。commit `a908abaf46b0a4bbd8b37c16cf0efdb2ab69fe62` として `main` へ push 済み。Project登録対象は末尾改行を含めて7,926文字。最終 Approved は Version 1.4（D-003）。Persona ID は `M-CL`。Verification Code は未確定。2026-08-27の判断原文は `project-notes/DECISIONS.md` の D-034。8,000文字の整理は D-035。品質・承認の独立工程は `personas/PERSONA_IDENTIFICATION_AND_SETUP.md` 第16章。G方式の取得成功は自己申告。Userの視認評価は問題なし。独立レビューは条件付き合格。正式な Persona Verification と Approved 昇格は未実施）
 - Reference入口：`personas/reference/README.md`
 - 検証用Persona：`personas/reference/IT_GENERAL_ADVISOR_TEST_PERSONA.md`（Version 0.1 / Draft。中核4種のSSOTではない）
-- 検証記録：`project-notes/persona-validation/`（原文は `raw/`、日別評価は `assessments/`、期間集計は `SUMMARY.md`。2026-10-14は検証用Persona、2026-10-15は ChatGPT Persona の D-025 記録。正規比較は D-032）
+- 検証記録：`project-notes/persona-validation/`（原文は `raw/`、日別評価は `assessments/`、期間集計は `SUMMARY.md`。2026-10-14は検証用Persona、2026-10-15は ChatGPT Persona の D-025 記録。正規比較は D-032。2026-10-16は Claude Persona の独立レビュー原文1件。検証回答の原文は未取得）
 - Reference AI運用実践例：`personas/reference/PERSONA_OPERATION_CASE_STUDY.md`
 - Reference Chat Handoff Template：`personas/reference/CHAT_HANDOFF_TEMPLATE.md`
 - Reference Prompt Template：`personas/reference/PERSONA_PROMPT_TEMPLATE.md`
