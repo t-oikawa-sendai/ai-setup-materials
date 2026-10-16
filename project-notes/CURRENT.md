@@ -9,6 +9,7 @@ Personaの意義・効果・限界と役割分離を説明する `ai-setup-mater
 
 ## 完了事項
 
+- 2026-10-17 Userのcommit・push承認により、Root READMEの改稿と警告の強調、詳細比較資料への分離、Owner欄の統一、設定資料の廃止、D-039〜D-046を含む変更29ファイルをcommit `1e1a2b822f521612e67b7c54d4d8a86a20c0ea0d` として `main` へpushした。以下に残る「未commit・未push」は各変更直後の履歴であり、現時点のGit保存状況ではない。Persona Verificationの未達、適用状態 `UNVERIFIED`、未決事項は変更していない。
 - Education用4Gem Persona本体の機能設計
 - 文書適合性復旧、当時の現行配布文書13件の `Version 1.0 / Status Approved` 昇格
 - Repository責務の確定（Persona + Persona利用に直接必要な設定・運用資料。7文書は別Repository。`ASKME 迎合禁止` は独立事項としない）
