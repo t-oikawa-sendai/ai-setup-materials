@@ -9,6 +9,7 @@ Personaの意義・効果・限界と役割分離を説明する `ai-setup-mater
 
 ## 完了事項
 
+- 2026-10-17 Education READMEの冒頭に、Gemini Skillsと本教材の運用方針を現行方針として記載した（D-048）。同一アカウント内のSkills使い分けは、評価の独立性を満たさない。自己正当化バイアスと自己選好バイアスは残る。Gemini Skillsで設計思想に沿う場合の必要条件は、役割別アカウントと、User（生徒）による成果物・Evidenceの引き渡しである。筆者の見解では、ChatGPTまたはClaudeのProjectを役割ごとに分ける方法がより適合する。この記載は、Skillの登録完了、動作確認、評価独立性の実証ではない。従来の4Gem＋1は履歴として維持する。Researcherの3完成版は、当面User（生徒）が調査範囲に応じて1版を明示選択する。Skillsによる完成版の自動選択は現行運用として案内しない。Deep ResearchをSkillsから利用できるとは記載しない。D-039、D-041、D-042、D-043、D-045の原文は変更していない。Root READMEの警告全文、Persona本文、既存の検証結果、Skill実体は変更・作成していない。commit と push は未実施。
 - 2026-10-17 Userのcommit・push承認により、Root READMEの改稿と警告の強調、詳細比較資料への分離、Owner欄の統一、設定資料の廃止、D-039〜D-046を含む変更29ファイルをcommit `1e1a2b822f521612e67b7c54d4d8a86a20c0ea0d` として `main` へpushした。以下に残る「未commit・未push」は各変更直後の履歴であり、現時点のGit保存状況ではない。Persona Verificationの未達、適用状態 `UNVERIFIED`、未決事項は変更していない。
 - Education用4Gem Persona本体の機能設計
 - 文書適合性復旧、当時の現行配布文書13件の `Version 1.0 / Status Approved` 昇格
@@ -262,7 +263,7 @@ Personaの意義・効果・限界と役割分離を説明する `ai-setup-mater
 16. ChatGPT Persona の現行版は Version 3.0 / Approved（承認は D-037、版番号は D-038）である。D-025 の TC-01〜TC-03、各2回、6回すべてPASSは、この承認および版番号統一とは別の技術条件として未達のまま残す。再試験は今回の承認と版番号統一では開始しない。適用状態が UNVERIFIED のまま PASS としない。Cursorから ChatGPT Project を直接操作できないため、適用状態の確認と6回の実施は User の操作が必要である。第11章の是正、共通仕様第16章の復元、および D-027 の重複整理は、この6回の実施とPASSを含まない。重複整理のローカル反映後は、追加の設計工程を作らず、この実動検証へ戻る。ファイル全体の7,500文字は設計目標値であり、超過だけを不合格または作業停止としない。有効な規則は削除していない。文字数の状態を、6回の実施またはPASSと扱わない。将来の検証対象範囲の詳細基準は、この工程では確定しない。D-005 で未確定の独立バックアップ先・方式、質問セット、実施頻度は、この工程で確定しない。条件の承認を、検証完了または Approved 昇格と扱わない。先の18回答は commit `86b3537dfb8c2eacca851763c00055500ee122bd` にある。従来ChatGPT Projectの 6/6 は参考履歴である。正規比較は、D-032 のとおり ChatGPT検証専用Project 4/6、Claude Project 2/6、Gemini Gem 3/6、合計 9/18 である。4/6 は6回すべてPASSを満たさない。適用状態は UNVERIFIED のままである。4/6 を検証合格へ変えず、D-037 の承認を D-025 の合格と混同しない。再テスト記録の commit と push は未実施である。
 17. Claude Persona の現行ファイルは Version 3.0 / Approved（承認は D-037、版番号は D-038）である。現行の Version 3.0 / Approved はローカルの未commit・未pushである。commit `a908abaf46b0a4bbd8b37c16cf0efdb2ab69fe62` が `main` へ push 済みとして保存したのは、承認前の Version 1.5（提案）/ Draft である。D-003 の Version 1.4 / Approved は当時の履歴である。現行版は Version 3.0 / Approved（承認は D-037、版番号は D-038）である。第15章の追加、重複整理、第13章の短縮、`Decision & Rationale` の D-034 への移管、Project登録対象の8,000文字以内への整理（D-035）は、承認前の commit `a908abaf46b0a4bbd8b37c16cf0efdb2ab69fe62`（Version 1.5（提案）/ Draft）に含まれている。現行の Version 3.0 / Approved はその commit に含まれない。G方式用指示文は作成済みである。Claudeによる取得成功は自己申告であり、客観的なGitHubアクセスの確認ではない。Userによる指示文と検証回答の視認評価は問題なしである。独立レビューは条件付き合格である。検証回答の原文は未取得であり、保存済みとして扱わない。User最終承認は D-037 のまま有効である。版番号は D-038 で 3.0 とした。この承認と版番号統一は技術的検証結果の合否を変えない。Gemini Personaの機能の大改修は今回の対象外である。Gemini の版番号は D-038 で 3.0 とした。
 
-Reviewerを含むPersonaの機能設計はEvidenceなしに再検討しない。完了済みの文書適合性復旧を、Evidenceなしに再作業対象へ戻さない。`ASKME 迎合禁止` と7文書配置を未決事項へ戻さない。Education用の基本体系は4Gemであり、`Researcher Deep Research` はResearcher Personaを使う追加Gemとして扱う。
+Reviewerを含むPersonaの機能設計はEvidenceなしに再検討しない。完了済みの文書適合性復旧を、Evidenceなしに再作業対象へ戻さない。`ASKME 迎合禁止` と7文書配置を未決事項へ戻さない。Education用の基本体系は4役割である。従来の4Gem＋1と `Researcher Deep Research` は履歴として維持する。Researcherの3完成版は、当面User（生徒）が調査範囲に応じて1版を明示選択する。
 
 ## 正本の所在
 

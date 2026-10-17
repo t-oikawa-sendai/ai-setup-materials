@@ -1787,3 +1787,36 @@ Supersedes（上書き対象・範囲）:
 
 Non-Changes（非変更範囲）:
 既存Decisionの原文と保存場所。Case Study Version 0.2 / Draft、Prompt Template Version 0.2 / Draft とその本文。Reference運用資料3文書全体の承認状態。Persona本文、Persona Verificationの結果、User承認と技術的な合否の区別。GitHubへの保存状態。commit。push。
+
+## D-048 State the Current Education Operating Policy for Role Separation（Education READMEに役割分離の現行運用方針を記載する）
+
+Date（日付）: 2026-10-17
+Related Documents（関連文書）: personas/education/README.md / project-notes/CURRENT.md / project-notes/DECISIONS.md
+
+Decision（決定）:
+- `personas/education/README.md` の冒頭、従来の4Gem＋1の説明より前に、Gemini Skillsと本教材の運用方針を現行方針として記載する。基本体系は4役割である。自己正当化バイアスと自己選好バイアスへの対策として、調査・設計・コード生成・レビューを分け、評価の独立性を高める。
+- 同一アカウント内でSkillsを使い分ける運用は、本教材が求める評価の独立性を満たさない。役割別のSkillを設けても、自己正当化バイアスと自己選好バイアスは残る。同一アカウント内のReviewer Skillによる判定は、独立したレビューが成立した根拠とは扱わない。
+- Gemini Skillsで本設計思想に沿った役割分離を図る場合の必要条件は、役割ごとにアカウントを分けること、および `User（生徒）` が各工程で確定した成果物とEvidenceを選んで引き渡すことである。アカウント分離だけでバイアスの解消は保証しない。Evidenceの確認と最終判断は `User（生徒）` が行う。
+- 筆者の見解では、ChatGPTまたはClaudeのProjectを役割ごとに分けて運用する方法が、本設計思想により適合する。その場合も、会話・参照資料・記憶の扱いを確認し、工程間の引き継ぎは `User（生徒）` が管理する。この見解は、導入手順の採用、Skillの登録完了、動作確認、評価独立性の実証ではない。
+- 従来の4Gem＋1の表と `Researcher Deep Research` の説明は履歴として維持する。現在の生徒向け新規導入手順としては読まない。2026-10-16の講師・生徒アカウントでのGem新規作成不可というUser報告と、既存Gemの利用・編集可否が未確認であることは維持する。
+- Researcherの3完成版は、当面 `User（生徒）` が調査範囲に応じて1版を明示選択する。Skillsによる完成版の自動選択は現行運用として案内しない。Deep ResearchをSkillsから利用できるとは記載しない。
+- 冒頭、User-first、責務境界、共通原則で、現在の作業主体を無条件に各Gemと呼ばない。各役割のAIと呼ぶ。Personaの責務、User-firstの引き継ぎ、Evidence確認、Reviewerの4段階判定は維持する。サービス別の画面操作とSkill登録手順は追加しない。
+- Document ID、Version 1.0、Status Approved、Ownerは変更しない。Root `README.md` の `[!IMPORTANT]` 警告全文は変更せず、Education READMEへ重複掲載しない。Persona本文、既存の検証結果、Skill実体は変更・作成しない。commitとpushは含まない。
+
+Rationale（理由）:
+Education READMEが、Gemを現行の作業主体とする説明と、SkillsによるResearcher完成版の自動選択を検討する説明のままだと、役割分離と評価の独立性という現行方針が読めないため。従来の4Gem＋1は履歴として残し、同一アカウント内のSkill使い分けを独立したレビューの根拠にしないため。
+
+Evidence（根拠）:
+- 2026-10-17のUser指示。Education READMEへ、同一アカウント内のSkills使い分けは評価の独立性を満たさないこと、二つのバイアス名、役割別アカウントと成果物・Evidenceの引き渡しを必要条件とすること、ChatGPTまたはClaudeのProjectがより適合するという筆者の見解を、結論を弱めずに掲載するよう指定した。
+- 同指示。Researcherの3完成版は当面User（生徒）が1版を明示選択する既決方針を反映し、Skillsによる自動選択と、Deep ResearchのSkillsからの利用可能という記載を現行運用にしない。
+- 同指示。Root READMEの `[!IMPORTANT]` 警告はD-039により原文維持とし、変更・重複掲載しない。
+- Education READMEに残した「2026-10-16時点でSkillsはDeep Researchに対応していません」は、D-041の記録と変更前READMEの文を維持したものである。この作業ではGoogle公式案内を再取得していない。
+
+Supersedes（上書き対象・範囲）:
+- `project-notes/DECISIONS.md` / 2026-10-16 / 「D-039 Place the Gemini Skills Warning in the Root README」：複数アカウントとProject分離を「独立性を高める代替例」と位置付けた範囲に限る。今回の決定は、Gemini Skills利用時の役割別アカウント分離を必要条件とし、Project運用を筆者の適合見解として示す。警告の原文、掲載先、重複掲載禁止は維持する。
+- 同 / 2026-10-16 / 「D-041 Consider Skills for Researcher Scope Selection and Keep Deep Research Separate」：Education READMEで、Researcherの調査対象の切替にSkillsの自動適用を検討し、現行の案内として置ける範囲。当面の現行運用は、User（生徒）による3完成版からの1版の明示選択である。SkillsのDeep Research非対応、Deep Researchを別運用とすること、Skill構成・選択条件・実動検証を未決・未実施とすることは上書きしない。
+- 同 / 2026-10-16 / 「D-042 Relocate the Education README Historical Decisions」：Education READMEの「ResearcherのSkills検討範囲は変更しない」とした範囲。移管した旧判断3件の原文、現行4Gem＋1の構成そのもの、Persona本文を変更しない範囲は上書きしない。
+- 同 / 2026-10-16 / 「D-043 Stop Presenting New Gem Creation as the Current Education Setup」：「役割分離を満たす実装方法は未決」のうち、役割別アカウント分離とUserによる成果物・Evidenceの引き渡しを必要条件とする判断に限って上書きする。新しい導入先の確定、具体的なSkill構成・登録、実動確認、Deep Researchの代替運用は未決・未実施のままとする。
+
+Non-Changes（非変更範囲）:
+D-039、D-041、D-042、D-043、D-045を含む既存Decisionの原文と保存場所。D-045は今回の判断の記載を禁じておらず、上書きしない。設定方法をRepositoryの対象外とするD-045の方針は変わらない。Root `README.md` の `[!IMPORTANT]` 警告の原文、掲載先、重複掲載禁止。Persona本文、Personaの責務、Reviewerの判定区分、既存の検証結果とEvidence。Skill実体の作成・登録。サービス別の画面操作手順。Google公式案内の再確認。commit。push。
