@@ -1846,3 +1846,35 @@ Supersedes（上書き対象・範囲）:
 
 Non-Changes（非変更範囲）:
 既存Decisionの原文と保存場所。Persona本文とVersion / Status。既存検証結果の合否。識別形式、サービス略号、取得状態の旗、例外処理。Chat/Work間の情報共有仕様。commit。push。
+
+## D-050 Accept Same-Service Independent Review When Context Is Separated and the User Hands Over Evidence（評価文脈を分離しUserが成果物とEvidenceを引き渡す場合、同一AIサービスでも独立レビューを認める）
+
+Date（日付）: 2026-10-17
+Related Documents（関連文書）: personas/reference/CHATGPT_PERSONA.md / project-notes/CURRENT.md / project-notes/DECISIONS.md
+
+Decision（決定）:
+- 2026-10-17、Userは ASKME-01（GOV-01）をB案で確定した。この ASKME-01 は、D-025 が実動検証条件について記録した ASKME-01 とは別の判断である。D-025 の原文は変更しない。
+- 独立レビューは、設計・実装時の会話・記憶・参照情報から判断を分離し、Userが成果物とEvidenceを選定して引き渡す場合に認める。同一AIサービスでも、この条件を満たせば認める。異なるAIサービス、別Project、別セッションというだけでは独立性を認めない。
+- 反映先は `personas/reference/CHATGPT_PERSONA.md` §5 の独立性の段落である。運用例は、設計がChatGPT、実装がCodingAI（Cursor）、レビューがClaudeである。AIサービスとPersonaは独立に選ぶ。
+- GOV-03は、既存のレビュー規則への整合である。軽微な文書修正、整形、承認済み仕様に沿う小規模修正の独立レビュー禁止は維持する。Userが明示指定したレビューは実施する。重複していた独立箇条書きは、この禁止条件へ統合する。D-020 の明示指定レビューと、D-023 の必要性のないレビュー禁止は維持する。
+- GOV-02は、§6 の停止条件へ、すでに §5 が定める停止を欠落させないための整合である。新しい停止理由は追加しない。認証・権限・機密情報の重要変更、破壊的DB変更、不可逆操作に必要な commit 前の独立レビューは、D-022 のとおり緩和しない。
+- GOV-04は、§5 の検証と受入判定の説明を、既存規則を維持したまま圧縮し、F/O/R を確定・未決・却下の仕様区分として本文で明示する。確認していない英語の正式展開は追加しない。2回目以降の F/O/R は略記のままとする。
+- GOV-08は、§10 の `【ユーザー名】` がパスのプレースホルダーであり、実パスとして使わず、環境定義で確認して置換することを明示する。配置規則の意味は変えない。
+- 今回の指示が変更対象としない GOV-05、GOV-06、GOV-07、GOV-09 は変更しない。それらの内容定義はこの指示に含まれておらず、本決定で新たに定義しない。
+- 今回の指示が付した GOV 番号は、この ChatGPT Persona 修正の項目IDである。D-022 が別の意味で記録した GOV-02、GOV-03、GOV-07 の原文は変更しない。
+- Document Info は Version 3.1（提案）、Status Draft、Last Updated 2026-10-17 とする。§11.1 の自己記述をこれに一致させる。変更前の Version 3.0 / Approved は履歴上の承認状態であり、この改訂案の承認ではない。Persona ID、Document ID、Verification Code 未確定、レスポンスタグ、§11.5 の AGENTS 読込規則は維持する。
+- 審査の最終承認、実動検証の PASS、Git操作は、この決定に含めない。
+
+Rationale（理由）:
+Userが、評価文脈の分離と、成果物・Evidenceの選定引き渡しを独立レビューの成立条件とし、AIサービスやProjectの相違だけでは独立性を認めないと決定したため。§5 の停止を §6 の列挙から欠落させず、Userの明示指定と既存のレビュー必須・禁止を矛盾なく残すため。F/O/R の区分と `【ユーザー名】` の扱いを、意味を変えずに明示するため。
+
+Supersedes（上書き対象・範囲）:
+- `personas/reference/CHATGPT_PERSONA.md` / Version 3.0 / Approved の §5 のうち、独立レビューの独立性を「同一作業セッションからの独立」と「同一AIサービスだけでは独立性を認めない」と定めた段落に限る。レビューの必須基準、禁止条件、D-020、D-022、D-023 の判断は上書きしない。
+- 同文書の Document Info と §11.1 の自己記述について、現行表示を Version 3.1（提案）/ Status Draft / Last Updated 2026-10-17 とする範囲。D-037 の11 Persona最終承認と D-038 の Version 3.0 への版番号統一の原文、証拠、合否は上書きしない。Version 3.0 / Approved は当時の承認履歴として維持する。
+
+Non-Changes（非変更範囲）:
+D-020、D-022、D-023、D-025、D-037、D-038、D-048、D-049 の原文、証拠、合否。レビュー必須基準。Persona認定。GOV-05、GOV-06、GOV-07、GOV-09。Persona ID、Document ID、Verification Code 未確定、レスポンスタグ、§11.5。他Persona、共通仕様、README、`AGENTS.md`、検証Evidence。実動検証。User最終承認。commit。push。
+
+Rejected（不採用案）:
+- 異なるAIサービス、別Project、または別セッションであることだけで独立性を認める方式。
+- B案以外の選択肢本文は、この指示に含まれていない。本文を推測して記録しない。
