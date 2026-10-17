@@ -1878,3 +1878,27 @@ D-020、D-022、D-023、D-025、D-037、D-038、D-048、D-049 の原文、証拠
 Rejected（不採用案）:
 - 異なるAIサービス、別Project、または別セッションであることだけで独立性を認める方式。
 - B案以外の選択肢本文は、この指示に含まれていない。本文を推測して記録しない。
+
+## D-051 Record Non-Guaranteed Instruction Compliance as a Fundamental LLM Reliability Problem（指示遵守の非保証をLLMの根本的な信頼性問題として記録する）
+
+Date（日付）: 2026-10-17
+Related Documents（関連文書）: README.md / project-notes/CURRENT.md
+
+Decision（決定）:
+- 2026-10-17、Userは、Userの指示に対する遵守の非保証を、現在のLLMの根本的な信頼性問題の一つとして、Root READMEのLLMの問題点へ追加すると決定した。
+- 追加先は `README.md` 第2章「Challenges in AI Use」の箇条書きであり、「指示範囲外の変更」の直前に次の1項目を置く。項目名は「指示遵守の非保証」。本文は、遵守が毎回保証されないこと、およびAIが指示や規則を理解・説明できることと、それらを実際に安定して守れることが別であることを述べる。
+- Document Info の Version 1.3 / Status Approved は維持する。既存9項目と他の文章は変更しない。
+- この追加は、新たな対策ルール、必須工程、Persona本文、識別仕様の変更を含まない。commit と push は含まない。
+
+Rationale（理由）:
+Userは、指示に対する遵守が毎回保証されないことを、現在のLLMの根本的な信頼性問題の一つであると明示した。AIが指示や規則を理解・説明できることと、それらを実際に安定して守れることは別である、という指定を、この問題点の説明としてREADMEへ置く。理解や説明ができることを、実際の遵守の保証とは扱わない。新しい対策や必須工程は、この決定では追加しない。
+
+Evidence（根拠）:
+- 2026-10-17のUser指示：READMEのLLMの問題点へ、「Userの指示に対する遵守の非保証は、現在のLLMの根本的な信頼性問題の一つです。」を追加する。
+- 同指示の確定文：第2章の「指示範囲外の変更」の直前に、指定の1項目を追加する。Version 1.3 / Approved は維持する。既存9項目と他の文章は変更しない。
+
+Supersedes（上書き対象・範囲）:
+なし。
+
+Non-Changes（非変更範囲）:
+`README.md` の既存9項目、第2章以外の本文、Document Info の Version 1.3 / Approved。既存Decisionの原文と保存場所。Persona本文、識別仕様、検証結果。新たな対策ルールと必須工程。commit。push。
