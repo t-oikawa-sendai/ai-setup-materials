@@ -225,6 +225,7 @@ Personaの意義・効果・限界と役割分離を説明する `ai-setup-mater
 - 2026-10-17 User指定により、履歴・archive・検証原文を含む24文書のOwner欄を `Takashi Oikawa` に統一した（D-044）。GitHubアカウント名・URLと旧判断本文は維持した。commit、pushは未実施。
 - 2026-10-17 User決定により、RepositoryはPersonaの意義・効果・限界の説明に集中し、サービス別の設定方法を対象外とした（D-045）。GeminiとClaude Codeの設定資料2件を廃止し、旧判断節を原文のままD-045へ移管した。識別・検証の共通仕様は維持する。過去に完了した設定資料の記録は当時の履歴であり、現行資料の所在を示さない。commit、pushは未実施。
 - 2026-10-17 Root READMEの対象者を職業・所属やAI経験で限定せず、五つの関心・目的で示した。Root READMEの作業主体の呼称は `User` に統一した（D-046）。Education用Persona本文と既存検証結果は変更していない。commit、pushは未実施。
+- 2026-10-17 Userが選んだ新VersionのChat Handoff Templateを、Version 0.4 / Draft の現行正本へローカル反映した（D-047）。同じAIの新規チャットを基本とし、GitHub管理中・ローカルGitのみ・Gitなしの保存方式、送受信時の正本照合、読取専用とローカル変更の区別を記載した。二つのチャットによる試験は「重要な事実を矛盾なく受け取れた」と評価したが、詳細な問題は実運用で確認する。commit、pushは未実施。
 
 ## 作業中
 
@@ -234,7 +235,7 @@ Personaの意義・効果・限界と役割分離を説明する `ai-setup-mater
 - 2026-10-13 ChatGPT ProjectでのGitHub Persona取得検証用の `personas/reference/IT_GENERAL_ADVISOR_TEST_PERSONA.md` Version 0.1 / Draft と、Reference入口の検証専用導線は、main の `ef77588d6c94bd50e0cc8c32c770f06c181a3bbb` に含まれている。ChatGPT Project上の取得検証は未実施。この「未実施」は2026-10-13時点の状態である。`personas/reference/setup/CHATGPT_PROJECT_PERSONA_TEST_SETUP.md` は、設定資料の本文が指示に含まれていなかったため未作成。現行 Document Info は Version 3.0 / Approved（承認は D-037、版番号は D-038）である。
 - 2026-10-12 Repository作業時に対象の `AGENTS.md` を確認する規則と、通常報告の一行 `AGENTS.md：ReadOK / ReadNG / ReadUndefine` を、Reference の ChatGPT・Cursor・Claude の本文へ追加した。同じ User 決定を `AGENTS.md` の `Decision & Rationale` に記録した。ChatGPT の現行版は 3.0 / Approved、Cursor の現行版は 3.0 / Approved である（承認は D-037、版番号は D-038）。Claude の Document Info は、2026-10-13時点では Version 1.4 / Approved（D-003）であり、その改版では Persona本文を変更していない。現行ファイルは Version 3.0 / Approved（承認は D-037、版番号は D-038）である。
 - 2026-10-07 対象Repository省略の是正対象をUser承認により記録。7 Persona・3文書・条件付き1文書。ChatGPT Personaの対象Repository明記は、2026-10-14の §7 置換（D-019）に含まれた。その他の本文是正は未着手。対象一覧と適用条件は `AGENTS.md` の `Decision & Rationale`（2026-10-07「対象Repository省略の是正対象を記録」）を参照
-- Reference AI運用資料3文書の内容確定と Version / Status 昇格は未了。現行版は Case Study Version 0.2 / Draft、Handoff Template Version 0.3 / Draft、Prompt Template Version 0.2 / Draft
+- Reference AI運用資料3文書全体の内容確定と Status 昇格は未了。現行版は Case Study Version 0.2 / Draft、Handoff Template Version 0.4 / Draft（D-047）、Prompt Template Version 0.2 / Draft
 - Reference ChatGPT Persona `personas/reference/CHATGPT_PERSONA.md` は Version 3.0 / Status Approved（承認は D-037、版番号は D-038）、Last Updated 2026-10-16 である。2026-10-14に §2、§4、§5、§7 を正式修正案で置換済み（D-019）。同日、§5 と §7 に条件付き独立レビューの判定と依頼文の作成規則を追加した（D-020）。2026-10-15に §1 の受入・完了判定、§5 の例外のない重大リスクレビュー、GitHub反映後FAIL、未移行Repositoryの既存規則、§7 の依頼文の宛先を整合した（D-022）。同日、必要性の根拠がない独立レビューの禁止を §5 と §7 へ反映した（D-023）。同日、最優先目的の維持と不要な工程の自動生成禁止を §4、§7、§9 へ反映した（D-024）。D-019〜D-024 の文書反映は commit `73b71b1dbf3dce8b99731a4207b9fa2924bfbb17` として `main` へ push 済みである。2026-10-15に第11章を識別・取得・更新検証へ是正した（D-026）。その是正は commit `a627f4b2519b3750b7f3ea6f9cdd16898807ff15` に含まれている。同日、第1章から第11章の重複を整理し、末尾の Decision & Rationale を D-027 へ移した。この重複整理は commit `86b3537dfb8c2eacca851763c00055500ee122bd` に含まれている。2026-10-15に、7,500文字を設計目標値へ変更し（D-030）、実装担当の役割名をCodingAIとした（D-031）。Cursorは現在の使用製品名である。この呼称変更はD-027の整理結果に対する追加変更であり、責務、権限、指示形式、運用順序は変更していない。7,500文字の超過だけを不合格または作業停止としない。Verification Code は未確定である。D-027からD-031と先の18回答は commit `86b3537dfb8c2eacca851763c00055500ee122bd` に含まれている。正規比較は D-032 の 9/18 である。Persona適用状態は UNVERIFIED である。現行版の User最終承認は D-037 であり、4/6 と 9/18 は変更していない。2026-10-16の D-036 は §1、§4、§5、§7 の限定改善であり、その commit と push は未実施である
 - 2026-10-06 決定の保留と仮定の実装利用許可を分離する規則（`実装利用：可／不可`）を、当時は Draft として3 Personaへ反映した。現行 Document Info は D-037 により Approved である。当時の最終 Approved は履歴である。この承認は実動検証の合否を変えない
   - `personas/education/GEM_SOLUTION_PARTNER.md` Version 1.6 / Approved（当時の最終 Approved は 1.5）
@@ -243,7 +244,7 @@ Personaの意義・効果・限界と役割分離を説明する `ai-setup-mater
 
 ## 次工程
 
-1. Reference AI運用資料3文書（Case Study Version 0.2 / Draft、Handoff Template Version 0.3 / Draft、Prompt Template Version 0.2 / Draft）の残る内容をUserレビューし、必要な修正を反映する。GOV-09のGitHub保存は完了済みであり、内容確定または Version / Status の昇格ではない。
+1. Reference AI運用資料3文書（Case Study Version 0.2 / Draft、Handoff Template Version 0.4 / Draft、Prompt Template Version 0.2 / Draft）の残る内容をUserレビューし、必要な修正を反映する。Handoff Template v0.4の本文は反映済みである。GOV-09のGitHub保存は完了済みであり、3文書全体の内容確定または Status の昇格ではない。
 2. 3文書の内容確定後、Version / Statusの昇格要否をUser判断する。
 3. 新チャット開始時は `project-notes/CURRENT.md` → `AGENTS.md` → 対象成果物MDの順に読む。読取専用ではローカルGit同期を要求しない。ローカル変更の前には §2.1 の同期ゲートを実施する。
 4. `GEM_SOLUTION_PARTNER.md` の最終Approved版 Version 1.5 と、Version 1.1〜1.5の承認済み改善内容を確定事項として扱い、Evidenceなしに再検討しない。現行版は Version 1.6 / Approved（D-037）である。当時の最終 Approved は Version 1.5 である。

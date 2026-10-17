@@ -1764,3 +1764,26 @@ Supersedes（上書き対象・範囲）:
 
 Non-Changes（非変更範囲）:
 Education用Personaの教育用途固有の責務と本文。Root READMEのGemini Skills警告全文、Personaあり／なしの検証条件・結果、設定方法をRepositoryの範囲外とするD-045の方針。既存判断の原文。commit。push。
+
+## D-047 Adopt Chat Handoff Template Version 0.4 as the Current Source（Chat Handoff Template Version 0.4を現行正本とする）
+
+Date（日付）: 2026-10-17
+Related Documents（関連文書）: personas/reference/CHAT_HANDOFF_TEMPLATE.md / project-notes/CURRENT.md / project-notes/2026-09-23-persona-operation-case-study-decisions.md
+
+Decision（決定）:
+- `personas/reference/CHAT_HANDOFF_TEMPLATE.md` を Version 0.4 / Status Draft の現行正本とする。Userが選んだ簡潔な新Version案を本文に反映し、重複する保存状態・完了報告・要約を、保存状態、検証結果、次の作業へ統合する。Document ID、Created Date、Owner、3文書の読む順序と導線、旧判断の所在は維持する。
+- 基本用途は同じAIの新規チャットへの移行とし、異なるAI間にも適用できる。保存方式をGitHub管理中、ローカルGitのみ、Gitなしに分ける。引き継ぎ文は正本の代替にせず、受け取る側が該当する正本を実際に取得して照合する。
+- 送る側は確定事項・判断・現在地点を案件の正本へ記録し、該当する保存方式の完了条件を確認してから最終版の引き継ぎ文を渡す。GitHub管理中で必要なcommit・pushはUserに案内し、テンプレート作成指示だけを実行許可と扱わない。本Repositoryのcommitとpushは、それぞれUserの明示指示を必要とする。GitやRepositoryのない案件へbranch、SHA、pushを要求しない。
+- D-004の読取専用・ローカル変更の区別を維持する。Git管理中の読取専用ではRepository、branch、取得したcommit SHAを確認する。Gitなしの場合は保存済みファイルの所在・一覧・保存時点を確認し、Git固有の値は`N/A`とする。読取専用ではローカルWorkspace、ローカルHEAD、worktreeの確認を必須にせず、ローカルGit状態が未確認であることだけを理由に停止しない。Repositoryのローカル変更前には対象Repositoryの同期ゲートを適用し、Gitなしの案件では対象ファイルの保存規則を確認する。`VERIFIED` / `UNVERIFIED` / `ASSUMPTION`、正本確認、停止条件、検証、完了報告に必要な情報は維持する。
+- 今回の二つのチャットによる試験は「重要な事実を矛盾なく受け取れた」と評価する。詳細な問題は実運用で具体例が出たときに評価する。この一回の試験を、全項目の完全性または全文品質の証明としない。
+- Reference AI運用資料3文書全体の内容確定・Status昇格は行わない。この反映はローカルのみであり、commitとpushは含まない。
+
+Rationale（理由）:
+現行v0.3はGitHub運用を前提とする欄の重複があり、同じAI間の継続を基本とする運用とGitHub導入前の案件を十分に扱えなかった。Userは、正本を保存してから引き継ぎ、受け取る側が独立に照合する短いv0.4案を選択した。二つのチャットでの初回試験では重要な事実に矛盾がなく、詳細な問題の抽出は実運用に委ねると判断した。
+
+Supersedes（上書き対象・範囲）:
+- `project-notes/2026-09-23-persona-operation-case-study-decisions.md` / 2026-09-23 / 「Handoff TemplateへRepository再開手順とEvidence管理を復旧」：GitHub Project前提の欄構成と重複した完了報告の章構成を、3保存方式と統合した欄構成に変更する範囲のみ。正本確認、Evidence状態、停止条件、検証・完了報告に必要な情報は維持する。
+- `project-notes/DECISIONS.md` / D-004 / 2026-10-13 / 「Align Reference Operation Materials with D-001 and D-002」：Handoff Templateの現行Versionを0.3とする時点情報のみ。読取専用の確認条件とローカル変更の同期ゲートは変更しない。
+
+Non-Changes（非変更範囲）:
+既存Decisionの原文と保存場所。Case Study Version 0.2 / Draft、Prompt Template Version 0.2 / Draft とその本文。Reference運用資料3文書全体の承認状態。Persona本文、Persona Verificationの結果、User承認と技術的な合否の区別。GitHubへの保存状態。commit。push。
