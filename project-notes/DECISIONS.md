@@ -1820,3 +1820,29 @@ Supersedes（上書き対象・範囲）:
 
 Non-Changes（非変更範囲）:
 D-039、D-041、D-042、D-043、D-045を含む既存Decisionの原文と保存場所。D-045は今回の判断の記載を禁じておらず、上書きしない。設定方法をRepositoryの対象外とするD-045の方針は変わらない。Root `README.md` の `[!IMPORTANT]` 警告の原文、掲載先、重複掲載禁止。Persona本文、Personaの責務、Reviewerの判定区分、既存の検証結果とEvidence。Skill実体の作成・登録。サービス別の画面操作手順。Google公式案内の再確認。commit。push。
+
+## D-049 Record the Persona Operating Hypothesis and the Identification Incident（Persona運用仮説と識別表示インシデントを記録する）
+
+Date（日付）: 2026-10-17
+Related Documents（関連文書）: AGENTS.md / project-notes/CURRENT.md / project-notes/2026-10-17-persona-operation-incident-record.md / personas/PERSONA_IDENTIFICATION_AND_SETUP.md / personas/reference/CHATGPT_PERSONA.md / Repository全体
+
+Decision（決定）:
+- Userが述べたRepositoryの根本仮説を、実証中の設計意図として `AGENTS.md` の目的に記録する。AIのミスを前提に、PersonaをAIの動作を縛る「憲法」と位置づけ、ミスを少しでも減らして比較的安全に利用できるかを試す。仮説の成立は未検証であり、Persona本文の存在・取得・承認と、実際の回答での遵守を区別する。
+- 2026-10-17の回答識別表示に関する事実と、Userの意見・考えの原文を `project-notes/2026-10-17-persona-operation-incident-record.md` に保存する。AI返答の原文として完全に保存する範囲は、同記録第3節の、Repositoryの根本仮説への返答1件だけである。識別表示の `CX`、`Codex`、`?` は、同記録第2節のUser発言原文で表示文字列として確認できる。これらはUserが提示した表示文字列であり、AI回答の全文ではない。その経過のAI出力全文は、同記録にない。確認済みの出力、User原文、User申告、要約、原因未特定を区別する。同記録は現行仕様の代替としない。
+- 識別表示の使用停止、Codexのサービス略号、未定義値の例外処理、新たな判定基準は、この記録によって決定しない。D-006、D-010、D-011およびChatGPT Persona第11章の現行規則は変更しない。インシデント記録を、仮説の実証、対策の実装、検証PASSと扱わない。
+- User申告の画面のWork、ChatGPTが視認した画像、一覧に返った `kind=codex` と設定値 `sidebarPreferences.grouping.surface=work` を、同記録に残す。`surface=work` のフィールド仕様と、この会話の画面表示との対応は検証していない。画像単独では、Workというモード名を証明しない。これらの観測値の併存は、表示面と内部の会話種別が異なることの確定ではない。回答文の「現在この会話を実行しているのはCodexです。」は部分引用であり、第3節の全文原文1件とは別である。画面を指す意味と内部 `kind` を指す意味は、回答が層を明示していないため、一方へ確定しない。回答識別のサービス略号をどちらの層から決めるかは未決であり、`CG`、`Codex`、`?` のいずれも正式値にしない。第6章の ChatGPT＝`CG` と Codex未登録は維持する。過去の出力と現在の暫定表示は、正式規則にしない。
+
+Rationale（理由）:
+Userは、この仮説が成立しなければRepositoryの意味がないと述べた。別のUser発言では、`【Codex/GPT-6｜M-CG@3.0｜G】` をAIが判断して表示した件について「もれも重大インシデントとする」と述べている。この発言の対象は、そのCodex表示である。二つの回答が識別行以外で始まったことは、Userが欠落を指摘した別の事実であり、この重大インシデントの発言と混同しない。Chat/Work混在についてUserが「大問題で重大インシデントだと明言する」とした事案も、別事案である。Userはさらに、自分の画面はDesktop版のWorkであり、それが誤りなのか内部的なIDが同じだったのかは別問題だと述べた。一覧の `kind=codex` と設定値 `surface=work` の併存、およびUser申告のWorkを、表示面と内部の会話種別の相違や、サービス略号の正式決定へ変換しない。会話だけに残る記録では再確認できないため、User原文と、根本仮説へのAI返答1件の原文を、正本Repository内の追跡可能な履歴として保存する。仮説の有効性と対策の効果は、今後の実動Evidenceで別途評価する。このDecisionは、原因の特定、仮説の実証、対策の完了、検証PASSを意味しない。
+
+Evidence（根拠）:
+- 2026-10-17のUser発言原文、および根本仮説へのAI返答1件の原文：`project-notes/2026-10-17-persona-operation-incident-record.md` 第2節・第3節。
+- 二つの識別行省略の冒頭句、および `CX` / `Codex` / `?` の経過にAI出力全文がないことの区別：同記録第1節。
+- 画面のUser申告、ChatGPTが視認した2026-10-17 20:59の画像とそのSHA-256、画像本体の未保存、Codexアプリ読取専用一覧の `kind=codex` と設定値 `surface=work`（フィールド仕様と画面表示との対応は未検証。画像単独ではWorkというモード名を証明しない）、生一覧の未保存、AI回答の部分引用「現在この会話を実行しているのはCodexです。」：同記録第1節第6項・第2節。この部分引用は第3節の全文1件とは別である。
+- 現行の識別形式とサービス略号：`personas/PERSONA_IDENTIFICATION_AND_SETUP.md` 第6〜8章。回答冒頭規則：`personas/reference/CHATGPT_PERSONA.md` §11.4。第6章は ChatGPT＝`CG`、Codex未登録である。サービス略号をどの層から決めるかは、同章に明記がない。
+
+Supersedes（上書き対象・範囲）:
+なし。
+
+Non-Changes（非変更範囲）:
+既存Decisionの原文と保存場所。Persona本文とVersion / Status。既存検証結果の合否。識別形式、サービス略号、取得状態の旗、例外処理。Chat/Work間の情報共有仕様。commit。push。
