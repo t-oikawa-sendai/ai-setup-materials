@@ -5,7 +5,7 @@
 | Version（バージョン） | 1.0 |
 | Status（ステータス） | Approved |
 | Created Date（作成日） | 2026-08-19 |
-| Last Updated（最終更新日） | 2026-10-17 |
+| Last Updated（最終更新日） | 2026-10-18 |
 | Owner（管理者） | Takashi Oikawa |
 | Related Documents（関連文書） | [`../../README.md`](../../README.md)<br>[`../PERSONA_IDENTIFICATION_AND_SETUP.md`](../PERSONA_IDENTIFICATION_AND_SETUP.md)<br>[`GEM_RESEARCHER_FULL.md`](GEM_RESEARCHER_FULL.md)<br>[`GEM_RESEARCHER_LEARNING_DEVELOPMENT.md`](GEM_RESEARCHER_LEARNING_DEVELOPMENT.md)<br>[`GEM_RESEARCHER_DEVELOPMENT.md`](GEM_RESEARCHER_DEVELOPMENT.md)<br>[`GEM_SOLUTION_PARTNER.md`](GEM_SOLUTION_PARTNER.md)<br>[`GEM_CODE_GENERATOR.md`](GEM_CODE_GENERATOR.md)<br>[`GEM_REVIEWER.md`](GEM_REVIEWER.md) |
 
@@ -36,6 +36,19 @@ Gemini Skillsで本設計思想に沿った役割分離を図る場合は、役�
 Personaそのものがなぜ重要なのか、サービス全体のカスタム指示・共通設定やその都度のプロンプトと何が違うのかは、Repository共通の説明として [`../../README.md`](../../README.md) の `Why Persona Matters（なぜPersonaが重要なのか）` を参照してください。
 
 Personaの識別と検証の共通仕様は [`../PERSONA_IDENTIFICATION_AND_SETUP.md`](../PERSONA_IDENTIFICATION_AND_SETUP.md) にあります。Education用の基本4役割と各Personaの責務は変更していません。サービスごとの設定方法は本Repositoryの範囲外です。
+
+## 基本4役割（サービス非依存）
+
+| 役割 | 主な責務 |
+|---|---|
+| Researcher | 外部情報を調査し、確認済み事実とEvidenceを提示する |
+| Solution Partner | 目的・要求・制約を整理し、設計する |
+| Code Generator | 確定した設計に基づき、コード・testコードの生成を支援する |
+| Reviewer | 設計・コード・検証Evidenceを独立して評価する |
+
+これらの4役割は、GeminiのGemやSkillsだけに限定されません。`GEM_` で始まるPersonaファイル名は従来の開発・運用経緯による名称であり、利用可能なAIサービスを制限するものではありません。
+
+従来の4Gem＋1構成と、現在検討している4Skills構成案は、基本4役割を利用する方式の違いです。構成の承認だけで評価の独立性が実証されたとは扱いません。
 
 ## 2. 4Gem＋1 Configuration（従来の4Gem＋1構成）
 

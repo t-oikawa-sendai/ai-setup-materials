@@ -7,7 +7,7 @@
 | Version（バージョン） | 1.0 |
 | Status（ステータス） | Approved |
 | Created Date（作成日） | 2026-10-13 |
-| Last Updated（最終更新日） | 2026-10-17 |
+| Last Updated（最終更新日） | 2026-10-18 |
 | Owner（管理者） | Takashi Oikawa |
 | Related Documents（関連文書） | AGENTS.md / project-notes/CURRENT.md |
 
@@ -1902,3 +1902,54 @@ Supersedes（上書き対象・範囲）:
 
 Non-Changes（非変更範囲）:
 `README.md` の既存9項目、第2章以外の本文、Document Info の Version 1.3 / Approved。既存Decisionの原文と保存場所。Persona本文、識別仕様、検証結果。新たな対策ルールと必須工程。commit。push。
+
+## D-052 Approve Root README Version 1.4 and ChatGPT Persona Version 3.1（Root README Version 1.4 と ChatGPT Persona Version 3.1 を正式承認する）
+
+Date（日付）: 2026-10-18
+Related Documents（関連文書）: README.md / personas/reference/CHATGPT_PERSONA.md / project-notes/CURRENT.md / project-notes/DECISIONS.md
+
+Decision（決定）:
+- 2026-10-18、Userは Root README を Version 1.4 / Status Approved / Last Updated 2026-10-18 として正式承認した。反映先は Repository ルートの `README.md` であり、承認済みの章構成と説明内容を維持する。
+- README改訂の主旨は、冗長と重複の削減、AIの問題点の4分類、Skills環境への対応である。追加の再構成と文章改善は、この決定に含めない。
+- 4Skillsは、4役割をSkillとして使い分ける構成案である。4つのSkillの登録と実動検証は未実装・未検証である。従来の4Gem＋1と既存Evidenceは履歴として保全する。4Gem＋1を現在の新規導入手順とは扱わない。
+- D-039の「重要：Gemini Skillsの利用と、AIの役割分離について」の警告文の原文を保全する。Gemini 3.1 ProのA/B比較と、5パターン横断比較の区別を維持する。
+- 同日、Userは ChatGPT Persona `personas/reference/CHATGPT_PERSONA.md` を Version 3.1 / Status Approved / Last Updated 2026-10-18 として正式承認した。変更は Document Info のみである。Persona本文は変更しない。
+- User最終承認と、技術検証の合否は別である。既存の実動検証結果 4/6 は変更しない。D-025 の条件である6回すべてPASSは、達成済みと扱わない。
+- 既存Decisionの原文は変更しない。この反映はローカルのみとし、commit と push を含まない。
+
+Rationale（理由）:
+Userが、Root READMEの冗長と重複を減らし、AIの問題点を4分類し、Skills環境に対応する改訂と、ChatGPT Persona Version 3.1 を、2026-10-18に正式承認したため。承認は文書の状態を定めるものであり、実動検証の合否を変えない。4Skillsは構成案のままとし、従来の4Gem＋1、既存Evidence、D-039の警告原文、Persona本文を保全する。
+
+Supersedes（上書き対象・範囲）:
+- project-notes/DECISIONS.md / 2026-10-16 / 「D-040 Approve the Root README Revision and Move Its Detailed Comparisons」：Root README の Document Info を Version 1.3 / Status Approved とする現行表示だけ。警告原文、詳細比較の移動、A/B検証の要点は維持する。
+- project-notes/DECISIONS.md / 2026-10-17 / 「D-051 Record Non-Guaranteed Instruction Compliance as a Fundamental LLM Reliability Problem」：Document Info の Version 1.3 / Status Approved を維持する部分だけ。第2章へ追加した「指示遵守の非保証」は維持する。
+- project-notes/DECISIONS.md / 2026-10-17 / 「D-050 Accept Same-Service Independent Review When Context Is Separated and the User Hands Over Evidence」：Document Info を Version 3.1（提案）/ Status Draft / Last Updated 2026-10-17 とする部分、および User最終承認をこの決定に含めず未了とする部分だけ。Persona本文の変更、独立性の条件、実動検証の PASS を含めない部分は維持する。
+- project-notes/CURRENT.md の作業中にある、ChatGPT Persona の D-050 改訂案について実動検証と User最終承認は未了であるとする現在地点だけ。D-025 の未達と 4/6 は維持する。
+
+Non-Changes（非変更範囲）:
+D-001からD-051までの原文と保存場所。D-039の警告文の原文。従来の4Gem＋1と既存Evidence。ChatGPT Personaの本文。本文中の §11.1 は Version 3.1（提案）、Status Draft の自己記述のままである。D-025 の検証条件、4/6、6/6 未達。他Persona、識別仕様、`AGENTS.md`。4Skillsの登録と実動検証。commit。push。
+
+## D-053 Clarify the Common Condition for Independent Evaluation and the Service-Independent Four Roles（評価の独立性の共通条件とサービス非依存の基本4役割を明示する）
+
+Date（日付）: 2026-10-18
+Related Documents（関連文書）: README.md / personas/education/README.md / project-notes/CURRENT.md / project-notes/DECISIONS.md
+
+Decision（決定）:
+- 2026-10-18、Userは次の2件を承認した。Reviewer（S-RV@1.2）も了承済みである。
+  - Root `README.md` 第3章で、評価の独立性の成立条件を明確化する。
+  - `personas/education/README.md` で、サービスに依存しない基本4役割を明示する。
+- 独立性の共通原則は D-050 に従う。評価の独立性は、会話を分けたという事実だけでは認めない。設計・実装時の会話・記憶・参照情報から判断を分離し、Userが成果物とEvidenceを選んで引き渡すことが共通条件である。
+- Gemini SkillsのEducation運用条件は D-048 に従う。上記の共通条件に加えて、役割別アカウントの分離を必要条件とする。
+- 従来の4Gem＋1の承認と、評価の独立性の実証は区別する。従来の4Gem＋1は承認済みの構成であり、評価の独立性が実証済みであることを意味しない。従来の4Gem＋1構成と、現在検討している4Skills構成案は、基本4役割を利用する方式の違いである。構成の承認だけで評価の独立性が実証されたとは扱わない。
+- サービス非依存の基本4役割は、Researcher、Solution Partner、Code Generator、Reviewer である。Education README の第1章と従来の4Gem＋1構成の間に、この4役割と主な責務を示す。`GEM_` で始まるPersonaファイル名は従来の開発・運用経緯による名称であり、利用可能なAIサービスを制限するものではない。
+- Root README は Version 1.4 / Status Approved を維持する。Education README は Version 1.0 / Status Approved を維持し、Last Updated を 2026-10-18 とする。
+- D-039の重要警告原文、既存Persona本文、検証Evidenceは変更しない。この反映はローカルのみとし、commit と push を含まない。
+
+Rationale（理由）:
+Userが、会話を分けたことだけでは評価の独立性を認めず、D-050の共通条件とD-048のEducation運用条件を入口の説明で区別することを承認したため。従来の4Gem＋1の承認を独立性の実証と混同せず、基本4役割を特定のAIサービスに限定して読まないため。
+
+Supersedes（上書き対象・範囲）:
+- project-notes/DECISIONS.md / 2026-10-18 / 「D-052 Approve Root README Version 1.4 and ChatGPT Persona Version 3.1」：Root README の説明内容を当時の文言のまま維持する範囲のうち、第3章の警告とGem／Skills構造比較図の後にある独立性の説明だけ。Version 1.4 / Approved、章構成、D-039の警告原文、ChatGPT Persona の承認は維持する。
+
+Non-Changes（非変更範囲）:
+D-001からD-052までの原文と保存場所。D-039の重要警告原文。D-048のアカウント分離条件。D-050の共通原則。既存Persona本文。検証Evidence。Researcherの3完成版はUserが明示選択する現行方針。1 Skillへの統合は未決・未検証の構成案であること。Skillsの登録手順。Education README の従来の4Gem＋1構成とResearcher完成版の選択。commit。push。

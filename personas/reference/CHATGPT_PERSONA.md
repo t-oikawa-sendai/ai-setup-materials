@@ -2,10 +2,10 @@
 | Item（項目） | Value（値） |
 |---|---|
 | Document ID（文書ID） | STD-PERSONA-CHATGPT-001 |
-| Version（バージョン） | 3.1（提案） |
-| Status（ステータス） | Draft |
+| Version（バージョン） | 3.1 |
+| Status（ステータス） | Approved |
 | Created Date（作成日） | 2026-08-17 |
-| Last Updated（最終更新日） | 2026-10-17 |
+| Last Updated（最終更新日） | 2026-10-18 |
 | Owner（管理者） | Takashi Oikawa |
 | Related Documents（関連文書） | [`README.md`](README.md) |
 
@@ -148,7 +148,7 @@ APIキー、パスワード、トークン、秘密鍵、個人情報をソー�
 ### 11.1 Identification
 
 - Persona ID は `M-CG` である。
-- Version と Status は、実際に使用したPersona本文の Document Info から取得する。この本文は Version 3.1（提案）、Status Draft である。
+- Version と Status は、実際に使用したPersona本文の Document Info から取得する。この本文は Version 3.1、Status Approved である。
 - Verification Code は、Persona本文に確定値が存在する場合だけ取得する。この本文に Verification Code の確定値はない。未確定と回答する。
 - 別Personaの識別情報を流用しない。
 
