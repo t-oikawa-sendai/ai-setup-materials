@@ -19,7 +19,7 @@ Personaの意義・効果・限界と役割分離を説明する `ai-setup-mater
 - Root README `README.md` の現行ファイルは Version 1.5（提案）/ Draft である（D-056）。Version 1.4 / Approved は前版の承認履歴である（D-052）。第3章の警告と比較図の後の独立性の説明は D-053 に整合する。D-039 の重要警告原文は変更していない。D-040 の Version 1.3 / Approved、および D-051 が Version 1.3 / Approved を維持した状態は、Version 1.4 より前の記録である。
 - AI利用時の課題の根拠は `personas/AI_ISSUES_EVIDENCE.md`、Hazare et al.（2026）の9種類の反論者Personaの解説は `personas/SYCOPHANCY_CHALLENGER_PERSONAS.md`、グラフは `personas/assets/sycophancy_frontier_models_2026.png` である。導線は Root README 第2章から Evidence 集へ、Evidence 集から解説へである。判断は D-056。いずれも Draft。Document ID は UNRESOLVED。この追加は、Personaによる改善効果の実証でも、研究結果の検証合格でもない。
 - 教材上の標準表記は「自己正当化バイアス（誤りの連鎖）」である（D-057）。Root README 第2章の項目名、第3章冒頭、Evidence集 E-06、Education README の現行の運用方針がこの表記を用いる。D-039 の重要警告原文は変更していない。この表記は教材上の用語であり、学術的に確立した独立バイアスであるとは断定しない。
-- Education README `personas/education/README.md` の現行ファイルは Version 1.0 / Approved のままである。サービス非依存の基本4役割の明示は D-053。従来の4Gem＋1の承認は、評価の独立性の実証ではない。
+- Education README `personas/education/README.md` の現行ファイルは Version 1.1（提案）/ Draft である（D-058）。Version 1.0 / Approved は前版の承認履歴である。サービス非依存の基本4役割は維持する（D-053）。従来の4Gem＋1の承認は、評価の独立性の実証ではない。SKILLS構成は `personas/education/SKILLS/` の6ファイルで、いずれも Draft、Document ID は UNRESOLVED である。既存の `personas/education/GEM_*.md` は変更していない。Skillsの実登録、自動選択の実動検証、Deep Research連携、講師本人によるSkills実動検証は未実施である。
 - ChatGPT Persona `personas/reference/CHATGPT_PERSONA.md` の現行ファイルは Version 3.1 / Approved である。User確認と最終承認は完了している（D-052、経緯と検証ゲートは D-054）。§11.1 は Document Info の Version 3.1 / Approved と一致する。この一致は `76d254acbae538f10c108c2cf3b73b900588f5df` に含まれる。D-052 は当初、変更を Document Info のみと記録した。その原文は変更しない。`fb1d2e6` で `main` に入ったファイル、および上記 HEAD のファイルは Version 3.1（提案）/ Draft である（D-050）。D-037 と D-038 の Version 3.0 / Approved は、この改訂より前の承認履歴であり、現行ファイルではない。既存の実動検証は 4/6 である。D-025 の 6/6 PASS は未達である。新たな 6/6 PASS の Evidence は未確認である。共通仕様第16章の現行規則は維持する。User承認は技術検証を PASS に変えない。第16章への完全適合は確認していない。
 - 検証用Persona `personas/reference/IT_GENERAL_ADVISOR_TEST_PERSONA.md` の現行ファイルは Version 3.0 / Approved である（D-037、D-038）。Version 0.1 / Draft は 2026-10-13時点の検証前の状態である。区別は `personas/reference/README.md` 第4.1節に書く。
 - 次の記録は GitHub `main` に保存済みである。各 Decision 本文にある「commit と push は行わない」は、その決定の時点で commit と push を行わなかったという記録である。現在の未保存を意味しない。Decision の原文は変更していない。
@@ -60,6 +60,7 @@ Personaの意義・効果・限界と役割分離を説明する `ai-setup-mater
 - 2026-10-18。Root README の表現明確化3件と、Reviewer指摘 R-01、R-02、R-03、R-04、R-05、R-08 を反映した。R-01 と R-02 の判断は D-054。R-04 と R-05 は、既存の D-043、D-048、D-053 の範囲で本文を合わせた。新たな方針判断としての別 Decision は作っていない。R-06、R-07、R-09、R-10 は対象外である。この反映は、D-055 の今回限りの例外により保全したまま、D-056 と同じ commit に含まれる。保存先の SHA は、その commit 自身であるため本文には書かない。D-052 と D-053 の保存済み commit とは別である。
 - 2026-10-18。同期ゲートの今回限りの例外は D-055。Evidence資料の追加と参照関係は D-056。状態は現在地点に書く。
 - 2026-10-18。教材上の標準表記を定め、Root README、Evidence集、Education README の現行本文へ反映した。判断は D-057。報告済みの未commit変更2ファイルは保全した。この保全は今回の継続作業に限る。`AGENTS.md` §2.1 と D-055 の適用範囲は変更しない。保存先の SHA は、この文を含む commit 自身であるため本文には書かない。
+- 2026-10-18。既存GEMを保全したまま、EducationのSKILLS 6ファイルを追加し、Root README と Education README を更新した。判断は D-058。この作業の commit と push は未実施である。実動検証は未実施であり、Approved ではない。
 - 前回の本ファイルが記録した実測は、次のとおり残す。Claude Persona は、Project登録対象（`# Claude Persona` から本文末尾、末尾改行を含む）7,925、ファイル全体（末尾改行を含む）8,254。この整理で上記 HEAD のファイルを Unicode コードポイント数で確認し、同じ数値だった。ChatGPT Persona について、D-037 の承認表示後の記録はファイル全体が末尾改行を含めて 8,330、除いて 8,329。Owner欄訂正後の記録は、含めて 8,329、除いて 8,328。Project登録対象の記録は、含めて 7,999、除いて 7,998。上記 HEAD の現行ファイルは、ファイル全体が含めて 8,330、除いて 8,329、Project登録対象（`# ChatGPT向け責務定義` から本文末尾、Document Info を除く）が含めて 7,999、除いて 7,998 である。Owner欄訂正後として記録された 8,329 / 8,328 は、この HEAD の実測とは一致しない。当時の記録として残す。7,500文字は設計目標値であり、超過だけを不合格または作業停止としない（D-030）。
 
 ## 作業中
@@ -86,8 +87,9 @@ Personaの意義・効果・限界と役割分離を説明する `ai-setup-mater
 16. 元Devcheckoutへの移行設定導入は未実施である。自動ルール読込は UNVERIFIED である。根拠は `project-notes/2026-09-29-core-persona-ssot-verification.md`。
 17. ChatGPT Persona の User最終承認は完了している。実動検証の再試験は、User の次指示があるまで開始しない。
 18. Evidence 2文書と Root README の今回改訂の正式な採否は、User の次の判断を待つ。Document ID の確定も、その判断まで行わない。
+19. Education SKILLS の実登録、自動選択精度の実動検証、Deep Research連携は未実施である。講師本人がGemini Skillsを利用して実動検証することは、前提にしない。Userの次指示まで開始しない。
 
-Reviewerを含むPersonaの機能設計は Evidence なしに再検討しない。完了済みの文書適合性復旧を、Evidence なしに再作業対象へ戻さない。`ASKME 迎合禁止` と7文書配置を未決事項へ戻さない。Education用の基本体系は4役割である。従来の4Gem＋1と `Researcher Deep Research` は履歴として維持する。Researcherの3完成版は、当面 User（生徒）が調査範囲に応じて1版を明示選択する。
+Reviewerを含むPersonaの機能設計は Evidence なしに再検討しない。完了済みの文書適合性復旧を、Evidence なしに再作業対象へ戻さない。`ASKME 迎合禁止` と7文書配置を未決事項へ戻さない。Education用の基本体系は4役割、SKILLSは合計6つである。従来の4Gem＋1と `Researcher Deep Research` は参考記録として維持する。ResearcherのSKILLSは Learning、Development、Career の3つである。
 
 ## 正本の所在
 
@@ -104,6 +106,7 @@ Version と Status は各ファイルの Document Info を見る。
 - Education Code Generator正本：`personas/education/GEM_CODE_GENERATOR.md`
 - Education Reviewer正本：`personas/education/GEM_REVIEWER.md`
 - Education入口：`personas/education/README.md`
+- Education SKILLS：`personas/education/SKILLS/`
 - Reference Persona：`personas/reference/`
 - ChatGPT Persona の識別・取得・更新検証：`personas/reference/CHATGPT_PERSONA.md` 第11章。品質検証の独立工程は `personas/PERSONA_IDENTIFICATION_AND_SETUP.md` 第16章。未達の検証条件は次工程。
 - Claude Persona の識別・取得・更新検証：`personas/reference/CLAUDE_PERSONA.md` 第15章。品質検証の独立工程は `personas/PERSONA_IDENTIFICATION_AND_SETUP.md` 第16章。G方式の未了は次工程。

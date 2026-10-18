@@ -2084,3 +2084,48 @@ Supersedes（上書き対象・範囲）:
 
 Non-Changes（非変更範囲）:
 D-001からD-056までの原文と保存場所。D-039 の重要警告原文。`AGENTS.md`。既存Personaの機能・責務定義。`personas/reference/CHATGPT_PERSONA.md` の「自己正当化をしない」。研究論文の正式名称・引用。過去の検証記録。既存のEvidence区分、研究数値、出典URL、グラフ。E-01からE-10の判定。Root README 第4章のUser最終決定権。Root README の Version 1.5（提案）/ Draft。Evidence文書の Draft と Document ID UNRESOLVED。9種類Personaの独立解説。`AGENTS.md` §2.1 の恒久規則。D-055 の適用範囲。
+
+## D-058 Preserve Education GEMs and Add Six Student Skills（Educationの既存GEMを保全し、生徒向け6 Skillsを新設する）
+
+Date（日付）: 2026-10-18
+Related Documents（関連文書）: README.md / personas/education/README.md / personas/education/SKILLS/RESEARCHER_LEARNING.md / personas/education/SKILLS/RESEARCHER_DEVELOPMENT.md / personas/education/SKILLS/RESEARCHER_CAREER.md / personas/education/SKILLS/SOLUTION_PARTNER.md / personas/education/SKILLS/CODE_GENERATOR.md / personas/education/SKILLS/REVIEWER.md / project-notes/CURRENT.md / project-notes/DECISIONS.md
+
+Decision（決定）:
+- 2026-10-18、Userは、既存の `personas/education/GEM_*.md` を変更・削除・移動せず保全し、職業訓練校の生徒向けに `personas/education/SKILLS/` へ6つのPersona定義を新設すると決定した。対象は生徒である。講師本人がGemini Skillsを利用し、実動検証することは前提にしない。この作業でも実施しない。
+- 基本体系は4役割のままである。SKILLSは合計6つとする。ファイルは `RESEARCHER_LEARNING.md`（学習調査）、`RESEARCHER_DEVELOPMENT.md`（設計・開発調査）、`RESEARCHER_CAREER.md`（就職活動調査）、`SOLUTION_PARTNER.md`（要求整理・設計）、`CODE_GENERATOR.md`（コード生成）、`REVIEWER.md`（評価・レビュー）である。
+- 一致の対象は、Personaの共通機能本文である。ファイル全体ではない。一致対象は、役割・責務、判断基準・行動原則、Evidence規則・情報源の優先順位、回答形式・品質基準、Researcherの対応するModule定義である。一致対象外は、Document Info、ファイル名・文書管理用リンク、GEM固有の利用方法・手動切替に関する説明、SKILLS固有の利用方法に関する説明である。役割・責務・判断基準・Evidence規則・回答規則は変えない。違いは利用方式である。GEMではUserがPersonaを明示的に選択する。SKILLSでは、依頼内容に応じたSkillの自動適用を使い、生徒が毎回Researcher Personaを明示選択する負担を減らす。
+- Researcherは、既存の共通本文と各用途のModuleを継承する。旧GEMの複数Module構成と新SKILLSの単一Module構成について、ファイル全体の文字列一致は要求しない。6ファイルのすべてが旧GEMと全文で1対1に一致する、とは扱わない。
+- `SOLUTION_PARTNER.md`、`CODE_GENERATOR.md`、`REVIEWER.md` の共通機能本文は、それぞれ `GEM_SOLUTION_PARTNER.md`、`GEM_CODE_GENERATOR.md`、`GEM_REVIEWER.md` と同一とする。Document Info と文書間リンクは、新規ファイルの管理情報として整える。
+- `RESEARCHER_LEARNING.md`、`RESEARCHER_DEVELOPMENT.md`、`RESEARCHER_CAREER.md` は、既存の共通Researcher本文と、それぞれ Learning Module、Development Module、Career Module を継承する。検索対象と境界条件の本文は変えない。担当範囲外を明示する規則、Researcherの基本責務、Evidence規則は維持する。Learning と Career は、対象外Moduleの節を除外し、Active Modules をその1用途に合わせる。新しい機能、責務、制約は追加しない。
+- SKILLS版の3つのResearcherから、Module運用ルールの「そのうえで、必要なModuleを含む完成済みResearcher Personaへ切り替えるよう案内します。」を削除する。2026-10-18のUser実機確認では、Gemini Skillsの手動切替操作ができない。実行不可能な操作は案内しない。この一文はGEM固有の利用方法であり、共通機能本文の一致判定に含めない。既存の `personas/education/GEM_*.md` は変更しない。GEM版に残る同じ一文は、この決定では削除しない。
+- 対応関係は `personas/education/README.md` の GEM／SKILLS対応表に書く。Root `README.md` は概要、Education README は対応関係を中心にする。両方の `[!IMPORTANT]` は、GEM版とSKILLS版のPersona機能本文が同一であること、役割・責務・判断基準・Evidence規則・回答規則を変更しないこと、違いは利用方式でありGEM固有の手動切替案内などは一致判定に含めないこと、Researcherは既存の共通本文とModuleを3用途に再編していることを示す。「簡略版Persona」という表現は、現行説明に使わない。D-039の重要警告原文は変更しない。新しいDecision番号は追加しない。
+- 従来の4Gem＋1は参考記録として残す。Researcherを1つのSkillに統合する案と、4つのSkillとする案は、現行構成として扱わない。
+- Skillの自動適用は、正しいSkillが毎回選ばれる保証ではない。同一Geminiアカウント内で設計・コード生成・レビューのSkillsを使い分けるだけでは、本教材が要求する評価の独立性は成立しない。実運用で独立レビューを成立させる場合の、役割別アカウント分離と、Userが成果物とEvidenceを選んで引き渡す条件は維持する。
+- Skillsの実登録、自動選択精度の実動検証、Deep Research連携は実施しない。6ファイルは Draft とする。Version は 0.1（提案）、Status は Draft である。この版番号は新規ファイルの初期Draftであり、GEM側の Approved 版番号を置き換えるものではない。Document ID は UNRESOLVED とする。2026-08-22の Document ID 方案は、当時列挙した現行文書へ個別の ID を割り当てるものであり、この6ファイルの ID を一意に決めない。推測で採番しない。
+- Root `README.md` は Version 1.5（提案）/ Status Draft を維持する。Education README の現行ファイルは Version 1.1（提案）/ Status Draft とする。Version 1.0 / Approved は前版の承認履歴として残す。この反映はローカルのみとし、commit と push を含まない。実動検証を実施していないものを PASS または Approved としない。
+
+Rationale（理由）:
+Gemの画面がSkillsへ変わった環境でも、生徒が調査・設計・コード生成・レビューのPersonaを使えるようにするため。Personaの能力や品質をSKILLS用に変えず、利用方式だけを、明示選択からSkillの自動適用へ移すため。Researcherは、既存の共通本文とModuleを維持したまま3用途に分ける。同一アカウント内のSkill使い分けを、独立したレビューの成立とは扱わない。一致判定は共通機能本文に限る。ファイル全体の文字列一致は要求しない。Userの実機確認ではGemini Skillsの手動切替ができないため、SKILLS版Researcherはその操作を案内しない。GEM版の同じ案内は残す。
+
+Evidence（根拠）:
+- 2026-10-18のUser指示。既存GEMを保全する。生徒向けに6 Skillsを新設する。Researcherは Learning、Development、Career に分ける。同一用途のPersona機能本文は変えない。対応表、重要警告、基本4役割・合計6 Skills、独立性の既存条件、講師本人による実動検証を行わないこと、D-058として記録することを指定した。
+- 2026-10-18の追加User指示。一致対象はPersonaの共通機能本文であり、ファイル全体ではない。一致対象は、役割・責務、判断基準・行動原則、Evidence規則・情報源の優先順位、回答形式・品質基準、Researcherの対応するModule定義である。一致対象外は、Document Info、ファイル名・文書管理用リンク、GEM固有の利用方法・手動切替、SKILLS固有の利用方法である。Researcherは既存の共通本文と各用途のModuleを継承する。旧GEMの複数Module構成と新SKILLSの単一Module構成について、ファイル全体の文字列一致は要求しない。SKILLS版Researcher 3ファイルから手動切替の案内を削除する。既存GEM版は変更しない。READMEの `[!IMPORTANT]` をこの一致基準の意味に統一する。現行説明に「簡略版Persona」は使わない。D-039の重要警告原文は変更しない。D-001からD-057の原文は変更しない。新しいDecision番号は追加しない。`CURRENT.md` は、この一致基準と矛盾する記述がある場合だけ修正する。commit と push はしない。先行する未commit変更は保全する。
+- 2026-08-22の Document ID 方案。一覧にある Education の ID は、当時の README と `GEM_*.md` であり、`personas/education/SKILLS/` の6ファイルは含まれない。
+- 先行作業の開始時の Git 状態。Repository は `t-oikawa-sendai/ai-setup-materials`。branch は `main`。ローカル HEAD と `origin/main` は `cfab1a3e922696725f1d3a6ace9240d7e00265f7`。未commit変更はなかった。fetch 後も一致した。
+- この追加修正の開始時の Git 状態。Repository、branch、ローカル HEAD、`origin/main` は先行作業の開始時と同じである。ahead/behind は 0 0。未commit変更は `README.md`、`personas/education/README.md`、`project-notes/CURRENT.md`、`project-notes/DECISIONS.md`、未追跡の `personas/education/SKILLS/`。未commit変更があるため fast-forward は行わず、破棄・stash・reset は行っていない。この扱いは、先行する未commitの D-058 作業への追加修正に限る。`AGENTS.md` §2.1 の恒久規則は変更しない。
+
+Supersedes（上書き対象・範囲）:
+- project-notes/DECISIONS.md / 2026-10-16 / 「D-041 Consider Skills for Researcher Scope Selection and Keep Deep Research Separate」：Skillの分割方法を未決とし、現行運用をResearcher完成版1本のGem登録のままとする範囲のうち、SKILLS側の構成に関する部分。Deep ResearchをSkillsと別にすること、SkillsのDeep Research非対応、登録と実動検証が未実施であることは維持する。
+- 同 / 2026-10-17 / 「D-048 State the Current Education Operating Policy for Role Separation」：Researcherの3完成版を、当面Userが1版を明示選択し、Skillsによる完成版の自動選択を現行運用として案内しない、とした範囲。役割別アカウント分離、Userによる成果物とEvidenceの引き渡し、同一アカウント内のSkills使い分けでは評価の独立性が成立しないことは維持する。Education README の Version 1.0 / Status Approved を現行表示のまま維持する部分は、前版の承認履歴として残し、現行ファイルの表示は Version 1.1（提案）/ Draft とする。
+- 同 / 2026-10-18 / 「D-052 Approve Root README Version 1.4 and ChatGPT Persona Version 3.1」：4Skillsを構成案のまま現行の説明とする範囲。従来の4Gem＋1と既存Evidenceの保全、D-039の警告原文の保全は維持する。Root README のその後の Version 1.5（提案）/ Draft は維持する。
+- 同 / 2026-10-18 / 「D-053 Clarify the Common Condition for Independent Evaluation and the Service-Independent Four Roles」：現在検討している4Skills構成案、およびResearcherを1 Skillへ統合する案を未決の現行案とする範囲。基本4役割、評価の独立性の共通条件、従来の4Gem＋1の承認を独立性の実証としないことは維持する。
+
+Non-Changes（非変更範囲）:
+D-001からD-057までの原文と保存場所。D-039の重要警告原文。既存 `personas/education/GEM_*.md` の本文、Version、Status、Document ID。Personaの責務・判断基準・Evidence規則・回答規則。D-048、D-050、D-053の独立性条件。Skillsの実登録、自動選択の実動検証、Deep Research連携。講師本人によるSkills実動検証。Root README の Version 1.5（提案）/ Draft。Education README の Version 1.1（提案）/ Draft。`AGENTS.md`。新しいDecision番号。今回の一致基準と矛盾しない `project-notes/CURRENT.md`。commit。push。
+
+Rejected（不採用案）:
+- Researcherを1つのSkillに統合する案
+- 基本4役割を4つのSkillとする構成を、現行案として残す方式
+- SKILLS用に、共通機能本文とは別の判断基準を持つPersonaを作る方式
+- 6ファイルのすべてが、旧GEMと全文で1対1に一致すると記載する方式
+- SKILLS版で、実行できない手動切替を案内する方式

@@ -32,7 +32,7 @@
 | 時間軸 | 内容 | この教材での扱い |
 |---|---|---|
 | 従来構成 | GeminiのGemを使った4Gem＋1構成 | 過去の設計・関連検証記録。現行の新規導入手順ではない |
-| 検討中の構成案 | Gemini Skillsを使う4Skills構成案 | 未実装・未検証。導入方法は未確定 |
+| SKILLS構成 | 基本4役割・合計6 Skills | Persona定義はDraft。実登録・自動選択の実動検証は未実施 |
 
 2026-10-18時点の[Google公式案内](https://support.google.com/gemini/answer/18560919?hl=ja)では、Gemの提供終了予定はアカウント種別により異なります。個人のGoogleアカウントは2026年11月、Workspace Business・Enterprise・Non-Profitは2027年3月、Workspace Educationは2027年6月です。提供終了に伴い、GemはSkillとして自動的に再作成される予定も案内されています。本教材の対象アカウント種別は未確認です。この公式予定から、既存Gemの利用・編集可否を確認済みとは扱いません。
 
@@ -47,7 +47,7 @@
 |---|---|
 | AIの問題点と、Personaによる役割分離の意義 | [AI利用時の課題](#challenges-in-ai-use) → [なぜPersonaが重要なのか](#why-persona-matters) |
 | 現在のSkills環境で注意すべき評価の独立性 | [Gemini Skillsの警告](#gemini-skills-and-role-separation) ／ [`Education README`](personas/education/README.md) |
-| Education Personaの4役割と従来の4Gem＋1構成 | [`Education README`](personas/education/README.md)（従来構成は新規導入手順ではない） |
+| Education Personaの4役割、6 Skills、従来の4Gem＋1構成 | [`Education README`](personas/education/README.md)（従来構成は新規導入手順ではない） |
 | Reference Personaと実務の役割分担 | [`Reference README`](personas/reference/README.md) |
 | Personaの識別・検証仕様 | [`PERSONA_IDENTIFICATION_AND_SETUP.md`](personas/PERSONA_IDENTIFICATION_AND_SETUP.md) |
 | Personaあり／なしの比較資料 | [検証例の案内](#persona-ab-code-generator) |
@@ -64,9 +64,9 @@ ReferenceのAI運用資料は、**Case Study → Prompt Template → Handoff Tem
   - [3.1 Personaあり／なしの検証例](#persona-ab-code-generator)
 - [4. Role of User（Userの役割）](#role-of-user)
 - [5. Structure（構成）](#structure)
-- [6. Education 4Skills（4役割の構成案）](#education-4skills)
-  - [6.1 4役割の概要](#education-4skills-overview)
-  - [6.2 Researcherの統合案](#education-4skills-researcher)
+- [6. Education Skills（基本4役割・合計6 Skills）](#education-4skills)
+  - [6.1 基本4役割と6 Skills](#education-4skills-overview)
+  - [6.2 Researcherの3 Skills](#education-4skills-researcher)
   - [6.3 Deep Researchの制約](#education-4skills-deep-research)
   - [6.4 評価の独立性への注意](#education-4skills-independence)
   - [6.5 従来の4Gem＋1構成（参考記録）](#education-4gem-plus-1)
@@ -202,7 +202,7 @@ AIの「完了」報告だけでは、実行・検証済みのEvidenceになり�
 │   ├── AI_ISSUES_EVIDENCE.md                第2章10項目の外部研究Evidence
 │   ├── SYCOPHANCY_CHALLENGER_PERSONAS.md    迎合研究の解説（Evidence集から参照）
 │   ├── assets/                              Evidence図表
-│   ├── education/   Education用Personaと従来の4Gem＋1構成
+│   ├── education/   Education用Persona（GEMとSKILLS）。従来の4Gem＋1は参考記録
 │   └── reference/   実務参考Persona・運用資料
 └── project-notes/   判断履歴・現在地点・検証記録
 ```
@@ -210,26 +210,33 @@ AIの「完了」報告だけでは、実行・検証済みのEvidenceになり�
 役割選択と責務境界は[`Education README`](personas/education/README.md)、実務事例と運用資料の案内は[`Reference README`](personas/reference/README.md)を参照してください。
 
 <a id="education-4skills"></a>
-## 6. Education 4Skills（4役割の構成案）
+## 6. Education Skills（基本4役割・合計6 Skills）
 
-2026-10-18のUser実機確認では、確認した環境でGemの表示がなくSkillsへ変更されていました。これは当該環境の観測であり、全Googleアカウントの移行完了ではありません。Education Personaの基本は、サービスの形態にかかわらず次の**4役割**です。これらをSkillとして使い分ける「4Skills」は構成案であり、4つのSkillの登録・実動検証が完了したことを意味しません。
+> [!IMPORTANT]
+> **重要：GEM版とSKILLS版のPersona機能本文は同一です。**
+>
+> 役割・責務・判断基準・Evidence規則・回答規則は変更しません。
+>
+> 違いは利用方式です。GEM固有の手動切替案内などは、Persona機能本文の一致判定に含めません。
+>
+> Researcherは既存の共通本文とModuleを、Learning・Development・Careerの3用途に再編しています。
+
+2026-10-18のUser実機確認では、確認した環境でGemの表示がなくSkillsへ変更されていました。これは当該環境の観測であり、全Googleアカウントの移行完了ではありません。Education Personaの基本は、サービスの形態にかかわらず**4役割**です。SKILLSでは、この4役割を合計6つのSkill定義にします。定義ファイルは Draft です。実登録と、自動選択の実動検証は未実施です。対応関係は[`Education README`](personas/education/README.md)にあります。
 
 <a id="education-4skills-overview"></a>
-### 6.1 4役割の概要（Skillとして利用する候補）
+### 6.1 基本4役割と6 Skills
 
-| 役割（Skillとして利用する候補） | 主な責務 |
-|---|---|
-| Researcher | 学習・就職・開発などの調査を1つのSkillで扱い、確認済み事実とEvidenceを示す |
-| Solution Partner | 目的・要求・制約を整理し、設計とコード生成用指示を具体化する |
-| Code Generator | 現行設計と仕様に従い、コード・testコードの生成、解析、修正を支援する |
-| Reviewer | 設計・コード・Userが作成した検証Evidenceを独立して評価する |
+| 役割 | Skillの数 | 主な責務 |
+|---|---|---|
+| Researcher | 3（Learning / Development / Career） | 学習、設計・開発、就職活動の調査を用途別に行い、確認済み事実とEvidenceを示す |
+| Solution Partner | 1 | 目的・要求・制約を整理し、設計とコード生成用指示を具体化する |
+| Code Generator | 1 | 現行設計と仕様に従い、コード・testコードの生成、解析、修正を支援する |
+| Reviewer | 1 | 設計・コード・Userが作成した検証Evidenceを独立して評価する |
 
 <a id="education-4skills-researcher"></a>
-### 6.2 Researcherの統合案（利点と未決事項）
+### 6.2 Researcherの3 Skills
 
-学習・就職・開発などの調査範囲ごとにSkillを分けず、Researcherを1つのSkillにまとめることで、切替・管理の手間を減らせる可能性があります。
-
-ただし、使用するPersona本文（既存の3完成版の扱いを含む）や調査範囲の切替方法は未決で、動作検証も未実施です。現行のEducation運用では、Userが3完成版から1版を明示選択します。
+Researcherは、既存の共通本文とModuleを維持したまま、Learning、Development、Careerの3つのSkillです。ファイル構成と対応関係は[`Education README`](personas/education/README.md)を参照してください。
 
 <a id="education-4skills-deep-research"></a>
 ### 6.3 Deep Researchの制約（Skills非対応）
@@ -239,7 +246,7 @@ AIの「完了」報告だけでは、実行・検証済みのEvidenceになり�
 <a id="education-4skills-independence"></a>
 ### 6.4 評価の独立性への注意
 
-同一アカウント内で4つのSkillsを使い分けるだけでは、本教材が求める独立レビューの条件を満たしません。必要な責務分離は[Gemini Skillsの警告](#gemini-skills-and-role-separation)を参照してください。
+同一アカウント内で、設計・コード生成・レビューのSkillsを使い分けるだけでは、本教材が求める独立レビューの条件を満たしません。必要な責務分離は[Gemini Skillsの警告](#gemini-skills-and-role-separation)を参照してください。
 
 <a id="education-4gem-plus-1"></a>
 ### 6.5 従来の4Gem＋1構成（参考記録）
