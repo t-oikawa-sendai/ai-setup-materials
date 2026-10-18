@@ -15,7 +15,7 @@
 
 ## 1. Purpose（目的）
 
-このディレクトリは、Education用4Gem＋1とは異なる前提で、実務構成の参考Personaと、役割分離の効果・限界を考えるための実践例を管理します。現在利用可能なReference文書への入口・索引です。サービスの設定方法は扱いません。
+このディレクトリは、Education基本4役割とは異なる前提で、実務構成の参考Personaと、役割分離の効果・限界を考えるための実践例を管理します。Reference Personaは、Education基本4役割を置き換えるものではありません。従来の4Gem＋1は歴史的な運用構成です。現在利用可能なReference文書への入口・索引です。サービスの設定方法は扱いません。
 
 ## 2. Recommended Reading Order（推奨する読み順）
 
@@ -29,15 +29,15 @@ AI運用参考資料は、次の順で読むと全体像から実際の利用方
 
 Personaそのものを参照したい場合は、下記のReference Personaから対象AIを選びます。
 
-## 3. Difference from Education 4Gem＋1（Education用4Gem＋1との違い）
+## 3. Difference from Education Basic 4 Roles（Education基本4役割との違い）
 
-Reference Personaは、Education用4Gem＋1と次の点が異なります。
+Reference Personaは、Education基本4役割と次の点が異なります。
 
 - 役割
 - 利用サービス
 - 実装・検証方法の前提
 
-Education用4Gem＋1の現行手順として、そのまま流用しないでください。設計思想や運用パターンの参考として扱ってください。
+Education基本4役割を置き換えるものではありません。従来の4Gem＋1は歴史的な運用構成です。設計思想や運用パターンの参考として扱ってください。
 
 ## 4. Current Reference Personas（現行Reference Persona）
 
@@ -69,7 +69,7 @@ O講師が実際に使用・検証しているAI利用環境、設定、情報�
 ## 6. Usage Notes（利用上の注意）
 
 - Education領域の役割構成とUser-firstフローは [`../education/README.md`](../education/README.md) を正とします。
-- 本ディレクトリの文書は参考資料であり、Education用4Gem＋1の代替ではありません。
+- 本ディレクトリの文書は参考資料であり、Education基本4役割を置き換えるものではありません。従来の4Gem＋1は歴史的な運用構成です。
 - O講師の実運用例は唯一の正解ではありません。利用者自身の目的、AIサービス、作業内容、環境に合わせて採否を判断してください。
 
 ## 7. Navigation（導線）

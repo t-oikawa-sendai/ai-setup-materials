@@ -1953,3 +1953,107 @@ Supersedes（上書き対象・範囲）:
 
 Non-Changes（非変更範囲）:
 D-001からD-052までの原文と保存場所。D-039の重要警告原文。D-048のアカウント分離条件。D-050の共通原則。既存Persona本文。検証Evidence。Researcherの3完成版はUserが明示選択する現行方針。1 Skillへの統合は未決・未検証の構成案であること。Skillsの登録手順。Education README の従来の4Gem＋1構成とResearcher完成版の選択。commit。push。
+
+## D-054 Record the ChatGPT Persona v3.1 Approval History and the Unmet Verification Gate（ChatGPT Persona v3.1 の承認経緯と、未達の検証ゲートを記録する）
+
+Date（日付）: 2026-10-18
+Related Documents（関連文書）: personas/reference/CHATGPT_PERSONA.md / personas/PERSONA_IDENTIFICATION_AND_SETUP.md / project-notes/CURRENT.md / project-notes/DECISIONS.md
+
+Decision（決定）:
+- D-052の原文は書き換えない。
+- ChatGPT Persona `personas/reference/CHATGPT_PERSONA.md` の Version 3.1 は、User本人が確認し、正式承認した。この最終承認を確定事項とする。Document Info は Version 3.1 / Status Approved である。
+- §11.1 は、Document Info の Version 3.1 / Approved と一致するよう修正済みである。現行の自己記述は「この本文は Version 3.1、Status Approved である。」である。
+- D-052は当初、変更を Document Info のみと記録し、本文中の §11.1 は Version 3.1（提案）、Status Draft の自己記述のままである、と記録した。これは D-052 を書いた時点の記録である。
+- 後続の §11.1 修正は、Userが作業結果を受け入れ、Commit と Push まで承認した。その保存先は `76d254acbae538f10c108c2cf3b73b900588f5df` である。この Decision では `personas/reference/CHATGPT_PERSONA.md` の本文に新たな修正を加えない。
+- 次を区別して記録する。
+
+| 項目 | 記録する状態 |
+|---|---|
+| Persona v3.1 | Approved |
+| User確認・最終承認 | 完了 |
+| 既存実動検証 | 4/6 |
+| D-025の6/6 PASS条件 | 未達 |
+| 新たな6/6 PASSのEvidence | 未確認 |
+| 共通仕様§16 | 現行規則を維持 |
+
+- User承認を理由に、技術検証を PASS へ変更しない。既存の実動検証 4/6 は変更しない。D-025 の6回すべて PASS は達成済みと扱わない。新たな 6/6 PASS の Evidence は、この決定では確認していない。
+- 共通仕様 `personas/PERSONA_IDENTIFICATION_AND_SETUP.md` 第16章の一般規則は変更しない。必要な実動検証と Evidence、および User承認を経ずに Approved へ昇格させない、という現行規則は維持する。
+- v3.1 は User の最終承認により Approved である。同時に、第16章の検証ゲートについて未達の条件が残る。未達は、既存実動検証が 4/6 であること、D-025 の 6/6 PASS 条件が未達であること、新たな 6/6 PASS の Evidence が未確認であることである。承認状態と、この未達を、両方明示する。第16章への完全適合を確認したとは記録しない。
+- この承認を、将来の Persona 改訂について検証工程を省略できる前例として拡張しない。「重要な改訂か否か」を AI の裁量で判断して検証工程を省略しない、という第16章の規則は維持する。
+- この Decision の記録はローカル反映である。この Decision 自体の commit と push は含まない。新しい commit の SHA は、commit 前には記録しない。
+
+Rationale（理由）:
+D-052 の記録と、Userが受け入れた §11.1 の修正後の本文が一致していなかったため。Userは v3.1 を自ら確認して最終承認し、§11.1 の修正結果も Commit と Push まで承認した。この承認は文書の状態を定める。第16章が求める検証ゲートの未達は、承認によって解消されない。承認だけを記録すると未達が隠れ、未達を PASS と記録すると検証 Evidence と異なるため、両方を残す。
+
+Evidence（根拠）:
+- 2026-10-18のUser決定。ChatGPT Persona v3.1 は User本人が確認・承認した。この最終承認を確定事項とする。§11.1 は Document Info の Version 3.1 / Approved と一致するよう修正済みである。当初の D-052 は Document Info のみの変更として記録した。後続の §11.1 修正は、Userが作業結果を受け入れ、Commit と Push まで承認した。
+- `76d254acbae538f10c108c2cf3b73b900588f5df` の `personas/reference/CHATGPT_PERSONA.md`。Document Info と §11.1 は、Version 3.1（提案）/ Status Draft から Version 3.1 / Status Approved へ変わっている。
+- 既存の実動検証 4/6、および D-025 の 6/6 PASS 未達は、D-052 と `project-notes/CURRENT.md` のそれ以前の記録のとおりである。この決定で新たな 6/6 PASS の Evidence は確認していない。
+
+Supersedes（上書き対象・範囲）:
+- project-notes/DECISIONS.md / 2026-10-18 / 「D-052 Approve Root README Version 1.4 and ChatGPT Persona Version 3.1」：変更を Document Info のみとし、本文中の §11.1 が Version 3.1（提案）、Status Draft の自己記述のままである、とした記述だけ。対象は、Userが受け入れた後続修正の結果を説明する範囲である。D-052 の原文は変更しない。Version 3.1 / Approved、既存実動検証 4/6、D-025 の 6/6 PASS を達成済みと扱わない部分は維持する。
+- 共通仕様第16章の本文は上書きしない。
+
+Non-Changes（非変更範囲）:
+D-001からD-053までの原文と保存場所。`personas/reference/CHATGPT_PERSONA.md` の本文。共通仕様第16章の一般規則。D-025 の検証条件、既存実動検証 4/6、6/6 PASS 未達。新たな実動検証の実施。検証 Evidence の合否の変更。D-039 の重要警告原文。D-048、D-050、D-053 の独立性条件。他Persona。将来の Persona 改訂で検証工程を省略できる前例。この Decision 自体の commit。push。
+
+## D-055 Preserve the Uncommitted Review Corrections under a One-Time Sync-Gate Exception（未commitの是正を保全し、同期ゲートの今回限りの例外を適用する）
+
+Date（日付）: 2026-10-18
+Related Documents（関連文書）: README.md / personas/education/GEM_REVIEWER.md / personas/education/README.md / personas/reference/README.md / project-notes/CURRENT.md / project-notes/DECISIONS.md / AGENTS.md / Repository全体
+
+Decision（決定）:
+- 2026-10-18、Userは今回に限り、既存の未commit変更6ファイルを保全したまま統合作業を再開することを承認した。必要な検証の後、残る承認対象の変更を commit し、origin/main へ push することも承認した。Force push はしない。
+- 作業開始時に確認した状態は次のとおりである。branch は `main`。ローカル HEAD と `origin/main` はどちらも `76d254acbae538f10c108c2cf3b73b900588f5df`。ahead/behind は 0 0。未commit変更は次の6ファイルだけである。`README.md`、`personas/education/GEM_REVIEWER.md`、`personas/education/README.md`、`personas/reference/README.md`、`project-notes/CURRENT.md`、`project-notes/DECISIONS.md`。予期しない変更、分岐、競合はなかった。
+- この一致を確認したため、未commit変更を reset、stash、checkout 等で破棄・退避・上書きせず、6ファイルだけの中間 commit も作らず、worktree も追加せず、作業を継続した。
+- この例外は今回の統合作業だけに適用する。`AGENTS.md` §2.1 の同期ゲートは変更しない。恒久的な例外にはしない。
+- 先行する Reviewer 是正の判断は、この Decision にも D-056 にもまとめない。R-01 と R-02 は D-054 に記録済みであり、D-054 の原文は変更しない。R-04 と R-05 は、既存の D-043、D-048、D-053 の範囲で本文を合わせたものであり、新たな方針判断としての別 Decision は作らない。R-03 は保存状態の記録合わせ、R-08 は `personas/education/GEM_REVIEWER.md` のバッククォート表記の修正である。R-06、R-07、R-09、R-10 は対象外のままである。
+- Evidence資料の追加は D-056 であり、この Decision に含めない。
+
+Rationale（理由）:
+`AGENTS.md` §2.1 は、未commit変更があるローカル変更作業を開始しない。Userは2026-10-18、先行是正が未commitのまま残っている状態を確認したうえで、その変更を破棄せず今回の統合作業を続けることを明示承認した。恒久規則を変えると、今回の保全を超えて同期ゲートの意味が変わるため、例外は今回だけにする。
+
+Evidence（根拠）:
+- 2026-10-18のUser決定。今回に限り、既存の未commit変更6ファイルを保全したまま統合作業を再開する。先行するReviewer是正とEvidence資料追加を統合する。必要な検証がPASSしたら、残る承認対象の変更を commit し push する。この例外は `AGENTS.md` §2.1 の恒久的な変更ではない。
+- 作業開始時の Git 状態。branch `main`。HEAD と `origin/main` は `76d254acbae538f10c108c2cf3b73b900588f5df`。ahead/behind は 0 0。未commit変更は上記6ファイルのみ。
+
+Supersedes（上書き対象・範囲）:
+なし。`AGENTS.md` §2.1 は上書きしない。今回の作業手順に限る例外であり、規則本文の変更はない。
+
+Non-Changes（非変更範囲）:
+D-001からD-054までの原文と保存場所。`AGENTS.md`。既存の検証Evidence。Personaの機能規則。R-06、R-07、R-09、R-10。未commit変更の破棄、退避、上書き。6ファイルだけの中間 commit。worktree の追加。Force push。
+
+## D-056 Add the AI Reliability Evidence Set and Link It from the Root README（AI信頼性のEvidence集を追加し、Root READMEから参照する）
+
+Date（日付）: 2026-10-18
+Related Documents（関連文書）: README.md / personas/AI_ISSUES_EVIDENCE.md / personas/SYCOPHANCY_CHALLENGER_PERSONAS.md / personas/assets/sycophancy_frontier_models_2026.png / project-notes/CURRENT.md / project-notes/DECISIONS.md
+
+Decision（決定）:
+- 次の3ファイルを追加する。`personas/AI_ISSUES_EVIDENCE.md`、`personas/SYCOPHANCY_CHALLENGER_PERSONAS.md`、`personas/assets/sycophancy_frontier_models_2026.png`。
+- 導線は `README.md` 第2章から `personas/AI_ISSUES_EVIDENCE.md` へ、そこから `personas/SYCOPHANCY_CHALLENGER_PERSONAS.md` へとする。9種類の反論者Personaの詳細は README に直接掲載しない。
+- Evidence集は、README第2章の全10項目について、一次資料、測定条件、研究結果、限界を整理する。2026-10-18のレビュー指摘 F-01 から F-08 を本文へ反映する。F-07 は確認できた書誌情報だけを補記する。F-08 は Evidence集で用語の関係を説明し、D-039 の重要警告原文は変更しない。
+- 評価原則は次のとおり維持する。少数の失敗でも、その検証条件で100%の動作保証が成立するとは扱わない。ただし、他の条件でも同じ失敗率になるとは主張しない。
+- Hazare et al.（2026）の9種類のPersonaは、AIへ反論する人物の立場・属性を模した実験条件である。本教材のResearcher、Solution Partner、Code Generator、Reviewerとは異なる。この研究を、本教材のPersonaによる改善効果の証明として説明しない。グラフの値は DRIFTS＋REVERSALS の合計であり、モデル一般の総合性能ランキングとして扱わない。
+- Root README の Document Info は Version 1.5（提案）/ Status Draft とする。Version 1.4 / Approved は前版の承認履歴として維持する（D-052）。Created Date は変更しない。第4章の最終決定の文は、「Userは作業全体の最終決定者として、Evidenceを確認し、修正方針・再提出・成果物の採否を決定します。ただし、その判断によって検証Evidenceの有無・真偽・技術的な合否は変わりません。」とする。
+- 新規2文書も Draft とする。Userによる修正方針の承認を、Draft 文書の正式な Approved、または研究結果の検証合格と混同しない。
+- 新規2文書の Document ID は UNRESOLVED とする。2026-08-22の Document ID 方案は、当時列挙した現行文書へ個別の ID を割り当てるものであり、この2文書の ID を一意に決めない。推測で採番しない。
+- 本書が `AGENTS.md` §1 の対象に含まれる理由は、Personaが対処しようとする問題の根拠を README 第2章の範囲で示すためである。一般的な生成AI学習教材として追加するのではない。Personaによる改善効果の実証ではない。
+- この判断は、D-054 の Reviewer 是正の判断とも、D-055 の同期ゲート例外とも別エントリである。
+
+Rationale（理由）:
+README第2章の課題説明には、測定条件と限界を追跡できる一次資料が必要である。迎合研究の9種類のPersonaを本教材の4役割と混同すると、研究結果をPersonaの効果証明と誤読する。文書の追加と参照関係は構造の変更であり、Draft のまま記録して、修正方針の承認と正式承認、検証合格を分けて残す。
+
+Evidence（根拠）:
+- 2026-10-18のUser決定。Evidence集、グラフ、9種類Persona解説を追加し、READMEからの導線を定める。READMEは Version 1.5（提案）/ Draft とする。Version 1.4 / Approved は前版の承認履歴として維持する。F-01 から F-06 を反映し、F-07 は確認できる書誌情報のみ、F-08 は Evidence集で用語関係を説明する。D-039 の警告原文は変更しない。
+- 2026-10-18のレビュー `REVIEW_2026-10-18_AI_ISSUES_EVIDENCE.md`。F-01 の URL、F-02 の32〜86%が回答変更率であること、F-03 の誤り認識率、F-06 の DRIFTS／REVERSALS の定義と内訳。
+- Hazare et al., medRxiv 2026-05-20、v1 の全文。9,000回答、迎合的応答639件（7.1%）、HOLDS 8,361、DRIFTS 372、REVERSALS 267。方法節の3分類の定義。モデル別の DRIFTS＋REVERSALS、および迎合的応答の内訳。分類に Claude Opus 4.6 を用い、524回答の人手判定との照合で accuracy 100% と報告していること。
+- 2026-08-22の Document ID 方案。新規2文書に対応する一意の ID は一覧にない。
+- arXiv API（2026-10-18取得）。[S14] は `2609.20812v3`、更新2026-09-22。[S15] は ICML 2026 ワークショップ Failure Modes in Agentic AI（FAGEN）採択。[S10] は NeurIPS 2024 Safe Generative AI Workshop 採択。
+- GPT-5 System Card の Sycophancy 節 URL `https://deploymentsafety.openai.com/gpt-5/sycophancy` は、2026-10-18に HTTP 200 を確認した。
+
+Supersedes（上書き対象・範囲）:
+- README.md / 2026-10-18 / Document Info の Version 1.4 / Status Approved：現行の版表示だけ。Version 1.4 / Approved は前版の承認履歴として残す。D-052 の原文は変更しない。
+- README.md 第2章の「自己正当化：誤りを指摘されても認めず、理由を後付けして元の回答を守る」：第2章の項目表現だけ。D-039 の重要警告原文は上書きしない。
+
+Non-Changes（非変更範囲）:
+D-001からD-055までの原文と保存場所。D-054 の原文。D-039 の重要警告原文。`AGENTS.md`。既存Personaの機能規則。既存の検証Evidence。既存実動検証 4/6。D-025 の 6/6 PASS 未達。共通仕様第16章への完全適合を確認したという記録。ChatGPT Persona Version 3.1 / Approved と、Userによる確認・最終承認。R-06、R-07、R-09、R-10。新規文書の Approved への昇格。研究結果の検証合格。Document ID の推測採番。

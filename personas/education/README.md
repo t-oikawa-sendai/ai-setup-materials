@@ -54,7 +54,11 @@ Personaの識別と検証の共通仕様は [`../PERSONA_IDENTIFICATION_AND_SETU
 
 従来のGem構成では、詳細調査用としてResearcher Personaを使う `Researcher Deep Research` を1つ追加する **4Gem＋1** の設計です。
 
-2026-10-16時点で、本教材の講師・生徒アカウントではGemを新規作成できないことを確認しました。以下の4Gem＋1は従来の承認済み構成であり、現在の生徒向け新規導入手順ではありません。既存Gemの利用・編集可否は未確認です。画面上の新しい導入手順は、本書では定めません。
+以下の4Gem＋1は従来の承認済み構成であり、現在の生徒向け新規導入手順ではありません。画面上の新しい導入手順は、本書では定めません。
+
+2026-10-18時点の[Google公式案内](https://support.google.com/gemini/answer/18560919?hl=ja)では、Gemの提供終了予定はアカウント種別により異なります。個人のGoogleアカウントは2026年11月、Workspace Business・Enterprise・Non-Profitは2027年3月、Workspace Educationは2027年6月です。提供終了に伴い、GemはSkillとして自動的に再作成される予定も案内されています。本教材の対象アカウント種別は未確認です。この公式予定は、既存Gemを現に利用・編集できることの確認ではありません。
+
+2026-10-16のUser実機確認では、本教材の講師・生徒アカウントでGemを新規作成できませんでした。2026-10-18のUser実機確認では、確認した環境でGemの表示がなく、Skillsへ変更されていました。これらは当該環境の観測であり、公式の提供終了予定とは別です。既存Gemの利用・編集可否は未確認のままです。
 
 従来の基本4Gemは次の4つです。
 
@@ -83,7 +87,7 @@ Researcherには、調査範囲の異なる完成版が3つあります。当面
 
 従来の4Gem＋1構成では、通常調査とDeep Researchに同じResearcher完成版を使う設計でした。複数の完成版を同時に混在させる設計ではありません。
 
-Deep ResearchをSkillsから利用できるとは扱いません。[Google公式案内](https://support.google.com/gemini/answer/18560919)では、2026-10-16時点でSkillsはDeep Researchに対応していません。この対応状況は、今回改めて確認したものではありません。
+Deep ResearchをSkillsから利用できるとは扱いません。2026-10-18時点の[Google公式案内](https://support.google.com/gemini/answer/18560919?hl=ja)では、SkillsはDeep Researchにはまだ対応していません。2026-10-16時点の同旨の記載は、その時点の記録として残します。当時の記載は、その作業で公式案内を改めて取得したものではありません。
 
 ## 4. User-first Basic Flow（User-firstの基本フロー）
 

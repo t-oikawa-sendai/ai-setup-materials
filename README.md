@@ -4,14 +4,16 @@
 | Item（項目） | Value（値） |
 |---|---|
 | Document ID（文書ID） | STD-PERSONA-INDEX-001 |
-| Version（バージョン） | 1.4 |
-| Status（ステータス） | Approved |
+| Version（バージョン） | 1.5（提案） |
+| Status（ステータス） | Draft |
 | Created Date（作成日） | 2026-08-17 |
 | Last Updated（最終更新日） | 2026-10-18 |
 | Owner（管理者） | Takashi Oikawa |
-| Related Documents（関連文書） | [`personas/education/README.md`](personas/education/README.md)<br>[`personas/WHY_PERSONA_MATTERS.md`](personas/WHY_PERSONA_MATTERS.md)<br>[`personas/reference/README.md`](personas/reference/README.md)<br>[`personas/reference/PERSONA_OPERATION_CASE_STUDY.md`](personas/reference/PERSONA_OPERATION_CASE_STUDY.md)<br>[`personas/PERSONA_IDENTIFICATION_AND_SETUP.md`](personas/PERSONA_IDENTIFICATION_AND_SETUP.md)<br>[`project-notes/2026-09-11-code-generator-5-pattern-comparison-reference.md`](project-notes/2026-09-11-code-generator-5-pattern-comparison-reference.md) |
+| Related Documents（関連文書） | [`personas/education/README.md`](personas/education/README.md)<br>[`personas/WHY_PERSONA_MATTERS.md`](personas/WHY_PERSONA_MATTERS.md)<br>[`personas/AI_ISSUES_EVIDENCE.md`](personas/AI_ISSUES_EVIDENCE.md)<br>[`personas/reference/README.md`](personas/reference/README.md)<br>[`personas/reference/PERSONA_OPERATION_CASE_STUDY.md`](personas/reference/PERSONA_OPERATION_CASE_STUDY.md)<br>[`personas/PERSONA_IDENTIFICATION_AND_SETUP.md`](personas/PERSONA_IDENTIFICATION_AND_SETUP.md)<br>[`project-notes/2026-09-11-code-generator-5-pattern-comparison-reference.md`](project-notes/2026-09-11-code-generator-5-pattern-comparison-reference.md) |
 
 </details>
+
+前版の承認履歴は Version 1.4 / Status Approved（D-052）である。この改訂は Version 1.5（提案）/ Status Draft である。修正方針の承認は、この Draft の正式な Approved、または研究結果の検証合格ではない。
 
 ---
 
@@ -25,12 +27,16 @@
 
 ## この資料で扱う2つの時間軸
 
+この表は、本教材の中での構成の変遷を示します。全Googleアカウントが2026年10月までにSkillsへ移行したという意味ではありません。
+
 | 時間軸 | 内容 | 現在の意味 |
 |-------|------|-----------|
-| 過去（〜2026年10月） | Geminiの「Gem」機能を使った4Gem＋1構成 | 承認済みの従来構成・関連記録 |
-| 現在（2026年10月〜） | Geminiの「Skills」機能への移行と4Skills構成案 | 未検証の構成案。新規導入先は未決 |
+| 教材内の従来構成 | Geminiの「Gem」機能を使った4Gem＋1構成 | 承認済みの従来構成・関連する検証記録 |
+| 教材内で検討中の構成案 | 4役割をGeminiの「Skills」として使う4Skills構成案 | 未検証の構成案。新規導入先は未決 |
 
-2026-10-18のUser実機確認ではGemの表示がなくSkillsへ変更されていました。2026-10-16には対象の講師・生徒アカウントでGemを新規作成できないことも確認されています。**4Gem＋1は現在の新規導入手順ではありません。**
+2026-10-18時点の[Google公式案内](https://support.google.com/gemini/answer/18560919?hl=ja)では、Gemの提供終了予定はアカウント種別により異なります。個人のGoogleアカウントは2026年11月、Workspace Business・Enterprise・Non-Profitは2027年3月、Workspace Educationは2027年6月です。提供終了に伴い、GemはSkillとして自動的に再作成される予定も案内されています。本教材の対象アカウント種別は未確認です。この公式予定から、既存Gemの利用・編集可否を確認済みとは扱いません。
+
+2026-10-16のUser実機確認では、対象の講師・生徒アカウントでGemを新規作成できませんでした。2026-10-18のUser実機確認では、確認した環境でGemの表示がなくSkillsへ変更されていました。これらは当該環境の観測であり、公式の提供終了予定とは別です。**4Gem＋1は現在の新規導入手順ではありません。**
 
 ---
 
@@ -99,7 +105,7 @@ Education Personaには職業訓練校向けの設計も含みますが、Reposi
 
 **自己評価・レビューの独立性に関わる偏り**
 
-- **自己正当化**：誤りを指摘されても認めず、理由を後付けして元の回答を守る
+- **自己正当化的な応答**：先の回答が誤っている場合でも、それを正当化する説明が重なり、誤りが連鎖することがある
 - **自己選好バイアス**：AI自身が生成した内容を、他の内容より高く評価しやすい
 
 **指示遵守・作業実行・検証**
@@ -108,12 +114,12 @@ Education Personaには職業訓練校向けの設計も含みますが、Reposi
 - **指示範囲外の変更**：頼んでいない箇所まで修正・追加する
 - **未検証の完了報告**：実行していないのに「完了」「テスト成功」と報告する
 
-本教材のPersonaは、これらの問題の影響を軽減することを目的として設計しています。AIの出力はUserが確認します。
+本教材のPersonaは、これらの問題の影響を軽減することを目的として設計しています。AIの出力はUserが確認します。各項目の根拠・研究条件・限界は[AI利用時の課題：Evidence集](personas/AI_ISSUES_EVIDENCE.md)を参照してください。
 
 <a id="why-persona-matters"></a>
 ## 3. Why Persona Matters（なぜPersonaが重要なのか）
 
-AIは自分の成果物を過大評価しがちです（自己選好バイアス）。また、間違いを指摘されても認めず、言い訳を並べることがあります（自己正当化バイアス）。
+AIが自分の生成物を相対的に高く評価する自己選好バイアスや、先の誤りを後続の説明で正当化する現象が、特定の実験条件で観測されています。一方、Userの疑問に迎合し、正しい回答まで撤回する場合もあります。
 
 そのため、設計とレビューを同じAIに任せるのではなく、調査・設計・コード生成・レビューの4つの役割を分けます。会話と記憶も分離することで、偏りの影響を軽減できる可能性があります。
 
@@ -163,7 +169,7 @@ Gemini SkillsのEducation運用では、これに加えて役割別アカウン�
 <a id="persona-ab-code-generator"></a>
 ### 3.1 Personaあり／なしの検証例（Code Generator）
 
-**Gemini 3.1 Pro**で、同一実装プロンプトによるCode Generator Personaなし／ありのA/B静的比較を実施しました。比較結果・評価項目・条件・限界は[検証詳細](personas/WHY_PERSONA_MATTERS.md#persona-ab-code-generator)を参照してください。GPT-5.6 Solなどを含む[5パターン横断比較](project-notes/2026-09-11-code-generator-5-pattern-comparison-reference.md)は補助資料です。
+**Gemini 3.1 Pro**で、同一実装プロンプトによるCode Generator Personaなし／ありのA/B比較（実行検証なし、コードレビューによる静的評価）を実施しました。比較結果・評価項目・条件・限界は[検証詳細](personas/WHY_PERSONA_MATTERS.md#persona-ab-code-generator)を参照してください。GPT-5.6 Solなどを含む[5パターン横断比較](project-notes/2026-09-11-code-generator-5-pattern-comparison-reference.md)は補助資料です。
 
 <a id="role-of-user"></a>
 ## 4. Role of User（Userの役割）
@@ -178,7 +184,7 @@ Gemini SkillsのEducation運用では、これに加えて役割別アカウン�
 
 AIの「完了」報告だけでは、実行・検証済みのEvidenceになりません。
 
-**Userの最終判断によって、検証Evidenceの有無、真偽、合否は変わりません。**
+**Userは作業全体の最終決定者として、Evidenceを確認し、修正方針・再提出・成果物の採否を決定します。ただし、その判断によって検証Evidenceの有無・真偽・技術的な合否は変わりません。**
 
 <a id="structure"></a>
 ## 5. Structure（構成）
@@ -191,6 +197,9 @@ AIの「完了」報告だけでは、実行・検証済みのEvidenceになり�
 ├── personas/
 │   ├── PERSONA_IDENTIFICATION_AND_SETUP.md  識別・検証の共通仕様（旧ファイル名を維持）
 │   ├── WHY_PERSONA_MATTERS.md               詳細比較・検証Evidence
+│   ├── AI_ISSUES_EVIDENCE.md                第2章10項目の外部研究Evidence
+│   ├── SYCOPHANCY_CHALLENGER_PERSONAS.md    迎合研究の解説（Evidence集から参照）
+│   ├── assets/                              Evidence図表
 │   ├── education/   Education用Personaと従来の4Gem＋1構成
 │   └── reference/   実務参考Persona・運用資料
 └── project-notes/   判断履歴・現在地点・検証記録
@@ -201,7 +210,7 @@ AIの「完了」報告だけでは、実行・検証済みのEvidenceになり�
 <a id="education-4skills"></a>
 ## 6. Education 4Skills（4役割の構成案）
 
-現在のUser実機環境ではGemの表示がなくSkillsへ移行しています。Education Personaの基本は、サービスの形態にかかわらず次の**4役割**です。これらをSkillとして使い分ける「4Skills」は構成案であり、4つのSkillの登録・実動検証が完了したことを意味しません。
+2026-10-18のUser実機確認では、確認した環境でGemの表示がなくSkillsへ変更されていました。これは当該環境の観測であり、全Googleアカウントの移行完了ではありません。Education Personaの基本は、サービスの形態にかかわらず次の**4役割**です。これらをSkillとして使い分ける「4Skills」は構成案であり、4つのSkillの登録・実動検証が完了したことを意味しません。
 
 <a id="education-4skills-overview"></a>
 ### 6.1 4役割の概要（Skillとして利用する候補）
@@ -223,7 +232,7 @@ AIの「完了」報告だけでは、実行・検証済みのEvidenceになり�
 <a id="education-4skills-deep-research"></a>
 ### 6.3 Deep Researchの制約（Skills非対応）
 
-2026-10-18時点の[Google公式案内](https://support.google.com/gemini/answer/18560919?hl=ja)によれば、Gemini SkillsはDeep Researchに対応していません。従来の追加「Researcher Deep Research」Gemに相当する5つ目のSkillは設けず、SkillからDeep Researchを起動・切替できるとは案内しません。
+2026-10-18時点の[Google公式案内](https://support.google.com/gemini/answer/18560919?hl=ja)によれば、Gemini SkillsはDeep Researchにはまだ対応していません。従来の追加「Researcher Deep Research」Gemに相当する5つ目のSkillは設けず、SkillからDeep Researchを起動・切替できるとは案内しません。
 
 <a id="education-4skills-independence"></a>
 ### 6.4 評価の独立性への注意
