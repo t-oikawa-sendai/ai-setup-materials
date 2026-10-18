@@ -2057,3 +2057,30 @@ Supersedes（上書き対象・範囲）:
 
 Non-Changes（非変更範囲）:
 D-001からD-055までの原文と保存場所。D-054 の原文。D-039 の重要警告原文。`AGENTS.md`。既存Personaの機能規則。既存の検証Evidence。既存実動検証 4/6。D-025 の 6/6 PASS 未達。共通仕様第16章への完全適合を確認したという記録。ChatGPT Persona Version 3.1 / Approved と、Userによる確認・最終承認。R-06、R-07、R-09、R-10。新規文書の Approved への昇格。研究結果の検証合格。Document ID の推測採番。
+
+## D-057 Standardize the Teaching Term for Error Snowballing（教材上の表記を「自己正当化バイアス（誤りの連鎖）」に統一する）
+
+Date（日付）: 2026-10-18
+Related Documents（関連文書）: README.md / personas/AI_ISSUES_EVIDENCE.md / personas/education/README.md / project-notes/CURRENT.md / project-notes/DECISIONS.md / Repository全体
+
+Decision（決定）:
+- 2026-10-18、Userは、本Repositoryの教材上の標準表記を「自己正当化バイアス（誤りの連鎖）」と決定した。
+- この表記は教材上の用語である。学術的に確立した独立バイアスであるとは断定しない。
+- 現行の仕様・解説本文で用いる名称を、この標準表記へ統一する。今回の本文反映先は、Root README 第2章の項目名、第3章冒頭、第3章の重要警告ブロックの外に置く補足、`personas/AI_ISSUES_EVIDENCE.md` の E-06（対応表、見出し、用語説明、READMEへの参照）、および `personas/education/README.md` の現行の運用方針である。
+- D-039の承認済み重要警告原文は保存する。警告ブロック内の「自己正当化バイアス」は書き換えない。過去のDecision原文、研究論文の正式名称・引用、過去の検証記録、Personaの機能・責務定義は、一括置換の対象外とする。
+- 既存のEvidence区分、研究数値、出典URL、グラフは変更しない。E-01からE-10の判定は変更しない。
+- 報告済みの未commit変更は `README.md` と `personas/AI_ISSUES_EVIDENCE.md` の2ファイルである。作業開始時、branch は `main`、ローカルHEADと `origin/main` はどちらも `e256a7cac95501601576594e224635022a700a04`、ahead/behind は 0 0 だった。この2ファイルを破棄・退避・上書きせず、用語統一を完了まで進める。この扱いは今回の継続作業に限る。`AGENTS.md` §2.1 の恒久規則と D-055 の適用範囲は変更しない。
+
+Rationale（理由）:
+Root README 第2章の「自己正当化的な応答」と、D-039重要警告の「自己正当化バイアス」が併存すると、同じ項目を別の概念と読める。Userは教材上の呼び方を一つに定め、研究が直接実証した範囲と、内的心理状態の証明ではないことを分けて残すことを決定した。警告原文と過去の判断記録を書き換えると、承認済みの原文が失われる。
+
+Evidence（根拠）:
+- 2026-10-18のUser決定。本Repositoryの標準表記は「自己正当化バイアス（誤りの連鎖）」である。教材上の用語であり、学術的に確立した独立バイアスであるとは断定しない。D-039警告原文と過去Decisionは保全する。既存のEvidenceと研究結果は変更しない。報告済みの未commit2ファイルを保全して完了まで進める扱いは、今回に限る。
+- 作業開始時の Git 状態。branch `main`。HEAD と `origin/main` は `e256a7cac95501601576594e224635022a700a04`。未commit変更は `README.md` と `personas/AI_ISSUES_EVIDENCE.md` のみ。fetch 後の ahead/behind は 0 0。
+
+Supersedes（上書き対象・範囲）:
+- README.md 第2章の項目名「自己正当化的な応答」：現行の項目名だけ。先の誤りを前提に後続の説明で誤りを重ねる、という説明の範囲は維持する。D-056 の原文は変更しない。D-039 の重要警告原文は上書きしない。
+- personas/education/README.md の現行本文にある「自己正当化バイアス」：現行の運用方針で用いる名称だけ。D-053 の原文は変更しない。
+
+Non-Changes（非変更範囲）:
+D-001からD-056までの原文と保存場所。D-039 の重要警告原文。`AGENTS.md`。既存Personaの機能・責務定義。`personas/reference/CHATGPT_PERSONA.md` の「自己正当化をしない」。研究論文の正式名称・引用。過去の検証記録。既存のEvidence区分、研究数値、出典URL、グラフ。E-01からE-10の判定。Root README 第4章のUser最終決定権。Root README の Version 1.5（提案）/ Draft。Evidence文書の Draft と Document ID UNRESOLVED。9種類Personaの独立解説。`AGENTS.md` §2.1 の恒久規則。D-055 の適用範囲。
