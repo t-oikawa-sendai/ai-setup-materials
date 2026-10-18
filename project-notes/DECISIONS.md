@@ -2129,3 +2129,35 @@ Rejected（不採用案）:
 - SKILLS用に、共通機能本文とは別の判断基準を持つPersonaを作る方式
 - 6ファイルのすべてが、旧GEMと全文で1対1に一致すると記載する方式
 - SKILLS版で、実行できない手動切替を案内する方式
+
+## D-059 Clarify That D-058 Manual Skill Switching Means GEM-Style Persona Reselection（D-058のSkills手動切替はGEM方式のPersona選択し直しを意味する）
+
+Date（日付）: 2026-10-18
+Related Documents（関連文書）: project-notes/DECISIONS.md / project-notes/CURRENT.md / personas/education/README.md / personas/education/SKILLS/RESEARCHER_LEARNING.md / personas/education/SKILLS/RESEARCHER_DEVELOPMENT.md / personas/education/SKILLS/RESEARCHER_CAREER.md
+
+Decision（決定）:
+- 2026-10-18、Userは、D-058の「Skillsの手動切替操作ができない」の意味を補足した。これは、従来のGEMのように、使用するPersonaを選択し直す方式での切り替えを意味する。GEMの切り替えのようにSKILLSを切り替えることはできない、という意味である。
+- Skill名を指定した明示的呼び出しが一切できない、という意味ではない。Google公式案内にある、Skill名を指定した明示的呼び出しと、GEM方式のPersona切り替えは異なる。
+- SKILLS版ResearcherからGEM固有の切替案内を削除したD-058の判断は維持する。削除した案内は戻さない。
+- Skillsの自動適用、6ファイル構成、Persona共通機能本文は変更しない。Skillsの自動適用仕様や、新たな切替機能は追加しない。
+- D-001からD-058の原文は変更しない。この補足は後続の本Decisionに記録する。
+- Skillsの実登録と実動検証は未実施のままである。6ファイルは Draft のままとする。Approvedへ昇格しない。
+
+Rationale（理由）:
+D-058の「手動切替操作ができない」を、Skill名による明示的呼び出しの否定と読むと、Google公式案内の呼び出しと、GEM方式のPersona選択し直しを同じ操作として扱うことになる。Userの補足は、GEMの切り替えのようにSKILLSを切り替えることはできない、という意味である。切替案内を削除した判断の対象は、そのGEM方式の案内である。
+
+Evidence（根拠）:
+- 2026-10-18のUser補足。GEMの切り替えのようにSKILLSを切り替えることはできない、という意味である。Skill名を指定した明示的呼び出しが一切できない、という意味ではない。
+- 2026-10-18の確定仕様。Google公式案内のSkill名指定による明示的呼び出しと、GEM方式のPersona切り替えは異なる。SKILLS版ResearcherからGEM固有の切替案内を削除した判断は維持する。Skillsの自動適用、6ファイル構成、Persona共通機能本文は変更しない。既存Decisionの原文は改変しない。Skillsの実登録と実動検証は未実施であり、Draftを維持する。
+- 作業開始時の Git 状態。Repository は `t-oikawa-sendai/ai-setup-materials`。branch は `main`。ローカル HEAD と `origin/main` は `9ddbc319b48d6b7bcb53254a830c6622af54d20f`。未commit変更はなかった。fetch 後の ahead/behind は 0 0。
+
+Supersedes（上書き対象・範囲）:
+- project-notes/DECISIONS.md / 2026-10-18 / 「D-058 Preserve Education GEMs and Add Six Student Skills」：「Gemini Skillsの手動切替操作ができない」という文言が指す範囲だけ。GEMのように使用するPersonaを選択し直す方式を指す。Skill名を指定した明示的呼び出しの可否は、この文言では否定しない。GEM固有の切替案内をSKILLS版Researcherから削除した判断、Skillsの自動適用、6ファイル構成、Persona共通機能本文は上書きしない。D-058の原文は変更しない。
+
+Non-Changes（非変更範囲）:
+D-001からD-058までの原文と保存場所。`AGENTS.md`。既存 `personas/education/GEM_*.md`。`personas/education/SKILLS/` の6ファイルの本文。Personaの役割・責務・判断基準・Evidence規則・回答規則。Skillsの自動適用仕様。切替機能の追加。Root README の Version 1.5（提案）/ Draft。Education README の Version 1.1（提案）/ Draft。SKILLS 6ファイルの Version 0.1（提案）/ Draft と Document ID UNRESOLVED。Skillsの実登録、自動選択の実動検証、Deep Research連携。Approvedへの昇格。
+
+Rejected（不採用案）:
+- D-058の原文を書き換えて意味を訂正する方式
+- 「手動切替ができない」を、Skill名を指定した明示的呼び出しができない、という意味に読む方式
+- GEM固有の切替案内をSKILLS版Researcherへ戻す方式

@@ -173,7 +173,7 @@ Reviewerは、次の4段階で判定します。
 - `REWORK REQUIRED`
 - `BLOCKED`
 
-判定の詳細、出力項目、修正案、Evidence不足時の案内は [`GEM_REVIEWER.md`](GEM_REVIEWER.md) を参照してください。Reviewerの判定はUser（生徒）の最終判断に代わるものではありません。
+判定の詳細、出力項目、修正案、Evidence不足時の案内は [`GEM_REVIEWER.md`](GEM_REVIEWER.md) と [`SKILLS/REVIEWER.md`](SKILLS/REVIEWER.md) を参照してください。Reviewerの判定はUser（生徒）の最終判断に代わるものではありません。
 
 ## 8. Evidence and Canonical Sources（Evidenceと正本）
 

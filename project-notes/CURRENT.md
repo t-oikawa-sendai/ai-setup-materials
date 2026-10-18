@@ -19,7 +19,7 @@ Personaの意義・効果・限界と役割分離を説明する `ai-setup-mater
 - Root README `README.md` の現行ファイルは Version 1.5（提案）/ Draft である（D-056）。Version 1.4 / Approved は前版の承認履歴である（D-052）。第3章の警告と比較図の後の独立性の説明は D-053 に整合する。D-039 の重要警告原文は変更していない。D-040 の Version 1.3 / Approved、および D-051 が Version 1.3 / Approved を維持した状態は、Version 1.4 より前の記録である。
 - AI利用時の課題の根拠は `personas/AI_ISSUES_EVIDENCE.md`、Hazare et al.（2026）の9種類の反論者Personaの解説は `personas/SYCOPHANCY_CHALLENGER_PERSONAS.md`、グラフは `personas/assets/sycophancy_frontier_models_2026.png` である。導線は Root README 第2章から Evidence 集へ、Evidence 集から解説へである。判断は D-056。いずれも Draft。Document ID は UNRESOLVED。この追加は、Personaによる改善効果の実証でも、研究結果の検証合格でもない。
 - 教材上の標準表記は「自己正当化バイアス（誤りの連鎖）」である（D-057）。Root README 第2章の項目名、第3章冒頭、Evidence集 E-06、Education README の現行の運用方針がこの表記を用いる。D-039 の重要警告原文は変更していない。この表記は教材上の用語であり、学術的に確立した独立バイアスであるとは断定しない。
-- Education README `personas/education/README.md` の現行ファイルは Version 1.1（提案）/ Draft である（D-058）。Version 1.0 / Approved は前版の承認履歴である。サービス非依存の基本4役割は維持する（D-053）。従来の4Gem＋1の承認は、評価の独立性の実証ではない。SKILLS構成は `personas/education/SKILLS/` の6ファイルで、いずれも Draft、Document ID は UNRESOLVED である。既存の `personas/education/GEM_*.md` は変更していない。Skillsの実登録、自動選択の実動検証、Deep Research連携、講師本人によるSkills実動検証は未実施である。
+- Education README `personas/education/README.md` の現行ファイルは Version 1.1（提案）/ Draft である（D-058）。Version 1.0 / Approved は前版の承認履歴である。サービス非依存の基本4役割は維持する（D-053）。従来の4Gem＋1の承認は、評価の独立性の実証ではない。SKILLS構成は `personas/education/SKILLS/` の6ファイルで、いずれも Draft、Document ID は UNRESOLVED である。既存の `personas/education/GEM_*.md` は変更していない。Skillsの実登録、自動選択の実動検証、Deep Research連携、講師本人によるSkills実動検証は未実施である。D-058の「Skillsの手動切替操作ができない」の意味は D-059 が補足する。D-058の原文は変更しない。
 - ChatGPT Persona `personas/reference/CHATGPT_PERSONA.md` の現行ファイルは Version 3.1 / Approved である。User確認と最終承認は完了している（D-052、経緯と検証ゲートは D-054）。§11.1 は Document Info の Version 3.1 / Approved と一致する。この一致は `76d254acbae538f10c108c2cf3b73b900588f5df` に含まれる。D-052 は当初、変更を Document Info のみと記録した。その原文は変更しない。`fb1d2e6` で `main` に入ったファイル、および上記 HEAD のファイルは Version 3.1（提案）/ Draft である（D-050）。D-037 と D-038 の Version 3.0 / Approved は、この改訂より前の承認履歴であり、現行ファイルではない。既存の実動検証は 4/6 である。D-025 の 6/6 PASS は未達である。新たな 6/6 PASS の Evidence は未確認である。共通仕様第16章の現行規則は維持する。User承認は技術検証を PASS に変えない。第16章への完全適合は確認していない。
 - 検証用Persona `personas/reference/IT_GENERAL_ADVISOR_TEST_PERSONA.md` の現行ファイルは Version 3.0 / Approved である（D-037、D-038）。Version 0.1 / Draft は 2026-10-13時点の検証前の状態である。区別は `personas/reference/README.md` 第4.1節に書く。
 - 次の記録は GitHub `main` に保存済みである。各 Decision 本文にある「commit と push は行わない」は、その決定の時点で commit と push を行わなかったという記録である。現在の未保存を意味しない。Decision の原文は変更していない。
@@ -31,8 +31,9 @@ Personaの意義・効果・限界と役割分離を説明する `ai-setup-mater
   - D-050: `fb1d2e6`
   - D-051: `4045694`（上記 HEAD）
   - D-052、D-053、および同 commit の5ファイル（`README.md`、`personas/education/README.md`、`personas/reference/CHATGPT_PERSONA.md`、`project-notes/CURRENT.md`、`project-notes/DECISIONS.md`）: `76d254acbae538f10c108c2cf3b73b900588f5df`
+  - D-058、および同 commit の対象（`README.md`、`personas/education/README.md`、`personas/education/SKILLS/` の6ファイル、`project-notes/CURRENT.md`、`project-notes/DECISIONS.md`）: `9ddbc319b48d6b7bcb53254a830c6622af54d20f`
 
-変更直後の本ファイルに書いた「commit と push は未実施」は、その時点の記録である。後続 commit で `main` に入ったものの現在の保存先は、この節と完了事項に書く。整理前の本ファイル全文は、上記 HEAD の `project-notes/CURRENT.md` に残る。D-052 と D-053 の本文にある「commit と push を含まない」も、その決定の時点の記録であり、上記の保存済み commit を未保存と読まない。
+変更直後の本ファイルに書いた「commit と push は未実施」は、その時点の記録である。後続 commit で `main` に入ったものの現在の保存先は、この節と完了事項に書く。整理前の本ファイル全文は、上記 HEAD の `project-notes/CURRENT.md` に残る。D-052、D-053、D-058 の本文にある「commit と push を含まない」も、その決定の時点の記録であり、上記の保存済み commit を未保存と読まない。D-059 は、D-058 の保存 commit には含まれない。
 
 - Gemの提供終了予定は、2026-10-18時点のGoogle公式案内ではアカウント種別により異なる。個人のGoogleアカウントは2026年11月、Workspace Business・Enterprise・Non-Profitは2027年3月、Workspace Educationは2027年6月である。提供終了に伴うSkillsへの自動再作成も、同案内にある。本教材の対象アカウント種別は未確認である。2026-10-16のUser観測は、対象の講師・生徒アカウントでGemを新規作成できないことである。2026-10-18のUser観測は、確認した環境でGemの表示がなくSkillsへ変わっていたことである。これらの観測は公式予定とは別である。既存Gemの利用・編集可否は未確認である。公式予定を、既存Gemの利用・編集が確認済みである根拠にはしない。Skillsは、同案内の時点でDeep Researchにはまだ対応していない。案内の所在は Root README と Education README に書く。
 
@@ -60,7 +61,8 @@ Personaの意義・効果・限界と役割分離を説明する `ai-setup-mater
 - 2026-10-18。Root README の表現明確化3件と、Reviewer指摘 R-01、R-02、R-03、R-04、R-05、R-08 を反映した。R-01 と R-02 の判断は D-054。R-04 と R-05 は、既存の D-043、D-048、D-053 の範囲で本文を合わせた。新たな方針判断としての別 Decision は作っていない。R-06、R-07、R-09、R-10 は対象外である。この反映は、D-055 の今回限りの例外により保全したまま、D-056 と同じ commit に含まれる。保存先の SHA は、その commit 自身であるため本文には書かない。D-052 と D-053 の保存済み commit とは別である。
 - 2026-10-18。同期ゲートの今回限りの例外は D-055。Evidence資料の追加と参照関係は D-056。状態は現在地点に書く。
 - 2026-10-18。教材上の標準表記を定め、Root README、Evidence集、Education README の現行本文へ反映した。判断は D-057。報告済みの未commit変更2ファイルは保全した。この保全は今回の継続作業に限る。`AGENTS.md` §2.1 と D-055 の適用範囲は変更しない。保存先の SHA は、この文を含む commit 自身であるため本文には書かない。
-- 2026-10-18。既存GEMを保全したまま、EducationのSKILLS 6ファイルを追加し、Root README と Education README を更新した。判断は D-058。この作業の commit と push は未実施である。実動検証は未実施であり、Approved ではない。
+- 2026-10-18。既存GEMを保全したまま、EducationのSKILLS 6ファイルを追加し、Root README と Education README を更新した。判断は D-058。D-058 本文の「commit と push を含まない」は、その決定の時点の記録である。保存 commit は `9ddbc319b48d6b7bcb53254a830c6622af54d20f` である。実動検証は未実施であり、Approved ではない。
+- 2026-10-18。D-058の「Skillsの手動切替操作ができない」の意味を補足した。判断は D-059。D-058の原文は変更していない。同じ修正で、Hazare et al. の事例抽出条件と分類上の限界、Root README 第3章の用語の読まれ方、Education README 第7章の参照先を直した。Version と Status は変更していない。D-059 は、D-058 の保存 commit `9ddbc319b48d6b7bcb53254a830c6622af54d20f` には含まれない。
 - 前回の本ファイルが記録した実測は、次のとおり残す。Claude Persona は、Project登録対象（`# Claude Persona` から本文末尾、末尾改行を含む）7,925、ファイル全体（末尾改行を含む）8,254。この整理で上記 HEAD のファイルを Unicode コードポイント数で確認し、同じ数値だった。ChatGPT Persona について、D-037 の承認表示後の記録はファイル全体が末尾改行を含めて 8,330、除いて 8,329。Owner欄訂正後の記録は、含めて 8,329、除いて 8,328。Project登録対象の記録は、含めて 7,999、除いて 7,998。上記 HEAD の現行ファイルは、ファイル全体が含めて 8,330、除いて 8,329、Project登録対象（`# ChatGPT向け責務定義` から本文末尾、Document Info を除く）が含めて 7,999、除いて 7,998 である。Owner欄訂正後として記録された 8,329 / 8,328 は、この HEAD の実測とは一致しない。当時の記録として残す。7,500文字は設計目標値であり、超過だけを不合格または作業停止としない（D-030）。
 
 ## 作業中
