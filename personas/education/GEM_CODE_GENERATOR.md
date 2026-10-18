@@ -1,4 +1,6 @@
-<!-- Document Info（文書情報） -->
+<details>
+<summary>Document Info（文書情報）</summary>
+
 | Item（項目） | Value（値） |
 |---|---|
 | Document ID（文書ID） | STD-PERSONA-EDU-CODE-GENERATOR-001 |
@@ -8,6 +10,8 @@
 | Last Updated（最終更新日） | 2026-10-16 |
 | Owner（管理者） | Takashi Oikawa |
 | Related Documents（関連文書） | [`README.md`](README.md) |
+
+</details>
 
 ---
 

@@ -1,4 +1,6 @@
-<!-- Document Info（文書情報） -->
+<details>
+<summary>Document Info（文書情報）</summary>
+
 | Item（項目） | Value（値） |
 |---|---|
 | Document ID（文書ID） | STD-PERSONA-IDENTIFICATION-SETUP-001 |
@@ -8,6 +10,8 @@
 | Last Updated（最終更新日） | 2026-10-17 |
 | Owner（管理者） | Takashi Oikawa |
 | Related Documents（関連文書） | [`../AGENTS.md`](../AGENTS.md)<br>[`../README.md`](../README.md)<br>[`education/README.md`](education/README.md)<br>[`reference/README.md`](reference/README.md)<br>[`../project-notes/DECISIONS.md`](../project-notes/DECISIONS.md)<br>[`../project-notes/CURRENT.md`](../project-notes/CURRENT.md) |
+
+</details>
 
 ---
 

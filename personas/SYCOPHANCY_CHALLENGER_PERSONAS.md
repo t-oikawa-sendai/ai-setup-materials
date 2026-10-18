@@ -1,6 +1,8 @@
 # 迎合研究の「9種類のPersona」とは何か（研究解説）
 
-<!-- Document Info（文書情報） -->
+<details>
+<summary>Document Info（文書情報）</summary>
+
 | Item（項目） | Value（値） |
 |---|---|
 | Document ID（文書ID） | UNRESOLVED |
@@ -10,6 +12,8 @@
 | Last Updated（最終更新日） | 2026-10-18 |
 | Owner（管理者） | Takashi Oikawa |
 | Related Documents（関連文書） | [`AI_ISSUES_EVIDENCE.md`](AI_ISSUES_EVIDENCE.md)／[`../README.md`](../README.md) |
+
+</details>
 
 Document ID は UNRESOLVED である。2026-08-22の Document ID 方案は、当時の現行文書へ個別の ID を割り当てる一覧であり、この新規文書の ID を一意に決めない。推測で採番しない。
 

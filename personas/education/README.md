@@ -1,4 +1,6 @@
-<!-- Document Info（文書情報） -->
+<details>
+<summary>Document Info（文書情報）</summary>
+
 | Item（項目） | Value（値） |
 |---|---|
 | Document ID（文書ID） | STD-PERSONA-EDU-INDEX-001 |
@@ -8,6 +10,8 @@
 | Last Updated（最終更新日） | 2026-10-18 |
 | Owner（管理者） | Takashi Oikawa |
 | Related Documents（関連文書） | [`../../README.md`](../../README.md)<br>[`../PERSONA_IDENTIFICATION_AND_SETUP.md`](../PERSONA_IDENTIFICATION_AND_SETUP.md)<br>[`GEM_RESEARCHER_FULL.md`](GEM_RESEARCHER_FULL.md)<br>[`GEM_RESEARCHER_LEARNING_DEVELOPMENT.md`](GEM_RESEARCHER_LEARNING_DEVELOPMENT.md)<br>[`GEM_RESEARCHER_DEVELOPMENT.md`](GEM_RESEARCHER_DEVELOPMENT.md)<br>[`GEM_SOLUTION_PARTNER.md`](GEM_SOLUTION_PARTNER.md)<br>[`GEM_CODE_GENERATOR.md`](GEM_CODE_GENERATOR.md)<br>[`GEM_REVIEWER.md`](GEM_REVIEWER.md)<br>[`SKILLS/RESEARCHER_LEARNING.md`](SKILLS/RESEARCHER_LEARNING.md)<br>[`SKILLS/RESEARCHER_DEVELOPMENT.md`](SKILLS/RESEARCHER_DEVELOPMENT.md)<br>[`SKILLS/RESEARCHER_CAREER.md`](SKILLS/RESEARCHER_CAREER.md)<br>[`SKILLS/SOLUTION_PARTNER.md`](SKILLS/SOLUTION_PARTNER.md)<br>[`SKILLS/CODE_GENERATOR.md`](SKILLS/CODE_GENERATOR.md)<br>[`SKILLS/REVIEWER.md`](SKILLS/REVIEWER.md) |
+
+</details>
 
 前版の承認履歴は Version 1.0 / Status Approved である。この改訂は Version 1.1（提案）/ Status Draft である。Skillsの実登録と実動検証は未実施であり、この Draft の正式な Approved ではない。
 
