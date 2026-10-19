@@ -36,6 +36,7 @@ Personaの意義・効果・限界と役割分離を説明する `ai-setup-mater
 変更直後の本ファイルに書いた「commit と push は未実施」は、その時点の記録である。後続 commit で `main` に入ったものの現在の保存先は、この節と完了事項に書く。整理前の本ファイル全文は、上記 HEAD の `project-notes/CURRENT.md` に残る。D-052、D-053、D-058 の本文にある「commit と push を含まない」も、その決定の時点の記録であり、上記の保存済み commit を未保存と読まない。D-059 は、D-058 の保存 commit には含まれない。
 
 - Gemの提供終了予定は、2026-10-18時点のGoogle公式案内ではアカウント種別により異なる。個人のGoogleアカウントは2026年11月、Workspace Business・Enterprise・Non-Profitは2027年3月、Workspace Educationは2027年6月である。提供終了に伴うSkillsへの自動再作成も、同案内にある。本教材の対象アカウント種別は未確認である。2026-10-16のUser観測は、対象の講師・生徒アカウントでGemを新規作成できないことである。2026-10-18のUser観測は、確認した環境でGemの表示がなくSkillsへ変わっていたことである。これらの観測は公式予定とは別である。既存Gemの利用・編集可否は未確認である。公式予定を、既存Gemの利用・編集が確認済みである根拠にはしない。Skillsは、同案内の時点でDeep Researchにはまだ対応していない。案内の所在は Root README と Education README に書く。
+- Git操作の承認は D-060 である。Push の明示指示には、対象変更を Commit する許可を含む。反映先は `AGENTS.md` と `personas/reference/CHATGPT_PERSONA.md` の §5、§7 である。ChatGPT Persona の Version 3.1 / Approved は維持する。この文の時点では commit と push は行っていない。中央Governance正本は編集していない。
 
 ## 完了事項
 
@@ -63,6 +64,7 @@ Personaの意義・効果・限界と役割分離を説明する `ai-setup-mater
 - 2026-10-18。教材上の標準表記を定め、Root README、Evidence集、Education README の現行本文へ反映した。判断は D-057。報告済みの未commit変更2ファイルは保全した。この保全は今回の継続作業に限る。`AGENTS.md` §2.1 と D-055 の適用範囲は変更しない。保存先の SHA は、この文を含む commit 自身であるため本文には書かない。
 - 2026-10-18。既存GEMを保全したまま、EducationのSKILLS 6ファイルを追加し、Root README と Education README を更新した。判断は D-058。D-058 本文の「commit と push を含まない」は、その決定の時点の記録である。保存 commit は `9ddbc319b48d6b7bcb53254a830c6622af54d20f` である。実動検証は未実施であり、Approved ではない。
 - 2026-10-18。D-058の「Skillsの手動切替操作ができない」の意味を補足した。判断は D-059。D-058の原文は変更していない。同じ修正で、Hazare et al. の事例抽出条件と分類上の限界、Root README 第3章の用語の読まれ方、Education README 第7章の参照先を直した。Version と Status は変更していない。D-059 は、D-058 の保存 commit `9ddbc319b48d6b7bcb53254a830c6622af54d20f` には含まれない。
+- 2026-10-18。Git操作の承認を、Push の明示指示に対象変更の Commit 許可を含める規則へ更新した。判断は D-060。反映先は `AGENTS.md` と ChatGPT Persona の §5、§7 である。この文の時点では commit と push は行っていない。中央Governance正本は編集していない。
 - 前回の本ファイルが記録した実測は、次のとおり残す。Claude Persona は、Project登録対象（`# Claude Persona` から本文末尾、末尾改行を含む）7,925、ファイル全体（末尾改行を含む）8,254。この整理で上記 HEAD のファイルを Unicode コードポイント数で確認し、同じ数値だった。ChatGPT Persona について、D-037 の承認表示後の記録はファイル全体が末尾改行を含めて 8,330、除いて 8,329。Owner欄訂正後の記録は、含めて 8,329、除いて 8,328。Project登録対象の記録は、含めて 7,999、除いて 7,998。上記 HEAD の現行ファイルは、ファイル全体が含めて 8,330、除いて 8,329、Project登録対象（`# ChatGPT向け責務定義` から本文末尾、Document Info を除く）が含めて 7,999、除いて 7,998 である。Owner欄訂正後として記録された 8,329 / 8,328 は、この HEAD の実測とは一致しない。当時の記録として残す。7,500文字は設計目標値であり、超過だけを不合格または作業停止としない（D-030）。
 
 ## 作業中
@@ -90,6 +92,7 @@ Personaの意義・効果・限界と役割分離を説明する `ai-setup-mater
 17. ChatGPT Persona の User最終承認は完了している。実動検証の再試験は、User の次指示があるまで開始しない。
 18. Evidence 2文書と Root README の今回改訂の正式な採否は、User の次の判断を待つ。Document ID の確定も、その判断まで行わない。
 19. Education SKILLS の実登録、自動選択精度の実動検証、Deep Research連携は未実施である。講師本人がGemini Skillsを利用して実動検証することは、前提にしない。Userの次指示まで開始しない。
+20. 中央Governance正本への D-060 の反映、および定義済み配布は未実施である。`solacom_main` は、対象ファイルに別件の未commit変更があるため、この作業では編集していない。配布と Migration は開始していない。
 
 Reviewerを含むPersonaの機能設計は Evidence なしに再検討しない。完了済みの文書適合性復旧を、Evidence なしに再作業対象へ戻さない。`ASKME 迎合禁止` と7文書配置を未決事項へ戻さない。Education用の基本体系は4役割、SKILLSは合計6つである。従来の4Gem＋1と `Researcher Deep Research` は参考記録として維持する。ResearcherのSKILLSは Learning、Development、Career の3つである。
 

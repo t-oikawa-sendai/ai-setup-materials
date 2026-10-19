@@ -2161,3 +2161,44 @@ Rejected（不採用案）:
 - D-058の原文を書き換えて意味を訂正する方式
 - 「手動切替ができない」を、Skill名を指定した明示的呼び出しができない、という意味に読む方式
 - GEM固有の切替案内をSKILLS版Researcherへ戻す方式
+
+## D-060 Include Commit Permission in an Explicit Push Instruction（Pushの明示指示に対象変更のCommit許可を含める）
+
+Date（日付）: 2026-10-18
+Related Documents（関連文書）: AGENTS.md / personas/reference/CHATGPT_PERSONA.md / project-notes/CURRENT.md / project-notes/DECISIONS.md / Repository全体
+
+Decision（決定）:
+- 2026-10-18、UserはGit操作の承認を次のとおり決定した。
+  - Commit の指示では、Commitのみ行う。
+  - Push の指示では、対象変更に必要な Commit を実行したあと Push する。対象変更が Commit 済みの場合は、Pushのみ行う。
+  - Commit と Push の指示では、Commit のあと Push する。
+- Push の明示指示には、対象変更を Commit する許可を含む。Commit と Push の承認を別ターンで取得しない。
+- 未承認変更・対象外変更は Commit に含めない。Push の指示がなければ Push しない。
+- 必須検証、既存の停止条件、破壊的操作の禁止は維持する。User の承認権限は維持する。User の修正承認を Commit または Push の承認へ読み替えない。
+- 反映先は `AGENTS.md` の §3.1、§5.1、§5.7、§6、§7 と、`personas/reference/CHATGPT_PERSONA.md` の §5、§7 である。ChatGPT Persona の Document Info は Version 3.1、Status Approved、Last Updated 2026-10-18 のままとする。この指示は版番号の変更を指定していない。
+- 既存Decisionの原文は変更しない。中央Governance正本の反映、配布、Migration、commit、push は、この記録の時点では行っていない。
+
+Rationale（理由）:
+Push を指示したあと、同じ対象変更の Commit について追加の承認を求めると、Userがすでに与えた許可を別ターンへ分割することになる。Push の明示指示に、その対象変更の Commit 許可を含める。Commit だけの指示、Push 指示がないときの Push 禁止、未承認変更を Commit に含めないこと、必須検証、停止条件、破壊的操作の禁止、User の承認権限は維持する。
+
+Evidence（根拠）:
+- 2026-10-18のUser指示。確定仕様は、Commit、Push、CommitとPush、Commit済みのPushの4区分である。Push の明示指示には対象変更を Commit する許可を含む。Commit と Push の承認を別ターンで取得しない。未承認変更・対象外変更は Commit に含めない。Push 指示がなければ Push しない。必須検証、既存の停止条件、破壊的操作の禁止、User の承認権限は維持する。
+- 同じ指示の禁止事項。User の修正承認を Commit・Push 承認へ読み替えない。commit と push は、この指示では実行しない。
+- 作業開始時の Git 状態。Repository は `t-oikawa-sendai/ai-setup-materials`。branch は `main`。ローカル HEAD と `origin/main` は `fe103b01fd378d36568edc0aea9c3b7d7cbd982e`。未commit変更はなかった。fetch 後の ahead/behind は 0 0。
+
+Supersedes（上書き対象・範囲）:
+- AGENTS.md §3.1 第9項、§5.1、§5.7 第5項、§6、§7 第8項：Commit と Push のそれぞれに別個の明示指示を必須とし、Push の明示指示に対象変更の Commit 許可を含めない部分。Push 指示がなければ Push しないこと、ローカル反映だけでは Commit も Push もしないことは維持する。
+- personas/reference/CHATGPT_PERSONA.md §5：Commit と Push のそれぞれに User の個別明示指示を必須とする一文。§7：明示的な Push 指示のあとでも Commit の追加承認を求める解釈。指示の送付、曖昧な承認、修正承認を Commit・Push の承認へ補完しないことは維持する。
+- project-notes/DECISIONS.md / 2026-10-13 / 「D-001 Preserve Existing Decisions and Record New Decisions Centrally」の Decision のうち、「commit は、Userが commit を明示したときだけ行う。push は、Userが push を明示したときだけ行う。各操作の実施条件は、その操作に対する明示指示があることである。」について、Push の明示指示に対象変更の Commit 許可を含めない部分だけ。D-001 の原文は変更しない。
+- 同 / 2026-10-14 / 「D-019 Revise ChatGPT Persona Operating Rules for Efficiency and Quality」の Decision のうち、「commit と push は、それぞれユーザーの明示許可がある場合だけ実施する。」について、Push の明示指示に対象変更の Commit 許可を含めない部分だけ。D-019 の原文は変更しない。
+- 同 / 2026-10-15 / 「D-023 Prohibit Independent Reviews That Lack a Necessity Basis」の Decision のうち、「commit と push は、Userの個別の明示指示がある場合だけ実施する。」について、同じ部分だけ。独立レビューの要否、禁止、重大リスクの commit 前独立レビューは上書きしない。D-023 の原文は変更しない。
+- 同 / 2026-10-15 / 「D-027 Consolidate Duplicate ChatGPT Persona Rules and Preserve the Removed Decision Record」の Decision のうち、「commit と push の承認権限は、それぞれUserの個別の明示指示がある場合だけ、という条件のままとする。」について、同じ部分だけ。D-027 の原文は変更しない。
+- 同 / 2026-10-18 / 「D-052 Approve Root README Version 1.4 and ChatGPT Persona Version 3.1」の Decision のうち、「変更は Document Info のみである。Persona本文は変更しない。」について、`personas/reference/CHATGPT_PERSONA.md` の §5 と §7 の Git操作承認の文言だけ。Version 3.1 / Approved と、本文のその他の部分は維持する。D-052 の原文は変更しない。
+
+Non-Changes（非変更範囲）:
+D-001からD-059までの原文と保存場所。`AGENTS.md` 末尾の既存 `Decision & Rationale`。必須検証、既存の停止条件、破壊的操作の禁止。User の承認権限。未承認変更・対象外変更を Commit に含めないこと。Push 指示がなければ Push しないこと。独立レビューの要否と禁止。ChatGPT Persona の Document Info（Version 3.1、Status Approved、Last Updated 2026-10-18）。§5 と §7 以外の Persona 本文。他Persona。D-025 の検証条件。中央Governance正本。配布コピー。commit。push。
+
+Rejected（不採用案）:
+- Push 指示のあと、同じ対象変更の Commit について別ターンで追加承認を求める方式
+- Commit だけの指示を、Push の許可として扱う方式
+- User の修正承認を、Commit または Push の承認として扱う方式

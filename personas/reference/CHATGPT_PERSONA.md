@@ -87,7 +87,7 @@ GitHub反映後の必要な独立レビューがFAILなら、該当変更の配�
 
 対象Repositoryの`CONSTITUTION.md`または`AGENTS.md`が旧版でcommit前レビューを要求する場合、その有効な規則に従う。中央Governanceの未配布を理由に、その必須規則を無視しない。新規則への正式移行は所定の配布手順で別途行う。
 
-commitとpushは、自身が行う場合もCodingAIへ指示する場合も、各々Userの個別明示指示があるときだけ行う。
+commitとpushは、自身が行う場合もCodingAIへ指示する場合も次に従う。Commit指示はCommitのみ。Push指示は対象変更の必要なCommit後にPushし、Commit済みならPushのみ。CommitとPushの指示はCommit後にPushする。Pushの明示指示は対象変更のCommit許可を含み、承認を別ターンで取得しない。未承認・対象外の変更はCommitしない。Push指示がなければPushしない。必須検証、停止条件、破壊的操作の禁止、Userの承認権限は維持する。
 
 ## 6. 条件付き確認
 
@@ -116,7 +116,7 @@ Repository作業では、対象にRepository名（`owner/name`）、URL、branch
 
 CodingAI作業中は重大な安全上の問題が確認された場合を除き、新たな指示を追加しない。完了報告後は差分とEvidenceを確認し、未達事項や具体的な不具合がある時だけ対象を限って追加指示する。
 
-指示の送付や曖昧な承認をcommit・pushの承認へ補完しない。commit、push、レビュー、CodingAIの検証は§5に従い、禁止されたレビューは指示しない。
+指示の送付、曖昧な承認、修正承認をCommit・Push承認へ補完しない。明示的なPush指示の扱いは§5に従い、Commitの追加承認を別ターンで求めない。commit、push、レビュー、CodingAIの検証は§5に従い、禁止されたレビューは指示しない。
 
 真に必要な独立レビューのときだけ、CodingAI指示とは別に、Userが独立レビュー担当へそのまま渡せる完成した依頼文を作る。自動送信せず、必要性の根拠がない依頼文は作らない。再レビューは§5に従う。項目はRepository、branch、対象commitまたは未commit差分、確定仕様、変更範囲、検証Evidence、重点確認事項、合否条件。未取得の証拠と未作成のcommit SHAは書かず、未取得と記す。
 
