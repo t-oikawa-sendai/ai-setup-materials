@@ -7,7 +7,7 @@
 | Version（バージョン） | 1.0 |
 | Status（ステータス） | Approved |
 | Created Date（作成日） | 2026-10-13 |
-| Last Updated（最終更新日） | 2026-10-18 |
+| Last Updated（最終更新日） | 2026-10-19 |
 | Owner（管理者） | Takashi Oikawa |
 | Related Documents（関連文書） | AGENTS.md / project-notes/CURRENT.md |
 
@@ -2202,3 +2202,41 @@ Rejected（不採用案）:
 - Push 指示のあと、同じ対象変更の Commit について別ターンで追加承認を求める方式
 - Commit だけの指示を、Push の許可として扱う方式
 - User の修正承認を、Commit または Push の承認として扱う方式
+
+## D-061 Separate AI Service Change Records from the Root README（AIサービス変更情報をRoot READMEから分離する）
+
+Date（日付）: 2026-10-19
+Related Documents（関連文書）: README.md / docs/AI_SERVICE_UPDATES.md / project-notes/CURRENT.md / project-notes/DECISIONS.md
+
+Decision（決定）:
+- 2026-10-19、Userは、Root README を教材の入口としてコンパクトに保ち、Persona教材や運用に関係するAIサービスの変更情報を `docs/AI_SERVICE_UPDATES.md` に集約すると決定した。
+- 本Repositoryは、AIモデルの進化やサービスの仕様変更に対して、Personaの設計思想、役割分離、評価の独立性を重視しながら、可能な範囲で対応する。AIの新機能やサービス動向を継続的・網羅的に調査、検証することは目的としない。
+- Root README には「AIモデル・サービスの変化への対応」を追加し、`docs/AI_SERVICE_UPDATES.md` への導線を置く。「この資料で扱う2つの時間軸」の比較表、従来構成とSKILLS構成の教材上の説明、および「4Gem＋1は現在の新規導入手順ではない」は残す。日時依存のGemini詳細は Root README に蓄積しない。
+- `docs/AI_SERVICE_UPDATES.md` の冒頭3段落は、Userが指定した文のままとする。記録は日付降順とする。見出しは日付、その下をサービス名とし、Gemini以外のサービスも後から追加できる。
+- 情報源は、Owner実機確認、または公式情報のURLとする。確認済みの事実と未確認事項を区別する。Evidence ID、画像管理台帳、専用の証跡管理方式は作らない。
+- 2026-10-19のOwner実機確認を記録する。Mac / Chrome のGemini Web版では、既存Gemの一覧と「Gemを作成」ボタンの表示を確認した。同Web版での新規Gemの作成・保存の完了は未確認である。iPhone版では新規Gemの作成・保存を確認した。OSは iOS 27.0.1 である。Android版では、既存Gemの表示と実行、およびiPhoneで作成したGemの一覧への同期を確認した。Androidアプリ内での新規Gem作成はできない。モバイル版では、2026年11月17日からのSkillsへの自動移行案内を確認した。Desktop版の当日状態、GemとSkillsの同時動作、Skillsの作成と実動検証は未確認である。
+- 2026-10-18のOwner実機確認は削除しない。確認したPC環境でGemではなくSkillsが表示されたこと、Web版かDesktop版かは未区分であることは、2026-10-19のWeb版観測とは別の事実として保持する。
+- 2026-10-16のOwner実機確認は、対象の講師・生徒アカウントでGemを新規作成できないことである。すべてのアカウントや環境に適用される事実としては扱わない。
+- 公式情報の確認日は2026-10-18とする。情報源は `https://support.google.com/gemini/answer/18560919?hl=ja` である。個人のGoogleアカウントは2026年11月、Workspace Business / Enterprise / Non-Profit は2027年3月、Workspace Education は2027年6月である。提供終了に伴いGemはSkillとして自動再作成される予定である。同案内の時点でSkillsはDeep Researchにまだ対応していない。本教材の対象アカウント種別は未確認である。この公式情報は、各利用環境での実際の状態や移行完了を証明しない。同じURLを D-041 と D-043 が2026-10-16の根拠として引用している事実は残す。本書の作成時に公式ページへ改めてアクセスしてはいない。
+- Root README の Version 1.5（提案）/ Status Draft は変更しない。この反映はローカルのみとし、commit と push を含まない。`AGENTS.md` と Persona本文は変更しない。Education README の既存の日時付き記載は、この作業では変更しない。
+
+Rationale（理由）:
+Root README の役割は、Repositoryの目的、教材の考え方、利用の入口を示すことである。日時依存のサービス状況を入口に蓄積すると、教材の説明と、環境によって異なる観測が混ざる。変更情報は別文書へ日付降順で置き、確認済みと未確認を分ける。2026-10-19のWeb版でGemが表示されたことは、2026-10-18のPC環境でSkillsが表示された観測を消す理由にしない。公式案内の日程は、各環境の実際の状態を証明しない。
+
+Evidence（根拠）:
+- 2026-10-19のUser指示。READMEの役割、別文書の方針、冒頭3段落、READMEへ追加する文、「この資料で扱う2つの時間軸」の比較表の後に置く文、2026-10-19・2026-10-18・2026-10-16の確認事項、公式URLと移行時期、禁止事項。公式情報には確認日を付け、対応する日付の位置に置く。
+- 先行するD-060の保存。commit は `a00542eba524f341904ffcb208aae86a136ecee1`。push 後のローカル HEAD、`origin/main`、GitHub `main` はこのSHAで一致した。第2段階の開始時に worktree は clean だった。
+- 既存文書にすでにあった公式案内の時点。Root README、Education README、`project-notes/CURRENT.md` は、同じURLを2026-10-18時点として記録していた。D-041 は2026-10-16確認としてSkillsのDeep Research非対応を記録している。D-043 は同じURLを、アカウント種別による移行時期とDeep Research非対応の根拠にしている。
+
+Supersedes（上書き対象・範囲）:
+- Root README「この資料で扱う2つの時間軸」と第6章が、2026-10-16、2026-10-18の実機観測と、2026-10-18時点の公式日程・Deep Research非対応の詳細を本文に置く範囲。比較表、4役割・6 Skills、評価の独立性、Deep Research用の5つ目のSkillを設けないこと、4Gem＋1を現在の新規導入手順としないことは維持する。
+- `project-notes/CURRENT.md` の、変更情報の所在を Root README と Education README に書くとしていた範囲。集約先は `docs/AI_SERVICE_UPDATES.md` とする。Education README の本文は、この決定では変更しない。
+
+Non-Changes（非変更範囲）:
+D-001からD-060までの原文と保存場所。`AGENTS.md`。Persona本文。Education README。既存 `personas/education/GEM_*.md` と `personas/education/SKILLS/`。基本4役割、合計6 Skills、評価の独立性、従来の4Gem＋1を現在の新規導入手順としないこと。D-043の、対象アカウントでGem新規作成を現行手順として案内しないこと。D-041の、Deep ResearchをSkillsと別にすること。Root README の Version 1.5（提案）/ Draft。Skillsの実登録、自動選択の実動検証、Deep Research連携。新たな製品調査。Evidence ID と画像管理台帳。commit。push。
+
+Rejected（不採用案）:
+- 日時依存のGemini詳細を Root README に残し続ける方式
+- 2026-10-19のWeb版でGemを確認したことだけを理由に、2026-10-18のPC環境でのSkills表示を削除する方式
+- Web版での新規Gemの保存完了を、確認済みとして記載する方式
+- AIサービスの新機能を継続的・網羅的に調査、検証する方式

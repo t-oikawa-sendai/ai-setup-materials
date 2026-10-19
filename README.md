@@ -7,9 +7,9 @@
 | Version（バージョン） | 1.5（提案） |
 | Status（ステータス） | Draft |
 | Created Date（作成日） | 2026-08-17 |
-| Last Updated（最終更新日） | 2026-10-18 |
+| Last Updated（最終更新日） | 2026-10-19 |
 | Owner（管理者） | Takashi Oikawa |
-| Related Documents（関連文書） | [`personas/education/README.md`](personas/education/README.md)<br>[`personas/WHY_PERSONA_MATTERS.md`](personas/WHY_PERSONA_MATTERS.md)<br>[`personas/AI_ISSUES_EVIDENCE.md`](personas/AI_ISSUES_EVIDENCE.md)<br>[`personas/reference/README.md`](personas/reference/README.md)<br>[`personas/reference/PERSONA_OPERATION_CASE_STUDY.md`](personas/reference/PERSONA_OPERATION_CASE_STUDY.md)<br>[`personas/PERSONA_IDENTIFICATION_AND_SETUP.md`](personas/PERSONA_IDENTIFICATION_AND_SETUP.md)<br>[`project-notes/2026-09-11-code-generator-5-pattern-comparison-reference.md`](project-notes/2026-09-11-code-generator-5-pattern-comparison-reference.md) |
+| Related Documents（関連文書） | [`personas/education/README.md`](personas/education/README.md)<br>[`docs/AI_SERVICE_UPDATES.md`](docs/AI_SERVICE_UPDATES.md)<br>[`personas/WHY_PERSONA_MATTERS.md`](personas/WHY_PERSONA_MATTERS.md)<br>[`personas/AI_ISSUES_EVIDENCE.md`](personas/AI_ISSUES_EVIDENCE.md)<br>[`personas/reference/README.md`](personas/reference/README.md)<br>[`personas/reference/PERSONA_OPERATION_CASE_STUDY.md`](personas/reference/PERSONA_OPERATION_CASE_STUDY.md)<br>[`personas/PERSONA_IDENTIFICATION_AND_SETUP.md`](personas/PERSONA_IDENTIFICATION_AND_SETUP.md)<br>[`project-notes/2026-09-11-code-generator-5-pattern-comparison-reference.md`](project-notes/2026-09-11-code-generator-5-pattern-comparison-reference.md) |
 
 </details>
 
@@ -25,6 +25,7 @@
 
 ---
 
+<a id="two-time-axes"></a>
 ## この資料で扱う2つの時間軸
 
 この表は、本教材の中での構成の変遷を示します。全Googleアカウントが2026年10月までにSkillsへ移行したという意味ではありません。
@@ -34,9 +35,11 @@
 | 従来構成 | GeminiのGemを使った4Gem＋1構成 | 過去の設計・関連検証記録。現行の新規導入手順ではない |
 | SKILLS構成 | 基本4役割・合計6 Skills | Persona定義はDraft。実登録・自動選択の実動検証は未実施 |
 
-2026-10-18時点の[Google公式案内](https://support.google.com/gemini/answer/18560919?hl=ja)では、Gemの提供終了予定はアカウント種別により異なります。個人のGoogleアカウントは2026年11月、Workspace Business・Enterprise・Non-Profitは2027年3月、Workspace Educationは2027年6月です。提供終了に伴い、GemはSkillとして自動的に再作成される予定も案内されています。本教材の対象アカウント種別は未確認です。この公式予定から、既存Gemの利用・編集可否を確認済みとは扱いません。
+GemからSkillsへの移行時期や利用可能な機能は、アカウント種別・利用環境によって異なる場合があります。
 
-2026-10-16のUser実機確認では、対象の講師・生徒アカウントでGemを新規作成できませんでした。2026-10-18のUser実機確認では、確認した環境でGemの表示がなくSkillsへ変更されていました。これらは当該環境の観測であり、公式の提供終了予定とは別です。**4Gem＋1は現在の新規導入手順ではありません。**
+2026年10月の実機確認結果およびGoogle公式情報は、[AIサービス変更情報](docs/AI_SERVICE_UPDATES.md)を参照してください。
+
+**4Gem＋1は現在の新規導入手順ではありません。**
 
 ---
 
@@ -71,6 +74,7 @@ ReferenceのAI運用資料は、**Case Study → Prompt Template → Handoff Tem
   - [6.4 評価の独立性への注意](#education-4skills-independence)
   - [6.5 従来の4Gem＋1構成（参考記録）](#education-4gem-plus-1)
 - [7. Quick Start（利用の入口）](#quick-start)
+  - [AIモデル・サービスの変化への対応](#ai-service-change-response)
 - [8. Prerequisites and Notes（前提と注意事項）](#prerequisites-and-notes)
 - [9. License（ライセンス）](#license)
 
@@ -196,6 +200,8 @@ AIの「完了」報告だけでは、実行・検証済みのEvidenceになり�
 ├── README.md        Repositoryの入口
 ├── AGENTS.md        Repository作業規則
 ├── LICENSE          ライセンス
+├── docs/
+│   └── AI_SERVICE_UPDATES.md  AIサービス変更情報
 ├── personas/
 │   ├── PERSONA_IDENTIFICATION_AND_SETUP.md  識別・検証の共通仕様（旧ファイル名を維持）
 │   ├── WHY_PERSONA_MATTERS.md               詳細比較・検証Evidence
@@ -221,7 +227,7 @@ AIの「完了」報告だけでは、実行・検証済みのEvidenceになり�
 >
 > Researcherは既存の共通本文とModuleを、Learning・Development・Careerの3用途に再編しています。
 
-2026-10-18のUser実機確認では、確認した環境でGemの表示がなくSkillsへ変更されていました。これは当該環境の観測であり、全Googleアカウントの移行完了ではありません。Education Personaの基本は、サービスの形態にかかわらず**4役割**です。SKILLSでは、この4役割を合計6つのSkill定義にします。定義ファイルは Draft です。実登録と、自動選択の実動検証は未実施です。対応関係は[`Education README`](personas/education/README.md)にあります。
+Education Personaの基本は、サービスの形態にかかわらず**4役割**です。SKILLSでは、この4役割を合計6つのSkill定義にします。定義ファイルは Draft です。実登録と、自動選択の実動検証は未実施です。対応関係は[`Education README`](personas/education/README.md)にあります。環境による移行時期と利用可能な機能の差は、[この資料で扱う2つの時間軸](#two-time-axes)と[AIサービス変更情報](docs/AI_SERVICE_UPDATES.md)を参照してください。
 
 <a id="education-4skills-overview"></a>
 ### 6.1 基本4役割と6 Skills
@@ -241,7 +247,7 @@ Researcherは、既存の共通本文とModuleを維持したまま、Learning�
 <a id="education-4skills-deep-research"></a>
 ### 6.3 Deep Researchの制約（Skills非対応）
 
-2026-10-18時点の[Google公式案内](https://support.google.com/gemini/answer/18560919?hl=ja)によれば、Gemini SkillsはDeep Researchにはまだ対応していません。従来の追加「Researcher Deep Research」Gemに相当する5つ目のSkillは設けず、SkillからDeep Researchを起動・切替できるとは案内しません。
+従来の追加「Researcher Deep Research」Gemに相当する5つ目のSkillは設けず、SkillからDeep Researchを起動・切替できるとは案内しません。公式案内上の対応状況は[AIサービス変更情報](docs/AI_SERVICE_UPDATES.md)を参照してください。
 
 <a id="education-4skills-independence"></a>
 ### 6.4 評価の独立性への注意
@@ -259,6 +265,15 @@ Researcherは、既存の共通本文とModuleを維持したまま、Learning�
 AIサービスは名称・画面・機能・利用条件が更新され、設定操作もリニューアルによって変わるため、**本Repositoryではサービス別の登録・設定手順を説明しません。**
 
 Project・Skills等の利用方法は、各サービスの現行公式案内と実際の画面で確認してください。本Repositoryは、サービスの変更に左右されにくい**Personaの目的・役割分離・評価の考え方**を説明します。
+
+<a id="ai-service-change-response"></a>
+### AIモデル・サービスの変化への対応
+
+本Repositoryは、AIモデルの進化やサービスの仕様変更に対して、Personaの設計思想、役割分離、評価の独立性を重視しながら、可能な範囲で対応します。
+
+ただし、AIの新機能やサービス動向を継続的・網羅的に調査、検証することを目的とはしていません。
+
+教材に関係する変更情報は、[AIサービス変更情報](docs/AI_SERVICE_UPDATES.md)に掲載します。
 
 <a id="prerequisites-and-notes"></a>
 ## 8. Prerequisites and Notes（前提と注意事項）

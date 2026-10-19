@@ -1,6 +1,6 @@
 # CURRENT
 
-Last Updated: 2026-10-18
+Last Updated: 2026-10-19
 Status: CURRENT
 
 ## PURPOSE
@@ -32,11 +32,13 @@ Personaの意義・効果・限界と役割分離を説明する `ai-setup-mater
   - D-051: `4045694`（上記 HEAD）
   - D-052、D-053、および同 commit の5ファイル（`README.md`、`personas/education/README.md`、`personas/reference/CHATGPT_PERSONA.md`、`project-notes/CURRENT.md`、`project-notes/DECISIONS.md`）: `76d254acbae538f10c108c2cf3b73b900588f5df`
   - D-058、および同 commit の対象（`README.md`、`personas/education/README.md`、`personas/education/SKILLS/` の6ファイル、`project-notes/CURRENT.md`、`project-notes/DECISIONS.md`）: `9ddbc319b48d6b7bcb53254a830c6622af54d20f`
+  - D-060（`AGENTS.md`、`personas/reference/CHATGPT_PERSONA.md`、`project-notes/CURRENT.md`、`project-notes/DECISIONS.md`）: `a00542eba524f341904ffcb208aae86a136ecee1`
 
 変更直後の本ファイルに書いた「commit と push は未実施」は、その時点の記録である。後続 commit で `main` に入ったものの現在の保存先は、この節と完了事項に書く。整理前の本ファイル全文は、上記 HEAD の `project-notes/CURRENT.md` に残る。D-052、D-053、D-058 の本文にある「commit と push を含まない」も、その決定の時点の記録であり、上記の保存済み commit を未保存と読まない。D-059 は、D-058 の保存 commit には含まれない。
 
-- Gemの提供終了予定は、2026-10-18時点のGoogle公式案内ではアカウント種別により異なる。個人のGoogleアカウントは2026年11月、Workspace Business・Enterprise・Non-Profitは2027年3月、Workspace Educationは2027年6月である。提供終了に伴うSkillsへの自動再作成も、同案内にある。本教材の対象アカウント種別は未確認である。2026-10-16のUser観測は、対象の講師・生徒アカウントでGemを新規作成できないことである。2026-10-18のUser観測は、確認した環境でGemの表示がなくSkillsへ変わっていたことである。これらの観測は公式予定とは別である。既存Gemの利用・編集可否は未確認である。公式予定を、既存Gemの利用・編集が確認済みである根拠にはしない。Skillsは、同案内の時点でDeep Researchにはまだ対応していない。案内の所在は Root README と Education README に書く。
-- Git操作の承認は D-060 である。Push の明示指示には、対象変更を Commit する許可を含む。反映先は `AGENTS.md` と `personas/reference/CHATGPT_PERSONA.md` の §5、§7 である。ChatGPT Persona の Version 3.1 / Approved は維持する。この文の時点では commit と push は行っていない。中央Governance正本は編集していない。
+- AIサービス変更の参考記録は `docs/AI_SERVICE_UPDATES.md` に集約する（D-061）。Root README は教材の入口とし、日時依存の詳細は同文書を参照する。2026-10-19のOwner実機確認、2026-10-18のPC環境でのSkills表示、2026-10-16の講師・生徒アカウントでのGem新規作成不可、および2026-10-18時点のGoogle公式案内は同文書にある。2026-10-18のPC観測は、2026-10-19のWeb版観測とは別の事実として保持する。本教材の対象アカウント種別、Web版での新規Gemの保存完了、Desktop版の当日状態、既存Gemの編集可否、GemとSkillsの同時動作、Skillsの作成と実動検証は未確認である。公式案内は、各利用環境の実際の状態や移行完了を証明しない。Education README の既存の日時付き記載は、この作業では変更していない。
+- Git操作の承認は D-060 である。Push の明示指示には、対象変更を Commit する許可を含む。反映先は `AGENTS.md` と `personas/reference/CHATGPT_PERSONA.md` の §5、§7 である。ChatGPT Persona の Version 3.1 / Approved は維持する。この文の時点では commit と push は行っていない。その後の保存 commit は `a00542eba524f341904ffcb208aae86a136ecee1` であり、`main` へ push 済みである。上記の「行っていない」は、その文を書いた時点の記録である。中央Governance正本は編集していない。
+- READMEの変更情報分離は D-061 である。Root README は Version 1.5（提案）/ Draft のままである。この反映はローカルのみであり、commit と push は行っていない。
 
 ## 完了事項
 
@@ -64,7 +66,8 @@ Personaの意義・効果・限界と役割分離を説明する `ai-setup-mater
 - 2026-10-18。教材上の標準表記を定め、Root README、Evidence集、Education README の現行本文へ反映した。判断は D-057。報告済みの未commit変更2ファイルは保全した。この保全は今回の継続作業に限る。`AGENTS.md` §2.1 と D-055 の適用範囲は変更しない。保存先の SHA は、この文を含む commit 自身であるため本文には書かない。
 - 2026-10-18。既存GEMを保全したまま、EducationのSKILLS 6ファイルを追加し、Root README と Education README を更新した。判断は D-058。D-058 本文の「commit と push を含まない」は、その決定の時点の記録である。保存 commit は `9ddbc319b48d6b7bcb53254a830c6622af54d20f` である。実動検証は未実施であり、Approved ではない。
 - 2026-10-18。D-058の「Skillsの手動切替操作ができない」の意味を補足した。判断は D-059。D-058の原文は変更していない。同じ修正で、Hazare et al. の事例抽出条件と分類上の限界、Root README 第3章の用語の読まれ方、Education README 第7章の参照先を直した。Version と Status は変更していない。D-059 は、D-058 の保存 commit `9ddbc319b48d6b7bcb53254a830c6622af54d20f` には含まれない。
-- 2026-10-18。Git操作の承認を、Push の明示指示に対象変更の Commit 許可を含める規則へ更新した。判断は D-060。反映先は `AGENTS.md` と ChatGPT Persona の §5、§7 である。この文の時点では commit と push は行っていない。中央Governance正本は編集していない。
+- 2026-10-18。Git操作の承認を、Push の明示指示に対象変更の Commit 許可を含める規則へ更新した。判断は D-060。反映先は `AGENTS.md` と ChatGPT Persona の §5、§7 である。この文の時点では commit と push は行っていない。保存 commit は `a00542eba524f341904ffcb208aae86a136ecee1` である。中央Governance正本は編集していない。
+- 2026-10-19。Root README から日時依存のGemini詳細を分離し、`docs/AI_SERVICE_UPDATES.md` を新設した。判断は D-061。Root README の Version 1.5（提案）/ Draft は維持する。この文の時点では commit と push は行っていない。
 - 前回の本ファイルが記録した実測は、次のとおり残す。Claude Persona は、Project登録対象（`# Claude Persona` から本文末尾、末尾改行を含む）7,925、ファイル全体（末尾改行を含む）8,254。この整理で上記 HEAD のファイルを Unicode コードポイント数で確認し、同じ数値だった。ChatGPT Persona について、D-037 の承認表示後の記録はファイル全体が末尾改行を含めて 8,330、除いて 8,329。Owner欄訂正後の記録は、含めて 8,329、除いて 8,328。Project登録対象の記録は、含めて 7,999、除いて 7,998。上記 HEAD の現行ファイルは、ファイル全体が含めて 8,330、除いて 8,329、Project登録対象（`# ChatGPT向け責務定義` から本文末尾、Document Info を除く）が含めて 7,999、除いて 7,998 である。Owner欄訂正後として記録された 8,329 / 8,328 は、この HEAD の実測とは一致しない。当時の記録として残す。7,500文字は設計目標値であり、超過だけを不合格または作業停止としない（D-030）。
 
 ## 作業中
@@ -78,7 +81,7 @@ Personaの意義・効果・限界と役割分離を説明する `ai-setup-mater
 3. Solution Partner と Code Generator の確定事項を、Evidence なしに再検討しない。追加の検証または修正は、User の次指示、または実利用で具体的な問題が確認された場合のみ行う。当時の判断は `AGENTS.md` の 2026-09-13。現行の Document Info は各ファイル。D-037 の承認は、実動検証の合否を変えない。
 4. Education Reviewer の実利用確認は未実施である。User の指示なく自動的に切り替えない。
 5. 対象外の Persona へ変更を広げない。
-6. Researcher系の実動検証計画は、内部記録 `project-notes/2026-10-05-researcher-persona-incident-record.md` 第6章を維持する。Gem新規作成を前提とする実施は、現在地点に書いた 2026-10-16 の User観測のため停止したままである。この観測は公式の提供終了予定とは別である。既存Gemの利用可否と代替検証方法の判断を待つ。合格と本番Gemへの反映は未実施である。
+6. Researcher系の実動検証計画は、内部記録 `project-notes/2026-10-05-researcher-persona-incident-record.md` 第6章を維持する。Gem新規作成を前提とする実施は、現在地点に書いた 2026-10-16 の User観測のため停止したままである。この観測は公式の提供終了予定とは別である。2026-10-19以降の環境別観測は `docs/AI_SERVICE_UPDATES.md` にあり、この停止を解除しない。既存Gemの利用可否と代替検証方法の判断を待つ。合格と本番Gemへの反映は未実施である。
 7. 2026-10-07に記録した対象Repository省略の是正は、ChatGPT Persona の D-019 §7 以外は未着手である。対象一覧と適用条件は `AGENTS.md` の同日 Decision を参照する。記録済みであることを是正完了と扱わない。
 8. 検証用Personaの ChatGPT Project 上の取得検証は、2026-10-13時点で未実施である。D-037 と D-038 は、この未実施を実施済みに変えない。導線を含む commit は `ef77588d6c94bd50e0cc8c32c770f06c181a3bbb`。未作成の設定資料は完了事項に記した。設定資料は D-045 で対象外である。
 9. 中央Governanceの正式導入は別工程である。今回の判断履歴管理規則の改訂では開始しない。導入完了、Purpose、Governance Status は確定しない。
@@ -87,7 +90,7 @@ Personaの意義・効果・限界と役割分離を説明する `ai-setup-mater
 12. ChatGPT Persona の D-025 は未達のまま残す。条件は TC-01、TC-02、TC-03 を各2回、合計6回、6回すべてPASSである。再試験は D-037、D-038、D-050 では開始しない。適用状態が UNVERIFIED のまま、PASS としない。Cursor から ChatGPT Project を直接操作できないため、適用状態の確認と6回の実施は User の操作が必要である。第11章の是正、共通仕様第16章の復元、D-027 の重複整理、文字数は、この6回の実施とPASSを含まない。将来の検証対象範囲の詳細基準、質問セット、実施頻度は、この工程で確定しない。先の18回答は `86b3537dfb8c2eacca851763c00055500ee122bd` にある。正規比較は D-032、保存 commit は `9401cc1` である。内訳は ChatGPT検証専用Project 4/6、Claude Project 2/6、Gemini Gem 3/6、合計 9/18。従来ChatGPT Projectの 6/6 は参考履歴である。4/6 は6回すべてPASSを満たさない。D-037 の承認を D-025 の合格と混同しない。D-052 と D-054 の User最終承認も、4/6 の変更および D-025 の合格を含まない。共通仕様第16章の一般規則は変更しない。
 13. Claude Persona の G方式用指示文は作成済みである。Claude による取得成功は自己申告であり、客観的な GitHub アクセスの確認ではない。User は指示文と検証回答を視認し、問題なしと評価した。独立レビューは条件付き合格である。原文は `project-notes/persona-validation/raw/2026-10-16-claude-independent-review.md` にあり、保存 commit は `c9b046c` である。検証回答の原文は未取得であり、保存済みとして扱わない。G方式は正式運用の前提条件ではない。未実施の検証を実施済みとして扱わない。将来の検証対象範囲の詳細基準は未承認である。D-037 と D-038 は、技術的検証結果の合否を変えない。Gemini Persona の機能の大改修は対象外である。共通仕様第16章の独立工程は移動・複製していない。Persona ID は `M-CL`。Verification Code は未確定である。2026-08-27の判断原文は D-034 の「保全する原文」にある。8,000文字以内への整理は D-035。
 14. 識別表示インシデントの記録は D-049、保存 commit は `9331e0d` である。この記録は、原因特定、例外処理の確定、仮説の実証、是正完了を意味しない。画面の Work と内部 kind のどちらをサービス略号の層にするかは未決である。CG、Codex、? のいずれも正式値にしていない。
-15. 既存Gemの利用・編集可否と、代替導入先は未確認・未決である（D-043、D-048）。公式の自動再作成予定は、この未確認を確認済みに変えない。対象アカウント種別は未確認のままである。
+15. 既存Gemの編集可否と、代替導入先は未確認・未決である（D-043、D-048）。2026-10-19の環境別観測は `docs/AI_SERVICE_UPDATES.md` にあり、既存Gemの表示・実行を一部環境で確認した事実は、編集可否や全環境での利用可否を確認済みにしない。公式の自動再作成予定は、この未確認を確認済みに変えない。対象アカウント種別は未確認のままである。
 16. 元Devcheckoutへの移行設定導入は未実施である。自動ルール読込は UNVERIFIED である。根拠は `project-notes/2026-09-29-core-persona-ssot-verification.md`。
 17. ChatGPT Persona の User最終承認は完了している。実動検証の再試験は、User の次指示があるまで開始しない。
 18. Evidence 2文書と Root README の今回改訂の正式な採否は、User の次の判断を待つ。Document ID の確定も、その判断まで行わない。
@@ -103,6 +106,7 @@ Version と Status は各ファイルの Document Info を見る。
 - 作業規則：`AGENTS.md`
 - Persona識別と検証：`personas/PERSONA_IDENTIFICATION_AND_SETUP.md`（旧ファイル名を維持）
 - Repository入口・Persona重要性の共通説明：`README.md`
+- AIサービス変更情報：`docs/AI_SERVICE_UPDATES.md`（Persona教材や運用に関係する参考記録。網羅的な製品調査の正本ではない）
 - AI利用時の課題の外部研究Evidence：`personas/AI_ISSUES_EVIDENCE.md`（Draft。第2章からの参照先。Document ID は UNRESOLVED）
 - 迎合研究の9種類の反論者Persona解説：`personas/SYCOPHANCY_CHALLENGER_PERSONAS.md`（Draft。Evidence集から参照。本教材の4役割Personaとは別。Document ID は UNRESOLVED）
 - カスタム指示・Persona・プロンプトの詳細比較とPersonaあり／なしの検証詳細：`personas/WHY_PERSONA_MATTERS.md`（文書ID・独立Versionは未決）
