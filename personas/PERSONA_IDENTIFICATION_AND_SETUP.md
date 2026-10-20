@@ -7,7 +7,7 @@
 | Version（バージョン） | 1.2 |
 | Status（ステータス） | Approved |
 | Created Date（作成日） | 2026-10-14 |
-| Last Updated（最終更新日） | 2026-10-17 |
+| Last Updated（最終更新日） | 2026-10-20 |
 | Owner（管理者） | Takashi Oikawa |
 | Related Documents（関連文書） | [`../AGENTS.md`](../AGENTS.md)<br>[`../README.md`](../README.md)<br>[`education/README.md`](education/README.md)<br>[`reference/README.md`](reference/README.md)<br>[`../project-notes/DECISIONS.md`](../project-notes/DECISIONS.md)<br>[`../project-notes/CURRENT.md`](../project-notes/CURRENT.md) |
 
@@ -77,7 +77,7 @@ IDは確定済みである。再命名・再提案しない。
 
 移行前のDocument Infoは、2026-10-14に各ファイルから確認した現行値である。Version 3.0 へ更新した後の値ではない。この表の記録によって、本文もStatusも変更しない。
 
-`T-IT-ADVISOR` は確定Persona IDである。現行の [`reference/IT_GENERAL_ADVISOR_TEST_PERSONA.md`](reference/IT_GENERAL_ADVISOR_TEST_PERSONA.md) 本文には、移行前の識別子 `IT-GENERAL-ADVISOR-TEST` が残っている。本文は今回変更しない。現行本文の識別子を、確定Persona IDへ置き換わったものとして扱わない。
+`T-IT-ADVISOR` は確定Persona IDである。現行の [`reference/IT_GENERAL_ADVISOR_TEST_PERSONA.md`](reference/IT_GENERAL_ADVISOR_TEST_PERSONA.md) 第16章の識別子は `T-IT-ADVISOR` である。移行前の識別子 `IT-GENERAL-ADVISOR-TEST` は、同ファイル末尾の 2026-10-13 `Decision & Rationale` と検証原文に歴史として残る。それらの原文は書き換えない。第4章の表は、2026-10-14時点の移行前の Document Info であり、現行の Version と Status ではない。
 
 Researcher 3ファイルの現行見出しは、いずれも Researcher Persona である。Education README上の選択は、FULLが Learning / Career / Development、LEARNING_DEVELOPMENTが Learning / Development、DEVELOPMENTが Development である。この選択関係を、MainとSubsetの1対1対応表として扱わない。
 
@@ -91,7 +91,7 @@ Researcher 3ファイルの現行見出しは、いずれも Researcher Persona 
 - `GEM_` で始まる Education 6件は、現在の数値 Version / Approved を維持する。大改修の完了後に Version 3.0 へ揃える。
 - 本書はPersonaではない。本書の Version 1.2 / Approved は、この版番号統一の対象ではない。
 
-[`../project-notes/DECISIONS.md`](../project-notes/DECISIONS.md) の D-005 は、検証用Personaを Version 0.1 / Draft として保全した時点の確定状態である。D-005を書き換えない。現行の Document Info は Version 3.0 / Approved である（承認は D-037、版番号は D-038）。
+[`../project-notes/DECISIONS.md`](../project-notes/DECISIONS.md) の D-005 は、検証用Personaを Version 0.1 / Draft として保全した時点の確定状態である。D-005を書き換えない。Version 3.0 / Approved は、D-037 の承認と D-038 の版番号統一による前版の承認履歴である。現行の Document Info は Version 3.1（提案）/ Draft である。この Draft は、実動検証の完了、Approved、適用成功を意味しない。
 
 ## 6. CONFIRMED: Service Codes（サービス略号）
 
@@ -126,7 +126,7 @@ ClaudeのProjectで `S-SP` を使用できるよう案内する。`M-CG` とい�
 - モデル名は確認できた値のみ使用する。
 - 確認できない値は `?` とする。
 - Persona IDとVersionは、実際に使用するPersona本文と照合する。
-- 現行の検証用Persona本文には旧形式の指示が残っている。本文は今回変更しない。新しい形式の適用は、本文更新の別工程である。検証原文の旧形式は履歴として維持する。
+- 検証用Personaの現行第16章は、本章の識別形式と第8章の取得状態を用いる。旧形式との併用はしない。検証原文の旧形式は履歴として維持し、原文は変更しない。
 
 ## 8. CONFIRMED: Acquisition Status（Persona取得状態）
 

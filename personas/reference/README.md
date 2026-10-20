@@ -7,7 +7,7 @@
 | Version（バージョン） | 1.4 |
 | Status（ステータス） | Approved |
 | Created Date（作成日） | 2026-08-22 |
-| Last Updated（最終更新日） | 2026-10-18 |
+| Last Updated（最終更新日） | 2026-10-20 |
 | Owner（管理者） | Takashi Oikawa |
 | Related Documents（関連文書） | [`../../README.md`](../../README.md)<br>[`../education/README.md`](../education/README.md)<br>[`CHATGPT_PERSONA.md`](CHATGPT_PERSONA.md)<br>[`CLAUDE_PERSONA.md`](CLAUDE_PERSONA.md)<br>[`CURSOR_PERSONA.md`](CURSOR_PERSONA.md)<br>[`GEMINI_PERSONA.md`](GEMINI_PERSONA.md)<br>[`IT_GENERAL_ADVISOR_TEST_PERSONA.md`](IT_GENERAL_ADVISOR_TEST_PERSONA.md)<br>[`PERSONA_OPERATION_CASE_STUDY.md`](PERSONA_OPERATION_CASE_STUDY.md)<br>[`CHAT_HANDOFF_TEMPLATE.md`](CHAT_HANDOFF_TEMPLATE.md)<br>[`PERSONA_PROMPT_TEMPLATE.md`](PERSONA_PROMPT_TEMPLATE.md)<br>[`../PERSONA_IDENTIFICATION_AND_SETUP.md`](../PERSONA_IDENTIFICATION_AND_SETUP.md) |
 
@@ -58,7 +58,7 @@ Education基本4役割を置き換えるものではありません。従来の4
 
 中核4種とは別のPersonaです。ChatGPT Projectで、GitHub上のPersonaをURL指定して取得・適用を検証するために使います。中核4種のSSOT定義は変更しません。
 
-現行の Document Info は Version 3.0 / Status Approved です。承認は D-037、版番号は D-038 です。Version 0.1 / Status Draft は、2026-10-13時点の検証前の状態です。当時の判断は、このファイル末尾の 2026-10-13「検証専用Personaを中核4種と区別して掲載」に原文のまま残します。その判断文は、現行の Version と Status ではありません。
+現行の Document Info は Version 3.1（提案）/ Status Draft です。Version 3.0 / Status Approved は、D-037 の承認と D-038 の版番号統一による前版の承認履歴です。Version 0.1 / Status Draft は、2026-10-13時点の検証前の状態です。当時の判断は、このファイル末尾の 2026-10-13「検証専用Personaを中核4種と区別して掲載」に原文のまま残します。その判断文は、現行の Version と Status ではありません。この改訂は、実動検証の完了、Approved、適用成功を意味しません。
 
 - [`IT_GENERAL_ADVISOR_TEST_PERSONA.md`](IT_GENERAL_ADVISOR_TEST_PERSONA.md)：IT General Technical Advisor Persona（検証専用）
 

@@ -7,7 +7,7 @@
 | Version（バージョン） | 1.0 |
 | Status（ステータス） | Approved |
 | Created Date（作成日） | 2026-10-13 |
-| Last Updated（最終更新日） | 2026-10-19 |
+| Last Updated（最終更新日） | 2026-10-20 |
 | Owner（管理者） | Takashi Oikawa |
 | Related Documents（関連文書） | AGENTS.md / project-notes/CURRENT.md |
 
@@ -2240,3 +2240,47 @@ Rejected（不採用案）:
 - 2026-10-19のWeb版でGemを確認したことだけを理由に、2026-10-18のPC環境でのSkills表示を削除する方式
 - Web版での新規Gemの保存完了を、確認済みとして記載する方式
 - AIサービスの新機能を継続的・網羅的に調査、検証する方式
+
+## D-062 Align the Test Persona Identification with the Common Specification（検証用Personaの識別・取得・更新検証を共通仕様へ揃える）
+
+Date（日付）: 2026-10-20
+Related Documents（関連文書）: personas/reference/IT_GENERAL_ADVISOR_TEST_PERSONA.md / personas/PERSONA_IDENTIFICATION_AND_SETUP.md / personas/reference/README.md / project-notes/CURRENT.md / project-notes/DECISIONS.md
+
+Decision（決定）:
+- 2026-10-20、Userは、検証用Persona `personas/reference/IT_GENERAL_ADVISOR_TEST_PERSONA.md` の表示・識別・取得検証を、共通仕様第4章・第7章・第8章、および ChatGPT Persona 第11章、Claude Persona 第15章へ揃えると決定した。役割固有の内容は維持する。作業開始時の GitHub `main` は `b102001724c5f4323cbb2440c889d10e4ea16e5f` である。
+- 現行ファイルの Document Info は Version 3.1（提案）、Status Draft、Last Updated 2026-10-20 とする。Version 3.2 以降へ飛ばさない。Document ID、Created Date、Owner、Related Documents は維持する。
+- 第16章の見出しは「識別・取得・更新検証」とする。この章は、識別、本文の取得確認、更新後の再取得確認を定める。品質・実動検証と承認の独立工程は、共通仕様 `personas/PERSONA_IDENTIFICATION_AND_SETUP.md` 第16章に残し、本章へ移さない。
+- Persona ID は `T-IT-ADVISOR` とする。Verification Code は `ADVISOR-ALPHA` を維持する。推測で別の値を生成しない。
+- Version と Status は、実際に使用したPersona本文の Document Info から取得する。この本文は Version 3.1（提案）、Status Draft である。
+- 回答冒頭の識別は `【サービス略号/モデル名｜Persona ID@Version｜状態】` の1行だけとする。取得状態は `G` / `P` / `N` / `?` だけとし、旧形式 `【Persona：GitHub読込済｜Version：…】` と併用しない。
+- 「ペルソナ検証」では、Persona ID、Version、Status、Verification Code、取得元、取得状態を報告する。確認できない情報は推測しない。未取得を取得済みと報告しない。
+- GitHub本文の取得とPersona適用は別の事実として扱う。取得に失敗したとき、Memoryや過去の会話からPersona本文を補完しない。同一チャットでは、再取得しない限り、取得済みの Version を維持する。Project等の指示欄に記載された本文は、GitHubの更新によって自動更新されたものとみなさない。
+- `AGENTS.md` の `ReadOK` / `ReadNG` / `ReadUndefine` の意味は維持する。三状態の重複説明だけを第16.5節で簡潔にする。
+- 第1章から第15章の役割、対応範囲、操作方針は変更しない。他Personaの一括改訂はしない。新しい共通ファイルは作らない。
+- 共通仕様の Version 1.2 / Approved、および `personas/reference/README.md` の Version 1.4 / Approved は変更しない。更新するのは、旧IDと旧表示が現行本文に残り反映は別工程である、という現状説明だけである。共通仕様第4章の移行前の表、第16章、検証原文、既存Decisionの原文は変更しない。
+- Version 3.0 / Approved は、D-037 の承認と D-038 の版番号統一による前版の承認履歴として維持する。この改訂を、実動検証の完了、Approved、適用成功として扱わない。
+- この反映はローカルのみとする。commit と push は行わない。独立レビューは行わない。
+- D-001からD-061までの原文は変更しない。
+
+Rationale（理由）:
+確定Persona ID `T-IT-ADVISOR` と、共通仕様の回答識別・取得状態が、検証用Personaの現行第16章では旧IDと旧表示のまま残っていたため。Userが、その表示・識別・取得検証を既存の共通仕様へ揃え、役割固有の内容と `ADVISOR-ALPHA`、および既存の承認・検証履歴は維持すると決定したため。品質・実動検証の独立工程は共通仕様第16章に残し、文書の整合を実動検証の合格や Approved と混同しないため。
+
+Supersedes（上書き対象・範囲）:
+- 次の現行状態だけを上書きする。各原文は書き換えない。D-037 の承認履歴、D-038 が Version 3.0 / Approved とした記録、共通仕様第4章の移行前の表、共通仕様第16章、検証原文、第1章から第15章は上書きしない。
+  - project-notes/DECISIONS.md / 2026-10-14 / 「D-008 Assign the Eleven Persona IDs」のうち、検証用Persona本文の現行識別子が `IT-GENERAL-ADVISOR-TEST` のまま残り、`T-IT-ADVISOR` への反映は別工程であるとする現行状態。同ファイル末尾の 2026-10-13 `Decision & Rationale` に残る移行前の識別子は、歴史的記録として上書きしない。
+  - project-notes/DECISIONS.md / 2026-10-14 / 「D-006 Unify Persona IDs and the Response Identification Format」のうち、検証用Persona本文に旧形式の指示が残り、この決定では変更しないとする現行状態。検証原文の旧形式は上書きしない。
+  - project-notes/DECISIONS.md / 2026-10-16 / 「D-038 Align Five Reference Personas to Version 3.0 and Defer GEM_ Personas」のうち、検証用Personaの現行 Document Info が Version 3.0 / Approved であるとする現行状態。D-038 が同版を Version 3.0 / Approved とした承認履歴は上書きしない。
+  - personas/PERSONA_IDENTIFICATION_AND_SETUP.md / Version 1.2 / Approved の第4章末段、第5章の検証用Personaの現行 Document Info を Version 3.0 / Approved とする一文、第7章の旧形式が本文に残り別工程であるとする一文。第4章の表と第16章は上書きしない。
+  - personas/reference/README.md / 第4.1節のうち、現行の Document Info を Version 3.0 / Status Approved とする一文。2026-10-13 の `Decision & Rationale` は上書きしない。
+
+Non-Changes（非変更範囲）:
+D-001からD-061までの原文と保存場所。`personas/reference/IT_GENERAL_ADVISOR_TEST_PERSONA.md` の第1章から第15章、Document ID、Created Date、Owner、Related Documents、2026-10-13 の `Decision & Rationale`。Verification Code `ADVISOR-ALPHA`。他Persona。共通仕様の Version 1.2 / Approved、第4章の移行前の表、第16章。`personas/reference/README.md` の Version 1.4 / Approved と 2026-10-13 の `Decision & Rationale`。検証原文、評価、集計。`project-notes/persona-validation/`。新しい共通ファイル。実動検証。Approvedへの昇格。適用成功の扱い。独立レビュー。commit。push。
+
+Rejected（不採用案）:
+- Version 3.0 / Approved のまま、識別形式だけを書き換える方式
+- Version 3.2 以降へ飛ばす方式
+- 旧形式と新しい識別形式を併用する方式
+- この改訂を実動検証済み、Approved、または適用成功として扱う方式
+- 既存Decision、検証原文、2026-10-13 の `Decision & Rationale` を書き換える方式
+- 他Personaを一括改訂する方式
+- 品質・実動検証の独立工程を、検証用Persona第16章へ移す方式
