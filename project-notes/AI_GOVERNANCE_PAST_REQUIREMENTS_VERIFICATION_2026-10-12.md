@@ -1,3 +1,14 @@
+<!--
+Program Name: AI Governance Past Requirements Verification
+Language: Markdown
+Function: 2026-10-12時点の過去要求と判断の照合記録
+Created: 2026-10-12
+Last Updated: 2026-10-20
+Author: Takashi Oikawa
+AI: Cursor
+Memo: 既存の照合記録は維持する。2026-10-20の追記はdesign-document-templatesがD-020の削除対象であるという現在の判断だけである
+-->
+
 # AI Governance構想：過去要求・判断の再検証記録
 
 - 記録日：2026-10-12
@@ -34,6 +45,8 @@
 - **全体ゴール**：ペルソナをAI行動統制基盤とし、対象Repositoryの`AGENTS.md`を先に読み、そこから必要な設計・設定文書を読み、文書に沿って設計・実装・レビューするSDD開発環境を作る。文書欠落時でも影響を区別し、継続できる作業を残す。
 - **第1弾**：本人の実務開発環境を完成させる。メインは`t-oikawa-sendai/repository-governance`と`t-oikawa-sendai/project-bootstrap`。`t-oikawa-sendai/solacom_main`は関連修正対象であって主対象ではない。
 - **第2弾**：第1弾を模倣し、制約を緩めた初学者用の`t-oikawa-sendai/design-document-templates`を整備・配布する。第1弾の完成条件には含めない。
+
+2026-10-20 の利用者判断では、design-document-templates は D-020 の削除対象である。直前の第2弾の文は 2026-10-12 時点の記録であり、配布継続または移行完了の証拠ではない。
 
 ## 4. 現行GitHub mainとの照合（2026-10-12）
 
