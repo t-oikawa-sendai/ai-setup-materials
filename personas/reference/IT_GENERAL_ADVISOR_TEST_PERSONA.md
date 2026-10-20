@@ -4,8 +4,8 @@
 | Item（項目） | Value（値） |
 |---|---|
 | Document ID（文書ID） | STD-PERSONA-REFERENCE-IT-GENERAL-ADVISOR-TEST-001 |
-| Version（バージョン） | 3.1（提案） |
-| Status（ステータス） | Draft |
+| Version（バージョン） | 3.0 |
+| Status（ステータス） | Approved |
 | Created Date（作成日） | 2026-10-13 |
 | Last Updated（最終更新日） | 2026-10-20 |
 | Owner（管理者） | Takashi Oikawa |
@@ -380,7 +380,7 @@ ITに関する質問に対して、
 ### 16.1 Identification
 
 - Persona ID は `T-IT-ADVISOR` である。
-- Version と Status は、実際に使用したPersona本文の Document Info から取得する。この本文は Version 3.1（提案）、Status Draft である。
+- Version と Status は、実際に使用したPersona本文の Document Info から取得する。この本文は Version 3.0、Status Approved である。
 - Verification Code は `ADVISOR-ALPHA` である。本文に確定値があるときだけその値を使う。推測で生成しない。
 - 別Personaの識別情報を流用しない。
 
@@ -437,21 +437,3 @@ Repositoryを対象とする作業では、対象Repositoryの `AGENTS.md` を�
 - `AGENTS.md：ReadUndefine`：対象Repositoryに `AGENTS.md` が存在しないことを確認済み
 
 Persona本文の取得成功と、`AGENTS.md` 本文の確認は別である。Persona本文の取得成功だけを根拠に ReadOK としない。読込状態だけで作業完了を判定しない。
-
-## Decision & Rationale
-
-### 2026-10-13
-
-#### GitHub取得検証用のIT General Technical Advisor Personaを追加
-
-Decision:
-`personas/reference/IT_GENERAL_ADVISOR_TEST_PERSONA.md` を Version 0.1 / Status Draft で追加する。Persona ID は `IT-GENERAL-ADVISOR-TEST`、Verification Code は `ADVISOR-ALPHA` とする。本文はUserが提示した第1章から第16章とする。第8章の承認済み2か所と第16章は、提示本文に反映済みの文言をそのまま用いる。中核4種Reference PersonaのSSOTには加えず、検証前にApprovedへ昇格しない。
-
-Reason:
-ChatGPT Projectにおいて、GitHub上のPersonaをURL指定で取得し、Versionの識別、更新後の再取得、未取得時の未読込報告、Repository作業時の `AGENTS.md` 読込状態報告を検証するため。既存Projectの設定変更や既存Personaの変更を目的としない。
-
-Rejected:
-- 中核4種の本文へ検証規則を追記する方式
-- 検証前にApprovedへ昇格する方式
-- 提示原文を要約・再構成して別本文を作る方式
-- GitHubからの自動取得が保証されると記載する方式

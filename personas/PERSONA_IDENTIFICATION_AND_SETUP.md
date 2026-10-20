@@ -77,7 +77,7 @@ IDは確定済みである。再命名・再提案しない。
 
 移行前のDocument Infoは、2026-10-14に各ファイルから確認した現行値である。Version 3.0 へ更新した後の値ではない。この表の記録によって、本文もStatusも変更しない。
 
-`T-IT-ADVISOR` は確定Persona IDである。現行の [`reference/IT_GENERAL_ADVISOR_TEST_PERSONA.md`](reference/IT_GENERAL_ADVISOR_TEST_PERSONA.md) 第16章の識別子は `T-IT-ADVISOR` である。移行前の識別子 `IT-GENERAL-ADVISOR-TEST` は、同ファイル末尾の 2026-10-13 `Decision & Rationale` と検証原文に歴史として残る。それらの原文は書き換えない。第4章の表は、2026-10-14時点の移行前の Document Info であり、現行の Version と Status ではない。
+`T-IT-ADVISOR` は確定Persona IDである。現行の [`reference/IT_GENERAL_ADVISOR_TEST_PERSONA.md`](reference/IT_GENERAL_ADVISOR_TEST_PERSONA.md) 第16章の識別子は `T-IT-ADVISOR` である。移行前の識別子 `IT-GENERAL-ADVISOR-TEST` は、D-063 が保全した 2026-10-13 `Decision & Rationale` の原文と、検証原文に歴史として残る。それらの原文は書き換えない。Persona本文には、その履歴への参照を残さない。第4章の表は、2026-10-14時点の移行前の Document Info であり、現行の Version と Status ではない。
 
 Researcher 3ファイルの現行見出しは、いずれも Researcher Persona である。Education README上の選択は、FULLが Learning / Career / Development、LEARNING_DEVELOPMENTが Learning / Development、DEVELOPMENTが Development である。この選択関係を、MainとSubsetの1対1対応表として扱わない。
 
@@ -91,7 +91,7 @@ Researcher 3ファイルの現行見出しは、いずれも Researcher Persona 
 - `GEM_` で始まる Education 6件は、現在の数値 Version / Approved を維持する。大改修の完了後に Version 3.0 へ揃える。
 - 本書はPersonaではない。本書の Version 1.2 / Approved は、この版番号統一の対象ではない。
 
-[`../project-notes/DECISIONS.md`](../project-notes/DECISIONS.md) の D-005 は、検証用Personaを Version 0.1 / Draft として保全した時点の確定状態である。D-005を書き換えない。Version 3.0 / Approved は、D-037 の承認と D-038 の版番号統一による前版の承認履歴である。現行の Document Info は Version 3.1（提案）/ Draft である。この Draft は、実動検証の完了、Approved、適用成功を意味しない。
+[`../project-notes/DECISIONS.md`](../project-notes/DECISIONS.md) の D-005 は、検証用Personaを Version 0.1 / Draft として保全した時点の確定状態である。D-005を書き換えない。D-037 の承認と D-038 の版番号統一は、Version 3.0 / Approved の承認履歴である。D-062 が現行を Version 3.1（提案）/ Draft とした記録は、その決定時点の記録であり、原文は変更しない。現行の Document Info は Version 3.0 / Approved である。この Approved は User の版の確定であり、実動検証の完了や適用成功を意味しない。
 
 ## 6. CONFIRMED: Service Codes（サービス略号）
 

@@ -2284,3 +2284,97 @@ Rejected（不採用案）:
 - 既存Decision、検証原文、2026-10-13 の `Decision & Rationale` を書き換える方式
 - 他Personaを一括改訂する方式
 - 品質・実動検証の独立工程を、検証用Persona第16章へ移す方式
+
+## D-063 Move the Test Persona Decision Record out of the Persona Body（検証用Personaの判断履歴を本文から分離する）
+
+Date（日付）: 2026-10-20
+Related Documents（関連文書）: personas/reference/IT_GENERAL_ADVISOR_TEST_PERSONA.md / project-notes/DECISIONS.md / project-notes/CURRENT.md
+
+Decision（決定）:
+- 2026-10-20、Userは、検証用Persona `personas/reference/IT_GENERAL_ADVISOR_TEST_PERSONA.md` 末尾の `Decision & Rationale` を原文のまま `project-notes/DECISIONS.md` へ移し、Persona本文には履歴への参照を残さないと決定した。
+- 移設元パスは `personas/reference/IT_GENERAL_ADVISOR_TEST_PERSONA.md` である。
+- 元の記録日は 2026-10-13 である。
+- 移設前 commit SHA は `4511652ffa32c092e85f7fc785fdaf44a98ab0bc` である。この SHA で、移設前のローカル HEAD、`origin/main`、GitHub `main` が一致したことを確認した。
+- 移設範囲は、このPersona末尾の `## Decision & Rationale` から末尾までだけである。他Personaの判断履歴は移さない。
+- 移設した原文は、このエントリの「移設した原文」に Markdown コードブロックで保存する。旧ID、旧Version、その他の文言は原文どおり維持する。要約、修正、欠落はしない。
+- 原文一致を確認したあと、Persona本文から当該セクションを削除する。参照リンク、移設案内、HTMLコメントは追加しない。
+- 第1章から第16章、Version 3.1（提案）/ Draft、Verification Code `ADVISOR-ALPHA` は維持する。
+- この移設はローカルのみとする。commit と push は行わない。実動検証、独立レビュー、Approvedへの昇格は行わない。
+- D-001からD-062までの原文は変更しない。
+
+Rationale（理由）:
+検証用Personaの本文から判断履歴を分離し、原文を失わず、Persona本文に履歴への参照を残さないため。Userが、このPersona末尾の `Decision & Rationale` だけを既存の `project-notes/DECISIONS.md` へ移すと決定したため。
+
+Evidence（根拠）:
+- 2026-10-20のUser指示。判断履歴の原文を `project-notes/` 側へ移す。Persona本文には履歴への参照を残さない。移設先は既存の `project-notes/DECISIONS.md` とする。既存履歴の移設許可は、このPersona末尾の `Decision & Rationale` だけに適用する。第1章から第16章、Version 3.1（提案）/ Draft、Verification Code は維持する。この移設は commit と push をしない。
+- 移設前に確認した Git 状態。Repository は `t-oikawa-sendai/ai-setup-materials`。branch は `main`。ローカル HEAD、`origin/main`、GitHub `main` は `4511652ffa32c092e85f7fc785fdaf44a98ab0bc` で一致した。worktree は clean だった。
+
+Supersedes（上書き対象・範囲）:
+- `personas/reference/IT_GENERAL_ADVISOR_TEST_PERSONA.md` の末尾に、2026-10-13 の `Decision & Rationale` を置く保存場所だけ。判断の原文は、このエントリの「移設した原文」に維持する。D-001からD-062までの原文、第1章から第16章、Version 3.1（提案）/ Draft、Verification Code `ADVISOR-ALPHA` は上書きしない。
+
+Non-Changes（非変更範囲）:
+D-001からD-062までの原文と保存場所。第1章から第16章。Document Info の Version 3.1（提案）、Status Draft、Verification Code `ADVISOR-ALPHA`。他Persona。実動検証。独立レビュー。Approvedへの昇格。この移設の commit と push。
+
+Rejected（不採用案）:
+- 原文を要約、修正、または一部を欠落させる方式
+- Persona本文に参照リンク、移設案内、またはHTMLコメントを残す方式
+- 他Personaの判断履歴へ展開する方式
+- この移設を commit または push する方式
+- 実動検証、独立レビュー、または Approved への昇格を同時に行う方式
+
+移設した原文:
+
+```
+## Decision & Rationale
+
+### 2026-10-13
+
+#### GitHub取得検証用のIT General Technical Advisor Personaを追加
+
+Decision:
+`personas/reference/IT_GENERAL_ADVISOR_TEST_PERSONA.md` を Version 0.1 / Status Draft で追加する。Persona ID は `IT-GENERAL-ADVISOR-TEST`、Verification Code は `ADVISOR-ALPHA` とする。本文はUserが提示した第1章から第16章とする。第8章の承認済み2か所と第16章は、提示本文に反映済みの文言をそのまま用いる。中核4種Reference PersonaのSSOTには加えず、検証前にApprovedへ昇格しない。
+
+Reason:
+ChatGPT Projectにおいて、GitHub上のPersonaをURL指定で取得し、Versionの識別、更新後の再取得、未取得時の未読込報告、Repository作業時の `AGENTS.md` 読込状態報告を検証するため。既存Projectの設定変更や既存Personaの変更を目的としない。
+
+Rejected:
+- 中核4種の本文へ検証規則を追記する方式
+- 検証前にApprovedへ昇格する方式
+- 提示原文を要約・再構成して別本文を作る方式
+- GitHubからの自動取得が保証されると記載する方式
+```
+
+## D-064 Confirm the Test Persona as Version 3.0 Approved（検証用PersonaをVersion 3.0 / Approvedへ確定する）
+
+Date（日付）: 2026-10-20
+Related Documents（関連文書）: personas/reference/IT_GENERAL_ADVISOR_TEST_PERSONA.md / personas/PERSONA_IDENTIFICATION_AND_SETUP.md / personas/reference/README.md / project-notes/CURRENT.md / project-notes/DECISIONS.md
+
+Decision（決定）:
+- 2026-10-20、Userは、検証用Persona `personas/reference/IT_GENERAL_ADVISOR_TEST_PERSONA.md` の現行を Version 3.0、確定版とすると決定した。Status は Approved とする。対象は `T-IT-ADVISOR` のみである。
+- 変更前の現行は、D-062 が記録した Version 3.1（提案）/ Draft である。D-062 の原文は変更しない。
+- Document Info と、本文中で現行の Version と Status を自己記述する箇所を、Version 3.0 / Approved に揃える。共通仕様、Reference README、`project-notes/CURRENT.md` の現行版表示もこれに揃える。
+- D-063 の判断履歴移設と、Persona本文に履歴への参照を残さない決定は維持する。移設した原文は変更しない。
+- この Approved は、User が版を確定した記録である。実動検証の合格、適用成功、ChatGPT Project 上の取得検証の実施ではない。実動検証が未実施である記録は維持する。
+- 他Persona、役割、識別形式、Verification Code `ADVISOR-ALPHA` は変更しない。
+- この反映はローカルのみとする。commit と push は行わない。
+- D-001からD-063までの原文は変更しない。
+
+Rationale（理由）:
+Userが、検証用Personaの現行を Version 3.1（提案）/ Draft ではなく、Version 3.0 の確定版にすると決定したため。版の確定と、実動検証の合格を分けて記録するため。D-063 でPersona本文から分離した判断履歴は、この版の確定では戻さないため。
+
+Evidence（根拠）:
+- 2026-10-20のUser指示。Versionは3.0、確定版とする。対象は `T-IT-ADVISOR` のみである。判断履歴の移設と、Personaに参照を残さない決定は維持する。User承認と実動検証結果を分ける。実動検証未実施の記録は維持する。commit と push は行わない。
+- 継続作業の開始時に確認した Git 状態。Repository は `t-oikawa-sendai/ai-setup-materials`。branch は `main`。ローカル HEAD、`origin/main`、GitHub `main` は `4511652ffa32c092e85f7fc785fdaf44a98ab0bc` で一致した。未commit変更は、D-063 の3ファイルだけだった。
+
+Supersedes（上書き対象・範囲）:
+- 検証用Personaの現行 Document Info、および共通仕様、Reference README、`project-notes/CURRENT.md` が、現行を Version 3.1（提案）/ Draft と表示する範囲だけ。D-062 の原文、D-037 と D-038 の承認履歴、Version 0.1 / Draft の過去記録、D-063 の移設原文は上書きしない。
+
+Non-Changes（非変更範囲）:
+D-001からD-063までの原文と、D-063 の移設した原文。他Persona。役割。識別形式。Verification Code `ADVISOR-ALPHA`。第4章の移行前の表。実動検証の合格記録。commit。push。
+
+Rejected（不採用案）:
+- Version 3.1（提案）/ Draft のままにする方式
+- Version 3.2 以降へ進める方式
+- この Approved を実動検証の合格として記録する方式
+- D-063 の移設を戻し、Persona本文へ履歴の参照を残す方式
+- 他Personaの Version または Status を同時に変更する方式
