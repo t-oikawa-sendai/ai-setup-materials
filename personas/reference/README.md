@@ -4,12 +4,12 @@
 | Item（項目） | Value（値） |
 |---|---|
 | Document ID（文書ID） | STD-PERSONA-REFERENCE-INDEX-001 |
-| Version（バージョン） | 1.4 |
-| Status（ステータス） | Approved |
+| Version（バージョン） | 1.5（提案） |
+| Status（ステータス） | Draft |
 | Created Date（作成日） | 2026-08-22 |
-| Last Updated（最終更新日） | 2026-10-20 |
+| Last Updated（最終更新日） | 2026-10-21 |
 | Owner（管理者） | Takashi Oikawa |
-| Related Documents（関連文書） | [`../../README.md`](../../README.md)<br>[`../education/README.md`](../education/README.md)<br>[`CHATGPT_PERSONA.md`](CHATGPT_PERSONA.md)<br>[`CLAUDE_PERSONA.md`](CLAUDE_PERSONA.md)<br>[`CURSOR_PERSONA.md`](CURSOR_PERSONA.md)<br>[`GEMINI_PERSONA.md`](GEMINI_PERSONA.md)<br>[`IT_GENERAL_ADVISOR_TEST_PERSONA.md`](IT_GENERAL_ADVISOR_TEST_PERSONA.md)<br>[`PERSONA_OPERATION_CASE_STUDY.md`](PERSONA_OPERATION_CASE_STUDY.md)<br>[`CHAT_HANDOFF_TEMPLATE.md`](CHAT_HANDOFF_TEMPLATE.md)<br>[`PERSONA_PROMPT_TEMPLATE.md`](PERSONA_PROMPT_TEMPLATE.md)<br>[`../PERSONA_IDENTIFICATION_AND_SETUP.md`](../PERSONA_IDENTIFICATION_AND_SETUP.md) |
+| Related Documents（関連文書） | [`../../README.md`](../../README.md)<br>[`../education/README.md`](../education/README.md)<br>[`CHATGPT_PERSONA.md`](CHATGPT_PERSONA.md)<br>[`CLAUDE_PERSONA.md`](CLAUDE_PERSONA.md)<br>[`IT_EDUCATION_CONTENT_DESIGNER.md`](IT_EDUCATION_CONTENT_DESIGNER.md)<br>[`CURSOR_PERSONA.md`](CURSOR_PERSONA.md)<br>[`GEMINI_PERSONA.md`](GEMINI_PERSONA.md)<br>[`IT_GENERAL_ADVISOR_TEST_PERSONA.md`](IT_GENERAL_ADVISOR_TEST_PERSONA.md)<br>[`PERSONA_OPERATION_CASE_STUDY.md`](PERSONA_OPERATION_CASE_STUDY.md)<br>[`CHAT_HANDOFF_TEMPLATE.md`](CHAT_HANDOFF_TEMPLATE.md)<br>[`PERSONA_PROMPT_TEMPLATE.md`](PERSONA_PROMPT_TEMPLATE.md)<br>[`../PERSONA_IDENTIFICATION_AND_SETUP.md`](../PERSONA_IDENTIFICATION_AND_SETUP.md) |
 
 </details>
 
@@ -61,6 +61,10 @@ Education基本4役割を置き換えるものではありません。従来の4
 現行の Document Info は Version 3.0 / Status Approved です。D-037 の承認と D-038 の版番号統一は、Version 3.0 / Status Approved の承認履歴です。D-062 が現行を Version 3.1（提案）/ Status Draft とした記録は、その決定時点の記録です。Version 0.1 / Status Draft は、2026-10-13時点の検証前の状態です。当時の判断は、このファイル末尾の 2026-10-13「検証専用Personaを中核4種と区別して掲載」に原文のまま残します。その判断文は、現行の Version と Status ではありません。この Approved は User の版の確定であり、実動検証の完了や適用成功を意味しません。
 
 - [`IT_GENERAL_ADVISOR_TEST_PERSONA.md`](IT_GENERAL_ADVISOR_TEST_PERSONA.md)：IT General Technical Advisor Persona（検証専用）
+
+## 4.2 Draft Persona（講師向け教材制作）
+
+- [`IT_EDUCATION_CONTENT_DESIGNER.md`](IT_EDUCATION_CONTENT_DESIGNER.md)：IT Education Content Designer（S-IECD、Version 0.1（提案）/ Draft）。講師のIT教材制作を支援する、サービス非依存のPersona。中核4種、Education基本4役割、検証専用Personaのいずれにも含めない。GitHub本文の取得、利用環境への適用、実動検証は別々に確認する。GitHub `main` に未反映の間は、G方式の取得対象にならない。
 
 ## 5. Reference Operation Materials（AI運用参考資料）
 

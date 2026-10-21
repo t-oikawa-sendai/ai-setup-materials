@@ -2378,3 +2378,32 @@ Rejected（不採用案）:
 - この Approved を実動検証の合格として記録する方式
 - D-063 の移設を戻し、Persona本文へ履歴の参照を残す方式
 - 他Personaの Version または Status を同時に変更する方式
+
+## D-065 Draft the G-Source IT Education Content Designer Persona（講師向けS-IECDをG方式のDraftとして整備する）
+
+Date（日付）: 2026-10-21
+Related Documents（関連文書）: personas/reference/IT_EDUCATION_CONTENT_DESIGNER.md / personas/reference/README.md / personas/PERSONA_IDENTIFICATION_AND_SETUP.md / project-notes/CURRENT.md / project-notes/DECISIONS.md
+
+Decision（決定）:
+- IT Education Content Designerを講師向けの教材制作Personaとして `personas/reference/IT_EDUCATION_CONTENT_DESIGNER.md` に置く。Persona ID `S-IECD` と Version 0.1 は提案、Statusは Draft とし、Userの最終承認と必要なPersona Verificationより前にApprovedへ昇格させない。Document ID は未決定とする。
+- 提示済み§1〜§10のDraft本文を基礎とし、初心者向けの正確なIT教育、基礎から応用・実務への展開、講師の最終決定権を維持する。講師の決定とEvidenceの真偽・技術的正否を分ける。技術上重要な未決事項は軽微な仮定で確定させない。
+- 正本の配置先は `t-oikawa-sendai/ai-setup-materials` の `main`、上記ファイルとする。取得方式をPからGへ変更し、取得失敗時は未読込とする。Version・Statusは実際に取得したDocument Infoから確認する。GitHub更新の自動反映は仮定しない。取得、適用、実動検証を区別する。
+- Reference READMEにはDraftとして別節で案内し、既存の中核4種と検証専用Personaから分ける。共通仕様第16章のPersona VerificationとD-045のRepository範囲を維持する。サービス別設定資料、設定案内専用Persona、指示欄用完成文は追加しない。
+- Userの後続指示により、既存Root READMEの未commit変更（第2章の見出し4件）も、今回のS-IECD関連変更と同じCommitに含めてPushする。元のチェックアウトの未commit変更は破棄・上書きしない。
+
+Rationale（理由）:
+講師が使う教材設計Personaをサービス非依存で管理し、GitHub `main` を唯一の本文正本にするため。取得状態の自己申告、回答への適用、実動の合否を混同せず、既存の教育設計上の有効な責務を保つため。
+
+Evidence（根拠）:
+- Userの「S-IECD PersonaのGitHub正本化・改訂指示」と2026-10-21の継続指示。Version 0.1 / Draft の維持、原文§1〜§10の参照、D-045との整合、未commit差分の保護を明示した。当初はcommit・pushを禁止し、後続で「Commit・Push」を指示した。既存Root READMEの変更も同じCommitに含めることを追加指定した。
+- 会話「ペルソナ管理方針整理」にUserが投稿したP方式の§1〜§10 Draft本文。2026-10-21に本文を取得し、改訂元として確認した。
+- GitHub `main` の `AGENTS.md`、`personas/PERSONA_IDENTIFICATION_AND_SETUP.md` 第16章、D-045、およびReference READMEを確認した。作業開始時のGitHub `main` SHAは `476c59ae9e4f61babd73d8a28875bf49f9f9e5b5` である。
+
+Supersedes（上書き対象・範囲）:
+- S-IECD Draft原案における指示欄本文を正本とするP方式、および§10のP方式前提の取得識別だけを、GitHub正本のG方式に変更する。既存Decisionの本文は上書きしない。
+
+Non-Changes（非変更範囲）:
+- 既存の中核4種、Education基本4役割、検証専用Personaとその判断原文。D-045が除外したサービス別設定資料と設定案内。共通仕様第16章の独立検証条件。既存のEvidenceの合否。
+
+Unverified（未確認）:
+- 新規S-IECDの各AIサービスからのGitHub取得、適用、実動検証の結果。GitHubへの保存だけで、これらを確認済みと主張しない。
