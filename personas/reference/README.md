@@ -9,7 +9,7 @@
 | Created Date（作成日） | 2026-08-22 |
 | Last Updated（最終更新日） | 2026-10-21 |
 | Owner（管理者） | Takashi Oikawa |
-| Related Documents（関連文書） | [`../../README.md`](../../README.md)<br>[`../education/README.md`](../education/README.md)<br>[`CHATGPT_PERSONA.md`](CHATGPT_PERSONA.md)<br>[`CLAUDE_PERSONA.md`](CLAUDE_PERSONA.md)<br>[`IT_EDUCATION_CONTENT_DESIGNER.md`](IT_EDUCATION_CONTENT_DESIGNER.md)<br>[`CURSOR_PERSONA.md`](CURSOR_PERSONA.md)<br>[`GEMINI_PERSONA.md`](GEMINI_PERSONA.md)<br>[`IT_GENERAL_ADVISOR_TEST_PERSONA.md`](IT_GENERAL_ADVISOR_TEST_PERSONA.md)<br>[`PERSONA_OPERATION_CASE_STUDY.md`](PERSONA_OPERATION_CASE_STUDY.md)<br>[`CHAT_HANDOFF_TEMPLATE.md`](CHAT_HANDOFF_TEMPLATE.md)<br>[`PERSONA_PROMPT_TEMPLATE.md`](PERSONA_PROMPT_TEMPLATE.md)<br>[`../PERSONA_IDENTIFICATION_AND_SETUP.md`](../PERSONA_IDENTIFICATION_AND_SETUP.md) |
+| Related Documents（関連文書） | [`../../README.md`](../../README.md)<br>[`../education/README.md`](../education/README.md)<br>[`CHATGPT_PERSONA.md`](CHATGPT_PERSONA.md)<br>[`CLAUDE_PERSONA.md`](CLAUDE_PERSONA.md)<br>[`IT_EDUCATION_CONTENT_DESIGNER.md`](IT_EDUCATION_CONTENT_DESIGNER.md)<br>[`PERSONA_SETUP_ADVISOR.md`](PERSONA_SETUP_ADVISOR.md)<br>[`CURSOR_PERSONA.md`](CURSOR_PERSONA.md)<br>[`GEMINI_PERSONA.md`](GEMINI_PERSONA.md)<br>[`IT_GENERAL_ADVISOR_TEST_PERSONA.md`](IT_GENERAL_ADVISOR_TEST_PERSONA.md)<br>[`PERSONA_OPERATION_CASE_STUDY.md`](PERSONA_OPERATION_CASE_STUDY.md)<br>[`CHAT_HANDOFF_TEMPLATE.md`](CHAT_HANDOFF_TEMPLATE.md)<br>[`PERSONA_PROMPT_TEMPLATE.md`](PERSONA_PROMPT_TEMPLATE.md)<br>[`../PERSONA_IDENTIFICATION_AND_SETUP.md`](../PERSONA_IDENTIFICATION_AND_SETUP.md) |
 
 </details>
 
@@ -19,7 +19,7 @@
 
 ## 1. Purpose（目的）
 
-このディレクトリは、Education基本4役割とは異なる前提で、実務構成の参考Personaと、役割分離の効果・限界を考えるための実践例を管理します。Reference Personaは、Education基本4役割を置き換えるものではありません。従来の4Gem＋1は歴史的な運用構成です。現在利用可能なReference文書への入口・索引です。サービスの設定方法は扱いません。
+このディレクトリは、Education基本4役割とは異なる前提で、実務構成の参考Personaと、役割分離の効果・限界を考えるための実践例を管理します。Reference Personaは、Education基本4役割を置き換えるものではありません。従来の4Gem＋1は歴史的な運用構成です。現在利用可能なReference文書への入口・索引です。この索引にサービス別の設定手順は掲載しません。
 
 ## 2. Recommended Reading Order（推奨する読み順）
 
@@ -62,9 +62,10 @@ Education基本4役割を置き換えるものではありません。従来の4
 
 - [`IT_GENERAL_ADVISOR_TEST_PERSONA.md`](IT_GENERAL_ADVISOR_TEST_PERSONA.md)：IT General Technical Advisor Persona（検証専用）
 
-## 4.2 Draft Persona（講師向け教材制作）
+## 4.2 Draft Personas（提案中のPersona）
 
 - [`IT_EDUCATION_CONTENT_DESIGNER.md`](IT_EDUCATION_CONTENT_DESIGNER.md)：IT Education Content Designer（S-IECD、Version 0.1（提案）/ Draft）。講師のIT教材制作を支援する、サービス非依存のPersona。中核4種、Education基本4役割、検証専用Personaのいずれにも含めない。GitHub本文の取得、利用環境への適用、実動検証は別々に確認する。GitHub `main` に未反映の間は、G方式の取得対象にならない。
+- [`PERSONA_SETUP_ADVISOR.md`](PERSONA_SETUP_ADVISOR.md)：Persona Setup Advisor（S-SETUP、Version 3.0（提案）/ Draft）。目的に応じたPersona選定と利用環境への設定を案内する。D-045に対する定義本文のみの例外であり、サービス別設定資料や指示欄用完成文の保存は再開しない。GitHub本文の取得、適用、実動検証は別々に確認する。GitHub `main` に未反映の間は、G方式の取得対象にならない。
 
 ## 5. Reference Operation Materials（AI運用参考資料）
 

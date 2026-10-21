@@ -2407,3 +2407,32 @@ Non-Changes（非変更範囲）:
 
 Unverified（未確認）:
 - 新規S-IECDの各AIサービスからのGitHub取得、適用、実動検証の結果。GitHubへの保存だけで、これらを確認済みと主張しない。
+
+## D-066 Draft the G-Source Persona Setup Advisor as a Narrow Scope Exception（S-SETUP本文だけをG方式のDraftとして管理する）
+
+Date（日付）: 2026-10-21
+Related Documents（関連文書）: AGENTS.md / README.md / personas/reference/PERSONA_SETUP_ADVISOR.md / personas/reference/README.md / personas/PERSONA_IDENTIFICATION_AND_SETUP.md / project-notes/CURRENT.md / project-notes/DECISIONS.md / Repository全体
+
+Decision（決定）:
+- Persona Setup Advisorを、目的からのPersona選定、AIサービスへの設定案内、設定後の確認方法に責務を限るPersonaとして `personas/reference/PERSONA_SETUP_ADVISOR.md` にDraftで置く。Persona ID `S-SETUP` と Version 3.0 は提案、Statusは Draft、Document IDは未決定とする。Userの最終承認と共通仕様第16章の必要なPersona Verificationより前にApprovedへ昇格させない。
+- このPersonaの本文正本は `t-oikawa-sendai/ai-setup-materials` の `main` とし、S-IECDと同じG方式で新しいチャットに取得を試みる。GitHub取得の失敗時は未読込とし、過去の会話やMemoryで補完しない。取得、適用、実動検証を区別する。
+- D-045のRepository対象範囲に対して、S-SETUPのPersona定義本文とその最小限の索引だけを例外とする。サービス別の固定的な設定資料、画面操作手順、指示欄用完成文はRepositoryへ保存しない。利用環境側に貼るG方式の指示文はRepository外で渡す。
+- M-Personaの扱いは共通仕様第9章を維持する。初心者または知識水準が不明なUserには通常S-Personaを勧め、UserがM-Personaを明示希望した場合は前提条件と注意点を案内し、知識水準だけを理由に拒否しない。T-Personaは通常の利用候補に含めない。
+- Reference READMEでは中核4種、検証専用Personaと区別したDraft導線に置く。AIサービス固有の手順は利用時に必要に応じ現行の公式情報で確認し、Persona本文へ固定的な手順を収録しない。
+
+Rationale（理由）:
+UserがS-IECDと同じGitHub正本方式で設定案内Personaを使い、ローカルの指示欄から取得させたいと明示したため。S-SETUP本文のみを例外とすることで、D-045の「変化する設定画面を追う資料を維持しない」という背景意図と、Personaの本文正本をGitHubに置く新しいUser要求を両立させる。
+
+Evidence（根拠）:
+- 2026-10-21のUser提示「Persona Setup Advisor」§1〜§9の原案、および「IT Education Content Designerと同じ扱い」「この文案を基本にGitHubを正本」「ローカルの指示にはる文案も作成」の指示。
+- UserはM-Personaについて「現行共通仕様に合わせる」と回答した。Userは今回の実装担当をCursorからChatGPTへ変更した。この判断を記録した時点ではcommit・pushの指示はなく、その後Userが「commit・push」を明示指示した。
+- 作業開始時にGitHub `main` HEAD `eb552f11e883794aeeb579d3f6a71fdb829e1a76`、同SHAの `AGENTS.md`、共通仕様第9章・第16章、D-016・D-045・D-065、S-IECD本文を確認した。元Devチェックアウトは `b102001724c5f4323cbb2440c889d10e4ea16e5f` でREADMEに未commit変更があるため保全し、別のcleanなチェックアウトをGitHub `main` の同SHAへfast-forwardして作業した。
+
+Supersedes（上書き対象・範囲）:
+- D-045が設定案内専用Personaを本Repositoryの対象外とした範囲を、S-SETUPの定義本文とその索引に限って上書きする。D-016の旧新設方針が自動復活したものとは扱わず、この新しいUser指示を根拠とする。
+
+Non-Changes（非変更範囲）:
+- D-045のサービス別設定資料・画面操作手順・指示欄用完成文を除外する方針。共通仕様のM/S/T分類と第16章の独立した検証工程。既存11 Persona、S-IECD、中核4種、Education基本4役割、検証専用Personaの本文・Version・Status・Evidence。既存Decision原文。
+
+Unverified（未確認）:
+- この判断記録を作成した時点では、S-SETUP本文のGitHub保存、各AIサービスからの取得、回答への適用、実動検証を確認していない。後続の保存結果はGitHub `main` のHEADと本文の再取得で判定する。ローカルでの本文作成を、取得・適用・実動検証の成功やApprovedの証拠としない。

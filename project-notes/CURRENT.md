@@ -5,7 +5,7 @@ Status: CURRENT
 
 ## PURPOSE
 
-Personaの意義・効果・限界と役割分離を説明する `ai-setup-materials` を整える。Persona本文・検証Evidence・識別と検証の仕様を保持し、設定方法は対象外とする。責務範囲と作業規則は `AGENTS.md` および `README.md` を正本とする。
+Personaの意義・効果・限界と役割分離を説明する `ai-setup-materials` を整える。Persona本文・検証Evidence・識別と検証の仕様を保持し、サービス別の固定的な設定方法は対象外とする。S-SETUPのPersona定義本文だけを例外とする。責務範囲と作業規則は `AGENTS.md` および `README.md` を正本とする。
 
 本ファイルは現在地点だけを記す。Version と Status の正本は各ファイルの Document Info である。詳細仕様・判断理由は、対象成果物、`project-notes/DECISIONS.md`、既存の判断履歴、検証Evidenceを参照する。
 
@@ -23,6 +23,7 @@ Personaの意義・効果・限界と役割分離を説明する `ai-setup-mater
 - ChatGPT Persona `personas/reference/CHATGPT_PERSONA.md` の現行ファイルは Version 3.1 / Approved である。User確認と最終承認は完了している（D-052、経緯と検証ゲートは D-054）。§11.1 は Document Info の Version 3.1 / Approved と一致する。この一致は `76d254acbae538f10c108c2cf3b73b900588f5df` に含まれる。D-052 は当初、変更を Document Info のみと記録した。その原文は変更しない。`fb1d2e6` で `main` に入ったファイル、および上記 HEAD のファイルは Version 3.1（提案）/ Draft である（D-050）。D-037 と D-038 の Version 3.0 / Approved は、この改訂より前の承認履歴であり、現行ファイルではない。既存の実動検証は 4/6 である。D-025 の 6/6 PASS は未達である。新たな 6/6 PASS の Evidence は未確認である。共通仕様第16章の現行規則は維持する。User承認は技術検証を PASS に変えない。第16章への完全適合は確認していない。
 - 検証用Persona `personas/reference/IT_GENERAL_ADVISOR_TEST_PERSONA.md` の現行ファイルは Version 3.0 / Approved である（D-064）。Persona ID は `T-IT-ADVISOR`、Verification Code は `ADVISOR-ALPHA` である。D-037 の承認と D-038 の版番号統一は、Version 3.0 / Approved の承認履歴である。D-062 が現行を Version 3.1（提案）/ Draft とした記録は、その決定時点の記録である。Version 0.1 / Draft は 2026-10-13時点の検証前の状態である。区別は `personas/reference/README.md` 第4.1節に書く。この Approved は User の版の確定であり、実動検証の完了や適用成功を意味しない。D-062 の「この反映はローカルのみであり、commit と push は行っていない」は、その文を書いた時点の記録である。保存 commit は `4511652ffa32c092e85f7fc785fdaf44a98ab0bc` であり、`main` へ push 済みである。2026-10-13 の `Decision & Rationale` は、Persona本文から削除し、原文を `project-notes/DECISIONS.md` の D-063 に保存した。この移設と D-064 の版の確定はローカルのみであり、commit と push は行っていない。Persona本文に履歴への参照は追加していない。
 - 新規S-IECDは、講師向け教材制作Personaとして `personas/reference/IT_EDUCATION_CONTENT_DESIGNER.md` に置く提案である。Persona ID `S-IECD` と Version 0.1 は提案、Statusは Draft。GitHub `main` を本文正本とするG方式で設計し、D-065に判断を記録する。Reference READMEには中核4種と別のDraft節で案内する。Userの後続指示により、この変更と既存Root READMEの見出し4件を同じCommitでGitHub `main`へ反映する対象とした。保存の成否はGitHubの `main` HEADで判定する。各AIサービスでのPersona取得・適用・実動検証およびUserのApproved承認は未実施であり、取得成功・PASS・Approvedとは扱わない。Document ID は UNRESOLVED である。
+- 新規S-SETUPは、Personaの選定とAIサービスへの設定案内を担当するPersonaとして `personas/reference/PERSONA_SETUP_ADVISOR.md` に置く提案である。Persona ID `S-SETUP` と Version 3.0 は提案、Statusは Draft、Document IDは UNRESOLVED。G方式の本文正本をGitHub `main` とする設計で、D-066にS-SETUP本文だけの対象範囲例外を記録する。Userの明示指示により、独立チェックアウトで作成した変更をCommit・Pushする対象とした。保存の成否はGitHub `main` のHEADと本文の再取得で判定する。取得・適用・実動検証とUserのApproved承認は未実施である。元Devチェックアウトの未commit変更には触れていない。
 - 次の記録は GitHub `main` に保存済みである。各 Decision 本文にある「commit と push は行わない」は、その決定の時点で commit と push を行わなかったという記録である。現在の未保存を意味しない。Decision の原文は変更していない。
   - D-032 の再テスト記録: `9401cc1`
   - D-036: `24609b0`
