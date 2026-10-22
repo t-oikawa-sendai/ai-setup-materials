@@ -115,10 +115,7 @@ EXCLUDED_LINKS = {
     }),
 }
 
-SOURCE_PERSONA_URL_EXCEPTION = (
-    "personas/reference/PERSONA_SETUP_ADVISOR.md",
-    "https://github.com/t-oikawa-sendai/ai-setup-materials/blob/main/personas/reference/PERSONA_SETUP_ADVISOR.md",
-)
+STUDENT_SETUP_ADVISOR = "personas/reference/PERSONA_SETUP_ADVISOR.md"
 WEB_URL = re.compile(r"https?://[^\s<>\[\]()\"']+", re.IGNORECASE)
 
 DOCUMENT_INFO = re.compile(
@@ -238,18 +235,23 @@ def unlink_selected_exclusions(name: str, text: str) -> str:
 
 
 def distribution_copy(name: str, content: bytes) -> bytes:
-    """Adapt five selected documents while keeping their source status."""
-    if name not in EXCLUDED_LINKS:
+    """Adapt six selected documents while keeping their source status."""
+    if name not in EXCLUDED_LINKS and name != STUDENT_SETUP_ADVISOR:
         return content
     text = content.decode("utf-8")
+
+    def replace_required(old: str, new: str) -> None:
+        nonlocal text
+        if text.splitlines().count(old) != 1 or text.count(old + "\n") != 1:
+            raise ValueError(f"Distribution text needs review: {name}")
+        text = text.replace(old + "\n", new + "\n", 1)
 
     if name == "README.md":
         notice = (
             "このPrivate Templateには、講師が選択した教材だけを収録しています。"
             "講師用の内部文書やAIサービス変更情報は配布していません。"
             "各文書のDraft・Approved・Deprecated表示は元の状態のままです。"
-            "S-SETUP本文内の講師正本URLは、元RepositoryをPrivateにすると、許可のない生徒には開けません。"
-            "配布先の同ファイルを参照してください。"
+            "S-SETUPのURL欄は配布時点で未設定です。利用する場合は各自のRepositoryにある同ファイルの正確なURLを記入してください。"
         )
         if "</details>\n" not in text:
             raise ValueError("Distribution document info needs review: README.md")
@@ -295,6 +297,49 @@ def distribution_copy(name: str, content: bytes) -> bytes:
             "", text,
         )
 
+    elif name == STUDENT_SETUP_ADVISOR:
+        replace_required(
+            "- 正本：`t-oikawa-sendai/ai-setup-materials` の `main`、`personas/reference/PERSONA_SETUP_ADVISOR.md`",
+            "- 教材の正本：講師が管理するGitHub `main`（この配布コピーとは別）\n"
+            "- この配布版の取得先：各自がTemplateから作成したGitHub Repositoryの `main`、`personas/reference/PERSONA_SETUP_ADVISOR.md`",
+        )
+        replace_required(
+            "- URL：https://github.com/t-oikawa-sendai/ai-setup-materials/blob/main/personas/reference/PERSONA_SETUP_ADVISOR.md",
+            "- URL：【各自のRepositoryの `main` にある `personas/reference/PERSONA_SETUP_ADVISOR.md` の正確な本文URLを記入（未設定）】",
+        )
+        replace_required(
+            "- GitHub上の現行Persona本文を正本とし、過去の会話やMemoryを正本にしない。",
+            "- 教材の正本は講師が管理するGitHub `main` である。各自のRepositoryは配布コピーの取得先であり、講師正本の現行版と同一と推測しない。過去の会話やMemoryを正本にしない。",
+        )
+        replace_required(
+            "2. GitHub正本の現行案内と候補Persona本文を確認し、Persona ID、Version、Status、責務を照合する。",
+            "2. 各自のRepository内の案内と候補Persona本文を取得し、取得元、Persona ID、Version、Status、責務を照合する。",
+        )
+        replace_required(
+            "Draftを案内する場合はDraftと明示する。ファイルの存在だけで、Approved、取得成功、利用環境への適用成功を主張しない。GitHub正本を確認できない場合は、候補を現行Personaとして確定しない。",
+            "Draftを案内する場合はDraftと明示する。ファイルの存在だけで、Approved、取得成功、利用環境への適用成功を主張しない。各自のRepositoryのコピーから取得した内容は取得元と版を明示し、講師正本の現行版として確定しない。候補本文を取得できなければ、その候補を現行として確定しない。",
+        )
+        replace_required(
+            "- **P：指示欄方式**――GitHub正本から確認した対象Persona本文を指示欄へ直接登録する。GitHub更新が登録済みの本文へ自動反映されたとは扱わない。",
+            "- **P：指示欄方式**――取得・確認した対象Persona本文を指示欄へ直接登録する。個人Repositoryの配布コピーから取得した場合はその取得元と版を明示し、講師正本の現行版と同一と推測しない。GitHub更新が登録済みの本文へ自動反映されたとは扱わない。",
+        )
+        replace_required(
+            "このAdvisor自身は冒頭のGitHub正本から取得するG方式である。ここで案内するG/Pは、Userが利用する**対象Persona**の方式であり、Advisor自身の方式とは別に扱う。",
+            "この配布版のAdvisor自身は、冒頭のURL欄を各自のRepositoryの実URLで埋め、本文を取得できた場合にG方式となる。未設定または取得不能なら`N`とする。ここで案内するG/Pは、Userが利用する**対象Persona**の方式であり、Advisor自身の方式とは別に扱う。",
+        )
+        replace_required(
+            "- 新しいチャットでは、冒頭のGitHub URLから`main`の本文取得を試みる。取得できた本文を確認し、上位指示と矛盾しない範囲で適用する。",
+            "- 新しいチャットでは、冒頭のURL欄に各自のRepositoryの正確な本文URLが記入されている場合だけ、`main`の本文取得を試みる。未記入の欄をURLとして扱わない。Private RepositoryではURL記入だけで閲覧権限は付かず、利用するAI側の認証・接続が別途必要である。取得できた本文を確認し、上位指示と矛盾しない範囲で適用する。",
+        )
+        replace_required(
+            "- 取得できなければ`N`とし、過去の会話、Memory、推測から本文を補完しない。GitHubへ未保存の間も取得成功を前提にしない。",
+            "- URL未記入、接続・権限不足、その他の取得失敗時は`N`とし、過去の会話、Memory、推測から本文を補完しない。GitHubへ未保存の間も取得成功を前提にしない。Templateから作成した各自のRepositoryは、配布元の後続更新を自動では受け取らない。",
+        )
+        replace_required(
+            "- GitHub本文が更新された場合、新しいチャットでは再取得を試みる。再取得できた場合だけ更新後の値を回答する。同じチャットでは再取得しない限り、取得済み本文の値を維持する。",
+            "- 取得先の個人Repositoryで本文が更新された場合、新しいチャットでは再取得を試みる。再取得できた場合だけ更新後の値を回答する。同じチャットでは再取得しない限り、取得済み本文の値を維持する。",
+        )
+
     text = unlink_selected_exclusions(name, text)
     rendered = text.encode("utf-8")
     if document_status(content) != document_status(rendered):
@@ -312,8 +357,6 @@ def reject_source_repository_urls(name: str, markdown: str) -> None:
             continue
         segments = [unquote(part).lower() for part in parsed.path.split("/") if part]
         if segments[:2] != ["t-oikawa-sendai", "ai-setup-materials"]:
-            continue
-        if (name, raw) == SOURCE_PERSONA_URL_EXCEPTION:
             continue
         raise ValueError(f"Source repository URL needs review: {name}")
 

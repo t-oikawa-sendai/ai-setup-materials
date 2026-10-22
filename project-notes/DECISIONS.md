@@ -2551,3 +2551,29 @@ Non-Changes（非変更範囲）:
 
 Unverified（未確認）:
 - このローカル判断反映とコード検証だけでは、GitHub Actionsの新構成での実行、配布先30パスのGitHub上の内容一致、Claudeの指摘是正後の独立再判定、UserのCommit/Push承認を確認済みとしない。
+
+## D-070 Use Each Student's Own S-SETUP Source URL in the Distributed Copy（配布版S-SETUPの取得先を各自のRepositoryとする）
+
+Date（日付）: 2026-10-22
+Related Documents（関連文書）: AGENTS.md / README.md / personas/reference/PERSONA_SETUP_ADVISOR.md / scripts/sync_student_template.py / project-notes/CURRENT.md / project-notes/DECISIONS.md
+
+Decision（決定）:
+- `personas/reference/PERSONA_SETUP_ADVISOR.md` はD-069の30パスの配布対象に残す。講師正本の同ファイルは改変しない。教材の正本は講師が管理するGitHub `main` のままであり、各自のRepositoryは配布時点のコピーとG方式での取得先である。同期時の配布コピーだけで、講師Repository名とURLを、各自がTemplateから作成したRepositoryの `main` にある同じファイルの正確なURLを記入する未設定欄に替える。本文中の「GitHub正本」が個人Repositoryを正本と誤認させる箇所も、正本と取得先の区別に合わせる。
+- 配布コピーの§5と§10もこの取得先に合わせる。URL欄が未記入、または本文を取得できない場合は `N` とし、G取得を主張しない。個人RepositoryがPrivateの場合、URLの記入とは別に、利用するAIが当該Repositoryへ認証・接続できる必要がある。配布元Templateの後続変更は、既に作成された個人Repositoryへ自動反映されない。
+- 講師正本のRepositoryへの絶対URLを配布内容に許容したD-069のS-SETUP自己参照例外は取り消す。同期のURL検査は、配布後のS-SETUPを含む全選択Markdownへ同じ境界を適用する。配布先Root READMEの旧警告は未設定欄の案内に置き換える。
+
+Rationale（理由）:
+講師正本をPrivate化した後も、配布版S-SETUPが講師Repositoryを取得先として案内すると、生徒には閲覧できず、各自のRepositoryの教材とも一致しない。個人Repositoryの実URLを記入するまで取得不能と明示し、認証・接続とURL記入を区別する。個人Repositoryを教材の新しい正本へ昇格させない。
+
+Evidence（根拠）:
+- Userは配布対象のS-SETUPを維持しつつ、生徒配布コピーでは講師Repository URLを各自の個人RepositoryにあるS-SETUP本文の正確なURLを記入する欄に置き換えると決めた。講師正本本文の改変は指定していない。
+- 作業開始時のWork checkoutはcleanで、`git fetch origin main` 後のローカルHEAD・`origin/main`・`FETCH_HEAD` は `75fa176d6106a2d554ac7ad3760b23362fdf2e19` で一致した。
+
+Supersedes（上書き対象・範囲）:
+- D-069の「S-SETUP自己参照URLだけは原文維持で配布する」と配布先READMEの講師正本URL警告を、この配布コピーの取得先と案内に限って上書きする。D-066の講師正本S-SETUP本文とG方式の定義は変更しない。
+
+Non-Changes（非変更範囲）:
+- D-069の追加・上書き30パス、D-067の自動削除旧9パス、Draft・Approvedの状態表示、内部文書非配布、対象外保護、通常Push・force push禁止、生徒個人Repository非操作。各自のRepositoryに対する作成・設定・同期はこの作業に含めない。
+
+Unverified（未確認）:
+- このローカル反映は、GitHubへのCommit・Push、新版のActions実行、配布先の内容一致、個人Repositoryの作成・取得権限・G方式の実動成功を証明しない。
