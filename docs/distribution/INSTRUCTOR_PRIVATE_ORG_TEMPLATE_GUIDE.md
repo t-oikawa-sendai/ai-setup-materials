@@ -142,6 +142,8 @@ personas/reference/CHAT_HANDOFF_TEMPLATE.md
 
 **31パス版の実測（2026-10-22）**：講師用GitHub `main` の配布変更Commitは `7a3f93780f79f060c28d8e7599a8a4827d7db0fa` です。[Push起動のActions実行 39784304065](https://github.com/t-oikawa-sendai/ai-setup-materials/actions/runs/39784304065) は `completed/success` で、同期jobと全stepが成功しました。配布先Private Repositoryの `main` は `d884959264795d1b82f3bde74dab1e91f87959eb` です。SSHで取得したcleanな配布先のtrackedファイルは許可リスト31パスと完全に一致し、配布変換をdry-runで照合した31/31パスの内容もbyte単位で一致しました。前回の配布先HEAD `547d018dd66f815c9d3472a8bbd98cd63c7604c0` から変わったのはRoot READMEと生徒用手順書の2パスだけで、旧HEADは履歴上の祖先です。認証済みGitHub画面でも `Private template`、`Use this template`、最新Commit `d884959264795d1b82f3bde74dab1e91f87959eb`、Root READMEから生徒用手順書へのリンクを再確認しました。講師用正本は引き続きPublicです。生徒本人の招待・テンプレート利用・個人Repositoryでの取得は未確認です。
 
+**31パス版の手動再実行（同日）**：講師用 `main` のCommit `6b25083e620bb5bbc09c67bb04b0d3f0631e9d2e` から[手動起動したActions実行 39785400184](https://github.com/t-oikawa-sendai/ai-setup-materials/actions/runs/39785400184) は `completed/success` で、同期jobの全stepが成功しました。ログで管理対象31パスが同一内容であることと、実際の出力 `No managed changes to publish.` を確認しました。配布先を新たにfetchした後も `origin/main` は `d884959264795d1b82f3bde74dab1e91f87959eb` のままで、新しいCommitは作られていません。生徒本人の招待・テンプレート利用・個人Repositoryでの取得は未確認です。
+
 ## 7. 授業前：生徒へ閲覧権限を付ける
 
 1. `OSLIB21-materials` の **People → Invite member** で、実在する生徒のGitHubユーザー名または登録メールアドレスを指定します。Organization roleは **Member** にします。
