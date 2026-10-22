@@ -25,6 +25,8 @@
 
 設定案内専用Personaは、`personas/reference/PERSONA_SETUP_ADVISOR.md` の定義本文に限り、D-066による例外として管理する。AIサービス別の固定的な設定手順や指示欄用完成文はRepositoryに保存しない。
 
+生徒向けPrivate Templateへの配布運用は D-067 の例外として、`.github/workflows/sync-student-template.yml`、`scripts/sync_student_template.py`、`distribution/student/` の配布先専用READMEを本Repositoryで管理する。配布対象はD-067の明示的な許可リストに限り、元の `README.md`、`personas/education/README.md` のDraft本文や内部文書は配布しない。この例外はAIサービス別の設定資料や一般教材の作成範囲を広げない。
+
 設計ドキュメント標準で扱う7文書は別Repositoryで管理する。このリポジトリへ複製・機械的生成を行わず、Persona領域へ混在させない。
 
 この責務限定の背景意図は、変化するAIサービスの設定画面を追う資料ではなく、Personaを使う理由、期待できる効果と限界、および評価の独立性を伝えることに集中するためである。Persona本文の正本は既存のPersonaファイルとし、識別・検証仕様は `personas/PERSONA_IDENTIFICATION_AND_SETUP.md` に保持する。このファイル名と章番号は既存参照との互換性のため維持する。設定案内はD-045で範囲外としたが、D-066によりS-SETUPの定義本文だけを例外とする。
@@ -210,6 +212,7 @@ Personaの肥大化を防ぎ、必要な規則を欠落させず、重複記述�
 - `personas/education/`: 生徒向けAI Personaの正本。
 - `personas/reference/`: 実務構成の参考Persona。中核4種（ChatGPT・Claude・Cursor・Gemini）の本文の唯一の編集元（SSOT）は、同ディレクトリの `CHATGPT_PERSONA.md`、`CLAUDE_PERSONA.md`、`CURSOR_PERSONA.md`、`GEMINI_PERSONA.md` とする。`solacom_main` はこれらの本文を独立編集せず、正本への参照を保持する。個人パス等の実務固有の環境設定はPersona本文から分離し、利用環境側で保持する。
 - `personas/PERSONA_IDENTIFICATION_AND_SETUP.md`: Persona識別と検証の共通仕様の正本。ファイル名は旧名称を維持するが、設定方法は扱わない。
+- `.github/workflows/sync-student-template.yml`、`scripts/sync_student_template.py`、`distribution/student/`: D-067で承認された生徒向けPrivate Templateへの配布運用資産。許可リストと同期管理範囲はD-067および同期スクリプトの明示的な対応表を基準とする。
 
 Persona本文には、AIサービス固有のセットアップ手順・配置方法・操作手順を混在させない。本Repositoryにサービス別の設定資料を新設しない。
 

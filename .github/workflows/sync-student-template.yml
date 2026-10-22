@@ -1,0 +1,51 @@
+name: Sync approved student materials
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: student-template-main
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    if: github.repository == 't-oikawa-sendai/ai-setup-materials' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out canonical main
+        uses: actions/checkout@v4
+        with:
+          repository: t-oikawa-sendai/ai-setup-materials
+          ref: main
+          path: source
+          persist-credentials: false
+
+      - name: Check out private distribution main
+        uses: actions/checkout@v4
+        with:
+          repository: OSLIB21-materials/ai-setup-materials-student
+          ref: main
+          path: destination
+          token: ${{ secrets.STUDENT_TEMPLATE_TOKEN }}
+
+      - name: Copy only approved managed paths
+        run: python3 source/scripts/sync_student_template.py source destination
+
+      - name: Commit and push managed changes
+        shell: bash
+        run: |
+          set -euo pipefail
+          if git -C destination diff --cached --quiet; then
+            echo 'No managed changes to publish.'
+            exit 0
+          fi
+          git -C destination \
+            -c user.name='t-oikawa-sendai' \
+            -c user.email='244720561+t-oikawa-sendai@users.noreply.github.com' \
+            commit -m 'Sync approved student materials from source main'
+          git -C destination push origin HEAD:main

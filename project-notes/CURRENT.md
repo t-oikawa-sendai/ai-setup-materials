@@ -1,6 +1,6 @@
 # CURRENT
 
-Last Updated: 2026-10-21
+Last Updated: 2026-10-22
 Status: CURRENT
 
 ## PURPOSE
@@ -78,6 +78,9 @@ Personaの意義・効果・限界と役割分離を説明する `ai-setup-mater
 
 ## 作業中
 
+- 生徒向けPrivate Template配布のローカル実装は完了した。講師正本から `OSLIB21-materials/ai-setup-materials-student` への同期設計と、当面の9パスの配布範囲は D-067。GitHub画面で `OSLIB21-materials` のGitHub Free・請求表示 `$0`、配布先Private Repositoryの作成と初期 `main` HEAD `811b36da917c0f0509aefbcda8c2971d53f39c47` を確認した。配布先のGeneral設定を再読込し、Private表示とTemplate repositoryのチェック済み表示を再確認した（API確認は未実施）。User本人が正本RepositoryのActions Secret `STUDENT_TEMPLATE_TOKEN` を登録し、GitHub画面の `Repository secret added.`、Name、last updated表示を確認した。正本のCommit・Push、Actions実行、配布内容の一致確認は未実施である。
+- Claude独立レビューは初回BUG-01によりFAILだった。LICENSE末尾の空行で初回同期を止める差分チェック1行をローカルのワークフローから削除し、一時Git Repositoryで同期からCommitまで成功を確認した。提示パッチの再構成環境での再判定は、BUG-01がコード上PASS、GOV-01とUser判断D-068がPASS、SEC-01が非阻害の参考指摘だった。レビュー側は作業用checkoutの実ファイル一致を確認していない。GitHub Actions実行、Secretのマスク、配布先内容は未実測である。
+- 講師正本 `t-oikawa-sendai/ai-setup-materials` は現在Publicである。Userは配布先の構築・検証完了後に正本をPrivateへ変更する予定を示した。現時点で可視性は変更しない。
 - D-063 の判断履歴移設と、D-064 の Version 3.0 / Approved への確定は、ローカル反映済みである。commit と push は未実施である。対象は `personas/reference/IT_GENERAL_ADVISOR_TEST_PERSONA.md`、`personas/PERSONA_IDENTIFICATION_AND_SETUP.md`、`personas/reference/README.md`、`project-notes/DECISIONS.md`、`project-notes/CURRENT.md` の5ファイルである。R-01 から R-05、R-08、および Evidence 資料の追加は、現在地点に書いた commit に含まれる。実動検証の未達は次工程に残す。
 
 ## 次工程
@@ -112,6 +115,7 @@ Reviewerを含むPersonaの機能設計は Evidence なしに再検討しない�
 Version と Status は各ファイルの Document Info を見る。
 
 - 作業規則：`AGENTS.md`
+- 生徒向け配布同期：`.github/workflows/sync-student-template.yml` と `scripts/sync_student_template.py`。配布先専用入口は `distribution/student/`。範囲の判断は D-067。
 - Persona識別と検証：`personas/PERSONA_IDENTIFICATION_AND_SETUP.md`（旧ファイル名を維持）
 - Repository入口・Persona重要性の共通説明：`README.md`
 - AIサービス変更情報：`docs/AI_SERVICE_UPDATES.md`（Persona教材や運用に関係する参考記録。網羅的な製品調査の正本ではない）

@@ -2436,3 +2436,64 @@ Non-Changes（非変更範囲）:
 
 Unverified（未確認）:
 - この判断記録を作成した時点では、S-SETUP本文のGitHub保存、各AIサービスからの取得、回答への適用、実動検証を確認していない。後続の保存結果はGitHub `main` のHEADと本文の再取得で判定する。ローカルでの本文作成を、取得・適用・実動検証の成功やApprovedの証拠としない。
+
+## D-067 Distribute an Approved Student Subset through a Private Template（承認済み生徒向け教材をPrivate Templateへ限定配布する）
+
+Date（日付）: 2026-10-22
+Related Documents（関連文書）: AGENTS.md / .github/workflows/sync-student-template.yml / scripts/sync_student_template.py / distribution/student/README.md / distribution/student/personas/education/README.md / project-notes/CURRENT.md / project-notes/DECISIONS.md / Repository全体
+
+Decision（決定）:
+- `t-oikawa-sendai/ai-setup-materials` の `main` を唯一の教材正本として維持し、GitHub Free Organization `OSLIB21-materials` が所有するPrivate Template Repository `ai-setup-materials-student` へ、一方向に同期する。生徒の個人Repositoryには同期・書き込みを行わない。
+- 当面の配布・上書き・削除管理範囲を、配布先の次の9パスだけに限定する。後日の教材見直しは、この暫定許可リストを自動拡張する根拠としない。
+  - `README.md`：正本内 `distribution/student/README.md` から生成
+  - `personas/education/README.md`：正本内 `distribution/student/personas/education/README.md` から生成
+  - `LICENSE`：正本の同名ファイル
+  - `personas/education/GEM_CODE_GENERATOR.md`
+  - `personas/education/GEM_RESEARCHER_DEVELOPMENT.md`
+  - `personas/education/GEM_RESEARCHER_FULL.md`
+  - `personas/education/GEM_RESEARCHER_LEARNING_DEVELOPMENT.md`
+  - `personas/education/GEM_REVIEWER.md`
+  - `personas/education/GEM_SOLUTION_PARTNER.md`
+- 6つのPersonaは本文のDocument Infoで `Approved` を確認できるときだけ配布する。正本のRoot READMEとEducation READMEはDraftのため配布せず、内部文書やDraft・archive・検証記録・秘密情報は許可リストへ含めない。配布先専用READMEは、選定教材への入口とテンプレートの扱いだけを記す。
+- 正本 `main` へのPushと手動起動でGitHub Actionsを実行する。同期処理は上記9パスのみを追加・上書きし、正本側で消えたファイルの削除も上記9パスの同一パスに限る。配布先の許可リスト外のファイル、他branch、既存履歴には触れず、force pushをしない。
+- 配布先への書き込みは、配布先Repositoryだけの `Contents: Read and write` を持つFine-grained PATまたは同等のGitHub App資格情報を、正本RepositoryのActions Secret `STUDENT_TEMPLATE_TOKEN` に登録して行う。資格情報の発行・登録は本人がGitHub画面で実施し、値をRepositoryや会話へ記載しない。ワークフロー標準の `GITHUB_TOKEN` は正本の読み取りに限定する。
+- 生徒へのOrganization招待、RepositoryのRead権限付与、個人Private Repositoryの作成は、実在する生徒情報と本人操作に基づく別工程とする。配布環境の構築を、これらの実施済みと扱わない。
+
+Rationale（理由）:
+UserはGitHub `main` を正本とした教材配布、承認済み範囲だけの自動上書き、内部文書と秘密情報の除外、既存変更の保護を依頼した。配布先だけの限定権限と9パスの固定境界により、既存の正本と配布対象外の情報を保護する。元RepositoryのDraft READMEを複製せず、配布先で必要な入口だけを用意する。
+
+Evidence（根拠）:
+- 2026-10-22のUser依頼と添付 `WORK_PRIVATE_TEMPLATE_SETUP_INSTRUCTION.md`、講師用・生徒用の改訂マニュアル。
+- Userは利用区分を「個人利用」、Organization名を `OSLIB21-materials` と回答した。当面の配布範囲について、上記6 Persona・LICENSE・配布先専用README 2件の計9パスを「とりあえずそれでいい」と回答した。これを今回の初期範囲の承認として扱い、将来の追加承認とは扱わない。
+- 作業開始時のGitHub `main`、ローカルHEAD、`origin/main` は `6adbea8c312f6d16f07033539d5d2a0f3bba46d7` で一致し、作業用チェックアウトはcleanだった。6 PersonaはDocument InfoでApproved、元Root READMEとEducation READMEはDraftだった。
+
+Supersedes（上書き対象・範囲）:
+- D-018の「新しい配布システム、自動同期機構は追加しない」を、今回の生徒向けPrivate Templateと限定同期の範囲だけで上書きする。D-045のRepository対象範囲について、上記配布運用資産に限り例外とする。
+
+Non-Changes（非変更範囲）:
+- D-018のOwner正本保護、User側Repositoryを独立した正本にしない原則。D-045の一般教材・サービス別の固定的な設定資料等の除外。D-066のS-SETUP本文だけの例外。既存Persona本文・Version・Status、元README本文、既存Decision原文、各種検証Evidence。
+
+Unverified（未確認）:
+- この判断記録だけではOrganization・Private Templateの作成、Secret登録、GitHub Actionsの成功、配布内容一致、後続Pushによる同期、生徒の招待・利用を証明しない。各操作後にGitHubで実測する。
+
+## D-068 Preserve Approved Persona Bodies in Student Distribution（承認済みPersona本文を改変せず配布する）
+
+Date（日付）: 2026-10-22
+Related Documents（関連文書）: personas/education/GEM_RESEARCHER_DEVELOPMENT.md / personas/education/GEM_RESEARCHER_LEARNING_DEVELOPMENT.md / personas/education/GEM_REVIEWER.md / personas/education/GEM_RESEARCHER_FULL.md / scripts/sync_student_template.py / project-notes/CURRENT.md / project-notes/DECISIONS.md
+
+Decision（決定）:
+- 配布対象のApproved Persona本文を改変せず、正本とbyte単位で一致する形で配布する。上記4ファイルの `<!-- Decision history: ../../project-notes/... -->` コメントは、内部判断履歴ファイル名の参照として原文のまま残す。
+- 参照先の `project-notes/` の本文・ファイルは配布対象に加えない。同期対象と削除管理範囲は D-067 の9パスから広げない。
+
+Rationale（理由）:
+Userは、承認済みPersona本文を保つ選択肢を明示選択した。コメントを除くための配布用改稿を作らず、正本と配布先の本文一致を維持する。内部判断履歴の本文は引き続き許可リスト外に置く。
+
+Evidence（根拠）:
+- 2026-10-22のClaude独立レビューGOV-01へのUser回答：「原文のまま配布する（推奨：Approved本文を保つ）」を選択した。
+- 上記4ファイルの16行目にコメントが存在する。コメントが示す `project-notes/` は D-067 の配布許可リスト外である。
+
+Supersedes（上書き対象・範囲）:
+- D-067の配布範囲・同期管理範囲は変更しない。配布時に承認済みPersona本文の参照コメントをどう扱うかだけを明確化する。
+
+Non-Changes（非変更範囲）:
+- Persona本文・Version・Status、判断履歴原文、内部文書の配布除外、既存の9パス、認証方式。ClaudeレビューのBUG-01修正後の独立再判定およびSEC-01の扱いは、この決定に含めない。
