@@ -37,14 +37,14 @@ OSLIB21-materials/ai-setup-materials-student
 | 項目 | 現在の扱い |
 |---|---|
 | Organization | `OSLIB21-materials`、GitHub Freeで作成済み |
-| 配布先 | `ai-setup-materials-student`、Private・Template repositoryとして作成済み。2026-10-22の30パス版Push後、認証済みGitHub画面で `Private template`、`Use this template`、当時の最新Commit `547d018dd66f815c9d3472a8bbd98cd63c7604c0` を再確認 |
+| 配布先 | `ai-setup-materials-student`、Private・Template repositoryとして作成済み。31パス版の同期後、認証済みGitHub画面で `Private template`、`Use this template`、`main` のCommit `d884959264795d1b82f3bde74dab1e91f87959eb` を再確認 |
 | 同期 | 講師用 `main` へのPushと、GitHub Actionsの手動起動に対応 |
 | 配布範囲 | 追加・上書きは従来の30パスと生徒用手順書の計31パス。自動削除の許可は当初の9パスのみ。31パス版の実測は§6に区別して記録 |
 | 認証情報 | 講師用RepositoryのActions用Repository Secret `STUDENT_TEMPLATE_TOKEN` に登録済み。値は手順書に書かない |
 | 生徒の招待とRead権限 | 実在する生徒について授業前に設定・確認する。構築済みとは扱わない |
 | 生徒の個人Repository | 各生徒が自分で作成する。講師側の構築作業では作成・変更していない |
 
-初回の9パス配布、その後の30パスへの拡張、S-SETUPの個人URL欄への改訂は、それぞれGitHub Actionsで成功を確認済みです。直近の実測済み実行URLとHEAD、確認できていない事項は§6に記録します。
+初回の9パス配布、その後の30パスへの拡張、S-SETUPの個人URL欄への改訂、および生徒用手順書を加えた31パス版は、それぞれGitHub Actionsで成功を確認済みです。実測した実行URLとHEAD、確認できていない事項は§6に記録します。
 
 ## 3. 何を配るか
 
@@ -140,7 +140,7 @@ personas/reference/CHAT_HANDOFF_TEMPLATE.md
 
 30パス版のPush後、認証済みChromeの配布先画面で `Private template`、`Use this template`、当時の最新Commit `547d018dd66f815c9d3472a8bbd98cd63c7604c0` を再確認しました。講師用正本のGitHubメタデータは引き続きPublicです。生徒の実アカウントでの招待・テンプレート利用・S-SETUPの取得は未確認です。
 
-**31パス版の実測待ち**：生徒用手順書の同期と配布コピーのRoot READMEからのリンク、講師用手順書の非配布、従来30パスの維持は、Actionsの完了後に配布先の実ファイルで確認します。確認が終わるまで、上記30パス版の実測結果を31パス版の合格と読み替えません。
+**31パス版の実測（2026-10-22）**：講師用GitHub `main` の配布変更Commitは `7a3f93780f79f060c28d8e7599a8a4827d7db0fa` です。[Push起動のActions実行 39784304065](https://github.com/t-oikawa-sendai/ai-setup-materials/actions/runs/39784304065) は `completed/success` で、同期jobと全stepが成功しました。配布先Private Repositoryの `main` は `d884959264795d1b82f3bde74dab1e91f87959eb` です。SSHで取得したcleanな配布先のtrackedファイルは許可リスト31パスと完全に一致し、配布変換をdry-runで照合した31/31パスの内容もbyte単位で一致しました。前回の配布先HEAD `547d018dd66f815c9d3472a8bbd98cd63c7604c0` から変わったのはRoot READMEと生徒用手順書の2パスだけで、旧HEADは履歴上の祖先です。認証済みGitHub画面でも `Private template`、`Use this template`、最新Commit `d884959264795d1b82f3bde74dab1e91f87959eb`、Root READMEから生徒用手順書へのリンクを再確認しました。講師用正本は引き続きPublicです。生徒本人の招待・テンプレート利用・個人Repositoryでの取得は未確認です。
 
 ## 7. 授業前：生徒へ閲覧権限を付ける
 
@@ -149,7 +149,7 @@ personas/reference/CHAT_HANDOFF_TEMPLATE.md
 3. 配布先Repositoryの **Settings → Collaborators & teams** で、その生徒へ **Read** 権限を付けます。OrganizationのMemberであることと、このPrivate Repositoryの閲覧権限は別に確認します。Organization全体のBase permissionsも確認します。
 4. 本人のアカウントで配布先を開け、**Use this template** が表示されることを確認します。本人が自分の個人アカウントをOwnerにしてPrivate Repositoryを作る操作は、生徒用手順書に従ってもらいます。
 
-生徒へ伝えるURLは [配布先のPrivate Template](https://github.com/OSLIB21-materials/ai-setup-materials-student) です。31パス版の配布を確認した後は、テンプレートのRoot READMEにある生徒用手順書のリンクも案内できます。講師用正本のURLを生徒の取得先として案内しません。生徒の個人Repositoryへ講師が直接同期・書き込みを行う運用ではありません。
+生徒へ伝えるURLは [配布先のPrivate Template](https://github.com/OSLIB21-materials/ai-setup-materials-student) です。テンプレートのRoot READMEにある生徒用手順書のリンクも案内できます。講師用正本のURLを生徒の取得先として案内しません。生徒の個人Repositoryへ講師が直接同期・書き込みを行う運用ではありません。
 
 ## 8. 配布版S-SETUPと講師用正本のPrivate化
 
