@@ -2577,3 +2577,30 @@ Non-Changes（非変更範囲）:
 
 Unverified（未確認）:
 - このローカル反映は、GitHubへのCommit・Push、新版のActions実行、配布先の内容一致、個人Repositoryの作成・取得権限・G方式の実動成功を証明しない。
+
+## D-071 Manage Both Distribution Guides in the Source and Deliver Only the Student Guide（配布手順書2冊を講師正本で管理し生徒用のみ配布する）
+
+Date（日付）: 2026-10-22
+Related Documents（関連文書）: AGENTS.md / docs/distribution/INSTRUCTOR_PRIVATE_ORG_TEMPLATE_GUIDE.md / docs/distribution/STUDENT_PRIVATE_ORG_TEMPLATE_GUIDE.md / scripts/sync_student_template.py / README.md（配布コピーのみ） / project-notes/CURRENT.md / project-notes/DECISIONS.md / Repository全体
+
+Decision（決定）:
+- GitHub Free OrganizationのPrivate Templateによる教材配布手順書2冊を、講師正本 `t-oikawa-sendai/ai-setup-materials` の `main` で版管理する。配置は `docs/distribution/INSTRUCTOR_PRIVATE_ORG_TEMPLATE_GUIDE.md` と `docs/distribution/STUDENT_PRIVATE_ORG_TEMPLATE_GUIDE.md` に固定する。Downloads等の作業用コピーを独立した正本にしない。これはGitHubでの教材配布運用に限る資料であり、D-045が除外したAIサービス別のPersona設定手順を再導入しない。
+- 生徒用手順書1パスだけを配布先 `OSLIB21-materials/ai-setup-materials-student` の同じパスへ追加・上書きする。講師用手順書、`docs/` の他のファイル、`AGENTS.md`、`project-notes/` は配布しない。D-069の既存30パスは維持し、追加・上書き範囲を計31パスとする。削除可能な範囲はD-067の旧9パスのままとし、生徒用手順書が正本から消えた場合は配布先へ書き込む前に停止する。
+- 生徒用手順書はPersonaではなく運用資料として扱い、PersonaのDocument Info・Status検査の対象にしない。選定した既存30パスの状態検査は維持する。生徒用手順書にも、秘密情報、講師正本へのURL、配布対象外へのリンク、許可リスト外の書き込みを防ぐ既存検査を適用する。
+- 配布先Root READMEの生成コピーに、生徒用手順書へのリンクと `docs/distribution/` の構成表示を追加する。講師正本のRoot README本文は変更しない。GitHub Actionsの起動条件、認証方式、権限は変更しない。
+
+Rationale（理由）:
+2冊を講師正本の履歴で保全し、生徒が閲覧権限のない講師正本をPrivate化した後も、自分が利用するTemplate内で生徒用手順書を読めるようにする。講師向けの運用情報と無関係な `docs/` 内容を配布範囲へ広げず、既存の限定同期と削除境界を維持する。
+
+Evidence（根拠）:
+- Userは「このマニュアルも私のリポ内で管理する」と指定し、追加判断として講師用・生徒用を講師正本で管理し、生徒用だけをPrivate Templateへ配布すると決めた。
+- 変更前の作業用checkoutはcleanで、`main` のローカルHEAD、`origin/main`、`FETCH_HEAD` は `edf7780908fd996b1e7441c21af9b91623cd7fbd` で一致した。
+
+Supersedes（上書き対象・範囲）:
+- D-069の「`docs/` を配布しない」は生徒用手順書の上記1パスだけ、D-069とD-070の「30パス」は上記1パスの追加による31パスへの変更だけを上書きする。D-045のRepository対象範囲はGitHub教材配布運用の2冊の管理に限って拡張する。
+
+Non-Changes（非変更範囲）:
+- D-067、D-069、D-070の講師 `main` 正本、一方向同期、既存30パスの内容・状態検査、旧9パスの削除境界、対象外保護、通常Push・force push禁止、生徒個人Repository非操作。講師用手順書と `docs/` の他のファイルは配布対象外のまま。AIサービス別の設定資料は作らない。
+
+Unverified（未確認）:
+- このローカル反映は、GitHubへのCommit・Push、新版Actionsの実行、配布先31パスの内容一致、講師正本のPrivate化、生徒による利用を証明しない。

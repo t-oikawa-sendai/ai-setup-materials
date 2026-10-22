@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Sync the thirty selected student-template paths without touching other paths."""
+"""Sync the thirty-one selected student-template paths without touching other paths."""
 
 from __future__ import annotations
 
@@ -14,10 +14,12 @@ from urllib.parse import unquote, urlsplit
 
 # Destination paths are the entire selected add/overwrite boundary. Deletion
 # retains the narrower original nine-path boundary below.
+STUDENT_GUIDE = "docs/distribution/STUDENT_PRIVATE_ORG_TEMPLATE_GUIDE.md"
 MANAGED = (
     ("README.md", "README.md"),
     ("personas/education/README.md", "personas/education/README.md"),
     ("LICENSE", "LICENSE"),
+    (STUDENT_GUIDE, STUDENT_GUIDE),
     ("personas/education/GEM_CODE_GENERATOR.md", "personas/education/GEM_CODE_GENERATOR.md"),
     ("personas/education/GEM_RESEARCHER_DEVELOPMENT.md", "personas/education/GEM_RESEARCHER_DEVELOPMENT.md"),
     ("personas/education/GEM_RESEARCHER_FULL.md", "personas/education/GEM_RESEARCHER_FULL.md"),
@@ -87,9 +89,10 @@ ARCHIVED_DOCUMENT = "personas/education/archive/GEMINI_PERSONA_DEFINITION-4Gem.m
 STATUSLESS_DOCUMENT = "personas/WHY_PERSONA_MATTERS.md"
 STATUS_BEARING_DOCUMENTS = BASELINE_APPROVED_DOCUMENTS | BASELINE_DRAFT_DOCUMENTS
 DESTINATIONS = frozenset(destination for _, destination in MANAGED)
-assert len(MANAGED) == len(DESTINATIONS) == 30
+assert len(MANAGED) == len(DESTINATIONS) == 31
 assert len(DELETE_ALLOWED) == 9 and DELETE_ALLOWED <= DESTINATIONS
-assert (STATUS_BEARING_DOCUMENTS | {ARCHIVED_DOCUMENT, STATUSLESS_DOCUMENT}) == {
+assert STUDENT_GUIDE not in DELETE_ALLOWED
+assert (STATUS_BEARING_DOCUMENTS | {ARCHIVED_DOCUMENT, STATUSLESS_DOCUMENT, STUDENT_GUIDE}) == {
     name for name in DESTINATIONS if name.endswith(".md")
 }
 assert not (BASELINE_APPROVED_DOCUMENTS & BASELINE_DRAFT_DOCUMENTS)
@@ -196,7 +199,8 @@ def document_status(content: bytes) -> str | None:
 
 
 def validate_selected_status(name: str, content: bytes) -> None:
-    if not name.endswith(".md"):
+    # This operational guide is not a Persona or a status-governed lesson.
+    if not name.endswith(".md") or name == STUDENT_GUIDE:
         return
     body = content.decode("utf-8")
     if name == STATUSLESS_DOCUMENT:
@@ -248,10 +252,11 @@ def distribution_copy(name: str, content: bytes) -> bytes:
 
     if name == "README.md":
         notice = (
-            "このPrivate Templateには、講師が選択した教材だけを収録しています。"
+            "このPrivate Templateには、講師が選択した教材と生徒用マニュアルを収録しています。"
             "講師用の内部文書やAIサービス変更情報は配布していません。"
             "各文書のDraft・Approved・Deprecated表示は元の状態のままです。"
             "S-SETUPのURL欄は配布時点で未設定です。利用する場合は各自のRepositoryにある同ファイルの正確なURLを記入してください。"
+            "配布手順は[生徒用マニュアル](docs/distribution/STUDENT_PRIVATE_ORG_TEMPLATE_GUIDE.md)を参照してください。"
         )
         if "</details>\n" not in text:
             raise ValueError("Distribution document info needs review: README.md")
@@ -268,6 +273,9 @@ def distribution_copy(name: str, content: bytes) -> bytes:
 .
 ├── README.md                  本配布の入口・設計方針
 ├── LICENSE                    ライセンス
+├── docs/
+│   └── distribution/
+│       └── STUDENT_PRIVATE_ORG_TEMPLATE_GUIDE.md  生徒用の配布手順
 └── personas/
     ├── PERSONA_IDENTIFICATION_AND_SETUP.md  識別・検証の共通仕様
     ├── WHY_PERSONA_MATTERS.md               詳細比較・検証例
@@ -386,13 +394,13 @@ def main() -> None:
             raise ValueError(f"Selected source is missing; deletion not approved: {source_name}")
         if content is not None:
             validate_selected_status(destination_name, content)
-            source_status = document_status(content) if destination_name.endswith(".md") else None
+            source_status = document_status(content) if destination_name.endswith(".md") and destination_name != STUDENT_GUIDE else None
             if source_name.startswith("personas/education/GEM_") and not has_allowed_gem_document_info(content):
                 raise ValueError(f"GEM Document Info needs review: {source_name}")
             if OBVIOUS_SECRET.search(content):
                 raise ValueError(f"Possible credential in managed source: {source_name}")
             content = distribution_copy(destination_name, content)
-            if destination_name.endswith(".md") and document_status(content) != source_status:
+            if destination_name.endswith(".md") and destination_name != STUDENT_GUIDE and document_status(content) != source_status:
                 raise ValueError(f"Distribution status differs from source: {destination_name}")
             if OBVIOUS_SECRET.search(content):
                 raise ValueError(f"Possible credential in distribution: {destination_name}")
