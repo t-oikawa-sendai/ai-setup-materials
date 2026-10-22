@@ -25,7 +25,7 @@
 
 設定案内専用Personaは、`personas/reference/PERSONA_SETUP_ADVISOR.md` の定義本文に限り、D-066による例外として管理する。AIサービス別の固定的な設定手順や指示欄用完成文はRepositoryに保存しない。
 
-生徒向けPrivate Templateへの配布運用は D-067 の例外として、`.github/workflows/sync-student-template.yml`、`scripts/sync_student_template.py`、`distribution/student/` の配布先専用READMEを本Repositoryで管理する。配布対象はD-067の明示的な許可リストに限り、元の `README.md`、`personas/education/README.md` のDraft本文や内部文書は配布しない。この例外はAIサービス別の設定資料や一般教材の作成範囲を広げない。
+生徒向けPrivate Templateへの配布運用は D-067 の例外として、`.github/workflows/sync-student-template.yml` と `scripts/sync_student_template.py` を本Repositoryで管理する。D-069でUserが個別選択した範囲を30パスへ拡張する。配布先用にリンク・案内だけを調整する5文書は、正本の `README.md`、`personas/education/README.md`、`personas/reference/README.md`、`personas/WHY_PERSONA_MATTERS.md`、`personas/PERSONA_IDENTIFICATION_AND_SETUP.md` である。その他の選択ファイルは正本本文をそのまま配布し、元のDraft・Approved・Deprecated表示を配布コピーで変えない。Userの後続判断により、選択された通常文書がDraftとApprovedの間で変化しても同期を続けるが、それ以外の状態・不正な表示は停止する。旧資料のArchive NoticeはDeprecated、内部Document InfoはDraftのままを要する。Draftの配布をApprovedへの昇格とは扱わない。内部文書 `AGENTS.md`、`project-notes/`、`docs/` の本文、その他の選外ファイル、秘密情報は配布しない。配布先への追加・上書きはD-069の30パス、削除は従来のD-067の9パスに限り、新たに選択した21パスが正本から消えた場合は同期を停止する。旧 `distribution/student/` の配布先専用READMEは履歴として保持するが、現行の配布元には使用しない。この例外はAIサービス別の設定資料や一般教材の作成範囲を広げない。
 
 設計ドキュメント標準で扱う7文書は別Repositoryで管理する。このリポジトリへ複製・機械的生成を行わず、Persona領域へ混在させない。
 
@@ -212,7 +212,7 @@ Personaの肥大化を防ぎ、必要な規則を欠落させず、重複記述�
 - `personas/education/`: 生徒向けAI Personaの正本。
 - `personas/reference/`: 実務構成の参考Persona。中核4種（ChatGPT・Claude・Cursor・Gemini）の本文の唯一の編集元（SSOT）は、同ディレクトリの `CHATGPT_PERSONA.md`、`CLAUDE_PERSONA.md`、`CURSOR_PERSONA.md`、`GEMINI_PERSONA.md` とする。`solacom_main` はこれらの本文を独立編集せず、正本への参照を保持する。個人パス等の実務固有の環境設定はPersona本文から分離し、利用環境側で保持する。
 - `personas/PERSONA_IDENTIFICATION_AND_SETUP.md`: Persona識別と検証の共通仕様の正本。ファイル名は旧名称を維持するが、設定方法は扱わない。
-- `.github/workflows/sync-student-template.yml`、`scripts/sync_student_template.py`、`distribution/student/`: D-067で承認された生徒向けPrivate Templateへの配布運用資産。許可リストと同期管理範囲はD-067および同期スクリプトの明示的な対応表を基準とする。
+- `.github/workflows/sync-student-template.yml`、`scripts/sync_student_template.py`: D-067とD-069による生徒向けPrivate Templateへの配布運用資産。追加・上書きの30パスと削除可能な旧9パスは同期スクリプトの明示的な対応表・境界を基準とする。配布先Root/Education READMEの現行入力は正本の同名ファイルであり、旧 `distribution/student/` のREADMEは現行同期では使用しない。
 
 Persona本文には、AIサービス固有のセットアップ手順・配置方法・操作手順を混在させない。本Repositoryにサービス別の設定資料を新設しない。
 

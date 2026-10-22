@@ -1,4 +1,4 @@
-name: Sync approved student materials
+name: Sync selected student materials
 
 on:
   push:
@@ -33,7 +33,7 @@ jobs:
           path: destination
           token: ${{ secrets.STUDENT_TEMPLATE_TOKEN }}
 
-      - name: Copy only approved managed paths
+      - name: Copy only selected managed paths
         run: python3 source/scripts/sync_student_template.py source destination
 
       - name: Commit and push managed changes
@@ -47,5 +47,5 @@ jobs:
           git -C destination \
             -c user.name='t-oikawa-sendai' \
             -c user.email='244720561+t-oikawa-sendai@users.noreply.github.com' \
-            commit -m 'Sync approved student materials from source main'
+            commit -m 'Sync selected student materials from source main'
           git -C destination push origin HEAD:main

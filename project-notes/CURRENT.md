@@ -78,7 +78,8 @@ Personaの意義・効果・限界と役割分離を説明する `ai-setup-mater
 
 ## 作業中
 
-- 生徒向けPrivate Template配布の構築Commit `2ab8587445549401e0d4af127fca580171743496` は講師正本 `main` に保存済みである。講師正本から `OSLIB21-materials/ai-setup-materials-student` への同期設計と、当面の9パスの配布範囲は D-067。GitHub画面で `OSLIB21-materials` のGitHub Free・請求表示 `$0`、配布先Private Repository、Template repositoryのチェック済み表示を確認した。User本人が正本RepositoryのActions Secret `STUDENT_TEMPLATE_TOKEN` を登録し、GitHub画面の `Repository secret added.`、Name、last updated表示を確認した。初回PushのActions実行 [39757830981](https://github.com/t-oikawa-sendai/ai-setup-materials/actions/runs/39757830981) はsuccessで、jobの各stepもsuccessだった。配布先 `main` は `ab8224c2a855084155c719ad03ce8119ed296528` で、初期HEAD `811b36da917c0f0509aefbcda8c2971d53f39c47` は履歴に残る。配布先のtrackedファイルは許可された9パスだけで、9ファイルすべてが正本の対応ファイルとbyte一致した。初回実行ログのtoken入力は `***` 表示で、確認した資格情報形式の未マスク文字列は見つからなかった。生徒招待と実アカウントでの利用確認は未実施である。
+- 生徒向けPrivate Template配布の構築Commit `2ab8587445549401e0d4af127fca580171743496` は講師正本 `main` に保存済みである。講師正本から `OSLIB21-materials/ai-setup-materials-student` への初回同期設計と9パスの配布範囲は D-067。GitHub画面で `OSLIB21-materials` のGitHub Free・請求表示 `$0`、配布先Private Repository、Template repositoryのチェック済み表示を確認した。User本人が正本RepositoryのActions Secret `STUDENT_TEMPLATE_TOKEN` を登録し、GitHub画面の `Repository secret added.`、Name、last updated表示を確認した。初回PushのActions実行 [39757830981](https://github.com/t-oikawa-sendai/ai-setup-materials/actions/runs/39757830981) はsuccessで、jobの各stepもsuccessだった。配布先 `main` は `ab8224c2a855084155c719ad03ce8119ed296528` で、初期HEAD `811b36da917c0f0509aefbcda8c2971d53f39c47` は履歴に残る。配布先のtrackedファイルは初回に許可された9パスだけで、9ファイルすべてが正本の対応ファイルとbyte一致した。初回実行ログのtoken入力は `***` 表示で、確認した資格情報形式の未マスク文字列は見つからなかった。生徒招待と実アカウントでの利用確認は未実施である。
+- Userは一覧からPersona配下の22件とRoot READMEを追加配布対象に選択し、`AGENTS.md` と `project-notes/` の本文は不要とした。さらに、選択済み通常文書のDraft↔Approvedの変化では同期継続を選んだ。判断は D-069。この作業checkoutでは、配布先30パスの追加・上書き、旧9パスだけの自動削除、Root/Education READMEの正本由来コピーへの切替をローカル反映済みである。一時Git Repositoryで30パスの初回同期・再実行の変更なし・対象外ファイルと別branchの保護・GEMのbyte一致を確認し、Draft↔Approvedの双方向と不正Status、旧資料の状態変更、READMEの必須文言欠落、講師正本への除外URLの拒否を確認した。Claudeによる新構成の独立レビューは条件付き合格で、GOV-01、BUG-01、ARCH-02の指摘をこのcheckoutで是正した。是正後のClaude再判定は未実施である。GitHubへのCommit・Push、新構成でのActions実行、配布先の30パス一致確認は未実施である。
 - Claude独立レビューは初回BUG-01によりFAILだった。LICENSE末尾の空行で初回同期を止める差分チェック1行をローカルのワークフローから削除し、一時Git Repositoryで同期からCommitまで成功を確認した。提示パッチの再構成環境での再判定は、BUG-01がコード上PASS、GOV-01とUser判断D-068がPASS、SEC-01が非阻害の参考指摘だった。レビュー側は作業用checkoutの実ファイル一致を確認していない。初回のGitHub Actionsと配布内容は上記の実測結果で判定する。
 - 講師正本 `t-oikawa-sendai/ai-setup-materials` は現在Publicである。Userは配布先の構築・検証完了後に正本をPrivateへ変更する予定を示した。現時点で可視性は変更しない。
 - D-063 の判断履歴移設と、D-064 の Version 3.0 / Approved への確定は、ローカル反映済みである。commit と push は未実施である。対象は `personas/reference/IT_GENERAL_ADVISOR_TEST_PERSONA.md`、`personas/PERSONA_IDENTIFICATION_AND_SETUP.md`、`personas/reference/README.md`、`project-notes/DECISIONS.md`、`project-notes/CURRENT.md` の5ファイルである。R-01 から R-05、R-08、および Evidence 資料の追加は、現在地点に書いた commit に含まれる。実動検証の未達は次工程に残す。
@@ -115,7 +116,7 @@ Reviewerを含むPersonaの機能設計は Evidence なしに再検討しない�
 Version と Status は各ファイルの Document Info を見る。
 
 - 作業規則：`AGENTS.md`
-- 生徒向け配布同期：`.github/workflows/sync-student-template.yml` と `scripts/sync_student_template.py`。配布先専用入口は `distribution/student/`。範囲の判断は D-067。
+- 生徒向け配布同期：`.github/workflows/sync-student-template.yml` と `scripts/sync_student_template.py`。GitHubで稼働中の旧範囲は D-067 の9パス、作業checkoutの新選択は D-069 の30パス。旧 `distribution/student/` は新構成の配布元に使用しない。
 - Persona識別と検証：`personas/PERSONA_IDENTIFICATION_AND_SETUP.md`（旧ファイル名を維持）
 - Repository入口・Persona重要性の共通説明：`README.md`
 - AIサービス変更情報：`docs/AI_SERVICE_UPDATES.md`（Persona教材や運用に関係する参考記録。網羅的な製品調査の正本ではない）

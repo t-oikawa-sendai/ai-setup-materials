@@ -2497,3 +2497,57 @@ Supersedes（上書き対象・範囲）:
 
 Non-Changes（非変更範囲）:
 - Persona本文・Version・Status、判断履歴原文、内部文書の配布除外、既存の9パス、認証方式。ClaudeレビューのBUG-01修正後の独立再判定およびSEC-01の扱いは、この決定に含めない。
+
+## D-069 Expand the Student Template to User-Selected Persona Materials（生徒向けTemplateをUser選択教材へ拡張する）
+
+Date（日付）: 2026-10-22
+Related Documents（関連文書）: AGENTS.md / README.md / personas/education/README.md / personas/reference/README.md / personas/WHY_PERSONA_MATTERS.md / personas/PERSONA_IDENTIFICATION_AND_SETUP.md / .github/workflows/sync-student-template.yml / scripts/sync_student_template.py / project-notes/CURRENT.md / project-notes/DECISIONS.md / Repository全体
+
+Decision（決定）:
+- 配布先 `OSLIB21-materials/ai-setup-materials-student` の追加・上書き対象を、D-067の9パスと、以下の新規選択21パスの合計30パスに固定する。正本は `t-oikawa-sendai/ai-setup-materials` の `main` であり、一方向同期とする。生徒個人Repositoryは操作しない。
+  - `personas/WHY_PERSONA_MATTERS.md`
+  - `personas/AI_ISSUES_EVIDENCE.md`
+  - `personas/SYCOPHANCY_CHALLENGER_PERSONAS.md`
+  - `personas/assets/sycophancy_frontier_models_2026.png`
+  - `personas/PERSONA_IDENTIFICATION_AND_SETUP.md`
+  - `personas/education/SKILLS/CODE_GENERATOR.md`
+  - `personas/education/SKILLS/RESEARCHER_CAREER.md`
+  - `personas/education/SKILLS/RESEARCHER_DEVELOPMENT.md`
+  - `personas/education/SKILLS/RESEARCHER_LEARNING.md`
+  - `personas/education/SKILLS/REVIEWER.md`
+  - `personas/education/SKILLS/SOLUTION_PARTNER.md`
+  - `personas/education/archive/GEMINI_PERSONA_DEFINITION-4Gem.md`
+  - `personas/reference/README.md`
+  - `personas/reference/CHATGPT_PERSONA.md`
+  - `personas/reference/CLAUDE_PERSONA.md`
+  - `personas/reference/CURSOR_PERSONA.md`
+  - `personas/reference/GEMINI_PERSONA.md`
+  - `personas/reference/PERSONA_SETUP_ADVISOR.md`
+  - `personas/reference/PERSONA_OPERATION_CASE_STUDY.md`
+  - `personas/reference/PERSONA_PROMPT_TEMPLATE.md`
+  - `personas/reference/CHAT_HANDOFF_TEMPLATE.md`
+- D-067の既存配布先 `README.md` と `personas/education/README.md` は、配布専用の短い版から、正本の同名本文を基礎にした配布先コピーへ置き換える。設計方針と説明を保持し、存在しない内部資料・選外Personaへのリンクと、配布先の構成図・案内だけを調整する。`personas/reference/README.md`、`personas/WHY_PERSONA_MATTERS.md`、`personas/PERSONA_IDENTIFICATION_AND_SETUP.md` も同じ必要最小限のリンク調整を配布先コピーに限って行う。正本本文・Document InfoのStatusは変更しない。未知の選外相対リンクが後から現れた場合は配布を停止する。
+- 選択時点ではDraft 15件、Approved 11件、状態欄のない資料1件、画像1件、およびDeprecatedの旧資料1件を含む。Userの後続判断により、Archiveを除く選択済み通常文書は、既存6件のEducation GEMを含めて、正本のDocument InfoがDraftとApprovedの間で変化しても同期を続ける。配布コピーでは正本のStatusをそのまま保持し、DraftをApprovedと表示・評価しない。それ以外のStatus、不正・重複したStatus表示は配布先への書き込み前に停止する。旧資料はArchive NoticeのDeprecatedと元Document InfoのDraftを固定し、状態欄のない `personas/WHY_PERSONA_MATTERS.md` にDocument InfoやStatusが新設された場合も停止する。Education GEM 6件は、Draft・Approvedのいずれでも本文のbyte単位一致を維持する。
+- 選択文書内の講師正本への絶対URLは、Markdownリンクと平文URLの両方を検査し、配布対象外・内部文書への参照および解釈不能な同Repository URLで同期を停止する。現存する `personas/reference/PERSONA_SETUP_ADVISOR.md` の自己参照URLだけは、選択済み同一ファイルへの例外として原文維持を許容する。講師正本をPrivateにすると許可のない生徒はそのURLを開けないため、配布先READMEで同ファイルを使うよう案内する。
+- 選択文書には、内部判断履歴のパス名だけを記したHTMLコメント等が残る。D-068が扱ったのはEducation GEM 4件のコメントであり、今回の追加選択にはRoot README、Referenceの `CHAT_HANDOFF_TEMPLATE.md`・`PERSONA_PROMPT_TEMPLATE.md`・`PERSONA_OPERATION_CASE_STUDY.md`・`GEMINI_PERSONA.md`、Education SKILLSの `RESEARCHER_CAREER.md`・`RESEARCHER_DEVELOPMENT.md`・`RESEARCHER_LEARNING.md`・`REVIEWER.md` にも `project-notes/` のパス名を記したコメントが含まれる。Userが選択した原文のコメントは維持するが、内部文書の本文・ファイルは配布しない。
+- 旧 `distribution/student/README.md` と `distribution/student/personas/education/README.md` は履歴として残す。現行の配布元は正本の `README.md` と `personas/education/README.md` であり、配布先用調整は同期時のコピーにだけ加える。
+- `AGENTS.md`、`project-notes/`、`docs/`、選外Personaの本文と秘密情報は配布しない。配布先の許可リスト外のファイル・他branch・履歴は変更せず、force pushを使わない。
+- 自動削除の承認範囲はD-067の旧9パスに据え置く。新規21パスが正本から消えた場合は配布先から削除せず、同期を停止してUser判断を待つ。
+
+Rationale（理由）:
+Userは、Persona配下を一括で無条件配布する案から、ファイル一覧を見て個別選択する方針へ変更し、Root READMEの設計方針を配布したいと明示した。元のDraft/Deprecated表示を保持したまま教材を増やし、内部管理文書と秘密情報を除く。追加21パスの将来削除は個別選択から当然には導けないため、旧9パスの削除権限を拡張しない。
+
+Evidence（根拠）:
+- 2026-10-22のUser回答：`personas/` の追加候補一覧から番号 1–13、16–20、23–26 を選択し、ルートREADMEも指定した。これは22個の追加選択項目であり、そのうち `personas/education/README.md` は旧9パスに既に含まれるため、配布先の新規パスは21である。
+- User回答：「配布したいのは READMEに記載してある私の設計方針など」「AGENTS、Project-Notesは不要」。この回答は内部文書本文の配布を承認しない。
+- Userの後続回答：「DraftとApprovedの間なら同期を続ける（推奨）」。選択済み通常文書全体の状態遷移に適用し、ArchiveのDeprecated・Draftと不正な状態表示には適用しない。
+- 変更前のGitHub `main`、作業用ローカルHEAD、`origin/main` は `e37f523e89279cc58f3db693d5fb846510f3b776` で一致し、作業用チェックアウトはcleanだった。
+
+Supersedes（上書き対象・範囲）:
+- D-067の「9パスだけ」「Draft・archiveは配布しない」「正本Root/Education READMEは配布しない」を、今回明示した30パスへの追加・上書きと選択済み資料の状態保持の範囲で上書きする。D-067のEducation GEM 6件のApproved限定ゲートも、Userが選んだDraft↔Approvedの遷移だけ上書きする。D-068の「配布範囲を9パスから広げない」は、その決定時点の範囲であり、今回の新しいUser選択により上記範囲だけ更新する。
+
+Non-Changes（非変更範囲）:
+- D-067の正本 `main`、Private Template、一方向同期、Secretと最小権限認証、旧9パスの削除境界、対象外保護、通常Push、force push禁止、生徒個人Repository非操作。D-068が対象としたEducation GEM 4件の本文一致と内部判断履歴本文の非配布。Persona正本のVersion・Statusおよび承認履歴。
+
+Unverified（未確認）:
+- このローカル判断反映とコード検証だけでは、GitHub Actionsの新構成での実行、配布先30パスのGitHub上の内容一致、Claudeの指摘是正後の独立再判定、UserのCommit/Push承認を確認済みとしない。
