@@ -1,6 +1,6 @@
 # 受講生用教材のプロフィール更新履歴連携
 
-Status: User採用済み設計（workflow未反映・稼働未確認）
+Status: User採用済み設計（変更なし通知の導通確認済み・新しい配布日の自動更新未検証）
 
 Last Updated: 2026-10-23
 
@@ -25,6 +25,6 @@ sourceで抽出した配布日と受信側で受け取った日付が、それ�
 
 ## 承認範囲と稼働前の確認
 
-Userはsource・profile両Repositoryのこの設定差分のCommit・Pushを承認し、以後の受信workflowによる自動Commit・PushをプロフィールREADMEの「AI活用入門の教材更新日・変更概要」と「最近の更新（直近5件）」に限って承認した。他の教材本文、別ファイル、Private教材本体、通常の人手作業への包括的なGit操作許可ではない。2026-10-23にsource Actions secret `PROFILE_HISTORY_DISPATCH_TOKEN` の名前と登録日時を確認した。値は取得していない。この文書作成時点でsource側設定差分は未Commit・未Push、workflowの新構成は未稼働である。
+Userはsource・profile両Repositoryのこの設定差分のCommit・Pushを承認し、以後の受信workflowによる自動Commit・PushをプロフィールREADMEの「AI活用入門の教材更新日・変更概要」と「最近の更新（直近5件）」に限って承認した。他の教材本文、別ファイル、Private教材本体、通常の人手作業への包括的なGit操作許可ではない。2026-10-23にsource Actions secret `PROFILE_HISTORY_DISPATCH_TOKEN` の名前と登録日時を確認した。値は取得していない。source側設定は`ce48dda7efcf3ce0ebb302def3be325cbff0dc69`でmainへ反映済み。
 
-稼働時は、プロフィールREADMEの「手動管理」コメントをAI活用入門のみ自動・他教材は手動という実状態へ更新する。source同期の変更あり・変更なし、通知重複・古い通知、受信側の5行表示、GitHubプロフィールOverviewを実際に確認する。現時点でGitHub Actionsの新構成の実行は未検証。
+Push起動の[source実行](https://github.com/t-oikawa-sendai/ai-setup-materials/actions/runs/39927699348)は成功し、配布先31パスは変更なしだった。日付通知後の[profile受信実行](https://github.com/t-oikawa-sendai/t-oikawa-sendai/actions/runs/39927727246)も成功し、同日通知としてREADMEは無変更だった。新しい配布日での自動Commitと公開プロフィールの更新表示は未検証。プロフィールREADMEの「手動管理」コメントをAI活用入門のみ自動・他教材は手動という実状態へ更新するかは、別途判断する。

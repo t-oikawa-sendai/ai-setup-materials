@@ -1,6 +1,6 @@
 # CURRENT
 
-Last Updated: 2026-10-22
+Last Updated: 2026-10-23
 Status: CURRENT
 
 ## PURPOSE
@@ -86,7 +86,11 @@ Personaの意義・効果・限界と役割分離を説明する `ai-setup-mater
 - D-071の作業で、講師用・生徒用のGitHub配布手順書2冊を講師正本の作業用checkoutの `docs/distribution/` に反映した。2冊は改訂済み原本とbyte一致する。生徒用1パスだけをPrivate Templateへ追加・上書きする同期変更を実装した。旧30パスは維持し、追加・上書きは31パス、削除は旧9パスのままとする。講師用手順書と他の `docs/` は配布しない。配布先Root READMEのコピーに生徒用手順書へのリンクと構成表示を追加し、講師正本のRoot READMEは変更していない。ローカルの一時Git Repositoryで31パスの初回追加と再実行時の全件変更なしを確認した。実配布先の旧30パス版のローカル複製では、差分は配布先Root READMEと生徒用手順書の2パスだけだった。対象外ファイルと別branchを保持し、生徒用手順書内の講師正本URL、内部リンク、秘密情報の混入を同期前に拒否した。この作業前にGitHubで実測した配布先は30パスだった。D-071の配布Commit `7a3f93780f79f060c28d8e7599a8a4827d7db0fa` は講師正本のGitHub `main` に通常Push済みで、ローカルHEADと `origin/main` も一致した。Push起動のActions実行 [39784304065](https://github.com/t-oikawa-sendai/ai-setup-materials/actions/runs/39784304065) はcompleted/successで、同期jobの全stepもsuccessだった。GitHub画面で配布先の「Private template」と「Use this template」の表示を再確認した。配布先をSSHでcloneした `main` HEADは `d884959264795d1b82f3bde74dab1e91f87959eb` で、trackedファイルは許可された31パスだけだった。同期スクリプトのdry-runは31/31パスが変更なしで、正本からの配布変換後の内容に欠落・余剰・byte不一致がなかった。旧HEAD `547d018dd66f815c9d3472a8bbd98cd63c7604c0` は履歴上の祖先で、更新差分は配布先Root READMEと生徒用手順書の2パスだけだった。cloneはcleanで、講師用手順書・`AGENTS.md`・`project-notes/` は配布されていない。別途、講師正本 `6b25083e620bb5bbc09c67bb04b0d3f0631e9d2e` から手動起動したActions実行 [39785400184](https://github.com/t-oikawa-sendai/ai-setup-materials/actions/runs/39785400184) もcompleted/successで、同期jobの全stepがsuccessだった。ログは31パスすべて `same` と `No managed changes to publish.` を示し、配布先の `origin/main` は再fetch後も `d884959264795d1b82f3bde74dab1e91f87959eb` のままだった。この手動起動は上記Push起動の初回配布とは別の変更なし再実行である。生徒個人Repositoryの利用は未確認であり、操作していない。
 - D-063 の判断履歴移設と、D-064 の Version 3.0 / Approved への確定は、ローカル反映済みである。commit と push は未実施である。対象は `personas/reference/IT_GENERAL_ADVISOR_TEST_PERSONA.md`、`personas/PERSONA_IDENTIFICATION_AND_SETUP.md`、`personas/reference/README.md`、`project-notes/DECISIONS.md`、`project-notes/CURRENT.md` の5ファイルである。R-01 から R-05、R-08、および Evidence 資料の追加は、現在地点に書いた commit に含まれる。実動検証の未達は次工程に残す。
 
+- 2026-10-23。Userが採用した配布先の実更新日だけを通知するworkflow・運用文書・D-072をmainへ反映（`ce48dda7efcf3ce0ebb302def3be325cbff0dc69`）。作業用fresh cloneの開始時`main`・`origin/main`は`b0c0164c470f8d43a8fb090e376f6ffce10c947a`で一致し、cleanだった。元Dev cloneは変更していない。source Actions secret `PROFILE_HISTORY_DISPATCH_TOKEN` の登録名と日時を確認し、値は取得していない。[Push起動の同期実行](https://github.com/t-oikawa-sendai/ai-setup-materials/actions/runs/39927699348)はsuccessで、31パスは変更なし、日付通知stepもsuccess。[profile受信実行](https://github.com/t-oikawa-sendai/t-oikawa-sendai/actions/runs/39927727246)もsuccessで、同日通知としてREADMEは無変更、2026-10-22の個別要約が保持された。新しい配布日での自動Commitは未検証。
+
 ## 次工程
+
+プロフィール履歴通知は変更なし同期での導通を確認済み。新しい配布日を受けたときのREADME指定2欄の自動Commit・Pushと公開表示は、実際の配布更新時に確認する。User承認の例外範囲は指定2欄だけとする。
 
 1. Reference AI運用資料3文書の残る内容を User がレビューする。Handoff Template の現行正本化は D-047 で完了している。3文書全体の内容確定と Status の昇格は未了である。内容確定後、昇格要否は User が判断する。
 2. 新チャット開始時は、本ファイルの現在地点、完了事項、作業中、次工程を読み、その後 `AGENTS.md`、対象成果物MDの順に読む。読取専用ではローカルGit同期を要求しない。ローカル変更の前には `AGENTS.md` §2.1 の同期ゲートを実施する。
@@ -119,6 +123,7 @@ Version と Status は各ファイルの Document Info を見る。
 
 - 作業規則：`AGENTS.md`
 - 生徒向け配布同期：`.github/workflows/sync-student-template.yml` と `scripts/sync_student_template.py`。D-069の前回実測は30パス、D-071のGitHub配布先で実測した追加・上書き範囲は生徒用手順書1パスを加えた31パスである。自動削除範囲は D-067 の旧9パス。旧 `distribution/student/` は現行の配布元に使用しない。
+- プロフィール履歴通知の採用済み設計：`docs/distribution/PROFILE_HISTORY_AUTOMATION.md` とD-072。GitHub main反映済みで、変更なし同期の通知導通は確認済み。新しい配布日の自動更新は未検証。
 - GitHub教材配布手順書：`docs/distribution/INSTRUCTOR_PRIVATE_ORG_TEMPLATE_GUIDE.md` と `docs/distribution/STUDENT_PRIVATE_ORG_TEMPLATE_GUIDE.md`（D-071。生徒用だけが同期対象）。
 - Persona識別と検証：`personas/PERSONA_IDENTIFICATION_AND_SETUP.md`（旧ファイル名を維持）
 - Repository入口・Persona重要性の共通説明：`README.md`
