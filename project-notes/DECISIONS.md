@@ -2604,3 +2604,29 @@ Non-Changes（非変更範囲）:
 
 Unverified（未確認）:
 - このローカル反映は、GitHubへのCommit・Push、新版Actionsの実行、配布先31パスの内容一致、講師正本のPrivate化、生徒による利用を証明しない。
+
+## D-072 Notify the Profile Only from Distributed Student Main（配布先mainの実更新日だけをプロフィールへ通知する）
+
+Date（日付）: 2026-10-23
+Related Documents（関連文書）: .github/workflows/sync-student-template.yml / docs/distribution/PROFILE_HISTORY_AUTOMATION.md / project-notes/CURRENT.md / t-oikawa-sendai/t-oikawa-sendai のREADME.md・更新workflow・script
+
+Decision（決定）:
+- 受講生用Private Repository `OSLIB21-materials/ai-setup-materials-student` の `main` に実際に反映された更新だけを公開プロフィールのAI活用入門の教材更新欄と直近5件の自動反映対象にする。講師正本の更新だけでは公開しない。
+- 既存の講師正本同期workflowの成功後、配布先 `origin/main` の現在のCommit日時をAsia/Tokyoの日付へ変換し、日付1件だけを `repository_dispatch` でプロフィールRepositoryへ送る。同期が変更なしでも同じ日付を送る。手動復旧は講師正本の既存 `workflow_dispatch` を再実行し、配布先から日付を再取得する。受信側の単独手動起動・日付手入力は設けない。
+- 公開payload/READMEへPrivate側の本文・Commit SHA・Commit message・ファイル名を載せない。新しい日付の公開文は定型の「受講生向け教材の配布内容を更新しました。」とする。通知が同日または古い場合はREADMEを変更せず、既存の2026-10-22の個別要約を保全する。新しい日付では1日1行、日付降順の5行とし、既存の非AI行を古い行の除外以外で改変しない。未来日付や想定外の表形式は失敗としてREADMEを保全する。
+- 送信用の新しいfine-grained tokenはプロフィールRepository 1件のContents:writeだけとし、講師正本Actions secret `PROFILE_HISTORY_DISPATCH_TOKEN` に置く。既存配布用tokenと兼用しない。受信側は自身の `GITHUB_TOKEN` のContents:writeでREADMEだけを更新し、Private教材の読取Credentialを置かない。
+- Userは両Repositoryのこの設定差分のCommit・Push、および今後の受信workflowによる自動Commit・Pushを**プロフィールREADMEのAI活用入門の教材更新欄と直近5件だけ**に限って承認した。その他のファイル・教材欄・人手作業へ承認を拡張しない。
+
+Rationale（理由）:
+受講生への実配布より前の講師正本変更を、配布済みとして公開しないため。Private教材の内部情報を公開せず、通知の重複・遅延による履歴の上書きを避けるため。
+
+Evidence（根拠）:
+- Userは「受講生用への反映だけ」を更新履歴の自動化対象と指定し、2026-10-23に上記方式と狭い自動Commit・Push例外、両Repositoryの設定Commit・Pushを明示承認した。
+- 草案開始時のfresh clone `main` と `origin/main` は `b0c0164c470f8d43a8fb090e376f6ffce10c947a` で一致し、cleanだった。GitHubの[repository_dispatch API](https://docs.github.com/en/rest/repos/repos#create-a-repository-dispatch-event)は対象RepositoryのContents:writeを持つfine-grained tokenを許す。
+- 2026-10-23にsource Actions secret一覧で`PROFILE_HISTORY_DISPATCH_TOKEN`の名前と登録日時を確認した。Secret値は取得していない。
+
+Non-Changes（非変更範囲）:
+- D-067・D-069・D-071の31パス配布範囲、旧9パスの削除境界、同期script、Private配布先本体、生徒個人Repository、通常の個別Commit・Push承認規則。source側はプロフィールREADMEを直接書かない。
+
+Unverified（未確認）:
+- Secretの権限・有効性は実行前に検証できない。このローカル記録だけでは設定Commit・Push、Actions実行、通知成功、受信workflowの自動Commit、公開プロフィール表示を確認済みにしない。
