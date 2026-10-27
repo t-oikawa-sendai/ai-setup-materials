@@ -1,6 +1,6 @@
 # CURRENT
 
-Last Updated: 2026-10-23
+Last Updated: 2026-10-27
 Status: CURRENT
 
 ## PURPOSE
@@ -22,7 +22,7 @@ Personaの意義・効果・限界と役割分離を説明する `ai-setup-mater
 - Education README `personas/education/README.md` の現行ファイルは Version 1.1（提案）/ Draft である（D-058）。Version 1.0 / Approved は前版の承認履歴である。サービス非依存の基本4役割は維持する（D-053）。従来の4Gem＋1の承認は、評価の独立性の実証ではない。SKILLS構成は `personas/education/SKILLS/` の6ファイルで、いずれも Draft、Document ID は UNRESOLVED である。既存の `personas/education/GEM_*.md` は変更していない。Skillsの実登録、自動選択の実動検証、Deep Research連携、講師本人によるSkills実動検証は未実施である。D-058の「Skillsの手動切替操作ができない」の意味は D-059 が補足する。D-058の原文は変更しない。
 - ChatGPT Persona `personas/reference/CHATGPT_PERSONA.md` の現行ファイルは Version 3.1 / Approved である。User確認と最終承認は完了している（D-052、経緯と検証ゲートは D-054）。§11.1 は Document Info の Version 3.1 / Approved と一致する。この一致は `76d254acbae538f10c108c2cf3b73b900588f5df` に含まれる。D-052 は当初、変更を Document Info のみと記録した。その原文は変更しない。`fb1d2e6` で `main` に入ったファイル、および上記 HEAD のファイルは Version 3.1（提案）/ Draft である（D-050）。D-037 と D-038 の Version 3.0 / Approved は、この改訂より前の承認履歴であり、現行ファイルではない。既存の実動検証は 4/6 である。D-025 の 6/6 PASS は未達である。新たな 6/6 PASS の Evidence は未確認である。共通仕様第16章の現行規則は維持する。User承認は技術検証を PASS に変えない。第16章への完全適合は確認していない。
 - 検証用Persona `personas/reference/IT_GENERAL_ADVISOR_TEST_PERSONA.md` の現行ファイルは Version 3.0 / Approved である（D-064）。Persona ID は `T-IT-ADVISOR`、Verification Code は `ADVISOR-ALPHA` である。D-037 の承認と D-038 の版番号統一は、Version 3.0 / Approved の承認履歴である。D-062 が現行を Version 3.1（提案）/ Draft とした記録は、その決定時点の記録である。Version 0.1 / Draft は 2026-10-13時点の検証前の状態である。区別は `personas/reference/README.md` 第4.1節に書く。この Approved は User の版の確定であり、実動検証の完了や適用成功を意味しない。D-062 の「この反映はローカルのみであり、commit と push は行っていない」は、その文を書いた時点の記録である。保存 commit は `4511652ffa32c092e85f7fc785fdaf44a98ab0bc` であり、`main` へ push 済みである。2026-10-13 の `Decision & Rationale` は、Persona本文から削除し、原文を `project-notes/DECISIONS.md` の D-063 に保存した。この移設と D-064 の版の確定はローカルのみであり、commit と push は行っていない。Persona本文に履歴への参照は追加していない。
-- 新規S-IECDは、講師向け教材制作Personaとして `personas/reference/IT_EDUCATION_CONTENT_DESIGNER.md` に置く提案である。Persona ID `S-IECD` と Version 0.1 は提案、Statusは Draft。GitHub `main` を本文正本とするG方式で設計し、D-065に判断を記録する。Reference READMEには中核4種と別のDraft節で案内する。Userの後続指示により、この変更と既存Root READMEの見出し4件を同じCommitでGitHub `main`へ反映する対象とした。保存の成否はGitHubの `main` HEADで判定する。各AIサービスでのPersona取得・適用・実動検証およびUserのApproved承認は未実施であり、取得成功・PASS・Approvedとは扱わない。Document ID は UNRESOLVED である。
+- S-IECD `personas/reference/IT_EDUCATION_CONTENT_DESIGNER.md` は Version 0.2（提案）/ Draft。D-073により、既存のG方式v0.1へ初心者向け授業設計・説明支援を統合した。15分程度を基本単位とし、2本セット・前半後半、講師と生徒の説明水準の区別、業務・要求・要件・設計・実装の視点を含む。Userが原案を承認した後、500文字削減を指定し、8,474文字から7,974文字へ表現を整理した。本文の内容承認とGitHub反映の指示を受領済みであり、実動検証PASSやApproved承認ではない。GitHub保存状態は本変更を含むmainのHEADと本文再取得で確認する。Mac実機の既存Dev Repositoryはこの作業環境からアクセスできず、同期状態は未確認。作業用独立CloneはGitHub mainと一致するcleanな状態で開始した。G方式の指示欄用完成文はRepository外で作成する。
 - 新規S-SETUPは、Personaの選定とAIサービスへの設定案内を担当するPersonaとして `personas/reference/PERSONA_SETUP_ADVISOR.md` に置く提案である。Persona ID `S-SETUP` と Version 3.0 は提案、Statusは Draft、Document IDは UNRESOLVED。G方式の本文正本をGitHub `main` とする設計で、D-066にS-SETUP本文だけの対象範囲例外を記録する。Userの明示指示により、独立チェックアウトで作成した変更をCommit・Pushする対象とした。保存の成否はGitHub `main` のHEADと本文の再取得で判定する。取得・適用・実動検証とUserのApproved承認は未実施である。元Devチェックアウトの未commit変更には触れていない。
 - 次の記録は GitHub `main` に保存済みである。各 Decision 本文にある「commit と push は行わない」は、その決定の時点で commit と push を行わなかったという記録である。現在の未保存を意味しない。Decision の原文は変更していない。
   - D-032 の再テスト記録: `9401cc1`
@@ -113,7 +113,7 @@ Personaの意義・効果・限界と役割分離を説明する `ai-setup-mater
 19. Education SKILLS の実登録、自動選択精度の実動検証、Deep Research連携は未実施である。講師本人がGemini Skillsを利用して実動検証することは、前提にしない。Userの次指示まで開始しない。
 20. 中央Governance正本への D-060 の反映、および定義済み配布は未実施である。`solacom_main` は、対象ファイルに別件の未commit変更があるため、この作業では編集していない。配布と Migration は開始していない。
 
-21. S-IECDはGitHub反映後に、取得、適用、共通仕様第16章に従うPersona Verificationを別々に確認する。検証条件の詳細は未承認事項として扱い、実施前にUserの判断を要する。実動検証の合格だけでApprovedへ昇格させず、Userの最終承認を待つ。
+21. S-IECD v0.2のGitHub保存を確認後、G方式の取得・適用指示文をUserへ渡し、Userが指示欄へ貼り付ける。取得、適用、共通仕様第16章に従うPersona Verificationを別々に確認する。検証条件の詳細は未承認事項として扱い、実施前にUserの判断を要する。実動検証の合格だけでApprovedへ昇格させず、Userの最終承認を待つ。Mac実機の既存Repositoryの同期確認も未完了として扱う。
 
 Reviewerを含むPersonaの機能設計は Evidence なしに再検討しない。完了済みの文書適合性復旧を、Evidence なしに再作業対象へ戻さない。`ASKME 迎合禁止` と7文書配置を未決事項へ戻さない。Education用の基本体系は4役割、SKILLSは合計6つである。従来の4Gem＋1と `Researcher Deep Research` は参考記録として維持する。ResearcherのSKILLSは Learning、Development、Career の3つである。
 

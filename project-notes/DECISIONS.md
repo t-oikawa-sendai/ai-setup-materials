@@ -7,7 +7,7 @@
 | Version（バージョン） | 1.0 |
 | Status（ステータス） | Approved |
 | Created Date（作成日） | 2026-10-13 |
-| Last Updated（最終更新日） | 2026-10-20 |
+| Last Updated（最終更新日） | 2026-10-27 |
 | Owner（管理者） | Takashi Oikawa |
 | Related Documents（関連文書） | AGENTS.md / project-notes/CURRENT.md |
 
@@ -2630,3 +2630,35 @@ Non-Changes（非変更範囲）:
 
 Unverified（未確認）:
 - Secretの権限・有効性は実行前に検証できない。このローカル記録だけでは設定Commit・Push、Actions実行、通知成功、受信workflowの自動Commit、公開プロフィール表示を確認済みにしない。
+
+## D-073 Integrate the Teaching Advisor into S-IECD v0.2（授業設計・説明支援をS-IECD v0.2へ統合する）
+
+Date（日付）: 2026-10-27
+Related Documents（関連文書）: personas/reference/IT_EDUCATION_CONTENT_DESIGNER.md / personas/reference/README.md / project-notes/CURRENT.md / project-notes/DECISIONS.md
+
+Decision（決定）:
+- 既存のS-IECD v0.1を土台に、「IT初心者向け授業設計・説明支援 Persona」の教育方針を統合する。名称・Persona ID・配置先を維持し、Versionは0.2（提案）、StatusはDraft、Document IDはUNRESOLVEDとする。
+- 授業作成は15分程度を基本単位とし、関連テーマの2本セットと1テーマの前半・後半に対応する。50分を使い切る構成を前提にせず、講師の時間・構成指定を優先する。演習・確認問題一式を各単位に機械的に要求しない。
+- 講師の上流工程・設計経験と生徒の初心者水準を区別し、業務・要求・要件・設計・実装の視点、コンピュータ・ネットワーク・クラウド等の対象領域を維持する。生徒向けの説明順を目的・必要性から始める原則へ統一し、指定環境・バージョンを教材の基準とする。
+- 用語質問、授業作成、教材制作を区別し、依頼の範囲に合う出力とする。正確性、根拠、迎合しない方針、講師の最終判断権、未決事項の確認、成果物間の整合、安全性、検証の区別を維持する。
+- Userの原案承認後の追加指示により、規則・機能を維持して重複と表現を整理する。ファイル全体はUnicodeコードポイントで8,474文字から7,974文字へ、正確に500文字削減する。7,500文字はD-030の設計目標であり、必須上限ではない。
+- 適用方式はD-065のG方式を維持する。指示欄には本文ではなく、GitHub正本のURLと取得・適用指示を登録する。User承認後にGitHubを更新し、保存した本文に対応する指示文をRepository外で作成してUserがコピー・貼り付けする、という今回の手順に従う。
+- 本文原案の承認と、実動検証の合否・Approvedへの最終承認を区別する。取得・適用・実動検証は未実施であり、共通仕様第16章を維持する。
+
+Rationale（理由）:
+同じ講師の授業設計から教材制作までを一貫して支援し、二つのPersonaの重複と説明順序の違いを解消するため。講師が通常用いる15分程度の授業構成に合わせ、必要な規則を保持しながら文章量を削減するため。
+
+Evidence（根拠）:
+- Userがこのチャットで添付した授業設計・説明支援Persona、提示したS-IECD P方式原案、および15分程度・2本セット・前半後半という授業構成の指定。
+- Userは1本化の推奨案、原案承認後のGitHub更新と指示欄文面作成の手順、G方式を採用し、v0.2原案に「承認」、続けて「５００文字削減でたのむ」と指示した。
+- 原案作成時と更新開始時のGitHub mainは `8313ea11d3cb32fdfbc63e96b06b5760dcecae20`。既存S-IECD本文のBlob SHAは `cb42d45e2133d1356f27fa35cdbd09f4b49ed123`。作業用独立Cloneはmain・HEAD・origin/mainが同じSHAで、未commit変更なしを確認した。
+- 元Dev Repository `/Users/takashioikawa/Dev` はこの作業環境からアクセスできない。既存ローカルの差分・同期状態を確認済みとは扱わない。
+
+Supersedes（上書き対象・範囲）:
+- D-065のVersion 0.1を今回のv0.2へ更新し、v0.1の説明順序と出力既定を今回の本文の範囲で改訂する。D-065のG方式、正本配置、責務境界、未確認事項の扱いは維持する。既存判断原文は変更しない。
+
+Non-Changes（非変更範囲）:
+- 中核4種、Education基本4役割、他Persona、共通検証仕様、既存Evidenceの合否。生徒向け同期の31パス・旧9パスの削除境界・変換規則。S-IECD本文は現行配布対象へ追加しない。サービス別設定資料・指示欄用完成文を本Repositoryへ保存しない。
+
+Unverified（未確認）:
+- 各AIサービスでのv0.2取得・適用・実動検証、Userによる指示欄への登録、Approvedへの最終承認、Mac実機の既存Repositoryの同期状態。GitHub・配布先の保存状態は更新後に実測し、本記録だけで成功とは扱わない。
