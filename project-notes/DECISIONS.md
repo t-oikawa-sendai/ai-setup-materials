@@ -2746,3 +2746,120 @@ Unverified（未確認・未実施）:
 
 Follow-up（追記・2026-10-28）:
 - User：「Commit Push承認」。D-076の修正一式をCommit・Pushする明示承認を受領した。上記の未実施記録は承認前の状態である。実動検証・Approvedへの変更はこの承認に含めない。
+
+## D-077 Apply Implementation Workflow by Role Rather Than Product
+
+Date（日付）: 2026-10-28
+Related Documents（関連文書）: Repository全体 / AGENTS.md / project-notes/CURRENT.md
+
+Decision（決定）:
+- AGENTS.md §2.3の担当を「指示・評価担当」「実装担当」とする。Cursor、ChatGPT Work、Claude Cowork、Codex、Claude Codeは製品の例示とし、担当を製品名で限定しない。
+- 別担当へ委任する場合は指示・報告・評価・次指示の順序と割り込み禁止を維持する。
+- 同じAIによる直接実装では架空の指示書・報告待ちを要求しない。実装・検証・結果報告を行い、自己確認を独立レビューとしない。
+- 既存の権限・必須レビュー・停止条件・Git操作の承認・Userの最終判断を維持する。
+
+Rationale（理由）:
+Userが想定する実装環境が複数あるため、製品名と作業上の役割を分離する。作業の重複・交錯を防ぐ背景意図は維持する。
+
+Evidence（根拠）:
+- User：「実装はCursorに限らず ChatGPTWork、ClaudeCowork,Codex、ClaudeCodeの場合が想定される」「修正を許可」。
+- 対象は t-oikawa-sendai/ai-setup-materials、main。開始時HEADとfetch後origin/mainは65ceb181f50e1830b0644a511fc4469542456145で一致、未commit変更なし。
+- 作業環境内の別コピーにも同一の§2.3が存在したが、同じRepositoryの旧HEAD f9d5de4c66c3dbcc08ce0d1c5c602abc3bd06d0cのコピーである。独立編集せず、正本保存後の同期対象として扱う。
+- 他Repositoryの現行GitHub正本、Mac側、中央Governanceの最新状態は未確認。監査資料や過去のコピーは一括編集しない。
+
+Supersedes（上書き対象・範囲）:
+- project-notes/DECISIONS.md / 2026-10-15 / D-029の製品名による担当固定・適用範囲を上書きする。順序と背景意図、旧Decision原文は維持する。
+
+Unverified（未確認・未実施）:
+- Commit・Push、他Repositoryへの改訂、各サービスでの実動検証は未実施。
+
+## D-078 Define Product-Independent AI Roles
+
+Date（日付）: 2026-10-28
+Related Documents（関連文書）: Repository全体 / AGENTS.md / project-notes/CURRENT.md / solacom_main/docs/standards/project-bootstrap/AGENTS_SOURCE.md / solacom_main/docs/standards/templates/lovable/AGENTS_TEMPLATE.md / project-bootstrap/AGENTS.md
+
+Decision（決定）:
+- 役割を「設計支援担当」「実装担当」「レビュー担当（セキュリティ観点を含む）」「リサーチ担当」と定義する。製品名で固定しない。
+- 設計支援担当は相談・要求整理・設計・実装指示作成・結果評価を支援する。最終判断は利用者が行う。
+- Git識別規則の実施主体をCursorからCommitを実行する実装担当へ変更する。正式実装もCursorに限定しない。
+- 中央AGENTS_SOURCEを変更してproject-bootstrap/AGENTS.mdへ同一本文を反映する。中央版は1.9 / Draft。既存の承認権限、必須レビュー、停止条件は維持する。
+- Lovable関連READMEの同一規則も整合させる。配布先のCHANGELOG/CURRENTは雛形のため作業実績を埋めず、中央solacom_main/CHANGELOG.mdへ記録する。
+
+Rationale（理由）:
+役割を設計の相談相手・実装・レビュー・調査の責務として定義し、利用製品が変わっても同じ責務境界を維持するため。
+
+Evidence（根拠）:
+- User：「レビュー担当（セキュリティ観点を含む）：承認」「設計支援担当にする」「見つかったAGENTSを修正」。
+- 調査範囲は接続先25Repositoryの既定branch。AGENTS.mdは11件、関連原本・テンプレート2件のうち、製品固定の是正対象は4ファイル。Mac側は対象外。
+- ai-setup-materialsの開始基準は65ceb181f50e1830b0644a511fc4469542456145。D-077の承認済み継続差分3件を保全し、fetch後origin/mainが同じであることを確認した。
+- Private側の通常Cloneは認証失敗。GitHub接続で取得した現行本文から修正差分を準備し、Cloneの同期完了とは報告しない。
+
+Supersedes（上書き対象・範囲）:
+- D-077の「指示・評価担当」という名称を「設計支援担当」へ変更する。委任と直接実装の区別、順序、旧Decision原文は維持する。
+
+Unverified（未確認・未実施）:
+- Commit・Push、他の配布先への一括同期、Mac側の修正、実動検証は未実施。
+
+## D-079 Clarify and Consolidate AGENTS Operating Rules
+
+Date（日付）: 2026-10-28
+Related Documents（関連文書）: Repository全体 / AGENTS.md / project-notes/CURRENT.md
+
+Decision（決定）:
+- AGENTS.mdの現行本文を、簡潔な文章と箇条書き中心に整理する。表現整理だけでなく、提示済みの整合性修正案を反映する。
+- 過去の判断は、廃止・上書き済みの部分だけを現行根拠から除外する。未上書きの判断は引き続き有効とする。
+- 新規着手と承認済み継続作業を区別する。未Commit差分の対象・由来・承認範囲・保護方法とremote HEADとの一致を確認できれば、承認済み継続差分だけを理由に停止しない。不明な差分・競合・最新状態未確認では停止する。
+- Userの最新の明示的な変更指示を、その範囲の改訂根拠とする。既存文書との違いだけで停止しない。曖昧な上書きやAIの独断は認めない。
+- 4役割の定義と委任手順を分ける。レビュー・リサーチは必要時に参加し、毎回4役割を必須にしない。既存の必須レビューは維持する。
+- 決定反映・記録は§5、Git承認は§6へ集約する。配布境界は§1.2へまとめ、終了時は短い確認項目とする。
+
+Rationale（理由）:
+重複による保守負担と解釈の揺れを減らし、履歴保全・承認権限を維持しながら、承認済み改訂や継続作業の不要な停止を防ぐ。
+
+Evidence（根拠）:
+- User：「文章は簡潔に 箇条書きにできるものは箇条書きで このAGENTSを修正」「あなたの修正案を反映して そのうえでの指示だ」「続行」。
+- 対象：t-oikawa-sendai/ai-setup-materials、main、/workspace/scratch/1a625821553e/ai-setup-materials。
+- 開始時ローカルHEADとGitHub接続で確認したmain HEADは65ceb181f50e1830b0644a511fc4469542456145で一致。GitHub APIで確認後、通常Git通信（ls-remote）の結果も同じHEADであることを確認した。
+- 未Commit変更はAGENTS.md、project-notes/CURRENT.md、project-notes/DECISIONS.mdの3件。D-077・D-078の継続差分を保持して更新した。cleanとは扱わない。
+- 文書点検：現行本文16,338文字から9,353文字へ整理。末尾履歴13,114文字と既存D-001〜D-078の原文一致、節参照、主要境界条件、git diff --checkを確認した。文字数はUnicodeコードポイント数。
+
+Supersedes（上書き対象・範囲）:
+- D-002 / 2026-10-13 / Limit the Git Sync Gate to Local Changes、およびAGENTS.md旧§2.1の「未Commit変更があれば一律停止」の部分を、上記の差分確認・継続条件へ変更する。読取専用の例外、最新HEAD確認、分岐時停止、差分保護は維持する。
+- D-076 / 2026-10-28 / Require P-Ready Canonical Persona Bodies and Generate G Instructions Separatelyに基づく旧§1.1の「過去のDecisionを現行根拠へ戻さない」を、廃止・上書き済みの判断に限定する。P正本原則は変更しない。
+- AGENTS.md旧§2.2・§3・§8の確定事項変更制限は、最新の明示指示に基づく改訂を妨げないことを明確にする。D-001の旧履歴保全とD-060のGit承認規則は維持する。
+- D-077・D-078 / 2026-10-28の役割・委任の規則は、§2.3と§2.4へ分離する。名称・責務・順序は保持する。
+
+Non-Changes（非変更範囲）:
+- AGENTS.md末尾の既存判断履歴の原文・保存先。D-001〜D-078の原文。
+- 配布対象31パス、削除可能な旧9パス、Status・URL・秘密情報の保護条件。
+- P正本、Persona本文、必須レビュー、Git操作の承認権限、他Repositoryの修正済みファイル。
+
+Unverified（未確認・未実施）:
+- Commit・Push、Mac側同期、各AIでの実動検証。文書点検を実動検証PASSとは扱わない。
+
+## D-080 Archive AGENTS Decision History without Altering Its Text
+
+Date（日付）: 2026-10-28
+Related Documents（関連文書）: Repository全体 / AGENTS.md / project-notes/AGENTS_DECISIONS_ARCHIVE.md / project-notes/CURRENT.md
+
+Decision（決定）:
+- AGENTS.mdの旧 `Decision & Rationale` 全文を、原文のまま `project-notes/AGENTS_DECISIONS_ARCHIVE.md` へ移動する。
+- AGENTS.mdには現行規則と履歴への参照を残す。CURRENT.mdの現行参照も修正する。
+- 新判断の記録先はDECISIONS.mdのままとする。旧履歴の効力、日付、見出し、本文を変更しない。
+- D-077〜D-079の本Repository内の未Commit変更と今回の4ファイルを、User承認に基づきCommit・Pushする。他Repositoryの変更は含めない。
+
+Rationale（理由）:
+AGENTS.mdの肥大化を抑え、現行規則と過去の経緯を分離しながら判断の追跡可能性を維持する。
+
+Evidence（根拠）:
+- User：「Projects-Notesに移動すべきではないか？」「OK 承認する 修正＋Commit Pushまで承認」。既存ディレクトリ名project-notesを使用する。
+- 作業先：t-oikawa-sendai/ai-setup-materials、main、/workspace/scratch/1a625821553e/ai-setup-materials。
+- 開始時ローカルHEADとGitHub mainは65ceb181f50e1830b0644a511fc4469542456145。既存差分3件は承認済み継続作業として保全。
+- 移動部分の全文一致、既存DECISIONS原文の保持、現行参照先の存在、git diff --checkで検査する。
+
+Supersedes（上書き対象・範囲）:
+- D-001（2026-10-13）の旧履歴を元の保存先に維持する規則、D-079（2026-10-28）のAGENTS末尾履歴の保存先維持、およびAGENTS.md §5.4について、今回の旧履歴移動だけを個別承認による例外とする。他の履歴は移動しない。
+- 旧Decisionに記載されたAGENTS.mdの履歴参照は、記録当時の所在として原文を保持する。現行の参照先はAGENTS_DECISIONS_ARCHIVE.mdである。
+
+Unverified（未確認・未実施）:
+- 実動検証、Mac側同期、他RepositoryへのCommit・Push。今回の文書整理は実動検証PASSを意味しない。

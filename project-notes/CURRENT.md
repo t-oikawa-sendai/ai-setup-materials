@@ -11,6 +11,14 @@ Personaの意義・効果・限界と役割分離を説明する `ai-setup-mater
 
 ## 現在地点
 
+- D-080：AGENTSの旧判断履歴を `project-notes/AGENTS_DECISIONS_ARCHIVE.md` へ原文移動し、現行参照を更新。UserからD-077〜D-080の本Repository内の変更についてCommit・Push承認を受領。この記録を含むcommitを保存対象とし、実際の反映結果はremote HEADと作業用HEADの一致で確認する。以下の未実施表記は各作業時点の記録。他Repositoryの未保存変更は今回の保存対象に含めない。
+
+- D-079：AGENTS.mdの重複・曖昧さを整理し、簡潔な箇条書きへ改訂。承認済み継続差分、最新の明示変更指示、旧判断の効力を明確化し、役割と委任手順を分離。旧履歴原文を保持。ローカル反映済み、Commit・Pushと実動検証は未実施。
+
+- D-078：4役割の名称を確定し、AGENTS.mdへ反映。対象3Repositoryの4 AGENTS関連ファイルと付随文書のローカル修正を準備。Private側はGitHub取得版からの差分でありClone同期済みとは扱わない。Commit・Push未実施。
+
+- D-077：AGENTS.md §2.3を製品名から役割ベースへ変更。別担当への委任と同じAIによる直接実装を区別。ローカル反映済み、Commit・Push未実施。他Repositoryの現行正本・Mac側は未確認。
+
 - D-076：全Personaの正本をP方式で無改変利用する原則に統一。現行14件を点検し、G取得を自己初期化・更新で要求していた5件を改訂。G取得指示はAIが都度別生成する。静的点検は `persona-validation/2026-10-28-p-canonical-audit.md`、実動検証は未実施。Userから「Commit Push承認」を受領。本改訂の保存結果はmainのHEADと作業用Cloneの一致で確認する。開始時のmainは `40e1e9785a29b315849f85a5ab52780ad1461824`。
 
 - 就職支援アドバイザー `personas/reference/EMPLOYMENT_SUPPORT_ADVISOR.md`：S-EMPLOYMENT-SUPPORT / Version 0.3 / Draft、内容採用済み。支援者専用としてGit管理を先行（D-074）。本文ファイル名はD-075によりEMPLOYMENT_SUPPORT_ADVISOR.mdへ変更。作成経緯・照合・検証計画は `project-notes/2026-10-28-employment-support-persona-creation.md` に分離した。実動検証・利用環境への設定は未実施。保存の成否は本変更を含むmainのHEADと本文再取得で確認する。
@@ -51,14 +59,14 @@ Personaの意義・効果・限界と役割分離を説明する `ai-setup-mater
 
 詳細は各正本と Decision を参照する。ここには、完了したことと、他の資料に本文が無い記録だけを残す。
 
-- 2026-08-19 から 2026-09-13 まで。Education の基本設計、当時の文書適合性復旧、Solution Partner 1.1〜1.5、Code Generator 2.1〜2.2、Reviewer 1.1。判断は `AGENTS.md` の `Decision & Rationale` と `project-notes/2026-09-01-solution-partner-unresolved-items-decisions.md`。Solution Partner の未承認 `Decision & Rationale` を除いた復旧 commit は `10da225e4117b3b7e88f43c42706347d154edc71`。Version 1.1〜1.3 の判断記録 commit は `34134536c95a9fff1a1a8930822474397daa38e0`。Version 1.4 の反映 commit は `6fbc12721553ce96840440b94ea82bccd849c710`。
+- 2026-08-19 から 2026-09-13 まで。Education の基本設計、当時の文書適合性復旧、Solution Partner 1.1〜1.5、Code Generator 2.1〜2.2、Reviewer 1.1。判断は `project-notes/AGENTS_DECISIONS_ARCHIVE.md` と `project-notes/2026-09-01-solution-partner-unresolved-items-decisions.md`。Solution Partner の未承認 `Decision & Rationale` を除いた復旧 commit は `10da225e4117b3b7e88f43c42706347d154edc71`。Version 1.1〜1.3 の判断記録 commit は `34134536c95a9fff1a1a8930822474397daa38e0`。Version 1.4 の反映 commit は `6fbc12721553ce96840440b94ea82bccd849c710`。
 - 2026-08-26時点の監査。当時の現行配布文書14件を確認し、14/14 が Version 1.0 / Status Approved だった。この監査は当時の確認であり、現在の Version と Status ではない。確認した内容は、Root / Education / Setup / Reference の当時の導線と実ファイル、内部リンク先の欠落なし、Education Persona 名が Researcher / Solution Partner / Code Generator / Reviewer であること、Gemini の当時の構成を `4Gem＋1` として対比表現まで揃えたこと、旧 `GEM_IMPLEMENTER`、旧 `Instructions（指示）`、`DeepSearch` 誤表記が当時の現行導線に残っていなかったこと、Gemini公式Helpで Gem作成、`知識`、Deep Research、利用上限の当時の案内を再確認したことである。
 - 設定資料の作成と改訂は、当時の完了である。現行の資料所在を示さない。廃止と旧判断の保全は D-045。
 - 2026-08-27。Reference Claude の責務追加、生徒ポートフォリオ向け適合性分析 `project-notes/2026-08-27-portfolio-reviewer-fit-analysis.md`、Education Reviewer の更新。
 - 2026-09-23。Education Reviewer の判断履歴分離は `project-notes/GEM_REVIEWER_DECISIONS.md`。Reference AI運用資料の追加と判断は `project-notes/2026-09-23-persona-operation-case-study-decisions.md`。
 - 2026-09-29。中核4種の本文編集元の一本化。`solacom_main` の反映と、元Devcheckoutへ導入していないことは `project-notes/2026-09-29-core-persona-ssot-verification.md`。
 - 2026-10-05。Researcher系の更新。判断は `project-notes/RESEARCHER_PERSONA_DECISIONS.md`。内部記録は `project-notes/2026-10-05-researcher-persona-incident-record.md`。実動検証は完了事項に含めない。
-- 2026-10-07。対象Repository省略の是正対象を記録した。本文是正の完了ではない。`AGENTS.md` の同日 `Decision & Rationale`。
+- 2026-10-07。対象Repository省略の是正対象を記録した。本文是正の完了ではない。`project-notes/AGENTS_DECISIONS_ARCHIVE.md` の同日記録。
 - 2026-10-12。Repository作業時の `AGENTS.md` 確認と、`ReadOK` / `ReadNG` / `ReadUndefine` の一行報告。
 - 2026-10-13。判断履歴の記録先を `project-notes/DECISIONS.md` とした。中央Governanceの正式導入は別工程のまま未了である。Git同期ゲートをローカル変更へ限定した記録は D-002、commit は `179cecc4cddd53308950d8a09a6ab5b4a142cc46`。Claude の当時の Document Info 更新は D-003、commit は `ad52f4b39a781b84a2d824d1c0ddb137c95eaa7b`。Reference運用資料の D-001・D-002 整合は D-004、commit は `eadc8a2ccb36706aac1e81c9b934904a942460fe`。この SHA の確認時点で GitHub Actions の実行履歴は 0件であり、SUCCESS とは記録しない。この 0件は確認時点の観察である。
 - 2026-10-13。検証用Personaと Reference入口の検証専用導線を追加した commit は `ef77588d6c94bd50e0cc8c32c770f06c181a3bbb`。`personas/reference/setup/CHATGPT_PROJECT_PERSONA_TEST_SETUP.md` は、設定資料の本文が指示に含まれていなかったため未作成である。
@@ -104,7 +112,7 @@ Personaの意義・効果・限界と役割分離を説明する `ai-setup-mater
 4. Education Reviewer の実利用確認は未実施である。User の指示なく自動的に切り替えない。
 5. 対象外の Persona へ変更を広げない。
 6. Researcher系の実動検証計画は、内部記録 `project-notes/2026-10-05-researcher-persona-incident-record.md` 第6章を維持する。Gem新規作成を前提とする実施は、現在地点に書いた 2026-10-16 の User観測のため停止したままである。この観測は公式の提供終了予定とは別である。2026-10-19以降の環境別観測は `docs/AI_SERVICE_UPDATES.md` にあり、この停止を解除しない。既存Gemの利用可否と代替検証方法の判断を待つ。合格と本番Gemへの反映は未実施である。
-7. 2026-10-07に記録した対象Repository省略の是正は、ChatGPT Persona の D-019 §7 以外は未着手である。対象一覧と適用条件は `AGENTS.md` の同日 Decision を参照する。記録済みであることを是正完了と扱わない。
+7. 2026-10-07に記録した対象Repository省略の是正は、ChatGPT Persona の D-019 §7 以外は未着手である。対象一覧と適用条件は `project-notes/AGENTS_DECISIONS_ARCHIVE.md` の同日Decision を参照する。記録済みであることを是正完了と扱わない。
 8. 検証用Personaの ChatGPT Project 上の取得検証は、2026-10-13時点で未実施である。D-037、D-038、D-062、D-064 は、この未実施を実施済みに変えない。導線を含む commit は `ef77588d6c94bd50e0cc8c32c770f06c181a3bbb`。未作成の設定資料は完了事項に記した。設定資料は D-045 で対象外である。
 9. 中央Governanceの正式導入は別工程である。今回の判断履歴管理規則の改訂では開始しない。導入完了、Purpose、Governance Status は確定しない。
 10. 検証用Personaについて、反復検証、日別評価、期間集計を継続する。2026-10-14分の原文保全は完了している。回答内容の正確性評価は未実施である。
@@ -154,7 +162,7 @@ Version と Status は各ファイルの Document Info を見る。
 - Reference Chat Handoff Template：`personas/reference/CHAT_HANDOFF_TEMPLATE.md`
 - Reference Prompt Template：`personas/reference/PERSONA_PROMPT_TEMPLATE.md`
 - Reference AI運用資料判断履歴：`project-notes/2026-09-23-persona-operation-case-study-decisions.md`
-- 判断履歴の所在：適用前の旧判断は、各成果物MDの `Decision & Rationale`、既存の判断履歴ファイル、`AGENTS.md` 末尾に残す。適用後の新判断は `project-notes/DECISIONS.md`。判断理由の本文は本ファイルに書かない。旧判断の所在の例は、Education Reviewer が `project-notes/GEM_REVIEWER_DECISIONS.md`、Researcher系が `project-notes/RESEARCHER_PERSONA_DECISIONS.md`、ルートREADMEが `project-notes/README_DECISIONS.md`。
+- 判断履歴の所在：適用前の旧判断は、各成果物MDの `Decision & Rationale`、既存の判断履歴ファイル、`project-notes/AGENTS_DECISIONS_ARCHIVE.md` に保持する。適用後の新判断は `project-notes/DECISIONS.md`。判断理由の本文は本ファイルに書かない。旧判断の所在の例は、Education Reviewer が `project-notes/GEM_REVIEWER_DECISIONS.md`、Researcher系が `project-notes/RESEARCHER_PERSONA_DECISIONS.md`、ルートREADMEが `project-notes/README_DECISIONS.md`。
 - 2026-08-23より前の判断経緯・復旧・監査Evidence：`project-notes/YYYY-MM-DD-*.md`（履歴。現行仕様の代替正本ではない）
 - 2026-08-27 PF Reviewer適合性分析Evidence：`project-notes/2026-08-27-portfolio-reviewer-fit-analysis.md`
 - 2026-09-01 Solution Partner未決事項運用Decision Evidence：`project-notes/2026-09-01-solution-partner-unresolved-items-decisions.md`
@@ -175,7 +183,7 @@ Version と Status は各ファイルの Document Info を見る。
 2. `AGENTS.md`（作業規則）
 3. 対象成果物MDの本文（現行仕様。Version と Status は Document Info）
 4. 仕様・責務・構造・運用方針を変更する場合だけ、`project-notes/DECISIONS.md` の関連エントリを読む。全文は無条件に読まない。軽微な変更では判断履歴の確認を要求しない。
-5. `AGENTS.md` の `Decision & Rationale`（Solution Partner Version 1.1〜1.3および Version 1.5、Code Generator Version 2.2の判断履歴を含む）
+5. `project-notes/AGENTS_DECISIONS_ARCHIVE.md`（Solution Partner Version 1.1〜1.3および Version 1.5、Code Generator Version 2.2の判断履歴を含む）
 6. `project-notes/2026-09-01-solution-partner-unresolved-items-decisions.md`（Solution Partner Version 1.4の未決事項運用Decision Evidence）
 7. 必要時のみ `project-notes/YYYY-MM-DD-*.md`（2026-08-23より前の履歴）
 
