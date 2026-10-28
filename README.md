@@ -4,22 +4,24 @@
 | Item（項目） | Value（値） |
 |---|---|
 | Document ID（文書ID） | STD-PERSONA-INDEX-001 |
-| Version（バージョン） | 1.5（提案） |
+| Version（バージョン） | 1.6（提案） |
 | Status（ステータス） | Draft |
 | Created Date（作成日） | 2026-08-17 |
-| Last Updated（最終更新日） | 2026-10-21 |
+| Last Updated（最終更新日） | 2026-10-28 |
 | Owner（管理者） | Takashi Oikawa |
 | Related Documents（関連文書） | [`personas/education/README.md`](personas/education/README.md)<br>[`docs/AI_SERVICE_UPDATES.md`](docs/AI_SERVICE_UPDATES.md)<br>[`personas/WHY_PERSONA_MATTERS.md`](personas/WHY_PERSONA_MATTERS.md)<br>[`personas/AI_ISSUES_EVIDENCE.md`](personas/AI_ISSUES_EVIDENCE.md)<br>[`personas/reference/README.md`](personas/reference/README.md)<br>[`personas/reference/PERSONA_OPERATION_CASE_STUDY.md`](personas/reference/PERSONA_OPERATION_CASE_STUDY.md)<br>[`personas/PERSONA_IDENTIFICATION_AND_SETUP.md`](personas/PERSONA_IDENTIFICATION_AND_SETUP.md)<br>[`project-notes/2026-09-11-code-generator-5-pattern-comparison-reference.md`](project-notes/2026-09-11-code-generator-5-pattern-comparison-reference.md) |
 
 </details>
 
-前版の承認履歴は Version 1.4 / Status Approved（D-052）である。この改訂は Version 1.5（提案）/ Status Draft である。修正方針の承認は、この Draft の正式な Approved、または研究結果の検証合格ではない。
+前版の承認履歴は Version 1.4 / Status Approved（D-052）である。この改訂は Version 1.6（提案）/ Status Draft である。修正方針の承認は、この Draft の正式な Approved、または研究結果の検証合格ではない。
 
 ---
 
 # AI Setup Materials — Personaの意義・効果と役割分離
 
 このRepositoryは、AIに「調査・設計・コード生成・レビュー」の役割を分ける理由、期待できる効果と限界を説明し、Persona本文と検証Evidenceを公開します。AIサービス別の固定的な設定手順は扱いません。設定案内専用Personaの定義本文は、S-SETUPに限り例外として管理します。
+
+**Persona本文の正本はP方式です。** GitHub上の本文を無改変で指示欄に登録します。G方式はAIがその都度生成する取得・適用指示で同じ正本を読み込む方法です。別のPersona本文は作りません。
 
 *本ドキュメントは入門的ガイダンス（Primer）であり、実運用レベルの標準仕様ではありません。*
 

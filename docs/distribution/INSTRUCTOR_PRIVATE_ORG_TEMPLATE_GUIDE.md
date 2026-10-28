@@ -155,6 +155,8 @@ personas/reference/CHAT_HANDOFF_TEMPLATE.md
 
 ## 8. 配布版S-SETUPと講師用正本のPrivate化
 
+**現行原則（2026-10-28、D-076）**：Persona正本はP方式で無改変使用する本文です。配布コピーも指示欄へ登録すればPとして使用でき、URL記入やGitHub取得の成功をP利用の前提にしません。G方式はAIが同じ本文を取得する指示をその都度別生成します。以下のURL欄は取得先の管理情報であり、G方式の自己初期化命令ではありません。
+
 S-SETUPは従来からの30パスに含まれます。講師用の `personas/reference/PERSONA_SETUP_ADVISOR.md` は原文のまま保存し、配布先に置くコピーだけ、講師用RepositoryのURLを**各生徒の個人Repository内にある同ファイルのURLを記入する未設定欄**へ置き換えます。各生徒のURLは作成するRepository名によって異なるため、講師側の同期では埋められません。
 
 未記入の欄は実際のURLではありません。生徒がPrivate RepositoryのURLを入れても、利用するAIがそのRepositoryへ認証・接続できなければ本文を取得できません。取得不能なのにG方式の取得成功と表示してはいけません。生徒の個人Repositoryは、講師用正本の更新を自動受信しません。

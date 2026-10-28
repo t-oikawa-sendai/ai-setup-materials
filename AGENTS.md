@@ -21,11 +21,11 @@
 - アプリ開発用7文書
 - 他Repositoryを正本とする教材本文・設計文書
 - AIサービス別のPersona設定方法、画面操作手順、設定資料
-- Project・Gem等の指示欄へ貼る完成済み文章
+- AIが都度生成するG方式の取得・適用指示文やサービス別設定用の文章（P方式でそのまま使うPersona正本本文は対象内）
 
-設定案内専用Personaは、`personas/reference/PERSONA_SETUP_ADVISOR.md` の定義本文に限り、D-066による例外として管理する。AIサービス別の固定的な設定手順や指示欄用完成文はRepositoryに保存しない。
+設定案内専用Personaは、`personas/reference/PERSONA_SETUP_ADVISOR.md` の定義本文に限り、D-066による例外として管理する。AIサービス別の固定的な設定手順や生成した取得指示文はRepositoryに保存しない。P方式のPersona正本本文は管理対象である。
 
-生徒向けPrivate Templateへの配布運用は D-067 の例外として、`.github/workflows/sync-student-template.yml` と `scripts/sync_student_template.py` を本Repositoryで管理する。D-069でUserが個別選択した教材を30パスへ拡張し、D-071で生徒用配布手順書1パスを追加する。配布先用に案内・取得先情報を調整する6文書は、正本の `README.md`、`personas/education/README.md`、`personas/reference/README.md`、`personas/WHY_PERSONA_MATTERS.md`、`personas/PERSONA_IDENTIFICATION_AND_SETUP.md`、`personas/reference/PERSONA_SETUP_ADVISOR.md` である。D-070により、S-SETUPの配布コピーは講師正本のURLを含めず、各自のRepositoryの実URLを記入する未設定欄を持つ。教材の正本は講師管理のGitHub `main` のままで、個人Repositoryは配布コピーの取得先である。URL未記入やPrivate Repositoryへの認証・接続不足ではG取得成功と扱わない。講師正本のS-SETUP本文は変更しない。その他の選択教材ファイルは正本本文をそのまま配布し、元のDraft・Approved・Deprecated表示を配布コピーで変えない。Userの後続判断により、選択された通常文書がDraftとApprovedの間で変化しても同期を続けるが、それ以外の状態・不正な表示は停止する。旧資料のArchive NoticeはDeprecated、内部Document InfoはDraftのままを要する。Draftの配布をApprovedへの昇格とは扱わない。
+生徒向けPrivate Templateへの配布運用は D-067 の例外として、`.github/workflows/sync-student-template.yml` と `scripts/sync_student_template.py` を本Repositoryで管理する。D-069でUserが個別選択した教材を30パスへ拡張し、D-071で生徒用配布手順書1パスを追加する。配布先用に案内・取得先情報を調整する6文書は、正本の `README.md`、`personas/education/README.md`、`personas/reference/README.md`、`personas/WHY_PERSONA_MATTERS.md`、`personas/PERSONA_IDENTIFICATION_AND_SETUP.md`、`personas/reference/PERSONA_SETUP_ADVISOR.md` である。D-070により、S-SETUPの配布コピーは講師正本のURLを含めず、各自のRepositoryの実URLを記入する未設定欄を持つ。教材の正本は講師管理のGitHub `main` のままで、個人Repositoryは配布コピーの取得先である。URL未記入やPrivate Repositoryへの認証・接続不足ではG取得成功と扱わない。S-SETUPもP方式の正本本文として管理する。配布コピーのURL未記入は、指示欄へ登録した本文のP方式利用を妨げない。その他の選択教材ファイルは正本本文をそのまま配布し、元のDraft・Approved・Deprecated表示を配布コピーで変えない。Userの後続判断により、選択された通常文書がDraftとApprovedの間で変化しても同期を続けるが、それ以外の状態・不正な表示は停止する。旧資料のArchive NoticeはDeprecated、内部Document InfoはDraftのままを要する。Draftの配布をApprovedへの昇格とは扱わない。
 
 D-071により、GitHubでの教材配布運用に限る講師用・生徒用手順書を `docs/distribution/` で版管理する。生徒用 `STUDENT_PRIVATE_ORG_TEMPLATE_GUIDE.md` だけをPrivate Templateへ本文のまま同期し、講師用 `INSTRUCTOR_PRIVATE_ORG_TEMPLATE_GUIDE.md` は配布しない。生徒用手順書はPersonaのStatus検査対象ではないが、秘密情報・講師正本URL・リンク・同期範囲の検査対象とする。内部文書 `AGENTS.md`、`project-notes/`、`docs/` のうち生徒用手順書以外の本文、その他の選外ファイル、秘密情報は配布しない。配布先への追加・上書きはD-069の30パスとD-071の生徒用手順書1パスの計31パス、削除は従来のD-067の9パスに限る。D-069の新規21パスと生徒用手順書が正本から消えた場合は同期を停止する。旧 `distribution/student/` の配布先専用READMEは履歴として保持するが、現行の配布元には使用しない。この例外はAIサービス別の設定資料や一般教材の作成範囲を広げない。
 
@@ -40,6 +40,15 @@ AIは会話内容を正本として扱わず、リポジトリ内の文書を基
 本ファイルは、このRepositoryでAIが守る作業規則の正本である。中央統制の基本原則は維持する。維持する原則は、正本の所在を曖昧にしないこと、既存判断の効力を明示的な上書き範囲以外で維持すること、未確認事項と分類値をAIが推測で確定しないことである。
 
 中央Governanceの正式導入は別工程である。今回の判断履歴管理規則の改訂は、正式導入に先行するUser決定であり、`CONSTITUTION.md` の配置、導入ゲートの完了、Purpose と Governance Status の確定、導入完了の宣言を含まない。
+
+## 1.1 Persona正本のP方式原則
+
+GitHubに置く各Personaの正本は、P方式で指示欄へ無改変で登録する本文である。指示欄に本文がある場合はその本文を使用し、初期化のためのGitHub取得を要求しない。G方式の取得・適用指示はAIが利用時に本文とは別に生成し、同じ正本を指定する。G方式用の別本文や、P方式用の改変コピーを作らない。
+
+- この原則は現行の全Personaに適用する。Archive・過去のDecision・検証原文は歴史として保持し、現行の運用根拠へ戻さない。
+- 本文と作成経緯・検証記録は分離する。G方式の取得指示はRepository外でその都度生成する。
+- P方式の利用開始をGitHub取得成功に依存させない。G/P/N/?は実際の取得・利用状態を示すものであり、本文の別版を意味しない。
+- 内容変更時はVersionを更新し、評価中の改訂版はDraftとする。文書点検を実動検証PASSとみなさない。
 
 ## 2. 作業開始時の必須確認
 

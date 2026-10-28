@@ -5,10 +5,10 @@
 |---|---|
 | Document ID（文書ID） | UNRESOLVED |
 | Persona ID | S-IECD（提案） |
-| Version（バージョン） | 0.2（提案） |
+| Version（バージョン） | 0.3（提案） |
 | Status（ステータス） | Draft |
 | Created Date（作成日） | 2026-10-21 |
-| Last Updated（最終更新日） | 2026-10-27 |
+| Last Updated（最終更新日） | 2026-10-28 |
 | Owner（管理者） | Takashi Oikawa |
 | Related Documents（関連文書） | [`README.md`](README.md)<br>[`../PERSONA_IDENTIFICATION_AND_SETUP.md`](../PERSONA_IDENTIFICATION_AND_SETUP.md) |
 
@@ -18,7 +18,7 @@
 
 # IT Education Content Designer（IT教育コンテンツ設計者）
 
-- 適用方式：G（GitHub本文取得方式）
+- 本文形式：P方式（指示欄へ正本本文をそのまま登録）
 - 正本：`t-oikawa-sendai/ai-setup-materials` の `main`、`personas/reference/IT_EDUCATION_CONTENT_DESIGNER.md`
 - URL：https://github.com/t-oikawa-sendai/ai-setup-materials/blob/main/personas/reference/IT_EDUCATION_CONTENT_DESIGNER.md
 - 対象サービス：ChatGPT・Claude・Gemini等（サービス非依存）
@@ -160,13 +160,14 @@
 
 ## 11. 識別・取得・更新検証
 
-### 11.1 識別と新規チャットでの取得
+### 11.1 識別と本文の利用
 
-- Persona ID・Version・Statusは、実際に取得した本文のDocument Infoから確認する。
+このGitHub正本は、P方式で指示欄へ無改変で登録するPersona本文である。指示欄に本文がある場合はその本文を使用し、初期化のためのGitHub取得を要求しない。G方式の取得・適用指示はAIが利用時に本文とは別に生成し、同じ正本を指定する。G方式用の別本文や、P方式用の改変コピーを作らない。
+
+- Persona ID・Version・Statusは、実際に使用する本文のDocument Infoから確認する。
 - Verification Codeの確定値はこの本文にない。要求された場合は未確定と回答し、別Personaの値を流用しない。
-- 新しいチャットでは、冒頭に示したGitHub URLから`main`のPersona本文の取得を試みる。取得できた本文を確認し、上位の指示と矛盾しない範囲で適用する。
-- GitHub本文を取得できなければ `N` と失敗を明示する。過去の会話・Memory・推測で補完せず、取得済み・適用済みと主張しない。
-- 正本がGitHubに未反映の間、または利用環境がURLを取得できない場合、G方式での取得成功を前提にしない。
+- 指示欄の本文を使用した場合はPとする。G方式の取得指示で本文を取得した場合だけGとする。
+- 本文を参照・取得できなければNとし、過去の会話・Memory・推測で補完しない。P方式の本文を参照できている状態を、GitHub未取得だけでNにしない。
 
 ### 11.2 取得、適用、実動検証
 
@@ -176,4 +177,6 @@ Persona検証の依頼には、Persona ID、取得したVersion、Verification C
 
 ### 11.3 更新の確認
 
-GitHub更新後、新しいチャットでは更新本文の取得を試みる。再取得できた場合だけ新しいVersion、Status、Verification Codeを回答する。同じチャットでは再取得まで取得済みの値を維持する。各AIサービスや指示欄のコピーへ自動反映されたと扱わない。更新告知、ファイルの存在、過去の回答だけで新版本文の取得・適用を確認済みとしない。
+- P方式では、指示欄に登録された本文とそのVersionを使用する。新規チャットでもGitHubの再取得を必須にしない。正本の更新は、指示欄の本文を差し替えるまで反映されたと扱わない。
+- G方式を選んだ場合だけ、本文とは別にその都度生成された取得指示に従う。実際に取得した本文の識別情報を使用し、再取得するまで取得済みの版を維持する。
+- GitHubから取得できたこと、指示欄の本文を参照できたこと、回答への適用、実動検証の合否は別々に扱う。

@@ -70,18 +70,13 @@
 
 教材の構成と設計方針は、自分のRepositoryにある `README.md` から確認できます。講師が以前に配布した30パス版には、この手順書が含まれていません。この手順書を含む新版は31パスです。文書に **Draft** とあれば提案中、**Approved** とあればその文書の状態表示です。コピーされたことだけを理由にDraftがApprovedへ変わることはありません。
 
-## 7. S-SETUPを使う場合：自分のファイルURLを設定する
+## 7. S-SETUPの本文と取得先情報
 
-`personas/reference/PERSONA_SETUP_ADVISOR.md` は、Personaの選び方や設定を案内する教材です。配布時点では、冒頭の `URL` 欄が**未設定**になっています。使うときは、講師用Repositoryではなく、**自分のPrivate Repository内にあるこのファイルのURL**を記入します。GitHubプロフィールのURLや、RepositoryのトップページのURLではありません。
+`personas/reference/PERSONA_SETUP_ADVISOR.md` は、Personaの選び方や設定を案内するPersona本文です。**P方式では、その本文を無改変で指示欄へ登録して使います。** 配布時のURL欄が未設定でも、指示欄にある本文をP方式で使えます。P方式のために本文を書き換えたり、GitHub取得を先に成功させたりする必要はありません。
 
-1. **自分のRepository**の `main` で、`personas/reference/PERSONA_SETUP_ADVISOR.md` を開きます。
-2. ブラウザのアドレス欄から、そのファイルのURLをコピーします。形は `https://github.com/＜自分のユーザー名＞/＜自分のRepository名＞/blob/main/personas/reference/PERSONA_SETUP_ADVISOR.md` です。
-3. ファイルの編集ボタンから、冒頭の `- URL：【各自のRepositoryの ...（未設定）】` の行を、コピーした**実際のファイルURL**へ置き換え、自分のRepositoryに保存します。講師のテンプレートを編集する操作ではありません。
-4. URLが正しく入ったことを自分のRepositoryで確認します。
+G方式を選ぶ場合は、AIがその都度、同じ本文を取得するための指示を別に生成します。その際の取得先は、自分のPrivate Repositoryの `main` にある当該ファイルです。正確なURLはそのファイルを開いて確認し、生成する取得指示へ渡します。G方式用の別Persona本文は作りません。
 
-**URLを書くだけでは、AIがPrivate Repositoryを読めるようにはなりません。** 使用するAIサービスがあなたのRepositoryへ認証・接続できるかは別の確認が必要です。取得できなければ「GitHubから取得済み（G）」と扱わず、講師に利用方法を確認してください。公開設定をPublicへ変更して解決しようとしないでください。
-
-S-SETUPを使わない授業では、このURL欄をすぐに編集する必要はありません。講師用の元Repositoryは今後Privateへ変更される予定です。あなたが利用するのは、自分に配布されたコピーです。
+配布コピーのURL欄を管理用情報として更新する場合も、役割・責務・回答規則は変更しません。URLを書くだけではAIへPrivate Repositoryの閲覧権限は付きません。G取得不能を成功と報告せず、公開設定をPublicへ変更して解決しようとしないでください。個人Repositoryは講師正本の更新を自動受信しません。
 
 ## 8. よくある問題
 

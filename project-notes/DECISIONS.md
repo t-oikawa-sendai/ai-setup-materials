@@ -2710,3 +2710,39 @@ Evidence（根拠）:
 
 Supersedes（上書き対象・範囲）:
 - D-074の本文ファイル名・正本パスのみ変更する。D-074の判断原文は保持する。
+
+
+## D-076 Require P-Ready Canonical Persona Bodies and Generate G Instructions Separately
+
+Date（日付）: 2026-10-28
+Related Documents（関連文書）: Repository全体 / AGENTS.md / README.md / personas/PERSONA_IDENTIFICATION_AND_SETUP.md / personas/reference/CHATGPT_PERSONA.md / personas/reference/CLAUDE_PERSONA.md / personas/reference/IT_GENERAL_ADVISOR_TEST_PERSONA.md / personas/reference/IT_EDUCATION_CONTENT_DESIGNER.md / personas/reference/PERSONA_SETUP_ADVISOR.md / personas/reference/README.md / scripts/sync_student_template.py / docs/distribution/STUDENT_PRIVATE_ORG_TEMPLATE_GUIDE.md / docs/distribution/INSTRUCTOR_PRIVATE_ORG_TEMPLATE_GUIDE.md / project-notes/CURRENT.md / project-notes/persona-validation/2026-10-28-p-canonical-audit.md
+
+Decision（決定）:
+- GitHubにある全Persona正本は、P方式でそのまま指示欄へ貼り付けて使う本文とする。P用に書き換え・短縮・章削除した別本文を生成しない。
+- G方式の取得・適用指示はAIが利用時にその都度、Persona本文とは別に生成し、同じGitHub正本を取得対象にする。G用の独立したPersona正本を作らない。
+- P方式の初期化・更新をGitHubの再取得成功に依存させない。指示欄の本文を使用する場合はP。G/P/N/?の区分と、取得・適用・実動検証・承認の分離を維持する。
+- 現行14 Personaを横断点検し、衝突があった5件を修正する。M-CGは3.2、M-CLは3.1、T-IT-ADVISORは3.1、S-IECDは0.3（提案）、S-SETUPは3.1（提案）。評価中の改訂版はDraftとし、前版Approvedの承認履歴は失効・改変しない。
+- 共通仕様は1.3（提案）/ Draft、Reference索引は1.8（提案）/ Draft、Root READMEは1.6（提案）/ Draftへ更新する。これは実動検証PASSを意味しない。
+- S-SETUPの配布変換と手順書から、URL未設定・GitHub取得不能をP方式利用の障害にする記述を除く。配布対象31パス、旧9パスの削除境界、講師正本URLの非配布、コピーの状態表示保持は維持する。G取得指示そのものはRepositoryに保存しない。
+
+Rationale（理由）:
+正本と貼り付け用本文が異なる状態、およびP方式で本文が存在するのにGitHub取得失敗によって未読込とする状態を防ぐ。Userが明示した大前提を全Personaと設定案内に徹底するため。
+
+Evidence（根拠）:
+- User：「GitHubにある正本は P方式 であることが大前提」「G方式はその都度AIが生成する」
+- User：「このリポに存在するペルソナを横断して検証」「私の大前提が徹底されていないものがあれば緊急で修正」
+- 開始時の作業用Clone main / HEAD / origin/main：40e1e9785a29b315849f85a5ab52780ad1461824。未commit変更なし。Mac実機の既存Repositoryにはアクセスしていない。
+- 個別点検・差分保全・配布検査の結果は監査記録を参照する。静的点検を実動検証に読み替えない。
+
+Supersedes（上書き対象・範囲）:
+- D-026に基づくM-CGの更新取得規則、M-CL第15.3章、T-IT-ADVISOR第16.3章の無条件GitHub再取得を、P/G別の扱いへ是正する。既存の検証条件・Verification Code・識別体系は変更しない。
+- D-065・D-066・D-073のS-IECD/S-SETUP自身をG方式前提とした本文・記述のみ、P正本原則へ置き換える。業務責務・GitHubを唯一の編集元とする原則は維持する。
+- D-070の配布版S-SETUPのG取得前提は、P利用に適用しない。講師正本URLの保護と配布範囲は維持する。
+- D-045とAGENTS.mdの指示欄用完成文の保存除外は、AIが生成する取得指示文・サービス別設定資料を対象とし、P方式の正本本文を除外しないことを明確化する。
+- 旧Decision、Archive、検証原文は原文のまま保持する。
+
+Unverified（未確認・未実施）:
+- 各サービスでの改訂版の登録・実動検証、全環境の入力文字数制限への適合、GitHub反映・実配布。今回の修正指示を、Git操作の別途明示承認と混同しない。
+
+Follow-up（追記・2026-10-28）:
+- User：「Commit Push承認」。D-076の修正一式をCommit・Pushする明示承認を受領した。上記の未実施記録は承認前の状態である。実動検証・Approvedへの変更はこの承認に含めない。

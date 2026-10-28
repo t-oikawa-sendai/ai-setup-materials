@@ -4,10 +4,10 @@
 | Item（項目） | Value（値） |
 |---|---|
 | Document ID（文書ID） | STD-PERSONA-IDENTIFICATION-SETUP-001 |
-| Version（バージョン） | 1.2 |
-| Status（ステータス） | Approved |
+| Version（バージョン） | 1.3（提案） |
+| Status（ステータス） | Draft |
 | Created Date（作成日） | 2026-10-14 |
-| Last Updated（最終更新日） | 2026-10-20 |
+| Last Updated（最終更新日） | 2026-10-28 |
 | Owner（管理者） | Takashi Oikawa |
 | Related Documents（関連文書） | [`../AGENTS.md`](../AGENTS.md)<br>[`../README.md`](../README.md)<br>[`education/README.md`](education/README.md)<br>[`reference/README.md`](reference/README.md)<br>[`../project-notes/DECISIONS.md`](../project-notes/DECISIONS.md)<br>[`../project-notes/CURRENT.md`](../project-notes/CURRENT.md) |
 
@@ -23,7 +23,7 @@
 
 2026-10-14〜15に確定した識別・検証仕様は維持する。設定案内と指示欄用文章を扱った旧第10章から第15章は、2026-10-17のUser決定（[`../project-notes/DECISIONS.md`](../project-notes/DECISIONS.md) の D-045）により現行本文から除外した。旧判断は同Decisionファイルに残す。
 
-この文書の Version 1.2 / Approved は共通仕様の文書状態であり、個々のPersonaのApproved昇格や実動検証の完了を意味しない。今回、VersionとStatusは変更しない。ファイル名・Document IDの `SETUP` と第16章の番号は、既存参照との互換性のため維持する。設定方法が現行の対象範囲に含まれるという意味ではない。
+この文書は Version 1.3（提案）/ Draft である。前版Version 1.2 / Approvedの承認履歴は維持する。本改訂はPersona正本のP方式原則を明確化し、個々のPersonaのApproved昇格や実動検証の完了を意味しない。ファイル名・Document IDの `SETUP` と第16章の番号は、既存参照との互換性のため維持する。設定方法が現行の対象範囲に含まれるという意味ではない。
 
 本書は education と reference の双方に適用する。Persona本文や判断履歴を代替しない。
 
@@ -91,7 +91,7 @@ Researcher 3ファイルの現行見出しは、いずれも Researcher Persona 
 - `GEM_` で始まる Education 6件は、現在の数値 Version / Approved を維持する。大改修の完了後に Version 3.0 へ揃える。
 - 本書はPersonaではない。本書の Version 1.2 / Approved は、この版番号統一の対象ではない。
 
-[`../project-notes/DECISIONS.md`](../project-notes/DECISIONS.md) の D-005 は、検証用Personaを Version 0.1 / Draft として保全した時点の確定状態である。D-005を書き換えない。D-037 の承認と D-038 の版番号統一は、Version 3.0 / Approved の承認履歴である。D-062 が現行を Version 3.1（提案）/ Draft とした記録は、その決定時点の記録であり、原文は変更しない。現行の Document Info は Version 3.0 / Approved である。この Approved は User の版の確定であり、実動検証の完了や適用成功を意味しない。
+[`../project-notes/DECISIONS.md`](../project-notes/DECISIONS.md) の D-005 は、検証用Personaを Version 0.1 / Draft として保全した時点の確定状態である。D-005を書き換えない。D-037 の承認と D-038 の版番号統一は、Version 3.0 / Approved の承認履歴である。D-062 が現行を Version 3.1（提案）/ Draft とした記録は、その決定時点の記録であり、原文は変更しない。D-064で確定した Version 3.0 / Approved は前版の履歴である。この Approved は User の版の確定であり、実動検証の完了や適用成功を意味しない。現行の Document Info はD-076により Version 3.1 / Draft である。
 
 ## 6. CONFIRMED: Service Codes（サービス略号）
 
@@ -148,7 +148,16 @@ ClaudeのProjectで `S-SP` を使用できるよう案内する。`M-CG` とい�
 
 D-005が定めた、技術的な取得証跡がない実際のGitHubアクセスはUNVERIFIEDとする扱いは維持する。本章は、その自己申告を今後の表示旗へ対応させるものであり、検証原文を改変しない。
 
-OwnerのRepositoryはPersona本文の唯一の編集元（SSOT）として扱う。利用者のForkやコピーは独立した正本としない。G方式を使う利用者には自分専用のRepositoryの利用を強く推奨するが、必須条件にはしない。Ownerの公開Repositoryへの直接アクセスは禁止せず、P方式も選択できる。GitHubの利用制限がOwnerへ絶対に影響しないという保証はしない。Repositoryの作成や取得URLの設定方法は本書で案内しない。
+OwnerのRepositoryはPersona本文の唯一の編集元（SSOT）として扱う。利用者のForkやコピーは独立した正本としない。G方式を使う利用者には自分専用のRepositoryの利用を強く推奨するが、必須条件にはしない。Ownerの公開Repositoryへの直接アクセスは禁止しない。正本本文はP方式で無改変使用でき、G方式は同じ本文の取得手段として選択できる。GitHubの利用制限がOwnerへ絶対に影響しないという保証はしない。Repositoryの作成や取得URLの設定方法は本書で案内しない。
+
+### 8.1 Persona正本と取得指示の分離
+
+GitHubに置く各Personaの正本は、P方式で指示欄へ無改変で登録する本文である。指示欄に本文がある場合はその本文を使用し、初期化のためのGitHub取得を要求しない。G方式の取得・適用指示はAIが利用時に本文とは別に生成し、同じ正本を指定する。G方式用の別本文や、P方式用の改変コピーを作らない。
+
+- P方式では正本本文を無改変で使用する。登録先の制限を理由に無断で短縮・書き換えない。
+- G方式の取得指示はAIがその都度生成する。正本の役割・責務を再定義せず、対象URLと取得・適用条件を指定する。
+- P方式の初期化・新規チャット開始にGitHub取得を要求しない。指示欄の本文差し替えまで、正本の更新が自動反映されたとは扱わない。
+- 本文の参照・取得、回答への適用、実動検証、User承認を区別する。
 
 ## 9. CONFIRMED: Usage Recommendation（利用推奨基準）
 
