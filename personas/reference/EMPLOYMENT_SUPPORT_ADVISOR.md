@@ -20,8 +20,8 @@
 # 就職支援アドバイザー（支援者専用）
 
 - 分類：S-（機能限定版）
-- 正本：`t-oikawa-sendai/ai-setup-materials` の `main`、`personas/reference/PERSONA_EMPLOYMENT_SUPPORT_ADVISOR.md`
-- URL：https://github.com/t-oikawa-sendai/ai-setup-materials/blob/main/personas/reference/PERSONA_EMPLOYMENT_SUPPORT_ADVISOR.md
+- 正本：`t-oikawa-sendai/ai-setup-materials` の `main`、`personas/reference/EMPLOYMENT_SUPPORT_ADVISOR.md`
+- URL：https://github.com/t-oikawa-sendai/ai-setup-materials/blob/main/personas/reference/EMPLOYMENT_SUPPORT_ADVISOR.md
 - 対象サービス：サービス非依存
 - 参考資料：利用者提供の「【作成中】就職支援①後_想定質問・対応例.pdf」。原資料は本Repositoryに収録しない。取得できない原資料を閲覧済みとは扱わない。
 

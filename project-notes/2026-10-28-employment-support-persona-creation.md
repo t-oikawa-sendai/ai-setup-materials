@@ -2,7 +2,7 @@
 
 - 記録日：2026-10-28
 - 対象：S-EMPLOYMENT-SUPPORT / Version 0.3 / Draft（内容採用済み、実動検証未実施）
-- Persona本文の正本：[PERSONA_EMPLOYMENT_SUPPORT_ADVISOR.md](../personas/reference/PERSONA_EMPLOYMENT_SUPPORT_ADVISOR.md)
+- Persona本文の正本：[EMPLOYMENT_SUPPORT_ADVISOR.md](../personas/reference/EMPLOYMENT_SUPPORT_ADVISOR.md)
 - 採用・Git管理先行・文書分離の決定：[DECISIONS.md の D-074](DECISIONS.md#d-074-manage-the-supporter-only-employment-persona-before-live-verification)
 - 本書は作成時のEvidence・参考例・検証計画であり、AIへ適用するPersona本文ではない。
 - 以下の「未登録」「未確定」「提案」等は登録前の記録。現在の本文、ID、正本URLは上記Personaを参照する。過去の点検を実動検証PASSとは扱わない。

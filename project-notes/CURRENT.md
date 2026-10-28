@@ -11,7 +11,7 @@ Personaの意義・効果・限界と役割分離を説明する `ai-setup-mater
 
 ## 現在地点
 
-- 就職支援アドバイザー `personas/reference/PERSONA_EMPLOYMENT_SUPPORT_ADVISOR.md`：S-EMPLOYMENT-SUPPORT / Version 0.3 / Draft、内容採用済み。支援者専用としてGit管理を先行（D-074）。作成経緯・照合・検証計画は `project-notes/2026-10-28-employment-support-persona-creation.md` に分離した。実動検証・利用環境への設定は未実施。保存の成否は本変更を含むmainのHEADと本文再取得で確認する。
+- 就職支援アドバイザー `personas/reference/EMPLOYMENT_SUPPORT_ADVISOR.md`：S-EMPLOYMENT-SUPPORT / Version 0.3 / Draft、内容採用済み。支援者専用としてGit管理を先行（D-074）。本文ファイル名はD-075によりEMPLOYMENT_SUPPORT_ADVISOR.mdへ変更。作成経緯・照合・検証計画は `project-notes/2026-10-28-employment-support-persona-creation.md` に分離した。実動検証・利用環境への設定は未実施。保存の成否は本変更を含むmainのHEADと本文再取得で確認する。
 
 チャット移行で旧状態を現行と誤認しないため、現行値はこの節に一度だけ書く。完了事項・作業中・次工程・正本の所在へ同じ現行値を繰り返さない。
 

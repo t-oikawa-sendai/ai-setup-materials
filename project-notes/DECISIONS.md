@@ -2688,3 +2688,25 @@ Evidence（根拠）:
 
 Unverified（未確認・未実施）:
 - 利用環境への設定、対象Personaの取得・適用・実動検証、Approvedへの昇格。Mac実機の既存Repositoryの同期状態。保存状態はPush後のHEADと本文再取得で確認する。
+
+
+## D-075 Rename the Employment Support Persona File
+
+Date（日付）: 2026-10-28
+Related Documents（関連文書）: personas/reference/EMPLOYMENT_SUPPORT_ADVISOR.md / personas/reference/README.md / project-notes/2026-10-28-employment-support-persona-creation.md / project-notes/CURRENT.md / scripts/sync_student_template.py
+
+Decision（決定）:
+- User指定により、本文名を `PERSONA_EMPLOYMENT_SUPPORT_ADVISOR.md` から `EMPLOYMENT_SUPPORT_ADVISOR.md` へ変更する。配置は `personas/reference/` のまま。
+- 本文の正本URL、索引、作成経緯文書の現行参照、CURRENT、配布用のリンク除外設定を新名称へ合わせる。
+- 作成経緯文書は `project-notes/2026-10-28-employment-support-persona-creation.md` の名称を維持する。
+- Persona ID、Version 0.3、Draft、内容採用済み・実動検証未実施、支援者専用の業務規則は変更しない。
+
+Rationale（理由）:
+Userが本文ファイル名からPERSONA_接頭辞を外すよう指定したため。
+
+Evidence（根拠）:
+- User：「PERSONA_EMPLOYMENT_SUPPORT_ADVISOR.md 名称は EMPLOYMENT_SUPPORT_ADVISOR.md に変更 作成経緯の文書名は？」
+- 作業開始時の独立Clone main / HEAD / origin/mainは `71dcf4f309e75d083e76b74b58d88770ad81d544` で一致し、未commit変更なし。
+
+Supersedes（上書き対象・範囲）:
+- D-074の本文ファイル名・正本パスのみ変更する。D-074の判断原文は保持する。

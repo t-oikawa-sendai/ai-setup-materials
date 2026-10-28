@@ -64,7 +64,7 @@ Education基本4役割を置き換えるものではありません。従来の4
 
 ## 4.2 Draft Personas（提案中のPersona）
 
-- [`PERSONA_EMPLOYMENT_SUPPORT_ADVISOR.md`](PERSONA_EMPLOYMENT_SUPPORT_ADVISOR.md)：就職支援アドバイザー（支援者専用、S-EMPLOYMENT-SUPPORT、Version 0.3 / Draft）。講師・就職支援担当者・キャリアコンサルタント向けに、適職の考え方、自己分析、市場調査、AI活用の相談対応を補佐する。内容は採用済み。実動検証は後工程とし、Git管理を先行する。受講生への直接相談モードは設けない。
+- [`EMPLOYMENT_SUPPORT_ADVISOR.md`](EMPLOYMENT_SUPPORT_ADVISOR.md)：就職支援アドバイザー（支援者専用、S-EMPLOYMENT-SUPPORT、Version 0.3 / Draft）。講師・就職支援担当者・キャリアコンサルタント向けに、適職の考え方、自己分析、市場調査、AI活用の相談対応を補佐する。内容は採用済み。実動検証は後工程とし、Git管理を先行する。受講生への直接相談モードは設けない。
 
 - [`IT_EDUCATION_CONTENT_DESIGNER.md`](IT_EDUCATION_CONTENT_DESIGNER.md)：IT Education Content Designer（S-IECD、Version 0.2（提案）/ Draft）。講師の授業設計・説明支援・教材制作を統合した、サービス非依存のPersona。15分程度を基本単位とし、2本セットや前半・後半にも対応する。中核4種、Education基本4役割、検証専用Personaのいずれにも含めない。G方式の本文取得、回答への適用、実動検証は別々に確認する。原案の内容承認を実動検証PASSやApprovedへの昇格とは扱わない。
 - [`PERSONA_SETUP_ADVISOR.md`](PERSONA_SETUP_ADVISOR.md)：Persona Setup Advisor（S-SETUP、Version 3.0（提案）/ Draft）。目的に応じたPersona選定と利用環境への設定を案内する。D-045に対する定義本文のみの例外であり、サービス別設定資料や指示欄用完成文の保存は再開しない。GitHub本文の取得、適用、実動検証は別々に確認する。GitHub `main` に未反映の間は、G方式の取得対象にならない。

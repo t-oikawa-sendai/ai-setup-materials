@@ -113,7 +113,7 @@ EXCLUDED_LINKS = {
     }),
     "personas/education/README.md": frozenset({"project-notes/DECISIONS.md"}),
     "personas/reference/README.md": frozenset({
-        "personas/reference/PERSONA_EMPLOYMENT_SUPPORT_ADVISOR.md",
+        "personas/reference/EMPLOYMENT_SUPPORT_ADVISOR.md",
         "personas/reference/IT_EDUCATION_CONTENT_DESIGNER.md",
         "personas/reference/IT_GENERAL_ADVISOR_TEST_PERSONA.md",
     }),
