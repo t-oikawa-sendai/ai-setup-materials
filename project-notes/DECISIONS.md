@@ -2662,3 +2662,29 @@ Non-Changes（非変更範囲）:
 
 Unverified（未確認）:
 - 各AIサービスでのv0.2取得・適用・実動検証、Userによる指示欄への登録、Approvedへの最終承認、Mac実機の既存Repositoryの同期状態。GitHub・配布先の保存状態は更新後に実測し、本記録だけで成功とは扱わない。
+
+
+## D-074 Manage the Supporter-Only Employment Persona before Live Verification
+
+Date（日付）: 2026-10-28
+Related Documents（関連文書）: personas/reference/PERSONA_EMPLOYMENT_SUPPORT_ADVISOR.md / personas/reference/README.md / project-notes/2026-10-28-employment-support-persona-creation.md / project-notes/CURRENT.md / scripts/sync_student_template.py
+
+Decision（決定）:
+- 就職支援アドバイザー S-EMPLOYMENT-SUPPORT / Version 0.3を支援者専用として採用し、GitHub mainの `personas/reference/PERSONA_EMPLOYMENT_SUPPORT_ADVISOR.md` を本文正本として管理する。StatusはDraft。内容採用と実動検証を分け、実動検証は後工程とする。
+- Persona本文は文書情報と適用する役割・対応規則に限定する。登録前の設計情報、作成経緯、資料との照合記録、回答例、検証計画は `project-notes/2026-10-28-employment-support-persona-creation.md` に分離する。新しい採用判断の正本は本Decisionとする。
+- 結論を先、理由を後、短い箇条書き、根拠の提示、【推論】と事実の分離を維持する。受講生向けの声かけ・教材は、支援者が確認して使う文案とする。
+- 元PDFは本文の参考資料として記載するが、原本をRepositoryへ追加しない。サービス別の設定手順・指示欄用完成文は追加しない。
+- Reference索引に導線を追加する。新規Personaと経緯文書は生徒向け配布に追加しない。索引の新規リンクだけを既存EXCLUDED_LINKSへ追加し、配布コピーでは従来方式で非リンク化する。31パスの配布対象・旧9パスの削除範囲は変更しない。
+
+Rationale（理由）:
+Userが実動検証よりGit管理を先行し、Persona本文と作成経緯文書を別管理するよう指定したため。適用する規則と作成時の説明・Evidenceを分離し、GitHubで本文の改訂を追跡できるようにする。
+
+Evidence（根拠）:
+- User：「利用は支援者向け専用で問題ない。他は問題ないので採用。再作成」
+- User：「実動検証は 後で問題ない。先にGit管理を先行する」
+- User：「Persona本文と この作成経緯文書は別管理する」
+- 登録前v0.3と添付PDFの照合記録は作成経緯文書に保持する。
+- 作業用独立Cloneはmain / HEAD / origin/mainが `f9d5de4c66c3dbcc08ce0d1c5c602abc3bd06d0c` で一致し、未commit変更なしで開始した。
+
+Unverified（未確認・未実施）:
+- 利用環境への設定、対象Personaの取得・適用・実動検証、Approvedへの昇格。Mac実機の既存Repositoryの同期状態。保存状態はPush後のHEADと本文再取得で確認する。

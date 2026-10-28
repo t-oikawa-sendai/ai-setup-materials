@@ -1,6 +1,6 @@
 # CURRENT
 
-Last Updated: 2026-10-27
+Last Updated: 2026-10-28
 Status: CURRENT
 
 ## PURPOSE
@@ -10,6 +10,8 @@ Personaの意義・効果・限界と役割分離を説明する `ai-setup-mater
 本ファイルは現在地点だけを記す。Version と Status の正本は各ファイルの Document Info である。詳細仕様・判断理由は、対象成果物、`project-notes/DECISIONS.md`、既存の判断履歴、検証Evidenceを参照する。
 
 ## 現在地点
+
+- 就職支援アドバイザー `personas/reference/PERSONA_EMPLOYMENT_SUPPORT_ADVISOR.md`：S-EMPLOYMENT-SUPPORT / Version 0.3 / Draft、内容採用済み。支援者専用としてGit管理を先行（D-074）。作成経緯・照合・検証計画は `project-notes/2026-10-28-employment-support-persona-creation.md` に分離した。実動検証・利用環境への設定は未実施。保存の成否は本変更を含むmainのHEADと本文再取得で確認する。
 
 チャット移行で旧状態を現行と誤認しないため、現行値はこの節に一度だけ書く。完了事項・作業中・次工程・正本の所在へ同じ現行値を繰り返さない。
 
@@ -89,6 +91,8 @@ Personaの意義・効果・限界と役割分離を説明する `ai-setup-mater
 - 2026-10-23。Userが採用した配布先の実更新日だけを通知するworkflow・運用文書・D-072をmainへ反映（`ce48dda7efcf3ce0ebb302def3be325cbff0dc69`）。作業用fresh cloneの開始時`main`・`origin/main`は`b0c0164c470f8d43a8fb090e376f6ffce10c947a`で一致し、cleanだった。元Dev cloneは変更していない。source Actions secret `PROFILE_HISTORY_DISPATCH_TOKEN` の登録名と日時を確認し、値は取得していない。[Push起動の同期実行](https://github.com/t-oikawa-sendai/ai-setup-materials/actions/runs/39927699348)はsuccessで、31パスは変更なし、日付通知stepもsuccess。[profile受信実行](https://github.com/t-oikawa-sendai/t-oikawa-sendai/actions/runs/39927727246)もsuccessで、同日通知としてREADMEは無変更、2026-10-22の個別要約が保持された。新しい配布日での自動Commitは未検証。
 
 ## 次工程
+
+- S-EMPLOYMENT-SUPPORTの実動検証はUser指定により後工程。今回はGit管理のみを先行し、検証PASS・Approvedへの昇格とは扱わない。
 
 プロフィール履歴通知は変更なし同期での導通を確認済み。新しい配布日を受けたときのREADME指定2欄の自動Commit・Pushと公開表示は、実際の配布更新時に確認する。User承認の例外範囲は指定2欄だけとする。
 

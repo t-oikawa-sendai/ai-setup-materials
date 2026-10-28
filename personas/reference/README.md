@@ -4,10 +4,10 @@
 | Item（項目） | Value（値） |
 |---|---|
 | Document ID（文書ID） | STD-PERSONA-REFERENCE-INDEX-001 |
-| Version（バージョン） | 1.6（提案） |
+| Version（バージョン） | 1.7（提案） |
 | Status（ステータス） | Draft |
 | Created Date（作成日） | 2026-08-22 |
-| Last Updated（最終更新日） | 2026-10-27 |
+| Last Updated（最終更新日） | 2026-10-28 |
 | Owner（管理者） | Takashi Oikawa |
 | Related Documents（関連文書） | [`../../README.md`](../../README.md)<br>[`../education/README.md`](../education/README.md)<br>[`CHATGPT_PERSONA.md`](CHATGPT_PERSONA.md)<br>[`CLAUDE_PERSONA.md`](CLAUDE_PERSONA.md)<br>[`IT_EDUCATION_CONTENT_DESIGNER.md`](IT_EDUCATION_CONTENT_DESIGNER.md)<br>[`PERSONA_SETUP_ADVISOR.md`](PERSONA_SETUP_ADVISOR.md)<br>[`CURSOR_PERSONA.md`](CURSOR_PERSONA.md)<br>[`GEMINI_PERSONA.md`](GEMINI_PERSONA.md)<br>[`IT_GENERAL_ADVISOR_TEST_PERSONA.md`](IT_GENERAL_ADVISOR_TEST_PERSONA.md)<br>[`PERSONA_OPERATION_CASE_STUDY.md`](PERSONA_OPERATION_CASE_STUDY.md)<br>[`CHAT_HANDOFF_TEMPLATE.md`](CHAT_HANDOFF_TEMPLATE.md)<br>[`PERSONA_PROMPT_TEMPLATE.md`](PERSONA_PROMPT_TEMPLATE.md)<br>[`../PERSONA_IDENTIFICATION_AND_SETUP.md`](../PERSONA_IDENTIFICATION_AND_SETUP.md) |
 
@@ -63,6 +63,8 @@ Education基本4役割を置き換えるものではありません。従来の4
 - [`IT_GENERAL_ADVISOR_TEST_PERSONA.md`](IT_GENERAL_ADVISOR_TEST_PERSONA.md)：IT General Technical Advisor Persona（検証専用）
 
 ## 4.2 Draft Personas（提案中のPersona）
+
+- [`PERSONA_EMPLOYMENT_SUPPORT_ADVISOR.md`](PERSONA_EMPLOYMENT_SUPPORT_ADVISOR.md)：就職支援アドバイザー（支援者専用、S-EMPLOYMENT-SUPPORT、Version 0.3 / Draft）。講師・就職支援担当者・キャリアコンサルタント向けに、適職の考え方、自己分析、市場調査、AI活用の相談対応を補佐する。内容は採用済み。実動検証は後工程とし、Git管理を先行する。受講生への直接相談モードは設けない。
 
 - [`IT_EDUCATION_CONTENT_DESIGNER.md`](IT_EDUCATION_CONTENT_DESIGNER.md)：IT Education Content Designer（S-IECD、Version 0.2（提案）/ Draft）。講師の授業設計・説明支援・教材制作を統合した、サービス非依存のPersona。15分程度を基本単位とし、2本セットや前半・後半にも対応する。中核4種、Education基本4役割、検証専用Personaのいずれにも含めない。G方式の本文取得、回答への適用、実動検証は別々に確認する。原案の内容承認を実動検証PASSやApprovedへの昇格とは扱わない。
 - [`PERSONA_SETUP_ADVISOR.md`](PERSONA_SETUP_ADVISOR.md)：Persona Setup Advisor（S-SETUP、Version 3.0（提案）/ Draft）。目的に応じたPersona選定と利用環境への設定を案内する。D-045に対する定義本文のみの例外であり、サービス別設定資料や指示欄用完成文の保存は再開しない。GitHub本文の取得、適用、実動検証は別々に確認する。GitHub `main` に未反映の間は、G方式の取得対象にならない。
