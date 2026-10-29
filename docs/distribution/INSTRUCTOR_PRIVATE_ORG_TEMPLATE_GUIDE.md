@@ -183,6 +183,14 @@ personas/reference/CHAT_HANDOFF_TEMPLATE.md
 
 この手順は、組織メンバーでない生徒を教材の外部コラボレーターとして招待する方式です。組織の **People → Invite member** から参加させる操作は含めません。既にメンバーやTeamの権限を持つ人については、既存の権限が残るため、その付与元も確認します。
 
+**メールアドレスで招待する場合**
+
+Repositoryへの招待は、GitHubユーザー名の代わりにメールアドレスでも指定できます。手順4で、生徒本人が受信できるメールアドレスを入力し、同じく許可する教材だけに **Read** で招待します。メールを探す際は、GitHubの登録メールではなく、実際に招待を送った宛先を確認します。
+
+メール招待は、**GitHubに登録済みのメールアドレスだけに限定されません。** GitHub公式では、メールで送った招待は別のGitHubアカウントでも承諾できる仕様とされています。**許可する生徒のGitHubアカウントまで指定したい場合は、メールアドレスではなくGitHubユーザー名で招待します。** メール招待を使う場合は、生徒本人のアカウントで承諾し、招待リンクを他の人へ転送しないよう案内します。
+
+この説明は、今回のRepositoryへの招待についてのものです。Organizationのメンバー招待に関するメールアドレスの条件とは区別します。
+
 ### 7.3 生徒への案内と承諾後の確認
 
 生徒へ次の内容を案内します。
@@ -243,3 +251,4 @@ GitHubの自動招待メールのリンクは招待承諾用であり、講師�
 - [組織の基本権限](https://docs.github.com/en/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/setting-base-permissions-for-an-organization)
 - [招待の有効期限は作成から7日間](https://github.blog/changelog/2020-02-05-self-expiring-repository-and-organization-invitations/)
 - [期限切れ招待の再試行](https://docs.github.com/en/organizations/managing-membership-in-your-organization/inviting-users-to-join-your-organization#retrying-or-canceling-expired-invitations)
+- [メール招待とユーザー名指定の違い（Email Invitations）](https://bounty.github.com/ineligible.html)
