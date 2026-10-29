@@ -11,6 +11,8 @@ Personaの意義・効果・限界と役割分離を説明する `ai-setup-mater
 
 ## 現在地点
 
+- 2026-10-29追加修正：Userの「Commit Push」指示に基づき、メール招待の説明を講師用手順書だけへ追記し、GitHub mainの `43cd0465464a031ccfa33fe39a6a1ef6e6fd3e11` に保存した。Repositoryへのメール招待は登録済みメールだけに限定されず、特定アカウントを指定する場合はユーザー名で招待することをGitHub公式資料に基づいて区別した。GitHub本文の再取得で一致を確認。[自動同期40874365878](https://github.com/t-oikawa-sendai/ai-setup-materials/actions/runs/40874365878)はsuccess。生徒用手順書・同期処理・配布先には変更なく、配布先mainは `076622516f234689f75366c17aee6be4be8a2348` を維持した。開始時のGitHub main・作業用HEAD・origin/mainは `79625095da463d31025614c9a64f99261b3721e2` で一致し、未Commit変更なし。本文保存後の作業用HEADとorigin/mainも上記成果物Commitに一致した。本完了記録は後続Commitへ保存する。Mac実機の既存Repositoryは未確認。
+
 - D-081〜D-083：Userの「Commit Push承認」に基づき、両手順書・同期除外・必要な管理文書の6ファイルを講師正本mainの `bc63e706bea8a270021f1c285045b6fcd03c93e8` に保存した。共通入口・教材別Read招待・承諾後の追加講師承認不要・招待期限7日・任意の個人コピー・Persona更新時の再取得警告を反映。生徒用S-SETUP章と配布READMEの案内を削除し、同期対象を30パスとした。[自動同期40872414223](https://github.com/t-oikawa-sendai/ai-setup-materials/actions/runs/40872414223)はsuccessで全step成功。配布更新commitは `4692d66492f651ff1b76827a399e427e0c8e8d2c`。続けて、配布先の `personas/reference/PERSONA_SETUP_ADVISOR.md` 1件だけを削除し、配布先mainは `076622516f234689f75366c17aee6be4be8a2348` となった。GitHubのファイル一覧と全30ファイルのblobを正本の配布変換後と照合し、欠落・余剰・内容不一致なしを確認した。講師正本のS-SETUP本文、自動削除の旧9パス境界、生徒個人コピー、権限設定は変更していない。テストアカウントの閲覧制限はUserが合格と判定済みで、実生徒への操作は未実施。本完了記録は成果物保存後の後続Commitに含める。作業先は `/workspace/scratch/df1514d07dbc/ai-setup-materials-guide-revision`。
 
 - D-080：AGENTSの旧判断履歴を `project-notes/AGENTS_DECISIONS_ARCHIVE.md` へ原文移動し、現行参照を更新。UserからD-077〜D-080の本Repository内の変更についてCommit・Push承認を受領。この記録を含むcommitを保存対象とし、実際の反映結果はremote HEADと作業用HEADの一致で確認する。以下の未実施表記は各作業時点の記録。他Repositoryの未保存変更は今回の保存対象に含めない。
