@@ -1,6 +1,6 @@
 # CURRENT
 
-Last Updated: 2026-10-28
+Last Updated: 2026-10-29
 Status: CURRENT
 
 ## PURPOSE
@@ -10,6 +10,10 @@ Personaの意義・効果・限界と役割分離を説明する `ai-setup-mater
 本ファイルは現在地点だけを記す。Version と Status の正本は各ファイルの Document Info である。詳細仕様・判断理由は、対象成果物、`project-notes/DECISIONS.md`、既存の判断履歴、検証Evidenceを参照する。
 
 ## 現在地点
+
+- 2026-10-29：UserからD-081〜D-083の両手順書改訂・同期除外・配布済みS-SETUP個別削除について「Commit Push承認」を受領。保存・配布作業を開始。以下の未実施表記は保存前の確認状態であり、反映後に結果へ更新する。
+
+- D-081〜D-083：教材別Read招待の合格手順に基づき両手順書を作業用mainへ改訂。共通入口は講師プロフィール、承諾後の追加講師承認は不要、招待期限は作成から7日間。個人コピー作成は生徒の任意とし、Persona更新時の再取得を全文太字で明記。生徒用S-SETUP章を削除し、同期対象を同ファイルを除いた30パスへ変更。配布版READMEの案内も除外する。テストアカウントの閲覧制限はUserが合格と判定済みだが、実生徒への操作、今回の改訂のCommit・Push・配布先反映は未実施。D-083で配布先のS-SETUP 1ファイルの個別削除指示を受領し、削除差分を準備した。同期除外のGitHub反映後に個別削除する順序とし、自動削除の旧9パス境界は変更しない。講師正本の本文と生徒個人コピーは保持する。開始HEADは `84d7c4cc02b42225d94bac859138d22abd50a7d6`、作業先は `/workspace/scratch/df1514d07dbc/ai-setup-materials-guide-revision`。D-082の同期検証はPASS。配布予定更新はRoot README・Reference README・生徒用手順書の3パスと、S-SETUPの個別削除1パス。確認した配布先mainは `61870641fa0e4c19be042db5fd9ad7b517b01da6`、削除対象のblobは `e455d3f81fe46b2ae12eef1f7344f2aadf48c9e7`。GitHub上ではまだ削除していない。
 
 - D-080：AGENTSの旧判断履歴を `project-notes/AGENTS_DECISIONS_ARCHIVE.md` へ原文移動し、現行参照を更新。UserからD-077〜D-080の本Repository内の変更についてCommit・Push承認を受領。この記録を含むcommitを保存対象とし、実際の反映結果はremote HEADと作業用HEADの一致で確認する。以下の未実施表記は各作業時点の記録。他Repositoryの未保存変更は今回の保存対象に含めない。
 
@@ -102,6 +106,8 @@ Personaの意義・効果・限界と役割分離を説明する `ai-setup-mater
 
 ## 次工程
 
+- D-081〜D-083：Userから明示的なCommit・Push指示を受けた場合に保存する。Push後は既存Actionsの結果と配布先の生徒用本文・READMEを確認し、同期対象30パスの一致と講師用手順書の非配布を確かめる。同期除外の反映後、配布先の `personas/reference/PERSONA_SETUP_ADVISOR.md` だけを個別削除し、配布先mainでの不存在と講師正本での保持を確認する。実生徒への招待は講師が今回の合格手順で開始する別作業。
+
 - S-EMPLOYMENT-SUPPORTの実動検証はUser指定により後工程。今回はGit管理のみを先行し、検証PASS・Approvedへの昇格とは扱わない。
 
 プロフィール履歴通知は変更なし同期での導通を確認済み。新しい配布日を受けたときのREADME指定2欄の自動Commit・Pushと公開表示は、実際の配布更新時に確認する。User承認の例外範囲は指定2欄だけとする。
@@ -136,7 +142,7 @@ Reviewerを含むPersonaの機能設計は Evidence なしに再検討しない�
 Version と Status は各ファイルの Document Info を見る。
 
 - 作業規則：`AGENTS.md`
-- 生徒向け配布同期：`.github/workflows/sync-student-template.yml` と `scripts/sync_student_template.py`。D-069の前回実測は30パス、D-071のGitHub配布先で実測した追加・上書き範囲は生徒用手順書1パスを加えた31パスである。自動削除範囲は D-067 の旧9パス。旧 `distribution/student/` は現行の配布元に使用しない。
+- 生徒向け配布同期：`.github/workflows/sync-student-template.yml` と `scripts/sync_student_template.py`。現行の範囲はAGENTS.md §1.2とD-082を参照する。D-069の旧30パス・D-071の旧31パスの実測は過去の記録である。旧 `distribution/student/` は現行の配布元に使用しない。
 - プロフィール履歴通知の採用済み設計：`docs/distribution/PROFILE_HISTORY_AUTOMATION.md` とD-072。GitHub main反映済みで、変更なし同期の通知導通は確認済み。新しい配布日の自動更新は未検証。
 - GitHub教材配布手順書：`docs/distribution/INSTRUCTOR_PRIVATE_ORG_TEMPLATE_GUIDE.md` と `docs/distribution/STUDENT_PRIVATE_ORG_TEMPLATE_GUIDE.md`（D-071。生徒用だけが同期対象）。
 - Persona識別と検証：`personas/PERSONA_IDENTIFICATION_AND_SETUP.md`（旧ファイル名を維持）

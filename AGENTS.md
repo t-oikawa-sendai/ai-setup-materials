@@ -31,17 +31,15 @@
 
 - 教材正本は講師管理のGitHub `main` とする。生徒の個人Repositoryは配布コピーの取得先である。
 - 配布は `.github/workflows/sync-student-template.yml` と `scripts/sync_student_template.py` で行う。
-- 追加・上書きはD-069の30パスとD-071の生徒用手順書1パス、計31パスに限定する。削除はD-067の旧9パスだけとする。
-- D-069の新規21パスまたは生徒用手順書が正本から消えた場合は同期を停止する。具体的なパスは同期スクリプトの対応表を参照する。
-- 配布先向けの案内・取得先調整は、次の6文書に限定する。
+- 追加・上書きはD-071の31パスからD-082でS-SETUPを除いた計30パスに限定する。削除はD-067の旧9パスだけとする。
+- 同期対象のうち、旧9パス以外の選択教材または生徒用手順書が正本から消えた場合は同期を停止する。具体的なパスは同期スクリプトの対応表を参照する。
+- 配布先向けの案内・取得先調整は、次の5文書に限定する。
   - `README.md`
   - `personas/education/README.md`
   - `personas/reference/README.md`
   - `personas/WHY_PERSONA_MATTERS.md`
   - `personas/PERSONA_IDENTIFICATION_AND_SETUP.md`
-  - `personas/reference/PERSONA_SETUP_ADVISOR.md`
-- S-SETUP配布コピーに講師正本URLを含めない。各自のRepositoryの実URLを記入する未設定欄を設ける。
-- URL未記入やPrivate Repositoryへの認証・接続不足をG取得成功と扱わない。URL未記入でも、登録済み本文のP方式利用は妨げない。
+- `personas/reference/PERSONA_SETUP_ADVISOR.md` は生徒向け同期対象外とし、配布版READMEの案内からも除く。講師正本の本文は保持する。同期対象からの除外を、配布済みファイルや生徒個人コピーの削除許可に読み替えない。
 - その他の選択教材は本文をそのまま配布し、Draft・Approved・Deprecated表示を変更しない。
 - 選択された通常文書はDraftとApprovedの間で状態が変化しても同期する。それ以外の状態・不正表示では停止する。
 - 旧資料はArchive NoticeがDeprecated、内部Document InfoがDraftであることを要する。Draftの配布をApprovedへの昇格と扱わない。

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Sync the thirty-one selected student-template paths without touching other paths."""
+"""Sync the thirty selected student-template paths without touching other paths."""
 
 from __future__ import annotations
 
@@ -43,7 +43,6 @@ MANAGED = (
     ("personas/reference/CLAUDE_PERSONA.md", "personas/reference/CLAUDE_PERSONA.md"),
     ("personas/reference/CURSOR_PERSONA.md", "personas/reference/CURSOR_PERSONA.md"),
     ("personas/reference/GEMINI_PERSONA.md", "personas/reference/GEMINI_PERSONA.md"),
-    ("personas/reference/PERSONA_SETUP_ADVISOR.md", "personas/reference/PERSONA_SETUP_ADVISOR.md"),
     ("personas/reference/PERSONA_OPERATION_CASE_STUDY.md", "personas/reference/PERSONA_OPERATION_CASE_STUDY.md"),
     ("personas/reference/PERSONA_PROMPT_TEMPLATE.md", "personas/reference/PERSONA_PROMPT_TEMPLATE.md"),
     ("personas/reference/CHAT_HANDOFF_TEMPLATE.md", "personas/reference/CHAT_HANDOFF_TEMPLATE.md"),
@@ -80,7 +79,6 @@ BASELINE_DRAFT_DOCUMENTS = frozenset({
     "personas/education/SKILLS/REVIEWER.md",
     "personas/education/SKILLS/SOLUTION_PARTNER.md",
     "personas/reference/README.md",
-    "personas/reference/PERSONA_SETUP_ADVISOR.md",
     "personas/reference/PERSONA_OPERATION_CASE_STUDY.md",
     "personas/reference/PERSONA_PROMPT_TEMPLATE.md",
     "personas/reference/CHAT_HANDOFF_TEMPLATE.md",
@@ -89,7 +87,7 @@ ARCHIVED_DOCUMENT = "personas/education/archive/GEMINI_PERSONA_DEFINITION-4Gem.m
 STATUSLESS_DOCUMENT = "personas/WHY_PERSONA_MATTERS.md"
 STATUS_BEARING_DOCUMENTS = BASELINE_APPROVED_DOCUMENTS | BASELINE_DRAFT_DOCUMENTS
 DESTINATIONS = frozenset(destination for _, destination in MANAGED)
-assert len(MANAGED) == len(DESTINATIONS) == 31
+assert len(MANAGED) == len(DESTINATIONS) == 30
 assert len(DELETE_ALLOWED) == 9 and DELETE_ALLOWED <= DESTINATIONS
 assert STUDENT_GUIDE not in DELETE_ALLOWED
 assert (STATUS_BEARING_DOCUMENTS | {ARCHIVED_DOCUMENT, STATUSLESS_DOCUMENT, STUDENT_GUIDE}) == {
@@ -119,7 +117,6 @@ EXCLUDED_LINKS = {
     }),
 }
 
-STUDENT_SETUP_ADVISOR = "personas/reference/PERSONA_SETUP_ADVISOR.md"
 WEB_URL = re.compile(r"https?://[^\s<>\[\]()\"']+", re.IGNORECASE)
 
 DOCUMENT_INFO = re.compile(
@@ -240,23 +237,16 @@ def unlink_selected_exclusions(name: str, text: str) -> str:
 
 
 def distribution_copy(name: str, content: bytes) -> bytes:
-    """Adapt six selected documents while keeping their source status."""
-    if name not in EXCLUDED_LINKS and name != STUDENT_SETUP_ADVISOR:
+    """Adapt five selected documents while keeping their source status."""
+    if name not in EXCLUDED_LINKS:
         return content
     text = content.decode("utf-8")
-
-    def replace_required(old: str, new: str) -> None:
-        nonlocal text
-        if text.splitlines().count(old) != 1 or text.count(old + "\n") != 1:
-            raise ValueError(f"Distribution text needs review: {name}")
-        text = text.replace(old + "\n", new + "\n", 1)
 
     if name == "README.md":
         notice = (
             "このPrivate Templateには、講師が選択した教材と生徒用マニュアルを収録しています。"
             "講師用の内部文書やAIサービス変更情報は配布していません。"
             "各文書のDraft・Approved・Deprecated表示は元の状態のままです。"
-            "S-SETUPのURL欄は配布時点で未設定です。利用する場合は各自のRepositoryにある同ファイルの正確なURLを記入してください。"
             "配布手順は[生徒用マニュアル](docs/distribution/STUDENT_PRIVATE_ORG_TEMPLATE_GUIDE.md)を参照してください。"
         )
         if "</details>\n" not in text:
@@ -266,6 +256,10 @@ def distribution_copy(name: str, content: bytes) -> bytes:
         if text.count(expected_intro) != 1:
             raise ValueError("Distribution introduction needs review: README.md")
         text = text.replace(expected_intro, "Persona本文と検証Evidenceを収録します。", 1)
+        setup_intro = "設定案内専用Personaの定義本文は、S-SETUPに限り例外として管理します。"
+        if text.count(setup_intro) != 1:
+            raise ValueError("Distribution setup introduction needs review: README.md")
+        text = text.replace(setup_intro, "", 1)
         structure = re.compile(
             r"(?<=## 5\. Structure（構成）\n\n)```text\n\.\n.*?\n```",
             re.DOTALL,
@@ -305,33 +299,16 @@ def distribution_copy(name: str, content: bytes) -> bytes:
             r"(?m)^- \[`IT_EDUCATION_CONTENT_DESIGNER\.md`\]\(IT_EDUCATION_CONTENT_DESIGNER\.md\)：[^\n]*\n",
             "", text,
         )
-
-    elif name == STUDENT_SETUP_ADVISOR:
-        replace_required(
-            "- 正本：`t-oikawa-sendai/ai-setup-materials` の `main`、`personas/reference/PERSONA_SETUP_ADVISOR.md`",
-            "- 教材の正本：講師が管理するGitHub `main`（この配布コピーとは別）\n"
-            "- この配布版の取得先：各自がTemplateから作成したGitHub Repositoryの `main`、`personas/reference/PERSONA_SETUP_ADVISOR.md`",
+        setup_link = "<br>[`PERSONA_SETUP_ADVISOR.md`](PERSONA_SETUP_ADVISOR.md)"
+        if text.count(setup_link) != 1:
+            raise ValueError("Distribution setup metadata needs review: personas/reference/README.md")
+        text = text.replace(setup_link, "", 1)
+        text, replacements = re.subn(
+            r"(?m)^- \[`PERSONA_SETUP_ADVISOR\.md`\]\(PERSONA_SETUP_ADVISOR\.md\)：[^\n]*\n",
+            "", text,
         )
-        replace_required(
-            "- URL：https://github.com/t-oikawa-sendai/ai-setup-materials/blob/main/personas/reference/PERSONA_SETUP_ADVISOR.md",
-            "- URL：【各自のRepositoryの `main` にある `personas/reference/PERSONA_SETUP_ADVISOR.md` の正確な本文URLを記入（未設定）】",
-        )
-        replace_required(
-            "- GitHub上の現行Persona本文を正本とし、過去の会話やMemoryを正本にしない。",
-            "- 教材の正本は講師が管理するGitHub `main` である。各自のRepositoryは配布コピーの取得先であり、講師正本の現行版と同一と推測しない。過去の会話やMemoryを正本にしない。",
-        )
-        replace_required(
-            "2. GitHub正本の現行案内と候補Persona本文を確認し、Persona ID、Version、Status、責務を照合する。",
-            "2. 各自のRepository内の案内と候補Persona本文を取得し、取得元、Persona ID、Version、Status、責務を照合する。",
-        )
-        replace_required(
-            "Draftを案内する場合はDraftと明示する。ファイルの存在だけで、Approved、取得成功、利用環境への適用成功を主張しない。GitHub正本を確認できない場合は、候補を現行Personaとして確定しない。",
-            "Draftを案内する場合はDraftと明示する。ファイルの存在だけで、Approved、取得成功、利用環境への適用成功を主張しない。各自のRepositoryのコピーから取得した内容は取得元と版を明示し、講師正本の現行版として確定しない。候補本文を取得できなければ、その候補を現行として確定しない。",
-        )
-        replace_required(
-            "- **P：指示欄方式**――GitHub正本のPersona本文を無改変で指示欄へ直接登録する。P用の書き換え・要約・章削除をしない。GitHub更新が登録済みの本文へ自動反映されたとは扱わない。",
-            "- **P：指示欄方式**――取得・確認したPersona本文を無改変で指示欄へ直接登録する。配布コピーの取得元と版を明示し、講師正本の現行版と同一と推測しない。P用の書き換え・要約・章削除をしない。更新は自動反映されない。",
-        )
+        if replacements != 1:
+            raise ValueError("Distribution setup navigation needs review: personas/reference/README.md")
 
     text = unlink_selected_exclusions(name, text)
     rendered = text.encode("utf-8")

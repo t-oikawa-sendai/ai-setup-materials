@@ -2863,3 +2863,93 @@ Supersedes（上書き対象・範囲）:
 
 Unverified（未確認・未実施）:
 - 実動検証、Mac側同期、他RepositoryへのCommit・Push。今回の文書整理は実動検証PASSを意味しない。
+
+## D-081 Align Both Distribution Guides with the Verified Per-Repository Invitation Flow（教材別招待の合格手順へ両手順書を合わせる）
+
+Date（日付）: 2026-10-29
+Related Documents（関連文書）: docs/distribution/STUDENT_PRIVATE_ORG_TEMPLATE_GUIDE.md / docs/distribution/INSTRUCTOR_PRIVATE_ORG_TEMPLATE_GUIDE.md / project-notes/CURRENT.md
+
+Decision（決定）:
+- 生徒共通の入口を `https://github.com/t-oikawa-sendai` とし、許可した教材Repositoryだけに外部コラボレーターとしてReadで招待する手順へ両手順書を改訂する。
+- 講師は招待時に権限を指定し、生徒が承諾すると教材を閲覧できる。生徒の承諾後に講師の追加承認が必要という手順は設けない。
+- GitHubの自動招待リンクは承諾用、プロフィールURLは日常の教材入口として区別する。共通入口URLは講師の連絡で別途案内する。
+- 生徒用は閲覧までを基本手順にし、既存の個人Private Repository作成・S-SETUP利用の説明は講師から指示された場合の手順として残す。個人コピーが自動更新されない点は維持する。
+- `OSLIB21-materials` の基本権限をNo permissionへ変更済みであること、テストアカウントによる閲覧制限の合格、実生徒への操作が未実施であることを区別して講師用に記す。
+- 編集元は講師正本の2冊とし、生徒用だけを既存の同期で配布する。今回の改訂指示をCommit・Push・実生徒への招待指示へ拡張しない。
+
+Rationale（理由）:
+Userの目的は、完成済みのプロフィールを共通入口にして、生徒ごとに許可した教材だけを読めるようにすること。今回合格した操作と旧手順の「組織招待→承諾→Read付与」が食い違うため、招待先・許可時点・生徒の操作をそろえ、初心者が追加承認や個人コピー作成を閲覧の条件と誤解しないようにする。
+
+Evidence（根拠）:
+- 2026-10-29のUser指示：「この手順書は修正する必要あり 今の手順を整理して修正」「講師用の手順書も修正が必要」。対象として生徒用配布版のURLが指定された。
+- Userが画面操作で組織のBase permissionsをNo permissionへ変更し、反映画面を提示。テストアカウント `oikawa-solacom-test` の組織登録を削除した後、GitHubの権限照会では両教材とも `none` だった。
+- UserがAI活用のRepositoryにReadで招待し、テストアカウントで承諾。提示画面でAI活用のREADME本文を確認した。共通入口からの確認を案内後、Userは「AI活用はOK 文書は404なのでOK 合格」と報告した。設計文書の404はUserの実機確認報告であり、AIのブラウザ操作による確認ではない。
+- 今回取得した両教材のGitHubメタデータはPrivate・Template。プロフィールREADMEの教材リンクは指定の配布先2件を指している。実生徒への招待・個人Repository作成・AIのPrivate取得は、このテスト結果から実施済みとしない。
+- 改訂開始時の講師正本GitHub main・作業用main・origin/mainは `84d7c4cc02b42225d94bac859138d22abd50a7d6` で一致し、未Commit変更なし。作業先は `/workspace/scratch/df1514d07dbc/ai-setup-materials-guide-revision`。配布先mainは `61870641fa0e4c19be042db5fd9ad7b517b01da6`、生徒用本文は正本と一致していた。
+- 文書検査：差分の空白検査と既存同期スクリプトのdry-runはPASS。改訂前の配布変換後31パスのGit blob hashは、GitHub配布先treeの31パスと全件一致。改訂後の配布予定差分は生徒用手順書1件だけで、講師用手順書は同期対象外。D-001〜D-080の原文保持と、変更が手順書2冊・判断記録・CURRENTの4ファイルだけであることを確認した。dry-runの宛先は作業用の基準checkoutであり、実配布は行っていない。
+
+Supersedes（上書き対象・範囲）:
+- D-067（2026-10-22）の生徒へのOrganization招待を前提とする記述、および両手順書の旧招待・教材入口の説明を、今回の教材別Read招待とプロフィール入口の範囲で更新する。D-067の「実生徒への操作を別工程とする」区別は維持する。
+- D-071（2026-10-22）で管理する2冊の手順本文を改訂する。2冊の管理場所、生徒用のみ配布、31パス・旧9パスの削除境界は変更しない。
+
+Non-Changes（非変更範囲）:
+- 同期スクリプト・workflow・Secret・配布先設定・プロフィール本文・Persona本文・既存Decision原文。今回は文書だけを修正する。
+
+Unverified（未確認・未実施）:
+- 今回の改訂のCommit・Push・GitHub配布版への反映・Actions実行。実生徒への招待、個人Repository作成、AIによるPrivate教材の取得。
+
+## D-082 Make Personal Copies Optional and Exclude S-SETUP from Student Sync（個人コピーを任意としS-SETUPを生徒向け同期から除外する）
+
+Date（日付）: 2026-10-29
+Related Documents（関連文書）: AGENTS.md / scripts/sync_student_template.py / docs/distribution/STUDENT_PRIVATE_ORG_TEMPLATE_GUIDE.md / docs/distribution/INSTRUCTOR_PRIVATE_ORG_TEMPLATE_GUIDE.md / README.md（配布コピーのみ） / personas/reference/README.md（配布コピーのみ） / project-notes/CURRENT.md
+
+Decision（決定）:
+- 教材招待はメールのリンクからGitHub上で承諾する。招待の作成から7日間という有効期限と、期限切れ時に講師へ再送を依頼する手順を両手順書へ追記する。承諾後の閲覧期間と招待の有効期限は区別する。
+- 個人Private Repositoryへのコピー作成は生徒の任意とする。講師の指示・承認を条件にしない。名前・branch選択の説明からも講師の指示待ちを除く。
+- 講師がPersonaを更新しても個人コピーへ自動反映されず、最新の配布教材から改めて取得・更新する必要があることを、全文太字で明記する。
+- 生徒用手順書の旧第7章（S-SETUP）と関連FAQを削除し、後続章を繰り上げる。
+- `personas/reference/PERSONA_SETUP_ADVISOR.md` を追加・上書き対象と状態検査対象から外し、同期対象を31パスから30パスへ変更する。配布専用のS-SETUP本文変換を廃止し、Root README・Reference READMEの配布コピーからS-SETUPの利用案内・リンクを除く。
+- 講師正本のPersona・README本文は変更しない。同期対象からの除外だけでは配布済みファイルの削除を意味しないため、旧9パスの削除境界は維持する。配布先の既存S-SETUPと生徒個人コピーは自動削除しない。既存ファイルが残ることを講師用手順書と報告で区別する。
+
+Rationale（理由）:
+Userは個人コピーを講師の指示による作業としていない。任意の利用と閲覧必須手順を分離し、Persona更新時の取り直しを見落とさないようにする。S-SETUPの案内削除と同期除外を同時に行い、新しい配布物に利用案内だけが残る状態を防ぐ。
+
+Evidence（根拠）:
+- User指示：「招待メールの有効期限も入れて」「私は指示は一切しない 生徒が個人のリポ内に作成するのは自由（任意）」「これは重要なので全部太文字で」「S-SETUPの本文と取得先情報 ここは削除」「PERSONA_SETUP_ADVISOR.mdは生徒用への同期対象からは外す」。
+- GitHub公式：[招待の承諾](https://docs.github.com/en/rest/collaborators/collaborators)、[招待作成から7日間の期限](https://github.blog/changelog/2020-02-05-self-expiring-repository-and-organization-invitations/)、[期限切れ招待の再試行](https://docs.github.com/en/organizations/managing-membership-in-your-organization/inviting-users-to-join-your-organization#retrying-or-canceling-expired-invitations) を2026-10-29に確認した。
+- 継続作業の開始時、D-081の4ファイルだけが未Commit変更。GitHub main・作業用main・origin/mainは引き続き `84d7c4cc02b42225d94bac859138d22abd50a7d6` で一致。既存差分を保持し、同じ作業用checkoutで改訂した。
+- 検証PASS：同期のdry-run、S-SETUPを含まない新規30パス配布、既存S-SETUP・対象外ファイルの保持、未許可リンク・必須教材欠落時の書き込み前停止、講師正本のPersona・README本文と旧Decisionの保持。書き込み試験は一時Repositoryで行い、Commitは作成していない。
+- 配布先 `61870641fa0e4c19be042db5fd9ad7b517b01da6` のGit treeと変換後の内容を照合し、更新予定はRoot README・Reference README・生徒用手順書の3パス、既存S-SETUPは同期対象外として保持することを確認した。
+
+Supersedes（上書き対象・範囲）:
+- D-081（2026-10-29）の「個人コピーを講師から指示された場合の手順として残す」を生徒の任意へ変更し、S-SETUP説明を削除する。
+- D-069（2026-10-22）とD-071（2026-10-22）の31パス配布、およびD-070（2026-10-22）のS-SETUP配布コピー変換は、S-SETUPの追加・更新対象からの除外に限って上書きする。他の30パスと旧9パスの削除境界は維持する。
+- AGENTS.md §1.2と講師用手順書の現行範囲・件数を上記へ整合する。旧Decisionと過去の配布実測記録は原文で保持する。
+
+Unverified（未確認・未実施）:
+- Commit・Push・GitHub配布先への反映・Actions実行。配布先に既存のS-SETUPファイルが残らないことは保証しない。実生徒への操作は未実施。
+
+## D-083 Remove the Distributed S-SETUP File Individually（配布済みS-SETUPを個別削除する）
+
+Date（日付）: 2026-10-29
+Related Documents（関連文書）: docs/distribution/INSTRUCTOR_PRIVATE_ORG_TEMPLATE_GUIDE.md / project-notes/CURRENT.md / OSLIB21-materials/ai-setup-materials-student:personas/reference/PERSONA_SETUP_ADVISOR.md
+
+Decision（決定）:
+- 配布先 `OSLIB21-materials/ai-setup-materials-student` の `main` にある `personas/reference/PERSONA_SETUP_ADVISOR.md` 1件を個別削除する。
+- D-082の同期除外を講師正本のGitHub mainへ反映した後に削除する。既存の自動同期による再作成を防ぐため、この順序とする。
+- 講師正本の同名ファイル、生徒個人Repository、過去のGit履歴は削除しない。同期スクリプトの自動削除範囲は旧9パスから広げない。
+- 削除指示の受領とGitHub反映の完了を区別し、Commit・PushはUserの明示指示に従う。
+
+Rationale（理由）:
+同期除外だけでは既存の配布ファイルが残る。Userが配布済みの本体も削除するよう明示したため、対象1件に限定して削除する。
+
+Evidence（根拠）:
+- Userは「既に配布されたファイル本体は：個別で削除できないか？」と確認し、講師正本を残して生徒用の当該1件を削除できる旨の説明後、「削除」と指示した。
+- GitHubで配布先main `61870641fa0e4c19be042db5fd9ad7b517b01da6` と対象本文を取得。削除対象のblob SHAは `e455d3f81fe46b2ae12eef1f7344f2aadf48c9e7`。講師正本mainは引き続き `84d7c4cc02b42225d94bac859138d22abd50a7d6` で作業用HEADと一致した。
+- 対象本文を基に1ファイルだけの削除差分を準備した。D-081・D-082の承認済み継続差分を保持した。
+
+Supersedes（上書き対象・範囲）:
+- D-082（2026-10-29）の配布先の既存S-SETUPを保持する扱いだけを、上記1件の個別削除へ変更する。自動削除の境界と生徒個人コピーの非変更は維持する。旧Decisionの原文は変更しない。
+
+Unverified（未確認・未実施）:
+- Commit・Push、同期除外のGitHub反映、配布先ファイルの削除と削除後の確認。削除差分の準備を削除済みとは扱わない。
