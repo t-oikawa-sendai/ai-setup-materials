@@ -11,9 +11,7 @@ Personaの意義・効果・限界と役割分離を説明する `ai-setup-mater
 
 ## 現在地点
 
-- 2026-10-29：UserからD-081〜D-083の両手順書改訂・同期除外・配布済みS-SETUP個別削除について「Commit Push承認」を受領。保存・配布作業を開始。以下の未実施表記は保存前の確認状態であり、反映後に結果へ更新する。
-
-- D-081〜D-083：教材別Read招待の合格手順に基づき両手順書を作業用mainへ改訂。共通入口は講師プロフィール、承諾後の追加講師承認は不要、招待期限は作成から7日間。個人コピー作成は生徒の任意とし、Persona更新時の再取得を全文太字で明記。生徒用S-SETUP章を削除し、同期対象を同ファイルを除いた30パスへ変更。配布版READMEの案内も除外する。テストアカウントの閲覧制限はUserが合格と判定済みだが、実生徒への操作、今回の改訂のCommit・Push・配布先反映は未実施。D-083で配布先のS-SETUP 1ファイルの個別削除指示を受領し、削除差分を準備した。同期除外のGitHub反映後に個別削除する順序とし、自動削除の旧9パス境界は変更しない。講師正本の本文と生徒個人コピーは保持する。開始HEADは `84d7c4cc02b42225d94bac859138d22abd50a7d6`、作業先は `/workspace/scratch/df1514d07dbc/ai-setup-materials-guide-revision`。D-082の同期検証はPASS。配布予定更新はRoot README・Reference README・生徒用手順書の3パスと、S-SETUPの個別削除1パス。確認した配布先mainは `61870641fa0e4c19be042db5fd9ad7b517b01da6`、削除対象のblobは `e455d3f81fe46b2ae12eef1f7344f2aadf48c9e7`。GitHub上ではまだ削除していない。
+- D-081〜D-083：Userの「Commit Push承認」に基づき、両手順書・同期除外・必要な管理文書の6ファイルを講師正本mainの `bc63e706bea8a270021f1c285045b6fcd03c93e8` に保存した。共通入口・教材別Read招待・承諾後の追加講師承認不要・招待期限7日・任意の個人コピー・Persona更新時の再取得警告を反映。生徒用S-SETUP章と配布READMEの案内を削除し、同期対象を30パスとした。[自動同期40872414223](https://github.com/t-oikawa-sendai/ai-setup-materials/actions/runs/40872414223)はsuccessで全step成功。配布更新commitは `4692d66492f651ff1b76827a399e427e0c8e8d2c`。続けて、配布先の `personas/reference/PERSONA_SETUP_ADVISOR.md` 1件だけを削除し、配布先mainは `076622516f234689f75366c17aee6be4be8a2348` となった。GitHubのファイル一覧と全30ファイルのblobを正本の配布変換後と照合し、欠落・余剰・内容不一致なしを確認した。講師正本のS-SETUP本文、自動削除の旧9パス境界、生徒個人コピー、権限設定は変更していない。テストアカウントの閲覧制限はUserが合格と判定済みで、実生徒への操作は未実施。本完了記録は成果物保存後の後続Commitに含める。作業先は `/workspace/scratch/df1514d07dbc/ai-setup-materials-guide-revision`。
 
 - D-080：AGENTSの旧判断履歴を `project-notes/AGENTS_DECISIONS_ARCHIVE.md` へ原文移動し、現行参照を更新。UserからD-077〜D-080の本Repository内の変更についてCommit・Push承認を受領。この記録を含むcommitを保存対象とし、実際の反映結果はremote HEADと作業用HEADの一致で確認する。以下の未実施表記は各作業時点の記録。他Repositoryの未保存変更は今回の保存対象に含めない。
 
@@ -106,7 +104,7 @@ Personaの意義・効果・限界と役割分離を説明する `ai-setup-mater
 
 ## 次工程
 
-- D-081〜D-083：Userから明示的なCommit・Push指示を受けた場合に保存する。Push後は既存Actionsの結果と配布先の生徒用本文・READMEを確認し、同期対象30パスの一致と講師用手順書の非配布を確かめる。同期除外の反映後、配布先の `personas/reference/PERSONA_SETUP_ADVISOR.md` だけを個別削除し、配布先mainでの不存在と講師正本での保持を確認する。実生徒への招待は講師が今回の合格手順で開始する別作業。
+- D-081〜D-083の手順書改訂・同期除外・配布先S-SETUPの個別削除は保存先で確認済み。実生徒への招待は講師が今回の合格手順で開始する別作業。
 
 - S-EMPLOYMENT-SUPPORTの実動検証はUser指定により後工程。今回はGit管理のみを先行し、検証PASS・Approvedへの昇格とは扱わない。
 
