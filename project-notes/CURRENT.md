@@ -11,7 +11,7 @@ Personaの意義・効果・限界と役割分離を説明する `ai-setup-mater
 
 ## 現在地点
 
-- D-085：承認済み生徒用v3を基準に、全体図・操作前半／背景後半・第1.2節の閲覧5手順へ再構成。削除指定を維持し、個人コピーの任意性と再取得の注意を保持。ローカル更新済み。変更は生徒用手順書・DECISIONS・CURRENTの3件。開始時の既存Dev main・origin/main・GitHub mainは `76e9940fc75d458bef78d980b9c4de6112fb0b3d` で一致し、未Commit変更なし。2026-11-02の後続User指示「Commit・Push」により、この記録を含む3ファイルの保存を承認された。GitHub正本と生徒用配布先の反映結果はPush後に本文・HEAD・Actionsで照合する。講師用手順書・同期処理・権限は変更していない。
+- D-085：承認済み生徒用v3を基準に、全体図・操作前半／背景後半・第1.2節の閲覧5手順へ再構成。削除指定を維持し、個人コピーの任意性と再取得の注意を保持。ローカル更新済み。変更は生徒用手順書・DECISIONS・CURRENTの3件。開始時の既存Dev main・origin/main・GitHub mainは `76e9940fc75d458bef78d980b9c4de6112fb0b3d` で一致し、未Commit変更なし。2026-11-02のUser承認後、3ファイルを `1e10e6b37a9465ccdeb1fdff28e921eca1f5df70` でGitHub mainへ保存。[自動配布41443539044](https://github.com/t-oikawa-sendai/ai-setup-materials/actions/runs/41443539044)はsuccess。配布先main `d8ea080cb25df1f46625f9d67dc77850c870df6a` と正本の生徒用本文を再取得し、blob `395712f4c6de9abf39793177f5a6720c3b394e98` で一致を確認。既存Dev HEAD・origin/mainも成果物Commitに一致しcleanだった。プロフィールの配布日通知も成功し、User指示の具体的な更新概要はプロフィールRepositoryで管理する。この確認記録は後続Commitへ保存する。講師用手順書・同期処理・権限は変更していない。
 
 - D-084：講師用マニュアルを11月2日版原稿に基づき操作中心へ再構成。全体図・縦フロー、新規教材追加、ユーザー名限定の教材別Read招待、講師による配布時期判断・プロフィール最終確認を反映し、既存制約と過去の検証記録を保持。変更は講師用手順書・DECISIONS・CURRENTの3件。既存Dev mainをGitHub main `a86259b2a99a305ceb4b56f0749219bc0f82f6c3` にfast-forwardしてから編集した。2026-11-02にUserから「Commit・Push」の明示承認を受領。この記録を含む3ファイルを保存対象とする。反映成否はPush後のGitHub main・既存Dev HEAD・対象本文で照合する。講師用手順書は配布対象外で、生徒用本文・権限・プロフィール・同期処理は変更していない。
 
