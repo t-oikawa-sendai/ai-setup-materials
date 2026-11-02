@@ -1,120 +1,197 @@
 # 生徒用｜招待を承諾して限定公開のGitHub教材を読む手順書
 
-- 改訂日：2026-10-29
-- 対象：IT職業訓練校の受講生
-- 費用：GitHub Freeを使用
-- 準備するもの：自分のGitHubアカウント、Webブラウザ、講師から届く招待
-- 作業方法：GitHubの画面操作だけ。ZIPのダウンロードやGitコマンドは不要
-- 教材を読む手順は第2〜4章。自分用の教材コピーの作成は任意で、希望する人は第5〜6章を使う
+> **改訂日：2026-11-02｜生徒用**
+> 対象：IT職業訓練校の受講生
+> 費用：GitHub Free
+> 必要なもの：自分のGitHubアカウント、Webブラウザ、講師からの招待
+> **GitコマンドやZIPダウンロードは不要です。**
 
-## 1. はじめに：招待と教材の入口
+**講師から招待された教材だけを閲覧できます。招待を承諾した後に講師の追加承認は不要です。教材を読むために自分のRepositoryを作る必要はありません。**
 
-**講師が許可した教材への招待を承諾すると、その教材を読めるようになります。承諾後に、講師の追加承認を待つ必要はありません。**
+---
 
-普段使う教材の入口は、次のページです。ブックマークしておきましょう。
+## 1. 教材を利用する全体像と操作
 
-**[教材の入口：https://github.com/t-oikawa-sendai](https://github.com/t-oikawa-sendai)**
+### 1.1 教材と招待の関係
 
-入口のページは公開されていますが、受講生限定の教材本文には閲覧許可が必要です。教材名やリンクが見えても、すべての教材を読めるわけではありません。
+```mermaid
+flowchart TD
+    T["講師が管理する教材"]
+    R["生徒向けPrivate Repository：許可された人だけ閲覧可能"]
+    I["講師がGitHubユーザー名を指定してRead招待"]
+    S["生徒が招待を承諾"]
+    V["講師プロフィールの教材入口から閲覧"]
+    P["自分用Private Repositoryへコピー（任意）"]
+    T --> R
+    R --> I --> S --> V
+    V -.->|"任意"| P
+```
 
-| 入口にある教材名 | GitHub上の教材名 |
-|---|---|
-| AI活用入門 | `OSLIB21-materials/ai-setup-materials-student` |
-| 設計文書管理入門 | `OSLIB21-materials/design-document-templates-student` |
+**教材の入口：** [https://github.com/t-oikawa-sendai](https://github.com/t-oikawa-sendai)
 
-たとえば「AI活用入門」だけを許可された場合、「設計文書管理入門」の教材本文は閲覧できません。
+**Private** は閲覧できる人を制限する設定、**Read** は講師の教材を閲覧する権限です。入口には複数の教材のリンクがありますが、招待されていないPrivate教材は開けません。
 
-初回の招待メールのリンクは、招待を承諾するためのものです。普段使う上記の入口URLとは役割が異なります。この手順書は、招待承諾後に「AI活用入門」の教材トップにある **生徒用マニュアル** のリンクから読み直せます。
+### 1.2 操作手順：招待の承諾から教材の閲覧まで
 
-## 2. 自分のアカウントを準備する
+1. 自分のGitHubアカウントでログインします。
+2. 講師から届いた教材への招待メールを開き、リンク先のGitHub画面で招待を承諾します。
+3. 承諾後、自分で講師が指定する**[教材の入口](https://github.com/t-oikawa-sendai)**を開きます。
+4. 表示された教材一覧から、講師に閲覧を許可された教材を選択します。
+5. 教材のREADMEやファイル一覧から、必要な教材を開きます。
 
-1. [GitHub](https://github.com/) にアクセスします。
-2. 自分のGitHubアカウントでサインインします。アカウントを持っていない場合は、先に無料アカウントを作ります。
-3. 画面右上のアイコンなどで、使用中のアカウントが自分のものか確認します。
-4. 講師に、自分の **GitHubユーザー名** を指定された連絡方法で伝えます。表示名やメールの宛名ではなく、プロフィールのURL `https://github.com/ユーザー名` に入る名前です。パスワードや認証コードは伝えません。
+**補足：** 招待メールのリンクは、教材へのアクセスを許可してもらうためのものです。普段教材を利用するときは、講師が指定した「教材の入口」から開いてください。
 
-## 3. 教材への招待を承諾する
+**招待の有効期限は作成から7日間です。** 期限内に承諾してください。期限切れの場合は講師に再招待を依頼します。これは承諾までの期限であり、承諾後の閲覧期間ではありません。
 
-1. 講師に伝えたGitHubアカウントでログインしているブラウザを使います。
-2. そのアカウントの登録メールアドレスに届いた、今回の教材への招待メールを開きます。
-3. 招待先が **OSLIB21-materials** の許可された教材であることを確認します。「AI活用入門」なら **ai-setup-materials-student** です。
-4. メール内の招待リンクを開き、GitHub上で招待を承諾します。ログインを求められた場合は、講師に伝えたアカウントでログインしてから承諾します。
-5. 教材ページを開き、ファイル一覧と **README** の本文が表示されることを確認します。READMEは教材トップに表示される案内文です。
+許可された教材で `404` と表示された場合は、第5章を確認してください。**教材を読むために自分のRepositoryを作る必要はありません。**
 
-講師は招待時に **Read（閲覧）権限** を設定しています。承諾すると、その教材を閲覧できます。別の教材を受講する場合は、その教材についても講師の許可と必要な招待を受けます。
+---
 
-**招待の有効期限は、招待が作成されてから7日間です。期限内に承諾してください。期限切れの場合は、講師へ招待の再送を依頼してください。** この7日間は招待を承諾するまでの期限であり、承諾後の教材閲覧期間を7日間に制限するものではありません。
+## 2. GitHubユーザー名の確認
 
-招待が見当たらない場合は迷惑メールも確認してください。期限切れや追加認証で進めない場合は、講師に知らせます。以前届いた組織への参加メールではなく、今回の教材への招待を使ってください。
+GitHubのプロフィールURLが `https://github.com/example-user` なら、GitHubユーザー名は `example-user` です。**表示名やメールアドレスではありません。**
 
-## 4. 入口から教材を開く：毎回の使い方
+画面右上のプロフィールアイコンなどから、ログイン中のアカウントを確認し、**GitHubユーザー名を講師に伝えてください。** アカウントを持っていない場合は、[GitHub](https://github.com/)で無料アカウントを作成します。**パスワード・認証コードは講師に伝えないでください。**
 
-1. 招待を承諾した自分のGitHubアカウントでログインします。
-2. [教材の入口](https://github.com/t-oikawa-sendai)を開きます。
-3. 講師から許可された教材名をクリックします。「AI活用入門」の場合は **AI活用入門（ai-setup-materials-student）** を選びます。
-4. 教材トップの **README** を読み、案内されている教材リンクやファイル名をクリックして本文を開きます。
+---
 
-**教材の閲覧は、ここまででできます。自分のRepositoryを作ることは、閲覧の条件ではありません。**
+## 3. 自分のPrivate Repositoryに教材をコピーする
 
-許可されていない限定公開教材で `404`（ページが見つからない）と表示されるのは想定された動作です。許可された教材で `404` になる場合は、第7章を確認してください。
+**この章は任意です。** 自分で教材を編集・保存したい場合に利用します。講師から個人Repositoryの作成を指示されるわけではなく、閲覧に必要な作業でもありません。
 
-## 5. 任意：自分のPrivate Repositoryに教材をコピーする
+以下は、**AI活用入門**の `Use this template` を使う手順です。他の教材で同じ操作ができるかは、その教材の設定を確認してください。
 
-自分用に教材を編集・保存したい人は、自由に個人用のPrivate Repositoryを作れます。作成は任意で、講師からの指示や承認を待つ必要はありません。「AI活用入門」の教材トップを開いて操作します。
+### 3.1 コピーの流れ
 
-1. 教材ページの **Use this template** を押します。
-2. **Create a new repository** を選びます。
-3. **Owner** は、**自分自身の個人GitHubアカウント**を選びます。講師のOrganizationは選びません。
-4. **Repository name** に、自分で決めた名前を入れます。
-5. **Visibility** で必ず **Private** を選びます。
-6. **Include all branches** は選びません。教材の基本となる `main` だけをコピーします。
-7. **Create repository from template** を押します。
+```mermaid
+flowchart TD
+    A["許可されたAI活用入門の教材ページを開く"]
+    B["Use this template → Create a new repository"]
+    C["Ownerに自分のGitHubアカウントを指定"]
+    D["Repository名を入力しPrivateを選択"]
+    E["Include all branchesは選択しない"]
+    F["Create repository from template"]
+    G["自分の新しいRepositoryを確認"]
+    A --> B --> C --> D --> E --> F --> G
+```
 
-新しいRepositoryには、教材テンプレートの `main` にある選定ファイルがコピーされます。元Repositoryの過去のCommit履歴がそのまま移る仕組みではありません。
+### 3.2 操作手順
 
-自分のRepositoryを編集しても、講師の教材は変更されません。
+1. [AI活用入門の教材ページ](https://github.com/OSLIB21-materials/ai-setup-materials-student)を開きます。
+2. `Use this template → Create a new repository` を選びます。
+3. `Owner` は**自分の個人GitHubアカウント**を選びます。講師のOrganizationは選びません。
+4. `Repository name` に任意の名前を入力します。
+5. `Visibility` は必ず **Private** を選びます。
+6. `Include all branches` は選ばず、基本の `main` のみを対象にします。
+7. `Create repository from template` を押します。
 
-**講師がPersonaを更新しても、生徒が個人Repositoryに作成したコピーには自動反映されません。最新のPersonaを使う場合は、教材の入口から最新の配布教材を開き、該当するPersonaを改めて取得して、自分のコピーを更新する必要があります。Persona以外の教材も同様です。**
+これで、元の教材とは**独立した自分のRepository**が作成されます。講師が管理する教材には変更が加わりません。元Repositoryの過去のCommit履歴がそのまま移るわけではありません。
 
-## 6. 作成直後に確認する
+---
 
-自分のRepositoryのページで確認します。
+## 4. 自分用Repositoryを作った後の確認
+
+### 4.1 確認項目（AI活用入門の場合）
 
 - [ ] URLが `https://github.com/＜自分のユーザー名＞/＜自分のRepository名＞` になっている
-- [ ] Repository名のそばに **Private** と表示される
-- [ ] `README.md`、`LICENSE`、`personas/` が表示される
-- [ ] この手順書を含む版では、`README.md` から `docs/distribution/STUDENT_PRIVATE_ORG_TEMPLATE_GUIDE.md` を開ける
-- [ ] 講師のPrivate Templateではなく、**自分のRepository**を開いている
+- [ ] Repository名のそばに **Private** と表示されている
+- [ ] `README.md`、`LICENSE`、`personas/` がある
+- [ ] READMEから `docs/distribution/STUDENT_PRIVATE_ORG_TEMPLATE_GUIDE.md`（この手順書）を開ける
+- [ ] 講師の教材ではなく、**自分が所有するRepository**を開いている
 
-教材の構成と設計方針は、自分のRepositoryにある `README.md` から確認できます。この手順書も同じ場所にコピーされ、後から読み直せます。講師用の管理手順書は配布されません。文書に **Draft** とあれば提案中、**Approved** とあれば承認済みという状態表示です。コピーしただけで文書の状態は変わりません。
+### 4.2 個人コピーの更新について
 
-## 7. よくある問題
+**講師が教材やPersonaを更新しても、自分が作成した個人Repositoryには自動反映されません。**
+
+最新の内容が必要な場合は、[教材の入口](https://github.com/t-oikawa-sendai)から更新された生徒向け教材を開き、必要なファイルを改めて取得して、自分のコピーを更新してください。Persona以外の教材についても同じです。
+
+自分のRepositoryを編集しても、元の教材は変わりません。また、講師が後で配布元の閲覧権限を取り消しても、既に作成した個人Repositoryは自動で削除されません。
+
+---
+
+## 5. 困ったときの確認
+
+### 5.1 教材が404になる場合
+
+```mermaid
+flowchart TD
+    A["教材が404と表示される"]
+    B{"その教材に招待されているか？"}
+    C["講師に教材の閲覧許可を相談"]
+    D{"招待を承諾したか？"}
+    E["教材への招待メールを確認して承諾"]
+    F{"講師に伝えたアカウントでログインしているか？"}
+    G["正しいアカウントへ切り替える"]
+    H["教材名・GitHubユーザー名・表示画面を講師に連絡"]
+    A --> B
+    B -->|"いいえ／不明"| C
+    B -->|"はい"| D
+    D -->|"いいえ／不明"| E
+    D -->|"はい"| F
+    F -->|"いいえ"| G
+    F -->|"はい"| H
+```
+
+### 5.2 よくある問題
 
 | 現象 | 確認・対応 |
 |---|---|
-| 許可されていない教材で `404` になる | 教材ごとのアクセス制限による想定された動作。その教材を受講する必要がある場合は講師へ相談 |
-| 許可された教材で `404` になる | 講師に伝えたアカウントでのログイン、今回の教材招待の承諾、入口から開いたURLを確認。解決しなければユーザー名・教材名・表示画面を講師へ連絡 |
-| 招待メールが見当たらない・期限切れ | 有効期限は作成から7日間。登録メールアドレスと迷惑メールを確認し、見つからない場合や期限切れの場合は講師へ再送を依頼 |
-| 招待リンクで別のアカウントが表示される | 講師に伝えたアカウントへ切り替えてから、招待リンクを開き直す |
-| **Use this template** がない | 上の正しい教材URLを開いているか確認し、講師にTemplate設定を確認してもらう |
-| **Owner** に自分が表示されない | 自分のGitHubアカウントでログインしているか確認し、講師へ連絡 |
-| Repository名が使用できない | 同じ名前のRepositoryがないか確認し、別の名前を使う |
-| 誤って **Public** にした | ほかの作業を止め、すぐ講師へ連絡する。公開されていた期間に閲覧・取得された可能性は、Privateへ戻しても取り消せない |
+| 招待メールが見つからない | GitHubに登録したメールの受信箱と迷惑メールを確認。見つからなければ講師に連絡 |
+| 招待が期限切れ | 有効期限は作成から7日間。講師へ再招待を依頼 |
+| 招待リンクで別のアカウントが表示される | 講師へ伝えたアカウントに切り替え、リンクを開き直す |
+| 許可されていない教材が404 | 通常のアクセス制限。必要ならその教材について講師に相談 |
+| 許可された教材が404 | ログインアカウント・招待承諾・教材のURLを確認。解決しなければ講師に連絡 |
+| `Use this template` がない | 正しい教材を開いているか確認し、講師に連絡 |
+| 個人Repository作成時に自分がOwnerへ出ない | 正しいGitHubアカウントでログインしているか確認 |
+| Repository名が使用できない | 同名のRepositoryがないか確認し、別名を選ぶ |
+| 誤ってPublicで個人Repositoryを作った | **ほかの作業を止め、すぐに講師へ連絡**。後からPrivateにしても、公開中に取得された内容は取り消せません |
 
-## 8. 知っておくこと
+連絡するときは、**GitHubユーザー名、対象の教材名、起きている現象**を伝えると確認しやすくなります。パスワードや認証コードは送らないでください。
 
-- **Organization**：講師が教材へのアクセスを管理するGitHubの組織。
-- **Private**：許可された人だけが閲覧できる設定。
-- **Repository**：ファイルと変更履歴を保存するGitHub上の場所。
-- **Template**：ファイル構成を使って、新しい独立したRepositoryを作る仕組み。
-- **Read権限**：講師の教材を閲覧できるが、講師の教材そのものへ変更を保存できない権限。
-- **外部コラボレーター**：組織のメンバーにならず、指定されたRepositoryに参加する人。今回の教材への招待はこの方式です。
+---
 
-自分のRepositoryは自分が管理します。公開や外部への再配布については、教材の `LICENSE` と講師の案内を確認してください。講師がPrivate Templateへのアクセスを後で解除しても、あなたが既に作成した個人Repositoryは自動で消えません。
+## 6. 仕組みと用語（必要なときに読む）
 
-## 9. GitHub公式資料
+### 6.1 教材と個人コピーの関係
+
+```mermaid
+flowchart TD
+    A["講師が管理する教材の正本"]
+    B["生徒向けPrivate Repository"]
+    C["招待された生徒が閲覧"]
+    D["生徒が作る個人Private Repository（任意）"]
+    A -->|"講師側の配布作業"| B
+    B --> C
+    C -.->|"Use this template"| D
+```
+
+- **Repository（リポジトリ）**：ファイルと変更履歴を保存するGitHub上の場所です。
+- **Organization（組織）**：講師が教材の公開範囲やアクセス権限を管理するGitHubの組織です。
+- **Private**：許可された人だけが閲覧できる設定です。
+- **Read権限**：教材を閲覧できる権限で、講師の教材を変更する権限ではありません。
+- **Template repository**：ファイル構成を使って、別のRepositoryを作成できる仕組みです。
+- **外部コラボレーター**：Organizationのメンバーにならず、特定Repositoryへのアクセスを許可された人です。講師からの教材招待はこの方式です。
+- **README**：教材トップに表示される案内文です。
+- **Draft／Approved**：文書の提案中／承認済みを表す状態表示です。コピーしただけで状態は変わりません。
+
+### 6.2 覚えておくこと
+
+- GitHubから届く**招待メールのリンク**と、普段利用する**講師プロフィールの教材入口**は別の役割です。
+- 教材ごとに閲覧権限が設定されます。許可されないPrivate教材の `404` は想定された動作です。
+- 自分用のRepositoryは自分で管理します。教材のライセンス（`LICENSE`）と講師の案内を確認し、無断公開・再配布を避けてください。
+- 自分用コピーには、講師による更新が自動反映されません。
+
+---
+
+## 付録A. GitHub公式資料
 
 - [テンプレートからRepositoryを作成する](https://docs.github.com/ja/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template)
-- [特定のRepositoryに外部コラボレーターを招待する](https://docs.github.com/ja/organizations/managing-user-access-to-your-organizations-repositories/managing-outside-collaborators/adding-outside-collaborators-to-repositories-in-your-organization)
+- [外部コラボレーターをRepositoryに招待する](https://docs.github.com/ja/organizations/managing-user-access-to-your-organizations-repositories/managing-outside-collaborators/adding-outside-collaborators-to-repositories-in-your-organization)
 - [Repositoryごとの権限](https://docs.github.com/ja/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization)
-- [招待の有効期限は作成から7日間](https://github.blog/changelog/2020-02-05-self-expiring-repository-and-organization-invitations/)
+- [招待の有効期限（作成から7日間）](https://github.blog/changelog/2020-02-05-self-expiring-repository-and-organization-invitations/)
+
+## 付録B. この手順書の管理先
+
+- 生徒配布版の管理対象：`docs/distribution/STUDENT_PRIVATE_ORG_TEMPLATE_GUIDE.md`
+- 生徒への配布先：`OSLIB21-materials/ai-setup-materials-student`（Private Repository）
+- GitHub正本への反映状況は、講師が管理・確認します。

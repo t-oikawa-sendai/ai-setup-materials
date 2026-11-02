@@ -2988,3 +2988,33 @@ Unverified（未確認・未実施）:
 
 Follow-up（追記・2026-11-02）:
 - Userから「Commit・Push」の明示承認を受領。対象は講師用手順書・CURRENT・DECISIONSの3ファイル。上記の未実施記録は承認前の状態であり、実際の保存結果はPush後にGitHub mainと既存Dev HEAD・本文を照合する。
+
+## D-085 Reorganize the Student Guide from the Approved v3 Manuscript（承認済みv3原稿に基づき生徒用手順書を再構成する）
+
+Date（日付）: 2026-11-02
+Related Documents（関連文書）: docs/distribution/STUDENT_PRIVATE_ORG_TEMPLATE_GUIDE.md / project-notes/CURRENT.md
+
+Decision（決定）:
+- Userが内容承認した2026-11-02版v3を基準に、全体像と縦方向のMermaid図、操作、トラブル対応、仕組み・用語の順へ再構成する。
+- 第1.2節に、自分のアカウントでログイン、招待メールから承諾、自分でプロフィールの教材入口を開く、許可教材を選ぶ、READMEや一覧から本文を開く、の5手順を集約する。自動遷移やプロフィール経由の技術的強制を記載しない。
+- 講師へ伝える情報はGitHubユーザー名とし、表示名・メールアドレスとの違い、パスワード・認証コードを伝えないことを維持する。
+- 旧Organization参加メールとの比較、招待・配布時期の指定、現在案内されている教材の一覧章、重複図、独立した教材閲覧章、章題の「希望者のみ」は再導入しない。
+- 個人コピーの任意性、更新の非自動反映と再取得、誤ったPublic作成時の注意、404、7日間の招待期限、ログインアカウント確認を保持する。
+- 正本本文から改訂Draft v3・作成時点のGitHub未反映という作業注記を除く。内容承認をStatus昇格の根拠にせず、元の正本と同じくStatus欄は新設しない。
+
+Rationale（理由）:
+生徒が承諾から教材閲覧までの操作を一か所で確認でき、招待リンクと普段の教材入口、必須の閲覧操作と任意のコピー作成を混同しないようにするため。削除指定と承認されたv3の構成を維持する。
+
+Evidence（根拠）:
+- Userの2026-11-02のWork実行指示、添付 `WORK_生徒用マニュアル_GitHub正本反映指示_2026-11-02.md` と `STUDENT_PRIVATE_ORG_TEMPLATE_GUIDE_再構成Draft_2026-11-02_v3.md`。本指示はローカル更新・検証までとし、Commit・Pushを明示的に禁止している。
+- 開始時の実作業先 `/Users/takashioikawa/Dev/ai-setup-materials`、branch main、HEAD・origin/main・取得したGitHub mainは `76e9940fc75d458bef78d980b9c4de6112fb0b3d` で一致。未Commit変更なし。正本と配布先の旧生徒用本文のblobは `d4d2049b8b674e24b440df0595d63cc6a851d3bd` で一致した。
+
+Supersedes（上書き対象・範囲）:
+- D-071（2026-10-22）で管理する生徒用手順書の章構成、D-081（2026-10-29）の閲覧操作の配置を、v3の第1.2節と6章構成へ変更する。D-082（2026-10-29）の招待期限・任意コピー・再取得の注意は維持し、v3に沿って配置と表現を整理する。
+- 生徒用本文だけを配布する境界、30パスの配布と旧9パスの削除境界、講師用マニュアル、既存判断の原文は変更しない。
+
+Unverified（未確認・未実施）:
+- Commit・Push、今回のGitHub正本と配布先への反映、Actions実行、GitHub／Obsidianでの実描画、生徒の実操作。ローカル検証を実配布・閲覧成功とは扱わない。
+
+Follow-up（追記・2026-11-02）:
+- Userから「Commit・Push」とプロフィール更新履歴の更新指示を受領。生徒用手順書・CURRENT・DECISIONSの保存を承認された。承認前の禁止・未実施記録は当時の状態として保持する。配布先への反映を確認後、プロフィール更新を別Repositoryで行う。
