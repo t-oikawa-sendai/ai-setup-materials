@@ -1,6 +1,6 @@
 # CURRENT
 
-Last Updated: 2026-10-29
+Last Updated: 2026-11-02
 Status: CURRENT
 
 ## PURPOSE
@@ -10,6 +10,8 @@ Personaの意義・効果・限界と役割分離を説明する `ai-setup-mater
 本ファイルは現在地点だけを記す。Version と Status の正本は各ファイルの Document Info である。詳細仕様・判断理由は、対象成果物、`project-notes/DECISIONS.md`、既存の判断履歴、検証Evidenceを参照する。
 
 ## 現在地点
+
+- D-084：講師用マニュアルを11月2日版原稿に基づき操作中心へ再構成。全体図・縦フロー、新規教材追加、ユーザー名限定の教材別Read招待、講師による配布時期判断・プロフィール最終確認を反映し、既存制約と過去の検証記録を保持。変更は講師用手順書・DECISIONS・CURRENTの3件。既存Dev mainをGitHub main `a86259b2a99a305ceb4b56f0749219bc0f82f6c3` にfast-forwardしてから編集した。2026-11-02にUserから「Commit・Push」の明示承認を受領。この記録を含む3ファイルを保存対象とする。反映成否はPush後のGitHub main・既存Dev HEAD・対象本文で照合する。講師用手順書は配布対象外で、生徒用本文・権限・プロフィール・同期処理は変更していない。
 
 - 2026-10-29追加修正：Userの「Commit Push」指示に基づき、メール招待の説明を講師用手順書だけへ追記し、GitHub mainの `43cd0465464a031ccfa33fe39a6a1ef6e6fd3e11` に保存した。Repositoryへのメール招待は登録済みメールだけに限定されず、特定アカウントを指定する場合はユーザー名で招待することをGitHub公式資料に基づいて区別した。GitHub本文の再取得で一致を確認。[自動同期40874365878](https://github.com/t-oikawa-sendai/ai-setup-materials/actions/runs/40874365878)はsuccess。生徒用手順書・同期処理・配布先には変更なく、配布先mainは `076622516f234689f75366c17aee6be4be8a2348` を維持した。開始時のGitHub main・作業用HEAD・origin/mainは `79625095da463d31025614c9a64f99261b3721e2` で一致し、未Commit変更なし。本文保存後の作業用HEADとorigin/mainも上記成果物Commitに一致した。本完了記録は後続Commitへ保存する。Mac実機の既存Repositoryは未確認。
 

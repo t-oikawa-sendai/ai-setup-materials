@@ -2953,3 +2953,38 @@ Supersedes（上書き対象・範囲）:
 
 Unverified（未確認・未実施）:
 - Commit・Push、同期除外のGitHub反映、配布先ファイルの削除と削除後の確認。削除差分の準備を削除済みとは扱わない。
+
+## D-084 Reorganize the Instructor Guide around Daily Operations（講師用マニュアルを操作中心に再構成する）
+
+Date（日付）: 2026-11-02
+Related Documents（関連文書）: docs/distribution/INSTRUCTOR_PRIVATE_ORG_TEMPLATE_GUIDE.md / project-notes/CURRENT.md
+
+Decision（決定）:
+- 全体像と縦方向の操作フローを冒頭に置き、新規教材追加、教材別Read招待、承諾後の閲覧確認、トラブル対応、教材更新・同期・プロフィール確認の順にする。初期設定・背景・過去のEvidenceは後半と付録に分ける。
+- 招待先の指定はGitHubユーザー名だけとし、メールアドレス入力の分岐を通常手順から除く。メール招待機能とユーザー名を選ぶ理由は背景に保持する。`Settings → Collaborators & teams → Add people` を一連の操作として示す。
+- 配布・招待時期は講師が都度判断する。新規教材の追加手順を設けるが、個別のRepository作成・配布実行・権限変更の承認にはしない。
+- プロフィールの教材一覧・リンク・更新日・変更概要・直近5件の最終確認者を講師とする。既存の配布日通知・定型文と、個別要約や新教材掲載を区別する。
+- 旧版の有効な制約、個人コピーの再取得警告、検証日時・SHA・Actions URL・確認範囲を保持する。原稿のYAML `status: Approved` は承認根拠がないため採用せず、現行正本と同じくStatus欄を設けない。
+
+Rationale（理由）:
+講師が日常の操作を先に参照でき、将来の教材追加と既存教材の更新、招待先の指定と招待メールの承諾、過去のEvidenceと現在の確認結果を混同しない構成にするため。
+
+Evidence（根拠）:
+- Userの2026-11-02のWork実行指示、添付 `INSTRUCTOR_PRIVATE_ORG_TEMPLATE_GUIDE.md`（2026-11-02版）と `WORK_講師用マニュアル_GitHub正本反映指示_2026-11-02.md`。
+- 静的検証：旧版の8 SHA・4 Actions URL、旧配布実測・アクセス制限テストの原文、D-001〜D-083の原文を保持。付録Aの30パスは同期スクリプトと一致し、自動削除は旧9パスのまま。8つの図はflowchart TD・基本構文・参照ノードを点検。相対リンク5件と正本ファイルリンクの存在を確認。変更範囲は上記3ファイルのみ。GitHub／Obsidianの実描画確認とは区別する。
+- 照合したGitHub mainは `a86259b2a99a305ceb4b56f0749219bc0f82f6c3`。実作業先 `/Users/takashioikawa/Dev/ai-setup-materials` のmainは、開始時 `f9d5de4c66c3dbcc08ce0d1c5c602abc3bd06d0c`、未Commit変更なし。fast-forward後、HEADとorigin/mainが上記GitHub mainに一致した。
+- D-067・D-069・D-071・D-072・D-081〜D-083、現行同期スクリプトとworkflow、公開プロフィールREADMEを参照。設計文書管理入門の正本・専用同期設定は同Repositoryのworkflow本文で確認した。今回、配布や権限操作は行っていない。
+
+Supersedes（上書き対象・範囲）:
+- D-071で管理する講師用手順書の章構成と案内順を変更する。生徒用のみ配布する境界は維持する。
+- 2026-10-29の講師用手順書第7章「授業前」の固定時期、およびcommit `43cd0465464a031ccfa33fe39a6a1ef6e6fd3e11` の第7.2節のメール招待操作分岐を、上記の講師判断・ユーザー名限定に置き換える。メール機能についての事実説明や旧CURRENTの履歴は否定・改変しない。
+- D-081・D-082の教材別Read、承諾後の追加承認不要、7日の招待期限、任意コピーは維持する。D-072の自動化範囲、30パスの追加・上書きと旧9パスの自動削除境界も変更しない。
+
+Non-Changes（非変更範囲）:
+- 生徒用手順書、公開プロフィール、同期workflow・script、Secret、GitHub権限、配布先、新規教材Repository、既存Decision原文。手順の整備を実操作・実動検証の完了としない。
+
+Unverified（未確認・未実施）:
+- この記録時点でCommit・Pushは未実施。GitHub正本への保存は明示承認後に実施・照合する。GitHub／Obsidian上の実描画、新規教材構築、生徒への実招待・閲覧確認は未実施。
+
+Follow-up（追記・2026-11-02）:
+- Userから「Commit・Push」の明示承認を受領。対象は講師用手順書・CURRENT・DECISIONSの3ファイル。上記の未実施記録は承認前の状態であり、実際の保存結果はPush後にGitHub mainと既存Dev HEAD・本文を照合する。
