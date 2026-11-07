@@ -3018,3 +3018,37 @@ Unverified（未確認・未実施）:
 
 Follow-up（追記・2026-11-02）:
 - Userから「Commit・Push」とプロフィール更新履歴の更新指示を受領。生徒用手順書・CURRENT・DECISIONSの保存を承認された。承認前の禁止・未実施記録は当時の状態として保持する。配布先への反映を確認後、プロフィール更新を別Repositoryで行う。
+
+## D-086 Revise ChatGPT Persona to OS-Independent Paths within 8,000 Characters（ChatGPT PersonaをOS非依存化し全文8,000文字以下へ改訂する）
+
+Date（日付）: 2026-11-07
+Related Documents（関連文書）: personas/reference/CHATGPT_PERSONA.md / AGENTS.md / project-notes/CURRENT.md / Repository全体
+
+Decision（決定）:
+- `personas/reference/CHATGPT_PERSONA.md` を Version 3.2 / Draft から Version 3.3 / Draft へ改訂する。§1〜§11の構造を維持する。
+- Document Infoを含むファイル全文を8,000 Unicode文字以下とする。これはChatGPT Project指示欄の制限に合わせた必須条件である。
+- §10をOS非依存の環境ルールへ変更する。`<HOME>/Dev/<repository-name>`、`<HOME>/BakaUpArea/<repository-name>`、`<HOME>/local_test_env/<repository-name>` を用いる。ホームはmacOS・Ubuntuでは`$HOME`、Windows 11のPowerShellでは`$env:USERPROFILE`、コマンドプロンプトでは`%USERPROFILE%`から解決する。ユーザー名やOS固有の絶対パスをPersona本文へ固定しない。環境定義の独立ファイルは新設しない。
+- 秘密情報を含むローカル起動資産は`.local-secrets/`、それ以外のGit管理外運用資産は`.local-ops/`に置き、双方を`.gitignore`に明記する。ローカル正本・運用資産・認証情報はユーザー別に管理する。バックアップ領域に現用資産を置かない。
+- §7に、実行担当がOS、`whoami`、`hostname`、解決したホームと作業先絶対パスを確認し、完了報告のEvidenceへ含めることを反映する。実パスを設計担当が推測しない。
+- `AGENTS.md` §3.4の一般Persona向け7,500文字設計目標は維持する。ChatGPT Persona特則として、「`CHATGPT_PERSONA.md`は、Document Infoを含むファイル全文を8,000 Unicode文字以下とする。これは必須条件である。」を追加する。
+- StatusはDraftのままとする。Approvedへの移行は、共通仕様第16章に沿う実動検証とUserの正式承認後とする。Verification Codeの未確定値は補完しない。
+- Commit・Pushは今回の指示範囲外とし、実施しない。
+
+Rationale（理由）:
+macOS固定の`/Users/【ユーザー名】`表記ではWindows 11・Ubuntuを含む実利用に合わず、ChatGPT Project指示欄へ登録する全文も8,000文字を超えていたため。環境定義ファイルを増やさず、既存の責務・禁止事項・停止条件を保ったまま、OS非依存化と文字数必須条件を両立する。
+
+Evidence（根拠）:
+- Userの2026-11-07実装指示、添付 `CHATGPT_PERSONA_v3.3_Draft.md` と `CHATGPT_PERSONA_v3.3_review.md`。
+- 開始時の実作業先 `/Users/takashioikawa/Dev/ai-setup-materials`、branch `main`、ローカルHEAD・`origin/main` は `66fd3aa6e26bb7e705d9d2149c875f63cc1e3118` で一致。未Commit変更なし。同期ゲート通過後に編集した。
+- 改訂前の全文Unicode文字数は8,729。改訂後は7,193（末尾改行含む）。`/Users/` と `【ユーザー名】` は0件。
+
+Supersedes（上書き対象・範囲）:
+- `personas/reference/CHATGPT_PERSONA.md` Version 3.2 / Draft の§7・§10におけるmacOS固定パス表現、および同版のVersion表示を Version 3.3 / Draft へ置き換える。責務・禁止事項・停止条件・F/O/R・Persona Verificationの趣旨は維持する。
+- D-027（2026-10-15）のうち、ChatGPT Personaについて「Project登録時は Document Info を登録文字数に含めない」とする扱いだけを、Document Infoを含むファイル全文8,000文字以下の必須条件へ変更する。D-027の原文は書き換えない。
+- D-030（2026-10-15）の一般Persona向け7,500文字設計目標は維持し、ChatGPT Personaに限る8,000文字必須条件を `AGENTS.md` §3.4へ追加する。D-030の原文は書き換えない。
+
+Non-Changes（非変更範囲）:
+- 他Persona本文、共通仕様第16章、生徒向け配布範囲、既存Decision原文、Verification Codeの未確定状態。文字数削減を理由とした責務・禁止事項・停止条件の削除・緩和。Approvedへの昇格。Commit・Push。
+
+Unverified（未確認・未実施）:
+- ChatGPT Project指示欄への登録、共通仕様第16章に沿うPersona Verificationの実動検証、UserのApproved承認。Commit・Push。
