@@ -11,6 +11,8 @@ Personaの意義・効果・限界と役割分離を説明する `ai-setup-mater
 
 ## 現在地点
 
+- D-088：不要・冗長な確認作業を抑えるため、最短・短時間・速やかな完了を重要な非機能要件としてChatGPT Persona Version 3.4 / Draftの§1とAGENTS.md §3へ反映。少数回の試験で改善効果を確定せず、実運用中の発生事象に基づき必要箇所だけ修正する。完成済みVersion 3.3の作業は再開しない。本変更のCommit・Pushは未実施。
+
 - D-087：UserのVersion 3.3完成・Commit・Push指示により、ChatGPT PersonaをVersion 3.3 / Approvedへ確定。既存静的検証PASSと、実動検証未実施・Project適用未確認を区別する。User承認は実動検証PASSを意味しない。GitHub mainへ今回のcommitで保存し、Mac実機のローカルDev作業ツリーは本作業で変更していない（同期未確認）。
 
 - D-086（D-087前の改訂時点の記録）：ChatGPT PersonaをVersion 3.3 / Draftへ改訂。Document Info込み全文8,000 Unicode文字以下を必須とし、§10をOS非依存化、§7へ実行環境Evidence報告を反映。`AGENTS.md` §3.4にChatGPT特則を追加。変更は `personas/reference/CHATGPT_PERSONA.md`・`AGENTS.md`・`project-notes/DECISIONS.md`・`project-notes/CURRENT.md` の4件。開始時の既存Dev main・origin/mainは `66fd3aa6e26bb7e705d9d2149c875f63cc1e3118` で一致し、未Commit変更なし。改訂前8,729文字→改訂後7,193文字。`/Users/`・`【ユーザー名】`は0件。StatusはDraftのまま。共通仕様第16章の実動検証とUserのApproved承認、Commit・Pushは未実施。

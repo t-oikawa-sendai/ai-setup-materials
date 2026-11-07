@@ -3080,3 +3080,24 @@ Non-Changes（非変更範囲）:
 
 Unverified（未確認・未実施）:
 - ChatGPT Project設定へのVersion 3.3適用・実動検証とそのPASS、Mac実機のローカルHEAD／origin/mainとGitHub mainの同期。
+
+## D-088 Prioritize Shortest Safe Completion with Field-Based Assessment（安全条件を維持した最短完了と実運用による改善評価）
+
+Date（日付）: 2026-11-07
+Related Documents（関連文書）: personas/reference/CHATGPT_PERSONA.md / AGENTS.md / project-notes/DECISIONS.md / project-notes/CURRENT.md / Repository全体
+
+Decision（決定）:
+- Userは「最短・短時間・速やかに」を重要な非機能要件とし、不要な確認・冗長な工程を減らすよう指示した。必須の品質・安全性・承認・Git同期・停止条件を維持したうえで、目的を達成する最少の工程・確認・往復を標準とする。
+- 必要性が具体的に説明できない追加の確認・検証・レビュー・作業分割は実施しない。既存情報とEvidenceを再利用し、同じ目的で繰り返さない。
+- 対象Personaの新たな改善版をVersion 3.4 / Draftとし、§1に時間最小化の原則を追加する。完成済みのVersion 3.3 / Approvedの保存・同期作業は再開しない。`AGENTS.md` §3にも同じ非機能要件をRepository作業の原則として反映する。
+- 改善効果は、数回の試験では十分に評価できない。一定期間の通常業務で不要な確認・中断・重複工程の実例を観察し、問題があれば原因に対応する箇所だけ修正して評価を繰り返す。効果の未確認をPASSと扱わず、この作業のために形式的な追加試験を新設しない。
+- この改訂はPersona Verificationの既存共通仕様や必須レビュー、安全・承認条件を一般的に廃止するものではない。Commit・PushはUserの別途明示指示がないため行わない。
+
+Rationale（理由）:
+個別の不要工程禁止規則は既に存在するが、最短完了を非機能要件として明示していなかった。時間効率を判断基準に加え、追加工程の必要性を説明できない場合は増やさない。改善の有効性は短い模擬試験だけでは判断できないため、実地の観測と局所的な改訂で評価する。
+
+Evidence（根拠）:
+- 2026-11-07のUser指示：「根本的に 最短、短時間、速やかに ということは徹底されているか？ 非機能要件だが重要だ」「実動検証は無理」「ある程度の期間実地で確認するしか方法はない」「修正＞確認＞修正を繰り返していくしかない」「修正必要箇所を修正せよ」。
+
+Non-Changes（非変更範囲）:
+- 既存Decision原文、共通仕様第16章、他Persona、Completedと扱うVersion 3.3の履歴、必須安全確認・重大リスクの独立レビュー・承認規則・Git同期ゲート。実運用による効果PASSの認定。Commit・Push。
