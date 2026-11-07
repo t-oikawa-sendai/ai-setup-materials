@@ -11,7 +11,9 @@ Personaの意義・効果・限界と役割分離を説明する `ai-setup-mater
 
 ## 現在地点
 
-- D-086：ChatGPT PersonaをVersion 3.3 / Draftへ改訂。Document Info込み全文8,000 Unicode文字以下を必須とし、§10をOS非依存化、§7へ実行環境Evidence報告を反映。`AGENTS.md` §3.4にChatGPT特則を追加。変更は `personas/reference/CHATGPT_PERSONA.md`・`AGENTS.md`・`project-notes/DECISIONS.md`・`project-notes/CURRENT.md` の4件。開始時の既存Dev main・origin/mainは `66fd3aa6e26bb7e705d9d2149c875f63cc1e3118` で一致し、未Commit変更なし。改訂前8,729文字→改訂後7,193文字。`/Users/`・`【ユーザー名】`は0件。StatusはDraftのまま。共通仕様第16章の実動検証とUserのApproved承認、Commit・Pushは未実施。
+- D-087：UserのVersion 3.3完成・Commit・Push指示により、ChatGPT PersonaをVersion 3.3 / Approvedへ確定。既存静的検証PASSと、実動検証未実施・Project適用未確認を区別する。User承認は実動検証PASSを意味しない。GitHub mainへ今回のcommitで保存し、Mac実機のローカルDev作業ツリーは本作業で変更していない（同期未確認）。
+
+- D-086（D-087前の改訂時点の記録）：ChatGPT PersonaをVersion 3.3 / Draftへ改訂。Document Info込み全文8,000 Unicode文字以下を必須とし、§10をOS非依存化、§7へ実行環境Evidence報告を反映。`AGENTS.md` §3.4にChatGPT特則を追加。変更は `personas/reference/CHATGPT_PERSONA.md`・`AGENTS.md`・`project-notes/DECISIONS.md`・`project-notes/CURRENT.md` の4件。開始時の既存Dev main・origin/mainは `66fd3aa6e26bb7e705d9d2149c875f63cc1e3118` で一致し、未Commit変更なし。改訂前8,729文字→改訂後7,193文字。`/Users/`・`【ユーザー名】`は0件。StatusはDraftのまま。共通仕様第16章の実動検証とUserのApproved承認、Commit・Pushは未実施。
 
 - D-085：承認済み生徒用v3を基準に、全体図・操作前半／背景後半・第1.2節の閲覧5手順へ再構成。削除指定を維持し、個人コピーの任意性と再取得の注意を保持。ローカル更新済み。変更は生徒用手順書・DECISIONS・CURRENTの3件。開始時の既存Dev main・origin/main・GitHub mainは `76e9940fc75d458bef78d980b9c4de6112fb0b3d` で一致し、未Commit変更なし。2026-11-02のUser承認後、3ファイルを `1e10e6b37a9465ccdeb1fdff28e921eca1f5df70` でGitHub mainへ保存。[自動配布41443539044](https://github.com/t-oikawa-sendai/ai-setup-materials/actions/runs/41443539044)はsuccess。配布先main `d8ea080cb25df1f46625f9d67dc77850c870df6a` と正本の生徒用本文を再取得し、blob `395712f4c6de9abf39793177f5a6720c3b394e98` で一致を確認。既存Dev HEAD・origin/mainも成果物Commitに一致しcleanだった。プロフィールの配布日通知も成功し、User指示の具体的な更新概要はプロフィールRepositoryで管理する。この確認記録は後続Commitへ保存する。講師用手順書・同期処理・権限は変更していない。
 
@@ -42,7 +44,7 @@ Personaの意義・効果・限界と役割分離を説明する `ai-setup-mater
 - AI利用時の課題の根拠は `personas/AI_ISSUES_EVIDENCE.md`、Hazare et al.（2026）の9種類の反論者Personaの解説は `personas/SYCOPHANCY_CHALLENGER_PERSONAS.md`、グラフは `personas/assets/sycophancy_frontier_models_2026.png` である。導線は Root README 第2章から Evidence 集へ、Evidence 集から解説へである。判断は D-056。いずれも Draft。Document ID は UNRESOLVED。この追加は、Personaによる改善効果の実証でも、研究結果の検証合格でもない。
 - 教材上の標準表記は「自己正当化バイアス（誤りの連鎖）」である（D-057）。Root README 第2章の項目名、第3章冒頭、Evidence集 E-06、Education README の現行の運用方針がこの表記を用いる。D-039 の重要警告原文は変更していない。この表記は教材上の用語であり、学術的に確立した独立バイアスであるとは断定しない。
 - Education README `personas/education/README.md` の現行ファイルは Version 1.1（提案）/ Draft である（D-058）。Version 1.0 / Approved は前版の承認履歴である。サービス非依存の基本4役割は維持する（D-053）。従来の4Gem＋1の承認は、評価の独立性の実証ではない。SKILLS構成は `personas/education/SKILLS/` の6ファイルで、いずれも Draft、Document ID は UNRESOLVED である。既存の `personas/education/GEM_*.md` は変更していない。Skillsの実登録、自動選択の実動検証、Deep Research連携、講師本人によるSkills実動検証は未実施である。D-058の「Skillsの手動切替操作ができない」の意味は D-059 が補足する。D-058の原文は変更しない。
-- ChatGPT Persona `personas/reference/CHATGPT_PERSONA.md` の現行はVersion 3.3 / Draft（D-086）。Document Info込み全文8,000文字以下、§10のOS非依存化、§7の実行環境Evidence報告を含む。以下は前版Version 3.2 / Draftの履歴である（D-076）。その前のVersion 3.1 / ApprovedはUser確認と最終承認済みの履歴である（D-052、経緯と検証ゲートは D-054）。§11.1 は当時 Document Info の Version 3.1 / Approved と一致した。この一致は `76d254acbae538f10c108c2cf3b73b900588f5df` に含まれる。D-052 は当初、変更を Document Info のみと記録した。その原文は変更しない。`fb1d2e6` で `main` に入ったファイル、および上記 HEAD のファイルは Version 3.1（提案）/ Draft である（D-050）。D-037 と D-038 の Version 3.0 / Approved は、この改訂より前の承認履歴であり、現行ファイルではない。既存の実動検証は 4/6 である。D-025 の 6/6 PASS は未達である。新たな 6/6 PASS の Evidence は未確認である。共通仕様第16章の現行規則は維持する。User承認は技術検証を PASS に変えない。第16章への完全適合は確認していない。Version 3.3 の実動検証とApproved承認は未実施である。
+- ChatGPT Persona `personas/reference/CHATGPT_PERSONA.md` の現行はVersion 3.3 / Approved（D-087）。Document Info込み全文8,000文字以下、§10のOS非依存化、§7の実行環境Evidence報告を含む。以下は前版Version 3.2 / Draftの履歴である（D-076）。その前のVersion 3.1 / ApprovedはUser確認と最終承認済みの履歴である（D-052、経緯と検証ゲートは D-054）。§11.1 は当時 Document Info の Version 3.1 / Approved と一致した。この一致は `76d254acbae538f10c108c2cf3b73b900588f5df` に含まれる。D-052 は当初、変更を Document Info のみと記録した。その原文は変更しない。`fb1d2e6` で `main` に入ったファイル、および上記 HEAD のファイルは Version 3.1（提案）/ Draft である（D-050）。D-037 と D-038 の Version 3.0 / Approved は、この改訂より前の承認履歴であり、現行ファイルではない。既存の実動検証は 4/6 である。D-025 の 6/6 PASS は未達である。新たな 6/6 PASS の Evidence は未確認である。共通仕様第16章の現行規則は維持する。User承認は技術検証を PASS に変えない。第16章への完全適合は確認していない。Version 3.3 の実動検証は未実施であり、Userの最終完成指示によってApprovedへ確定した。第16章の実動検証ゲートを満たしたとは扱わない。
 - 検証用Persona `personas/reference/IT_GENERAL_ADVISOR_TEST_PERSONA.md` の現行はVersion 3.1 / Draft（D-076）。以下は前版Version 3.0 / Approvedの履歴（D-064）である。Persona ID は `T-IT-ADVISOR`、Verification Code は `ADVISOR-ALPHA` である。D-037 の承認と D-038 の版番号統一は、Version 3.0 / Approved の承認履歴である。D-062 が現行を Version 3.1（提案）/ Draft とした記録は、その決定時点の記録である。Version 0.1 / Draft は 2026-10-13時点の検証前の状態である。区別は `personas/reference/README.md` 第4.1節に書く。この Approved は User の版の確定であり、実動検証の完了や適用成功を意味しない。D-062 の「この反映はローカルのみであり、commit と push は行っていない」は、その文を書いた時点の記録である。保存 commit は `4511652ffa32c092e85f7fc785fdaf44a98ab0bc` であり、`main` へ push 済みである。2026-10-13 の `Decision & Rationale` は、Persona本文から削除し、原文を `project-notes/DECISIONS.md` の D-063 に保存した。この移設と D-064 の版の確定はローカルのみであり、commit と push は行っていない。Persona本文に履歴への参照は追加していない。
 - S-IECD `personas/reference/IT_EDUCATION_CONTENT_DESIGNER.md` は Version 0.3（提案）/ Draft（D-076）。以下は前版v0.2の履歴。D-073により、既存のG方式v0.1へ初心者向け授業設計・説明支援を統合した。15分程度を基本単位とし、2本セット・前半後半、講師と生徒の説明水準の区別、業務・要求・要件・設計・実装の視点を含む。Userが原案を承認した後、500文字削減を指定し、8,474文字から7,974文字へ表現を整理した。本文の内容承認とGitHub反映の指示を受領済みであり、実動検証PASSやApproved承認ではない。GitHub保存状態は本変更を含むmainのHEADと本文再取得で確認する。Mac実機の既存Dev Repositoryはこの作業環境からアクセスできず、同期状態は未確認。作業用独立CloneはGitHub mainと一致するcleanな状態で開始した。G方式の指示欄用完成文はRepository外で作成する。
 - 新規S-SETUPは、Personaの選定とAIサービスへの設定案内を担当するPersonaとして `personas/reference/PERSONA_SETUP_ADVISOR.md` に置く提案である。Persona ID `S-SETUP` は提案、Document IDは UNRESOLVED。現行はVersion 3.1（提案）/ Draft（D-076）、P方式の本文正本である。以下は前版の設計記録であり、D-066にS-SETUP本文だけの対象範囲例外を記録する。Userの明示指示により、独立チェックアウトで作成した変更をCommit・Pushする対象とした。保存の成否はGitHub `main` のHEADと本文の再取得で判定する。取得・適用・実動検証とUserのApproved承認は未実施である。元Devチェックアウトの未commit変更には触れていない。
@@ -112,7 +114,7 @@ Personaの意義・効果・限界と役割分離を説明する `ai-setup-mater
 
 ## 次工程
 
-- D-086のChatGPT Persona Version 3.3 / Draftはローカル反映済み。共通仕様第16章に沿う実動検証、UserのApproved承認、Commit・Pushは未実施。D-025の6/6 PASS未達も継続する。
+- D-087のChatGPT Persona Version 3.3 / ApprovedはUserの明示指示による完成判断でGitHub mainに保存。実動検証・Project適用は未実施であり、PASSとは記録しない。追加検証は今回の指示範囲外。
 
 - D-081〜D-083の手順書改訂・同期除外・配布先S-SETUPの個別削除は保存先で確認済み。実生徒への招待は講師が今回の合格手順で開始する別作業。
 
@@ -166,7 +168,7 @@ Version と Status は各ファイルの Document Info を見る。
 - Education入口：`personas/education/README.md`
 - Education SKILLS：`personas/education/SKILLS/`
 - Reference Persona：`personas/reference/`
-- ChatGPT Persona の識別・取得・更新検証：`personas/reference/CHATGPT_PERSONA.md` 第11章。品質検証の独立工程は `personas/PERSONA_IDENTIFICATION_AND_SETUP.md` 第16章。未達の検証条件は次工程。
+- ChatGPT Persona の識別・取得・更新検証：`personas/reference/CHATGPT_PERSONA.md` 第11章。品質検証の独立工程は `personas/PERSONA_IDENTIFICATION_AND_SETUP.md` 第16章。Version 3.3の実動検証未実施はD-087に記録し、今回の完成・保存作業に追加しない。
 - Claude Persona の識別・取得・更新検証：`personas/reference/CLAUDE_PERSONA.md` 第15章。品質検証の独立工程は `personas/PERSONA_IDENTIFICATION_AND_SETUP.md` 第16章。G方式の未了は次工程。
 - Reference入口：`personas/reference/README.md`
 - 講師向けS-IECD Draft：`personas/reference/IT_EDUCATION_CONTENT_DESIGNER.md`（P方式の本文正本。G取得指示は都度別生成。品質・実動検証は共通仕様第16章）

@@ -3052,3 +3052,31 @@ Non-Changes（非変更範囲）:
 
 Unverified（未確認・未実施）:
 - ChatGPT Project指示欄への登録、共通仕様第16章に沿うPersona Verificationの実動検証、UserのApproved承認。Commit・Push。
+
+## D-087 Finalize ChatGPT Persona v3.3 by Explicit User Decision with Verification Outstanding（実動検証未実施を明記した上でChatGPT Persona v3.3を完成確定）
+
+Date（日付）: 2026-11-07
+Related Documents（関連文書）: personas/reference/CHATGPT_PERSONA.md / project-notes/CURRENT.md / project-notes/DECISIONS.md / personas/PERSONA_IDENTIFICATION_AND_SETUP.md
+
+Decision（決定）:
+- UserはVersion 3.3をDraftではなく完成版にすること、Commit・Pushまで完遂することを繰り返し明示し、「実動検証の指示は私はしていない」と明確にした。今回の完成判断はUserの最終承認として記録し、対象のVersion 3.3をStatus Approvedにする。
+- 今回はUserの最新の明示指示を優先する個別の完成判断である。共通仕様第16章が定める改訂Personaの実動検証ゲートは満たしていない。第16章の規則を一般的に廃止・緩和したとは扱わない。今後のPersonaに適用する前例へ拡張しない。
+- Version 3.3の本文は、Document Infoと§11.1のStatusだけをDraftからApprovedに統一し、OS別ホーム解決、ユーザー別資産管理、CodingAI向け指示、各種停止・安全規則は変更しない。
+- 実動検証PASSを認定しない。Version 3.3のChatGPT Project適用状態・実動検証は未確認／未実施とする。Version 1.2向けD-025の6/6 PASSは未達（既存正規結果4/6）であり、これをVersion 3.3の合格と見なさない。User承認と技術的な検証結果を区別する。
+- UserのCommit・Push明示指示に従い、今回の完成版をGitHub mainに保存する。GitHub直接の保存はMac実機ローカルRepositoryの自動同期を意味しない。ローカル状態は未確認として記録する。
+
+Rationale（理由）:
+Userが要求する成果物はVersion 3.3 / Approvedの完成版であり、Draftの保存や、Userが指示していない実動検証を追加作業として要求し続けることは完成目的に反するため。検証の未達を隠さず、Userの版の完成判断と実動検証の合否を分離して記録するため。D-054でのVersion 3.1の承認状態と未達検証の区別も参照した。
+
+Evidence（根拠）:
+- 2026-11-07のUser指示：「ドラフトではなく完成と指示したはずだ」「最後まで完遂せよ」「実動検証の指示は私はしていない」「速やかに完遂せよ」。
+- 直前のGitHub main HEADは \`c00568658c9613aa27e29abdf3793d77e7f15e1f\`、Persona Version 3.3 / Draft、文字数7,193（Document Info・末尾改行を含む）、Cursorの静的検証報告PASS。GitHub取得本文を基準に状態のみ変更する。
+
+Supersedes（上書き対象・範囲）:
+- D-086のVersion 3.3 / Draftのままとする判断およびApproved移行まで実動検証を完了条件に置く扱いを、Userの今回のVersion 3.3完成指示の範囲に限って上書きする。D-086の原文は変更しない。
+
+Non-Changes（非変更範囲）:
+- PersonaのVersion 3.3におけるStatus以外の本文、AGENTS.md、共通仕様第16章、既存Decision原文、他Persona、Verification Code、既存検証Evidence。実動検証の実施・PASS認定。Mac実機のローカルRepository。
+
+Unverified（未確認・未実施）:
+- ChatGPT Project設定へのVersion 3.3適用・実動検証とそのPASS、Mac実機のローカルHEAD／origin/mainとGitHub mainの同期。

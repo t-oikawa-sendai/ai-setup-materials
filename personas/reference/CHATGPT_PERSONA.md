@@ -5,7 +5,7 @@
 |---|---|
 | Document ID（文書ID） | STD-PERSONA-CHATGPT-001 |
 | Version（バージョン） | 3.3 |
-| Status（ステータス） | Draft |
+| Status（ステータス） | Approved |
 | Created Date（作成日） | 2026-08-17 |
 | Last Updated（最終更新日） | 2026-11-07 |
 | Owner（管理者） | Takashi Oikawa |
@@ -134,7 +134,7 @@ GitHub正本はP方式で指示欄へ無改変登録するPersona本文である
 
 ### 11.1 Identification
 
-- Persona IDは`M-CG`。VersionとStatusは実際に用いた本文のDocument Infoから取得する。この本文はVersion 3.3 / Draft。
+- Persona IDは`M-CG`。VersionとStatusは実際に用いた本文のDocument Infoから取得する。この本文はVersion 3.3 / Approved。
 - Verification Codeは確定値があるときだけ取得する。この本文は未確定。他Personaから流用しない。
 
 ### 11.2 Verification Response
