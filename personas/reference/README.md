@@ -65,6 +65,7 @@ Education基本4役割を置き換えるものではありません。従来の4
 - [`IT_GENERAL_ADVISOR_TEST_PERSONA.md`](IT_GENERAL_ADVISOR_TEST_PERSONA.md)：IT General Technical Advisor Persona（検証専用）
 
 ## 4.2 Other Reference Personas（その他のReference Persona）
+## 4.2 Other Reference Personas（その他のReference Persona）
 
 - [`EMPLOYMENT_SUPPORT_ADVISOR.md`](EMPLOYMENT_SUPPORT_ADVISOR.md)：就職支援アドバイザー（支援者専用、S-EMPLOYMENT-SUPPORT、Version 3.0 / Approved）。講師・就職支援担当者・キャリアコンサルタント向けに、適職の考え方、自己分析、市場調査、AI活用の相談対応を補佐する。内容は採用済み。この Approved は User の完成判断であり、実動検証 PASS ではない。受講生への直接相談モードは設けない。
 
