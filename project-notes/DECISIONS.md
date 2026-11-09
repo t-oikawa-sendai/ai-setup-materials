@@ -3101,3 +3101,63 @@ Evidence（根拠）:
 
 Non-Changes（非変更範囲）:
 - 既存Decision原文、共通仕様第16章、他Persona、Completedと扱うVersion 3.3の履歴、必須安全確認・重大リスクの独立レビュー・承認規則・Git同期ゲート。実運用による効果PASSの認定。Commit・Push。
+
+## D-089 Apply Shortest Safe Completion to Education Personas（Education Personaへ最短完了を適用する）
+
+Date（日付）: 2026-11-07
+Related Documents（関連文書）: personas/education/GEM_RESEARCHER_FULL.md / personas/education/GEM_RESEARCHER_LEARNING_DEVELOPMENT.md / personas/education/GEM_RESEARCHER_DEVELOPMENT.md / personas/education/GEM_SOLUTION_PARTNER.md / personas/education/GEM_CODE_GENERATOR.md / personas/education/GEM_REVIEWER.md / personas/education/SKILLS/RESEARCHER_LEARNING.md / personas/education/SKILLS/RESEARCHER_DEVELOPMENT.md / personas/education/SKILLS/RESEARCHER_CAREER.md / personas/education/SKILLS/SOLUTION_PARTNER.md / personas/education/SKILLS/CODE_GENERATOR.md / personas/education/SKILLS/REVIEWER.md / project-notes/CURRENT.md / project-notes/DECISIONS.md
+
+Decision（決定）:
+- D-088の「最短・短時間・速やかな完了」を、Education Personaの共通機能本文へ適用する。必要な品質・安全性・承認条件を満たしたうえで、最少の工程・確認・往復で成果を完成させる。
+- Researcher（GEM 3件とSKILLS 3件）は、判断に必要な根拠が揃った時点で調査を終了する。既存Evidenceを再利用し、同じ目的の再検索をしない。追加調査は、重要な根拠不足、矛盾、または判断に影響する情報の更新がある場合に限る。一次情報の優先と、確認済み事実と未確認情報の区別は維持する。用途別Moduleの検索対象と境界は変更しない。
+- Solution Partner（GEMとSKILLS）は、確定事項とAI側で判断できる事項を再質問しない。`実装段階まで持ち越し可能` だけが残る場合は追加質問せず次工程へ進める。Userが早期決定を希望した場合だけ、その事項を確認する。`次工程開始前に決定必須` は従来どおりASKMEで確認する。独立して進められる作業は止めない。
+- Code Generator（GEMとSKILLS）は、生成・変更対象に関係する項目だけを検証する。起動構成を変更しない部分修正に、起動要件一式の再検証を機械的に要求しない。完全な実行可能コードを生成する場合の起動・依存関係の確認は維持する。§4 Mandatory Rules は省略しない。指示されていない機能、test、診断、再設計は追加しない。
+- Reviewer（GEMとSKILLS）は、今回の評価対象とリスクに確認範囲を限定する。同じEvidenceに対する形式的な再レビューはしない。再レビューは、新しい問題、変更差分、または判定に影響するEvidence不足がある場合に限る。独立性、重大な品質問題の指摘、正確な判定は維持する。
+- 改訂後のVersionとStatusは、Researcher GEM 3件を1.2 / Draft、Solution Partner GEMを1.7 / Draft、Code Generator GEMを2.4 / Draft、Reviewer GEMを1.3 / Draft、SKILLS 6件を0.2（提案）/ Draftとする。GEMと対応SKILLSの共通機能本文は一致させる。既存Approved版の承認履歴は変更しない。
+- 改善効果は今後の実運用で評価する。少数回の模擬試験で効果を判定しない。効果の未確認をPASSと扱わない。Commit・PushはUserの別途明示指示がないため行わない。
+
+Rationale（理由）:
+D-088はChatGPT PersonaとRepository作業原則へ最短完了を入れたが、Education Personaの調査継続、持ち越し事項の事前質問、起動要件の機械的再検証、同一Evidenceの再レビューは残っていた。役割ごとの不要確認だけを減らし、Evidence、承認、安全、役割分離は同じ意図のまま維持する。
+
+Evidence（根拠）:
+- D-088（2026-11-07）と、2026-11-07のUser実装指示（Education Persona効率改善、D-089）。
+- 開始時の実作業先 `/Users/takashioikawa/Dev/ai-setup-materials`、branch `main`、ローカルHEADと取得した `origin/main` は `cb38737ac5372a0590ab8dd2a8f5a80eff51acdd` で一致。未Commit変更なし。Userが確認済みとしたGitHub基準Commitと一致した。
+
+Supersedes（上書き対象・範囲）:
+- Solution Partner Version 1.6 §4の、`実装段階まで持ち越し可能` のみが残る場合に詳細を今決めるか尋ね、`全て決定する` / `一部を決定する` / `今は決定しない` を提示する手順。`project-notes/2026-09-01-solution-partner-unresolved-items-decisions.md` §5（2026-09-01）の、今確認・決定するかを選べること、および詳細表示の事前確認も、この事前質問の範囲に限って上書きする。区分、補足A、Userが早期決定を希望した場合の確認、`次工程開始前に決定必須` のASKMEは維持する。旧記録の原文は変更しない。
+- Code Generator Version 2.3 §5のうち、起動構成を変更しない部分修正へ起動要件一式と完全性確認を機械的に適用する扱い。完全な実行可能コードを生成する場合の起動・依存関係の確認と、§4 Mandatory Rules は維持する。
+- Reviewer Version 1.2のうち、同じEvidenceを形式的に再レビューし得る扱い。独立性、重大な品質問題の指摘、判定の正確さは維持する。
+
+Non-Changes（非変更範囲）:
+- Education Personaの責務と役割分離、Researcherの用途別Moduleの検索対象と境界、必須安全規則、Evidence条件、User承認、既存Decision原文、既存Approved版の承認履歴。他ファイル。実運用による効果PASSの認定。Commit・Push。
+
+Unverified（未確認・未実施）:
+- 実運用での不要確認の減少。少数回の模擬試験は実施せず、効果判定もしない。Commit・Push。
+
+## D-090 Finalize Education Personas as Version 3 by Explicit User Decision with Verification Outstanding（実動検証未実施を明記した上でEducation PersonaをVersion 3として完成確定）
+
+Date（日付）: 2026-11-09
+Related Documents（関連文書）: personas/education/GEM_RESEARCHER_FULL.md / personas/education/GEM_RESEARCHER_LEARNING_DEVELOPMENT.md / personas/education/GEM_RESEARCHER_DEVELOPMENT.md / personas/education/GEM_SOLUTION_PARTNER.md / personas/education/GEM_CODE_GENERATOR.md / personas/education/GEM_REVIEWER.md / personas/education/SKILLS/RESEARCHER_LEARNING.md / personas/education/SKILLS/RESEARCHER_DEVELOPMENT.md / personas/education/SKILLS/RESEARCHER_CAREER.md / personas/education/SKILLS/SOLUTION_PARTNER.md / personas/education/SKILLS/CODE_GENERATOR.md / personas/education/SKILLS/REVIEWER.md / personas/education/README.md / project-notes/CURRENT.md / project-notes/DECISIONS.md
+
+Decision（決定）:
+- UserはEducation Persona 6件とSKILLS定義6件の全12ファイルを Version 3 に統一し、Draft から Approved へ昇格する完成判断を明示した。少数回の模擬実動検証を完成条件にしない。
+- この Approved は User の完成判断である。実動検証 PASS を認定しない。共通仕様の実動検証ゲートを一般的に廃止・緩和したとは扱わない。今後のPersonaに適用する前例へ拡張しない。
+- D-089の時間効率改善（役割別の不要確認の削減）と、品質・安全性・Evidence・User承認・役割分離は維持する。機能本文の再設計は行わない。
+- Education README は12ファイルの完成状態へ関連記述を合わせる。README自身の Version は 1.2（提案）/ Draft とし、Persona の Version 3 と混同しない。Version 1.0 / Approved の承認履歴は維持する。
+- Commit・PushはUserの別途明示指示がないため行わない。
+
+Rationale（理由）:
+Userが要求する成果物は、D-089の効率改善を維持した Version 3 / Approved の完成版であるため。検証の未達を隠さず、Userの版の完成判断と実動検証の合否を分離して記録するため。
+
+Evidence（根拠）:
+- 2026-11-09のUser実装指示（Education Persona Version 3 完成）。Userは全12ファイルの Version 3 統一と Approved 昇格を確定指示とし、実動検証 PASS の認定ではないと区別した。
+- 開始時の実作業先 `/Users/takashioikawa/Dev/ai-setup-materials`、branch `main`、取得した `origin/main` とローカル HEAD は `cb38737ac5372a0590ab8dd2a8f5a80eff51acdd` で一致。未Commit差分は D-089 の14ファイル。
+
+Supersedes（上書き対象・範囲）:
+- D-089（2026-11-07）の Decision のうち、改訂後の Version と Status を Researcher GEM 3件 1.2 / Draft、Solution Partner GEM 1.7 / Draft、Code Generator GEM 2.4 / Draft、Reviewer GEM 1.3 / Draft、SKILLS 6件 0.2（提案）/ Draft とする部分を、Userの今回の Version 3 / Approved 完成指示の範囲に限って上書きする。D-089の効率改善、安全・Evidence・役割分離、原文は変更しない。
+
+Non-Changes（非変更範囲）:
+- D-089の効率改善本文、既存Decision原文、既存Approved版の承認履歴、検証記録、Document ID、他Persona、ChatGPT Persona Version 3.3。実動検証の実施・PASS認定。Commit・Push。
+
+Unverified（未確認・未実施）:
+- 実運用での不要確認の減少。実動検証とその PASS。Skillsの実登録、自動選択、Deep Research連携。Commit・Push。

@@ -4,10 +4,10 @@
 | Item（項目） | Value（値） |
 |---|---|
 | Document ID（文書ID） | UNRESOLVED |
-| Version（バージョン） | 0.1（提案） |
-| Status（ステータス） | Draft |
+| Version（バージョン） | 3 |
+| Status（ステータス） | Approved |
 | Created Date（作成日） | 2026-10-18 |
-| Last Updated（最終更新日） | 2026-10-18 |
+| Last Updated（最終更新日） | 2026-11-09 |
 | Owner（管理者） | Takashi Oikawa |
 | Related Documents（関連文書） | [`../README.md`](../README.md)<br>[`../GEM_RESEARCHER_FULL.md`](../GEM_RESEARCHER_FULL.md) |
 
@@ -15,7 +15,7 @@
 
 Document ID は UNRESOLVED である。2026-08-22の Document ID 方案は、当時の現行文書へ個別の ID を割り当てる一覧であり、この新規文書の ID を一意に決めない。推測で採番しない。
 
-このファイルは Draft である。共通のResearcher本文と Career Module は [`../GEM_RESEARCHER_FULL.md`](../GEM_RESEARCHER_FULL.md) から継承する。この単一用途では、Active Modules を Career Module のみとし、Learning Module と Development Module の節は除外した。Moduleの検索対象の本文は変更していない。実動検証は未実施であり、Approved ではない。
+このファイルは Version 3 / Approved である。この Approved は User の完成判断であり、実動検証 PASS ではない。共通のResearcher本文と Career Module は [`../GEM_RESEARCHER_FULL.md`](../GEM_RESEARCHER_FULL.md) から継承する。この単一用途では、Active Modules を Career Module のみとし、Learning Module と Development Module の節は除外した。Moduleの検索対象の本文は変更していない。実動検証は未実施である。
 
 <!-- Decision history: ../../../project-notes/RESEARCHER_PERSONA_DECISIONS.md -->
 
@@ -51,6 +51,8 @@ Document ID は UNRESOLVED である。2026-08-22の Document ID 方案は、当
 - 一般論や推測を、確認済み事実と混在させない。
 - 調査結果を根拠に設計そのものを勝手に決定しない。
 - UserやSolution Partnerが判断できる材料を提供することに集中する。
+- 判断に必要な根拠が揃った時点で調査を終了する。既存のEvidenceを再利用し、同じ目的で再検索しない。
+- 追加調査は、重要な根拠不足、矛盾、または判断に影響する情報の更新がある場合に限る。「念のため」を理由に調査を延長しない。一次情報の優先と、確認済み事実と未確認情報の区別は維持する。
 
 ## 4. Mandatory Evidence Rules（Evidence必須ルール）
 

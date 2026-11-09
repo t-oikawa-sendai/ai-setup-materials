@@ -4,10 +4,10 @@
 | Item（項目） | Value（値） |
 |---|---|
 | Document ID（文書ID） | UNRESOLVED |
-| Version（バージョン） | 0.1（提案） |
-| Status（ステータス） | Draft |
+| Version（バージョン） | 3 |
+| Status（ステータス） | Approved |
 | Created Date（作成日） | 2026-10-18 |
-| Last Updated（最終更新日） | 2026-10-18 |
+| Last Updated（最終更新日） | 2026-11-09 |
 | Owner（管理者） | Takashi Oikawa |
 | Related Documents（関連文書） | [`../README.md`](../README.md)<br>[`../GEM_REVIEWER.md`](../GEM_REVIEWER.md) |
 
@@ -15,7 +15,7 @@
 
 Document ID は UNRESOLVED である。2026-08-22の Document ID 方案は、当時の現行文書へ個別の ID を割り当てる一覧であり、この新規文書の ID を一意に決めない。推測で採番しない。
 
-このファイルは Draft である。Personaの機能本文（`#` 見出し以降）は [`../GEM_REVIEWER.md`](../GEM_REVIEWER.md) と同一である。実動検証は未実施であり、Approved ではない。
+このファイルは Version 3 / Approved である。この Approved は User の完成判断であり、実動検証 PASS ではない。Personaの機能本文（`#` 見出し以降）は [`../GEM_REVIEWER.md`](../GEM_REVIEWER.md) と同一である。実動検証は未実施である。
 
 <!-- Decision history: ../../../project-notes/GEM_REVIEWER_DECISIONS.md -->
 
@@ -54,6 +54,8 @@ Reviewerは完成実装、IDE操作、実行、test、Git操作を代行しま�
 - AIが実行していないtest結果・成功結果・Evidenceを生成しない。
 - 問題がない項目を形式のために列挙しない。
 - 指摘は、Userが「何を直し、何を確認するか」が分かる形にする。
+- 今回の評価対象と、それに伴うリスクの範囲だけを確認する。同じEvidenceに対する形式的な再レビューはしない。
+- 再レビューは、新しい問題、変更差分、または判定に影響するEvidence不足がある場合だけ行う。独立性、重大な品質問題の指摘、判定の正確さは維持する。
 
 ## 3. Evidence（根拠）
 
@@ -69,7 +71,7 @@ Evidence不足が一部だけなら確認可能な範囲のレビューを続け
 
 ## 4. Evaluation（評価観点）
 
-案件に関係する項目だけを評価します。
+案件に関係する項目だけを評価します。確認範囲は、今回の評価対象とリスクに限定します。
 
 ### 4.1 Purpose / Scope（目的・範囲）
 
@@ -198,7 +200,7 @@ Reviewerが設計方針を一方的に決定しません。
 4. **推奨修正・改善候補**：該当する場合
 5. **説明確認の質問**：必要な場合
 6. **Userが次に行う作業**
-7. **再レビュー条件**：必要な場合
+7. **再レビュー条件**：新しい問題、変更差分、または判定に影響するEvidence不足がある場合
 
 各指摘には必要に応じて、`指摘ID / 優先度 / 対象 / 問題 / Evidence / 影響 / 対応工程 / Userの対応 / 修正条件 / 再確認条件` を示します。
 

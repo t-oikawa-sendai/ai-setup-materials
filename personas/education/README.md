@@ -4,16 +4,16 @@
 | Item（項目） | Value（値） |
 |---|---|
 | Document ID（文書ID） | STD-PERSONA-EDU-INDEX-001 |
-| Version（バージョン） | 1.1（提案） |
+| Version（バージョン） | 1.2（提案） |
 | Status（ステータス） | Draft |
 | Created Date（作成日） | 2026-08-19 |
-| Last Updated（最終更新日） | 2026-10-18 |
+| Last Updated（最終更新日） | 2026-11-09 |
 | Owner（管理者） | Takashi Oikawa |
 | Related Documents（関連文書） | [`../../README.md`](../../README.md)<br>[`../PERSONA_IDENTIFICATION_AND_SETUP.md`](../PERSONA_IDENTIFICATION_AND_SETUP.md)<br>[`GEM_RESEARCHER_FULL.md`](GEM_RESEARCHER_FULL.md)<br>[`GEM_RESEARCHER_LEARNING_DEVELOPMENT.md`](GEM_RESEARCHER_LEARNING_DEVELOPMENT.md)<br>[`GEM_RESEARCHER_DEVELOPMENT.md`](GEM_RESEARCHER_DEVELOPMENT.md)<br>[`GEM_SOLUTION_PARTNER.md`](GEM_SOLUTION_PARTNER.md)<br>[`GEM_CODE_GENERATOR.md`](GEM_CODE_GENERATOR.md)<br>[`GEM_REVIEWER.md`](GEM_REVIEWER.md)<br>[`SKILLS/RESEARCHER_LEARNING.md`](SKILLS/RESEARCHER_LEARNING.md)<br>[`SKILLS/RESEARCHER_DEVELOPMENT.md`](SKILLS/RESEARCHER_DEVELOPMENT.md)<br>[`SKILLS/RESEARCHER_CAREER.md`](SKILLS/RESEARCHER_CAREER.md)<br>[`SKILLS/SOLUTION_PARTNER.md`](SKILLS/SOLUTION_PARTNER.md)<br>[`SKILLS/CODE_GENERATOR.md`](SKILLS/CODE_GENERATOR.md)<br>[`SKILLS/REVIEWER.md`](SKILLS/REVIEWER.md) |
 
 </details>
 
-前版の承認履歴は Version 1.0 / Status Approved である。この改訂は Version 1.1（提案）/ Status Draft である。Skillsの実登録と実動検証は未実施であり、この Draft の正式な Approved ではない。
+前版の承認履歴は Version 1.0 / Status Approved である。現行は Version 1.2（提案）/ Status Draft である。Version 1.1（提案）/ Draft は D-058 の改訂履歴である。Education Persona 12ファイル（GEM 6件と SKILLS 6件）の現行は Version 3 / Approved である。この Approved は User の完成判断であり、実動検証 PASS ではない。Skillsの実登録と実動検証は未実施である。
 
 ---
 
@@ -54,7 +54,7 @@ Personaの識別と検証の共通仕様は [`../PERSONA_IDENTIFICATION_AND_SETU
 
 これらの4役割は、GeminiのGemやSkillsだけに限定されません。`GEM_` で始まるPersonaファイル名は従来の開発・運用経緯による名称であり、利用可能なAIサービスを制限するものではありません。
 
-従来の4Gem＋1構成と、SKILLSの基本4役割・合計6 Skillsは、基本4役割を利用する方式の違いです。構成の違いだけで評価の独立性が実証されたとは扱いません。6つのSkill定義は Draft であり、実登録と実動検証は未実施です。
+従来の4Gem＋1構成と、SKILLSの基本4役割・合計6 Skillsは、基本4役割を利用する方式の違いです。構成の違いだけで評価の独立性が実証されたとは扱いません。GEM 6件と SKILLS 6件の現行は Version 3 / Approved です。この Approved は User の完成判断であり、実登録と実動検証の PASS ではありません。
 
 ## 2. SKILLS Configuration（基本4役割・合計6 Skills）
 
@@ -95,7 +95,7 @@ Skillsの実登録、自動選択精度の実動検証、Deep Research連携は�
 | [`GEM_CODE_GENERATOR.md`](GEM_CODE_GENERATOR.md) | [`CODE_GENERATOR.md`](SKILLS/CODE_GENERATOR.md) | Persona本文は同一 |
 | [`GEM_REVIEWER.md`](GEM_REVIEWER.md) | [`REVIEWER.md`](SKILLS/REVIEWER.md) | Persona本文は同一 |
 
-6ファイルはいずれも Draft です。Document ID は、2026-08-22の採番一覧から一意に決まらないため UNRESOLVED です。推測で採番していません。
+GEM 6件と SKILLS 6件の現行は Version 3 / Approved です。この Approved は User の完成判断であり、実動検証 PASS ではありません。SKILLS 6ファイルの Document ID は、2026-08-22の採番一覧から一意に決まらないため UNRESOLVED です。推測で採番していません。
 
 ## 3. 4Gem＋1 Configuration（従来の4Gem＋1構成・参考記録）
 
@@ -126,7 +126,7 @@ Skillsの実登録、自動選択精度の実動検証、Deep Research連携は�
 
 ## 4. Selecting a Researcher Edition（GEM側のResearcher完成版・参考記録）
 
-従来のGem構成では、調査範囲の異なる完成版が3つあります。その運用では、`User（生徒）` が調査範囲に応じて、次の完成版から1版を明示選択します。これらのファイルは変更せず保全します。SKILLS側のResearcherは、第2節の3つのSkillです。
+従来のGem構成では、調査範囲の異なる完成版が3つあります。その運用では、`User（生徒）` が調査範囲に応じて、次の完成版から1版を明示選択します。現行の Version と Status は各ファイルの Document Info（Version 3 / Approved）です。SKILLS側のResearcherは、第2節の3つのSkillです。
 
 - [`GEM_RESEARCHER_FULL.md`](GEM_RESEARCHER_FULL.md)：Learning / Career / Development
 - [`GEM_RESEARCHER_LEARNING_DEVELOPMENT.md`](GEM_RESEARCHER_LEARNING_DEVELOPMENT.md)：Learning / Development
@@ -202,4 +202,4 @@ Evidenceのない「確認済み」「完了」「問題なし」という断定
 
 ## 10. Scope（本書の範囲）
 
-本書はPersonaの役割、効果、責務境界、現行の運用方針と、従来構成を説明します。AIサービスの設定方法は扱いません。Gemini Skillsと役割分離の現行運用方針は [`../../project-notes/DECISIONS.md`](../../project-notes/DECISIONS.md) の D-048 に記録します。GEMとSKILLSの構成は同ファイルの D-058 に記録します。旧Gemini設定資料の判断履歴は同ファイルの D-045 に保全します。
+本書はPersonaの役割、効果、責務境界、現行の運用方針と、従来構成を説明します。AIサービスの設定方法は扱いません。Gemini Skillsと役割分離の現行運用方針は [`../../project-notes/DECISIONS.md`](../../project-notes/DECISIONS.md) の D-048 に記録します。GEMとSKILLSの構成は同ファイルの D-058 に記録します。12ファイルの Version 3 / Approved への完成判断は同ファイルの D-090 に記録します。旧Gemini設定資料の判断履歴は同ファイルの D-045 に保全します。
