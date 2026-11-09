@@ -13,6 +13,8 @@ Personaの意義・効果・限界と役割分離を説明する `ai-setup-mater
 
 - D-093：Reference READMEの4.2見出し変更で4.1節の終端を特定できず停止していた生徒配布を、4.1節から次の4.2節直前までの置換へ修正した。見出し文言には依存しない。境界を一意に特定できない場合は停止する。配布対象30パス、削除許可9パス、対象外Personaの除外、秘密情報検査、リンク検査、Status保持は維持する。unittestと検証Workflow `Verify student distribution`（job `distribution-validation`）を追加した。本番の `sync-student-template.yml` は維持する。`main` はUserのCommit・Push承認を維持したままPull Request経由で保存し、このjobのPASS、Force Push禁止、管理者のチェック回避禁止をRulesetとする。Rulesetは未設定。ローカルunittestはPASS。Commit・Push、GitHub上のWorkflow成功、自動配布、生徒配布先の反映、プロフィール通知、失敗するPull Requestの阻止確認は未実施。
 
+- D-093の失敗PR阻止確認（2026-11-09）：直前のD-093文にある「Rulesetは未設定」と「失敗するPull Requestの阻止確認は未実施」は、その文を書いた時点の記録である。D-093の判断は変更していない。Ruleset `26848373`（name `student-distribution-gate`、enforcement `active`、対象 `refs/heads/main`、必須チェック `distribution-validation`、bypass_actors なし、Force Push禁止）を確認した。検証PR [#5](https://github.com/t-oikawa-sendai/ai-setup-materials/pull/5) は `personas/reference/README.md` の `## 4.2` 見出し重複だけを含み、Actions [42612535187](https://github.com/t-oikawa-sendai/ai-setup-materials/actions/runs/42612535187) の job `distribution-validation` は failure だった。失敗内容は `Distribution navigation needs review: personas/reference/README.md`、exit code 1。Pull Request API は `merged: false`、`mergeable: true`、`mergeable_state: blocked`。Mergeは実行していない。PRは `2026-11-09T11:54:33Z` に閉鎖し、`test/distribution-gate-block` は remote と local から削除した。`main` は `72dcfe6606465637f27128012f330df6b90dc598` のままである。この確認では main へ Commit・Pushしていない。本番配布先は変更していない。
+
 - D-092：Userの完成判断により、Versionが0.xのまま残っていたReference完成版5ファイルを Version 3.0 / Approved に統一した。対象は就職支援、S-IECD、Case Study、Handoff、Prompt Template。Status Approved は維持する。Version 3.0以上のPersonaと Reference README 自身の Version 1.8 は変更していない。この変更は実動検証 PASS ではない。D-091の原文は維持する。Commit・Pushは未実施。
 
 - D-091：Userの完成判断により、`personas/reference/` 直下の12ファイルの Status を Approved に統一した。現行 Version 番号は維持し、現行版の「（提案）」だけを外した。Cursor と Gemini は Version 3.0 / Approved のまま。昇格10件は ChatGPT 3.4、Claude 3.1、検証用Persona 3.1、S-IECD 0.3、S-SETUP 3.1、就職支援 0.3、Reference README 1.8、Case Study 0.2、Handoff 0.4、Prompt Template 0.2。この Approved は実動検証 PASS ではない。このうち Version が 0.x だった5件の現行 Version は D-092 で 3.0 である。Commit・Pushは未実施。
@@ -124,7 +126,7 @@ Personaの意義・効果・限界と役割分離を説明する `ai-setup-mater
 
 ## 次工程
 
-- D-093の本番導入は未実施である。残作業は、Commit・Push、検証WorkflowのGitHub上の成功、自動配布、生徒配布先のReference対象6ファイルの反映確認、プロフィール通知、Ruleset有効化、失敗するPull Requestのmain取り込み阻止の確認。本番配布先に不正データを投入しない。
+- D-093の失敗するPull Requestのmain取り込み阻止は確認済みで、Rulesetは有効である。この実証記録のCommit・Pushは未実施である。残作業は、検証WorkflowのGitHub上の成功、自動配布、生徒配布先のReference対象6ファイルの反映確認、プロフィール通知。本番配布先に不正データを投入しない。
 
 - D-087のChatGPT Persona Version 3.3 / ApprovedはUserの明示指示による完成判断でGitHub mainに保存。実動検証・Project適用は未実施であり、PASSとは記録しない。追加検証は今回の指示範囲外。
 
