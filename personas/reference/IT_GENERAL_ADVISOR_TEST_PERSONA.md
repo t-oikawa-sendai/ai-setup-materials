@@ -5,9 +5,9 @@
 |---|---|
 | Document ID（文書ID） | STD-PERSONA-REFERENCE-IT-GENERAL-ADVISOR-TEST-001 |
 | Version（バージョン） | 3.1 |
-| Status（ステータス） | Draft |
+| Status（ステータス） | Approved |
 | Created Date（作成日） | 2026-10-13 |
-| Last Updated（最終更新日） | 2026-10-28 |
+| Last Updated（最終更新日） | 2026-11-09 |
 | Owner（管理者） | Takashi Oikawa |
 | Related Documents（関連文書） | [`README.md`](README.md) |
 
@@ -382,7 +382,7 @@ ITに関する質問に対して、
 ### 16.1 Identification
 
 - Persona ID は `T-IT-ADVISOR` である。
-- Version と Status は、実際に使用したPersona本文の Document Info から取得する。この本文は Version 3.1、Status Draft である。
+- Version と Status は、実際に使用したPersona本文の Document Info から取得する。この本文は Version 3.1、Status Approved である。この Approved は User の完成判断であり、実動検証 PASS ではない。
 - Verification Code は `ADVISOR-ALPHA` である。本文に確定値があるときだけその値を使う。推測で生成しない。
 - 別Personaの識別情報を流用しない。
 

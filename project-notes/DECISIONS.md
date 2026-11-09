@@ -3161,3 +3161,61 @@ Non-Changes（非変更範囲）:
 
 Unverified（未確認・未実施）:
 - 実運用での不要確認の減少。実動検証とその PASS。Skillsの実登録、自動選択、Deep Research連携。Commit・Push。
+
+## D-091 Finalize Reference Directory Documents as Approved by Explicit User Decision（Userの完成判断によりReference直下12ファイルをApprovedに統一する）
+
+Date（日付）: 2026-11-09
+Related Documents（関連文書）: personas/reference/CHATGPT_PERSONA.md / personas/reference/CLAUDE_PERSONA.md / personas/reference/CURSOR_PERSONA.md / personas/reference/GEMINI_PERSONA.md / personas/reference/IT_GENERAL_ADVISOR_TEST_PERSONA.md / personas/reference/IT_EDUCATION_CONTENT_DESIGNER.md / personas/reference/PERSONA_SETUP_ADVISOR.md / personas/reference/EMPLOYMENT_SUPPORT_ADVISOR.md / personas/reference/PERSONA_OPERATION_CASE_STUDY.md / personas/reference/CHAT_HANDOFF_TEMPLATE.md / personas/reference/PERSONA_PROMPT_TEMPLATE.md / personas/reference/README.md / project-notes/CURRENT.md / project-notes/DECISIONS.md
+
+Decision（決定）:
+- Userは `personas/reference/` 直下の全12ファイルを完成させることを指示した。Status を Approved に統一する。現行の Version 番号は変更しない。現行版に付いた「（提案）」表記だけを外す。
+- 既に Approved の Cursor Persona Version 3.0 と Gemini Persona Version 3.0 は維持する。
+- 昇格するのは次の10ファイルである。ChatGPT Version 3.4、Claude Version 3.1、検証用Persona Version 3.1、S-IECD Version 0.3、S-SETUP Version 3.1、就職支援 Version 0.3、Reference README Version 1.8、Case Study Version 0.2、Handoff Version 0.4、Prompt Template Version 0.2。
+- この Approved は User の完成判断である。実動検証 PASS を認定しない。共通仕様の実動検証ゲートを一般的に廃止・緩和したとは扱わない。
+- 役割・機能本文は再設計しない。過去の Draft・Approved の履歴と既存 Decision 原文は変更しない。Persona ID の提案表記と未確定の Document ID・Verification Code は変更しない。
+- Commit・PushはUserの別途明示指示がないため行わない。
+
+Rationale（理由）:
+Userが要求する成果物は、Reference直下の全ファイルを現行 Version のまま Approved で完成させることであるため。検証の未達を隠さず、Userの版の完成判断と実動検証の合否を分離して記録するため。
+
+Evidence（根拠）:
+- 2026-11-09のUser実装指示（Reference全12ファイルの完成状態統一）。前回指示の対象漏れを、直下の全Markdownへ解消する。
+- 開始時の実作業先 `/Users/takashioikawa/Dev/ai-setup-materials`、branch `main`、取得した `origin/main` とローカル HEAD は `e675a66199a1ec4205f514de638b584740e9e224` で一致。未Commit変更はなかった。
+
+Supersedes（上書き対象・範囲）:
+- 対象10ファイルの現行 Status を Draft とする扱い、および現行 Version に付く「（提案）」表記を、Userの今回の完成指示の範囲に限って上書きする。D-076、D-088、その他の既存 Decision 原文は変更しない。Cursor と Gemini の既存 Approved は上書きしない。
+
+Non-Changes（非変更範囲）:
+- 現行 Version 番号、役割・機能本文、Persona ID の提案表記、未確定の Document ID と Verification Code、既存 Decision 原文、過去の承認履歴と検証記録、Cursor Persona、Gemini Persona。実動検証の実施・PASS認定。Commit・Push。
+
+Unverified（未確認・未実施）:
+- 対象10ファイルの実動検証とその PASS。ChatGPT Project 適用。S-SETUP の取得・適用。S-IECD の実動検証。就職支援の実動検証と利用環境への設定。Commit・Push。
+
+## D-092 Unify Remaining Reference 0.x Versions as 3.0（Referenceの残る0.x完成版をVersion 3.0に統一する）
+
+Date（日付）: 2026-11-09
+Related Documents（関連文書）: personas/reference/EMPLOYMENT_SUPPORT_ADVISOR.md / personas/reference/IT_EDUCATION_CONTENT_DESIGNER.md / personas/reference/PERSONA_OPERATION_CASE_STUDY.md / personas/reference/CHAT_HANDOFF_TEMPLATE.md / personas/reference/PERSONA_PROMPT_TEMPLATE.md / personas/reference/README.md / project-notes/CURRENT.md / project-notes/DECISIONS.md
+
+Decision（決定）:
+- Userは、Reference配下の完成版のうち Version が 0.x のまま残っている5ファイルを Version 3.0 / Approved に統一することを指示した。
+- 対象は就職支援アドバイザー、S-IECD、Case Study、Handoff Template、Prompt Template である。Status Approved は維持する。
+- Version 3.0 以上の Persona は変更しない。Reference README 自身の Version 1.8 は維持し、参照先の現行 Version 表記だけを合わせる。
+- この Version 変更は User の完成版の版番号統一である。実動検証 PASS を認定しない。
+- D-091の原文は変更しない。役割・機能本文は再設計しない。過去の Version 履歴は変更しない。
+- Commit・PushはUserの別途明示指示がないため行わない。
+
+Rationale（理由）:
+D-091は Status を Approved に統一し、当時の Version 番号を維持した。Userは、完成版として残った 0.x を Version 3.0 に揃えることを追加で確定したため。
+
+Evidence（根拠）:
+- 2026-11-09のUser実装指示（Reference完成版のVersion是正）。
+- 開始時の実作業先 `/Users/takashioikawa/Dev/ai-setup-materials`、branch `main`、ローカル HEAD と `origin/main` は `e675a66199a1ec4205f514de638b584740e9e224` で一致。未Commit差分は D-091 の12ファイルで、破棄していない。
+
+Supersedes（上書き対象・範囲）:
+- D-091（2026-11-09）の Decision のうち、S-IECD Version 0.3、就職支援 Version 0.3、Case Study Version 0.2、Handoff Version 0.4、Prompt Template Version 0.2 を現行 Version とする部分を、Userの今回の Version 3.0 統一の範囲に限って上書きする。D-091の Status Approved、原文、その他の Version は変更しない。
+
+Non-Changes（非変更範囲）:
+- ChatGPT、Claude、Cursor、Gemini、検証用Persona、S-SETUP、Reference README 自身の Version、役割・機能本文、既存 Decision 原文、過去の承認履歴。実動検証の実施・PASS認定。Commit・Push。
+
+Unverified（未確認・未実施）:
+- 対象5ファイルの実動検証とその PASS。Commit・Push。

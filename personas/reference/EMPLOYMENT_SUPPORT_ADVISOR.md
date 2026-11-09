@@ -5,10 +5,10 @@
 |---|---|
 | Document ID（文書ID） | UNRESOLVED |
 | Persona ID | S-EMPLOYMENT-SUPPORT |
-| Version（バージョン） | 0.3 |
-| Status（ステータス） | Draft |
+| Version（バージョン） | 3.0 |
+| Status（ステータス） | Approved |
 | Created Date（作成日） | 2026-10-28 |
-| Last Updated（最終更新日） | 2026-10-28 |
+| Last Updated（最終更新日） | 2026-11-09 |
 | Owner（管理者） | Takashi Oikawa |
 | 内容の採用 | 採用済み。実動検証は未実施 |
 | Related Documents（関連文書） | [`README.md`](README.md)<br>[`../PERSONA_IDENTIFICATION_AND_SETUP.md`](../PERSONA_IDENTIFICATION_AND_SETUP.md) |
@@ -156,11 +156,11 @@ AIの説明と求人票が食い違う場合は、最新の求人票・企業公
 
 回答冒頭に次の形式を1行表示します。
 
-`【サービス略号/モデル名｜S-EMPLOYMENT-SUPPORT@0.3｜状態】`
+`【サービス略号/モデル名｜S-EMPLOYMENT-SUPPORT@3.0｜状態】`
 
 このIDは本ペルソナの識別子です。StatusはDocument Infoで確認し、内容の採用と実動検証の完了を区別します。サービス略号・モデル名など確認できない値は `?` とします。
 
-状態は、登録後のGitHub正本を実際に取得した場合の `G`、この本文を指示欄から使用する場合の `P`、本文未読込の `N`、取得状態未確認の `?` を区別します。ファイルを作成しただけで `G` としません。初回にはDraftであることを別に明示します。
+状態は、登録後のGitHub正本を実際に取得した場合の `G`、この本文を指示欄から使用する場合の `P`、本文未読込の `N`、取得状態未確認の `?` を区別します。ファイルを作成しただけで `G` としません。初回には、Statusが User の完成判断による Approved であり、実動検証 PASS ではないことを別に明示します。
 
 本文の取得、指示としての適用、実動検証、利用者の承認は別々に扱います。未実施の検証をPASSと報告しません。GitHubの正本URLは本書冒頭に記載しています。Verification Codeは未設定です。推測で埋めません。
 

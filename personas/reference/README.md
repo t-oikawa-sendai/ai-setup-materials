@@ -4,10 +4,10 @@
 | Item（項目） | Value（値） |
 |---|---|
 | Document ID（文書ID） | STD-PERSONA-REFERENCE-INDEX-001 |
-| Version（バージョン） | 1.8（提案） |
-| Status（ステータス） | Draft |
+| Version（バージョン） | 1.8 |
+| Status（ステータス） | Approved |
 | Created Date（作成日） | 2026-08-22 |
-| Last Updated（最終更新日） | 2026-10-28 |
+| Last Updated（最終更新日） | 2026-11-09 |
 | Owner（管理者） | Takashi Oikawa |
 | Related Documents（関連文書） | [`../../README.md`](../../README.md)<br>[`../education/README.md`](../education/README.md)<br>[`CHATGPT_PERSONA.md`](CHATGPT_PERSONA.md)<br>[`CLAUDE_PERSONA.md`](CLAUDE_PERSONA.md)<br>[`IT_EDUCATION_CONTENT_DESIGNER.md`](IT_EDUCATION_CONTENT_DESIGNER.md)<br>[`PERSONA_SETUP_ADVISOR.md`](PERSONA_SETUP_ADVISOR.md)<br>[`CURSOR_PERSONA.md`](CURSOR_PERSONA.md)<br>[`GEMINI_PERSONA.md`](GEMINI_PERSONA.md)<br>[`IT_GENERAL_ADVISOR_TEST_PERSONA.md`](IT_GENERAL_ADVISOR_TEST_PERSONA.md)<br>[`PERSONA_OPERATION_CASE_STUDY.md`](PERSONA_OPERATION_CASE_STUDY.md)<br>[`CHAT_HANDOFF_TEMPLATE.md`](CHAT_HANDOFF_TEMPLATE.md)<br>[`PERSONA_PROMPT_TEMPLATE.md`](PERSONA_PROMPT_TEMPLATE.md)<br>[`../PERSONA_IDENTIFICATION_AND_SETUP.md`](../PERSONA_IDENTIFICATION_AND_SETUP.md) |
 
@@ -54,26 +54,26 @@ Education基本4役割を置き換えるものではありません。従来の4
 - [`CURSOR_PERSONA.md`](CURSOR_PERSONA.md)：Cursor Persona（Cursorペルソナ）
 - [`GEMINI_PERSONA.md`](GEMINI_PERSONA.md)：Gemini Persona（Geminiペルソナ）
 
-この中核4種の本文の唯一の編集元（SSOT）は、上記4ファイルです。`solacom_main` には本文の独立編集元を置かず、これらの正本への参照を保持します。個人パス等の実務固有の環境設定はPersona本文から分離し、利用環境側で保持します。
+この中核4種の現行 Status は Approved である。ChatGPT は Version 3.4、Claude は Version 3.1、Cursor と Gemini は Version 3.0。ChatGPT と Claude の今回の Approved は User の完成判断であり、実動検証 PASS ではない。この中核4種の本文の唯一の編集元（SSOT）は、上記4ファイルです。`solacom_main` には本文の独立編集元を置かず、これらの正本への参照を保持します。個人パス等の実務固有の環境設定はPersona本文から分離し、利用環境側で保持します。
 
 ## 4.1 Verification Persona（検証専用Persona）
 
 中核4種とは別のPersonaです。ChatGPT Projectで、GitHub上のPersonaをURL指定して取得・適用を検証するために使います。中核4種のSSOT定義は変更しません。
 
-現行の Document Info は Version 3.1 / Status Draft です。P方式の正本へ整合する改訂であり、実動検証は未実施です。D-037 の承認と D-038 の版番号統一は、前版Version 3.0 / Status Approved の承認履歴です。D-062 が現行を Version 3.1（提案）/ Status Draft とした記録は、その決定時点の記録です。Version 0.1 / Status Draft は、2026-10-13時点の検証前の状態です。当時の判断は、このファイル末尾の 2026-10-13「検証専用Personaを中核4種と区別して掲載」に原文のまま残します。その判断文は、現行の Version と Status ではありません。前版のApprovedはUserの版の確定であり、本改訂の実動検証完了や適用成功を意味しません。
+現行の Document Info は Version 3.1 / Status Approved です。この Approved は User の完成判断であり、実動検証 PASS ではありません。P方式の正本へ整合する改訂であり、実動検証は未実施です。D-037 の承認と D-038 の版番号統一は、前版Version 3.0 / Status Approved の承認履歴です。D-062 が当時の現行を Version 3.1（提案）/ Status Draft とした記録は、その決定時点の記録です。Version 0.1 / Status Draft は、2026-10-13時点の検証前の状態です。当時の判断は、このファイル末尾の 2026-10-13「検証専用Personaを中核4種と区別して掲載」に原文のまま残します。その判断文は、現行の Version と Status ではありません。前版のApprovedはUserの版の確定であり、本改訂の実動検証完了や適用成功を意味しません。
 
 - [`IT_GENERAL_ADVISOR_TEST_PERSONA.md`](IT_GENERAL_ADVISOR_TEST_PERSONA.md)：IT General Technical Advisor Persona（検証専用）
 
-## 4.2 Draft Personas（提案中のPersona）
+## 4.2 Other Reference Personas（その他のReference Persona）
 
-- [`EMPLOYMENT_SUPPORT_ADVISOR.md`](EMPLOYMENT_SUPPORT_ADVISOR.md)：就職支援アドバイザー（支援者専用、S-EMPLOYMENT-SUPPORT、Version 0.3 / Draft）。講師・就職支援担当者・キャリアコンサルタント向けに、適職の考え方、自己分析、市場調査、AI活用の相談対応を補佐する。内容は採用済み。実動検証は後工程とし、Git管理を先行する。受講生への直接相談モードは設けない。
+- [`EMPLOYMENT_SUPPORT_ADVISOR.md`](EMPLOYMENT_SUPPORT_ADVISOR.md)：就職支援アドバイザー（支援者専用、S-EMPLOYMENT-SUPPORT、Version 3.0 / Approved）。講師・就職支援担当者・キャリアコンサルタント向けに、適職の考え方、自己分析、市場調査、AI活用の相談対応を補佐する。内容は採用済み。この Approved は User の完成判断であり、実動検証 PASS ではない。受講生への直接相談モードは設けない。
 
-- [`IT_EDUCATION_CONTENT_DESIGNER.md`](IT_EDUCATION_CONTENT_DESIGNER.md)：IT Education Content Designer（S-IECD、Version 0.3（提案）/ Draft）。講師の授業設計・説明支援・教材制作を統合した、サービス非依存のPersona。15分程度を基本単位とし、2本セットや前半・後半にも対応する。中核4種、Education基本4役割、検証専用Personaのいずれにも含めない。P方式の本文利用、G方式で選択した場合の本文取得、回答への適用、実動検証は別々に確認する。原案の内容承認を実動検証PASSやApprovedへの昇格とは扱わない。
-- [`PERSONA_SETUP_ADVISOR.md`](PERSONA_SETUP_ADVISOR.md)：Persona Setup Advisor（S-SETUP、Version 3.1（提案）/ Draft）。目的に応じたPersona選定と利用環境への設定を案内する。D-045に対する定義本文のみの例外であり、サービス別設定資料や生成したG取得指示文は保存しない。正本本文をP方式で無改変使用する。GitHub本文の取得、適用、実動検証は別々に確認する。GitHub `main` に未反映の間は、G方式の取得対象にならない。
+- [`IT_EDUCATION_CONTENT_DESIGNER.md`](IT_EDUCATION_CONTENT_DESIGNER.md)：IT Education Content Designer（S-IECD、Version 3.0 / Approved）。講師の授業設計・説明支援・教材制作を統合した、サービス非依存のPersona。15分程度を基本単位とし、2本セットや前半・後半にも対応する。中核4種、Education基本4役割、検証専用Personaのいずれにも含めない。P方式の本文利用、G方式で選択した場合の本文取得、回答への適用、実動検証は別々に確認する。この Approved は User の完成判断であり、実動検証 PASS ではない。
+- [`PERSONA_SETUP_ADVISOR.md`](PERSONA_SETUP_ADVISOR.md)：Persona Setup Advisor（S-SETUP、Version 3.1 / Approved）。目的に応じたPersona選定と利用環境への設定を案内する。D-045に対する定義本文のみの例外であり、サービス別設定資料や生成したG取得指示文は保存しない。正本本文をP方式で無改変使用する。GitHub本文の取得、適用、実動検証は別々に確認する。GitHub `main` に未反映の間は、G方式の取得対象にならない。この Approved は User の完成判断であり、実動検証 PASS ではない。
 
 ## 5. Reference Operation Materials（AI運用参考資料）
 
-O講師が実際に使用・検証しているAI利用環境、設定、情報管理、運用方法を、再現を強制しない実践例として公開します。
+O講師が実際に使用・検証しているAI利用環境、設定、情報管理、運用方法を、再現を強制しない実践例として公開します。次の3文書の現行は Version 3.0 / Approved である。この Approved は User の完成判断であり、実動検証 PASS ではない。
 
 - [`PERSONA_OPERATION_CASE_STUDY.md`](PERSONA_OPERATION_CASE_STUDY.md)：AI利用環境・設定・情報管理・運用方法の実践例
 - [`CHAT_HANDOFF_TEMPLATE.md`](CHAT_HANDOFF_TEMPLATE.md)：チャットやAIを切り替える際の状態移送テンプレート

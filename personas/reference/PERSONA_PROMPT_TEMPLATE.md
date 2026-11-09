@@ -4,10 +4,10 @@
 | Item（項目） | Value（値） |
 |---|---|
 | Document ID（文書ID） | STD-PERSONA-REFERENCE-PROMPT-001 |
-| Version（バージョン） | 0.2 |
-| Status（ステータス） | Draft |
+| Version（バージョン） | 3.0 |
+| Status（ステータス） | Approved |
 | Created Date（作成日） | 2026-09-23 |
-| Last Updated（最終更新日） | 2026-09-23 |
+| Last Updated（最終更新日） | 2026-11-09 |
 | Owner（管理者） | Takashi Oikawa |
 | Related Documents（関連文書） | [`PERSONA_OPERATION_CASE_STUDY.md`](PERSONA_OPERATION_CASE_STUDY.md) |
 
