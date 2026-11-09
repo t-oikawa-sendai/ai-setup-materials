@@ -1,0 +1,31 @@
+# Program Name: validate-student-distribution.yml
+# Language: YAML
+# Function: Run student distribution tests without writing to the production student repository.
+# Created: 2026-11-09
+# Last Updated: 2026-11-09
+# Author: Takashi Oikawa
+# AI: Cursor
+# Memo: D-093. contents read only. No secrets. The production sync workflow stays separate.
+
+name: Verify student distribution
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  distribution-validation:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Run student distribution tests
+        run: python3 -m unittest -v tests/test_student_distribution.py

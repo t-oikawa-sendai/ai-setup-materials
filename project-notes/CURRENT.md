@@ -11,6 +11,8 @@ Personaの意義・効果・限界と役割分離を説明する `ai-setup-mater
 
 ## 現在地点
 
+- D-093：Reference READMEの4.2見出し変更で4.1節の終端を特定できず停止していた生徒配布を、4.1節から次の4.2節直前までの置換へ修正した。見出し文言には依存しない。境界を一意に特定できない場合は停止する。配布対象30パス、削除許可9パス、対象外Personaの除外、秘密情報検査、リンク検査、Status保持は維持する。unittestと検証Workflow `Verify student distribution`（job `distribution-validation`）を追加した。本番の `sync-student-template.yml` は維持する。`main` はUserのCommit・Push承認を維持したままPull Request経由で保存し、このjobのPASS、Force Push禁止、管理者のチェック回避禁止をRulesetとする。Rulesetは未設定。ローカルunittestはPASS。Commit・Push、GitHub上のWorkflow成功、自動配布、生徒配布先の反映、プロフィール通知、失敗するPull Requestの阻止確認は未実施。
+
 - D-092：Userの完成判断により、Versionが0.xのまま残っていたReference完成版5ファイルを Version 3.0 / Approved に統一した。対象は就職支援、S-IECD、Case Study、Handoff、Prompt Template。Status Approved は維持する。Version 3.0以上のPersonaと Reference README 自身の Version 1.8 は変更していない。この変更は実動検証 PASS ではない。D-091の原文は維持する。Commit・Pushは未実施。
 
 - D-091：Userの完成判断により、`personas/reference/` 直下の12ファイルの Status を Approved に統一した。現行 Version 番号は維持し、現行版の「（提案）」だけを外した。Cursor と Gemini は Version 3.0 / Approved のまま。昇格10件は ChatGPT 3.4、Claude 3.1、検証用Persona 3.1、S-IECD 0.3、S-SETUP 3.1、就職支援 0.3、Reference README 1.8、Case Study 0.2、Handoff 0.4、Prompt Template 0.2。この Approved は実動検証 PASS ではない。このうち Version が 0.x だった5件の現行 Version は D-092 で 3.0 である。Commit・Pushは未実施。
@@ -122,6 +124,8 @@ Personaの意義・効果・限界と役割分離を説明する `ai-setup-mater
 
 ## 次工程
 
+- D-093の本番導入は未実施である。残作業は、Commit・Push、検証WorkflowのGitHub上の成功、自動配布、生徒配布先のReference対象6ファイルの反映確認、プロフィール通知、Ruleset有効化、失敗するPull Requestのmain取り込み阻止の確認。本番配布先に不正データを投入しない。
+
 - D-087のChatGPT Persona Version 3.3 / ApprovedはUserの明示指示による完成判断でGitHub mainに保存。実動検証・Project適用は未実施であり、PASSとは記録しない。追加検証は今回の指示範囲外。
 
 - D-081〜D-083の手順書改訂・同期除外・配布先S-SETUPの個別削除は保存先で確認済み。実生徒への招待は講師が今回の合格手順で開始する別作業。
@@ -160,7 +164,7 @@ Reviewerを含むPersonaの機能設計は Evidence なしに再検討しない�
 Version と Status は各ファイルの Document Info を見る。
 
 - 作業規則：`AGENTS.md`
-- 生徒向け配布同期：`.github/workflows/sync-student-template.yml` と `scripts/sync_student_template.py`。現行の範囲はAGENTS.md §1.2とD-082を参照する。D-069の旧30パス・D-071の旧31パスの実測は過去の記録である。旧 `distribution/student/` は現行の配布元に使用しない。
+- 生徒向け配布同期：`.github/workflows/sync-student-template.yml` と `scripts/sync_student_template.py`。配布前検証は `.github/workflows/validate-student-distribution.yml`。現行の範囲はAGENTS.md §1.2とD-082、境界復旧はD-093を参照する。D-069の旧30パス・D-071の旧31パスの実測は過去の記録である。旧 `distribution/student/` は現行の配布元に使用しない。
 - プロフィール履歴通知の採用済み設計：`docs/distribution/PROFILE_HISTORY_AUTOMATION.md` とD-072。GitHub main反映済みで、変更なし同期の通知導通は確認済み。新しい配布日の自動更新は未検証。
 - GitHub教材配布手順書：`docs/distribution/INSTRUCTOR_PRIVATE_ORG_TEMPLATE_GUIDE.md` と `docs/distribution/STUDENT_PRIVATE_ORG_TEMPLATE_GUIDE.md`（D-071。生徒用だけが同期対象）。
 - Persona識別と検証：`personas/PERSONA_IDENTIFICATION_AND_SETUP.md`（旧ファイル名を維持）

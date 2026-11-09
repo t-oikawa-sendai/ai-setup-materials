@@ -31,6 +31,8 @@
 
 - 教材正本は講師管理のGitHub `main` とする。生徒の個人Repositoryは配布コピーの取得先である。
 - 配布は `.github/workflows/sync-student-template.yml` と `scripts/sync_student_template.py` で行う。
+- 配布前の検証は `.github/workflows/validate-student-distribution.yml` の job `distribution-validation` で行う。この検証は本番配布先へ書き込まず、Secretsを使わない。
+- `personas/reference/README.md` の4.1節は、次の4.2節の直前まで配布用に置換する。4.2節の見出し文言には依存しない。4.1または4.2の位置を一意に特定できない場合は同期を停止する。
 - 追加・上書きはD-071の31パスからD-082でS-SETUPを除いた計30パスに限定する。削除はD-067の旧9パスだけとする。
 - 同期対象のうち、旧9パス以外の選択教材または生徒用手順書が正本から消えた場合は同期を停止する。具体的なパスは同期スクリプトの対応表を参照する。
 - 配布先向けの案内・取得先調整は、次の5文書に限定する。
@@ -263,6 +265,7 @@ AIは、決定の取りこぼし、新旧の取り違え、誤統合、推論の
 - 対象は指示された変更と必要な判断・現在地点の記録に限る。未承認変更・対象外変更を含めない。
 - 必須検証・停止条件・破壊的操作の禁止・Userの承認権限を維持する。
 - 作業終了、別端末やAIへの引継ぎ、復旧用チェックポイント、決定の本文反映だけをGit操作の指示と扱わない。未実施の操作は報告する。
+- `main` への保存は、UserのCommit・Push承認を維持したうえで、直接PushではなくPull Request経由で行う。job `distribution-validation` の成功を必須とする。Force Pushは禁止する。管理者による通常のチェック回避は許可しない。
 
 ## 7. 作業終了時
 

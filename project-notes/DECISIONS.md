@@ -3219,3 +3219,35 @@ Non-Changes（非変更範囲）:
 
 Unverified（未確認・未実施）:
 - 対象5ファイルの実動検証とその PASS。Commit・Push。
+
+## D-093 Restore Student Distribution Boundaries and Block Recurrence Before GitHub Save（生徒配布の境界を復旧しGitHub保存前に再発を阻止する）
+
+Date（日付）: 2026-11-09
+Related Documents（関連文書）: AGENTS.md / scripts/sync_student_template.py / tests/test_student_distribution.py / .github/workflows/validate-student-distribution.yml / .github/workflows/sync-student-template.yml / personas/reference/README.md（配布コピーのみ） / project-notes/CURRENT.md / project-notes/DECISIONS.md / Repository全体
+
+Decision（決定）:
+- Reference READMEの4.1節は、次の4.2節の直前まで配布用に置換する。4.2節の見出し文言には依存しない。4.1または4.2の位置を一意に特定できない場合はエラーで停止し、配布先を変更しない。
+- 配布対象30パス、削除許可9パス、対象外Personaの除外、秘密情報検査、リンク検査、正本Statusの保持は変更しない。
+- 検証はPython標準ライブラリのunittestだけを使う。新しい外部ライブラリは導入しない。配布先への変更は一時的なテスト用Repositoryに限定する。
+- 検証Workflow名は `Verify student distribution`、job IDは `distribution-validation` とする。起動は `pull_request` と `main` への `push`、権限は `contents: read` とする。Secretsは使わない。本番配布先へ書き込まない。
+- 既存の `sync-student-template.yml` による本番配布は維持する。
+- `main` への保存は、UserのCommit・Push承認を維持したうえで、直接PushではなくPull Request経由で行う。`distribution-validation` のPASSを必須とし、Force Pushを禁止する。管理者による通常のチェック回避は許可しない。
+- この決定のローカル反映では、Commit・Push、Rulesetの有効化、失敗するPull Requestの取り込み阻止確認、本番配布の再実行は行わない。
+
+Rationale（理由）:
+Reference READMEの4.2見出しが「Draft Personas（提案中のPersona）」から変わったため、配布変換が4.1節の終端を特定できず生徒配布が停止した。終端を見出し文言から切り離し、同じ不整合をGitHubへの保存前に検証で止める。
+
+Evidence（根拠）:
+- 2026-11-09のUser実装指示（自動配布の復旧と再発防止、D-093）。
+- 開始時の対象Repositoryは `t-oikawa-sendai/ai-setup-materials`、実作業先は `/Users/takashioikawa/Dev/ai-setup-materials`、branchは `main`。ローカルHEADと取得した `origin/main` は `85673f6c139033a9ab90135a6bf01d743306508c` で一致し、未Commit変更はなかった。
+- 現行 `personas/reference/README.md` の4.2見出しは `## 4.2 Other Reference Personas（その他のReference Persona）` である。変更前の配布スクリプトは終端を `## 4.2 Draft Personas（提案中のPersona）` としていた。
+
+Supersedes（上書き対象・範囲）:
+- `scripts/sync_student_template.py` の、Reference README 4.1節の終端を `## 4.2 Draft Personas（提案中のPersona）` の見出し文言で特定する部分だけ。30パス、9パス、対象外除外、秘密情報検査、リンク検査、Status保持は維持する。
+- D-060（2026-10-18）および当時のAGENTS.md §6のうち、承認済み変更の `main` への保存を直接Pushで行う部分だけ。UserのCommit・Push承認、Push指示がないときのPush禁止、修正承認をCommit・Push承認へ読み替えないことは維持する。D-060の原文は変更しない。
+
+Non-Changes（非変更範囲）:
+- 配布対象30パス、削除許可9パス、対象外Personaの除外、秘密情報検査、リンク検査、Status保持。Persona本文、Version、Status。`sync-student-template.yml` の本番配布処理。本番配布先への書込み。Commit・Push。Rulesetの即時有効化。
+
+Unverified（未確認・未実施）:
+- Commit・Push。GitHub上の検証Workflowの実行成功。自動配布。生徒配布先のReference対象6ファイルの反映。プロフィール通知。Rulesetの有効化。失敗するPull Requestのmainへの取り込み阻止。

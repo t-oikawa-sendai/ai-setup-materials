@@ -1,4 +1,13 @@
 #!/usr/bin/env python3
+# Program Name: sync_student_template.py
+# Language: Python
+# Function: Sync the thirty selected student-template paths. Replace Reference README section 4.1 through the line before section 4.2.
+# Created: 2026-10-22
+# Last Updated: 2026-11-09
+# Author: Takashi Oikawa
+# AI: Cursor
+# Memo: D-093. The section 4.2 heading text is not a boundary. Stop when either heading is missing or duplicated.
+
 """Sync the thirty selected student-template paths without touching other paths."""
 
 from __future__ import annotations
@@ -118,6 +127,12 @@ EXCLUDED_LINKS = {
 }
 
 WEB_URL = re.compile(r"https?://[^\s<>\[\]()\"']+", re.IGNORECASE)
+REFERENCE_SECTION_41 = re.compile(r"(?m)^## 4\.1(?:[ \t]+[^\r\n]*)?[ \t]*\r?$")
+REFERENCE_SECTION_42 = re.compile(r"(?m)^## 4\.2(?:[ \t]+[^\r\n]*)?[ \t]*\r?$")
+REFERENCE_SECTION_41_REPLACEMENT = (
+    "## 4.1 Verification Persona（検証専用Persona）\n\n"
+    "検証専用Personaは、この配布には収録していません。中核4種のSSOT定義は変更しません。\n\n"
+)
 
 DOCUMENT_INFO = re.compile(
     r"\A(?:\ufeff)?<details>\r?\n"
@@ -236,6 +251,19 @@ def unlink_selected_exclusions(name: str, text: str) -> str:
     return re.sub(r"\[(?P<label>[^\]\n]+)\]\((?P<target>[^)\n]+)\)", replace_link, text)
 
 
+def replace_reference_verification_section(text: str) -> str:
+    """Replace section 4.1 through the character before the following section 4.2.
+
+    The descriptive wording of the 4.2 heading is not part of the boundary.
+    Missing, duplicated, or out-of-order headings stop the sync.
+    """
+    starts = list(REFERENCE_SECTION_41.finditer(text))
+    ends = list(REFERENCE_SECTION_42.finditer(text))
+    if len(starts) != 1 or len(ends) != 1 or ends[0].start() <= starts[0].end():
+        raise ValueError("Distribution navigation needs review: personas/reference/README.md")
+    return text[:starts[0].start()] + REFERENCE_SECTION_41_REPLACEMENT + text[ends[0].start():]
+
+
 def distribution_copy(name: str, content: bytes) -> bytes:
     """Adapt five selected documents while keeping their source status."""
     if name not in EXCLUDED_LINKS:
@@ -285,16 +313,7 @@ def distribution_copy(name: str, content: bytes) -> bytes:
             raise ValueError("Distribution structure needs review: README.md")
 
     elif name == "personas/reference/README.md":
-        section = re.compile(
-            r"## 4\.1 Verification Persona（検証専用Persona）\n\n.*?(?=## 4\.2 Draft Personas（提案中のPersona）)",
-            re.DOTALL,
-        )
-        text, replacements = section.subn(
-            "## 4.1 Verification Persona（検証専用Persona）\n\n検証専用Personaは、この配布には収録していません。中核4種のSSOT定義は変更しません。\n\n",
-            text, count=1,
-        )
-        if replacements != 1:
-            raise ValueError("Distribution navigation needs review: personas/reference/README.md")
+        text = replace_reference_verification_section(text)
         text = re.sub(
             r"(?m)^- \[`IT_EDUCATION_CONTENT_DESIGNER\.md`\]\(IT_EDUCATION_CONTENT_DESIGNER\.md\)：[^\n]*\n",
             "", text,
