@@ -102,6 +102,7 @@ Researcher 3ファイルの現行見出しは、いずれも Researcher Persona 
 | Claude | CL |
 | Cursor | CU |
 | M365 Copilot | MC |
+| Muse | MU |
 
 M365 Copilotは、現段階で専用Personaを追加しない。サービス略号だけを定義する。
 
