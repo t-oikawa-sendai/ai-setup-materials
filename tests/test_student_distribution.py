@@ -3,10 +3,10 @@
 # Language: Python
 # Function: Check student-template distribution boundaries in a temporary repository.
 # Created: 2026-11-09
-# Last Updated: 2026-11-09
+# Last Updated: 2026-11-17
 # Author: Takashi Oikawa
 # AI: Cursor
-# Memo: D-093. Standard-library unittest only. Do not write to the production student repository.
+# Memo: D-094. Confirm S-EXAM links and instructor-only guidance are absent after distribution. Standard-library unittest only.
 
 """Tests for the thirty-path student distribution."""
 
@@ -34,6 +34,7 @@ EXCLUDED_LINKS = (
     "IT_GENERAL_ADVISOR_TEST_PERSONA.md",
     "IT_EDUCATION_CONTENT_DESIGNER.md",
     "EMPLOYMENT_SUPPORT_ADVISOR.md",
+    "EXAM_LEARNING_PARTNER.md",
 )
 EXPECTED_PATHS = frozenset({
     "README.md",
@@ -276,6 +277,10 @@ class StudentDistributionTest(unittest.TestCase):
                 self.assertFalse(distributed_path.exists(), name)
         self.assertIn("検証専用Personaは、この配布には収録していません。", distributed)
         self.assertIn("## 4.2 Other Reference Personas（その他のReference Persona）", distributed)
+        source_readme = (ROOT / REFERENCE_README).read_text(encoding="utf-8")
+        for text in ("EXAM_LEARNING_PARTNER.md", "S-EXAM", "Exam Learning Partner", "生徒への直接利用・配布は対象外"):
+            self.assertIn(text, source_readme)
+            self.assertNotIn(text, distributed)
 
     def test_source_status_is_preserved(self) -> None:
         for source_name, destination_name in SYNC.MANAGED:

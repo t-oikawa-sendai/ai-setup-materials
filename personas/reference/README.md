@@ -7,9 +7,9 @@
 | Version（バージョン） | 1.8 |
 | Status（ステータス） | Approved |
 | Created Date（作成日） | 2026-08-22 |
-| Last Updated（最終更新日） | 2026-11-09 |
+| Last Updated（最終更新日） | 2026-11-17 |
 | Owner（管理者） | Takashi Oikawa |
-| Related Documents（関連文書） | [`../../README.md`](../../README.md)<br>[`../education/README.md`](../education/README.md)<br>[`CHATGPT_PERSONA.md`](CHATGPT_PERSONA.md)<br>[`CLAUDE_PERSONA.md`](CLAUDE_PERSONA.md)<br>[`IT_EDUCATION_CONTENT_DESIGNER.md`](IT_EDUCATION_CONTENT_DESIGNER.md)<br>[`PERSONA_SETUP_ADVISOR.md`](PERSONA_SETUP_ADVISOR.md)<br>[`CURSOR_PERSONA.md`](CURSOR_PERSONA.md)<br>[`GEMINI_PERSONA.md`](GEMINI_PERSONA.md)<br>[`IT_GENERAL_ADVISOR_TEST_PERSONA.md`](IT_GENERAL_ADVISOR_TEST_PERSONA.md)<br>[`PERSONA_OPERATION_CASE_STUDY.md`](PERSONA_OPERATION_CASE_STUDY.md)<br>[`CHAT_HANDOFF_TEMPLATE.md`](CHAT_HANDOFF_TEMPLATE.md)<br>[`PERSONA_PROMPT_TEMPLATE.md`](PERSONA_PROMPT_TEMPLATE.md)<br>[`../PERSONA_IDENTIFICATION_AND_SETUP.md`](../PERSONA_IDENTIFICATION_AND_SETUP.md) |
+| Related Documents（関連文書） | [`../../README.md`](../../README.md)<br>[`../education/README.md`](../education/README.md)<br>[`CHATGPT_PERSONA.md`](CHATGPT_PERSONA.md)<br>[`CLAUDE_PERSONA.md`](CLAUDE_PERSONA.md)<br>[`IT_EDUCATION_CONTENT_DESIGNER.md`](IT_EDUCATION_CONTENT_DESIGNER.md)<br>[`EXAM_LEARNING_PARTNER.md`](EXAM_LEARNING_PARTNER.md)<br>[`PERSONA_SETUP_ADVISOR.md`](PERSONA_SETUP_ADVISOR.md)<br>[`CURSOR_PERSONA.md`](CURSOR_PERSONA.md)<br>[`GEMINI_PERSONA.md`](GEMINI_PERSONA.md)<br>[`IT_GENERAL_ADVISOR_TEST_PERSONA.md`](IT_GENERAL_ADVISOR_TEST_PERSONA.md)<br>[`PERSONA_OPERATION_CASE_STUDY.md`](PERSONA_OPERATION_CASE_STUDY.md)<br>[`CHAT_HANDOFF_TEMPLATE.md`](CHAT_HANDOFF_TEMPLATE.md)<br>[`PERSONA_PROMPT_TEMPLATE.md`](PERSONA_PROMPT_TEMPLATE.md)<br>[`../PERSONA_IDENTIFICATION_AND_SETUP.md`](../PERSONA_IDENTIFICATION_AND_SETUP.md) |
 
 </details>
 
@@ -70,6 +70,7 @@ Education基本4役割を置き換えるものではありません。従来の4
 
 - [`IT_EDUCATION_CONTENT_DESIGNER.md`](IT_EDUCATION_CONTENT_DESIGNER.md)：IT Education Content Designer（S-IECD、Version 3.0 / Approved）。講師の授業設計・説明支援・教材制作を統合した、サービス非依存のPersona。15分程度を基本単位とし、2本セットや前半・後半にも対応する。中核4種、Education基本4役割、検証専用Personaのいずれにも含めない。P方式の本文利用、G方式で選択した場合の本文取得、回答への適用、実動検証は別々に確認する。この Approved は User の完成判断であり、実動検証 PASS ではない。
 - [`PERSONA_SETUP_ADVISOR.md`](PERSONA_SETUP_ADVISOR.md)：Persona Setup Advisor（S-SETUP、Version 3.1 / Approved）。目的に応じたPersona選定と利用環境への設定を案内する。D-045に対する定義本文のみの例外であり、サービス別設定資料や生成したG取得指示文は保存しない。正本本文をP方式で無改変使用する。GitHub本文の取得、適用、実動検証は別々に確認する。GitHub `main` に未反映の間は、G方式の取得対象にならない。この Approved は User の完成判断であり、実動検証 PASS ではない。
+- [`EXAM_LEARNING_PARTNER.md`](EXAM_LEARNING_PARTNER.md)：Exam Learning Partner（S-EXAM、Version 3.0 / Approved）。講師本人が資格試験・検定試験の仕組みや出題範囲を利用し、資格取得・専門性の向上・体系的知識習得を学ぶための支援。生徒への直接利用・配布は対象外。中核4種、Education基本4役割、検証専用Personaのいずれにも含めない。P方式の本文正本。この Approved は User の完成判断であり、実動検証 PASS ではない。
 
 ## 5. Reference Operation Materials（AI運用参考資料）
 

@@ -3,10 +3,10 @@
 # Language: Python
 # Function: Sync the thirty selected student-template paths. Replace Reference README section 4.1 through the line before section 4.2.
 # Created: 2026-10-22
-# Last Updated: 2026-11-09
+# Last Updated: 2026-11-17
 # Author: Takashi Oikawa
 # AI: Cursor
-# Memo: D-093. The section 4.2 heading text is not a boundary. Stop when either heading is missing or duplicated.
+# Memo: D-094. Remove the instructor-only S-EXAM link and guidance from the student Reference README. D-093 section boundary is unchanged.
 
 """Sync the thirty selected student-template paths without touching other paths."""
 
@@ -121,6 +121,7 @@ EXCLUDED_LINKS = {
     "personas/education/README.md": frozenset({"project-notes/DECISIONS.md"}),
     "personas/reference/README.md": frozenset({
         "personas/reference/EMPLOYMENT_SUPPORT_ADVISOR.md",
+        "personas/reference/EXAM_LEARNING_PARTNER.md",
         "personas/reference/IT_EDUCATION_CONTENT_DESIGNER.md",
         "personas/reference/IT_GENERAL_ADVISOR_TEST_PERSONA.md",
     }),
@@ -328,6 +329,16 @@ def distribution_copy(name: str, content: bytes) -> bytes:
         )
         if replacements != 1:
             raise ValueError("Distribution setup navigation needs review: personas/reference/README.md")
+        exam_link = "<br>[`EXAM_LEARNING_PARTNER.md`](EXAM_LEARNING_PARTNER.md)"
+        if text.count(exam_link) != 1:
+            raise ValueError("Distribution exam metadata needs review: personas/reference/README.md")
+        text = text.replace(exam_link, "", 1)
+        text, replacements = re.subn(
+            r"(?m)^- \[`EXAM_LEARNING_PARTNER\.md`\]\(EXAM_LEARNING_PARTNER\.md\)：[^\n]*\n",
+            "", text,
+        )
+        if replacements != 1:
+            raise ValueError("Distribution exam navigation needs review: personas/reference/README.md")
 
     text = unlink_selected_exclusions(name, text)
     rendered = text.encode("utf-8")

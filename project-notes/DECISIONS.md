@@ -3251,3 +3251,36 @@ Non-Changes（非変更範囲）:
 
 Unverified（未確認・未実施）:
 - Commit・Push。GitHub上の検証Workflowの実行成功。自動配布。生徒配布先のReference対象6ファイルの反映。プロフィール通知。Rulesetの有効化。失敗するPull Requestのmainへの取り込み阻止。
+
+## D-094 Register Exam Learning Partner S-EXAM Version 3.0 as an Instructor-only Persona（Exam Learning Partner S-EXAM Version 3.0を講師本人専用Personaとして登録する）
+
+Date（日付）: 2026-11-17
+Related Documents（関連文書）: personas/reference/EXAM_LEARNING_PARTNER.md / personas/reference/README.md / scripts/sync_student_template.py / tests/test_student_distribution.py / project-notes/CURRENT.md / project-notes/DECISIONS.md
+
+Decision（決定）:
+- Exam Learning Partner を新規Personaとして登録する。Persona ID は `S-EXAM`、Version は 3.0、Status は Approved とする。正本は `personas/reference/EXAM_LEARNING_PARTNER.md`。
+- 分類は S-（機能限定版）。中核4種にもEducation基本4役割にも加えない。配置は `personas/reference/` とする。
+- 対象は講師本人。目的は、資格試験・検定試験を利用した資格取得、専門性の向上、体系的知識習得の支援である。生徒への直接利用・配布は対象外とする。
+- 本文は、Userが添付した最新版を基準とする。変更は Document Info の Persona ID と Version から「（提案）」を外し、Status を Draft から Approved にすることだけとする。本文は再設計しない。Document ID は UNRESOLVED のままとする。Verification Code は本文に確定値がないため未確定のままとする。
+- この Approved は、2026-11-17のUserによる完成承認である。UserがレビュアーのOKを報告した事実は記録する。独立レビューの原本Evidenceは未取得であり、確認済みとは記録しない。実動検証は未実施であり、PASSとは記録しない。共通仕様第16章の実動検証規則は維持し、一般的に緩和しない。
+- Reference README の Version 1.8 / Approved は維持する。4.2節へ S-EXAM の名称、ID、Version 3.0 / Approved、責務、講師本人専用であることを追記し、Document Info の関連リンクへ正本を加える。4.1節と4.2節の見出し・順序・一意性、および既存Personaの記載は変更しない。
+- 生徒配布の追加・上書きは30パス、削除許可は9パスのままとする。S-EXAM本文は配布対象に加えない。Reference README の配布変換では、S-EXAMの関連リンクと4.2節の案内行を除く。リンクを外した説明だけを残さない。既存のS-SETUP・S-IECD除外、秘密情報検査、リンク検査、Status保持、検証Workflow、本番配布Workflowは維持する。本番の生徒配布先へ手動で書き込まない。
+- GitHub `main` への保存は、Userの今回の登録指示に基づき、Pull Request経由で行う。
+
+Rationale（理由）:
+Userは、レビュアーのOKと完成承認を得たS-EXAMをGitHub `main` の正本として登録し、生徒へ配布しないことを確定した。完成承認と実動検証PASSを分けて残すため。
+
+Evidence（根拠）:
+- 2026-11-17のUser作業指示（S-EXAM完成版のGitHub登録）。入力本文はUser添付の `EXAM_LEARNING_PARTNER.md`。
+- 開始時の対象Repositoryは `t-oikawa-sendai/ai-setup-materials`、実作業先は `/Users/takashioikawa/Dev/ai-setup-materials`、branchは `main`。`git fetch` 後のローカルHEADと `origin/main` は `09fdb6a40d20ad8420abcc87358320a696286504` で一致し、未Commit変更はなかった。
+- 添付本文との差分は、Document Info の Persona ID、Version、Status の3行だけである。全文は 5,253 Unicode文字。7,500文字は設計目標であり、超過ではない。
+- ローカルの `python3 -m unittest -v tests/test_student_distribution.py` は 7件 OK。配布変換後のReference READMEに `EXAM_LEARNING_PARTNER.md`、`S-EXAM`、`Exam Learning Partner`、講師専用の案内文は残らなかった。
+
+Supersedes（上書き対象・範囲）:
+- 既存Decisionの原文は変更しない。D-008の確定11 Persona IDへ `S-EXAM` を追加しない。共通仕様第16章の実動検証を、このUser完成判断でPASSへ読み替えない。
+
+Non-Changes（非変更範囲）:
+- 既存Personaの本文、Version、Status。Reference README の Version 1.8 と既存Personaの記載。4.1節・4.2節の見出し。配布対象30パス、削除許可9パス。`AGENTS.md`。`personas/PERSONA_IDENTIFICATION_AND_SETUP.md`。`sync-student-template.yml`。本番配布先への手動書込み。Document ID の付番。Verification Code の設定。実動検証の実施・PASS認定。独立レビュー原本の取得。
+
+Unverified（未確認・未実施）:
+- 独立レビューの原本Evidence。実動検証（NOT RUN）とそのPASS。利用環境への適用。この決定を書いた時点のCommit・Push・Pull Request・`distribution-validation`・通常Merge・GitHub `main` 反映・自動配布・生徒配布先の反映。
