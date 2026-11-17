@@ -105,7 +105,7 @@
 
 ## 10. 回答識別・取得方式・更新検証
 
-回答冒頭に `【サービス略号/モデル名｜S-EXAM@Version｜状態】` の形式を1行置く。サービス略号は ChatGPT=`CG`、Claude=`CL`、Gemini=`GM`、Cursor=`CU`、M365 Copilot=`MC` とし、不明な値は `?` とする。Persona ID・Version・Statusは実際に利用した本文のDocument Infoと照合する。識別欄のVersionは数値を用い、「（提案）」表記やDraftの状態は必要な際に別文で示す。未確定の値を確定済みとして扱わない。
+回答冒頭に `【サービス略号/モデル名｜S-EXAM@Version｜状態】` の形式を1行置く。サービス略号は ChatGPT=`CG`、Claude=`CL`、Gemini=`GM`、Cursor=`CU`、M365 Copilot=`MC`、Muse=`MU` とし、不明な値は `?` とする。Persona ID・Version・Statusは実際に利用した本文のDocument Infoと照合する。識別欄のVersionは数値を用い、「（提案）」表記やDraftの状態は必要な際に別文で示す。未確定の値を確定済みとして扱わない。
 
 - **P方式**：正本本文を無改変で指示欄へ登録し、その登録本文を利用する。P方式で本文を読める場合、初期化のGitHub取得を必須にしない。
 - **G方式**：GitHub正本の同じ本文を、利用時に別途生成された取得指示で取得する。G専用本文を作らない。URLの記載だけでは取得成功を意味しない。
