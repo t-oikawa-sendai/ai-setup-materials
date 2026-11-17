@@ -1,6 +1,6 @@
 # CURRENT
 
-Last Updated: 2026-11-09
+Last Updated: 2026-11-17
 Status: CURRENT
 
 ## PURPOSE
@@ -10,6 +10,8 @@ Personaの意義・効果・限界と役割分離を説明する `ai-setup-mater
 本ファイルは現在地点だけを記す。Version と Status の正本は各ファイルの Document Info である。詳細仕様・判断理由は、対象成果物、`project-notes/DECISIONS.md`、既存の判断履歴、検証Evidenceを参照する。
 
 ## 現在地点
+
+- D-094：Exam Learning Partner（S-EXAM）を Version 3.0 / Approved として `personas/reference/EXAM_LEARNING_PARTNER.md` に登録する。対象は講師本人。生徒への直接利用・配布は対象外。中核4種とEducation基本4役割には加えない。Document ID は UNRESOLVED。Verification Code は未確定。全文は 5,253 Unicode文字で、7,500文字は設計目標の範囲内。Userは2026-11-17にレビュアーのOKと完成承認を報告した。レビューOKはUserからの報告であり、独立レビューの原本Evidenceは未取得。この Approved は User の完成判断であり、実動検証 PASS ではない。実動検証は未実施（NOT RUN）。共通仕様第16章の実動検証規則は維持する。生徒配布は30パス・削除許可9パスを維持し、S-EXAM本文は配布対象に含めない。配布変換後のReference READMEからS-EXAMのリンクと講師専用の案内を除く。ローカルunittestはPASS。GitHub `main` への保存はPull Request経由とし、`distribution-validation` のPASS後に通常Mergeする。反映成否、自動配布、生徒配布先はMerge後に確認する。この文の時点ではCommit・Push・Mergeは未実施。
 
 - D-093：Reference READMEの4.2見出し変更で4.1節の終端を特定できず停止していた生徒配布を、4.1節から次の4.2節直前までの置換へ修正した。見出し文言には依存しない。境界を一意に特定できない場合は停止する。配布対象30パス、削除許可9パス、対象外Personaの除外、秘密情報検査、リンク検査、Status保持は維持する。unittestと検証Workflow `Verify student distribution`（job `distribution-validation`）を追加した。本番の `sync-student-template.yml` は維持する。`main` はUserのCommit・Push承認を維持したままPull Request経由で保存し、このjobのPASS、Force Push禁止、管理者のチェック回避禁止をRulesetとする。Rulesetは未設定。ローカルunittestはPASS。Commit・Push、GitHub上のWorkflow成功、自動配布、生徒配布先の反映、プロフィール通知、失敗するPull Requestの阻止確認は未実施。
 
@@ -159,6 +161,8 @@ Personaの意義・効果・限界と役割分離を説明する `ai-setup-mater
 
 21. S-IECDはD-076のP方式正本を使用する。現行は Version 3.0 / Approved（D-092）である。G方式を選ぶ場合のみ、AIが同じ本文を取得する指示をその都度生成する。取得、適用、共通仕様第16章に従うPersona Verificationを別々に確認する。この Approved は User の完成判断であり、実動検証 PASS ではない。Mac実機の既存Repositoryの同期確認も未完了として扱う。
 
+22. S-EXAMの実動検証は未実施（NOT RUN）である。D-094の Approved は User の完成判断であり、この未実施を PASS にしない。独立レビューの原本Evidenceは未取得であり、User報告のレビューOK以上は記録しない。生徒配布対象には加えない。
+
 Reviewerを含むPersonaの機能設計は Evidence なしに再検討しない。完了済みの文書適合性復旧を、Evidence なしに再作業対象へ戻さない。`ASKME 迎合禁止` と7文書配置を未決事項へ戻さない。Education用の基本体系は4役割、SKILLSは合計6つである。従来の4Gem＋1と `Researcher Deep Research` は参考記録として維持する。ResearcherのSKILLSは Learning、Development、Career の3つである。
 
 ## 正本の所在
@@ -186,6 +190,7 @@ Version と Status は各ファイルの Document Info を見る。
 - Claude Persona の識別・取得・更新検証：`personas/reference/CLAUDE_PERSONA.md` 第15章。品質検証の独立工程は `personas/PERSONA_IDENTIFICATION_AND_SETUP.md` 第16章。G方式の未了は次工程。
 - Reference入口：`personas/reference/README.md`
 - 講師向けS-IECD：`personas/reference/IT_EDUCATION_CONTENT_DESIGNER.md`（Version 3.0 / Approved、D-092。P方式の本文正本。G取得指示は都度別生成。品質・実動検証は共通仕様第16章。この Approved は実動検証 PASS ではない）
+- 講師本人専用S-EXAM：`personas/reference/EXAM_LEARNING_PARTNER.md`（Version 3.0 / Approved、D-094。P方式の本文正本。生徒配布対象外。Document ID は UNRESOLVED。Verification Code は未確定。この Approved は実動検証 PASS ではない）
 - 検証用Persona：`personas/reference/IT_GENERAL_ADVISOR_TEST_PERSONA.md`（中核4種のSSOTではない。識別・取得・更新検証は同ファイル第16章。品質検証の独立工程は `personas/PERSONA_IDENTIFICATION_AND_SETUP.md` 第16章。現行版と過去版の区別は同ディレクトリ `README.md` 第4.1節）
 - 検証記録：`project-notes/persona-validation/`（原文は `raw/`、日別評価は `assessments/`、期間集計は `SUMMARY.md`。2026-10-14は検証用Persona、2026-10-15は ChatGPT Persona の D-025 記録。正規比較は D-032。2026-10-16は Claude Persona の独立レビュー原文1件。検証回答の原文は未取得）
 - Reference AI運用実践例：`personas/reference/PERSONA_OPERATION_CASE_STUDY.md`
